@@ -1,0 +1,23 @@
+---
+title: "A new library"
+layout: "post"
+permalink: "/2015/09/a-new-library.html"
+uuid: "2435046706157426251"
+guid: "tag:blogger.com,1999:blog-6688000445931755418.post-2435046706157426251"
+date: "2015-09-25 00:00:00"
+updated: "2017-03-13 21:42:18"
+description: 
+blogger:
+    siteid: "6688000445931755418"
+    postid: "2435046706157426251"
+    comments: "0"
+categories: [C++, coding]
+author: 
+    name: "Arthur"
+    url: "undefined?rel=author"
+    image: "//1.bp.blogspot.com/_drwYU0dxe18/TJE68EIlU2I/AAAAAAAAAAg/NgbbDCnHJRI/S220-s32/pic+of+me.jpg"
+---
+
+<div class="css-full-post-content js-full-post-content">
+<b>I've been get the GNU General Scientific Library working</b> <span style="font-weight: normal;">with Xcode, the Mac integrated developer environment. </span>These are the steps I took:<br /><span style="font-weight: normal;"><br /></span> First use a package manager to install the GNU scientific library from the command line. I use MacPorts:<br />&nbsp;&nbsp;<code>sudo port install gsl </code><br /><br />Next, open up your Xcode C++ project. Click on the target, and then navigate to "All" and "Combined" on the "Build Settings" tab.<br /><br />Assuming your gsl distribution is installed in /opt/local/ then you need to add<br /><br /><code>/opt/local/include<br /></code>to the "Header Search Paths" option and<br /><br /><code>/opt/local/lib<br /></code>to "Library Search Paths". Finally, you need to add some Linker Flags to let the compiler know you're linking gsl. This option is found under "Other Linker Flags" where you should add<br /><br /><code>-lgsl -lgslcblas<br /></code><br /><br />The final step is to use include on whatever you need from the <a href="http://www.gnu.org/software/gsl/">GNU Scientific Library</a>&nbsp;in your code.
+</div>
