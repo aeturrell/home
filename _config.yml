@@ -7,11 +7,12 @@ permalink:           pretty
 title:               Markov Wanderer
 tagline:             'Blog'
 description:         'More...'
-url:                 http://aeturrell.github.io/home/
-baseurl:             http://aeturrell.github.io/home/ # change to '' for local
+url:                 http://aeturrell.github.io/home
+baseurl:             http://aeturrell.github.io/home # change to '' for local
 paginate:            5
 plugins: [jekyll-paginate]
 paginate_path: blog/page:num
+
 
 # About/contact
 author:
