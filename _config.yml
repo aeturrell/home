@@ -8,7 +8,7 @@ title:               Dr. Arthur Turrell
 tagline:             'Welcome to my personal website'
 description:         'Welcome to my personal website'
 url:                 http://aeturrell.github.io/home/
-baseurl:             ''
+baseurl:             http://aeturrell.github.io/home/
 paginate:            5
 plugins: [jekyll-paginate]
 
