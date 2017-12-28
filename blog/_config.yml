@@ -4,11 +4,11 @@
 permalink:           pretty
 
 # Setup
-title:               Dr. Arthur Turrell
-tagline:             'Welcome to my personal website'
-description:         'Welcome to my personal website'
-url:                 http://aeturrell.github.io/home/
-baseurl:             http://aeturrell.github.io/home/
+title:               Markov Wanderer
+tagline:             'Blog'
+description:         'More...'
+url:                 http://aeturrell.github.io/home/blog/
+baseurl:             http://aeturrell.github.io/home/blog/ # change to '' for local
 paginate:            5
 plugins: [jekyll-paginate]
 
