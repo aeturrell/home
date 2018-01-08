@@ -11,7 +11,7 @@ In this post, we focus on one way to maximise the positives. Big data offer many
 
 But there are challenges for economists trying to get the best out of big data. They are difficult to use in analysis because of their scale; they may require tools which are unfamiliar to many economists. Data are often unstructured, or in a format which doesn't directly relate to the quantity of interest. In the mobile phone study, the researchers used, amongst other data, call records to predict unemployment. In the case of text or images, it isn't always clear how to transform data into the quantitative information which most economists' models need.
 
-In a [research project on the determinants of productivity growth in the UK](www.bankofengland.co.uk), we faced just this problem of making a big, unstructured dataset of text useful in answering an economics question. Our data are 15 million job adverts from an online [recruitment website](www.reed.co.uk). These job vacancies appear at daily frequency over a number of years, and come with rich information on each job including a job description. We wanted to use these data to look at the market for labour in different occupations in the UK but there was a problem: all of the UK statistics on workers produced by the ONS are in designated categories - standard occupational classification (SOC) codes. An example is SOC code 242 which includes economists and statisticians.
+In a [research project on the determinants of productivity growth in the UK](https://www.bankofengland.co.uk), we faced just this problem of making a big, unstructured dataset of text useful in answering an economics question. Our data are 15 million job adverts from an online [recruitment website](https://www.reed.co.uk). These job vacancies appear at daily frequency over a number of years, and come with rich information on each job including a job description. We wanted to use these data to look at the market for labour in different occupations in the UK but there was a problem: all of the UK statistics on workers produced by the ONS are in designated categories - standard occupational classification (SOC) codes. An example is SOC code 242 which includes economists and statisticians.
 
 In order to say anything about how employment and vacancies were related by occupation, we needed our job vacancies to be labelled with these same SOC codes. What we had were millions of job titles, job sectors, and job descriptions which had been posted online - but not a single one of them with a SOC code. This meant that we could not use supervised machine learning techniques. Extra challenges came in the form of job text information which was not relevant to the job, or job titles that had extra requirements in them (like 'must have driving licence'). Respondents to a survey are unlikely to add these details to their self-reported job titles!
 
@@ -20,7 +20,7 @@ To put our SOCs on, we created an algorithm which maps the text associated with 
 Because the term frequency - inverse document frequency matrix acts as a map from text into the space of all SOC codes, it is now possible to express job vacancies, $v$, in the vector space: $\mathbf{v}_v$. One of the strengths of our approach is that we use all of the text associated with a job, including the job description. Surveys do not have this data and so cannot make use of it. The process of finding the top SOC code for job vacancy $v$ is completed by solving:
 
 $$
-\argmax_{d}\left\{\mathbf{v}_v \cdot \mathbf{v}_d\right\}
+\arg \max_{d}\left\{\mathbf{v}_v \cdot \mathbf{v}_d\right\}
 $$
 
 which finds the SOC code vector which is closest in direction to the job ad vector using the inner product of the vector space. Because there may be several similar jobs, we find the top five SOC codes using this method and then we choose between them based on which has the closest job title to the job vacancy title. To do this, we use fuzzy matching, which counts the number of changes it takes to go from one string to another, between the two job titles. For instance, to get from 'Painter' to 'Printer' takes just one move: 'a' to 'r'. Fuzzy matching helps to find the right SOC code for each job ad title even if there are spelling mistakes in that title: 'ekonomist' is just one move away from 'economist'.
@@ -34,8 +34,8 @@ myCoder = coder.Coder()
 To run the code on a single job, use the following syntax with the ```codejobrow(job_title,job_description,job_sector)``` method:
 ```python
 myCoder.codejobrow('Physicist',
-'Make calculations about the universe, do research, perform experiments and understand the physical environment.'
-,'Professional scientific')
+'Make calculations about the universe, do research, perform experiments and understand the physical environment.',
+'Professional scientific')
 ```
 which will return
 
