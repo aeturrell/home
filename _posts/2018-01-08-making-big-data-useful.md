@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Putting SOCs on: making big data work for economics
+title: Making big data work for economics
 ---
 
 "Big data" is changing just about every field of inquiry, and economics is no exception. It isn't just that there are more data than there were before, although there are, it is that data now come in many shapes and sizes. Data can be in the form of numbers, but it could also be audio, text, or images. The granularity of data are also increasing, getting further into the choices we make as individuals. A striking example is in how mobile phone data have become a window into our lives, [as this study](http://dx.doi.org/10.1098/rsif.2015.0185) showed when they used mobile phone usage changes as a predictor for workers becoming unemployed.
@@ -38,6 +38,7 @@ myCoder.codejobrow('Physicist',
 ,'Professional scientific')
 ```
 which will return
+
 | job_title     | job_description| job_sector | SOC_code |
 | ------------- |:--------------| :----------| ------|
 | Physicist     | Make calculations about the universe, do research, perform experiments and understand the physical environment. | Professional, scientific & technical activities | 211 |
