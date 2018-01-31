@@ -132,7 +132,7 @@ for j,series in enumerate(df.columns[:-2]):
 ax.set_xlabel('')
 ax.yaxis.set_major_formatter(ScalarFormatter())
 ax.yaxis.major.formatter._useMathText = True
-ax.yaxis.set_minor_locator(  AutoMinorLocator(4))
+ax.yaxis.set_minor_locator(  AutoMinorLocator(5))
 ax.xaxis.set_minor_locator(  AutoMinorLocator(5))
 ax.yaxis.set_label_coords(0.63,1.01)
 ax.yaxis.tick_right()
