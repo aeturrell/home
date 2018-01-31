@@ -35,7 +35,7 @@ The data for the example are from the [Office for National Statistics](https://w
 
 ### The code
 Let's see some code! Import the required libraries, and load up the style file for Matplotlib:
-```Python
+```python
 import os
 import numpy as np
 import pandas as pd
@@ -84,7 +84,7 @@ fileName = 'rftxlicp1017unlinked.xls'
 You'll notice that I've also defined ```colourWheel``` and ```dashesStyles```. These are for plotting, and encode different colours and line dashes respectively. Each line in the time series plot will be differentiated by iterating over both. The colours originally come from [colour brewer](http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3), with a few additions and changes. There are more colours than are needed, but this set of colours can be used in other plots, or for qualitative choropleths.
 
 Next, read in the data and process it. Here's one I made earlier:
-```Python
+```python
 #===========================================================
 # Read in and prep the data
 #===========================================================
@@ -111,7 +111,7 @@ which produces:
 
 so it looks like everything has been processed correctly. Now onto the plotting:
 
-```Python
+```python
 plt.close('all')
 fig, ax = plt.subplots()
 for j,series in enumerate(df.columns[:-2]):
