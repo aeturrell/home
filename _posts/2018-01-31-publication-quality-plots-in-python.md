@@ -3,7 +3,6 @@ layout: post
 title: Making a publication quality plot with Python (and latex)
 ---
 
-# Making a publication quality plot with Python (and latex)
 High level languages like Python and R are great partly because entire workflows can be done within them; from data ingestion, to cleaning, to analysis, to producing plots and regression tables. But when I looked around online, I found that there wasn't a huge amount of information on how to do one of the last stages - producing plots - in a way that is consistent with what is required by journals.
 
 Journals often ask for figures in lossless formats (think pdf, tiff, svg, and eps as opposed to png or jpg), in certain sizes, and at a specific or minimum resolution. What is most important in a journal article or working paper is clearly the content. However, when a paper looks good, and its figures are crisp, clear, and communicate a message, it helps to deliver the content in the way intended. Low resolution, rasterised images just look bad (at best) and distract from the point of the figure (at worst).
