@@ -53,7 +53,7 @@ $$
 
 Let's keep it simple and set $\nu=0$ and $\gamma=1$. The wrapped Cauchy looks like this:
 
-![](../images/DoubleMLCauchy.png)*The wrapped Cauchy distribution*
+![]({{site.baseurl}}/images/DoubleMLCauchy.png)*The wrapped Cauchy distribution*
 
 Our model is
 
@@ -139,7 +139,7 @@ for i in range(MC_no):
 
 Below is a plot of the kernel density estimates of $\theta$ using [seaborn](https://seaborn.pydata.org/). The peak of the distributions for OLS and double ML without cross-fitting are off the true value, but the cross-fitted double ML procedure gets much closer.
 
-![](../images/DoubleMLEsts.png)*The estimates of $\theta$*
+![]({{site.baseurl}}/images/DoubleMLEsts.png)*The estimates of $\theta$*
 
 
 
