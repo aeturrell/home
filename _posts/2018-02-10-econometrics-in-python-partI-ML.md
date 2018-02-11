@@ -34,15 +34,12 @@ So how does it work in practice? With the sample split into two sets of size $n=
 3. Estimate
 
 $$
-
 \check{\theta}(I^C,I) = \left(\frac{1}{n}\displaystyle\sum_{i\in I}\hat{V}_i D_i\right)^{-1} \frac{1}{n} \displaystyle\sum_{i\in I} \hat{V}_i \left(Y_i-\hat{g}(X_i)\right)
 $$
 
 4. Construct the efficient, cross-fitting estimate:
 $$
-
 \check{\theta}_{\text{cf}} = \frac{1}{2} \left[\check{\theta}\left(I^C,I\right)+\check{\theta}\left(I,I^C\right) \right]
-
 $$
 
 ### Simulated example
@@ -50,11 +47,8 @@ $$
 This example was inspired by this [great post](https://www.r-bloggers.com/cross-fitting-double-machine-learning-estimator/) by Gabriel Vasconcelos. To make it more exciting, I'll use a slightly different functional form with $g$ as sine squared and $m$ as the wrapped Cauchy distribution:
 
 $$
-
 g(x)= \sin^2(x) \\
-
 m(x;\nu,\gamma)= \frac{1}{2\pi} \frac{\sinh(\gamma)}{\cosh(\gamma)-\cos(x-\nu)}
-
 $$
 
 Let's keep it simple and set $\nu=0$ and $\gamma=1$. The wrapped Cauchy looks like this:
@@ -64,22 +58,18 @@ Let's keep it simple and set $\nu=0$ and $\gamma=1$. The wrapped Cauchy looks li
 Our model is
 
 $$
-
 y_i = d_i\theta + g(x_i'\cdot b) + u_i, \quad \quad  \\
-
 d_i = m(x_i'\cdot b) + v_i \quad \quad
-
 $$
 
 $x_i$ has length $K=10$ and will be generated from a multivariate normal distribution, the true value of the causal parameter will be $\theta=0.5$, and $b_k=1/k$. The errors will be
+
 $$
-
 u_i, v_i \thicksim \mathcal{N}(0,1)
-
 $$
 
 and I'm going to use the [scikit learn](http://scikit-learn.org/stable/index.html) implementation of the [random forest regressor](https://en.wikipedia.org/wiki/Random_forest) to do the machine learning. The code, using Python 3, is
-```Python
+```python
 import numpy as np
 from sklearn.datasets import make_spd_matrix
 import math
