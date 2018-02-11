@@ -48,8 +48,6 @@ Let's keep it simple and set $\nu=0$ and $\gamma=1$. The wrapped Cauchy looks li
 
 ![]({{site.baseurl}}/images/DoubleMLCauchy.png)*The wrapped Cauchy distribution*
 
-![](../images/DoubleMLCauchy.png)*The wrapped Cauchy distribution*
-
 Our model is
 $$
 y_i = d_i\theta + g(x_i'\cdot b) + u_i, \quad \quad  \\
@@ -131,8 +129,6 @@ for i in range(MC_no):
 Below is a plot of the kernel density estimates of $\theta$ using [seaborn](https://seaborn.pydata.org/). The peak of the distributions for OLS and double ML without cross-fitting are off the true value, but the cross-fitted double ML procedure gets much closer.
 
 ![]({{site.baseurl}}/images/DoubleMLEsts.png)*The estimates of $\theta$*
-
-![](../images/DoubleMLEsts.png)*The estimates of $\theta$*
 
 
 
