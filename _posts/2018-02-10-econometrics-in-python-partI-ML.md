@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Econometrics in Python part I: Double machine learning
+title: Econometrics in Python part I - Double machine learning
 ---
 *The idea is that this will be the first in a series of posts covering econometrics in Python.*
 
@@ -9,17 +9,20 @@ At a conference a couple of years ago, I saw Victor Chernozhukov present his pap
 So, in brief, what does 'double' machine learning do? It's one way to bring the power of machine learning for prediction on non-linear problems into an econometric context in which the asymptotic properties of the estimates of the parameters of interest are known to behave well. The problem is that just applying machine learning to predict outcomes ($Y$) from a treatment or variable ($D$) in the presence of many controls ($X$) will lead to biased estimates of the model parameter ($\theta$). The double machine learning method of Chernozhukov *et al.* delivers point estimators that have a $\sqrt{N}$ rate of convergence for $N$ observations and are approximately unbiased and normally distributed.
 
 The clearest example, which I reproduce here from the paper, is of partially linear regression. They take it themselves from [Robinson (1988)](https://www.jstor.org/stable/1912705). The model is
+
 $$
 Y = D\cdot\theta + g(X) + U, \quad \quad \mathbb{E} \left[U | X, D \right] =0 \\
+
 D = m(X) + V, \quad \quad \mathbb{E} \left[V | X\right] =0
 $$
+
 with $X = (X_1,X_2,\dots,X_p)$ a vector of controls. Here $\eta=(m,g)$ can be non-linear.
 
 The naïve machine learning approach would be to estimate $D\cdot\hat{\theta} + \hat{g}(X)$ using one of the standard algorithms (random forest, support vector regression, etc). The authors of the paper show that doing this means that $\hat{\theta}$ effectively has a slower than root $N$ rate of convergence due to the bias in estimating $\hat{g}$.
 
 They suggest overcoming this bias using orthogonalisation and splitting the sample. They obtain $\hat{V} = D - \hat{m}(X)$ using machine learning on an auxiliary sample; finding the mean of $D$ given $X$. With the remaining observations, they define an estimator for $\theta$, $\check{ \theta}$, which is a function of $\hat{V}$, $D$, $X$, and an estimate of $g$ given by $\hat{g}$. As they say (with a slight change in notation),
 
-> By approximately orthogonalizing $D$ with respect to $X$ and approximately removing the direct effect of confounding by subtracting an estimate of $\hat{g}$, $\check{ \theta}$ removes the effect of regularization bias that contaminates (1.3) [$\hat{\theta}$]. The formulation of $\check{ \theta}$ also provides direct links to both the classical econometric literature, as the estimator can clearly be interpreted as a linear instrumental variable (IV) estimator, ...
+> By approximately orthogonalizing $D$ with respect to $X$ and approximately removing the direct effect of confounding by subtracting an estimate of $\hat{g}$, $\check{ \theta}$ removes the effect of regularization bias ... The formulation of $\check{ \theta}$ also provides direct links to both the classical econometric literature, as the estimator can clearly be interpreted as a linear instrumental variable (IV) estimator, ...
 
 The double comes from estimating $\hat{V}$ in the auxiliary problem, as well as $\hat{g}$, before calculating the estimator $\check{\theta}$. In their paper, Chernozhukov *et al.* also discuss estimating average treatment effects, local average treatment effects, and average treatment effects for the treated using a more general formulation where $g$ is a function of both $X$ and $D$. More on the technical details and other applications can be found in the paper; here we'll look at an example estimation in the context of a model
 
@@ -29,36 +32,54 @@ So how does it work in practice? With the sample split into two sets of size $n=
 1. Estimate $\hat{V} = D - \hat{m}(X)$ using $I^C$
 2. Estimate $Y = \hat{g}(X) + \hat{u}$ using $I^C$
 3. Estimate
+
 $$
+
 \check{\theta}(I^C,I) = \left(\frac{1}{n}\displaystyle\sum_{i\in I}\hat{V}_i D_i\right)^{-1} \frac{1}{n} \displaystyle\sum_{i\in I} \hat{V}_i \left(Y_i-\hat{g}(X_i)\right)
 $$
+
 4. Construct the efficient, cross-fitting estimate:
 $$
+
 \check{\theta}_{\text{cf}} = \frac{1}{2} \left[\check{\theta}\left(I^C,I\right)+\check{\theta}\left(I,I^C\right) \right]
+
 $$
 
 ### Simulated example
 
 This example was inspired by this [great post](https://www.r-bloggers.com/cross-fitting-double-machine-learning-estimator/) by Gabriel Vasconcelos. To make it more exciting, I'll use a slightly different functional form with $g$ as sine squared and $m$ as the wrapped Cauchy distribution:
+
 $$
+
 g(x)= \sin^2(x) \\
+
 m(x;\nu,\gamma)= \frac{1}{2\pi} \frac{\sinh(\gamma)}{\cosh(\gamma)-\cos(x-\nu)}
+
 $$
+
 Let's keep it simple and set $\nu=0$ and $\gamma=1$. The wrapped Cauchy looks like this:
 
-![]({{site.baseurl}}/images/DoubleMLCauchy.png)*The wrapped Cauchy distribution*
+![](../images/DoubleMLCauchy.png)*The wrapped Cauchy distribution*
 
 Our model is
+
 $$
+
 y_i = d_i\theta + g(x_i'\cdot b) + u_i, \quad \quad  \\
+
 d_i = m(x_i'\cdot b) + v_i \quad \quad
+
 $$
+
 $x_i$ has length $K=10$ and will be generated from a multivariate normal distribution, the true value of the causal parameter will be $\theta=0.5$, and $b_k=1/k$. The errors will be
 $$
+
 u_i, v_i \thicksim \mathcal{N}(0,1)
+
 $$
+
 and I'm going to use the [scikit learn](http://scikit-learn.org/stable/index.html) implementation of the [random forest regressor](https://en.wikipedia.org/wiki/Random_forest) to do the machine learning. The code, using Python 3, is
-```python
+```Python
 import numpy as np
 from sklearn.datasets import make_spd_matrix
 import math
@@ -128,7 +149,7 @@ for i in range(MC_no):
 
 Below is a plot of the kernel density estimates of $\theta$ using [seaborn](https://seaborn.pydata.org/). The peak of the distributions for OLS and double ML without cross-fitting are off the true value, but the cross-fitted double ML procedure gets much closer.
 
-![]({{site.baseurl}}/images/DoubleMLEsts.png)*The estimates of $\theta$*
+![](../images/DoubleMLEsts.png)*The estimates of $\theta$*
 
 
 
