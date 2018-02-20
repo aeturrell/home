@@ -561,3 +561,29 @@ a.pagination-item:hover {
 .layout-reverse.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
   box-shadow: -.25rem 0 .5rem rgba(0,0,0,.1);
 }
+
+/*
+ * AT addition
+ *
+ * Scrolling code
+ */
+ .highlight pre {
+    padding: 0.5em;
+    overflow-x: auto;
+    word-wrap: normal;
+}
+
+.highlight td.code pre {
+    padding: 0;
+    white-space: pre;
+}
+ .highlight > pre {
+    white-space: pre; /* Solves horizontal scroll via black magic */
+}
+.highlight pre code * {
+  white-space: nowrap;    // this sets all children inside to nowrap
+}
+
+.highlight pre code {
+  white-space: pre;       // forces <code> to respect <pre> formatting
+}
