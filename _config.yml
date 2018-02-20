@@ -13,6 +13,10 @@ paginate:            5
 plugins: [jekyll-paginate]
 paginate_path: blog/page:num
 
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
 
 # About/contact
 author:

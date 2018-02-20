@@ -7,9 +7,11 @@ title: Econometrics in Python Part II - Fixed effects
 In this second in a series on econometrics in Python, I'll look at how to implement fixed effects.
 
 For inspiration, I'll use a recent NBER working paper by Azar, Marinescu, and Steinbaum on [Labor Market Concentration](http://www.nber.org/papers/w24147). In their paper, they look at the monopsony power of firms to hire staff in over 8,000 geographic-occupational labor markets in the US, finding that "going from the 25th percentile to the 75th percentile in concentration is associated with a 17% decline in posted wages". I'll use a vastly simplified version of their model. Their measure of concentration is denoted $\text{HHI}$, and they look at how this affects $\ln(w)$, the log of the real wage. The model has hiring observations which are organised by year-quarter, labelled $t$, and market (commuting zone-occupation), $m$:
+
 $$
 \ln(w_{m,t}) = \beta \cdot\text{HHI}+\alpha_t+\nu_m+\epsilon
 $$
+
 where $\alpha_t$ is a fixed year-quarter effect, and $\nu_m$ is a fixed market effect.
 
 ### The code
