@@ -12,7 +12,6 @@ The clearest example, which I reproduce here from the paper, is of partially lin
 
 $$
 Y = D\cdot\theta + g(X) + U, \quad \quad \mathbb{E} \left[U | X, D \right] =0 \\
-
 D = m(X) + V, \quad \quad \mathbb{E} \left[V | X\right] =0
 $$
 
@@ -29,16 +28,13 @@ The double comes from estimating $\hat{V}$ in the auxiliary problem, as well as 
 ### Double machine learning in practice
 
 So how does it work in practice? With the sample split into two sets of size $n=N/2$ indexed by $i\in I$ and $i \in I^C$, there are four steps,
+
 1. Estimate $\hat{V} = D - \hat{m}(X)$ using $I^C$
 2. Estimate $Y = \hat{g}(X) + \hat{u}$ using $I^C$
-3. Estimate
-
-$$
+3. Estimate $$
 \check{\theta}(I^C,I) = \left(\frac{1}{n}\displaystyle\sum_{i\in I}\hat{V}_i D_i\right)^{-1} \frac{1}{n} \displaystyle\sum_{i\in I} \hat{V}_i \left(Y_i-\hat{g}(X_i)\right)
 $$
-
-4. Construct the efficient, cross-fitting estimate:
-$$
+4. Construct the efficient, cross-fitting estimate: $$
 \check{\theta}_{\text{cf}} = \frac{1}{2} \left[\check{\theta}\left(I^C,I\right)+\check{\theta}\left(I,I^C\right) \right]
 $$
 
