@@ -31,7 +31,11 @@ To show how this works, I will reproduce one of the simulation experiments from 
 
 ### Simulation experiments
 
-We will set $X \thicksim \mathcal{U}([0,1]^d)$ for a $d$ dimensional space of covariates, and set $Y^{0/1} \thicksim \mathcal{N}(\mathbb{E}[Y^{0/1}|X],1)$ so that the noise in the response variable is homoskedastic. Also set the mean effect, $m(x)$, and the treatment propensity, $e(x)$, to
+We will set $X \thicksim \mathcal{U} ([0 , 1]^d )$ for a $d$ dimensional space of covariates, and assume
+$$
+Y^{0/1} \thicksim \mathcal{N}(\mathbb{E}[Y^{0/1}|X],1)
+$$
+so that the noise in the response variable is homoskedastic. Further assumptions are that the mean effect, $m(x)$, and the treatment propensity, $e(x)$, are
 
 $$
 m(x) = 0.5 \mathbb{E}\left[Y^{(1)}+Y^{(0)} | X = x\right] = 0
@@ -94,7 +98,7 @@ plotFunc(tauxy)
 ### Double-sample causal trees
 Now we apply the recipe from their paper:
 
-1. Draw a random subsample of size $s$ from $\{1,\dots,n\}$ without replacement and divide into two disjoint sets $\mathcal{I}$ and $\mathcal{J}$ such that $|\mathcal{J}| = \lceil s/2 \rceil$ and $|\mathcal{I}| = \lfloor s/2 \rfloor$.
+1. Draw a random subsample of size $s$ from $\left\{1,\dots,n\right\}$ without replacement and divide into two disjoint sets $\mathcal{I}$ and $\mathcal{J}$ such that $|\mathcal{J}| = \lceil s/2 \rceil$ and $|\mathcal{I}| = \lfloor s/2 \rfloor$.
 2. Grow a tree via recursive partitions and split using the $\mathcal{J}$ data but no $Y$ observations from the $\mathcal{I}$ sample. The splitting criteria to use for double-sample causal trees is the squared-error minimising split.
 3. Estimate the leaf-wise response from the $\mathcal{I}$ sample observations.
 
