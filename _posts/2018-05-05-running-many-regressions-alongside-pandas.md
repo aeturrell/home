@@ -144,17 +144,7 @@ df.describe()
 Let's set up a function which we can pass a dataframe to in order to run regressions on selected columns:
 ```python
 def RegressionOneModel(df,Xindvars,Yvar,summary=True):
-    """Performs a regression of single Yvar on all Xindvars
 
-    Args:
-        df (pandas dataframe):  must contain Xindvars and Yvar as columns
-        Xindvars (list): columns to treat as indepedents (exog)
-        Yvar (list or str): column to treat as dependent (endog)
-        summary(bool): whether to return a summary table or results object
-    Returns:
-        regression results object or statsmodels summary table
-
-    """
     if(type(Yvar)==str):
         Yvar=[Yvar]
     if(len(Yvar)!=1):
@@ -249,21 +239,7 @@ Finally, there is a function which decides how to call the underlying regression
 
 ```python
 def RunRegression(df,XX,y,Z=['']):
-    """Performs multiple regressions of single y on
-    all entries in each of XX,
-    and also a set of controls included in each model.
 
-    Args:
-        df (pandas dataframe):    must contain Xindvars and Yvar as columns
-        XX (list of list of str): columns to treat as exog (inner layers
-                                  in same reg model) but will accept str
-                                  or list
-        y (str):                  column to treat as dependent (endog)
-        Z (list):                 columns to treat as controls
-    Returns:
-        statsmodels.iolib.summary2.Summary (statsmodels):
-            contains regression results
-    """
     # If XX is not a list of lists, make it one -
     # - first by checking if type is string
     if(type(XX)==str):  # Check if it is one string
@@ -487,3 +463,5 @@ print(ManyModelsWControls)
 By the way, the statsmodels summary object which is returned here has an .as_latex() method - useful if you want to dump results straight into papers.
 
 Do you have a better way to quickly run many different kinds of OLS regressions from a pandas dataframe? Get in touch!
+
+*NB: I had to remove the doc strings in the above code because they slowed down the page a lot.*
