@@ -8,7 +8,7 @@ Data science in Python *is* the open source package [pandas](https://pandas.pyda
 
 When data arrive in your Python code, they're most likely going to arrive in a pandas dataframe. If you're doing econometrics, you're then likely to want to do regressions from the dataframe with the minimum of fuss and the maximum of flexibility. This post sets out a way to do that with a few extra functions.
 
-There are two main ways to run regressions in Python: [statsmodels](https://www.statsmodels.org/stable/index.html) or [scikit-learn](http://scikit-learn.org/stable/). The latter is more geared toward machine learning, so I'll be using the former for regressions. The typical way to do this might be the following (ignoring imports and data importing), with a pandas dataframe ```df``` with an x-variable 'age' and a y-variable 'concrete':
+There are two main ways to run regressions in Python: [statsmodels](https://www.statsmodels.org/stable/index.html) or [scikit-learn](http://scikit-learn.org/stable/). The latter is more geared toward machine learning, so I'll be using the former for regressions. The typical way to do this might be the following (ignoring imports and data importing), with a pandas dataframe ```df``` with an x-variable 'concrete' and a y-variable 'age':
 
 ```python
 mod = sm.OLS(df['Age'],df['Concrete'])
