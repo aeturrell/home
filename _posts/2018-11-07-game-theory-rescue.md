@@ -11,9 +11,11 @@ Machine learning has interpretability issues. New EU legislation, the General Da
 Of course, there are many other good reasons to want the decisions of algorithms to be understandable and explainable. Interrogating why an algorithm makes the choices it does can highlight whether [it's working as intended](https://medium.com/@jrzech/what-are-radiological-deep-learning-models-actually-learning-f97a546c5b98), and, in some situations - such as public policy - transparency and interpretability may be essential ingredients of decision making.
 
 But non-linear models are just not that easy to decompose into their fundamental components, they are - to an extent - a 'black box'. Ideally, we would be able to find the contribution of each input feature to the final prediction. In linear models, this is trivially achieved by the combination of the level of a feature and its regression coefficient. That is, for a linear model $f$ with features $x_{i\nu}$, $\nu \in \{1,p\}$ at a point $i$ such that
+
 $$
 {f}(x_{i\cdot})={f}(x_{i1},\ldots,x_{ip})=\beta_0+\beta_{1}x_{i1}+\ldots+\beta_{p}x_{ip}
 $$
+
 the contribution from feature $\nu$ is $x_{i\nu}\cdot\beta_\nu$. In non-linear models, it's not so simple.
 
 
@@ -34,10 +36,13 @@ $$
 $$
 
 The general equation for Shapley values looks more complicated, but is described by a function $g$ that assigns a real number to each coalition $S$, that is, to each subset of the combination of features, such that $g(S)$ represents the amount (of money or of utility) that coalition $S$ is able to transfer among its members in any way that they all agree to. Here it is:
+
 $$
 \phi_{i\nu}(f)=\sum_{S\subseteq\{x_{i1},\ldots,x_{ip}\}\setminus\{x_{i\nu}\}}\frac{|S|!\left(p-|S|-1\right)!}{p!}\underbrace{\left[g_{\left(S\cup\{x_{i\nu}\}\right)}\left(S\cup\{x_{i\nu}\}\right)-g_S(S)\right]}_{\text{Marginal contribution}}
 $$
+
 where
+
 $$
 g_{x_i}(S)=\int{f}(x_{i1},\ldots,x_{ip})d\mathbb{P}_{X_{i\cdot}\notin{}S}-E_X({f}(X))
 $$
