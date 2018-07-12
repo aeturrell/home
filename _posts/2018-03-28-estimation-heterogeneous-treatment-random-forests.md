@@ -119,6 +119,7 @@ subSampleMask = random.sample(range(0, n), s)
 # Create set I
 setIMask = random.sample(subSampleMask, np.int(np.ceil(s/2.)))
 setI = [X[setIMask]]
+dfSetI = pd.DataFrame(data=X[setIMask])
 # Create set J
 setJMask = [i for i in subSampleMask if i not in setIMask]
 setJ = [X[setJMask]]
