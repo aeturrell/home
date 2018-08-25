@@ -7,12 +7,13 @@ In a [previous post](http://aeturrell.github.io/home//2018/08/18/left-out-of-HE/
 
 Women are heavily [under-represented](http://www.esa.doc.gov/reports/women-stem-2017-update) in STEM (Science, Technology, Engineering, and Mathematics) subjects. In the UK, they make up just [25%](https://www.stemwomen.co.uk/blog/2018/03/useful-statistics-women-in-stem) of STEM undergraduates but 57% of the [total](https://www.hesa.ac.uk/news/11-01-2018/sfr247-higher-education-student-statistics/subjects) undergraduate population. 
 
-It's little better for economics, as this [article in the Financial Times](https://www.ft.com/content/0e5d27ba-2b61-11e8-9b4b-bc4b9f08f381) (£) shows, and the direction of the trend is worse: in the US, while the fraction of women undergraduates taking STEM subjects has increased, the fraction taking economics has declined. In the UK in 2011/12, it was 28% and [trending downwards](http://www.res.org.uk/view/art2Oct14Features.html). The problems aren't just widely held misapprehensions of what economics is about, or [#WhatEconomistsDo](https://twitter.com/hashtag/WhatEconomistsDo?src=hash). There is solid analytical work looking at ways in which the culture of economics may be hostile for women too. This work is nicely [summarised by Prof. Diane Coyle](https://www.ft.com/content/6b3cc8be-881e-11e7-afd2-74b8ecd34d3b) (£), again in the Financial Times. Although both economics and STEM have a problem, [I've mused before](http://aeturrell.github.io/home//2017/03/16/trust-me-im-a-doctor/) that economics could perhaps learn from science when it comes to outreach.
+It's little better for economics, as this [article in the Financial Times](https://www.ft.com/content/0e5d27ba-2b61-11e8-9b4b-bc4b9f08f381) (£) shows, and the direction of the trend is worse: in the US, while the fraction of women undergraduates taking STEM subjects has increased, the fraction taking economics has declined. In the UK in 2011/12, it was 28% and [trending downwards](http://www.res.org.uk/view/art2Oct14Features.html). The problems aren't just widely held misapprehensions of [what economics is about](https://www.aeaweb.org/resources/students/what-is-economics), or [#WhatEconomistsDo](https://twitter.com/hashtag/WhatEconomistsDo?src=hash). There is solid analytical work looking at ways in which the culture of economics may be hostile for women too. This work is nicely [summarised by Prof. Diane Coyle](https://www.ft.com/content/6b3cc8be-881e-11e7-afd2-74b8ecd34d3b) (£), again in the Financial Times. Although both economics and STEM have a problem, [I've mused before](http://aeturrell.github.io/home//2017/03/16/trust-me-im-a-doctor/) that economics could perhaps learn from science when it comes to outreach.
 
-### A new campaign to inspire women to enter STEM subjects
+# A campaign to inspire women to enter STEM subjects
 
-My Imperial Collge London physics colleague Dr. Jess Wade ([@jesswade](https://twitter.com/jesswade) on twitter) has come up with an astonishingly good way to help inspire more women to enter STEM subjects. She has been busily and heroically writing Wikipedia articles on women scientists of note since 2016. As [she says](https://www.theguardian.com/education/2018/jul/24/academic-writes-270-wikipedia-pages-year-female-scientists-noticed),
->>"Wikipedia is a really great way to engage people in this mission because the more you read about these sensational women, the more you get so motivated and inspired by their personal stories." - Dr. Jess Wade
+My Imperial College London physics colleague Dr. Jess Wade ([@jesswade](https://twitter.com/jesswade) on twitter) has come up with a novel way to help inspire more women to enter STEM subjects. She has been busily and heroically writing Wikipedia articles on women scientists of note since 2016. As [she says](https://www.theguardian.com/education/2018/jul/24/academic-writes-270-wikipedia-pages-year-female-scientists-noticed),
+>>"Wikipedia is a really great way to engage people in this mission because the more you read about these sensational women, the more you get so motivated and inspired by their personal stories."                  - Dr. Jess Wade
+
 
 Picked at random, here is the site of one of those of women whose Wikipedia page Jess has created: [Frances Pleasonton](https://en.wikipedia.org/wiki/Frances_Pleasonton), who worked on neutron decay.
 
@@ -22,6 +23,8 @@ Discussing her approach on BBC Radio 4's Inside Science, Jess expressed her frus
 
 
 What is very cool about Jess' campaign is that it *is* possible to get an idea, a rough one at least, of its impact. So just how huge is the reach of this campaign? Let's find out.
+
+---
 
 ### Estimating the reach of Wikipedia pages
 
@@ -47,7 +50,9 @@ To get all of the stats for the pages, I found Jess' editor page, which includes
 
 I used ```matplotlib``` and ```seaborn``` to show the results.
 
-### Impact of the campaign
+---
+
+# Impact of the campaign
 So: how many people has Jess helped reach information on women in STEM? Over 200,000. This is simply astonishing. 
 
 ![Number of page views as a function of time]({{site.baseurl}}/images/PageViewsJess.png)
