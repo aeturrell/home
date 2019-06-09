@@ -10,7 +10,7 @@ description:         'More...'
 url:                 http://aeturrell.github.io/home
 baseurl:             http://aeturrell.github.io/home # change to '' for local
 paginate:            5
-plugins: [jekyll-paginate]
+plugins: [jekyll-paginate, jekyll-feed]
 paginate_path: blog/page:num
 
 # Build settings
