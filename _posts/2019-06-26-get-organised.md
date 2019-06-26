@@ -196,8 +196,8 @@ I hope you've found this post informative. Disagree with anything or think I've 
 
 
 ------
-
-&ast; You may find that because the .eps files used for figures are not in a sub-directory of the main .tex folder, you must add a flag to the Latex compiler. In TexShop, the steps are:
+ 
+*You may find that because the .eps files used for figures are not in a sub-directory of the main .tex folder, you must add a flag to the Latex compiler. In TexShop, the steps are:
 - Go to Preferences
 - Go to Tab "Engine"
 - Go to the field "pdfTeX"
@@ -216,6 +216,7 @@ $$
 	 \vec{u}_t  & = B_1 \vec{u}_{t-1} + B_2\vec{u}_{t-2} + \Phi_t \quad \quad \Phi_t \thicksim \mathcal{N}(0,\Sigma)
 \end{aligned}
 $$
+
 where capital Greek and Latin characters represent matrices, arrows over characters denote vectors, and it is assumed that the different components of the `innovations' in the error updating equation are uncorrelated so that $ \Sigma $ is a diagonal matrix. The model has one unobserved factor that follows an AR(2), and the errors similarly follow an AR(2).
 
 
