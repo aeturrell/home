@@ -169,8 +169,10 @@ To create and use the conda environment included in the example project, use
 ```
 conda env create -f ccenv.yml
 ```
-on the command line, then activate the environment. To create your own environment file from an existing conda environment, use
-```conda env export --no-builds | grep -v "prefix" > yourenv.yml```
+on the command line, then activate the environment using ```conda activate ccenv```. 
+
+To save an environment file from an existing conda environment, use ```conda env export > yourenv.yml```
+but also use caution: this environment file will likely only work on your computer. It cannot easily be shared with others for them to recreate the same environment (it's tied to your OS for a start). One rough way around this that I've used in the cookiecutter project is to export the environment and then manually edit it to only retain i) Python and its version, and ii) packages that are explicitly imported in the code but with no version numbers. The idea is to ask for the version of Python that was used to generate the results initially but then let conda worry about the versions of the other imported packages, and any dependencies that those packages may have.
 
 
 ##### Data
@@ -187,6 +189,21 @@ Incentives to publish data are perhaps not all that they could be currently, but
 ##### Code
 
 When your project is ready to be released, opening it up to the outside world is as easy as clicking a button on github or gitlab. It will be easily searchable. To make life even easier for those finding it, make sure to have an informative readme file (with the citation information) in the main directory, to tag the project appropriately, and to add a user license. If you're unsure which license is appropriate, there is a [useful guide here](https://choosealicense.com/).
+
+##### Credit
+
+The assignment of due credit for research can cause great distress and [disagreement](https://www.nature.com/articles/d41586-018-05280-0). Among junior researchers, it can be career-making or -breaking. Senior researchers can be apt to believe that they alone are responsible for everything in a piece of work. I've heard plenty of anecdotal evidence of senior researchers inappropriately withholding credit, particularly in economics where there are typically very few authors per paper (see Figure 3 of [this paper](https://doi.org/10.1093/oxrep/grx051)).
+
+I have a couple of recommendations to make assigning research credit fairer, more transparent, and less likely to cause problems or create misunderstandings.
+
+First, if you are managing the project, make sure that everyone's expectations as to who will be an author are aligned right at the start.
+
+Second, err on the side of being generous with co-authorship. The best outcome is that science progresses more quickly; if bringing aboard an extra person with particular skills helps to achieve that, then go for it. As a recent [Nature article](https://www.nature.com/articles/d41586-019-02084-8) put it, "By discouraging specialization, current authorship conventions weaken the scientific enterprise" and  "Science is a team sport". Do not worry that credit will be diluted. For me, the most exciting paper of the 21st century is the [Observation of Gravitational Waves from a Binary Black Hole Merger](https://doi.org/10.1103/PhysRevLett.116.061102). The author list runs to *3 pages*. 
+
+To alleviate any concerns about diluting credit, you can always follow the physical sciences model of having authors listed in order of contribution (apart from the last author, who is typically the principal investigator). This is in contrast to the alphabetical ordering common in some other fields.
+
+Finally, once the project is complete, be explicit about who did what by following the Contributor Roles Taxonomy, also known as [CRediT](https://www.casrai.org/credit.html). These breakdown scholarly contributions into 14 roles and three levels (lead, equal, and supporting), whether for authors or for those mentioned in the acknowledgements. Examples of roles include conceptualisation, funding acquisition, analysis, writing – original draft, and validation. To their credit, the originators of this system also propose to make the data on contributions machine readable and a number of journals are adopting it for submissions.
+
 
 ## Conclusion
 
