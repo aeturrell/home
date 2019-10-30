@@ -210,7 +210,14 @@ Finally, once the project is complete, be explicit about who did what by followi
 I hope you've found this post informative. Disagree with anything or think I've missed an important point? Get in touch!
 
 
+### Update 30/10/2019
 
+I have added advice on writing papers directly into the paper draft file `drafttext.tex'. The idea is that, when you're writing the paper, you can replace the advice sections with the paper material. The advice is drawn from a number of sources (all of whom are much better placed than me to advise on how to write good papers):
+- Keith Head's [The Introduction Formula](http://blogs.ubc.ca/khead/research/research-advice/formula)
+- Marc Bellamere's [The Middle Bits Formula](http://marcfbellemare.com/wordpress/12797) for applied papers
+- Marc Bellamere's [The Conclusion Formula](http://marcfbellemare.com/wordpress/12060)
+- [Advice on how to structure a paper](https://twitter.com/rskudesia/status/1120324415424585728?s=20) from a mysterious, but very helpful, reviewer 3 as received by Ravi Kudesia.
+- [Checklist for before submission](https://eebatou.wordpress.com/2008/01/19/your-10-point-checklist-before-sending-off-that-manuscript/) from Mike Kaspari
 
 ------
  
