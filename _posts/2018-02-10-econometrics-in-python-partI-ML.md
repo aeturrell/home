@@ -64,7 +64,11 @@ $$
 u_i, v_i \thicksim \mathcal{N}(0,1)
 $$
 
-and I'm going to use the [scikit learn](http://scikit-learn.org/stable/index.html) implementation of the [random forest regressor](https://en.wikipedia.org/wiki/Random_forest) to do the machine learning. The code, using Python 3, is
+and I'm going to use the [scikit learn](http://scikit-learn.org/stable/index.html) implementation of the [random forest regressor](https://en.wikipedia.org/wiki/Random_forest) to do the machine learning.
+
+ Note that I'm using a scalar $D$ in the example below but, in the original paper, it's a binary treatment - thanks to [Kyle Carlson](https://twitter.com/KyleCSN) for pointing out that this could cause some confusion!
+
+The code, using Python 3, is
 ```python
 import numpy as np
 from sklearn.datasets import make_spd_matrix
