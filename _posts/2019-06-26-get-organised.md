@@ -5,7 +5,7 @@ title: Get organised
 
 # Best practice for research project organisation
 
-This post is going to discuss one way to organise your small (as opposed to 'big') data science project or research project: data, code and outputs. I'll cover how to structure the project, version control, data and data storage, analytical tools, coding standards, and what to do when your project is over.
+This monster blog post is going to discuss how to organise your a data science project or research project: data, code and outputs. I'll cover how to structure the project, version control, data and data storage, analytical tools, coding standards, and what to do when your project is over.
 
 ##### Caveats
 Of course, these are just my opinions, they're far from exhaustive, and there may well be good reasons to set up your project differently depending on what it is that you're doing. I'm interested in hearing different perspectives so get in touch if you have them.
@@ -28,6 +28,15 @@ Within the example project, there are Latex templates for both slides and a work
 
 Okay, on to the main event...
 
+## Table of Contents
+1. [Project structure](#structure)
+2. [Version control](#version-control)
+3. [Data](#data)
+4. [Analytical tools](#analytical-tools)
+5. [Coding standards](#coding-standards)
+6. [Writing the paper](#writing-the-paper)
+7. [After the project](#after-the-project)
+
 
 ## Project structure
 
@@ -35,11 +44,15 @@ The structure of your project should be a directed acyclic graph with raw data m
 
 ![png]({{site.baseurl}}/images/cookiecutterorg.png)
 
-Why this directed acyclic graph structure? For reproducibility, you can't have steps earlier on in the project that depend on steps later on in the process. This may seem completely obvious but, believe or not, I have seen projects where later stage outputs are looped back to be inputs into earlier stages.
+Why this directed acyclic graph structure? For reproducibility, you can't have steps earlier on in the project that depend on steps later on in the process. This may seem completely obvious but, believe it or not, I have seen projects where later stage outputs are looped back to be inputs into earlier stages.
 
 Another important principle here is to separate out different phases of the analysis. Sometimes this is about avoiding repeated effort - going from raw data to cleaned data might be very expensive in terms of time. 
 
 Before you start your project, it's really worth taking the time to sketch out on paper how everything will fit together and which parts might depend on each other. Putting a lot of effort into this step will save you a lot of time in the long run. Armed with a clear structure, you will write better, more modular code that does not involve repetition. Of course, research work is inherently uncertain and you shouldn't be afraid to change up the structure if the focus or goals of the project change.
+
+Give careful thought to file naming (e.g. scripts should typically say what they do, and data should say what it is). If there are natural groups of content within a directory (e.g. different types of raw data, or different stages in the analysis), create clearly named subdirectories rather than dumping everything in one huge and unwieldy folder.
+
+Use relative paths rather than absolute – set up the code repository so a co-author or reviewer can pick up the entire directory structure, drop in a random place on a random machine and still run it. 
 
 If you haven't tried putting figures and tables in a separate directory to your Latex code before then the example project implements an efficient way to do so. You set a single path and can then refer to outputs only by their name (not their full path). If you want to be even more fancy you can [move files around](http://www.jespertoftkristensen.com/JTK/Blog/Entries/2014/1/13_Organize_your_LaTeX_Project.html) during Latex compilation.
 
@@ -53,7 +66,6 @@ You'll notice that there is a config file, config.yaml, that sits above everythi
 In the example project, I've put settings for plots into the config.yaml where they can be conveniently loaded. These start with the ```- viz:``` heading in the file.
 
 .yaml is not the only configuration file available and I don't have a very strong view as to which is best as they all have their pros and cons. I've used both .ini and .yaml, and both can work for a simple project. You can find more about the ins and outs of different config file formats [here](https://martin-thoma.com/configuration-files-in-python/) (with handy examples) and [here](https://hackersandslackers.com/simplify-your-python-projects-configuration/).
-
 
 ## Version control
 
@@ -145,6 +157,12 @@ For R, there doesn't seem to be a single agreed upon style, but I'm sure you cou
 
 For Python, there is [PEP8](https://www.python.org/dev/peps/pep-0008/). Yes, it's a bit of a monster. Rather than read through it, just install a linter extension in your favourite IDE (see [this guide](https://code.visualstudio.com/docs/python/linting) for VS Code) and your code will be automatically checked for most style breaches as you type. It's a bit daunting to turn this on at first but it encourages you to produce much cleaner code.
 
+In Python, the naming convention for most items is lower case separated by underscores, e.g. ‘this_is_a_script.py’, also known as snake case. There are different naming conventions (shown below) but it doesn’t matter which is used, as long as it’s consistent.
+
+[Allison Horst](https://twitter.com/allison_horst) made this great cartoon of the different conventions that are in use.
+
+![jpg]({{site.baseurl}}/images/in_that_case.jpg)
+
 For research, it's worth having the extensions and robustness checks that reviewers might request in mind early on. You don't want to be faced with a request that's going to force you to do a huge re-write of your code. Better to try and anticipate reasonable variations on what you've done from the start, difficult though that may be.
 
 Make your code as modular as possible, and never re-write the same code twice. If the same code is being re-run, stick it in a function. You will save time in the long run and having functions defined once and only once makes it easy to change in the future too. 
@@ -154,6 +172,114 @@ Code comments can be helpful. The best code actually has very *few* comments bec
 Perform code reviews. Give what you've done to a colleague and ask them to go through it line-by-line checking it works as intended. If they do this properly and don't find any mistakes or issues then I'd be very surprised. Return the favour to magically become a better coder yourself.
 
 Choose clarity over optimisation, at least as a starting point. Computation is cheap, brain time is not. If you really need to optimise, do it later when you've figured out where it will count.
+
+## Writing the paper
+
+This is geared towards how people write papers in economics but there's plenty of good advice for other fields too.
+
+Many of these notes are shameless copy and paste jobs from the writings of much more experienced researchers. Specifically, Keith Head's [The Introduction Formula](http://blogs.ubc.ca/khead/research/research-advice/formula), Marc Bellamere's [The Middle Bits Formula](http://marcfbellemare.com/wordpress/12797) for applied papers, Marc Bellamere's [The Conclusion Formula](http://marcfbellemare.com/wordpress/12060), [Advice on how to structure a paper](https://twitter.com/rskudesia/status/1120324415424585728?s=20) from a mysterious, but very helpful, reviewer 3 as received by Ravi Kudesia, and a [Checklist for before submission](https://eebatou.wordpress.com/2008/01/19/your-10-point-checklist-before-sending-off-that-manuscript/) from Mike Kaspari.
+
+These notes are included in the latex file of the cookie cutter project, appearing in the relevant sections of the draft paper template.
+
+### Overall contribution
+
+Ask the following questions:
+1. How does the manuscript change, challenge, or fundamentally advance knowledge of the concepts, relationships, models, or theories embedded in the literature on X? (X is the literature to which you want to contribute).
+2. How does the manuscript cause us to think about X in a way that would not normally be anticipated from extrapolations of existing work, thereby advancing future work in an important and useful way?
+In response to question 1, it can be useful to create a 3x4 matrix. On one side list (1) change, (2) challenge, and (3) fundamentally alter. On the other side, list (1) concepts, (2) relationships, (3) models, and (4) theories.
+
+One way to rethink the structure and contribution of a paper is to ensure that these 10 points are well-covered:
+- What is the focus?
+- Why it is relevant?
+- What is known/not known (and why it needs attention)?
+- What is the burning question?
+- How is the question addressed (theoretically/empirically)?
+- What was done?
+- What was found?
+- What does it mean?
+- What has been added to the discussion?
+- Why should others care?
+
+This approach will help develop the argument of a paper.
+
+### Introduction
+
+#### The Hook
+Attract the reader's interest by telling them that this paper relates to something interesting. What makes a topic interesting? Some combination of the following attributes makes Y something worth looking at:
+
+- Y matters: When Y rises or falls, people are hurt or helped.
+- Y is puzzling: it defies easy explanation.
+- Y is controversial: some argue one thing while other say another.
+- Y is big (like the service sector) or common (like traffic jams).
+Things to avoid: 
+- The bait and switch: promising an interesting topic but delivering something else, in particular, something boring.
+- ``all my friends are doing it'': presenting no other motivation for a topic than that other people have written papers on it.
+
+#### The Question
+Tell the reader what the paper does. Think of this as the point in a trial where having detailed the crime, you now identify a perpetrator and promise to provide a persuasive case. The reader should have an idea of a clean research question that will have a more or less satisfactory answer by the end of the paper. The question may take two paragraphs. At the end of the first (2nd paragraph of the paper) or possibly beginning of the second (3rd paragraph overall) you should probably have the ``This paper addresses the question'' sentence.
+
+#### The Antecedents
+
+Identify the prior work that is critical for understanding the contribution the paper will make. The key mistake to avoid here are discussing papers that are not essential parts of the intellectual narrative leading up to your own paper. Give credit where due but establish, in a non-insulting way, that the prior work is incomplete or otherwise deficient in some important way.
+
+#### The Value-Add
+Describe approximately 3 contributions this paper will make relative to the antecedents. This paragraph might be the most important one for convincing referees not to reject the paper. A big difference between it and the earlier "question" paragraph is that the contributions should make sense only in light of prior work whereas the basic research question of the paper should be understandable simply in terms of knowing the topic (from the hook paragraph). "Antecedents" and "Value-added" may be intertwined. They may also take up to 3 paragraphs.
+
+#### The Road Map
+
+I find this tedious but many referees insist on it. Outline the organisation of the paper. Avoid writing an outline so generic that it could apply to any. Instead customise the road map to the project and possibly mention pivotal "landmarks" (problems, solutions, results…) that will be seen along the way. But keep this section as short as possible if including it at all.
+
+### The middle section of a paper
+#### Theoretical Framework (for theory papers) 
+Consider these points:
+- Primitives - What are the preferences and/or technology like?
+- Variables: What are the choice (i.e., theoretically endogenous) variables? What are the parameters (i.e., theoretically exogenous variables)?
+- Assumptions: What assumptions are you making about preferences and/or technology? What assumptions are you making about the choice variables? What assumptions are you making about the parameters?
+- Maximisation Problem: What are the agents you are studying maximizing? What is the Lagrangian?
+- First-Order Conditions: Self-explanatory. In some cases where it is not obvious that you are solving for a maximum or a minimum, you’ll want to show the second-order conditions as well.
+- Testable Prediction: State your main testable prediction. Generally, this should map one-to-one with the empirical framework.
+- Proof: Prove your main testable prediction. Here, go for simplicity rather than elegance–why go for a proof by construction when a proof by contradiction will do just fine?
+- Other Results and Proofs: There might be some side results you can both demonstrate in theory and test empirically. Generally, papers should do one thing.
+#### Empirical Framework
+Consider these points:
+- Estimation Strategy - What equations will you estimate? How will you estimate them? How will you treat the standard errors? What is the hypothesis test of interest for your main testable prediction? This is why there should generally be a one-to-one mapping from the main testable prediction to the empirical framework. If your outcome variable or variable of interest needs to be constructed or estimated, this is where you'd discuss it.
+- Identification Strategy: What would the ideal data set look like to study your question? How close are you to that ideal, and what prevents you from getting closer? Then, discuss in turn how your identification strategy deals or not with (i) unobserved heterogeneity, (ii) reverse causality or simultaneity, and (iii) measurement error. Also think about what a violation of the stable unit treatment value assumption looks like here (does one observation getting treated somehow affect the outcome of another observation?), and whether you can somehow test for it.
+#### Data and Descriptive Statistics
+Consider these points:
+- Data: When was it collected? Where? Why? By whom? How was the sample selected? Who was interviewed, or how were the data collected? What is the sample size? How does it compare to the population of interest? Do you lose any observations? Why? Did you have to impute any values and, if so, how did you do it? Are any variables proxies for the real thing? What does each variable measure, exactly, or how was it constructed?
+- Descriptive Statistics: This is simple enough. If you choose to describe the contents of your table of descriptive statistics, tell a story about them, don’t just write up a boring enumeration of means.
+- Balance Tests: In cases where you’re looking at a dichotomous (or categorical) variable of interest, how do the treatment and comparison sub-samples differ along the mean of the variables discussed under the previous sub-section?
+#### Results and Discussion
+Consider these points:
+- Preliminary (Nonparametric?) Results: An image is worth 1,000 words. If you can somehow plot the relationship of interest in a two-way scatter with a regression line fit through it, or using kernel density estimates for treatment and comparison, it helps people see for themselves that there is a difference in outcomes in response to your variable of interest.
+- Core (Parametric) Results: This is your core test of your main testable prediction. Here, there is no need to go into a discussion of the sign of each significant control variable, unless such a discussion is somehow germane to your core testable prediction.
+- Robustness Checks: These are variations on your preferred specification that show your result wasn’t just a fluke. They are as important as your core results. Do not neglect them. Slice and dice the data in as many ways as possible, sticking many of these results in an appendix, to show that the main testable predictions is supported by the data and that you haven’t cherry-picked your results. If you use an IV, this is where you’d entertain potential violations of the exclusion restrictions, and test for them one by one. Or maybe you can test for the mechanisms through which your variable of interest affects your outcome of interest.
+- Extensions: This is where you could explore treatment heterogeneity, or split the sample.
+- Limitations: No empirical result is perfect. How is internal validity limited? How is external validity limited? What are your results not saying, i.e., what mistakes might people make in interpreting them? Every study is flawed or makes simplifying assumptions; every study has a method or result that may be misinterpreted. A caveat paragraph depicts a thoughtful author who is after the truth, not someone who is trying to sell something.
+#### Other comments for the middle section:
+- No separate "literature review" section. Your literature review should be a one-paragraph affair in your introduction explaining how your work relates to the closest five to seven studies on the topic.
+- You might want to have a section titled "Background" between the introduction and the theoretical framework. This is especially so when you study a legislative change, a new policy whose details are important or, in an IO paper, the features of the market you are studying. This can either be a substitute for or a complement to the theoretical framework.
+- You might not need a theoretical framework. Some questions are old (e.g., the effects of land rights on agricultural productivity) and the theory behind them is well documented and does not need to be restated.
+- The order between the "Empirical Framework" and "Data and Descriptive Statistics" sections can sometimes be switched. Go with what is logical.
+- "limitations" are both under "Results and Discussion" and will also appear in the conclusion. It’s important for policy work not to have results that are misinterpreted.
+
+### Conclusion
+Some economics papers title their conclusion "Summary and Concluding Remarks" which is a good indication of how the conclusion should proceed. It should have two main parts: (i) a summary of what you have spent the several pages before the conclusion doing, and (ii) the way forward.
+Consider covering these topics:
+- Summary - "tell them what you’re going to tell them, tell them what you want to tell them, and tell them what you just told them." This part can be tedious, but it needs to be there, and it needs to be different enough (but not new) from the abstract and the introduction. If possible, tell a story.
+- Limitations - The conclusion should emphasise the limitations of the approach. 
+- Implications for Policy - Discuss what they are, but don’t make claims that are not supported by the results, and try to assess the cost of what is proposed in comparison to its benefits. You can do so somewhat imperfectly (this is where the phrase "back-of-the-envelope calculation" comes up the most often in economics papers), since the point of the work was presumably about only one side of that equation - usually the benefits of something, sometimes its costs, but rarely both. In two or three sentences, can you identify the clear winners and losers of a given policy implications? Its political feasibility? How easy or hard it would be to implement? This is the most sensitive section.
+- Implications for Future Research - If you are writing a follow-up paper, this is a good place to set the stage for it.
+
+### After the draft is written
+- Get rid of every adjective modifying a relationship. Was x larger than y? Just say so. Saying it was much larger, or especially tiny, or amazingly huge adds no information.
+- Replace long words with short words. Good writing maximizes the content of the message per number of letters used. Replace long words with short words of equal meaning. Replace utilisation with use.
+- Replace every "differed" or "was different" with the actual, quantitative relationship. Compare the content per letters used for the following two sentences: "Plants fertilised with nitrogen differed in height from controls.", and "Plants fertilized with nitrogen were 2.5x taller than controls." Not only have you conveyed that nitrogen increased growth, you’ve given a vivid word picture as to how much.
+- If your Discussion is more than 2x longer than your results, cut it down. Careful reviewers want to know how your results relate to your hypotheses, the strengths and weaknesses of your results, and perhaps one or two implications of your results. Focus on these three tasks.
+- Market test your title and abstract. More and more editors are rejecting papers before they send them out for review. Reviewers typically accept or decline to review papers on the basis of the title and abstract. The title and abstract are the front door. They are the most important parts of the paper. Craft them carefully and show them to friendly reviewers.
+- Spell check everything.
+- Read it aloud. There is no better way to gauge the flow and logic of a manuscript. 
+
 
 ## After the project
 
@@ -208,16 +334,6 @@ Finally, once the project is complete, be explicit about who did what by followi
 ## Conclusion
 
 I hope you've found this post informative. Disagree with anything or think I've missed an important point? Get in touch!
-
-
-### Update 30/10/2019
-
-I have added advice on writing papers directly into the paper draft file `drafttext.tex'. The idea is that, when you're writing the paper, you can replace the advice sections with the paper material. The advice is drawn from a number of sources (all of whom are much better placed than me to advise on how to write good papers):
-- Keith Head's [The Introduction Formula](http://blogs.ubc.ca/khead/research/research-advice/formula)
-- Marc Bellamere's [The Middle Bits Formula](http://marcfbellemare.com/wordpress/12797) for applied papers
-- Marc Bellamere's [The Conclusion Formula](http://marcfbellemare.com/wordpress/12060)
-- [Advice on how to structure a paper](https://twitter.com/rskudesia/status/1120324415424585728?s=20) from a mysterious, but very helpful, reviewer 3 as received by Ravi Kudesia.
-- [Checklist for before submission](https://eebatou.wordpress.com/2008/01/19/your-10-point-checklist-before-sending-off-that-manuscript/) from Mike Kaspari
 
 ------
  
