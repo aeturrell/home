@@ -161,7 +161,7 @@ In Python, the naming convention for most items is lower case separated by under
 
 [Allison Horst](https://twitter.com/allison_horst) made this great cartoon of the different conventions that are in use.
 
-![jpg]({{site.baseurl}}/images/in_that_case.jpg)
+![jpg]({{site.baseurl}}/images/in_that_case.jpeg)
 
 For research, it's worth having the extensions and robustness checks that reviewers might request in mind early on. You don't want to be faced with a request that's going to force you to do a huge re-write of your code. Better to try and anticipate reasonable variations on what you've done from the start, difficult though that may be.
 
