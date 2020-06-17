@@ -9,7 +9,7 @@ tagline:             'A blog on economics, science, coding and data. Views are m
 description:         'More...'
 url:                 http://aeturrell.github.io/home
 baseurl:             http://aeturrell.github.io/home # change to '' for local
-paginate:            5
+paginate:            11
 plugins: [jekyll-paginate, jekyll-feed]
 paginate_path: blog/page:num
 
