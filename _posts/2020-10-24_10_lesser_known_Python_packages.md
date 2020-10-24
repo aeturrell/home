@@ -1,4 +1,8 @@
-# 10 less well-known Python packages
+---
+layout: post
+title: 10 less well-known Python packages
+---
+
 
 Here's a round-up of 10 Python packages for data science (and more) that you might not have heard of. While most are on this list because they could be useful, it's not all serious, as our first entry attests.  
 
