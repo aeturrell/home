@@ -3,6 +3,65 @@ layout: post
 title: Making a publication quality plot with Python (and latex)
 ---
 
+### Update 2021.03.06
+
+I recommend the style file below for quick, publication quality plots in Python using Matplotlib (tested on 3.3.4 and Python 3.8). To use the style, save it in a file called 'plot_style.txt' and load it in Matplotlib using:
+
+```python
+import matplotlib.pyplot as plt
+# Plot settings
+plt.style.use('plot_style.txt')
+```
+
+before doing any plotting. The contents of 'plot_style.txt' are:
+
+```
+xtick.color: 323034
+ytick.color: 323034
+text.color: 323034
+lines.markeredgecolor: black
+patch.facecolor        : bc80bd
+patch.force_edgecolor  : True
+patch.linewidth: 0.8
+scatter.edgecolors: black
+grid.color: b1afb5
+axes.titlesize: 16
+legend.title_fontsize: 12
+xtick.labelsize: 12
+ytick.labelsize: 12
+axes.labelsize: 12
+font.size: 10
+axes.prop_cycle : (cycler('color', ['bc80bd' ,'fb8072', 'b3de69','fdb462','fccde5','8dd3c7','ffed6f','bebada','80b1d3', 'ccebc5', 'd9d9d9']))
+mathtext.fontset: stix
+font.family: STIXGeneral
+lines.linewidth: 2
+legend.frameon: True
+legend.framealpha: 0.8
+legend.fontsize: 10
+legend.edgecolor: 0.9
+legend.borderpad: 0.2
+legend.columnspacing: 1.5
+legend.labelspacing:  0.4
+text.usetex: False
+axes.titlelocation: left
+axes.formatter.use_mathtext: True
+axes.autolimit_mode: round_numbers
+axes.labelpad: 3
+axes.formatter.limits: -4, 4
+axes.labelcolor: black
+axes.edgecolor: black
+axes.linewidth: 0.6
+axes.spines.right : False
+axes.spines.top : False
+axes.grid: False
+figure.titlesize: 18
+figure.dpi: 125
+```
+
+If you're looking for easier customisation of plots in Matplotlib, try out the [**themepy**](https://github.com/petermckeeverPerform/themepy) package.
+
+### Original post
+
 High level languages like Python and R are great partly because entire workflows can be done within them; from data ingestion, to cleaning, to analysis, to producing plots and regression tables. But when I looked around online, I found that there wasn't a huge amount of information on how to do one of the last stages - producing plots - in a way that is consistent with what is required by journals.
 
 Journals often ask for figures in lossless formats (think pdf, tiff, svg, and eps as opposed to png or jpg), in certain sizes, and at a specific or minimum resolution. What is most important in a journal article or working paper is clearly the content. However, when a paper looks good, and its figures are crisp, clear, and communicate a message, it helps to deliver the content in the way intended. Low resolution, rasterised images just look bad (at best) and distract from the point of the figure (at worst).
