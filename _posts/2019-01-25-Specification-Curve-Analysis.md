@@ -6,6 +6,12 @@ title: Specification curve analysis
 
 ## Econometrics in Python Series - Part V
 
+### Update 2021.03.10
+
+Since publishing this post, I have written the [**specification_curve**](https://specification-curve.readthedocs.io/en/latest/readme.html) package for Python. **specification_curve** automates some aspects of specification curve analysis, namely running multiple regressions and displaying their results, but you can find out more info via the link.
+
+### Original post
+
 When specifying a causal model, modellers have a number of options. These can be informed by field intelligence, priors, and even misguided attempts to find a significant result. Even with the best of intentions, research teams can reach entirely different conclusions using the same, or similar, data because of different choices made in preparing data or in modelling it.
 
 Typically this happens when there isn't a clear way to do 'feature engineering' on the data. For example, you have a high frequency time series which needs to be aggregated to a lower frequency: you could take the maximum, the minimum, or the average over each high frequency time period. A different choice may be appropriate in different settings.
