@@ -5,7 +5,7 @@ title: Making a publication quality plot with Python (and latex)
 
 ### Update 2021.03.06
 
-I recommend the style file below for quick, publication quality plots in Python using Matplotlib (tested on 3.3.4 and Python 3.8). To use the style, save it in a file called 'plot_style.txt' and load it in Matplotlib using:
+I now recommend the style file below for quick, publication quality plots in Python using Matplotlib (tested on 3.3.4 and Python 3.8). To use the style, save it in a file called 'plot_style.txt' and load it in Matplotlib using:
 
 ```python
 import matplotlib.pyplot as plt
@@ -55,8 +55,10 @@ axes.spines.right : False
 axes.spines.top : False
 axes.grid: False
 figure.titlesize: 18
-figure.dpi: 125
+figure.dpi: 300
 ```
+
+Note that if you're using the plots for the web then you're likely to want to turn down the `figure.dpi` setting; 125 is a good compromise.
 
 If you're looking for easier customisation of plots in Matplotlib, try out the [**themepy**](https://github.com/petermckeeverPerform/themepy) package.
 
