@@ -9,7 +9,7 @@ I recommend the style file below for quick, publication quality plots in Python 
 
 ```python
 import matplotlib.pyplot as plt
-# Plot settings
+
 plt.style.use('plot_style.txt')
 ```
 
