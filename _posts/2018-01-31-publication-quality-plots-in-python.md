@@ -60,6 +60,8 @@ figure.dpi: 300
 
 Note that if you're using the plots for the web then you're likely to want to turn down the `figure.dpi` setting; 125 is a good compromise.
 
+You can find more information on plotting in Python in my online book: see the [Intro to Data Visualisation](https://aeturrell.github.io/coding-for-economists/vis-intro.html) page for an overview of libraries and the basics of using them or, for lots of examples of standard charts, the [Common Plots](https://aeturrell.github.io/coding-for-economists/vis-common-plots.html) page.
+
 If you're looking for easier customisation of plots in Matplotlib, try out the [**themepy**](https://github.com/petermckeeverPerform/themepy) package.
 
 ### Original post
