@@ -3,8 +3,7 @@ layout: post
 title: 10 less well-known Python packages
 ---
 
-
-Here's a round-up of 10 Python packages for data science (and more) that you might not have heard of. While most are on this list because they could be useful, it's not all serious, as our first entry attests.  
+(Remember that to use these, you will need to run `pip install packagename` on the command line.)
 
 ## 1. Jazzit
 
@@ -15,53 +14,27 @@ Yes, this package laughs at you when you get a runtime error -- but can also cel
 
 See also: [beepy](https://pypi.org/project/beepy/)
 
-#### Example of Jazzit
-
-
-```python
-%%capture
-!pip install jazzit
-```
-
+### Example of Jazzit
 
 ```python
+
 from jazzit import error_track, success_track
 
 @error_track("curb_your_enthusiasm.mp3", wait=9)
 def run():
-    for num in reversed(range(10)):
-        print(10/num)
+    print(1/0)
 
 run()
 ```
 
-    1.1111111111111112
-    1.25
-    1.4285714285714286
-    1.6666666666666667
-    2.0
-    2.5
-    3.3333333333333335
-    5.0
-    10.0
-
-
-    Traceback (most recent call last):
-       line 47, in wrapped_function
-        original_func(*args)
-      File "<ipython-input-1-a24a66965e4c>", line 6, in run
-        print(10/num)
-    ZeroDivisionError: division by zero
-
-
-
-
-
-
-
-
-
-
+```text
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/noodling/lib/python3.8/site-packages/jazzit/jazz.py", line 47, in wrapped_function
+    original_func(*args)
+  File "/var/folders/x6/ffnr59f116l96_y0q0bjfz7c0000gn/T/ipykernel_89075/4032939987.py", line 5, in run
+    print(1/0)
+ZeroDivisionError: division by zero
+```
 
 ```python
 @success_track("anime-wow.mp3")
@@ -71,16 +44,9 @@ def add(a,b):
 add(10, 5)
 ```
 
-    15
-
-
-
-
-
-
-
-
-
+```text
+15
+```
 
 ## 2. Handcalcs
 
@@ -91,27 +57,44 @@ In research, you often find yourself coding up maths and then transcribing the s
 
 See also: if you want to solve, render, and export latex equations, you should try out [sympy](https://www.sympy.org/en/index.html), a fully fledged library for symbolic mathematics (think Maple).
 
-#### Example of handcalcs
-
-
-```python
-%%capture
-!pip install handcalcs
-```
+### Example of handcalcs
 
 
 ```python
 import handcalcs.render
+from math import sqrt
 ```
 
 To render maths, just use the `%%render` magic keyword. If you're running in an enviroment that doesn't have a Latex installation, this will just show Latex -- if you want the Latex, use the `%%tex` magic keyword instead. But in a Jupyter notebook on a machine with Latex installed, the `%%render` magic will render the maths into beautifully typeset equations:
 
 
 ```python
-%%tex
+%%render
+
 a = 2
 b = 3
-c = 2*a + b/3
+c = sqrt(2*a + b/3)
+```
+
+
+\[
+\begin{aligned}
+a &= 2 \; 
+\\[10pt]
+b &= 3 \; 
+\\[10pt]
+c &= \sqrt { 2 \cdot a + \frac{ b }{ 3 } }  = \sqrt { 2 \cdot 2 + \frac{ 3 }{ 3 } } &= 2.236  
+\end{aligned}
+\]
+
+
+
+```python
+%%tex
+
+a = 2
+b = 3
+c = sqrt(2*a + b/3)
 ```
 
     \[
@@ -120,164 +103,12 @@ c = 2*a + b/3
     \\[10pt]
     b &= 3 \; 
     \\[10pt]
-    c &= 2 \cdot a + \frac{ b }{ 3 }  = 2 \cdot 2 + \frac{ 3 }{ 3 } &= 5.0  
+    c &= \sqrt { 2 \cdot a + \frac{ b }{ 3 } }  = \sqrt { 2 \cdot 2 + \frac{ 3 }{ 3 } } &= 2.236  
     \end{aligned}
     \]
 
 
-## 3. Pandas profiling
-
-Any tool that can make the process of understanding input data is very welcome, which is why the [pandas profiling](https://pandas-profiling.github.io/pandas-profiling/docs/master/rtd/) library is such a breath of fresh air. It automates, or at least facilitates, the first stage of exploratory data analysis.
-
-What pandas profiling does is to render a HTML or ipywidget report (or JSON string) of the datatset - including missing variables, cardinality, distributions, and correlations. From what I've seen, it's really comprehensive and user-friendly---though I have noticed that the default configuration does not scale well to very large datasets.
-
-Due to the large size of the reports, I won't run one in this notebook, although you can with `profile.to_notebook_iframe()`, but instead link to a gif demoing the package.
-
-See also: [SweetViz](https://github.com/fbdesignpro/sweetviz)
-
-#### Example of pandas profiling
-
-
-```python
-%%capture
-!pip install pandas-profiling[notebook]==2.9.0
-```
-
-
-```python
-import pandas as pd
-import pandas_profiling
-from pandas_profiling import ProfileReport
-
-data = pd.read_csv('https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv')
-data.head()
-
-# To run the pro use:
-profile = ProfileReport(data, title="Titanic Dataset", html={'style': {'full_width': True}}, sort="None")
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PassengerId</th>
-      <th>Survived</th>
-      <th>Pclass</th>
-      <th>Name</th>
-      <th>Sex</th>
-      <th>Age</th>
-      <th>SibSp</th>
-      <th>Parch</th>
-      <th>Ticket</th>
-      <th>Fare</th>
-      <th>Cabin</th>
-      <th>Embarked</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>838</th>
-      <td>839</td>
-      <td>1</td>
-      <td>3</td>
-      <td>Chip, Mr. Chang</td>
-      <td>male</td>
-      <td>32.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1601</td>
-      <td>56.4958</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>628</th>
-      <td>629</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Bostandyeff, Mr. Guentcho</td>
-      <td>male</td>
-      <td>26.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>349224</td>
-      <td>7.8958</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>386</th>
-      <td>387</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Goodwin, Master. Sidney Leonard</td>
-      <td>male</td>
-      <td>1.0</td>
-      <td>5</td>
-      <td>2</td>
-      <td>CA 2144</td>
-      <td>46.9000</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>79</th>
-      <td>80</td>
-      <td>1</td>
-      <td>3</td>
-      <td>Dowdell, Miss. Elizabeth</td>
-      <td>female</td>
-      <td>30.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>364516</td>
-      <td>12.4750</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>841</th>
-      <td>842</td>
-      <td>0</td>
-      <td>2</td>
-      <td>Mudd, Mr. Thomas Charles</td>
-      <td>male</td>
-      <td>16.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>S.O./P.P. 3</td>
-      <td>10.5000</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-![](https://camo.githubusercontent.com/87df79347c0acf4421a1040310ecf6f5b9a4026c/68747470733a2f2f70616e6461732d70726f66696c696e672e6769746875622e696f2f70616e6461732d70726f66696c696e672f646f63732f6d61737465722f6173736574732f696672616d652e676966)
-
-
-## 4. Matplotlib!?
+## 3. Matplotlib!?
 
 Alright, you've probably heard of matplotlib and might be surprised to see it on this list. But there's a nice new feature of matplotlib that you might not be aware of: placement using ASCII art. It's more useful than it sounds.
 
@@ -287,13 +118,7 @@ Note that you may need to restart the runtime after you have pip installed matpl
 
 See also: if you like declarative plotting that's web-friendly and extremely high quality, [Altair](https://altair-viz.github.io/) is definitely worth your time.
 
-#### Example of matplotlib mosaics
-
-
-```python
-%%capture
-!pip install matplotlib==3.3.1
-```
+### Example of matplotlib mosaics
 
 
 ```python
@@ -307,11 +132,10 @@ for k, ax in axd.items():
     ax.text(0.5, 0.5, k,
             ha='center', va='center', fontsize=36,
             color='darkgrey')
+plt.show()
 ```
 
-
 ![png]({{site.baseurl}}/images/10_less_img_16.png)
-
 
 But it's not just ASCII that you can use, lists work too:
 
@@ -327,8 +151,35 @@ for k, ax in axd.items():
             color='darkgrey')
 ```
 
-
 ![png]({{site.baseurl}}/images/10_less_img_18.png)
+
+## 4. Pandas profiling
+
+Any tool that can make the process of understanding input data is very welcome, which is why the [pandas profiling](https://pandas-profiling.github.io/pandas-profiling/docs/master/rtd/) library is such a breath of fresh air. It automates, or at least facilitates, the first stage of exploratory data analysis.
+
+What pandas profiling does is to render a HTML or ipywidget report (or JSON string) of the datatset - including missing variables, cardinality, distributions, and correlations. From what I've seen, it's really comprehensive and user-friendly---though I have noticed that the default configuration does not scale well to very large datasets.
+
+Due to the large size of the reports, I won't run one in this notebook, although you can with `profile.to_notebook_iframe()`, but instead link to a gif demoing the package.
+
+See also: [SweetViz](https://github.com/fbdesignpro/sweetviz)
+
+### Example of pandas profiling
+
+```python
+import pandas as pd
+from pandas_profiling import ProfileReport
+
+data = pd.read_csv('https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv')
+
+# To run the profile report use:
+profile = ProfileReport(data, title="Titanic Dataset", html={'style': {'full_width': True}})
+
+# To display in a notebook:
+profile.to_notebook_iframe()
+```
+
+
+![](https://camo.githubusercontent.com/87df79347c0acf4421a1040310ecf6f5b9a4026c/68747470733a2f2f70616e6461732d70726f66696c696e672e6769746875622e696f2f70616e6461732d70726f66696c696e672f646f63732f6d61737465722f6173736574732f696672616d652e676966)
 
 
 ## 5. Pandera data validation
@@ -337,15 +188,9 @@ Sometimes you want to validate data, not just explore it. A number of packages h
 
 See also: [Great Expectations](https://docs.greatexpectations.io/en/latest/), which produces HTML reports a bit like our number 3. featured above. Great Expectations looks really rich and suitable for production, coming as it does with a command line interface.
 
-#### Example of pandera
+### Example of pandera
 
 Let's start with a dataframe that passes muster.
-
-
-```python
-%%capture
-!pip install pandera
-```
 
 
 ```python
@@ -402,13 +247,179 @@ print(validated_df)
 
     SchemaError                               Traceback (most recent call last)
 
-    <ipython-input-10-d0c9f6a389e0> in <module>
+    Input In [11], in <module>
+          1 df = pd.DataFrame({
+          2     "column1": [1, 4, 0, 10, 9],
+          3     "column2": [22, -1.4, -2.9, -10.1, -20.4],
+          4     "column3": ["value_1", "value_2", "value_3", "value_2", "value_1"],
           5 })
-          6 
     ----> 7 validated_df = schema(df)
           8 print(validated_df)
 
-    SchemaError: <Schema Column: 'column2' type=<class 'float'>> failed element-wise validator 0:
+
+    File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schemas.py:768, in DataFrameSchema.__call__(self, dataframe, head, tail, sample, random_state, lazy, inplace)
+        740 def __call__(
+        741     self,
+        742     dataframe: pd.DataFrame,
+       (...)
+        748     inplace: bool = False,
+        749 ):
+        750     """Alias for :func:`DataFrameSchema.validate` method.
+        751 
+        752     :param pd.DataFrame dataframe: the dataframe to be validated.
+       (...)
+        766         otherwise creates a copy of the data.
+        767     """
+    --> 768     return self.validate(
+        769         dataframe, head, tail, sample, random_state, lazy, inplace
+        770     )
+
+
+    File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schemas.py:503, in DataFrameSchema.validate(self, check_obj, head, tail, sample, random_state, lazy, inplace)
+        490     check_obj = check_obj.map_partitions(
+        491         self._validate,
+        492         head=head,
+       (...)
+        498         meta=check_obj,
+        499     )
+        501     return check_obj.pandera.add_schema(self)
+    --> 503 return self._validate(
+        504     check_obj=check_obj,
+        505     head=head,
+        506     tail=tail,
+        507     sample=sample,
+        508     random_state=random_state,
+        509     lazy=lazy,
+        510     inplace=inplace,
+        511 )
+
+
+    File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schemas.py:677, in DataFrameSchema._validate(self, check_obj, head, tail, sample, random_state, lazy, inplace)
+        675     check_results.append(check_utils.is_table(result))
+        676 except errors.SchemaError as err:
+    --> 677     error_handler.collect_error("schema_component_check", err)
+        678 except errors.SchemaErrors as err:
+        679     for schema_error_dict in err.schema_errors:
+
+
+    File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/error_handlers.py:32, in SchemaErrorHandler.collect_error(self, reason_code, schema_error, original_exc)
+         26 """Collect schema error, raising exception if lazy is False.
+         27 
+         28 :param reason_code: string representing reason for error
+         29 :param schema_error: ``SchemaError`` object.
+         30 """
+         31 if not self._lazy:
+    ---> 32     raise schema_error from original_exc
+         34 # delete data of validated object from SchemaError object to prevent
+         35 # storing copies of the validated DataFrame/Series for every
+         36 # SchemaError collected.
+         37 del schema_error.data
+
+
+    File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schemas.py:669, in DataFrameSchema._validate(self, check_obj, head, tail, sample, random_state, lazy, inplace)
+        667 for schema_component in schema_components:
+        668     try:
+    --> 669         result = schema_component(
+        670             df_to_validate,
+        671             lazy=lazy,
+        672             # don't make a copy of the data
+        673             inplace=True,
+        674         )
+        675         check_results.append(check_utils.is_table(result))
+        676     except errors.SchemaError as err:
+
+
+    File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schemas.py:2004, in SeriesSchemaBase.__call__(self, check_obj, head, tail, sample, random_state, lazy, inplace)
+       1993 def __call__(
+       1994     self,
+       1995     check_obj: Union[pd.DataFrame, pd.Series],
+       (...)
+       2001     inplace: bool = False,
+       2002 ) -> Union[pd.DataFrame, pd.Series]:
+       2003     """Alias for ``validate`` method."""
+    -> 2004     return self.validate(
+       2005         check_obj, head, tail, sample, random_state, lazy, inplace
+       2006     )
+
+
+    File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schema_components.py:223, in Column.validate(self, check_obj, head, tail, sample, random_state, lazy, inplace)
+        219             validate_column(
+        220                 check_obj[column_name].iloc[:, [i]], column_name
+        221             )
+        222     else:
+    --> 223         validate_column(check_obj, column_name)
+        225 return check_obj
+
+
+    File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schema_components.py:196, in Column.validate.<locals>.validate_column(check_obj, column_name)
+        195 def validate_column(check_obj, column_name):
+    --> 196     super(Column, copy(self).set_name(column_name)).validate(
+        197         check_obj,
+        198         head,
+        199         tail,
+        200         sample,
+        201         random_state,
+        202         lazy,
+        203         inplace=inplace,
+        204     )
+
+
+    File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schemas.py:1962, in SeriesSchemaBase.validate(self, check_obj, head, tail, sample, random_state, lazy, inplace)
+       1956     check_results.append(
+       1957         _handle_check_results(
+       1958             self, check_index, check, check_obj, *check_args
+       1959         )
+       1960     )
+       1961 except errors.SchemaError as err:
+    -> 1962     error_handler.collect_error("dataframe_check", err)
+       1963 except Exception as err:  # pylint: disable=broad-except
+       1964     # catch other exceptions that may occur when executing the
+       1965     # Check
+       1966     err_msg = f'"{err.args[0]}"' if len(err.args) > 0 else ""
+
+
+    File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/error_handlers.py:32, in SchemaErrorHandler.collect_error(self, reason_code, schema_error, original_exc)
+         26 """Collect schema error, raising exception if lazy is False.
+         27 
+         28 :param reason_code: string representing reason for error
+         29 :param schema_error: ``SchemaError`` object.
+         30 """
+         31 if not self._lazy:
+    ---> 32     raise schema_error from original_exc
+         34 # delete data of validated object from SchemaError object to prevent
+         35 # storing copies of the validated DataFrame/Series for every
+         36 # SchemaError collected.
+         37 del schema_error.data
+
+
+    File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schemas.py:1957, in SeriesSchemaBase.validate(self, check_obj, head, tail, sample, random_state, lazy, inplace)
+       1954 for check_index, check in enumerate(self.checks):
+       1955     try:
+       1956         check_results.append(
+    -> 1957             _handle_check_results(
+       1958                 self, check_index, check, check_obj, *check_args
+       1959             )
+       1960         )
+       1961     except errors.SchemaError as err:
+       1962         error_handler.collect_error("dataframe_check", err)
+
+
+    File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schemas.py:2353, in _handle_check_results(schema, check_index, check, check_obj, *check_args)
+       2351         warnings.warn(error_msg, UserWarning)
+       2352         return True
+    -> 2353     raise errors.SchemaError(
+       2354         schema,
+       2355         check_obj,
+       2356         error_msg,
+       2357         failure_cases=failure_cases,
+       2358         check=check,
+       2359         check_index=check_index,
+       2360         check_output=check_result.check_output,
+       2361     )
+       2362 return check_result.check_passed
+
+
+    SchemaError: <Schema Column(name=column2, type=DataType(float64))> failed element-wise validator 0:
     <Check less_than: less_than(-1.2)>
     failure cases:
        index  failure_case
@@ -425,13 +436,7 @@ If at first you don't succeed, try and try again. [Tenacity](https://tenacity.re
 
 See also: R package `purrr`'s `insistently` function.
 
-#### Example of Tenacity
-
-
-```python
-%%capture
-!pip install tenacity
-```
+### Example of Tenacity
 
 
 ```python
@@ -455,10 +460,15 @@ print(test_func())
 
     Exception                                 Traceback (most recent call last)
 
-    <ipython-input-13-6efc6b249703> in test_func()
-          5     print("Stopping after 3 attempts")
-    ----> 6     raise Exception
-          7 
+    File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/tenacity/__init__.py:407, in Retrying.__call__(self, fn, *args, **kwargs)
+        406 try:
+    --> 407     result = fn(*args, **kwargs)
+        408 except BaseException:  # noqa: B902
+
+
+    Input In [13], in test_func()
+          5 print("Stopping after 3 attempts")
+    ----> 6 raise Exception
 
 
     Exception: 
@@ -469,20 +479,43 @@ print(test_func())
 
     RetryError                                Traceback (most recent call last)
 
-    <ipython-input-13-6efc6b249703> in <module>
+    Input In [13], in <module>
+          5     print("Stopping after 3 attempts")
           6     raise Exception
-          7 
     ----> 8 print(test_func())
 
-    RetryError: RetryError[<Future at 0x7feda96db7f0 state=finished raised Exception>]
+
+    File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/tenacity/__init__.py:324, in BaseRetrying.wraps.<locals>.wrapped_f(*args, **kw)
+        322 @functools.wraps(f)
+        323 def wrapped_f(*args: t.Any, **kw: t.Any) -> t.Any:
+    --> 324     return self(f, *args, **kw)
+
+
+    File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/tenacity/__init__.py:404, in Retrying.__call__(self, fn, *args, **kwargs)
+        402 retry_state = RetryCallState(retry_object=self, fn=fn, args=args, kwargs=kwargs)
+        403 while True:
+    --> 404     do = self.iter(retry_state=retry_state)
+        405     if isinstance(do, DoAttempt):
+        406         try:
+
+
+    File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/tenacity/__init__.py:361, in BaseRetrying.iter(self, retry_state)
+        359     if self.reraise:
+        360         raise retry_exc.reraise()
+    --> 361     raise retry_exc from fut.exception()
+        363 if self.wait:
+        364     sleep = self.wait(retry_state=retry_state)
+
+
+    RetryError: RetryError[<Future at 0x7f9f10f73eb0 state=finished raised Exception>]
 
 
 ## 7. Streamlit
 
 
-This one almost didn't make the list, so fast has its rise in popularity been. I really like [streamlit](https://www.streamlit.io/), which sells itself as the fastest way to build data apps that are displayed in a browser window. And my experience is that it's true; you can do a lot with a very simple set of commands. But there's also depth there too - a couple of the examples on their site show how streamlit can serve up explainable AI models. Very cool.
+I really like [streamlit](https://www.streamlit.io/), which sells itself as the fastest way to build data apps that are displayed in a browser window. And my experience is that it's true; you can do a lot with a very simple set of commands. But there's also depth there too - a couple of the examples on their site show how streamlit can serve up explainable AI models. Very cool.
 
-If you build a streamlit app and want to host it on the web, Heroku offer free hosting for a limited number of app users.
+If you build a streamlit app and want to host it on the web, Streamlit and Heroku offer free hosting.
 
 Because streamlit serves up content in a browser, it's not (currently) possible to demonstrate it in a Jupyter Notebook. However, this gif gives you an idea of how easy it is to get going:
 
@@ -521,6 +554,10 @@ def very_important_function(
 
 See also: [yapf](https://github.com/google/yapf), yet another code formatter, from Google.
 
+### Live demo
+
+
+
 ## 9. Pyinstrument for profiling code
 
 Profiling is about finding where the bottlenecks are in your code; potentially in your data too.
@@ -543,14 +580,35 @@ In the example below, I'll use the display as text option.
 
 See also: [scalene](https://github.com/emeryberger/scalene), which I almost featured instead because it profiles both code and memory use (important for data science). However, it isn't supported on Windows (yet?) and it doesn't seem to display a report inline in Jupyter notebooks.
 
-#### Example of Pyinstrument
+### Example of Pyinstrument
 
+## 9. Pyinstrument for profiling code
 
-```python
-%%capture
-!pip install pyinstrument
+Profiling is about finding where the bottlenecks are in your code; potentially in your data too.
+
+[pyinstrument](https://github.com/joerick/pyinstrument) is a simple-to-use tool that extends the built-in Python profiler with HTMLs output that can be rendered in a Jupyter notebook cell.
+
+![pyinstrument screenshot](https://github.com/joerick/pyinstrument/raw/main/docs/img/screenshot.jpg)
+
+Using this profiler is very simple -- just wrap 'start' and 'stop' function calls around the code you're interested in and show the results in text or HTML. The HTML report is interactive. To use the HTML report in a Jupyter notebook, you'll need to use
+
+```
+from IPython.core.display import display, HTML
 ```
 
+and then
+
+```
+display(HTML(profiler.output_html()))
+```
+
+In the example below, I'll use the display as text option.
+
+See also: [scalene](https://github.com/emeryberger/scalene), which I almost featured instead because it profiles both code and memory use (important for data science). However, it isn't supported on Windows (yet?) and it doesn't seem to display a report inline in Jupyter notebooks.
+
+### Example of Pyinstrument
+
+Run this code in a notebook to check it out.
 
 ```python
 from pyinstrument import Profiler
@@ -576,46 +634,18 @@ profiler.stop()
 print(profiler.output_text(unicode=True, color=True))
 ```
 
-    
-      _     ._   __/__   _ _  _  _ _/_   Recorded: 19:36:56  Samples:  3
-     /_//_/// /_\ / //_// / //_'/ //     Duration: 0.004     CPU time: 0.004
-    /   _/                      v3.2.0
-    
-    
-    [31m0.003[0m run_code[0m  [2mIPython/core/interactiveshell.py:3376[0m
-    └─ [31m0.003[0m [48;5;24m[38;5;15m<module>[0m  [2m<ipython-input-13-ac009be8054f>:17[0m
-       └─ [31m0.003[0m [48;5;24m[38;5;15mfibonacci[0m  [2m<ipython-input-13-ac009be8054f>:7[0m
-          └─ [31m0.003[0m [48;5;24m[38;5;15mfibonacci[0m  [2m<ipython-input-13-ac009be8054f>:7[0m
-             └─ [31m0.003[0m [48;5;24m[38;5;15mfibonacci[0m  [2m<ipython-input-13-ac009be8054f>:7[0m
-                └─ [31m0.003[0m [48;5;24m[38;5;15mfibonacci[0m  [2m<ipython-input-13-ac009be8054f>:7[0m
-                   └─ [31m0.003[0m [48;5;24m[38;5;15mfibonacci[0m  [2m<ipython-input-13-ac009be8054f>:7[0m
-                      └─ [31m0.003[0m [48;5;24m[38;5;15mfibonacci[0m  [2m<ipython-input-13-ac009be8054f>:7[0m
-                         └─ [31m0.003[0m [48;5;24m[38;5;15mfibonacci[0m  [2m<ipython-input-13-ac009be8054f>:7[0m
-                            └─ [31m0.003[0m [48;5;24m[38;5;15mfibonacci[0m  [2m<ipython-input-13-ac009be8054f>:7[0m
-                               └─ [31m0.003[0m [48;5;24m[38;5;15mfibonacci[0m  [2m<ipython-input-13-ac009be8054f>:7[0m
-                                  └─ [31m0.003[0m [48;5;24m[38;5;15mfibonacci[0m  [2m<ipython-input-13-ac009be8054f>:7[0m
-                                     └─ [31m0.003[0m [48;5;24m[38;5;15mfibonacci[0m  [2m<ipython-input-13-ac009be8054f>:7[0m
-                                        ├─ [31m0.002[0m [48;5;24m[38;5;15mfibonacci[0m  [2m<ipython-input-13-ac009be8054f>:7[0m
-                                        │  ├─ [33m0.001[0m [48;5;24m[38;5;15mfibonacci[0m  [2m<ipython-input-13-ac009be8054f>:7[0m
-                                        │  └─ [33m0.001[0m [self][0m  [2m[0m
-                                        └─ [33m0.001[0m [self][0m  [2m[0m
-    
-    
+# 10. Alive progress
 
-
-# 10. tdqm
-
-An oldie but a goodie, tdqm produces progress bars. Used sensibly, they can give a good indication of when your code will finish executing. 
-
-See also: [alive-progress](https://github.com/rsalmei/alive-progress) is a bit less straitlaced than tdqm but is unfortunately not yet available in notebooks. Here's a gif that shows how it looks when run from a console launched on the command line.
+[alive-progress](https://github.com/rsalmei/alive-progress) is a bit less straitlaced than tdqm but is unfortunately not yet available in notebooks. Here's a gif that shows how it looks when run from a console launched on the command line.
 
 <img src="https://raw.githubusercontent.com/rsalmei/alive-progress/master/img/alive-demo.gif" width="600" />
 
-#### Example of tdqm
+### See also: tdqm
+
+<img src="https://img.tqdm.ml/tqdm.gif" width="700"/>
 
 
-<img src="https://raw.githubusercontent.com/tqdm/tqdm/master/images/tqdm-jupyter-2.gif" width="700"/>
-
+### Live demo of alive progress
 
 ## Bonus: R-style analysis in Python!?
 
@@ -627,15 +657,7 @@ ggplot/plotnine are both declarative, while matplotlib is imperative.
 
 As for data analysis, Python's pandas library is very similar to dplyr, it just has slightly different names for functions (eg `summarize` versus `aggregate` but both use `groupby`) and pandas uses `.` while dplyr tends to use `%>%` to apply the output of one function to the input of another.
 
-#### Plotnine
-
-
-
-```python
-%%capture
-!pip install plotnine
-```
-
+### Plotnine
 
 ```python
 from plotnine import *
@@ -648,41 +670,128 @@ from plotnine.data import mtcars
  + facet_wrap('~gear'))
 ```
 
-
 ![png]({{site.baseurl}}/images/10_less_img_36.png)
 
-
-
-
-
-    <ggplot: (8791170958969)>
-
-
-
-#### Siuba
+### Siuba
 
 Siuba is more or less similar to dplyr in R. It even has a pipe operator - although in Python's **pandas** data analysis package, `.` usually plays the same role as the pipe in dplyr.
-
-
-```python
-%%capture
-!pip install siuba
-```
 
 
 ```python
 from siuba import group_by, summarize, mutate, _
 from siuba.data import mtcars
 
-print(mtcars.head())
+mtcars.head()
 ```
 
-        mpg  cyl   disp   hp  drat     wt   qsec  vs  am  gear  carb
-    0  21.0    6  160.0  110  3.90  2.620  16.46   0   1     4     4
-    1  21.0    6  160.0  110  3.90  2.875  17.02   0   1     4     4
-    2  22.8    4  108.0   93  3.85  2.320  18.61   1   1     4     1
-    3  21.4    6  258.0  110  3.08  3.215  19.44   1   0     3     1
-    4  18.7    8  360.0  175  3.15  3.440  17.02   0   0     3     2
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cyl</th>
+      <th>disp</th>
+      <th>hp</th>
+      <th>drat</th>
+      <th>wt</th>
+      <th>qsec</th>
+      <th>vs</th>
+      <th>am</th>
+      <th>gear</th>
+      <th>carb</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>21.0</td>
+      <td>6</td>
+      <td>160.0</td>
+      <td>110</td>
+      <td>3.90</td>
+      <td>2.620</td>
+      <td>16.46</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>21.0</td>
+      <td>6</td>
+      <td>160.0</td>
+      <td>110</td>
+      <td>3.90</td>
+      <td>2.875</td>
+      <td>17.02</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>22.8</td>
+      <td>4</td>
+      <td>108.0</td>
+      <td>93</td>
+      <td>3.85</td>
+      <td>2.320</td>
+      <td>18.61</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>21.4</td>
+      <td>6</td>
+      <td>258.0</td>
+      <td>110</td>
+      <td>3.08</td>
+      <td>3.215</td>
+      <td>19.44</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>18.7</td>
+      <td>8</td>
+      <td>360.0</td>
+      <td>175</td>
+      <td>3.15</td>
+      <td>3.440</td>
+      <td>17.02</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 
@@ -738,5 +847,3 @@ print(mtcars.head())
   </tbody>
 </table>
 </div>
-
-
