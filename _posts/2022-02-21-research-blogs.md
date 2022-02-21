@@ -29,7 +29,7 @@ Below the blog post layer is the paper and, given a large number of papers go un
 
 <div class="cell-output-display">
 
-<figure><img src={{site.baseurl}}/images/res_blog_pyramid.png" id="fig-polar" alt="Figure 1: Dissemination and blogs follow an inverted pyramid structure" /><figcaption aria-hidden="true">Figure 1: Dissemination and blogs follow an inverted pyramid structure</figcaption></figure>
+<figure><img src="{{site.baseurl}}/images/res_blog_pyramid.png" id="fig-polar" alt="Figure 1: Dissemination and blogs follow an inverted pyramid structure"/><figcaption aria-hidden="true">Figure 1: Dissemination and blogs follow an inverted pyramid structure</figcaption></figure>
 
 </div>
 
