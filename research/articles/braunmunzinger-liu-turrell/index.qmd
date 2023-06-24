@@ -1,0 +1,76 @@
+---
+title: "An agent-based model of corporate bond trading"
+date: 2017-03-15
+author:
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: 0000-0002-2525-0773
+    affiliation: "{{< meta affiliation-meta >}}"
+  - name: Karen Braun-Munzinger
+    affiliation: Deutsche Bundesbank
+  - name: Zijun Liu
+    affiliation: Hong Kong Monetary Authority
+categories: 
+  - agent-based modelling
+  - bond markets
+  - financial stability
+pub-info:
+  reference: >-
+    Braun-Munzinger, Karen, Z. Liu, and A. E. Turrell. "An agent-based model of corporate bond trading." <i>Quantitative Finance</i> 18, no. 4 (2018): 591-608. doi: <a href="https://doi.org/10.1080/14697688.2017.1380310"><code>10.1080/14697688.2017.1380310</code></a>
+  links:
+    - name: Preprint
+      url: braunmunzinger-liu-turrell.pdf
+      icon: fa-solid fa-file-pdf
+      local: true
+    - name: Journal link
+      url: https://doi.org/10.1080/14697688.2017.1380310
+      icon: fa-solid fa-scroll
+    # - name: Code
+    #   url: https://github.com/andrewheiss/who-cares-about-crackdown
+    #   icon: fa-brands fa-github
+    # - name: Data
+    #   url: "#data-and-code"
+    #   icon: fa-solid fa-table
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.1080/14697688.2017.1380310
+      icon: ai ai-zotero
+  extra: >-
+doi: 10.1080/14697688.2017.1380310
+image: agent-reactions.jpg
+alt: "Figure from paper"
+# haiku:
+#   - productivity
+#   - a great problem for GB
+#   - but data say not now
+bibliography: ../../my-papers.bib
+---
+
+<!-- ![](mismatch_img.png){fig-align="center" width=80%} -->
+
+<!-- ## Important links
+
+- [Working paper / preprint](LabourEconomics2021OccupationalMismatch.pdf)
+- [Published paper](https://doi.org/10.1016/j.labeco.2021.102013) -->
+
+## Abstract
+
+We construct an heterogeneous agent-based model of the corporate bond market and calibrate it against US data. The model includes the interactions between a market maker, three types of fund, and cash investors. In general, the sensitivity of the market maker to demand and the degree to which momentum traders are active strongly influence the over- and under-shooting of yields in response to shocks, while investor behaviour plays a comparatively smaller role. Using the model, we simulate experiments of relevance to two topical issues in this market. Firstly, we show that measures to reduce the speed with which investors can redeem investments can reduce the extent of yield dislocation. Secondly, we find the unexpected result that a larger fraction of funds using passive investment strategies increases the tail risk of large yield dislocations after shocks.
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1080/14697688.2017.1380310">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+```bibtex
+@article{braun2018agent,
+  title={An agent-based model of corporate bond trading},
+  author={Braun-Munzinger, Karen and Liu, Z and Turrell, AE},
+  journal={Quantitative Finance},
+  volume={18},
+  number={4},
+  pages={591--608},
+  year={2018},
+  publisher={Taylor \& Francis}
+}
+```

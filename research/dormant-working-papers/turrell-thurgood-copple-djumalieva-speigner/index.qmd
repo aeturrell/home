@@ -1,0 +1,57 @@
+---
+title: "Using online job vacancies to understand the UK labour market from the bottom-up"
+date: 2018-07-18
+author:
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: 0000-0002-2525-0773
+    affiliation: "{{< meta affiliation-meta >}}"
+  - name: James Thurgood
+    affiliation: Bank of England
+  - name: David Copple
+    affiliation: Bank of England
+  - name: Jyl Djumaliev
+    affiliation: Data Science Campus
+  - name: Bradley Speigner
+    affiliation: Bank of England
+categories:
+  - vacancies
+  - labour
+  - machine learning
+  - text analysis
+pub-info:
+  reference: >-
+    Turrell, Arthur, James Thurgood, David Copple, Jyldyz Djumalieva, and Bradley Speigner. "Using online job vacancies to understand the UK labour market from the bottom-up." <i>Bank of England Staff Working Papers</i> 742 (2018).
+  links:
+  - name: "Working Paper"
+    url: https://www.bankofengland.co.uk/working-paper/2018/using-online-job-vacancies-to-understand-the-uk-labour-market-from-the-bottom-up
+    icon: fa-solid fa-scroll
+    local: false
+  # extra: >-
+  #   Presented at the annual meetings of the Southern Political Science Association (SPSA), New Orleans, LA, January 2014; and the International Studies Association (ISA), Toronto, Canada, March 2014
+# doi: 10.48550/arXiv.2103.16977
+image: topicscropped.jpg
+alt: "Figure from paper"
+pub-status: 
+  status: Writing
+  class: warning
+  icon: fa-solid fa-pencil
+---
+
+
+## Abstract
+
+What type of disaggregation should be used to analyse heterogeneous labour markets? How granular should that disaggregation be? Economic theory does not currently tell us; perhaps data can. Analyses typically split labour markets according to top-down classification schema such as sector or occupation. But these may be slow-moving or inaccurate relative to the structure of the labour market as perceived by firms and workers. Using a dataset of 15 million job adverts posted online between 2008 and 2016, we create an empirically driven, ‘bottom-up’ segmentation of the labour market which cuts across wage, sector, and occupation. Our segmentation is based upon applying machine learning techniques to the demand expressed in the text of job descriptions. This segmentation automatically identifies traditional job roles but also surfaces sub-markets not apparent in current classifications. We show that the segmentation has explanatory power for offered wages. The methodology developed could be deployed to create data-driven taxonomies in conditions of rapidly changing labour markets and demonstrates the potential of unsupervised machine learning in economics.
+
+
+## Citation
+
+```bibtex
+@techreport{turrell2018using,
+      title={Using online job vacancies to understand the UK labour market from the bottom-up},
+      author={Arthur Turrell and James Thurgood and David Copple and Jyldyz Djumalieva and Bradley Speigner},
+      year={2018},
+      institution={Bank of England Staff Working Paper Series},
+      number={742},
+}
+```

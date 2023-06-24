@@ -1,0 +1,34 @@
+---
+title: "Get In Touch"
+pagetitle: "{{< meta website.title >}}"
+main-photo: "/files/profiles/PlasmaBulbMe.jpg"
+main-photo-square: "/files/profiles/PlasmaBulbMe.jpg"
+title-block-banner: "#f05e40"
+format:
+  html:
+    quarto-template-params:
+      banner-header-class: "home"
+---
+
+### General enquiries
+
+Please use the submission form below.
+
+```{=html}
+<p>
+    <form action="https://formspree.io/f/meqpwopj" method="POST">
+        <p><label> Your email: <input type="text" name="_replyto"> </label></p>
+        <p><label> Your message: <textarea name="message"></textarea></label></p>
+        <!-- your other form fields go here -->
+        <p><button type="submit">Submit</button></p>
+    </form>
+</p>
+```
+
+### Media and literary enquiries
+  
+
+{{< fa address-book >}}  [Northbank Talent Management](https://www.northbanktalent.com/),  
+{{< fa envelope >}}  [mail](mailto:info@northbanktalent.com),  
+{{< fa phone >}}  +44 (0)20 3973 0835
+

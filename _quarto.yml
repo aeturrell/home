@@ -1,0 +1,102 @@
+project:
+  type: website
+
+  preview: 
+    port: 5555
+    browser: true
+    watch-inputs: true
+    navigate: true
+
+  render:
+    - "*.qmd"
+    - "*.md"
+    - "!etc/"
+
+  resources:
+    - "files/**"
+    - "etc/**"
+
+
+freeze: true
+
+bibliography: files/bib/references.bib
+csl: files/bib/chicago-author-date.csl
+
+# Metadata stuff
+pagetitle: "{{< meta title >}} | Arthur Turrell"
+description-meta: "Arthur Turrell is an economic data scientist."
+author-meta: "Arthur Turrell"
+affiliation-meta: "Bank of England"
+orcid-meta: 0000-0002-2525-0773
+
+website:
+  title: "Arthur Turrell"
+  description: "{{< meta description-meta >}}"
+  favicon: "/files/apple-touch-icon-precomposed.ico"
+  site-url: "https://www.aeturrell.com/"
+  repo-url: "https://github.com/andrewheiss/ath-quarto"
+
+  google-analytics: "UA-527449-5"
+
+  twitter-card:
+    image: "/files/profiles/twitter-card-large.png"
+    description: "{{< meta description-meta >}}"
+    card-style: summary_large_image
+    creator: "@andrewheiss"
+    site: "@andrewheiss"
+
+  open-graph: 
+    image: "/files/profiles/twitter-card-large.png"
+    description: "{{< meta description-meta >}}"
+    locale: en_UK
+  
+  navbar:
+    pinned: true
+
+    left:
+      - text: "Home"
+        href: "index.qmd"
+      - text: "Research"
+        file: research/index.qmd
+      - text: "Media"
+        href: "media/index.qmd"
+      - text: "The Star Builders"
+        href: "thestarbuilders/thestarbuilders.qmd"
+      - text: "Blog"
+        file: blog/index.qmd
+      - text: "Teaching"
+        href: "teaching/index.qmd"
+      - text: "Code"
+        href: code/index.qmd
+      - text: "Setup"
+        file: uses/index.qmd
+    
+    right:
+      - icon: rss
+        aria-label: rss
+        href: atom.xml
+      - icon: envelope
+        aria-label: contact
+        text: " "
+        href: contact.qmd
+      - icon: twitter
+        aria-label: twitter
+        href: https://twitter.com/arthurturrell
+      - icon: github
+        aria-label: github
+        href: https://github.com/aeturrell
+      - icon: linkedin
+        aria-label: linkedin
+        href: https://www.linkedin.com/in/arthur-turrell-8b789891
+
+format:
+  html:
+    theme: 
+      - html/ath.scss
+    toc: false
+    code-link: true
+    anchor-sections: true
+    fig-cap-location: margin
+    reference-location: margin
+    footnotes-hover: true
+    highlight-style: monokai

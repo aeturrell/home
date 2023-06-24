@@ -1,0 +1,38 @@
+```{=html}
+<div class="media">
+    <% for (const media of items) { %>
+    <div class="media-entry">
+        <% if (media.video) { %>
+            <iframe height="200px" src= <%= media.video %> ></iframe>
+        <% } else { %>
+            <div class="thumbnail">
+                <img src="<%= media.image %>" alt="<%= media.alt %>"/>
+            </div>
+        <% } %>
+        <div class="body">
+            <p class="title"><%= media.title %></p>
+            <div class="date">          
+                <p class="date"><%= media.date %></p>
+            </div>
+            <p class="description"><%= media.description %></p>
+            <% if (media.links) { %>
+            <ul class="media-links">
+                <% for (const link of media.links) { %>
+                <li class="media-link">
+                    <% if (link.local) { %>
+                    <a href="<%- media.path.substring(0, media.path.lastIndexOf('/')) %>/<%- link.url %>">
+                    <% } else { %>
+                    <a href="<%- link.url %>">
+                    <% } %>
+                        <i class="<%- link.icon %>"></i> <%= link.name %>
+                    </a>
+                </li>
+                <% } %>
+            <% } %>
+            </ul>
+        </div>
+        
+    </div>
+    <% } %>
+</div>
+```

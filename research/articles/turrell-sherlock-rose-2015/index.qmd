@@ -1,0 +1,76 @@
+---
+title: "Self-consistent inclusion of classical large-angle Coulomb collisions in plasma Monte Carlo simulations"
+date: 2015-10-15
+author:
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: 0000-0002-2525-0773
+    affiliation: "{{< meta affiliation-meta >}}"
+  - name: Mark Sherlock
+    affiliation: Lawrence Livermore National Laboratory
+    orcid: 0000-0001-8098-5732
+  - name: Steven Rose
+    affiliation: Imperial College London
+categories: 
+  - plasma
+  - intertial confinement fusion
+  - large-angle collisions
+pub-info:
+  reference: >-
+    Turrell, Arthur E., Mark Sherlock, and Steven J. Rose. "Self-consistent inclusion of classical large-angle Coulomb collisions in plasma Monte Carlo simulations." <i>Journal of Computational Physics</i> 299 (2015): 144-155. doi: <a href="https://doi.org/10.1016/j.jcp.2015.06.034"><code>10.1016/j.jcp.2015.06.034</code></a>
+  links:
+    - name: Preprint
+      url: turrell-sherlock-rose-2015.pdf
+      icon: fa-solid fa-file-pdf
+      local: true
+    - name: Journal link
+      url: https://doi.org/10.1016/j.jcp.2015.06.034
+      icon: fa-solid fa-scroll
+    # - name: Code
+    #   url: https://github.com/andrewheiss/who-cares-about-crackdown
+    #   icon: fa-brands fa-github
+    # - name: Data
+    #   url: "#data-and-code"
+    #   icon: fa-solid fa-table
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.1016/j.jcp.2015.06.034
+      icon: ai ai-zotero
+  extra: >-
+doi: 10.1016/j.jcp.2015.06.034
+image: large-angle-vis.jpg
+alt: "Figure from paper"
+# haiku:
+#   - productivity
+#   - a great problem for GB
+#   - but data say not now
+bibliography: ../../my-papers.bib
+---
+
+<!-- ![](mismatch_img.png){fig-align="center" width=80%} -->
+
+<!-- ## Important links
+
+- [Working paper / preprint](LabourEconomics2021OccupationalMismatch.pdf)
+- [Published paper](https://doi.org/10.1016/j.labeco.2021.102013) -->
+
+## Abstract
+
+Large-angle Coulomb collisions allow for the exchange of a significant proportion of the energy of a particle in a single collision, but are not included in models of plasmas based on fluids, the Vlasov–Fokker–Planck equation, or currently available plasma Monte Carlo techniques. Their unique effects include the creation of fast ‘knock-on’ ions, which may be more likely to undergo certain reactions, and distortions to ion distribution functions relative to what is predicted by small-angle collision only theories. We present a computational method which uses Monte Carlo techniques to include the effects of large-angle Coulomb collisions in plasmas and which self-consistently evolves distribution functions according to the creation of knock-on ions of any generation. The method is used to demonstrate ion distribution function distortions in an inertial confinement fusion (ICF) relevant scenario of the slowing of fusion products.
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1016/j.jcp.2015.06.034">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+```bibtex
+@article{turrell2015self,
+  title={Self-consistent inclusion of classical large-angle Coulomb collisions in plasma Monte Carlo simulations},
+  author={Turrell, Arthur E and Sherlock, Mark and Rose, Steven J},
+  journal={Journal of Computational Physics},
+  volume={299},
+  pages={144--155},
+  year={2015},
+  publisher={Elsevier}
+}
+```

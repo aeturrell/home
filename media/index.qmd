@@ -1,0 +1,40 @@
+---
+title: "Media"
+listing:
+  - id: economics
+    contents: economics.yml
+    sort: "date desc"
+    template: ../html/media/listing.ejs
+  - id: datascience
+    contents: datascience.yml
+    sort: "date desc"
+    template: ../html/media/listing.ejs
+  - id: fusion
+    contents: fusion.yml
+    sort: "date desc"
+    template: ../html/media/listing.ejs
+title-block-banner: "#FB9E07"
+page-layout: full
+toc: true
+toc-location: right
+toc-title: Topic
+date-format: "D MMMM YYYY"
+---
+
+
+This page contains links and embedded media for public talks, interviews, and television appearances that I've done. You can also find links to some of my writing here.
+
+## Data Science
+
+:::{#datascience}
+:::
+
+## Economics
+
+:::{#economics}
+:::
+
+## Fusion and Physics
+
+:::{#fusion}
+:::

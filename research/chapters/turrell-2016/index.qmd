@@ -1,0 +1,47 @@
+---
+title: "Agent-based models: understanding the economy from the bottom up"
+date: 2016-12-16
+author:
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: "{{< meta orcid-meta >}}"
+    affiliation: "{{< meta affiliation-meta >}}"
+categories:
+    - agent-based modelling
+    - macroeconomics
+    - modelling
+pub-info:
+  reference: >-
+    Turrell, Arthur. "Agent-based models: understanding the economy from the bottom up" In <i>Quarterly Bulletin</i>, Q4. Bank of England, 2016.
+  links:
+  - name: Book chapter
+    url: https://www.bankofengland.co.uk/quarterly-bulletin/2016/q4/agent-based-models-understanding-the-economy-from-the-bottom-up
+    icon: fa-solid fa-book
+image: abmv2.png
+alt: "Figure from paper"
+# haiku:
+#   - Governments threatened—
+#   - NGO regulations
+#   - shift funding; missions.
+---
+
+## Important links
+
+- [Chapter](https://www.bankofengland.co.uk/quarterly-bulletin/2016/q4/agent-based-models-understanding-the-economy-from-the-bottom-up)
+
+## Abstract
+
+This article considers the strengths of agent-based modelling, which explains the behaviour of a system by simulating the behaviour of each individual ‘agent’ in it, and the ways that it can be used to help central banks understand the economy.
+
+## Citation
+
+```bibtex
+@incollection{turrell_qb_2016,
+  title={Agent-based models: understanding the economy from the bottom up},
+  author={Turrell, Arthur},
+  booktitle={Quarterly Bulletin},
+  pages={Q4},
+  year={2016},
+  publisher={Bank of England}
+}
+```

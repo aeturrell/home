@@ -1,0 +1,77 @@
+---
+title: "Ultrafast collisional ion heating by electrostatic shocks"
+date: 2015-11-13
+author:
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: 0000-0002-2525-0773
+    affiliation: "{{< meta affiliation-meta >}}"
+  - name: Mark Sherlock
+    affiliation: Lawrence Livermore National Laboratory
+    orcid: 0000-0001-8098-5732
+  - name: Steven Rose
+    affiliation: Imperial College London
+categories: 
+  - plasma
+  - high power lasers
+  - heating
+pub-info:
+  reference: >-
+    Turrell, A. E., M. Sherlock, and S. J. Rose. "Ultrafast collisional ion heating by electrostatic shocks." <i>Nature Communications</i> 6, no. 1 (2015): 8905. doi: <a href="https://doi.org/10.1038/ncomms9905"><code>10.1038/ncomms9905</code></a>
+  links:
+    - name: Preprint
+      url: turrell_2015_ultrafast.pdf
+      icon: fa-solid fa-file-pdf
+      local: true
+    - name: Journal link
+      url: https://doi.org/10.1038/ncomms9905
+      icon: fa-solid fa-scroll
+    # - name: Code
+    #   url: https://github.com/andrewheiss/who-cares-about-crackdown
+    #   icon: fa-brands fa-github
+    # - name: Data
+    #   url: "#data-and-code"
+    #   icon: fa-solid fa-table
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.1038/ncomms9905
+      icon: ai ai-zotero
+  extra: >-
+doi: 10.1038/ncomms9905
+image: phase-space-ultrafast.jpg
+alt: "Carbon ion phase space"
+# haiku:
+#   - productivity
+#   - a great problem for GB
+#   - but data say not now
+bibliography: ../../my-papers.bib
+---
+
+<!-- ![](mismatch_img.png){fig-align="center" width=80%} -->
+
+<!-- ## Important links
+
+- [Working paper / preprint](LabourEconomics2021OccupationalMismatch.pdf)
+- [Published paper](https://doi.org/10.1016/j.labeco.2021.102013) -->
+
+## Abstract
+
+High-intensity lasers can be used to generate shockwaves, which have found applications in nuclear fusion, proton imaging, cancer therapies and materials science. Collisionless electrostatic shocks are one type of shockwave widely studied for applications involving ion acceleration. Here we show a novel mechanism for collisionless electrostatic shocks to heat small amounts of solid density matter to temperatures of ∼keV in tens of femtoseconds. Unusually, electrons play no direct role in the heating and it is the ions that determine the heating rate. Ions are heated due to an interplay between the electric field of the shock, the local density increase during the passage of the shock and collisions between different species of ion. In simulations, these factors combine to produce rapid, localized heating of the lighter ion species. Although the heated volume is modest, this would be one of the fastest heating mechanisms discovered if demonstrated in the laboratory.
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1038/ncomms9905">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+```bibtex
+@article{turrell2015ultrafast,
+  title={Ultrafast collisional ion heating by electrostatic shocks},
+  author={Turrell, AE and Sherlock, M and Rose, SJ},
+  journal={Nature communications},
+  volume={6},
+  number={1},
+  pages={8905},
+  year={2015},
+  publisher={Nature Publishing Group UK London}
+}
+```

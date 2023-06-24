@@ -1,0 +1,82 @@
+---
+title: "Is the UK’s productivity puzzle mostly driven by occupational mismatch? An analysis using big data on job vacancies"
+date: 2021-08-01
+author:
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: 0000-0002-2525-0773
+    affiliation: "{{< meta affiliation-meta >}}"
+  - name: Bradley Speigner
+    affiliation: Bank of England
+  - name: David Copple
+    affiliation: Bank of England
+  - name: Jyl Djumaliev
+    affiliation: Data Science Campus
+  - name: James Thurgood
+    affiliation: Bank of England
+categories: 
+  - labour
+  - vacancies
+  - big data
+  - productivity
+  - text analysis
+pub-info:
+  reference: >-
+    Turrell, A., Speigner, B., Copple, D., Djumalieva, J. and Thurgood, J., 2021. Is the UK’s productivity puzzle mostly driven by occupational mismatch? An analysis using big data on job vacancies. <i>Labour Economics</i>, 71, p.102013. doi: <a href="https://doi.org/10.1016/j.labeco.2021.102013"><code>10.1016/j.labeco.2021.102013</code></a>
+    
+  links:
+    - name: Working Paper
+      url: LabourEconomics2021OccupationalMismatch.pdf
+      icon: fa-solid fa-file-pdf
+      local: true
+    - name: Published paper
+      url: https://doi.org/10.1016/j.labeco.2021.102013
+      icon: fa-solid fa-scroll
+    # - name: Code
+    #   url: https://github.com/andrewheiss/who-cares-about-crackdown
+    #   icon: fa-brands fa-github
+    # - name: Data
+    #   url: "#data-and-code"
+    #   icon: fa-solid fa-table
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.1016/j.labeco.2021.102013
+      icon: ai ai-zotero
+  extra: >-
+doi: 10.1016/j.labeco.2021.102013
+image: mismatch_img.png
+alt: "Figure from paper"
+# haiku:
+#   - productivity
+#   - a great problem for GB
+#   - but data say not now
+bibliography: ../../my-papers.bib
+---
+
+<!-- ![](mismatch_img.png){fig-align="center" width=80%} -->
+
+<!-- ## Important links
+
+- [Working paper / preprint](LabourEconomics2021OccupationalMismatch.pdf)
+- [Published paper](https://doi.org/10.1016/j.labeco.2021.102013) -->
+
+## Abstract
+
+Uncertainty still remains as to the cause of the UK's dramatic productivity puzzle that began during the Great Financial Crisis. Occupational mismatch has been implicated as driving up to two thirds of it. However, obtaining the high quality time series data for vacancies by job occupation that are required to measure occupational mismatch is a significant challenge. We confront this issue by using a weighted dataset of 15 million job adverts posted online that cover most of the post-crisis period and that enable us to test whether occupational mismatch still stands up as an explanation for the UK productivity puzzle. We find little evidence that it does, mainly because, relative to the data used in similar analysis by Patterson et al. (2016), our vacancy data imply greater heterogeneity in occupational matching frictions, a key determinant of the optimal distribution of labour across job types.
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1016/j.labeco.2021.102013">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+```bibtex
+@article{turrell2021uk,
+  title={Is the UK’s productivity puzzle mostly driven by occupational mismatch? An analysis using big data on job vacancies},
+  author={Turrell, Arthur and Speigner, Bradley and Copple, David and Djumalieva, Jyldyz and Thurgood, James},
+  journal={Labour Economics},
+  volume={71},
+  pages={102013},
+  year={2021},
+  publisher={Elsevier}
+}
+```

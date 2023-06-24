@@ -1,0 +1,77 @@
+---
+title: "A Monte Carlo algorithm for degenerate plasmas"
+date: 2013-09-15
+author:
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: 0000-0002-2525-0773
+    affiliation: "{{< meta affiliation-meta >}}"
+  - name: Mark Sherlock
+    affiliation: Lawrence Livermore National Laboratory
+    orcid: 0000-0001-8098-5732
+  - name: Steven Rose
+    affiliation: Imperial College London
+categories: 
+  - plasma
+  - intertial confinement fusion
+  - Monte Carlo
+pub-info:
+  reference: >-
+    Turrell, Arthur E., Mark Sherlock, and Steven J. Rose. "A Monte Carlo algorithm for degenerate plasmas." <i>Journal of Computational Physics</i> 249 (2013): 13-21. doi: <a href="https://doi.org/10.1016/j.jcp.2013.03.052"><code>10.1016/j.jcp.2013.03.052</code></a>
+    
+  links:
+    - name: Published paper
+      url: turrell_monte_2013.pdf
+      icon: fa-solid fa-file-pdf
+      local: true
+    - name: Journal link
+      url: https://doi.org/10.1016/j.jcp.2013.03.052
+      icon: fa-solid fa-scroll
+    # - name: Code
+    #   url: https://github.com/andrewheiss/who-cares-about-crackdown
+    #   icon: fa-brands fa-github
+    # - name: Data
+    #   url: "#data-and-code"
+    #   icon: fa-solid fa-table
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.1016/j.jcp.2013.03.052
+      icon: ai ai-zotero
+  extra: >-
+doi: 10.1016/j.jcp.2013.03.052
+image: monte-carlo-sim.jpg
+alt: "Figure from paper"
+# haiku:
+#   - productivity
+#   - a great problem for GB
+#   - but data say not now
+bibliography: ../../my-papers.bib
+---
+
+<!-- ![](mismatch_img.png){fig-align="center" width=80%} -->
+
+<!-- ## Important links
+
+- [Working paper / preprint](LabourEconomics2021OccupationalMismatch.pdf)
+- [Published paper](https://doi.org/10.1016/j.labeco.2021.102013) -->
+
+## Abstract
+
+A procedure for performing Monte Carlo calculations of plasmas with an arbitrary level of degeneracy is outlined. It has possible applications in inertial confinement fusion and astrophysics. Degenerate particles are initialised according to the Fermi–Dirac distribution function, and scattering is via a Pauli blocked binary collision approximation. The algorithm is tested against degenerate electron–ion equilibration, and the degenerate resistivity transport coefficient from unmagnetised first order transport theory. The code is applied to the cold fuel shell and alpha particle equilibration problem of inertial confinement fusion.
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1016/j.jcp.2013.03.052">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+```bibtex
+@article{turrell2013monte,
+  title={A Monte Carlo algorithm for degenerate plasmas},
+  author={Turrell, Arthur E and Sherlock, Mark and Rose, Steven J},
+  journal={Journal of Computational Physics},
+  volume={249},
+  pages={13--21},
+  year={2013},
+  publisher={Elsevier}
+}
+```

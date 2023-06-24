@@ -1,0 +1,22 @@
+- title: "Recording from a panel on Big Data from the Bristol Economics Festival"
+  date: 2022-11-16
+  description: "I took part in a panel discussion on 'big data' at the Bristol Economics Festival (audio only). The panel was chaired by James Fransham (The Economist) and consisted of: data artist Tiziana Alocci; Dénes Csala (Economics Observatory); and Anna Powell-Smith, (director of the Centre for Public Data)."
+  video: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1385792623&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true
+
+- title: "The Wonders of Data Science, Bristol Data & AI Showcase"
+  date: 2022-07-06
+  description: "A talk I gave on some of the amazing wonders that data science has and is bringing the world. Given at the 2022 Bristol Data & AI Showcase, hosted by the Jean Golding Institute."
+  video: "https://www.youtube.com/embed/5tpdr_4XSTA"
+
+- title: "How the pandemic accelerated use of anonymised location data from mobile phones (Business Matters)"
+  date: 2022-06-30
+  description: "An opinion piece in Business Matters magazine on how the Office for National Statistics' Data Science Campus began using anonymised mobile phone data for analysis during the pandemic."
+  image: mobile_phone_fig.png
+  links:
+  - name: Link
+    url: https://bmmagazine.co.uk/opinion/how-the-pandemic-accelerated-use-of-anonymised-location-data-from-mobile-phones/
+
+- title: "Webinar on natural language processing"
+  date: 2020-09-25
+  description: "A webinar discussing the application of natural language processing to economics and finance hosted by Dow Jones."
+  video: "https://www.youtube.com/embed/6FCNVdHeSis"

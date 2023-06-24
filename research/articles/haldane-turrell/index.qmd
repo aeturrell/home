@@ -1,0 +1,76 @@
+---
+title: "An interdisciplinary model for macroeconomics"
+date: 2018-01-05
+author:
+  - name: Andy Haldane
+    affiliation: Bank of England
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: 0000-0002-2525-0773
+    affiliation: "{{< meta affiliation-meta >}}"
+categories: 
+  - macroeconomics
+  - agent-based modelling
+  - heterodox
+pub-info:
+  reference: >-
+    Haldane, Andrew G., and Arthur E. Turrell. "An interdisciplinary model for macroeconomics." <i>Oxford Review of Economic Policy</i> 34, no. 1-2 (2018): 219-251. doi: <a href="https://doi.org/10.1093/oxrep/grx051"><code>10.1093/oxrep/grx051</code></a>
+    
+  links:
+    - name: Working Paper
+      url: https://www.bankofengland.co.uk/working-paper/2017/an-interdisciplinary-model-for-macroeconomics
+      icon: fa-solid fa-file-pdf
+      local: false
+    - name: Published paper
+      url: https://doi.org/10.1093/oxrep/grx051
+      icon: fa-solid fa-scroll
+    # - name: Code
+    #   url: https://github.com/andrewheiss/who-cares-about-crackdown
+    #   icon: fa-brands fa-github
+    # - name: Data
+    #   url: "#data-and-code"
+    #   icon: fa-solid fa-table
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.1093/oxrep/grx051
+      icon: ai ai-zotero
+  extra: >-
+doi: 10.1093/oxrep/grx051
+image: interdis-macro-citations.jpg
+alt: "Figure from paper"
+# haiku:
+#   - productivity
+#   - a great problem for GB
+#   - but data say not now
+bibliography: ../../my-papers.bib
+---
+
+<!-- ![](mismatch_img.png){fig-align="center" width=80%} -->
+
+<!-- ## Important links
+
+- [Working paper / preprint](LabourEconomics2021OccupationalMismatch.pdf)
+- [Published paper](https://doi.org/10.1016/j.labeco.2021.102013) -->
+
+## Abstract
+
+Macroeconomic modelling has been under intense scrutiny since the Great Financial Crisis, when serious shortcomings were exposed in the methodology used to understand the economy as a whole. Criticism has been levelled at the assumptions employed in the dominant models, particularly that economic agents are homogeneous and optimizing and that the economy is equilibrating. This paper seeks to explore an interdisciplinary approach to macroeconomic modelling, with techniques drawn from other (natural and social) sciences. Specifically, it discusses agent-based modelling, which is used across a wide range of disciplines, as an example of such a technique. Agent-based models are complementary to existing approaches and are suited to answering macroeconomic questions where complexity, heterogeneity, networks, and heuristics play an important role.
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1093/oxrep/grx051">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+
+```bibtex
+@article{haldane2018interdisciplinary,
+  title={An interdisciplinary model for macroeconomics},
+  author={Haldane, Andrew G and Turrell, Arthur E},
+  journal={Oxford Review of Economic Policy},
+  volume={34},
+  number={1-2},
+  pages={219--251},
+  year={2018},
+  publisher={Oxford University Press UK}
+}
+```

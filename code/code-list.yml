@@ -1,0 +1,69 @@
+- title: Skimpy
+  description: "skimpy is a light weight tool that provides summary statistics about variables in data frames within the console or your interactive Python window. Think of it as a super-charged version of df.describe()."
+  university: Mature
+  language: Python
+  url: https://aeturrell.github.io/skimpy/
+  logo: https://github.com/aeturrell/skimpy/blob/main/docs/logo.png?raw=true
+  semester:
+  - name: Github
+    url: https://github.com/aeturrell/skimpy
+  - name: PyPI
+    url: https://pypi.org/project/skimpy/
+
+- title: Specification Curve
+  description: 'Specification Curve is a Python package that performs specification curve analysis; it helps with the problem of the “garden of forking paths” (many defensible choices) when doing analysis by running many regressions and summarising the effects in an easy to digest chart.'
+  university: Developing
+  language: Python
+  url: https://aeturrell.github.io/specification_curve
+  logo: https://aeturrell.github.io/specification_curve/_images/features_10_1.svg
+  semester:
+  - name: Github
+    url: https://github.com/aeturrell/specification_curve
+  - name: PyPI
+    url: https://pypi.org/project/specification-curve/
+
+- title: Occupationcoder
+  description: "Given a job title and job description, provides an algorithm to assign a UK standard occupational classification (SOC) code to the job."
+  university: Mature
+  language: Python
+  url: https://github.com/aeturrell/occupationcoder
+  logo: logos/occupationcoder.png
+  semester:
+  - name: Code (latest)
+    url: https://github.com/aeturrell/occupationcoder
+  - name: Code (2019 version at Bank of England)
+    url: https://github.com/bank-of-england/occupationcoder
+
+- title: cookie-cutter-quarto-book-manuscript
+  description: "A minimal but fully featured template to use quarto and markdown to write a book manuscript."
+  university: Mature
+  language: Quarto/markdown
+  url: https://github.com/aeturrell/cookie-cutter-quarto-book-manuscript
+  logo: logos/cookie-quarto-ms.png
+  semester:
+  - name: Github
+    url: https://github.com/aeturrell/cookie-cutter-quarto-book-manuscript
+
+
+- title: cookie-cutter-latex-book-manuscript
+  description: "A simple book manuscript template designed for writing in LaTeX to export to Microsoft Word via pandoc. For most projects, you're likely to be better off with the cookie-cutter-quarto-book-manuscript instead."
+  university: Mature
+  language: LaTeX
+  url: https://github.com/aeturrell/cookie-cutter-latex-book-manuscript
+  logo: logos/cookie-latex-ms.png
+  semester:
+  - name: Github
+    url: https://github.com/aeturrell/cookie-cutter-latex-book-manuscript
+
+
+- title: "LOST: the library of statistical techniques"
+  description: "I am a contributor to LOST, a publicly-editable website with the goal of making it easy to execute statistical techniques in statistical software."
+  university: Mature
+  language: Python/R/Stata/Julia
+  url: https://lost-stats.github.io/
+  logo: logos/lost.png
+  semester:
+  - name: Homepage
+    url: https://lost-stats.github.io/
+  - name: Github
+    url: https://github.com/LOST-STATS/lost-stats.github.io

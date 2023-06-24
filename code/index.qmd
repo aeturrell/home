@@ -1,0 +1,20 @@
+---
+title: "Code"
+description-meta: Open source software projects
+listing:
+  - id: code-list
+    contents: code-list.yml
+    sort: "date desc"
+    template: ../html/code/listing.ejs
+title-block-banner: "#771C6D"
+page-layout: full
+# toc: true
+# toc-location: right
+# toc-title: Academic year
+---
+
+
+:::{#code-list}
+:::
+
+

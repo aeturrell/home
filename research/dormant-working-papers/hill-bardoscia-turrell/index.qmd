@@ -1,0 +1,74 @@
+---
+title: "Solving Heterogeneous General Equilibrium Economic Models with Deep Reinforcement Learning"
+date: 2021-03-31
+author:
+  - name: Ed Hill
+    affiliation: Bank of England
+  - name: Marco Bardoscia
+    url: https://www.bankofengland.co.uk/research/researchers/marco-bardoscia
+    orcid: 0000-0003-0945-3543
+    affiliation: Bank of England
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: 0000-0002-2525-0773
+    affiliation: "{{< meta affiliation-meta >}}"
+categories:
+  - reinforcement learning
+  - epidemiology
+  - macroeconomics
+  - agent-based modelling
+  - COVID-19
+pub-info:
+  reference: >-
+    Hill, Edward, Marco Bardoscia, and Arthur Turrell. "Solving heterogeneous general equilibrium economic models with deep reinforcement learning." <i>arXiv</i> arXiv:2103.16977 (2021).
+  links:
+  - name: Working Paper
+    url: https://doi.org/10.48550/arXiv.2103.16977
+    icon: fa-solid fa-scroll
+    local: false
+  # - name: Published paper
+  #   url: https://doi.org/10.1016/j.labeco.2021.102013
+  #   icon: fa-solid fa-scroll
+  # - name: Code
+  #   url: https://github.com/andrewheiss/who-cares-about-crackdown
+  #   icon: fa-brands fa-github
+  # - name: Data
+  #   url: "#data-and-code"
+  #   icon: fa-solid fa-table
+  - name: Add to Zotero
+    url: https://www.zotero.org/save?type=doi&q=10.48550/arXiv.2103.16977
+    icon: ai ai-zotero
+  # extra: >-
+  #   Presented at the annual meetings of the Southern Political Science Association (SPSA), New Orleans, LA, January 2014; and the International Studies Association (ISA), Toronto, Canada, March 2014
+doi: 10.48550/arXiv.2103.16977
+image: epimacro_investment.png
+alt: "Figure from paper"
+pub-status: 
+  status: Writing
+  class: warning
+  icon: fa-solid fa-pencil
+---
+
+
+## Abstract
+
+General equilibrium macroeconomic models are a core tool used by policymakers to understand a nation's economy. They represent the economy as a collection of forward-looking actors whose behaviours combine, possibly with stochastic effects, to determine global variables (such as prices) in a dynamic equilibrium. However, standard semi-analytical techniques for solving these models make it difficult to include the important effects of heterogeneous economic actors. The COVID-19 pandemic has further highlighted the importance of heterogeneity, for example in age and sector of employment, in macroeconomic outcomes and the need for models that can more easily incorporate it. We use techniques from reinforcement learning to solve such models incorporating heterogeneous agents in a way that is simple, extensible, and computationally efficient. We demonstrate the method's accuracy and stability on a toy problem for which there is a known analytical solution, its versatility by solving a general equilibrium problem that includes global stochasticity, and its flexibility by solving a combined macroeconomic and epidemiological model to explore the economic and health implications of a pandemic. The latter successfully captures plausible economic behaviours induced by differential health risks by age.
+
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.48550/arXiv.2103.16977">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+
+```bibtex
+@misc{hill2021solving,
+      title={Solving Heterogeneous General Equilibrium Economic Models with Deep Reinforcement Learning}, 
+      author={Edward Hill and Marco Bardoscia and Arthur Turrell},
+      year={2021},
+      eprint={2103.16977},
+      archivePrefix={arXiv},
+      primaryClass={econ.GN}
+}
+```

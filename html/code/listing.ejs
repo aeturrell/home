@@ -1,0 +1,42 @@
+```{=html}
+<div class="code">
+    <% for (const package of items) { %>
+    <div class="package-entry">
+        <div class="logo">
+            <% if (package.url) { %>
+            <a href="<%= package.url %>" target="_blank"><img src="<%= package.logo %>" alt="<%= package.title %>" title="<%= package.title %>" /></a>
+            <% } else { %>
+            <img src="<%= package.logo %>" alt="<%= package.title %>" title="<%= package.title %>" />
+            <% } %>
+        </div>
+        <div class="body">
+            <p class="package-title">
+                <% if (package.url) { %>
+                <a href="<%= package.url %>" target="_blank"><%= package.title %></a> 
+                <% } else { %>
+                <%= package.title %> 
+                <% } %>
+            </p>
+            <p class="package-details">
+                <span class="package-language"><%= package.language %></span> | 
+                <span class="package-university"><%= package.university %></span>
+                <% if (package.role) { %>
+                | <span class="package-role"><%= package.role %></span>
+                <% } %>
+            </p>
+            <p class="package-description"><%= package.description %></p>
+
+            <ul class="package-semesters">
+                <% for (const semester of package.semester) { %>
+                <% if (semester.url) { %>
+                <li><a href="<%= semester.url %>"><i class="fa-solid fa-building-columns"></i> <%= semester.name %></a></li>
+                <% } else { %> 
+                <li class="no-link"><i class="fa-solid fa-building-columns"></i> <%= semester.name %></li>
+                <% } %>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+    <% } %>
+</div>
+```

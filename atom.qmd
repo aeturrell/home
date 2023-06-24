@@ -1,0 +1,9 @@
+---
+title: "Markov Wanderer"
+search: false
+listing:
+  feed: true
+  contents:
+    - "blog/**/*.qmd"
+    - "blog/**/*.md"
+---

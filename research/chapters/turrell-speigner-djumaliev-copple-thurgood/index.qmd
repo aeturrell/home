@@ -1,0 +1,66 @@
+---
+title: "Transforming Naturally Occurring Text Data into Economic Statistics"
+date: 2022-01-01
+author:
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: "{{< meta orcid-meta >}}"
+    affiliation: "{{< meta affiliation-meta >}}"
+  - name: Bradley Speigner
+    affiliation: Bank of England
+  - name: David Copple
+    affiliation: Bank of England
+  - name: Jyl Djumaliev
+    affiliation: Data Science Campus
+categories:
+    - text analysis
+    - labour
+    - economic statistics
+    - vacancies
+pub-info:
+  reference: >-
+    Turrell, Arthur, Bradley Speigner, Jyldyz Djumalieva, David Copple, and James Thurgood. "6. Transforming Naturally Occurring Text Data into Economic Statistics." In <i>Big Data for Twenty-First-Century Economic Statistics</i>, pp. 173-208. University of Chicago Press, 2022. doi: <a href="https://doi.org/10.7208/chicago/9780226801391-008"><code>10.7208/chicago/9780226801391-008</code></a>
+  links:
+  - name: Book chapter
+    url: https://doi.org/10.7208/chicago/9780226801391-008
+    icon: fa-solid fa-book
+  - name: Preprint (NBER working paper)
+    url: https://www.nber.org/papers/w25837
+    local: false
+    icon: fa-solid fa-file-pdf
+  - name: Add to Zotero
+    url: https://www.zotero.org/save?type=isbn&q=9780817321147
+    icon: ai ai-zotero
+doi: 10.7208/chicago/9780226801391-008
+image: UKtightness.jpg
+alt: "Figure from paper"
+# haiku:
+#   - Governments threatened—
+#   - NGO regulations
+#   - shift funding; missions.
+---
+
+## Important links
+
+- [NBER working paper / preprint](https://doi.org/10.3386/w25837)
+
+## Abstract
+
+Using a dataset of 15 million UK job adverts from a recruitment website, we construct new economic statistics measuring labour market demand. These data are ‘naturally occurring’, having originally been posted online by firms. They offer information on two dimensions of vacancies—region and occupation—that firm-based surveys do not usually, and cannot easily, collect. These data do not come with official classification labels so we develop an algorithm which maps the free form text of job descriptions into standard occupational classification codes. The created vacancy statistics give a plausible, granular picture of UK labour demand and permit the analysis of Beveridge curves and mismatch unemployment at the occupational level.
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=isbn&q=9780817321147">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+```bibtex
+@incollection{turrell20226,
+  title={6. Transforming Naturally Occurring Text Data into Economic Statistics},
+  author={Turrell, Arthur and Speigner, Bradley and Djumalieva, Jyldyz and Copple, David and Thurgood, James},
+  booktitle={Big Data for Twenty-First-Century Economic Statistics},
+  pages={173--208},
+  year={2022},
+  publisher={University of Chicago Press}
+}
+```

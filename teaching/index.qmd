@@ -1,0 +1,20 @@
+---
+title: "Teaching"
+title-block-banner: "#EE6A24"
+page-layout: full
+---
+
+![](smith_lovelace.png){fig-alt="Adam Smith and Ada Lovelace share the frame." fig-align="center" width=50%}
+
+## [Coding For Economists](https://aeturrell.github.io/coding-for-economists/)
+
+This online, free book book aims to give you the skills you need to code for economics, while also giving you bits and pieces of information about programming more generally that might be useful to you. It's suitable for complete beginners who have never written any code before. Some of the later chapters are suitable for people who have coded before too. And, really, it covers a lot content that's useful not just to economists, but anyone who wants to learn some data science.
+
+<br>
+<br>
+
+![](python4ds.png){fig-alt="The Python for Data Science logo, created in Python!" fig-align="center" width=50%}
+
+## [Python for Data Science (Python4DS)](https://aeturrell.github.io/python4DS/)
+
+Python for Data Science will teach you how to load up, transform, visualise, and begin to understand your data. The book aims to give you the skills you need to code for data science. It's suitable for people who have some familiarity with the ideas behind programming and coding but who don't yet know how to do data science.

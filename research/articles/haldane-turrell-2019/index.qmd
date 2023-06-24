@@ -1,0 +1,71 @@
+---
+title: "Drawing on different disciplines: macroeconomic agent-based models"
+date: 2019-03-02
+author:
+  - name: Andy Haldane
+    affiliation: Bank of England
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: 0000-0002-2525-0773
+    affiliation: "{{< meta affiliation-meta >}}"
+categories: 
+  - macroeconomics
+  - agent-based modelling
+  - heterodox
+pub-info:
+  reference: >-
+    Haldane, Andrew G., and Arthur E. Turrell. "Drawing on different disciplines: macroeconomic agent-based models." <i>Journal of Evolutionary Economics</i> 29 (2019): 39-66. doi: <a href="https://doi.org/10.1007/s00191-018-0557-5"><code>10.1007/s00191-018-0557-5</code></a>
+    
+  links:
+    - name: Preprint
+      url: haldane-turrell-2019.pdf
+      icon: fa-solid fa-file-pdf
+      local: true
+    - name: Published paper
+      url: https://doi.org/10.1007/s00191-018-0557-5
+      icon: fa-solid fa-scroll
+    # - name: Code
+    #   url: https://github.com/andrewheiss/who-cares-about-crackdown
+    #   icon: fa-brands fa-github
+    # - name: Data
+    #   url: "#data-and-code"
+    #   icon: fa-solid fa-table
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.1007/s00191-018-0557-5
+      icon: ai ai-zotero
+  extra: >-
+doi: 10.1007/s00191-018-0557-5
+image: gdp-non-gauss.png
+alt: "Figure from paper"
+bibliography: ../../my-papers.bib
+---
+
+<!-- ![](mismatch_img.png){fig-align="center" width=80%} -->
+
+<!-- ## Important links
+
+- [Working paper / preprint](LabourEconomics2021OccupationalMismatch.pdf)
+- [Published paper](https://doi.org/10.1016/j.labeco.2021.102013) -->
+
+## Abstract
+
+Macroeconomic modelling has been under intense scrutiny since the Great Financial Crisis, when serious shortcomings were exposed in the methodology used to understand the economy as a whole. Criticism has been levelled at the assumptions employed in the dominant models, particularly that economic agents are homogenous and optimising and that the economy is equilibrating. In a related paper (Haldane and Turrell Oxford Rev Econ Polic 34(1–2):219–251 2018), we argue that an interdisciplinary approach to modelling in macroeconomics is beneficial. Here we focus on what one such approach - agent-based modelling, which has been extensively used across a wide range of disciplines - could do for macroeconomics. Agent-based models are complementary to existing approaches to macroeconomics and are particularly well-suited to answering questions where complexity, heterogeneity, networks, and heuristics play an important role.
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1007/s00191-018-0557-5">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+
+```bibtex
+@article{haldane2019drawing,
+  title={Drawing on different disciplines: macroeconomic agent-based models},
+  author={Haldane, Andrew G and Turrell, Arthur E},
+  journal={Journal of Evolutionary Economics},
+  volume={29},
+  pages={39--66},
+  year={2019},
+  publisher={Springer}
+}
+```

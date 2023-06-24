@@ -1,0 +1,81 @@
+---
+title: "Making text count: Economic forecasting using newspaper text"
+date: 2022-05-11
+author:
+  - name: Eleni Kalamara
+    affiliation: King's College London
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: 0000-0002-2525-0773
+    affiliation: "{{< meta affiliation-meta >}}"
+  - name: Chris Redl
+    affiliation: International Monetary Fund
+  - name: George Kapetanios
+    affiliation: King's College London
+  - name: Sujit Kapadia
+    affiliation: European Central Bank
+categories: 
+  - text analysis
+  - forecasting
+  - macroeconomics
+  - machine learning
+pub-info:
+  reference: >-
+    Kalamara, Eleni, Arthur Turrell, Chris Redl, George Kapetanios, and Sujit Kapadia. "Making text count: economic forecasting using newspaper text." <i>Journal of Applied Econometrics</i> 37, no. 5 (2022): 896-919. doi: <a href="https://doi.org/10.1002/jae.2907"><code>10.1002/jae.2907</code></a>
+  links:
+    - name: Preprint
+      url: kalamara-turrell-redl-kapetanios-kapadia.pdf
+      icon: fa-solid fa-file-pdf
+      local: true
+    - name: Journal link
+      url: https://doi.org/10.1002/jae.2907
+      icon: fa-solid fa-scroll
+    # - name: Code
+    #   url: https://github.com/andrewheiss/who-cares-about-crackdown
+    #   icon: fa-brands fa-github
+    # - name: Data
+    #   url: "#data-and-code"
+    #   icon: fa-solid fa-table
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.1002/jae.2907
+      icon: ai ai-zotero
+  extra: >-
+doi: 10.1002/jae.2907
+image: textcounts.png
+alt: "Figure from paper"
+# haiku:
+#   - productivity
+#   - a great problem for GB
+#   - but data say not now
+bibliography: ../../my-papers.bib
+---
+
+<!-- ![](mismatch_img.png){fig-align="center" width=80%} -->
+
+<!-- ## Important links
+
+- [Working paper / preprint](LabourEconomics2021OccupationalMismatch.pdf)
+- [Published paper](https://doi.org/10.1016/j.labeco.2021.102013) -->
+
+## Abstract
+
+This paper examines several ways to extract timely economic signals from newspaper text and shows that such information can materially improve forecasts of macroeconomic variables including GDP, inflation and unemployment. Our text is drawn from three popular UK newspapers that collectively represent UK newspaper readership in terms of political perspective and editorial style. Exploiting newspaper text can improve economic forecasts both unconditionally and when conditioning on other relevant information, but the performance of the latter varies according to the method used. Incorporating text into forecasts by combining counts of terms with supervised machine learning delivers the highest forecast improvements relative to existing text-based methods. These improvements are most pronounced during periods of economic stress when, arguably, forecasts matter most.
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1002/jae.2907">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+```bibtex
+@article{kalamara2022making,
+  title={Making text count: economic forecasting using newspaper text},
+  author={Kalamara, Eleni and Turrell, Arthur and Redl, Chris and Kapetanios, George and Kapadia, Sujit},
+  journal={Journal of Applied Econometrics},
+  volume={37},
+  number={5},
+  pages={896--919},
+  year={2022},
+  publisher={Wiley Online Library}
+}
+```

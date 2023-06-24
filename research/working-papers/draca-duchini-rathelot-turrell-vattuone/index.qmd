@@ -1,0 +1,69 @@
+---
+title: "Revolution in progress? The rise of remote work in the UK"
+date: 2022-05-01
+author:
+  - name: Mirko Draca
+    url: https://warwick.ac.uk/fac/soc/economics/staff/mdraca/
+    orcid: 0000-0003-1245-8337
+    affiliation: University of Warwick
+  - name: Emma Duchini
+    url: https://emmaduchini.com/
+    orcid: 0000-0001-8794-3463
+    affiliation: University of Essex
+  - name: Roland Rathelot
+    url: http://rolandrathelot.com/
+    orcid: 0000-0001-5694-0112
+    affiliation: Center for Research in Economics and Statistics (ENSAE)
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: "{{< meta orcid-meta >}}"
+    affiliation: "{{< meta affiliation-meta >}}"
+  - name: Giulia Vattuone
+    url: https://warwick.ac.uk/fac/soc/economics/staff/gvattuone/
+    affiliation: University of Warwick
+categories:
+  - work from home
+  - labour
+  - vacancies
+  - COVID-19
+pub-info:
+  reference: >-
+    Draca, Mirko, Emma Duchini, Roland Rathelot, Arthur Turrell, and Giulia Vattuone. Revolution in Progress? The Rise of Remote Work in the UK. <i>University of Warwick, Department of Economics</i>, 2022.
+  links:
+    - name: Working paper (PDF)
+      url: https://wrap.warwick.ac.uk/165601/1/WRAP-revolution-progress-rise-remote-work-UK-2022.pdf
+      local: false
+      icon: fa-solid fa-file-pdf
+  # extra: >-
+  #   Presented at a workshop on “The Implications of COVID-19 for Civic Spaces: Assessing Data, Patterns and Trends,” Leibniz-Institut Hessische Stiftung Friedens- und Konfliktforschung (HSFK), online, March 2021
+# pub-status: 
+#   status: Writing
+#   class: warning
+#   icon: fa-solid fa-pencil
+#   status: Under review
+#   class: success
+#   icon: fas fa-glasses
+image: revolution_in_progress.png
+alt: "Figure from paper"
+---
+
+## Important links
+
+- [Working paper / pre-print link on Warwick WRAP](http://wrap.warwick.ac.uk/165601/)
+
+## Abstract
+
+The pandemic was accompanied by a wave of adoption of remote work practices. This paper uses online job vacancy data to study how UK firms have adopted remote work. Overall, remote work increased by 300%. Our analysis finds little evidence that occupations have fundamentally changed to better accommodate remote work tasks, nor evidence of changes in the occupational composition of jobs. We find that the overall increase in remote working is driven by the increasing use of remote work at the firm level, especially among firms that were less likely to use remote work before the pandemic. This is consistent with changes in organisational practices or updated information about the viability of large-scale remote working.
+
+
+## BibTeX citation
+
+```bibtex
+@article{draca2022revolution,
+      title={Revolution in progress? The rise of remote work in the UK}, 
+      author={Draca, Mirko and Duchini, Emma and Rathelot, Roland and Turrell, Arthur and Vattuone, Giulia},
+      journal={CAGE Working Papers},
+      year={2022},
+      number={616},
+}
+```

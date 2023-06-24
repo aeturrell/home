@@ -1,0 +1,74 @@
+---
+title: "Pay Transparency and Gender Equality"
+date: 2020-11-04
+author:
+  - name: Emma Duchini
+    url: https://emmaduchini.com/
+    orcid: 0000-0001-8794-3463
+    affiliation: University of Essex
+  - name: Stefania Simion
+    url: https://stefaniasimion.com/
+    affiliation: University of Bristol
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: "{{< meta orcid-meta >}}"
+    affiliation: "{{< meta affiliation-meta >}}"
+  - name: Jack Blundell
+    url: https://www.jackblundell.co.uk/
+    orcid: 0000-0003-4277-4840
+    affiliation: CEPR, LSE
+categories:
+  - gender
+  - wages
+  - evaluation
+  - gender pay gap
+  - labour
+  - text analysis
+pub-info:
+  reference: >-
+    Duchini, Emma, Stefania Simion, Arthur Turrell, and Jack Blundell. "Pay Transparency and Gender Equality." <i>arXiv e-prints</i> (2020), arxiv:2006.16099. doi: <a href="https://doi.org/10.48550/arXiv.2006.16099"><code>10.48550/arXiv.2006.16099</code></a>
+  links:
+    - name: Working Paper
+      url: https://arxiv.org/abs/2006.16099
+      icon: fa-solid fa-file-pdf
+      local: false
+    # - name: Published paper
+    #   url: https://doi.org/10.1093/oxrep/grx051
+    #   icon: fa-solid fa-scroll
+    # - name: Code
+    #   url: https://github.com/andrewheiss/who-cares-about-crackdown
+    #   icon: fa-brands fa-github
+    # - name: Data
+    #   url: "#data-and-code"
+    #   icon: fa-solid fa-table
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.48550/arXiv.2006.16099
+      icon: ai ai-zotero
+  extra: >-
+    Previously circulated as "Pay Transparency and Cracks in the Glass Ceiling" by E. Duchini, S. Simion, and A. Turrell, and "Wage responses to gender pay gap reporting requirements" by J. Blundell.
+doi: 10.48550/arXiv.2006.16099
+image: gpg_corr_analysis.png
+alt: "Figure from paper"
+---
+
+## Abstract
+
+Since 2018, UK firms with at least 250 employees have been mandated to publicly disclose gender equality indicators. Exploiting variations in this mandate across firm size and time we show that pay transparency closes 18 percent of the gender pay gap by reducing men's wage growth. The public availability of the equality indicators seems to influence employers' response as worse performing firms and industries more exposed to public scrutiny reduce their gender pay gap the most. Employers are also 9 percent more likely to post wages in job vacancies, potentially in an effort to improve gender equality at entry level.
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.48550/arXiv.2006.16099">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+
+```bibtex
+@misc{duchini2020pay,
+      title={Pay Transparency and Gender Equality}, 
+      author={Emma Duchini and Stefania Simion and Arthur Turrell and Jack Blundell},
+      year={2020},
+      eprint={2006.16099},
+      archivePrefix={arXiv},
+      primaryClass={econ.GN}
+}
+```

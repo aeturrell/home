@@ -1,0 +1,77 @@
+---
+title: "Efficient evaluation of collisional energy transfer terms for plasma particle simulations"
+date: 2016-02-10
+author:
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: 0000-0002-2525-0773
+    affiliation: "{{< meta affiliation-meta >}}"
+  - name: Mark Sherlock
+    affiliation: Lawrence Livermore National Laboratory
+    orcid: 0000-0001-8098-5732
+  - name: Steven Rose
+    affiliation: Imperial College London
+categories: 
+  - plasma
+  - high power lasers
+  - simulations
+pub-info:
+  reference: >-
+    Turrell, A. E., M. Sherlock, and S. J. Rose. "Efficient evaluation of collisional energy transfer terms for plasma particle simulations." <i>Journal of Plasma Physics</i> 82, no. 1 (2016): 905820107. doi: <a href="https://doi.org/10.1017/S0022377816000131"><code>10.1017/S0022377816000131</code></a>
+  links:
+    - name: Preprint
+      url: turrell_2016_efficient.pdf
+      icon: fa-solid fa-file-pdf
+      local: true
+    - name: Journal link
+      url: https://doi.org/10.1017/S0022377816000131
+      icon: fa-solid fa-scroll
+    # - name: Code
+    #   url: https://github.com/andrewheiss/who-cares-about-crackdown
+    #   icon: fa-brands fa-github
+    # - name: Data
+    #   url: "#data-and-code"
+    #   icon: fa-solid fa-table
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.1017/S0022377816000131
+      icon: ai ai-zotero
+  extra: >-
+doi: 10.1017/S0022377816000131
+image: pic-sim-equations.png
+alt: "Figure from paper"
+# haiku:
+#   - productivity
+#   - a great problem for GB
+#   - but data say not now
+bibliography: ../../my-papers.bib
+---
+
+<!-- ![](mismatch_img.png){fig-align="center" width=80%} -->
+
+<!-- ## Important links
+
+- [Working paper / preprint](LabourEconomics2021OccupationalMismatch.pdf)
+- [Published paper](https://doi.org/10.1016/j.labeco.2021.102013) -->
+
+## Abstract
+
+Particle-based simulations, such as in particle-in-cell (PIC) codes, are widely used in plasma physics research. The analysis of particle energy transfers, as described by the second moment of the Boltzmann equation, is often necessary within these simulations. We present computationally efficient, analytically derived equations for evaluating collisional energy transfer terms from simulations using discrete particles. The equations are expressed as a sum over the properties of the discrete particles.
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1017/S0022377816000131">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+```bibtex
+@article{turrell2016efficient,
+  title={Efficient evaluation of collisional energy transfer terms for plasma particle simulations},
+  author={Turrell, AE and Sherlock, M and Rose, SJ},
+  journal={Journal of Plasma Physics},
+  volume={82},
+  number={1},
+  pages={905820107},
+  year={2016},
+  publisher={Cambridge University Press}
+}
+```

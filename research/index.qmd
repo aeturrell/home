@@ -1,0 +1,64 @@
+---
+title: "Research"
+listing:
+  - id: articles
+    contents: "articles/*/index.qmd"
+    sort: "date desc"
+    template: ../html/research/listing.ejs
+    categories: true
+  - id: working-papers
+    contents: "working-papers/*/index.qmd"
+    sort: "date desc"
+    template: ../html/research/listing.ejs
+  - id: book-chapters
+    contents: "chapters/*/index.qmd"
+    sort: "date desc"
+    template: ../html/research/listing.ejs
+  # - id: reviews
+  #   contents: "reviews/*/index.qmd"
+  #   sort: "date desc"
+  #   template: ../html/research/listing.ejs
+  - id: dormant-working-papers
+    contents: "dormant-working-papers/*/index.qmd"
+    sort: "date desc"
+    template: ../html/research/listing.ejs
+  # - id: seminar-papers
+  #   contents: "seminar-papers/*/index.qmd"
+  #   sort: "date desc"
+  #   template: ../html/research/listing.ejs
+page-layout: full
+include-back-link: false
+toc-location: right
+---
+
+My research is on *economic data science*—the application of data science (including AI, natural language processing, and modelling) to answer economic questions. I'm particularly interested in public policy, macroeconomic modelling (including forecasting), the interactions between households, firms, and the financial system, and productivity.
+
+
+## Journal articles
+
+:::{#articles}
+:::
+
+
+## Working papers
+
+:::{#working-papers}
+:::
+
+
+## Book chapters
+
+:::{#book-chapters}
+:::
+
+
+<!-- ## Reviews
+
+:::{#reviews}
+::: -->
+
+
+## Dormant working papers
+
+:::{#dormant-working-papers}
+:::
