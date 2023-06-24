@@ -2,7 +2,7 @@
 title: "Welcome To The New Home for My Blog"
 date: "2022-10-16"
 categories: [news]
-bibliography: ../../bibfile.bib
+bibliography: ../../../bibfile.bib
 ---
 
 This is the first post on a brand new blog site: welcome!

@@ -1,3 +1,36 @@
+- title: "Writing: Opinion piece on first net energy gain from fusion breakthrough at NIF in The Guardian"
+  date: 2022-12-13
+  description: "The carbon-free energy of the future: this fusion breakthrough changes everything"
+  image: "nif-breakthrough-guardian.png"
+  links:
+  - name: Piece
+    url: "https://www.theguardian.com/commentisfree/2022/dec/13/carbon-free-energy-fusion-reaction-scientists"
+
+- title: "TV and print media coverage in light of net energy gain breakthrough at National Ignition Facility"
+  date: 2022-12-11
+  description: "I was quoted in the story that broke the news about the first net energy gain in a fusion experiment at the National Ignition Facility, and I did a whole sweep of media spots in the days after the amazing news!"
+  image: ft-scoop-fusion.png
+  video: "https://www.wnyc.org/widgets/ondemand_player/wnyc/#file=/audio/json/1279018/&share=1"
+  links:
+  - name: FT scoop
+    url: "https://www.ft.com/content/4b6f0fab-66ef-4e33-adec-cfc345589dc7"
+  - name: CNBC
+    url: https://www.cnbc.com/2022/12/14/fusion-power-wont-be-widespread-for-at-least-a-decade.html
+  - name: The Independent
+    url: "https://www.independent.co.uk/news/world/americas/nuclear-fusion-lawrence-livermore-laboratory-b2243247.html"
+  - name: "Yahoo!"
+    url: https://www.yahoo.com/now/nuclear-fusion-harnessing-power-stars-021020658.html
+  - name: "Fox Business"
+    url: https://www.foxbusiness.com/energy/us-scientists-make-major-breakthrough-limitless-zero-carbon-fusion-energy-report
+  - name: "Al Jazeera"
+    url: "https://www.aljazeera.com/news/2022/12/13/is-nuclear-fusion-a-clean-energy-planet-savior"
+  - name: "NY Mag / Intelligencer"
+    url: https://nymag.com/intelligencer/2022/12/how-big-is-the-u-s-fusion-breakthrough.html
+  - name: "Patented podcast update (end of episode)"
+    url: https://shows.acast.com/patented-history-of-inventions/episodes/monopoly
+  - name: "Washington Examiner"
+    url: https://www.washingtonexaminer.com/policy/energy-environment/us-unveil-breakthrough-nuclear-fusion
+  
 - title: "'Patented: History of Inventions' episode on Nuclear Fusion"
   date: 2022-10-26
   description: "Dallas Campbell interviews me for the 'Patented: History of Inventions' podcast."
