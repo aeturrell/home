@@ -32,21 +32,21 @@ orcid-meta: 0000-0002-2525-0773
 website:
   title: "Arthur Turrell"
   description: "{{< meta description-meta >}}"
-  favicon: "/files/apple-touch-icon-precomposed.ico"
+  favicon: "/files/logo_large.png"
   site-url: "https://www.aeturrell.com/"
-  repo-url: "https://github.com/andrewheiss/ath-quarto"
+  repo-url: "https://github.com/aeturrell/home"
 
-  google-analytics: "UA-527449-5"
+  google-analytics: "G-46P0B31B3F"
 
   twitter-card:
-    image: "/files/profiles/twitter-card-large.png"
+    image: "/files/logo_large.png"
     description: "{{< meta description-meta >}}"
     card-style: summary_large_image
-    creator: "@andrewheiss"
-    site: "@andrewheiss"
+    creator: "@arthurturrell"
+    site: "@arthurturrell"
 
   open-graph: 
-    image: "/files/profiles/twitter-card-large.png"
+    image: "/files/logo_large.png"
     description: "{{< meta description-meta >}}"
     locale: en_UK
   
