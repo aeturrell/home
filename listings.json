@@ -1,0 +1,89 @@
+[
+  {
+    "listing": "/atom.html",
+    "items": [
+      "/blog/posts/10-lesser-known-python-packages/index.html",
+      "/blog/posts/better-narrative-on-narratives/index.html",
+      "/blog/index.html",
+      "/blog/posts/data-science-maturity/data-science-maturity.html",
+      "/blog/posts/econometrics-in-python-partii-fixed-effects/index.html",
+      "/blog/posts/running-many-regressions-alongside-pandas/index.html",
+      "/blog/posts/econometrics-in-python-parti-ml/index.html",
+      "/blog/posts/estimation-heterogeneous-treatment-random-forests/index.html",
+      "/blog/posts/get-organised/index.html",
+      "/blog/posts/the-prize-with-apis/the-prize-with-apis.html",
+      "/blog/posts/publication-quality-plots-in-python/index.html",
+      "/blog/posts/wikipedia-into-stem/index.html",
+      "/blog/posts/setting-up-r-in-vscode/index.html",
+      "/blog/posts/specification-curve-analysis/index.html",
+      "/blog/posts/til-how-to-break-xml/index.html",
+      "/blog/posts/ons-api/index.html",
+      "/blog/posts/self-storage-mystery/self-storage-mystery.html",
+      "/blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html",
+      "/blog/posts/three-ways-to-blog-with-code/index.html",
+      "/blog/posts/visual-studio-code-in-the-cloud/index.html",
+      "/blog/posts/welcome/index.html",
+      "/blog/posts/left-out-of-he/index.html",
+      "/blog/posts/game-theory-rescue/index.html",
+      "/blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html",
+      "/blog/posts/research-blogs/index.html"
+    ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/posts/self-storage-mystery/self-storage-mystery.html",
+      "/blog/posts/data-science-maturity/data-science-maturity.html",
+      "/blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html",
+      "/blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html",
+      "/blog/posts/the-prize-with-apis/the-prize-with-apis.html",
+      "/blog/posts/til-how-to-break-xml/index.html",
+      "/blog/posts/welcome/index.html",
+      "/blog/posts/visual-studio-code-in-the-cloud/index.html",
+      "/blog/posts/research-blogs/index.html",
+      "/blog/posts/setting-up-r-in-vscode/index.html",
+      "/blog/posts/three-ways-to-blog-with-code/index.html",
+      "/blog/posts/10-lesser-known-python-packages/index.html",
+      "/blog/posts/get-organised/index.html",
+      "/blog/posts/specification-curve-analysis/index.html",
+      "/blog/posts/wikipedia-into-stem/index.html",
+      "/blog/posts/left-out-of-he/index.html",
+      "/blog/posts/game-theory-rescue/index.html",
+      "/blog/posts/running-many-regressions-alongside-pandas/index.html",
+      "/blog/posts/estimation-heterogeneous-treatment-random-forests/index.html",
+      "/blog/posts/econometrics-in-python-partii-fixed-effects/index.html",
+      "/blog/posts/econometrics-in-python-parti-ml/index.html",
+      "/blog/posts/publication-quality-plots-in-python/index.html",
+      "/blog/posts/ons-api/index.html",
+      "/blog/posts/better-narrative-on-narratives/index.html"
+    ]
+  },
+  {
+    "listing": "/code/index.html",
+    "items": []
+  },
+  {
+    "listing": "/media/index.html",
+    "items": []
+  },
+  {
+    "listing": "/research/index.html",
+    "items": [
+      "/research/articles/kalamara-turrell-redl-kapetanios-kapadia/index.html",
+      "/research/articles/turrell-djumaliev-copple-speigner-thurgood/index.html",
+      "/research/articles/haldane-turrell-2019/index.html",
+      "/research/articles/haldane-turrell/index.html",
+      "/research/articles/braunmunzinger-liu-turrell/index.html",
+      "/research/articles/turrell-sherlock-rose-2016/index.html",
+      "/research/articles/turrell-sherlock-rose-2015b/index.html",
+      "/research/articles/turrell-sherlock-rose-2015/index.html",
+      "/research/articles/turrell-sherlock-rose-2013/index.html",
+      "/research/working-papers/draca-duchini-rathelot-turrell-vattuone/index.html",
+      "/research/working-papers/duchini-simion-turrell-blundell/index.html",
+      "/research/chapters/turrell-speigner-djumaliev-copple-thurgood/index.html",
+      "/research/chapters/turrell-2016/index.html",
+      "/research/dormant-working-papers/hill-bardoscia-turrell/index.html",
+      "/research/dormant-working-papers/turrell-thurgood-copple-djumalieva-speigner/index.html"
+    ]
+  }
+]
