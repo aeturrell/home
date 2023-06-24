@@ -1,5 +1,14 @@
+# Quarto stuff
+/.quarto/
+_site/
+**/*_cache/*
 
+# Miscellaneous stuff
+design-assets/*
+static/etc/*
 .DS_Store
+
+/.luarc.json
 
 # Ignore docs files
 _gh_pages
@@ -46,3 +55,5 @@ bower_components
 .DS_Store
 .DS_Store
 .vscode/settings.json
+
+/.quarto/
