@@ -40,6 +40,7 @@ pub-info:
       url: https://www.zotero.org/save?type=doi&q=10.1002/jae.2907
       icon: ai ai-zotero
   extra: >-
+    This paper won CentralBanking.com's [TechForward Award 2020](https://www.centralbanking.com/awards/7703456/the-winners-of-the-2020-fintech-and-regtech-global-awards) and was featured by [Dow Jones](https://www.dowjones.com/professional/blog/making-text-count-economic-forecasting/) because of its innovative use of their data.
 doi: 10.1002/jae.2907
 image: textcounts.png
 alt: "Figure from paper"
