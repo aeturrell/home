@@ -6,6 +6,14 @@
   - name: Piece
     url: "https://www.theguardian.com/commentisfree/2022/dec/13/carbon-free-energy-fusion-reaction-scientists"
 
+- title: "France 24 interview on net energy gain fusion experiment"
+  date: 2022-12-13
+  description: "'A moment in history': US researchers announce major nuclear fusion breakthrough. Note that they weren't supposed to use my ONS affiliation here; I was speaking in a personal capacity."
+  video: "https://www.youtube.com/embed/eJ5DPNExVXk"
+  links:
+  - name: Video on YouTube
+    url: "https://www.youtube.com/watch?v=eJ5DPNExVXk&ab_channel=FRANCE24English"
+
 - title: "TV and print media coverage in light of net energy gain breakthrough at National Ignition Facility"
   date: 2022-12-11
   description: "I was quoted in the story that broke the news about the first net energy gain in a fusion experiment at the National Ignition Facility, and I did a whole sweep of media spots in the days after the amazing news! This included BBC's Outside Source with Ros Atkins."
