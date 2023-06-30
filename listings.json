@@ -20,6 +20,7 @@
       "/blog/posts/ons-api/index.html",
       "/blog/posts/self-storage-mystery/self-storage-mystery.html",
       "/blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html",
+      "/blog/posts/self-storage-meets-chatgpt/index.html",
       "/blog/posts/three-ways-to-blog-with-code/index.html",
       "/blog/posts/visual-studio-code-in-the-cloud/index.html",
       "/blog/posts/welcome/index.html",
@@ -32,6 +33,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/posts/self-storage-meets-chatgpt/index.html",
       "/blog/posts/self-storage-mystery/self-storage-mystery.html",
       "/blog/posts/data-science-maturity/data-science-maturity.html",
       "/blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html",
