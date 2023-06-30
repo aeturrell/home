@@ -1,0 +1,137 @@
+---
+date: "2023-06-30"
+layout: post
+title: "The self-storage problem meets chatGPT"
+categories: [code, data, analysis, llm]
+---
+
+In a previous post, I looked at four ways we might be able to establish the way that the number of *self-storage facilities* is trending over time. You can read that post using [this link](../self-storage-mystery/self-storage-mystery.qmd). Today, we're going one step further with one of the options—scraping the websites of the main self-storage firms—and we're going to do it with ChatGPT, the large language model from OpenAI. I mentioned in the previous blog post that
+
+> Each location [of a self-storage facility] probably has a full address somewhere [on the firm's website], so we could just scrape the entire website and use some kind of NLP to grab locations and hope that what gets picked up corresponds to the sites that are offered. There'd be some errors, like recording their primary office, but if you kept the page that the addresses were scraped from you could do something like eliminate any pages with just a single address.
+
+and
+
+> A new feature just introduced by OpenAI, called [function calling](https://platform.openai.com/docs/guides/gpt/function-calling), makes this [using LLMs for analysis of web-scraped data] possible: essentially, it allows you to generate *structured* output from an LLM—think a JSON file—by defining a schema of data fields you'd like and then feeding it the text to find those fields.
+
+I also referenced the code by Kyle McDonald that [uses an LLM to query a Washington Post article](https://gist.github.com/kylemcdonald/dbac21de2d7855633689f5526225154c).
+
+Well, reader, I tried out a very slightly modified version of Kyle's LLM code on a URL for a self-storage firm and it worked!
+
+## Results
+
+Here's the code:
+
+```python
+import openai
+import requests
+from bs4 import BeautifulSoup
+from os import environ as env
+from dotenv import load_dotenv
+
+load_dotenv()
+
+openai.api_key = env["API_KEY"]
+url = 'https://www.safestore.co.uk/storage-near-me/'
+html = requests.get(url).content
+soup = BeautifulSoup(html, features="lxml")
+text = soup.text.strip()
+
+functions = [
+    {
+        "name": "extract_data",
+        "description": "Add the summary of all locations of self-storage sites to the list.",
+        "parameters": {
+            "type": "object",
+                "properties": {
+                    "addresses": {
+                        "type": "array",
+                        "items": {
+                                "type": "string"
+                        },
+                        "description": "A list of any addresses that are found."
+                    },
+                },
+            "required": ["addresses"],
+        },
+    }
+]
+
+messages = [
+    {"role": "system", "content": "You are a helpful assistant that extracts the addresses of self-storage facilities from the websites of self-storage firms as JSON for a database."},
+    {"role": "user", "content": 'Extract all of the addresses from the following website: ' + text}
+]
+
+response = openai.ChatCompletion.create(
+    model='gpt-3.5-turbo-0613', functions=functions, messages=messages)
+
+print(response.choices[0]['message']['function_call']['arguments'])
+
+```
+
+And the start of the output:
+
+```text
+{
+  "addresses": [
+    "Self Storage London and storage units near me...",
+    "With over 49 stores in London and 130 storage centres nationwide",
+    "Central London",
+    "Battersea Park",
+    "Camden Town",
+    "Earls Court",
+    "Kings Cross",
+    "Notting Hill",
+    "Paddington - Marble Arch",
+    "East London",
+    "Barking and Dagenham",
+    "Bow",
+    "Chingford - Walthamstow",
+    "Crayford",
+    "Ilford",
+    "Orpington",
+    "Romford",
+    "Stoke Newington",
+    ...
+```
+
+You can see how ChatGPT has grabbed everything that could conceivably be an address here, which is why the first two entries aren't what we're looking for. But the rest of what it found absolutely is and I am impressed.
+
+## Practical limitations and suggestions
+
+Of course, this is only part of the problem. I fed ChatGPT a URL that I had already checked contained the info on all of the locations, and finding that URL is a big task in the first place. It's tricky for two reasons: one, we don't know which part of a firm's website the locations will be listed on; two, that page may change over time. Ideally, we'd have a multi-step process in which a spider or scraper would first sift through all of the pages of a given snapshot in time of a URL and pass those to a classifier that would check whether it was a page of locations. Finally, the LLM would extract the locations.
+
+Even with this setup, we're still stuck with going through the internet archive trying to find the snapshots (timestamps) of URLs to feed into the start of the pipeline. For example, from manual browsing around the log for http://www.shurgard.co.uk I found that the Internet Archive took a snapshot of the Shurgard website on 2nd August 2014, and you can find it [here](https://web.archive.org/web/20140802153455/http://www.shurgard.co.uk). Back in 2014, all the UK sites were found at this specific extension of the home URL of Shurgard: [https://web.archive.org/web/20140802153455/http://www.shurgard.co.uk/self-storage-uk](https://web.archive.org/web/20140802153455/http://www.shurgard.co.uk/self-storage-uk). Manually finding when each of the snapshots occurred would be really painful. The Wayback Machine (part of the Internet Archive, and possibly the most under-rated historical resource on the planet) has a nice user interface that lets you click on the next snapshot, but we would need a way to grab snapshots we can automate in code. Well, in this case, there's good news: I recently discovered that the [Wayback Machine](https://archive.org/web/) has a [Python API](https://github.com/akamhy/waybackpy) with a function that can pull the closest snapshot to a given timestamp (no searching for snapshots manually). This means we might be able to find the relevant extension-URL with the sites on and then iterate through time programmaticaly hoping that it doesn't change.
+
+Here's the code for retrieving the URL closest to 1st August 2014 as a test:
+
+```python
+from waybackpy import WaybackMachineCDXServerAPI
+
+url = 'http://www.shurgard.co.uk/self-storage-uk'
+user_agent = "YOUR USER AGENT"
+cdx_api = WaybackMachineCDXServerAPI(url, user_agent)
+
+near = cdx_api.near(year=2014, month=8, day=1, hour=0, minute=0)
+
+near.archive_url
+```
+
+```text
+'https://web.archive.org/web/20140802153455/http://www.shurgard.co.uk:80/self-storage-uk'
+```
+
+It's a perfect match to the URL we already knew about! So the recipe for scaling this up without a classifier too might look something like:
+
+- Get a list of likely firm names (perhaps using the Open Street Map firm names we got in the previous blog post but being fully aware that you might miss firms that no longer exist, which is a bias in this method)
+- For each firm name, work out the likely URL that takes you to the page of sites of self-storage facilities run by that firm
+- Decide on a time grid to search by, say one URL per year
+- Throw ChatGPT at each year-firm URL and ask it to get the locations (ensuring you have some spending limits in place on your OpenAI account!)
+- Clean the locations up—removing anything with more than four words seems like a good place to start, given the above; remove duplicates of year-firm information—perhaps some firms only have snapshots once every two years, for example
+- Count the number of sites over time
+
+There were nine self-storage firms that OSM data found in the previous blog post, and perhaps a ten year period seems reasonable, so we'd be asking for 90 ChatGPT hits to get all of the data. In practice, some firms may not have existed ten years ago and we'd be pretty lucky to have the extension to the sites not change at all in that time: indeed, Shurgard is an exception; the URL to the list of sites only persists back to 2020 for Big Yellow and Ready Steady Store.[^1] There are other problems: Access Self Storage has a fancier website that makes it harder for ChatGPT to get location information out. Optimistically though, this approach might be possible for most of the firms for a small number of years, and that would still give a good indication of the trend.
+
+If I get time, I might try out a more systematic data collection broadly following this recipe—then we might get a bit closer to finding an answer to the [mystery of self-storage](../self-storage-mystery/self-storage-mystery.qmd) in the UK!
+
+[^1]: Of course, the traditional way to solve problems like this in academic economics was to pay Research Assistants to do it manually, and then not put them on the paper as authors. Data collection *is* research: please put RAs on your papers!
+
