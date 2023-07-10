@@ -17,6 +17,7 @@
       "/blog/posts/setting-up-r-in-vscode/index.html",
       "/blog/posts/specification-curve-analysis/index.html",
       "/blog/posts/til-how-to-break-xml/index.html",
+      "/blog/posts/til-zotero-and-obsidian/index.html",
       "/blog/posts/ons-api/index.html",
       "/blog/posts/self-storage-mystery/self-storage-mystery.html",
       "/blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html",
@@ -33,6 +34,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/posts/til-zotero-and-obsidian/index.html",
       "/blog/posts/self-storage-meets-chatgpt/index.html",
       "/blog/posts/self-storage-mystery/self-storage-mystery.html",
       "/blog/posts/data-science-maturity/data-science-maturity.html",
