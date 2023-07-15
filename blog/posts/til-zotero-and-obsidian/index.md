@@ -306,7 +306,7 @@ Modified: {{ note.dateModified | format("YYYY-MM-DD#HH:mm:ss") }}
 >
 > **comment:**
 > {{annotation.comment | nl2br }}{% endif %}
-> [[{{annotation.date | format("YYYY-MM-DD#HH:mm")}}]]
+> {{annotation.date | format("YYYY-MM-DD#HH:mm")}}
 {%- if annotation.tags.length > 0 %} 
 > {{printTags(annotation.tags)}}
 {% endif %}
