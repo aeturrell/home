@@ -42,7 +42,7 @@ format:
 
 ::: {.g-col-12 .g-col-sm-8}
 
-Dr Arthur Turrell is Deputy Director for Research and Economics at the ONS Data Science Campus. He is also a visitor to the plasma physics group at Imperial College London. His [research](research/index.qmd) combines methods from data science, economics, and physics.
+Dr Arthur Turrell is an economic data scientist working in the public sector. He is the former Deputy Director and Acting Director of the ONS Data Science Campus, and has previously held positions at the Bank of England. He started in physics and remains a visitor to the plasma physics group at Imperial College London. His [research](research/index.qmd) covers data science, economics, and physics.
 
 As well as research, Arthur is passionate about making science and economics more accessible — mostly because scientists shouldn't be allowed to have all the fun. You can find more information about his outreach activities and links to some of his writing on the [media](media/index.qmd) page, while information on *The Star Builders*, his popular science book on nuclear fusion, can be found [here](thestarbuilders/thestarbuilders.qmd).
 
