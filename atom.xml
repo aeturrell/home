@@ -417,15 +417,7 @@ background-color: null;
 font-style: inherit;">&gt; {{annotation.comment | nl2br }}{% endif %}</span></span>
 <span id="cb1-237"><span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">&gt; [</span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">{{annotation.date | format("YYYY-MM-DD#HH:mm")}}</span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">]</span><span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">]</span></span>
+font-style: inherit;">&gt; {{annotation.date | format("YYYY-MM-DD#HH:mm")}}</span></span>
 <span id="cb1-238"><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">{%- if annotation.tags.length &gt; 0 %} </span></span>

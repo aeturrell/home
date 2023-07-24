@@ -553,7 +553,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
 <span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **comment:**</span></span>
 <span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; {{annotation.comment | nl2br }}{% endif %}</span></span>
-<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; [</span><span class="co">[</span><span class="ot">{{annotation.date | format("YYYY-MM-DD#HH:mm")}}</span><span class="co">]</span><span class="at">]</span></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; {{annotation.date | format("YYYY-MM-DD#HH:mm")}}</span></span>
 <span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a><span class="at">{%- if annotation.tags.length &gt; 0 %} </span></span>
 <span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; {{printTags(annotation.tags)}}</span></span>
 <span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="at">{% endif %}</span></span>
