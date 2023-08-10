@@ -1,0 +1,62 @@
+---
+title: "Vacancy posting, firm balance sheets, and pandemic policy"
+date: 2023-07-21
+author:
+  - name: David Van Dijcke
+    url: https://www.davidvandijcke.com/
+    orcid: 0000-0001-5825-3447
+    affiliation: University of Michigan
+  - name: Marcus Buckmann
+    affiliation: Bank of England
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: "{{< meta orcid-meta >}}"
+    affiliation: "Office for National Statistics"
+  - name: Tomas Key
+    affiliation: Bank of England
+categories:
+  - firms
+  - labour
+  - vacancies
+  - COVID-19
+pub-info:
+  reference: >-
+    Van Dijcke, David, Marcus Buckmann, Arthur Turrell, and Tomas Key. "Vacancy Posting, Firm Balance Sheets, and Pandemic Policy Interventions." <i>Bank of England Staff Working Paper Series</i> 1033 (2022).
+  links:
+    - name: Working paper (PDF)
+      url: https://www.bankofengland.co.uk/-/media/boe/files/working-paper/2023/vacancy-posting-firm-balance-sheets-and-pandemic-policy.pdf
+      local: false
+      icon: fa-solid fa-file-pdf
+  # extra: >-
+  #   Presented at a workshop on “The Implications of COVID-19 for Civic Spaces: Assessing Data, Patterns and Trends,” Leibniz-Institut Hessische Stiftung Friedens- und Konfliktforschung (HSFK), online, March 2021
+# pub-status: 
+#   status: Writing
+#   class: warning
+#   icon: fa-solid fa-pencil
+#   status: Under review
+#   class: success
+#   icon: fas fa-glasses
+image: dicjke_et_al_table7.png
+alt: "Figure from paper"
+---
+
+## Important links
+
+- [Working paper landing page](https://www.bankofengland.co.uk/working-paper/2023/vacancy-posting-firm-balance-sheets-and-pandemic-policy)
+
+## Abstract
+
+We assess how balance sheets propagated labour demand shocks during Covid-19 using novel matched data on firms and online job postings. Exploiting regional and firm-level variation in three pandemic policies in the UK, we find that financially healthy firms increased vacancies more in response to positive shocks. Less-leveraged firms and firms with higher credit scores increased postings more in response to the Eat Out to Help Out’s local demand subsidies and after receiving a Bounce Back Loan Scheme loan, respectively. These findings complement the link between leverage and employment losses in response to negative shocks.
+
+
+## BibTeX citation
+
+```bibtex
+@techreport{dijcke2023vacancy,
+      title={Vacancy posting, firm balance sheets, and pandemic policy},
+      author={David Van Dijcke and Marcus Buckmann and Arthur Turrell and Tomas Key},
+      year={2023},
+      institution={Bank of England Staff Working Paper Series},
+      number={1033},
+}
+```
