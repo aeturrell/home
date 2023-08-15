@@ -1,3 +1,8 @@
+- title: "Chair for ESCoE Conference plenary"
+  date: 2023-04-17
+  description: "I was a co-organiser of the 2023 Economic Statistics Centre of Excellence conference. I chaired this plenary session in which Prof Diane Coyle spoke about The cost of computing and the productivity puzzle."
+  video: "https://www.youtube.com/embed/KtEXYKDqz-I"
+
 - title: "Tracking the price of the lowest-cost grocery items"
   date: 2022-06-30
   description: "Experimental ONS Data Science Campus analysis tracking the cost of lowest priced groceries using web-scraped price data, carried out in response to concerns about the cost of living for those on the lowest incomes. Widespread coverage, including in The Times, Evening Standard, The Independent, The Guardian, Mail Online, The Sun, The Daily Mirror, Metro, Bloomberg, BBC, Reuters, Evening Standard, Sky News, FT, City AM, ITV, Huff Post, Morning Star Online, iNews, Irish News, Daily Express, Retail Gazette, Grocery Gazette, the Scotsman, the i paper, Sky News, ITV, Channel 5, Channel Four News, GB News, LBC."
@@ -18,7 +23,6 @@
   links:
   - name: Link (video)
     url: https://vimeo.com/484134210/ed673b6506
-
 
 - title: "ESCoE Workshop: Job vacancy data for the public good"
   date: 2020-12-10
