@@ -6,6 +6,14 @@
   - name: Link to episode
     url: "https://www.bloomberg.com/news/videos/2023-03-16/can-nuclear-fusion-power-the-future-the-future-with-hannah-fry-episode-4"
 
+- title: "Lever Time with David Sirota"
+  date: 2022-12-14
+  description: "An appearance on David Sirota's podcast."
+  video: "https://www.youtube.com/embed/7Oz-8BA9D4U?si=6_uzG5KjHCHOK6Ge"
+  links:
+  - name: Video on YouTube
+    url: "https://www.youtube.com/watch?v=7Oz-8BA9D4U&ab_channel=TheLever"
+
 - title: "Writing: Opinion piece on first net energy gain from fusion breakthrough at NIF in The Guardian"
   date: 2022-12-13
   description: "The carbon-free energy of the future: this fusion breakthrough changes everything"
@@ -45,8 +53,7 @@
   - name: "Patented podcast update (end of episode)"
     url: https://shows.acast.com/patented-history-of-inventions/episodes/monopoly
   - name: "Washington Examiner"
-    url: https://www.washingtonexaminer.com/policy/energy-environment/us-unveil-breakthrough-nuclear-fusion
-  
+
 - title: "'Patented: History of Inventions' episode on Nuclear Fusion"
   date: 2022-10-26
   description: "Dallas Campbell interviews me for the 'Patented: History of Inventions' podcast."
