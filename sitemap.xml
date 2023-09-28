@@ -2,218 +2,222 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.aeturrell.com/atom.html</loc>
-    <lastmod>2023-09-22T13:45:17.989Z</lastmod>
+    <lastmod>2023-09-28T16:57:39.018Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/index.html</loc>
-    <lastmod>2023-09-22T13:45:19.804Z</lastmod>
+    <lastmod>2023-09-28T16:57:40.951Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aeturrell.com/blog/posts/build-a-cloud-api/build-a-cloud-api.html</loc>
+    <lastmod>2023-09-28T16:57:41.914Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html</loc>
-    <lastmod>2023-09-22T13:45:20.695Z</lastmod>
+    <lastmod>2023-09-28T16:57:42.781Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/self-storage-meets-chatgpt/index.html</loc>
-    <lastmod>2023-09-22T13:45:21.374Z</lastmod>
+    <lastmod>2023-09-28T16:57:43.441Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/self-storage-mystery/self-storage-mystery.html</loc>
-    <lastmod>2023-09-22T13:45:22.270Z</lastmod>
+    <lastmod>2023-09-28T16:57:44.316Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/the-prize-with-apis/the-prize-with-apis.html</loc>
-    <lastmod>2023-09-22T13:45:22.798Z</lastmod>
+    <lastmod>2023-09-28T16:57:44.835Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/three-ways-to-blog-with-code/index.html</loc>
-    <lastmod>2023-09-22T13:45:23.989Z</lastmod>
+    <lastmod>2023-09-28T16:57:46.050Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/welcome/index.html</loc>
-    <lastmod>2023-09-22T13:45:24.324Z</lastmod>
+    <lastmod>2023-09-28T16:57:46.362Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html</loc>
-    <lastmod>2023-09-22T13:45:24.946Z</lastmod>
+    <lastmod>2023-09-28T16:57:46.973Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/code/index.html</loc>
-    <lastmod>2023-09-22T13:45:25.243Z</lastmod>
+    <lastmod>2023-09-28T16:57:47.256Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/contact.html</loc>
-    <lastmod>2023-09-22T13:45:25.524Z</lastmod>
+    <lastmod>2023-09-28T16:57:47.528Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/index.html</loc>
-    <lastmod>2023-09-22T13:45:26.204Z</lastmod>
+    <lastmod>2023-09-28T16:57:49.221Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/media/index.html</loc>
-    <lastmod>2023-09-22T13:45:26.870Z</lastmod>
+    <lastmod>2023-09-28T16:57:49.892Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/articles/braunmunzinger-liu-turrell/index.html</loc>
-    <lastmod>2023-09-22T13:45:27.238Z</lastmod>
+    <lastmod>2023-09-28T16:57:50.253Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/articles/haldane-turrell-2019/index.html</loc>
-    <lastmod>2023-09-22T13:45:27.619Z</lastmod>
+    <lastmod>2023-09-28T16:57:50.592Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/articles/haldane-turrell/index.html</loc>
-    <lastmod>2023-09-22T13:45:27.960Z</lastmod>
+    <lastmod>2023-09-28T16:57:50.922Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/articles/kalamara-turrell-redl-kapetanios-kapadia/index.html</loc>
-    <lastmod>2023-09-22T13:45:28.337Z</lastmod>
+    <lastmod>2023-09-28T16:57:51.289Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/articles/turrell-djumaliev-copple-speigner-thurgood/index.html</loc>
-    <lastmod>2023-09-22T13:45:28.711Z</lastmod>
+    <lastmod>2023-09-28T16:57:51.667Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/articles/turrell-sherlock-rose-2013/index.html</loc>
-    <lastmod>2023-09-22T13:45:29.066Z</lastmod>
+    <lastmod>2023-09-28T16:57:52.016Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/articles/turrell-sherlock-rose-2015/index.html</loc>
-    <lastmod>2023-09-22T13:45:29.423Z</lastmod>
+    <lastmod>2023-09-28T16:57:52.368Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/articles/turrell-sherlock-rose-2015b/index.html</loc>
-    <lastmod>2023-09-22T13:45:29.783Z</lastmod>
+    <lastmod>2023-09-28T16:57:52.709Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/articles/turrell-sherlock-rose-2016/index.html</loc>
-    <lastmod>2023-09-22T13:45:30.157Z</lastmod>
+    <lastmod>2023-09-28T16:57:53.055Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/chapters/turrell-2016/index.html</loc>
-    <lastmod>2023-09-22T13:45:30.498Z</lastmod>
+    <lastmod>2023-09-28T16:57:53.362Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/chapters/turrell-speigner-djumaliev-copple-thurgood/index.html</loc>
-    <lastmod>2023-09-22T13:45:30.870Z</lastmod>
+    <lastmod>2023-09-28T16:57:53.717Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/dormant-working-papers/hill-bardoscia-turrell/index.html</loc>
-    <lastmod>2023-09-22T13:45:31.239Z</lastmod>
+    <lastmod>2023-09-28T16:57:54.066Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/dormant-working-papers/turrell-thurgood-copple-djumalieva-speigner/index.html</loc>
-    <lastmod>2023-09-22T13:45:31.636Z</lastmod>
+    <lastmod>2023-09-28T16:57:54.425Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/index.html</loc>
-    <lastmod>2023-09-22T13:45:32.066Z</lastmod>
+    <lastmod>2023-09-28T16:57:54.824Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/working-papers/botta-lovelace-gilbert-turrell/index.html</loc>
-    <lastmod>2023-09-22T13:45:32.447Z</lastmod>
+    <lastmod>2023-09-28T16:57:55.179Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/working-papers/dijcke-buckmann-key-turrell/index.html</loc>
-    <lastmod>2023-09-22T13:45:32.802Z</lastmod>
+    <lastmod>2023-09-28T16:57:55.525Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/working-papers/draca-duchini-rathelot-turrell-vattuone/index.html</loc>
-    <lastmod>2023-09-22T13:45:33.177Z</lastmod>
+    <lastmod>2023-09-28T16:57:55.873Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/research/working-papers/duchini-simion-turrell-blundell/index.html</loc>
-    <lastmod>2023-09-22T13:45:33.542Z</lastmod>
+    <lastmod>2023-09-28T16:57:56.234Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/teaching/index.html</loc>
-    <lastmod>2023-09-22T13:45:33.837Z</lastmod>
+    <lastmod>2023-09-28T16:57:56.526Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/thestarbuilders/thestarbuilders.html</loc>
-    <lastmod>2023-09-22T13:45:34.159Z</lastmod>
+    <lastmod>2023-09-28T16:57:56.836Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/uses/index.html</loc>
-    <lastmod>2023-09-22T13:45:34.996Z</lastmod>
+    <lastmod>2023-09-28T16:57:57.675Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/10-lesser-known-python-packages/index.html</loc>
-    <lastmod>2023-09-22T13:45:35.957Z</lastmod>
+    <lastmod>2023-09-28T16:57:58.606Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/better-narrative-on-narratives/index.html</loc>
-    <lastmod>2023-09-22T13:45:36.302Z</lastmod>
+    <lastmod>2023-09-28T16:57:58.956Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/data-science-maturity/data-science-maturity.html</loc>
-    <lastmod>2023-09-22T13:45:37.047Z</lastmod>
+    <lastmod>2023-09-28T16:57:59.664Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/econometrics-in-python-parti-ml/index.html</loc>
-    <lastmod>2023-09-22T13:45:37.546Z</lastmod>
+    <lastmod>2023-09-28T16:58:00.091Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/econometrics-in-python-partii-fixed-effects/index.html</loc>
-    <lastmod>2023-09-22T13:45:37.946Z</lastmod>
+    <lastmod>2023-09-28T16:58:00.433Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/estimation-heterogeneous-treatment-random-forests/index.html</loc>
-    <lastmod>2023-09-22T13:45:38.422Z</lastmod>
+    <lastmod>2023-09-28T16:58:00.862Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/game-theory-rescue/index.html</loc>
-    <lastmod>2023-09-22T13:45:38.864Z</lastmod>
+    <lastmod>2023-09-28T16:58:01.241Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/get-organised/index.html</loc>
-    <lastmod>2023-09-22T13:45:40.557Z</lastmod>
+    <lastmod>2023-09-28T16:58:02.876Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/left-out-of-he/index.html</loc>
-    <lastmod>2023-09-22T13:45:40.951Z</lastmod>
+    <lastmod>2023-09-28T16:58:03.277Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/ons-api/index.html</loc>
-    <lastmod>2023-09-22T13:45:41.294Z</lastmod>
+    <lastmod>2023-09-28T16:58:03.612Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/publication-quality-plots-in-python/index.html</loc>
-    <lastmod>2023-09-22T13:45:42.028Z</lastmod>
+    <lastmod>2023-09-28T16:58:04.341Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/research-blogs/index.html</loc>
-    <lastmod>2023-09-22T13:45:42.687Z</lastmod>
+    <lastmod>2023-09-28T16:58:04.968Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/running-many-regressions-alongside-pandas/index.html</loc>
-    <lastmod>2023-09-22T13:45:43.119Z</lastmod>
+    <lastmod>2023-09-28T16:58:05.389Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/setting-up-r-in-vscode/index.html</loc>
-    <lastmod>2023-09-22T13:45:43.702Z</lastmod>
+    <lastmod>2023-09-28T16:58:05.919Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/specification-curve-analysis/index.html</loc>
-    <lastmod>2023-09-22T13:45:44.482Z</lastmod>
+    <lastmod>2023-09-28T16:58:06.611Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/til-how-to-break-xml/index.html</loc>
-    <lastmod>2023-09-22T13:45:45.023Z</lastmod>
+    <lastmod>2023-09-28T16:58:07.138Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/til-zotero-and-obsidian/index.html</loc>
-    <lastmod>2023-09-22T13:45:45.943Z</lastmod>
+    <lastmod>2023-09-28T16:58:08.007Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/time-series-explosion/index.html</loc>
-    <lastmod>2023-09-22T13:45:46.538Z</lastmod>
+    <lastmod>2023-09-28T16:58:08.586Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/visual-studio-code-in-the-cloud/index.html</loc>
-    <lastmod>2023-09-22T13:45:47.456Z</lastmod>
+    <lastmod>2023-09-28T16:58:09.398Z</lastmod>
   </url>
   <url>
     <loc>https://www.aeturrell.com/blog/posts/wikipedia-into-stem/index.html</loc>
-    <lastmod>2023-09-22T13:45:47.954Z</lastmod>
+    <lastmod>2023-09-28T16:58:09.879Z</lastmod>
   </url>
 </urlset>

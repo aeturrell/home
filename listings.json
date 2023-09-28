@@ -5,6 +5,7 @@
       "/blog/posts/10-lesser-known-python-packages/index.html",
       "/blog/posts/better-narrative-on-narratives/index.html",
       "/blog/index.html",
+      "/blog/posts/build-a-cloud-api/build-a-cloud-api.html",
       "/blog/posts/data-science-maturity/data-science-maturity.html",
       "/blog/posts/econometrics-in-python-partii-fixed-effects/index.html",
       "/blog/posts/running-many-regressions-alongside-pandas/index.html",
@@ -35,6 +36,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/posts/build-a-cloud-api/build-a-cloud-api.html",
       "/blog/posts/time-series-explosion/index.html",
       "/blog/posts/til-zotero-and-obsidian/index.html",
       "/blog/posts/self-storage-meets-chatgpt/index.html",
