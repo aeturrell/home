@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Arthur Turrell">
+<meta name="dcterms.date" content="2023-10-13">
+<meta name="description" content="Arthur Turrell is an economic data scientist.">
+
+<title>Why have a model registry? | Arthur Turrell</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../..//files/logo_large.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-46P0B31B3F"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<meta property="og:title" content="Why have a model registry? | Arthur Turrell">
+<meta property="og:description" content="Arthur Turrell is an economic data scientist.">
+<meta property="og:image" content="https://www.aeturrell.com//files/logo_large.png">
+<meta property="og:site-name" content="Arthur Turrell">
+<meta property="og:locale" content="en_UK">
+<meta property="og:image:height" content="1594">
+<meta property="og:image:width" content="1594">
+<meta name="twitter:title" content="Why have a model registry? | Arthur Turrell">
+<meta name="twitter:description" content="Arthur Turrell is an economic data scientist.">
+<meta name="twitter:image" content="https://www.aeturrell.com//files/logo_large.png">
+<meta name="twitter:creator" content="@arthurturrell">
+<meta name="twitter:site" content="@arthurturrell">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="1594">
+<meta name="twitter:image-width" content="1594">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Arthur Turrell</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../research/index.html" rel="" target="">
+ <span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../media/index.html" rel="" target="">
+ <span class="menu-text">Media</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../thestarbuilders/thestarbuilders.html" rel="" target="">
+ <span class="menu-text">The Star Builders</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog/index.html" rel="" target="">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../teaching/index.html" rel="" target="">
+ <span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../code/index.html" rel="" target="">
+ <span class="menu-text">Code</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../uses/index.html" rel="" target="">
+ <span class="menu-text">Setup</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../atom.xml" rel="" target=""><i class="bi bi-rss" role="img" aria-label="rss">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../contact.html" rel="" target=""><i class="bi bi-envelope" role="img" aria-label="contact">
+</i> 
+ <span class="menu-text"> </span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/arthurturrell" rel="" target=""><i class="bi bi-twitter" role="img" aria-label="twitter">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/aeturrell" rel="" target=""><i class="bi bi-github" role="img" aria-label="github">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/arthur-turrell-8b789891" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="linkedin">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Why have a model registry?</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">code</div>
+                <div class="quarto-category">open-source</div>
+                <div class="quarto-category">cloud</div>
+                <div class="quarto-category">data science</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Arthur Turrell </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 13, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-even-is-a-model" id="toc-what-even-is-a-model" class="nav-link active" data-scroll-target="#what-even-is-a-model">What even is a model?</a></li>
+  <li><a href="#what-is-a-model-registry-and-why-do-i-need-it" id="toc-what-is-a-model-registry-and-why-do-i-need-it" class="nav-link" data-scroll-target="#what-is-a-model-registry-and-why-do-i-need-it">What is a <em>model registry</em> and why do I need it?</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#technical-appendix" id="toc-technical-appendix" class="nav-link" data-scroll-target="#technical-appendix">Technical Appendix</a>
+  <ul class="collapse">
+  <li><a href="#a-simple-model-in-code-as-an-example" id="toc-a-simple-model-in-code-as-an-example" class="nav-link" data-scroll-target="#a-simple-model-in-code-as-an-example">A simple model in code as an example</a></li>
+  <li><a href="#creating-and-working-with-a-model-registry" id="toc-creating-and-working-with-a-model-registry" class="nav-link" data-scroll-target="#creating-and-working-with-a-model-registry">Creating and working with a model registry</a></li>
+  </ul></li>
+  <li><a href="#an-example-of-a-model-registry" id="toc-an-example-of-a-model-registry" class="nav-link" data-scroll-target="#an-example-of-a-model-registry">An example of a model registry</a>
+  <ul class="collapse">
+  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">Metadata</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+
+
+
+
+<p>Many large institutions, including in the public sector, have a set of forecasts, predictions, or estimated statistical relationships (perhaps from a linear regression), that are key to their operations. In this post, I’ll run through how these institutions might benefit from a <em>model registry</em> of the kind that more digitally-savvy frontier firms are already using. And why, without one, an institution might be running <em>model risk</em> without even realising it.</p>
+<p>If you’re not familiar with the idea of a <em>model registry</em>, it’s a service offered by all three major cloud providers (<a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry.html">Amazon Web Services</a>, <a href="https://cloud.google.com/vertex-ai/docs/model-registry/introduction">Google Cloud Platform</a>, and <a href="https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-models">Microsoft Azure Platform</a>) that allows you to lodge models in a (private) repository online. You can also custom build your own model registry (and much more) using the wonderful open source package <a href="https://mlflow.org/docs/latest">MLflow</a>.</p>
+<section id="what-even-is-a-model" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="what-even-is-a-model">What even is a model?</h2>
+<div class="page-columns page-full"><p>The word “model” is doing a lot of work here: it means a digital artefact that is (usually) trained on some data and which either contains coefficient estimates or can make predictions or both. A linear regression is an example of a model. In the data science world, it would usually mean a trained machine learning model that can make new predictions given new inputs. Perhaps the most commonly used file format for models is pickle, with extension <code>.pkl</code>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Of course, I’m not naïve, I know people are out there building models in Excel. What I really mean is “the file format most commonly used by data professionals for models is pickle”. Today, almost undoubtedly, <code>.xlsx</code> is the most common file format for models but we’ll see why that’s not satisfactory.</p></li></div></div>
+<p>Want to see an example of a simple model in code, and the command to save it to disk? Scroll down or <a href="#a-simple-model-in-code-as-an-example">click here</a>.</p>
+</section>
+<section id="what-is-a-model-registry-and-why-do-i-need-it" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="what-is-a-model-registry-and-why-do-i-need-it">What is a <em>model registry</em> and why do I need it?</h2>
+<p>If you’ve never come across one before, you can think of a model registry as a way to store, monitor, and log models and their properties. The pithiest description is that model registries do for models what GitHub and version control do for code. This metaphor goes quite far, as model registries also support a kind of <a href="https://wandb.ai/hamelsmu/model-registry/reports/What-is-CI-CD-for-Machine-Learning---VmlldzozNzk2NDg2">continuous integration</a> where performance metrics can be generated automatically on model upload.</p>
+<p>You can easily imagine a situation where this could be helpful. Let’s say you’re working with a model that you’ve trained locally on your computer. Let’s also say that this model is critical to some decision, analysis, or operation that is happening in your institution. You might need to be able to collaborate with others on it: perhaps they will update it, perhaps they need to use it to make a prediction, or perhaps they just need to know that it exists because your institution is serious about keeping track of the critical models that are in use. One way of working is that the person who built the model does all of this, but then you’re squeezing everything through a key person if you do that—it could easily lead to problems. So, okay, you could share the model via a network drive or send it over email, but there are a bunch of problems with this too. Unless you’re sending it to everyone in the institution, email is pretty ineffective, and everyone is bad at manually doing version control through naming on a network drive. Plus, you have to find a way to make consistent model meta-data (eg on the pros and cons of that modelling approach) stay with the model file: good luck with that on a shared network drive!</p>
+<p>Model registries solve the problem of securely storing, monitoring, tracking, and sharing models between people. The schematic below, from <a href="https://levelup.gitconnected.com/everything-you-need-to-know-about-model-registry-f7b978e84a1">this blog post</a>, gives a sense of what their components are. Note that “endpoints” are places where the model gets deployed such that it can make predictions. This could be an API, but another endpoint could simply be users downloading them and running them locally.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="model_reg_img.png" class="img-fluid figure-img" style="width:100.0%" alt="Schematic of a model registry."></p>
+<figcaption class="figure-caption margin-caption">Schematic of a model registry.</figcaption>
+</figure>
+</div>
+<p>Reasons you might want to use a model registry include:</p>
+<ul>
+<li>you want to have a central set of approved models that are logged. No more tracking models separately and inconsistently, via, say a spreadsheet—in a model registry, the log of models <em>is</em> the set of models.</li>
+<li>you want to have meta-data about the model that is entwined with the model. Some basic meta-data, like the format of inputs and outputs, and even on performance, is usually included. This can be extended with information on a model’s limitations, strengths, and performance via something called a <a href="https://huggingface.co/docs/hub/model-cards">model card</a>. For example, you can <a href="https://aws.amazon.com/blogs/machine-learning/integrate-amazon-sagemaker-model-cards-with-the-model-registry/">link model cards with models in the Amazon SageMaker model registry</a>. You can <a href="https://modelcards.withgoogle.com/object-detection#overview">see an example model card for one of Google’s models here</a>. Model cards are a bit new but there is progress toward a consistent schema <a href="https://github.com/tensorflow/model-card-toolkit">in this toolkit</a>, which has an example based on classifying incomes in the census.</li>
+<li>you want to be able to reproduce model results. Version controlling models in a registry buys you this.</li>
+<li>you want to be able to know what you would have predicted in the past. For models, reproducibility across time can be essential to an institution: it’s not too much of a stretch to imagine there’s an enquiry or review where it is necessary to reproduce the exact model output that you had from a particular date.</li>
+<li>you want to track the performance of a model over time. This is another advantage of versioning, and makes a task like assessing the quality of forecasts over time go from being a rum game of chasing down people, emails, and files to being as simple as running a short script.</li>
+<li>you want others to be able to use your models. If there’s another team who rely on running your models, they no longer have to email you to ask—they just grab the latest version from the registry, and run it themselves. (Alternatively, the model <a href="../../../blog/posts/build-a-cloud-api/build-a-cloud-api.html">can be deployed to an API</a> where anyone in the institution can ping it for a prediction.)</li>
+<li>you want to control access to the model. Sometimes, institutions need to provide different levels of access to different models, and model registries make this very possible, and at as granular a level as you like.</li>
+<li>you want to make your models discoverable. This is a killer application. Models on network drives are not very discoverable, and their meta-data even less so. Model registries are designed to help people find the model they need.</li>
+<li>you want to know how many people are using models, or do other auditing. Model registries are typically hosted, and the hosting service counts what is happening.</li>
+<li>you want to automate reports about the number of models, their performance, how often they are used or updated, and so on. Once code is involved, everything becomes automatable!</li>
+<li>you want to host models for free! Yes, just storing models in a registry is free for most cloud providers. (Other actions, such as deploying models to endpoints, do cost though.)</li>
+<li>you want to make sure that you’re all using the same model. When you load a model from a registry, you pull it <em>directly</em> from the cloud repository—so there’s no chance of you accidentally changing a version that you’ve downloaded to your own machine and running something that’s inconsistent with the online version.</li>
+</ul>
+<p><em>Not</em> having some of these features comes with significant <em>model risk</em>. By model risk, I mean risks relating to models such as not knowing which model or model version was used in a particular decision or at a particular time, losing track of key models, people having access to sensitive models that they shouldn’t, not realising that a model’s performance has significantly degraded, and being unable to reproduce results that were used in critical decision making.</p>
+<div class="page-columns page-full"><p>I said I would come back to models in Excel. In principle, you might (?) be able to store Excel models in a model registry and get some of these benefits (some, but definitely not all: you can’t deploy Excel to an API endpoint, for example, or use it with continuous integration). But Excel comes with so many other issues, I really don’t think you should. Some of the big ones are that they bundle code and data and model together, so you lose all the (not addressed in this post) benefits of version control, you lose control of data (very explicitly—<a href="https://www.nature.com/articles/d41586-021-02211-4">Excel changes your data</a>), and the code is repeated across cells, which makes some errors more likely.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> The bottom line is that if the model is doing anything important, it shouldn’t be in a spreadsheet.</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;The classic examples are not pulling a formula down to cover all rows or columns and hard-pasting numbers over formula cells.</p></li></div></div>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>If your institution relies on models in any way that’s even vaguely critical, it’s hard to see why you wouldn’t want most of the functionality of a model registry or the attendant reduction in risks it can provide. Additionally, this is pretty cheap (or even free), and, because cloud services are scriptable, very automatable, so it’s plausible that the extra functionality comes along with a <em>boost</em> in productivity. Model behaviour indeed!</p>
+</section>
+<section id="technical-appendix" class="level2">
+<h2 class="anchored" data-anchor-id="technical-appendix">Technical Appendix</h2>
+<section id="a-simple-model-in-code-as-an-example" class="level3">
+<h3 class="anchored" data-anchor-id="a-simple-model-in-code-as-an-example">A simple model in code as an example</h3>
+<p>The simplest model you can think of is something like the below, where we feed some data on the miles per gallon of cars into a regression.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>mpg <span class="op">=</span> pd.read_csv(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://vincentarelbundock.github.io/Rdatasets/csv/datasets/mtcars.csv"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    dtype<span class="op">=</span>{<span class="st">"model"</span>: <span class="bu">str</span>, <span class="st">"mpg"</span>: <span class="bu">float</span>, <span class="st">"hp"</span>: <span class="bu">float</span>, <span class="st">"disp"</span>: <span class="bu">float</span>, <span class="st">"cyl"</span>: <span class="st">"category"</span>, <span class="st">"wt"</span>: <span class="bu">float</span>},</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>mpg.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">rownames</th>
+<th data-quarto-table-cell-role="th">mpg</th>
+<th data-quarto-table-cell-role="th">cyl</th>
+<th data-quarto-table-cell-role="th">disp</th>
+<th data-quarto-table-cell-role="th">hp</th>
+<th data-quarto-table-cell-role="th">drat</th>
+<th data-quarto-table-cell-role="th">wt</th>
+<th data-quarto-table-cell-role="th">qsec</th>
+<th data-quarto-table-cell-role="th">vs</th>
+<th data-quarto-table-cell-role="th">am</th>
+<th data-quarto-table-cell-role="th">gear</th>
+<th data-quarto-table-cell-role="th">carb</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Mazda RX4</td>
+<td>21.0</td>
+<td>6</td>
+<td>160.0</td>
+<td>110.0</td>
+<td>3.90</td>
+<td>2.620</td>
+<td>16.46</td>
+<td>0</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Mazda RX4 Wag</td>
+<td>21.0</td>
+<td>6</td>
+<td>160.0</td>
+<td>110.0</td>
+<td>3.90</td>
+<td>2.875</td>
+<td>17.02</td>
+<td>0</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Datsun 710</td>
+<td>22.8</td>
+<td>4</td>
+<td>108.0</td>
+<td>93.0</td>
+<td>3.85</td>
+<td>2.320</td>
+<td>18.61</td>
+<td>1</td>
+<td>1</td>
+<td>4</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Hornet 4 Drive</td>
+<td>21.4</td>
+<td>6</td>
+<td>258.0</td>
+<td>110.0</td>
+<td>3.08</td>
+<td>3.215</td>
+<td>19.44</td>
+<td>1</td>
+<td>0</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Hornet Sportabout</td>
+<td>18.7</td>
+<td>8</td>
+<td>360.0</td>
+<td>175.0</td>
+<td>3.15</td>
+<td>3.440</td>
+<td>17.02</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Now we can fit a linear model, <code>lin_model</code>.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>lin_model <span class="op">=</span> smf.ols(<span class="st">"mpg ~ hp + C(cyl) + wt -1"</span>, data<span class="op">=</span>mpg).fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This has a predict method, accessed via <code>lin_model.predict()</code>.</p>
+<p>Okay, <em>here’s the important bit</em>: to save this model locally on your computer (ready to upload to a model registru), it would be <code>lin_model.save("lin_reg_model.pkl")</code>.</p>
+<p>For this particular package, <strong>statsmodels</strong>, you can see a summary of the underlying model using <code>.summary()</code></p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lin_model.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>OLS Regression Results</caption>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Dep. Variable:</td>
+<td>mpg</td>
+<td data-quarto-table-cell-role="th">R-squared:</td>
+<td>0.857</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Model:</td>
+<td>OLS</td>
+<td data-quarto-table-cell-role="th">Adj. R-squared:</td>
+<td>0.836</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Method:</td>
+<td>Least Squares</td>
+<td data-quarto-table-cell-role="th">F-statistic:</td>
+<td>40.53</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Date:</td>
+<td>Fri, 13 Oct 2023</td>
+<td data-quarto-table-cell-role="th">Prob (F-statistic):</td>
+<td>4.87e-11</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Time:</td>
+<td>23:02:03</td>
+<td data-quarto-table-cell-role="th">Log-Likelihood:</td>
+<td>-71.235</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">No. Observations:</td>
+<td>32</td>
+<td data-quarto-table-cell-role="th">AIC:</td>
+<td>152.5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Df Residuals:</td>
+<td>27</td>
+<td data-quarto-table-cell-role="th">BIC:</td>
+<td>159.8</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Df Model:</td>
+<td>4</td>
+<td data-quarto-table-cell-role="th"></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Covariance Type:</td>
+<td>nonrobust</td>
+<td data-quarto-table-cell-role="th"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td></td>
+<td data-quarto-table-cell-role="th">coef</td>
+<td data-quarto-table-cell-role="th">std err</td>
+<td data-quarto-table-cell-role="th">t</td>
+<td data-quarto-table-cell-role="th">P&gt;|t|</td>
+<td data-quarto-table-cell-role="th">[0.025</td>
+<td data-quarto-table-cell-role="th">0.975]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">C(cyl)[4]</td>
+<td>35.8460</td>
+<td>2.041</td>
+<td>17.563</td>
+<td>0.000</td>
+<td>31.658</td>
+<td>40.034</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">C(cyl)[6]</td>
+<td>32.4870</td>
+<td>2.811</td>
+<td>11.555</td>
+<td>0.000</td>
+<td>26.718</td>
+<td>38.256</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">C(cyl)[8]</td>
+<td>32.6601</td>
+<td>3.835</td>
+<td>8.516</td>
+<td>0.000</td>
+<td>24.791</td>
+<td>40.530</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">hp</td>
+<td>-0.0231</td>
+<td>0.012</td>
+<td>-1.934</td>
+<td>0.064</td>
+<td>-0.048</td>
+<td>0.001</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">wt</td>
+<td>-3.1814</td>
+<td>0.720</td>
+<td>-4.421</td>
+<td>0.000</td>
+<td>-4.658</td>
+<td>-1.705</td>
+</tr>
+</tbody>
+</table>
+<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Omnibus:</td>
+<td>2.972</td>
+<td data-quarto-table-cell-role="th">Durbin-Watson:</td>
+<td>1.790</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Prob(Omnibus):</td>
+<td>0.226</td>
+<td data-quarto-table-cell-role="th">Jarque-Bera (JB):</td>
+<td>1.864</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Skew:</td>
+<td>0.569</td>
+<td data-quarto-table-cell-role="th">Prob(JB):</td>
+<td>0.394</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Kurtosis:</td>
+<td>3.320</td>
+<td data-quarto-table-cell-role="th">Cond. No.</td>
+<td>1.90e+03</td>
+</tr>
+</tbody>
+</table>
+<br><br>Notes:<br>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br>[2] The condition number is large, 1.9e+03. This might indicate that there are<br>strong multicollinearity or other numerical problems.
+</div>
+</div>
+</section>
+<section id="creating-and-working-with-a-model-registry" class="level3">
+<h3 class="anchored" data-anchor-id="creating-and-working-with-a-model-registry">Creating and working with a model registry</h3>
+<p>It’s simpler than you might think to get started with a model registry; you can find the instructions for <a href="https://cloud.google.com/vertex-ai/docs/start/cloud-environment">Google Cloud’s Vertex AI model registry here</a>, for <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry.html">Amazon’s SageMaker registry here</a>, for <a href="https://learn.microsoft.com/en-us/azure/machine-learning/concept-machine-learning-registries-mlops?view=azureml-api-2">Microsoft’s Azure Machine Learning here</a>, and for the <a href="https://mlflow.org/docs/latest/model-registry.html#">MLflow model registry here</a>.</p>
+<p>Once you’ve created a model registry, you can upload a model in a number of ways. Most providers give you at least three ways:</p>
+<ul>
+<li>through a user interface, manually</li>
+<li>via a command line interface</li>
+<li>via a Python package</li>
+</ul>
+<p>For example, once you’ve done the initial settings, <a href="https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-models?view=azureml-api-2&amp;tabs=python%2Cuse-local#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk">uploading a model to Azure’s model registry</a> is achieved using their Python package via</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> azure.ai.ml.entities <span class="im">import</span> Model</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> azure.ai.ml.constants <span class="im">import</span> AssetTypes</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>file_model <span class="op">=</span> Model(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    path<span class="op">=</span><span class="st">"model.pkl"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">type</span><span class="op">=</span>AssetTypes.CUSTOM_MODEL,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"local-file-example"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    description<span class="op">=</span><span class="st">"Model created from local file."</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>ml_client.models.create_or_update(file_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Although you can search for models in the user interface (see <a href="#an-example-of-a-model-registry">below</a> for an example from Google), you can also search all models programmatically too. For example, in Azure, this is as simple as <code>client.search_registered_models(order_by=["name ASC"])</code>.</p>
+<p>Loading models from the registry into your local workspace is similarly simple using, say, MLflow on Azure: <code>model = mlflow.pyfunc.load_model(f"models:/{model_name}/Staging")</code>. You can also deploy models online to an endpoint and query that too, and this is how the cloud providers typically assume you will use registered models.</p>
+<section id="model-cards" class="level4">
+<h4 class="anchored" data-anchor-id="model-cards">Model cards</h4>
+<p>It’s fair to say that Amazon is ahead on model cards, with Google not having introduced them on their cloud service yet and Microsoft offering something that’s slightly different. You can <a href="https://aws.amazon.com/blogs/machine-learning/integrate-amazon-sagemaker-model-cards-with-the-model-registry/">find out how to link models on Amazon with model cards here for AWS</a>, and, as you’d expect, there’s a way to <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-create.html">programmatically upload this info using Python</a>.</p>
+</section>
+</section>
+</section>
+<section id="an-example-of-a-model-registry" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="an-example-of-a-model-registry">An example of a model registry</h2>
+<p>The image below shows a view of a model registry in Google’s model registry, Vertex AI.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="list_view_google_mr.jpg" class="img-fluid figure-img" style="width:100.0%" alt="A Google model registry with some models in."></p>
+<figcaption class="figure-caption margin-caption">Screenshot showing the model registry page on Vertex AI.</figcaption>
+</figure>
+</div>
+<p>You can see high level information such as the name, number of versions, default version, deployment status, and type. If you click through to one of those models, you get a more detailed view.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="single_model_view_google_mr.jpg" class="img-fluid figure-img" style="width:100.0%" alt="A single model's page in a Google model registry."></p>
+<figcaption class="figure-caption margin-caption">Screenshot showing a single model’s page in a Google model registry.</figcaption>
+</figure>
+</div>
+<p>This view shows the labels applied to each version of a specific model, and more. One of the great features of a model registry is that performance can be automatically assessed (“continous integration”).</p>
+<p>The image below shows an example of some metrics of this that live <em>within</em> the model registry:</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="performance_view_google_mr.jpg" class="img-fluid figure-img" style="width:100.0%" alt="A single model's performance metrics in Google model registry."></p>
+<figcaption class="figure-caption margin-caption">Screenshot showing a single model’s performance metrics in Google model registry.</figcaption>
+</figure>
+</div>
+<section id="metadata" class="level3">
+<h3 class="anchored" data-anchor-id="metadata">Metadata</h3>
+<p>Just as an example, here are some meta-data that might be associated with a model</p>
+<pre class="text"><code>artifact_path: classifier
+flavors:
+  fastai:
+    data: model.fastai
+    fastai_version: 2.4.1
+  python_function:
+    data: model.fastai
+    env: conda.yaml
+    loader_module: mlflow.fastai
+    python_version: 3.8.12
+model_uuid: e694c68eba484299976b06ab9058f636
+run_id: e13da8ac-b1e6-45d4-a9b2-6a0a5cfac537
+signature:
+  inputs: '[{"type": "tensor",
+             "tensor-spec": 
+                 {"dtype": "uint8", "shape": [-1, 300, 300, 3]}
+           }]'
+  outputs: '[{"type": "tensor", 
+              "tensor-spec": 
+                 {"dtype": "float32", "shape": [-1,2]}
+            }]'</code></pre>
+
+
+</section>
+</section>
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

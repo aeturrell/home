@@ -28,6 +28,7 @@
       "/blog/posts/visual-studio-code-in-the-cloud/index.html",
       "/blog/posts/welcome/index.html",
       "/blog/posts/left-out-of-he/index.html",
+      "/blog/posts/why-have-a-model-registry/index.html",
       "/blog/posts/game-theory-rescue/index.html",
       "/blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html",
       "/blog/posts/research-blogs/index.html"
@@ -36,6 +37,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/posts/why-have-a-model-registry/index.html",
       "/blog/posts/build-a-cloud-api/build-a-cloud-api.html",
       "/blog/posts/time-series-explosion/index.html",
       "/blog/posts/til-zotero-and-obsidian/index.html",
