@@ -1,0 +1,3 @@
+[tool.ruff]
+# Enable the isort rules.
+extend-select = ["I"]
