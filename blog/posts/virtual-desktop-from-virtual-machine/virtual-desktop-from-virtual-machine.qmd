@@ -1,0 +1,43 @@
+---
+date: "2023-12-04"
+layout: post
+title: "TIL: how to create a virtual desktop from a cloud virtual machine"
+categories: [code, data science, research]
+image: screenshot_ubuntu.png
+---
+
+Researchers frequently want to be able to access a second computer that works like a normal computer (think a virtual desktop rather than a virtual machine + command line) just to offload some computation. This post shows how.
+
+The basic idea here is you don't want to gum up your own laptop with lots of lengthy computations[^1] but you don't feel confident just using a virtual machine via the command line, or using [visual studio code remotely](../visual-studio-code-in-the-cloud/index.md), but you want a virtual desktop that feels a bit similar to using a laptop (only in a browser window). We'll be using Google's handy remote desktop service for this.
+
+[^1]: And you've already optimised in the obvious ways.
+
+## Recipe
+
+For this, you'll need a Google Cloud (GCP) account and project with the compute engine API enabled.
+
+1. Head to create instances in GCP
+2. Hit create instance
+3. Use your normal settings except for under "Boot disk" choose Ubuntu (a good idea to use the latest non-minimal version, I used 23.10)
+4. Create the virtual machine and use Google's handy "SSH" button to enter it on the command line
+5. Run the following on the virtual machine to download the Google remote desktop package and install it
+   ```bash
+   wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+   sudo apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
+   ```
+6. `sudo apt install slim`, which is a display manager
+7. `sudo apt install ubuntu-desktop` to get an ubuntu desktop installed (we're still on the virtual machine here)
+8. Once done, use `sudo reboot`. You'll be kicked off the VM but you can just reconnect as soon as it's rebooted.
+9. Once back on your rebooted virtual machine, hit `sudo service slim start`.
+10. Back on your local computer, go to the Chrome Remote Desktop command line setup page:
+[https://remotedesktop.google.com/headless](https://remotedesktop.google.com/headless)
+11. On the Set up another computer page, click Begin then click Next. You already installed the Chrome Remote Desktop on the remote computer.
+13. Click Authorize
+14. This gives you some code to run on your VM instance that will allow you to connect to it remotely. Copy the command for Debian Linux and run in on the command line of the VM.
+15. When you are asked for one, enter a 6-digit PIN that you have devised. This PIN will be used when you log into the VM instance from the remote desktop browser page.
+16. Head to that browser page ([this link](https://remotedesktop.google.com/headless)) and you should be asked for your pin.
+17. You should see a fully working Ubuntu desktop through your browser window!
+
+![Screenshot of the desktop changer and app selection functions of Ubuntu desktop accessed through Google's remote desktop facility](screenshot_ubuntu.png){width=80%}
+
+Remember: you will be charged for the time that your instance is running. This is usually inexpensive but you do want to turn off the virtual machine when you're not actively using it. You can do this on the instances page with the "stop" button. And, as ever, to tear down the virtual machine completely (and lose anything on it), go to the instances page on GCP and use the delete option.
