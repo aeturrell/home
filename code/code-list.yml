@@ -5,7 +5,7 @@
   url: https://aeturrell.github.io/skimpy/
   logo: https://github.com/aeturrell/skimpy/blob/main/docs/logo.png?raw=true
   semester:
-  - name: Github
+  - name: GitHub
     url: https://github.com/aeturrell/skimpy
   - name: PyPI
     url: https://pypi.org/project/skimpy/
@@ -15,9 +15,9 @@
   university: Developing
   language: Python
   url: https://aeturrell.github.io/specification_curve
-  logo: https://aeturrell.github.io/specification_curve/_images/features_10_1.svg
+  logo: logos/spec_curve_logo.svg
   semester:
-  - name: Github
+  - name: GitHub
     url: https://github.com/aeturrell/specification_curve
   - name: PyPI
     url: https://pypi.org/project/specification-curve/
@@ -41,7 +41,7 @@
   url: https://github.com/aeturrell/cookie-cutter-quarto-book-manuscript
   logo: logos/cookie-quarto-ms.png
   semester:
-  - name: Github
+  - name: GitHub
     url: https://github.com/aeturrell/cookie-cutter-quarto-book-manuscript
 
 
@@ -52,7 +52,7 @@
   url: https://github.com/aeturrell/cookie-cutter-latex-book-manuscript
   logo: logos/cookie-latex-ms.png
   semester:
-  - name: Github
+  - name: GitHub
     url: https://github.com/aeturrell/cookie-cutter-latex-book-manuscript
 
 
@@ -65,5 +65,5 @@
   semester:
   - name: Homepage
     url: https://lost-stats.github.io/
-  - name: Github
+  - name: GitHub
     url: https://github.com/LOST-STATS/lost-stats.github.io
