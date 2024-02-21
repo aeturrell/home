@@ -23,7 +23,7 @@ bibliography: files/bib/references.bib
 csl: files/bib/chicago-author-date.csl
 
 # Metadata stuff
-pagetitle: "{{< meta title >}} | Arthur Turrell"
+pagetitle: "{{< meta title >}}"
 description-meta: "Arthur Turrell is an economic data scientist."
 author-meta: "Arthur Turrell"
 affiliation-meta: "Bank of England"

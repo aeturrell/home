@@ -1,3 +1,13 @@
+- title: "Research on gender pay transparency featured in the Financial Times"
+  date: 2024-02-16
+  description: "Soumaya Keynes writing on 'Should pay be more transparent?'"
+  image: ft_pay_transparency_img.png
+  links:
+  - name: FT piece
+    url: https://www.ft.com/content/b6ba59f6-0027-4574-a46d-cc93390b4737
+  - name: Research paper
+    url: https://arxiv.org/abs/2006.16099
+
 - title: "Chair for ESCoE Conference plenary"
   date: 2023-04-17
   description: "I was a co-organiser of the 2023 Economic Statistics Centre of Excellence conference. I chaired this plenary session in which Prof Diane Coyle spoke about The cost of computing and the productivity puzzle."
