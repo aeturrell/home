@@ -20,6 +20,7 @@
       "/blog/posts/specification-curve-analysis/index.html",
       "/blog/posts/til-how-to-break-xml/index.html",
       "/blog/posts/til-zotero-and-obsidian/index.html",
+      "/blog/posts/til-how-to-run-vscode-remote-azure/index.html",
       "/blog/posts/virtual-desktop-from-virtual-machine/virtual-desktop-from-virtual-machine.html",
       "/blog/posts/ons-api/index.html",
       "/blog/posts/time-series-explosion/index.html",
@@ -39,6 +40,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/posts/til-how-to-run-vscode-remote-azure/index.html",
       "/blog/posts/virtual-desktop-from-virtual-machine/virtual-desktop-from-virtual-machine.html",
       "/blog/posts/data-science-with-impact/index.html",
       "/blog/posts/why-have-a-model-registry/index.html",
