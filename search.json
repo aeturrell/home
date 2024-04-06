@@ -819,6 +819,13 @@
     "text": "Python for Data Science (Python4DS)\nPython for Data Science will teach you how to load up, transform, visualise, and begin to understand your data. The book aims to give you the skills you need to code for data science. It’s suitable for people who have some familiarity with the ideas behind programming and coding but who don’t yet know how to do data science."
   },
   {
+    "objectID": "teaching/index.html#core-econ-doing-economicsworking-in-python",
+    "href": "teaching/index.html#core-econ-doing-economicsworking-in-python",
+    "title": "Teaching",
+    "section": "Core Econ: Doing Economics—working in Python",
+    "text": "Core Econ: Doing Economics—working in Python\nCore Econ is a series of free online textbooks and resources for a new way of teaching and learning economics, using the best research to address the world’s most pressing problems.\nDoing Economics is one of these free books: a unique empirical resource created by a worldwide collaboration of economists and social scientists. It shows you how to work with data in a variety of tools. My contribution has been to write the “Working in Python” pages.\nAs with all projects created by the CORE Team, Doing Economics is free, and open-access. The team designed it primarily to complement the other Core Econ books: Economy, Society, and Public Policy and The Economy.\nDoing Economics gives you the opportunity to gain hands-on experience with real-world data in areas of pressing importance to contemporary societies. If you are interested in environmental sustainability, inequality and wellbeing, or policies to address public health problems such as obesity, you will find relevant sections of the book."
+  },
+  {
     "objectID": "thestarbuilders/thestarbuilders.html",
     "href": "thestarbuilders/thestarbuilders.html",
     "title": "The Star Builders: Nuclear Fusion and the Race to Power the Planet",
