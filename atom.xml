@@ -10,7 +10,883 @@
 <atom:link href="https://www.aeturrell.com/atom.xml" rel="self" type="application/rss+xml"/>
 <description>{{&lt; meta description-meta &gt;}}</description>
 <generator>quarto-1.3.361</generator>
-<lastBuildDate>Fri, 08 Mar 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 23 Apr 2024 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>TIL: how to create and work with a MySQL database on Azure</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>https://www.aeturrell.com/blog/posts/til-sql-database-azure/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>In this TIL, I find out how to create a new <a href="https://dev.mysql.com/">MySQL database</a> on Microsoft Azure. This is a place to store structured, tabular data. Note that the instructions below assume you are using a bash-like terminal, for example <a href="https://ohmyz.sh/">zsh</a>, rather than <a href="https://learn.microsoft.com/en-us/powershell/">Powershell</a>.</p>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<p>You’ll need to sign up for a Microsoft Azure account for this, and create a “resource group”. You’ll also need the Azure Command Line Interface (CLI), which you can find information <a href="https://learn.microsoft.com/en-us/cli/azure/">on here</a>. (Alternatively, you can do this through the <a href="https://portal.azure.com/#home">Azure Portal</a>, but it’s often useful to have the reproducible commands.)</p>
+<p>It’s also helpful to understand the lingo and how different bits of the cloud-based SQL setup relate to one another:</p>
+<ul>
+<li>there is the resource group, which many Azure services could live under</li>
+<li>there is a server, which co-ordinates resources</li>
+<li>there are individual databases, which live on particular services</li>
+</ul>
+<p>These three are hierarchical: a database lives on a server that sits under a particular resource group.</p>
+<p>You may be wondering why MySQL rather than another type of SQL database? The pricing information is quite difficult to parse, but for hobby projects, it looks like a MySQL database is a lot cheaper than an Azure SQL (MSSQL) database. A basic MySQL database (burstable, b1ms model) is around US$13.00 per month whereas a provisioned Azure SQL database is hundreds of dollars a month. The latter option has a more complex set of options too, though, so there’s more to make a mistake with. So we’ll be going with the open source MySQL in this case.</p>
+</section>
+<section id="instructions" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<section id="creating-a-mysql-server" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-mysql-server">Creating a MySQL server</h3>
+<p>First set and load your configs. You’ll need to decide on a login and password for your SQL server.</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">resourcegroup</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=&lt;&gt;</span></span>
+<span id="cb1-2"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">server</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=&lt;&gt;</span></span>
+<span id="cb1-3"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">login</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=&lt;&gt;</span></span>
+<span id="cb1-4"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">password</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=&lt;&gt;</span></span>
+<span id="cb1-5"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">location</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=&lt;&gt;</span>  # <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">eg</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"uksouth"</span></span></code></pre></div>
+<p>Then to create the server (with conservative cost settings), it’s</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">az</span> mysql flexible-server create <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--location</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$location</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--resource-group</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$resourcegroup</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--name</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$server</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--admin-user</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$login</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--admin-password</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$password</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--sku-name</span> Standard_B1ms <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--tier</span> Burstable <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--public-access</span> Enabled <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--version</span> 5.7 <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--high-availability</span> Disabled <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--storage-auto-grow</span> Disabled</span></code></pre></div>
+</section>
+<section id="configure-permissions-to-use-the-sql-server" class="level3">
+<h3 class="anchored" data-anchor-id="configure-permissions-to-use-the-sql-server">Configure permissions to use the SQL server</h3>
+<p>The default options are cautious on two sets of permissions, the certificate and the IP addresses that are allowed to connect. We need to open these up for your computer.</p>
+<p>Go on to Azure portal page for the newly created server and click “configure networking”. Then enable connections from your specific IP address through the firewall (“add current client IP address”). On the same page, there’s an option to download the SSL certificate. Do this, and put it in a secrets folder that is not under version control.</p>
+</section>
+<section id="connect-to-the-sql-server-using-the-command-line" class="level3">
+<h3 class="anchored" data-anchor-id="connect-to-the-sql-server-using-the-command-line">Connect to the SQL server using the command line</h3>
+<p>Let’s check that it worked! Assuming you saved the SSL certificate as <code>sql_cert.crt.pem</code> in the <em>same directory in which you are working</em>, you should be able to run the following on the command line:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">mysql</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-h</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$server</span>.mysql.database.azure.com <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-u</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$login</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-p</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"--ssl-ca=sql_cert.crt.pem"</span></span></code></pre></div>
+<p>If you saved the certificate in <code>secrets/</code>, change the path in the above command appropriately.</p>
+<p>Note that you may need to regenerate the <code>.pem</code> file from time to time.</p>
+<p>Note also that if you are accessing this resource through a VPN or other managed network, this is where you may have difficulties. To circumvent these, you can use a normal internet connection or connect from a virtual machine.</p>
+</section>
+<section id="working-with-the-sql-database-from-python" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="working-with-the-sql-database-from-python">Working with the SQL database from Python</h3>
+<p>Python has a number of great tools for working with SQL databases. For this, we’ll look at just two: <a href="https://dev.mysql.com/doc/connector-python/en/">MySQL Connector</a> and the wonderful <a href="https://ibis-project.org/">Ibis project</a>, which translates across a wide number of data analysis backends.</p>
+<p>Just as we did before, we need to plug in our credentials. The syntax is slightly different from bash and it’s recommended to use a secrets manager like <a href="https://github.com/theskumar/python-dotenv">python-dotenv</a> to manage these and ensure they do not get mistakenly committed to version control.</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">username <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;&gt;</span></span>
+<span id="cb4-2">password <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;&gt;</span></span>
+<span id="cb4-3">hostname <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;&gt;.mysql.database.azure.com"</span></span></code></pre></div>
+<section id="connecting-and-creating-a-database-with-mysql-connector" class="level4">
+<h4 class="anchored" data-anchor-id="connecting-and-creating-a-database-with-mysql-connector">Connecting and creating a database with MySQL Connector</h4>
+<p>Next, we start up the connection.</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">mydb <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> mysql.connector.<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">connect</span>(</span>
+<span id="cb5-2">  host<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>hostname,</span>
+<span id="cb5-3">  user<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>username,</span>
+<span id="cb5-4">  password<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>password,</span>
+<span id="cb5-5">  ssl_ca<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"secrets/sql_cert.crt.pem"</span>,</span>
+<span id="cb5-6">)</span></code></pre></div>
+<p>where it’s assumed that the certificate is in a folder called secrets.</p>
+<p>If running this works, you won’t see an error message or a confirmation message, but you can check all is as it should be by running:</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(mydb)</span></code></pre></div>
+<p>which should result in something like:</p>
+<pre class="text"><code>&lt;mysql.connector.connection_cext.CMySQLConnection object at 0x3213r4g90&gt;</code></pre>
+<p>Now it’s not very exciting to have a SQL server with no databases in. So, next, we’re going to create a database.</p>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">create_db_query <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"CREATE DATABASE online_movie_rating"</span></span>
+<span id="cb8-2">mycursor <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> mydb.cursor()</span>
+<span id="cb8-3">mycursor.execute(create_db_query)</span></code></pre></div>
+<p>If you then run</p>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1">mycursor.execute(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Show databases;"</span>)</span>
+<span id="cb9-2"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> db <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> mycursor:</span>
+<span id="cb9-3">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(db)</span></code></pre></div>
+<p>you’ll get a list of databases that should include <code>online_movie_rating</code>.</p>
+<p>But an empty database is no fun—let’s populate it. First, the table we wish to create:</p>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">create_movies_table_query <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb10-2"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">CREATE TABLE movies(</span></span>
+<span id="cb10-3"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    id INT AUTO_INCREMENT PRIMARY KEY,</span></span>
+<span id="cb10-4"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    title VARCHAR(100),</span></span>
+<span id="cb10-5"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    release_year YEAR(4),</span></span>
+<span id="cb10-6"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    genre VARCHAR(100),</span></span>
+<span id="cb10-7"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    collection_in_mil INT</span></span>
+<span id="cb10-8"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb10-9"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"""</span></span></code></pre></div>
+<p>And then the execution of that create table command:</p>
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1">mydb <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> mysql.connector.<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">connect</span>(</span>
+<span id="cb11-2">  host<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>hostname,</span>
+<span id="cb11-3">  user<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>username,</span>
+<span id="cb11-4">  password<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>password,</span>
+<span id="cb11-5">  database<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"online_movie_rating"</span>,</span>
+<span id="cb11-6">  ssl_ca<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"secrets/sql_cert.crt.pem"</span>,</span>
+<span id="cb11-7">)</span>
+<span id="cb11-8">mycursor <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> mydb.cursor()</span>
+<span id="cb11-9">mycursor.execute(create_movies_table_query)</span>
+<span id="cb11-10">mydb.commit()</span></code></pre></div>
+<p>Note the difference with the earlier command—this one has a <code>database=</code> keyword argument in it.</p>
+<p>With the table created, we can also populate it with some data:</p>
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1">insert_movies_query <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb12-2"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">INSERT INTO movies (title, release_year, genre, collection_in_mil)</span></span>
+<span id="cb12-3"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">VALUES</span></span>
+<span id="cb12-4"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Forrest Gump", 1994, "Drama", 330.2),</span></span>
+<span id="cb12-5"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("3 Idiots", 2009, "Drama", 2.4),</span></span>
+<span id="cb12-6"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Eternal Sunshine of the Spotless Mind", 2004, "Drama", 34.5),</span></span>
+<span id="cb12-7"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Good Will Hunting", 1997, "Drama", 138.1),</span></span>
+<span id="cb12-8"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Skyfall", 2012, "Action", 304.6),</span></span>
+<span id="cb12-9"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Gladiator", 2000, "Action", 188.7),</span></span>
+<span id="cb12-10"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Black", 2005, "Drama", 3.0),</span></span>
+<span id="cb12-11"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Titanic", 1997, "Romance", 659.2),</span></span>
+<span id="cb12-12"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("The Shawshank Redemption", 1994, "Drama",28.4),</span></span>
+<span id="cb12-13"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Udaan", 2010, "Drama", 1.5),</span></span>
+<span id="cb12-14"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Home Alone", 1990, "Comedy", 286.9),</span></span>
+<span id="cb12-15"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Casablanca", 1942, "Romance", 1.0),</span></span>
+<span id="cb12-16"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Avengers: Endgame", 2019, "Action", 858.8),</span></span>
+<span id="cb12-17"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Night of the Living Dead", 1968, "Horror", 2.5),</span></span>
+<span id="cb12-18"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("The Godfather", 1972, "Crime", 135.6),</span></span>
+<span id="cb12-19"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Haider", 2014, "Action", 4.2),</span></span>
+<span id="cb12-20"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Inception", 2010, "Adventure", 293.7),</span></span>
+<span id="cb12-21"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Evil", 2003, "Horror", 1.3),</span></span>
+<span id="cb12-22"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Toy Story 4", 2019, "Animation", 434.9),</span></span>
+<span id="cb12-23"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Air Force One", 1997, "Drama", 138.1),</span></span>
+<span id="cb12-24"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("The Dark Knight", 2008, "Action",535.4),</span></span>
+<span id="cb12-25"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Bhaag Milkha Bhaag", 2013, "Sport", 4.1),</span></span>
+<span id="cb12-26"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("The Lion King", 1994, "Animation", 423.6),</span></span>
+<span id="cb12-27"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Pulp Fiction", 1994, "Crime", 108.8),</span></span>
+<span id="cb12-28"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Kai Po Che", 2013, "Sport", 6.0),</span></span>
+<span id="cb12-29"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Beasts of No Nation", 2015, "War", 1.4),</span></span>
+<span id="cb12-30"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Andadhun", 2018, "Thriller", 2.9),</span></span>
+<span id="cb12-31"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("The Silence of the Lambs", 1991, "Crime", 68.2),</span></span>
+<span id="cb12-32"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Deadpool", 2016, "Action", 363.6),</span></span>
+<span id="cb12-33"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    ("Drishyam", 2015, "Mystery", 3.0)</span></span>
+<span id="cb12-34"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb12-35">mycursor.execute(insert_movies_query)</span>
+<span id="cb12-36">mydb.commit()</span></code></pre></div>
+<p>Let’s see if we can retrieve some of this:</p>
+<div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1">select_movies_query <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"SELECT * FROM movies LIMIT 5"</span></span>
+<span id="cb13-2">mycursor.execute(select_movies_query)</span>
+<span id="cb13-3">result <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> mycursor.fetchall()</span>
+<span id="cb13-4"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> row <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> result:</span>
+<span id="cb13-5">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(row)</span></code></pre></div>
+<pre class="text"><code>(1, 'Forrest Gump', 1994, 'Drama', 330)
+(2, '3 Idiots', 2009, 'Drama', 2)
+(3, 'Eternal Sunshine of the Spotless Mind', 2004, 'Drama', 35)
+(4, 'Good Will Hunting', 1997, 'Drama', 138)
+(5, 'Skyfall', 2012, 'Action', 305)</code></pre>
+<p>Finally, to close the connection, use <code>mydb.close()</code>.</p>
+</section>
+<section id="using-ibis-to-work-with-a-cloud-based-sql-database" class="level4 page-columns page-full">
+<h4 class="anchored" data-anchor-id="using-ibis-to-work-with-a-cloud-based-sql-database">Using Ibis to work with a cloud-based SQL database</h4>
+<p>The <a href="https://ibis-project.org/">Ibis project</a> makes working with a ton of different back-end data tools easy by making the syntax consistent. Examples are: MySQL, BigQuery, DuckDB, pandas, MSSQL, and much, much more!</p>
+<p>Once you’ve imported <strong>Ibis</strong> (<code>import ibis</code>), you may find it more fun and useful to use it in interactive mode, which looks more like how <strong>pandas</strong> works:</p>
+<div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1">ibis.options.interactive <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span></span></code></pre></div>
+<p>To see some data, we need to create a connection:</p>
+<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1">con <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> ibis.mysql.<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">connect</span>(</span>
+<span id="cb16-2">    user<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>username,</span>
+<span id="cb16-3">    password<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>password,</span>
+<span id="cb16-4">    host<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>hostname,</span>
+<span id="cb16-5">    port<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3306</span>,</span>
+<span id="cb16-6">    database<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"online_movie_rating"</span>,</span>
+<span id="cb16-7">    ssl_ca<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sql/sql_cert.crt.pem"</span>,</span>
+<span id="cb16-8">)</span></code></pre></div>
+<p>And to grab our “movies” table again, but as a <strong>pandas</strong> dataframe:</p>
+<div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1">t <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> con.table(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"movies"</span>)</span>
+<span id="cb17-2">t.head().to_pandas()</span></code></pre></div>
+<table class="table">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 44%">
+<col style="width: 16%">
+<col style="width: 9%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>id</th>
+<th>title</th>
+<th>release_year</th>
+<th>genre</th>
+<th>collection_in_mil</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>Forrest Gump</td>
+<td>1994</td>
+<td>Drama</td>
+<td>330</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>2</td>
+<td>3 Idiots</td>
+<td>2009</td>
+<td>Drama</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>3</td>
+<td>Eternal Sunshine of the Spotless Mind</td>
+<td>2004</td>
+<td>Drama</td>
+<td>35</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>4</td>
+<td>Good Will Hunting</td>
+<td>1997</td>
+<td>Drama</td>
+<td>138</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>5</td>
+<td>Skyfall</td>
+<td>2012</td>
+<td>Action</td>
+<td>305</td>
+</tr>
+</tbody>
+</table>
+<p>Ibis is great to explore data. It has fully fledged <strong>pandas</strong>-style <em>and</em> SQL-style APIs. So you can do:</p>
+<div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1">t.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">filter</span>(t.release_year<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1996</span>)</span></code></pre></div>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="https://www.aeturrell.com/blog/posts/til-sql-database-azure/ibis_query_result.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption margin-caption">Returned result from filter using Ibis</figcaption>
+</figure>
+</div>
+<p>But you can also get this as SQL:</p>
+<div class="sourceCode" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1">ibis.to_sql(t.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">filter</span>(t.release_year<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1996</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">SELECT</span></span>
+<span id="cb20-2">  t0.<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">id</span>,</span>
+<span id="cb20-3">  t0.title,</span>
+<span id="cb20-4">  t0.release_year,</span>
+<span id="cb20-5">  t0.genre,</span>
+<span id="cb20-6">  t0.collection_in_mil</span>
+<span id="cb20-7"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">FROM</span> movies <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">AS</span> t0</span>
+<span id="cb20-8"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">WHERE</span></span>
+<span id="cb20-9">  t0.release_year <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1996</span></span></code></pre></div>
+<p>It’s a really powerful downstream analysis tool.</p>
+<p>And that’s it! Most other SQL commands are as you’d expect and can be looked up in the MySQL documentation.</p>
+
+
+</section>
+</section>
+</section>
+
+ ]]></description>
+  <category>code</category>
+  <category>cloud</category>
+  <guid>https://www.aeturrell.com/blog/posts/til-sql-database-azure/index.html</guid>
+  <pubDate>Tue, 23 Apr 2024 23:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/til-sql-database-azure/ibis_query_result.png" medium="image" type="image/png" height="51" width="144"/>
+</item>
+<item>
+  <title>TIL: how to create and work with remote blob storage on Azure</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>https://www.aeturrell.com/blog/posts/til-blob-storage-azure/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>In this TIL, I find out how to create a new blob storage account on Microsoft Azure. This is a place to store unstructured data of any kind (as opposed to, say, a SQL database). Note that the instructions below assume you are using a bash-like terminal, for example <a href="https://ohmyz.sh/">zsh</a>, rather than <a href="https://learn.microsoft.com/en-us/powershell/">Powershell</a>.</p>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<p>You’ll need to sign up for a Microsoft Azure account for this, and create a “resource group”. You’ll also need the Azure Command Line Interface (CLI), which you can find information <a href="https://learn.microsoft.com/en-us/cli/azure/">on here</a>. (Alternatively, you can do this through the <a href="https://portal.azure.com/#home">Azure Portal</a>, but it’s often useful to have the reproducible commands.)</p>
+<p>It’s also helpful to understand the lingo Azure uses for storage.</p>
+<ul>
+<li>storage accounts are the high level service</li>
+<li>“storage containers” are specific data-holding entities that contain blob storage, that is data of any shape and size</li>
+</ul>
+</section>
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<section id="creating-a-storage-account-with-the-command-line-interface" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-storage-account-with-the-command-line-interface">Creating a storage account with the command line interface</h3>
+<p>First set and load your configs. Note that the storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">storagename</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=&lt;&gt;</span></span>
+<span id="cb1-2"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">resourcegroup</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=&lt;&gt;</span></span>
+<span id="cb1-3"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">location</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=&lt;&gt;</span> # <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">eg</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"uksouth"</span></span>
+<span id="cb1-4"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">sku</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Standard_LRS"</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Standard Locally Redundant Storage</span></span></code></pre></div>
+<p>Then to create the blob, it’s</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">az</span> storage account create <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--name</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$storagename</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--resource-group</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$resourcegroup</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--location</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$location</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--sku</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$sku</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--encryption-services</span> blob</span></code></pre></div>
+<p>If this has worked, you’ll get a JSON structure back that looks something like this:</p>
+<pre class="text"><code>{
+  "accessTier": "Hot",
+  "accountMigrationInProgress": null,
+  "allowBlobPublicAccess": false,
+  "allowCrossTenantReplication": false,
+  "allowSharedKeyAccess": null,
+  "allowedCopyScope": null,
+  "azureFilesIdentityBasedAuthentication": null,
+  "blobRestoreStatus": null,
+  "creationTime": "&lt;&gt;",
+  "customDomain": null,
+  "defaultToOAuthAuthentication": null,
+  "dnsEndpointType": null,
+  "enableHttpsTrafficOnly": true,
+  "enableNfsV3": null,
+  "extendedLocation": null,
+  "failoverInProgress": null,
+  "geoReplicationStats": null,
+  "id": "/subscriptions/&lt;&gt;/resourceGroups/&lt;&gt;/providers/Microsoft.Storage/storageAccounts/&lt;&gt;",
+  "identity": null,
+  "immutableStorageWithVersioning": null,
+  "isHnsEnabled": null,
+  "isLocalUserEnabled": null,
+  "isSftpEnabled": null,
+  "isSkuConversionBlocked": null,
+  "keyPolicy": null,
+  "kind": "StorageV2",
+  "largeFileSharesState": null,
+  "lastGeoFailoverTime": null,
+  "location": "uksouth",
+  "minimumTlsVersion": "TLS1_0",
+  "name": "&lt;&gt;",
+  "networkRuleSet": {
+    "bypass": "AzureServices",
+    "defaultAction": "Allow",
+    "ipRules": [],
+    "ipv6Rules": [],
+    "resourceAccessRules": null,
+    "virtualNetworkRules": []
+  },
+  "primaryEndpoints": {
+    "blob": "https://&lt;&gt;.blob.core.windows.net/",
+    "dfs": "https://&lt;&gt;.dfs.core.windows.net/",
+    "file": "https://&lt;&gt;.file.core.windows.net/",
+    "internetEndpoints": null,
+    "microsoftEndpoints": null,
+    "queue": "https://&lt;&gt;.queue.core.windows.net/",
+    "table": "https://&lt;&gt;.table.core.windows.net/",
+    "web": "https://&lt;&gt;.z33.web.core.windows.net/"
+  },
+  "primaryLocation": &lt;&gt;,
+  "privateEndpointConnections": [],
+  "provisioningState": "Succeeded",
+  "publicNetworkAccess": null,
+  "resourceGroup": "inv-day-test",
+  "routingPreference": null,
+  "sasPolicy": null,
+  "secondaryEndpoints": null,
+  "secondaryLocation": null,
+  "sku": {
+    "name": "Standard_LRS",
+    "tier": "Standard"
+  },
+  "statusOfPrimary": "available",
+  "statusOfSecondary": null,
+  "storageAccountSkuConversionStatus": null,
+  "tags": {},
+  "type": "Microsoft.Storage/storageAccounts"
+}</code></pre>
+</section>
+<section id="assign-permission-to-use-the-storage-account" class="level3">
+<h3 class="anchored" data-anchor-id="assign-permission-to-use-the-storage-account">Assign permission to use the storage account</h3>
+<p>Right now, you’ve created a storage account, but you don’t have permission to use it! Let’s change that by adding the current user to have the role assignment “Storage Blob Data Contributor”.</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">subscriptionid</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=&lt;&gt;</span>  # <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">long</span> combination of numbers and letters with dashes</span>
+<span id="cb4-2"></span>
+<span id="cb4-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">az</span> ad signed-in-user show <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--query</span> id <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-o</span> tsv <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">|</span> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">az</span> role assignment create <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb4-4">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--role</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Storage Blob Data Contributor"</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb4-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--assignee</span> @- <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb4-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--scope</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"/subscriptions/</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$subscriptionid</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/resourceGroups/</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$resourcegroup</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/providers/Microsoft.Storage/storageAccounts/</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$storagename</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span></code></pre></div>
+<p>Note that we already saved the other variables. Running this should result in another JSON file full of info.</p>
+</section>
+<section id="creating-a-storage-container-using-the-cli" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-storage-container-using-the-cli">Creating a storage container using the CLI</h3>
+<p>Next up, we want to create a storage container.</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">containername</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=&lt;&gt;</span>  # <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">eg</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mydemocontainer"</span></span>
+<span id="cb5-2"></span>
+<span id="cb5-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">az</span> storage container create <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb5-4">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--account-name</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$storagename</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb5-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--name</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$containername</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb5-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--auth-mode</span> login</span></code></pre></div>
+<p>Once this runs you should get a little JSON saying</p>
+<pre class="text"><code>{
+  "created": true
+}</code></pre>
+</section>
+<section id="how-to-upload-a-file-to-blob-storage" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-upload-a-file-to-blob-storage">How to upload a file to blob storage</h3>
+<p>Now we need a text file to try out “mydemocontainer” or whatever you called it in <code>containername</code>. To create one, use</p>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hello world"</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;</span> test.txt</span></code></pre></div>
+<p>this creates the file <code>test.txt</code> locally. To then upload it to your storage container as <code>test_on_blob.txt</code>, use the below:</p>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">az</span> storage blob upload <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--account-name</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$storagename</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--container-name</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$containername</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--name</span> test_on_blob.txt <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--file</span> test.txt <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--auth-mode</span> login</span></code></pre></div>
+</section>
+<section id="checking-it-worked" class="level3">
+<h3 class="anchored" data-anchor-id="checking-it-worked">Checking it worked</h3>
+<p>Of course, you can check this in the Azure Portal. But to check it on the command line, it’s</p>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">az</span> storage blob list <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--account-name</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$storagename</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--container-name</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$containername</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--output</span> table <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--auth-mode</span> login</span></code></pre></div>
+<p>which should result in a table showing a single file, <code>test_on_blob.txt</code>.</p>
+</section>
+<section id="download-data-back-from-the-blob" class="level3">
+<h3 class="anchored" data-anchor-id="download-data-back-from-the-blob">Download data back from the blob</h3>
+<p>For this, we’ll use the <code>az storage blob download</code> command.</p>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">az</span> storage blob download <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--account-name</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$storagename</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--container-name</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$containername</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--name</span> test_on_blob.txt <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--file</span> back_from_blob.txt <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--auth-mode</span> login</span></code></pre></div>
+<p>That’s it! The general setup is the same. For transferring lots of files, you may want to check out the <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10">azcopy</a> utility too. There are also <a href="https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-python">Python libraries</a> for interacting with blob storage.</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>code</category>
+  <category>cloud</category>
+  <guid>https://www.aeturrell.com/blog/posts/til-blob-storage-azure/index.html</guid>
+  <pubDate>Mon, 22 Apr 2024 23:00:00 GMT</pubDate>
+</item>
 <item>
   <title>TIL: how to connect Visual Studio Code to Azure Virtual Machines</title>
   <dc:creator>Arthur Turrell</dc:creator>
@@ -4135,2223 +5011,6 @@ font-style: inherit;">"init.R"</span>))</span>
   <category>rstats</category>
   <guid>https://www.aeturrell.com/blog/posts/setting-up-r-in-vscode/index.html</guid>
   <pubDate>Thu, 04 Nov 2021 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Three ways to blog with code</title>
-  <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/three-ways-to-blog-with-code/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>Typically, what I want to do when I create a blog post is to combine text, code, and code output, and then push it to the github repo that hosts my website. But what are the options, and which of them is the best (at least for my purposes)?</p>
-<p>The objective is to take a mixture of markdown and code, execute the code, and ensure the outputs from that code (eg images) are linked to in a ‘final’ version of the markdown (let’s call it an executed version) that can easily be uploaded to github pages via a static site generator.</p>
-<p>I’ll look at three ways to do this: Jupyter Notebooks, Codebraid, and Rmarkdown.</p>
-<p>Let’s take a very simple blog post as the test case, with the quality of the output and success on the following tasks our metric of success:</p>
-<ul>
-<li>write and execute some code</li>
-<li>write some text</li>
-<li>execute some code that produces an image and includes it using the markdown <code>! [] (dir/to/img.png)</code> syntax; and</li>
-<li>execute some code in-line with text.</li>
-</ul>
-<p>Here’s the contents that we’ll run in each case before exporting to executed markdown (note that it won’t show any outputs because it hasn’t been executed-in fact this will be, somewhat ironically, a code-output free blog post!):</p>
-<section id="test-blog-post" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="test-blog-post">Test blog post</h3>
-<p>This is a <em>very</em> approximate recreation of XKCD comic number 2419, <a href="https://xkcd.com/2419/">Hug Count</a>.</p>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> np</span>
-<span id="cb1-2"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> pd</span>
-<span id="cb1-3"></span>
-<span id="cb1-4"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> numpy.random <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> Generator, PCG64</span>
-<span id="cb1-5">seed_for_prng <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">78557</span></span>
-<span id="cb1-6">prng <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> Generator(PCG64(seed_for_prng))</span>
-<span id="cb1-7"></span>
-<span id="cb1-8"></span>
-<span id="cb1-9">df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.DataFrame(prng.integers(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>, size<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2022</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1995</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)),</span>
-<span id="cb1-10">                  columns<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Hugs'</span>],</span>
-<span id="cb1-11">                  index<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1995</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2022</span>))</span>
-<span id="cb1-12">df.tail()</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Hugs</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2017</td>
-<td>27</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">2018</td>
-<td>24</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2019</td>
-<td>21</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">2020</td>
-<td>26</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2021</td>
-<td>23</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p>Now we need to adjust the last entry downwards to reflect the unfortunate lack of hugs since coronavirus:</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">df.loc[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2020</span>:<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2022</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Hugs'</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>]</span></code></pre></div>
-</div>
-<p>Let’s print the last number in-line: <code>3</code>.</p>
-<p>Finally, let’s create the image.</p>
-<div class="cell page-columns page-full" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> plt</span>
-<span id="cb3-2"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> matplotlib_inline.backend_inline</span>
-<span id="cb3-3">matplotlib_inline.backend_inline.set_matplotlib_formats(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"svg"</span>)</span>
-<span id="cb3-4"></span>
-<span id="cb3-5"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">with</span> plt.xkcd():</span>
-<span id="cb3-6">    fig, ax <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> plt.subplots()</span>
-<span id="cb3-7">    ax.spines[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'right'</span>].set_color(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'none'</span>)</span>
-<span id="cb3-8">    ax.spines[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'top'</span>].set_color(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'none'</span>)</span>
-<span id="cb3-9">    df.plot.bar(ax<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>ax)</span>
-<span id="cb3-10">    ax.get_legend().remove()</span>
-<span id="cb3-11">    ax.set_title(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Estimated Number of Distinct People Hugged Per Year'</span>)</span></code></pre></div>
-<div class="cell-output cell-output-display page-columns page-full">
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/three-ways-to-blog-with-code/index_files/figure-html/cell-4-output-1.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">Hugs chart, after XKCD</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="the-three-ways" class="level2">
-<h2 class="anchored" data-anchor-id="the-three-ways">The three ways</h2>
-<section id="jupyter-notebooks" class="level3">
-<h3 class="anchored" data-anchor-id="jupyter-notebooks">Jupyter Notebooks</h3>
-<p>From a Jupyter Notebook server running the .ipynb in a browser window (launch with <code>jupyter notebook</code> in the command line), choose File-&gt;Download As-&gt;Markdown to get a zip file that contains an executed markdown with outputs and a separate image file that is linked to from the markdown file. The automatic inclusion of images works really well. One major drawback of this approach is that there is no way to execute in-line code.</p>
-<p>Although it has been requested as a feature, there’s no way to go from .ipynb to executed markdown in VS Code (though VS Code is a great Jupyter Notebook IDE in many other ways). This is a shame as VS Code is my go-to IDE.</p>
-<p>Pros:</p>
-<ul>
-<li>Images auto-linked</li>
-<li>Lots of great extensions for Jupyter notebooks</li>
-<li>Shows how the final outputs will look (because you can execute as you go)</li>
-</ul>
-<p>Cons:</p>
-<ul>
-<li>Doesn’t play that nicely with version control</li>
-<li>Cannot integrate code and text; blocks must be one or another</li>
-<li>Requires an IDE that can read .ipynb files</li>
-</ul>
-</section>
-<section id="codebraid" class="level3">
-<h3 class="anchored" data-anchor-id="codebraid">Codebraid</h3>
-<p><a href="https://github.com/gpoore/codebraid">Codebraid</a> is a really great package with a smorgasbord of features such as in-line code execution within paragraphs, no requirement for markdown preprocessor commands, minimal diffs for easy version control, the ability to insert code output anywhere in a document, and the ability to use multiple languages (and even multiple sessions) within a single document. All very impressive.</p>
-<p>Like knitr for rmarkdown, it makes use of the excellent pandoc under the hood. To call it, you use</p>
-<pre><code>codebraid pandoc &lt;normal pandoc options&gt; --overwrite</code></pre>
-<p>on the command line. To get an executable Python block, the syntax for just getting the output of the code is</p>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```{.python .cb.run}</span></span>
-<span id="cb5-2">x <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Hello from *Python!*'</span></span>
-<span id="cb5-3"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(x)</span>
-<span id="cb5-4"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```</span></span></code></pre></div>
-<p>whereas to get the code <em>and</em> the output it’s</p>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```{.python .cb.nb}</span></span>
-<span id="cb6-2">x <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Hello from *Python!*'</span></span>
-<span id="cb6-3"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(x)</span>
-<span id="cb6-4"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```</span></span></code></pre></div>
-<p>Additional options are available via the show argument, eg <code>{.python .cb.nb} show=code+stdout:raw+stderr</code>, shows the code, the raw output, and any errors.</p>
-<p>Displaying in-line code or output is possible. Use in-line code with <code>.cb.run</code>, e.g.</p>
-<pre><code>`print(1 + 2)`{{.python .cb.run}}</code></pre>
-<p>Running in-line code with <code>.cb.expr</code> evaluates an expression and then inserts the raw output into the document, where it is interpreted as Markdown. Inline code with <code>.cb.nb</code> (<code>nb</code> is short for <code>notebook</code>) is similar, except output is shown verbatim.</p>
-<p>Images can be included automatically, just as is the case with Jupyter Notebook export, <em>except</em> that you must specify that you want to use a jupyter kernel rather than a pure language kernel. <code>{.python .cb.nb jupyter_kernel=python3}</code> is what you’d run in the first code block, but you can use <code>{.python .cb.nb}</code> in subsequent blocks (whether in-line or not).</p>
-<p>Apart from all that, the only other thing you need to do is add a title, e.g.</p>
-<pre><code>
----
-title: "Codebraid blog post example"
----
-</code></pre>
-<p>Codebraid works really, really well with a jupyter kernel. The figures are included automatically, in-line rendering is possible, and you have a lot of options on output. Its creator has clearly but a lot of work into it. The only real downside is that you cannot see the outputs except in the executed and exported markdown, unlike in a Jupyter Notebook. I dare say that a clever VS Code extension could create a live preview, which would be fantastic to see.</p>
-<p>Pros:</p>
-<ul>
-<li>First class cross-language support</li>
-<li>In-line code execution</li>
-<li>Great with version control</li>
-<li>Works with any text editor</li>
-<li>Lots of control over outputs</li>
-<li>Images auto-linked</li>
-<li>Uses a plain markdown .md file</li>
-</ul>
-<p>Cons:</p>
-<ul>
-<li>Doesn’t show how the final outputs will look</li>
-<li>In some cases, exported markdown files may contains less common markdown syntax features, such as triple colons, that may not be rendered by all markdown viewers (it may be possible to turn these off)</li>
-</ul>
-</section>
-<section id="rmarkdown" class="level3">
-<h3 class="anchored" data-anchor-id="rmarkdown">Rmarkdown</h3>
-<p>The way Rmarkdown (a file format that’s a fancy version of markdown), RStudio, and the package knitr work together is so great that I’m surprised it hasn’t caught on more. When it works, it really is brilliant.</p>
-<p>Part of the reason why it hasn’t is probably because it’s pretty tightly bound with just one language (R), unlike Ju(lia)py(thon)(te)R notebooks, which covers three, and Codebraid, which covers those three plus Rust, Javascript, and bash. That, and you’re strongly tied to both R and RStudio to get the magic preview of what the output will look like. That’s not to say you cannot run Python or Julia in rmarkdown documents; you can, but they’re not first class citizens and I’ve heard stories about both big slowdowns relative to using those languages natively and that some things just don’t work at all. That said, for writing a blog post with a few lines of Python or Julia in, rmarkdown is a viable option, and it’s a really strong option for R.</p>
-<p>Like Codebraid, rmarkdown + knitr use pandoc to achieve their magic, though pandoc’s role is a bit more hidden (it doesn’t appear in the command; in fact, you click a button that says <code>knitr</code> or <code>Preview</code>). When you create a new rmarkdown document in RStudio, you get options for output in HTML, PDF, or Word. But, of course, we know that pandoc is involved-and so that there are many more output formats available! In this case, we want to get an executed markdown script. The way to get this to happen is to adapt the header at the top of a newly created rmarkdown document to have output set to <code>md_document</code> as follows</p>
-<pre><code>
----
-title: "your title"
-output: md_document
----
-</code></pre>
-<p>I wasn’t able to get the preview of Python chunks working–the in-document code-chunk preview button said that pandas was not installed (as if!). However, the output did work when I used the export to markdown option (the button to do this is, confusingly, labelled <code>Preview</code> but it’s the <code>Preview</code> that appears on the bar at the top of the document rather than <em>within</em> the document). Furthermore, the in-line code chunks do not seem to work with anything other than R.</p>
-<p>Pros:</p>
-<ul>
-<li>Fantastic preview of how the final outputs will look when using RStudio</li>
-<li>Great with version control</li>
-<li>Almost uses a plain markdown file (it looks like plain markdown, but the extension is .rmd)</li>
-<li>Excellent if you’re using R</li>
-<li>Images auto-linked (although through HTML rather than markdown)</li>
-</ul>
-<p>Cons:</p>
-<ul>
-<li>Most of the best features do not work with other languages: eg preview and in-line code</li>
-<li>Not so easy to use outside of RStudio</li>
-<li>Markdown export hidden</li>
-<li>Python support only through R’s <code>reticulate</code> package, which seems slow and is fiddly to connect to virtual environments</li>
-</ul>
-</section>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Jupyter Notebooks are great if you don’t mind the well-known fussyness around version control and the cumbersome file format. The preview of output that you naturally get by running cells is perhaps the strongest feature. Plus, you get lots of other great features of Jupyter Notebooks, including the many possible extensions, and a choice of several IDEs, including Visual Studio Code and JupyterLab. No in-line code, however.</p>
-<p>Rmarkdown + knitr + RStudio works well for R (with a bit of fiddling to get markdown out instead of, say, html) but it’s just not good enough for other languages yet and it’s very much tied into the RStudio ecosystem. The best feature is the live preview as you execute individual chunks-but again, that’s only for R.</p>
-<p>Codebraid is, for me, the stand out tool. It does everything you could ever want across every language you could ever want with ease <em>except</em> for one very important feature that’s missing: the ability to see a live preview. This isn’t really a failing of the Codebraid library of course; in the case of the other two, we’re really combining a file format with a file viewer whereas Codebraid is just the file format and a command line tool. So, if, say, Visual Studio Code introduced a live preview of Codebraid markdown (before execution), then it would be superior to the other options for all purposes in my view. As it is, it’s still the best all rounder and, for most blog posts that I do, I can see myself using either Codebraid or Jupyter Notebooks. It has an edge on the latter when it comes to in-line code, multiple languages simultaneously, and a less fussy file format (it’s just markdown rather than JSON).</p>
-</section>
-<section id="verbatim-blog-post-file-contents" class="level2">
-<h2 class="anchored" data-anchor-id="verbatim-blog-post-file-contents">Verbatim blog post file contents</h2>
-<p>These are in case you want to try this out for yourself.</p>
-<section id="jupyter-notebook" class="level3">
-<h3 class="anchored" data-anchor-id="jupyter-notebook">Jupyter Notebook</h3>
-<pre class="text"><code>{
- "cells": [
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "This is a *very* approximate recreation of XKCD comic number 2419, [Hug Count](https://xkcd.com/2419/)."
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "import numpy as np\n",
-    "import pandas as pd\n",
-    "\n",
-    "from numpy.random import Generator, PCG64\n",
-    "seed_for_prng = 78557\n",
-    "prng = Generator(PCG64(seed_for_prng))\n",
-    "\n",
-    "\n",
-    "df = pd.DataFrame(prng.integers(20, 30, size=(2022-1995, 1)),\n",
-    "                  columns=['Hugs'],\n",
-    "                  index=range(1995, 2022))\n",
-    "df.tail()"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "Now we need to adjust the last entry downwards to reflect the unfortunate lack of hugs since coronavirus:"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "df.loc[2020:2022, 'Hugs'] = [5, 3]"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "Let's print the last number in-line (cannot do this in Jupyter Notebook).\n",
-    "\n",
-    "Finally, let's create the image."
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "import matplotlib.pyplot as plt\n",
-    "\n",
-    "with plt.xkcd():\n",
-    "    fig, ax = plt.subplots()\n",
-    "    ax.spines['right'].set_color('none')\n",
-    "    ax.spines['top'].set_color('none')\n",
-    "    df.plot.bar(ax=ax)\n",
-    "    ax.get_legend().remove()\n",
-    "    ax.set_title('Estimated Number of Distinct People Hugged Per Year')"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3.7.6 64-bit ('base': conda)",
-   "language": "python",
-   "name": "python37664bitbaseconda6d7b358218c047dcab3fb2cff66062fa"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.7.6"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 4
-}</code></pre>
-<p>This can be executed by pressing ‘run’ in an IDE. In the Jupyter Notebook IDE, you should then use the export to markdown option (under file-&gt;download as).</p>
-</section>
-<section id="codebraid-1" class="level3">
-<h3 class="anchored" data-anchor-id="codebraid-1">Codebraid</h3>
-<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">---</span></span>
-<span id="cb11-2"><span class="an" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">title:</span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"> "Codebraid blog post example"</span></span>
-<span id="cb11-3"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">---</span></span>
-<span id="cb11-4"></span>
-<span id="cb11-5"></span>
-<span id="cb11-6">This is a *very* approximate recreation of XKCD comic number 2419, <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">Hug Count</span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">](https://xkcd.com/2419/)</span>.</span>
-<span id="cb11-7"></span>
-<span id="cb11-8"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```{.python .cb.nb jupyter_kernel=python3}</span></span>
-<span id="cb11-9"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> np</span>
-<span id="cb11-10"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> pd</span>
-<span id="cb11-11"></span>
-<span id="cb11-12"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> numpy.random <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> Generator, PCG64</span>
-<span id="cb11-13">seed_for_prng <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">78557</span></span>
-<span id="cb11-14">prng <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> Generator(PCG64(seed_for_prng))</span>
-<span id="cb11-15"></span>
-<span id="cb11-16"></span>
-<span id="cb11-17">df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.DataFrame(prng.integers(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>, size<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2022</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1995</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)),</span>
-<span id="cb11-18">                  columns<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Hugs'</span>],</span>
-<span id="cb11-19">                  index<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1995</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2022</span>))</span>
-<span id="cb11-20">df.tail()</span>
-<span id="cb11-21"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```</span></span>
-<span id="cb11-22"></span>
-<span id="cb11-23">Now we need to adjust the last entry downwards to reflect the unfortunate lack of hugs since coronavirus:</span>
-<span id="cb11-24"></span>
-<span id="cb11-25"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```{python .cb.nb}</span></span>
-<span id="cb11-26">df.loc[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2020</span>:<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2022</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Hugs'</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>]</span>
-<span id="cb11-27"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```</span></span>
-<span id="cb11-28"></span>
-<span id="cb11-29">Let's print the last number in-line <span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">`print(df.iloc[-1, -1])`</span>{.python .cb.run}.</span>
-<span id="cb11-30"></span>
-<span id="cb11-31">Finally, let's create the image.</span>
-<span id="cb11-32"></span>
-<span id="cb11-33"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```{.python .cb.nb}</span></span>
-<span id="cb11-34"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> plt</span>
-<span id="cb11-35"></span>
-<span id="cb11-36"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">with</span> plt.xkcd():</span>
-<span id="cb11-37">    fig, ax <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> plt.subplots()</span>
-<span id="cb11-38">    ax.spines[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'right'</span>].set_color(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'none'</span>)</span>
-<span id="cb11-39">    ax.spines[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'top'</span>].set_color(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'none'</span>)</span>
-<span id="cb11-40">    df.plot.bar(ax<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>ax)</span>
-<span id="cb11-41">    ax.get_legend().remove()</span>
-<span id="cb11-42">    ax.set_title(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Estimated Number of Distinct People Hugged Per Year'</span>)</span>
-<span id="cb11-43"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```</span></span></code></pre></div>
-<p>Then run <code>codebraid pandoc -s in.md -o out.md</code> on the command line, assuming you have codebraid and pandoc installed, and that you name the above file ‘in.md’.</p>
-</section>
-<section id="rmarkdown-1" class="level3">
-<h3 class="anchored" data-anchor-id="rmarkdown-1">Rmarkdown</h3>
-<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">---</span></span>
-<span id="cb12-2"><span class="an" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">title:</span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"> "three_rmd"</span></span>
-<span id="cb12-3"><span class="an" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">output:</span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"> md_document</span></span>
-<span id="cb12-4"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">---</span></span>
-<span id="cb12-5"></span>
-<span id="cb12-6"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```{r setup, include=FALSE}</span></span>
-<span id="cb12-7">knitr<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span>opts_chunk<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">set</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">echo =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>)</span>
-<span id="cb12-8"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(reticulate)</span>
-<span id="cb12-9"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```</span></span>
-<span id="cb12-10"></span>
-<span id="cb12-11">This is a *very* approximate recreation of XKCD comic number 2419, <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">Hug Count</span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">](https://xkcd.com/2419/)</span>.</span>
-<span id="cb12-12"></span>
-<span id="cb12-13"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```{python}</span></span>
-<span id="cb12-14"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> np</span>
-<span id="cb12-15"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> pd</span>
-<span id="cb12-16"></span>
-<span id="cb12-17"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> numpy.random <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> Generator, PCG64</span>
-<span id="cb12-18">seed_for_prng <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">78557</span></span>
-<span id="cb12-19">prng <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> Generator(PCG64(seed_for_prng))</span>
-<span id="cb12-20"></span>
-<span id="cb12-21"></span>
-<span id="cb12-22">df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.DataFrame(prng.integers(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>, size<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2022</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1995</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)),</span>
-<span id="cb12-23">                  columns<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Hugs'</span>],</span>
-<span id="cb12-24">                  index<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1995</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2022</span>))</span>
-<span id="cb12-25"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(df.tail())</span>
-<span id="cb12-26"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```</span></span>
-<span id="cb12-27"></span>
-<span id="cb12-28">Now we need to adjust the last entry downwards to reflect the unfortunate lack of hugs since coronavirus:</span>
-<span id="cb12-29"></span>
-<span id="cb12-30"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```{python}</span></span>
-<span id="cb12-31">df.loc[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2020</span>:<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2022</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Hugs'</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>]</span>
-<span id="cb12-32"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```</span></span>
-<span id="cb12-33"></span>
-<span id="cb12-34"></span>
-<span id="cb12-35">Let's print the last number in-line (not possible with Rmarkdown).</span>
-<span id="cb12-36"></span>
-<span id="cb12-37">Finally, let's create the image.</span>
-<span id="cb12-38"></span>
-<span id="cb12-39"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```{python}</span></span>
-<span id="cb12-40"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> plt</span>
-<span id="cb12-41"></span>
-<span id="cb12-42"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">with</span> plt.xkcd():</span>
-<span id="cb12-43">    fig, ax <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> plt.subplots()</span>
-<span id="cb12-44">    ax.spines[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'right'</span>].set_color(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'none'</span>)</span>
-<span id="cb12-45">    ax.spines[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'top'</span>].set_color(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'none'</span>)</span>
-<span id="cb12-46">    df.plot.bar(ax<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>ax)</span>
-<span id="cb12-47">    ax.get_legend().remove()</span>
-<span id="cb12-48">    ax.set_title(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Estimated Number of Distinct People Hugged Per Year'</span>)</span>
-<span id="cb12-49"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```</span></span></code></pre></div>
-<p>In RStudio, changing <code>output: html</code> to <code>output: md_document</code> tells knitr to use markdown. Then hit the preview button <em>at the top</em> of the document, which actually creates an output markdown file.</p>
-
-
-</section>
-</section>
-
- ]]></description>
-  <category>code</category>
-  <category>blogging</category>
-  <guid>https://www.aeturrell.com/blog/posts/three-ways-to-blog-with-code/index.html</guid>
-  <pubDate>Fri, 12 Feb 2021 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>10 less well-known Python packages</title>
-  <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/10-lesser-known-python-packages/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>(Remember that to use these, you will need to run <code>pip install packagename</code> on the command line.)</p>
-<section id="jazzit" class="level2">
-<h2 class="anchored" data-anchor-id="jazzit">1. Jazzit</h2>
-<p>Sound on for this one. Jazzit’s docs say: &gt; “Ever wanted your scripts to play music while running/ on erroring out? Of course you didn’t. But here it is anyway”.</p>
-<p>Yes, this package laughs at you when you get a runtime error – but can also celebrate your success when the code runs. Apart from being good fun, this package demonstrates how the decorator function <code>@</code> is used.</p>
-<p>See also: <a href="https://pypi.org/project/beepy/">beepy</a></p>
-<section id="example-of-jazzit" class="level3">
-<h3 class="anchored" data-anchor-id="example-of-jazzit">Example of Jazzit</h3>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"></span>
-<span id="cb1-2"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> jazzit <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> error_track, success_track</span>
-<span id="cb1-3"></span>
-<span id="cb1-4"><span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">@error_track</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"curb_your_enthusiasm.mp3"</span>, wait<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span>)</span>
-<span id="cb1-5"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">def</span> run():</span>
-<span id="cb1-6">    <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>)</span>
-<span id="cb1-7"></span>
-<span id="cb1-8">run()</span></code></pre></div>
-<pre class="text"><code>Traceback (most recent call last):
-  File "/opt/anaconda3/envs/noodling/lib/python3.8/site-packages/jazzit/jazz.py", line 47, in wrapped_function
-    original_func(*args)
-  File "/var/folders/x6/ffnr59f116l96_y0q0bjfz7c0000gn/T/ipykernel_89075/4032939987.py", line 5, in run
-    print(1/0)
-ZeroDivisionError: division by zero</code></pre>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">@success_track</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"anime-wow.mp3"</span>)</span>
-<span id="cb3-2"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">def</span> add(a,b):</span>
-<span id="cb3-3">    <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(a<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>b)</span>
-<span id="cb3-4"></span>
-<span id="cb3-5">add(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>)</span></code></pre></div>
-<pre class="text"><code>15</code></pre>
-</section>
-</section>
-<section id="handcalcs" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="handcalcs">2. Handcalcs</h2>
-<p>In research, you often find yourself coding up maths and then transcribing the same maths into text (usually via typesetting language Latex). This is bad practice; do not repeat yourself suggests you should write the maths once, and once alone. Handcalcs helps with this: it can render maths in the console and export to latex equations.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/10-lesser-known-python-packages/https:/pythonawesome.com/content/images/2020/08/wrong_brackets.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">The Handcalcs package</figcaption>
-</figure>
-</div>
-<p>See also: if you want to solve, render, and export latex equations, you should try out <a href="https://www.sympy.org/en/index.html">sympy</a>, a fully fledged library for symbolic mathematics (think Maple).</p>
-<section id="example-of-handcalcs" class="level3">
-<h3 class="anchored" data-anchor-id="example-of-handcalcs">Example of handcalcs</h3>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> handcalcs.render</span>
-<span id="cb5-2"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> math <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> sqrt</span></code></pre></div>
-<p>To render maths, just use the <code>%%render</code> magic keyword. If you’re running in an enviroment that doesn’t have a Latex installation, this will just show Latex – if you want the Latex, use the <code>%%tex</code> magic keyword instead. But in a Jupyter notebook on a machine with Latex installed, the <code>%%render</code> magic will render the maths into beautifully typeset equations:</p>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%%</span>render</span>
-<span id="cb6-2"></span>
-<span id="cb6-3">a <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span></span>
-<span id="cb6-4">b <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span></span>
-<span id="cb6-5">c <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> sqrt(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span>a <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> b<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>)</span></code></pre></div>
-[
-<img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Baligned%7D%0Aa%20&amp;=%202%20%5C;%0A%5C%5C%5B10pt%5D%0Ab%20&amp;=%203%20%5C;%0A%5C%5C%5B10pt%5D%0Ac%20&amp;=%20%5Csqrt%20%7B%202%20%5Ccdot%20a%20+%20%5Cfrac%7B%20b%20%7D%7B%203%20%7D%20%7D%20%20=%20%5Csqrt%20%7B%202%20%5Ccdot%202%20+%20%5Cfrac%7B%203%20%7D%7B%203%20%7D%20%7D%20&amp;=%202.236%20%20%0A%5Cend%7Baligned%7D">
-<p>]</p>
-<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%%</span>tex</span>
-<span id="cb7-2"></span>
-<span id="cb7-3">a <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span></span>
-<span id="cb7-4">b <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span></span>
-<span id="cb7-5">c <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> sqrt(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span>a <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> b<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>)</span></code></pre></div>
-<pre><code>\[
-\begin{aligned}
-a &amp;= 2 \; 
-\\[10pt]
-b &amp;= 3 \; 
-\\[10pt]
-c &amp;= \sqrt { 2 \cdot a + \frac{ b }{ 3 } }  = \sqrt { 2 \cdot 2 + \frac{ 3 }{ 3 } } &amp;= 2.236  
-\end{aligned}
-\]</code></pre>
-</section>
-</section>
-<section id="matplotlib" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="matplotlib">3. Matplotlib!?</h2>
-<p>Alright, you’ve probably heard of matplotlib and might be surprised to see it on this list. But there’s a nice new feature of matplotlib that you might not be aware of: placement using ASCII art. It’s more useful than it sounds.</p>
-<p>Sometimes (especially for science papers), you need a weird arrangement of panels within a figure. Specifying that so that it’s exactly right is a big pain. This is where the new matplotlib mosiac subplot option comes in.</p>
-<p>Note that you may need to restart the runtime after you have pip installed matplotlib below.</p>
-<p>See also: if you like declarative plotting that’s web-friendly and extremely high quality, <a href="https://altair-viz.github.io/">Altair</a> is definitely worth your time.</p>
-<section id="example-of-matplotlib-mosaics" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="example-of-matplotlib-mosaics">Example of matplotlib mosaics</h3>
-<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> plt</span>
-<span id="cb9-2">axd <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> plt.figure(constrained_layout<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">True</span>).subplot_mosaic(</span>
-<span id="cb9-3">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"""</span></span>
-<span id="cb9-4"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    TTE</span></span>
-<span id="cb9-5"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    L.E</span></span>
-<span id="cb9-6"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    """</span>)</span>
-<span id="cb9-7"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">for</span> k, ax <span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">in</span> axd.items():</span>
-<span id="cb9-8">    ax.text(<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.5</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.5</span>, k,</span>
-<span id="cb9-9">            ha<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'center'</span>, va<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'center'</span>, fontsize<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">36</span>,</span>
-<span id="cb9-10">            color<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'darkgrey'</span>)</span>
-<span id="cb9-11">plt.show()</span></code></pre></div>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/10-lesser-known-python-packages/10_less_img_16.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">Output using matplotlib mosiacs</figcaption>
-</figure>
-</div>
-<p>But it’s not just ASCII that you can use, lists work too:</p>
-<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">axd <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> plt.figure(constrained_layout<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">True</span>).subplot_mosaic(</span>
-<span id="cb10-2">    [[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'.'</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'histx'</span>],</span>
-<span id="cb10-3">     [<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'histy'</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'scat'</span>]]</span>
-<span id="cb10-4">)</span>
-<span id="cb10-5"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">for</span> k, ax <span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">in</span> axd.items():</span>
-<span id="cb10-6">    ax.text(<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.5</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.5</span>, k,</span>
-<span id="cb10-7">            ha<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'center'</span>, va<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'center'</span>, fontsize<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">36</span>,</span>
-<span id="cb10-8">            color<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'darkgrey'</span>)</span></code></pre></div>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/10-lesser-known-python-packages/10_less_img_18.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">Specifying the mosaic in a different way.</figcaption>
-</figure>
-</div>
-</section>
-</section>
-<section id="pandas-profiling" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="pandas-profiling">4. Pandas profiling</h2>
-<p>Any tool that can make the process of understanding input data is very welcome, which is why the <a href="https://pandas-profiling.github.io/pandas-profiling/docs/master/rtd/">pandas profiling</a> library is such a breath of fresh air. It automates, or at least facilitates, the first stage of exploratory data analysis.</p>
-<p>What pandas profiling does is to render a HTML or ipywidget report (or JSON string) of the datatset - including missing variables, cardinality, distributions, and correlations. From what I’ve seen, it’s really comprehensive and user-friendly—though I have noticed that the default configuration does not scale well to very large datasets.</p>
-<p>Due to the large size of the reports, I won’t run one in this notebook, although you can with <code>profile.to_notebook_iframe()</code>, but instead link to a gif demoing the package.</p>
-<p>See also: <a href="https://github.com/fbdesignpro/sweetviz">SweetViz</a></p>
-<section id="example-of-pandas-profiling" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="example-of-pandas-profiling">Example of pandas profiling</h3>
-<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> pd</span>
-<span id="cb11-2"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> pandas_profiling <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> ProfileReport</span>
-<span id="cb11-3"></span>
-<span id="cb11-4">data <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.read_csv(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv'</span>)</span>
-<span id="cb11-5"></span>
-<span id="cb11-6"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># To run the profile report use:</span></span>
-<span id="cb11-7">profile <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> ProfileReport(data, title<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Titanic Dataset"</span>, html<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>{<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'style'</span>: {<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'full_width'</span>: <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">True</span>}})</span>
-<span id="cb11-8"></span>
-<span id="cb11-9"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># To display in a notebook:</span></span>
-<span id="cb11-10">profile.to_notebook_iframe()</span></code></pre></div>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/10-lesser-known-python-packages/https:/pandas-profiling.ydata.ai/docs/master/_images/iframe.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">An example of pandas profiling output</figcaption>
-</figure>
-</div>
-</section>
-</section>
-<section id="pandera-data-validation" class="level2">
-<h2 class="anchored" data-anchor-id="pandera-data-validation">5. Pandera data validation</h2>
-<p>Sometimes you want to validate data, not just explore it. A number of packages have popped up to help do this recently. <a href="https://pandera.readthedocs.io/en/stable/">Pandera</a> is geared towards pandas dataframes and validation within a file or notebook. It can be used to check that a given dataframe has the data that you’d expect.</p>
-<p>See also: <a href="https://docs.greatexpectations.io/en/latest/">Great Expectations</a>, which produces HTML reports a bit like our number 3. featured above. Great Expectations looks really rich and suitable for production, coming as it does with a command line interface.</p>
-<section id="example-of-pandera" class="level3">
-<h3 class="anchored" data-anchor-id="example-of-pandera">Example of pandera</h3>
-<p>Let’s start with a dataframe that passes muster.</p>
-<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> pd</span>
-<span id="cb12-2"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> pandera <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> pa</span>
-<span id="cb12-3"></span>
-<span id="cb12-4"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># data to validate</span></span>
-<span id="cb12-5">df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.DataFrame({</span>
-<span id="cb12-6">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"column1"</span>: [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span>],</span>
-<span id="cb12-7">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"column2"</span>: [<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1.3</span>, <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1.4</span>, <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2.9</span>, <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10.1</span>, <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20.4</span>],</span>
-<span id="cb12-8">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"column3"</span>: [<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"value_1"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"value_2"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"value_3"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"value_2"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"value_1"</span>],</span>
-<span id="cb12-9">})</span>
-<span id="cb12-10"></span>
-<span id="cb12-11"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># define schema</span></span>
-<span id="cb12-12">schema <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pa.DataFrameSchema({</span>
-<span id="cb12-13">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"column1"</span>: pa.Column(<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">int</span>, checks<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>pa.Check.less_than_or_equal_to(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>)),</span>
-<span id="cb12-14">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"column2"</span>: pa.Column(<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">float</span>, checks<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>pa.Check.less_than(<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1.2</span>)),</span>
-<span id="cb12-15">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"column3"</span>: pa.Column(<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">str</span>, checks<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>[</span>
-<span id="cb12-16">        pa.Check.str_startswith(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"value_"</span>),</span>
-<span id="cb12-17">        <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># define custom checks as functions that take a series as input and</span></span>
-<span id="cb12-18">        <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># outputs a boolean or boolean Series</span></span>
-<span id="cb12-19">        pa.Check(<span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">lambda</span> s: s.<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">str</span>.split(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"_"</span>, expand<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">True</span>).shape[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>)</span>
-<span id="cb12-20">    ]),</span>
-<span id="cb12-21">})</span>
-<span id="cb12-22"></span>
-<span id="cb12-23">validated_df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> schema(df)</span>
-<span id="cb12-24"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(validated_df)</span></code></pre></div>
-<pre><code>   column1  column2  column3
-0        1     -1.3  value_1
-1        4     -1.4  value_2
-2        0     -2.9  value_3
-3       10    -10.1  value_2
-4        9    -20.4  value_1</code></pre>
-<p>This passed, as expected. But now let’s try the same schema with data that shouldn’t pass by changing the first value of the second column to be greater than -1.2:</p>
-<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1">df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.DataFrame({</span>
-<span id="cb14-2">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"column1"</span>: [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span>],</span>
-<span id="cb14-3">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"column2"</span>: [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">22</span>, <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1.4</span>, <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2.9</span>, <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10.1</span>, <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20.4</span>],</span>
-<span id="cb14-4">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"column3"</span>: [<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"value_1"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"value_2"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"value_3"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"value_2"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"value_1"</span>],</span>
-<span id="cb14-5">})</span>
-<span id="cb14-6"></span>
-<span id="cb14-7">validated_df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> schema(df)</span>
-<span id="cb14-8"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(validated_df)</span></code></pre></div>
-<pre><code>---------------------------------------------------------------------------
-
-SchemaError                               Traceback (most recent call last)
-
-Input In [11], in &lt;module&gt;
-      1 df = pd.DataFrame({
-      2     "column1": [1, 4, 0, 10, 9],
-      3     "column2": [22, -1.4, -2.9, -10.1, -20.4],
-      4     "column3": ["value_1", "value_2", "value_3", "value_2", "value_1"],
-      5 })
-----&gt; 7 validated_df = schema(df)
-      8 print(validated_df)
-
-
-File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schemas.py:768, in DataFrameSchema.__call__(self, dataframe, head, tail, sample, random_state, lazy, inplace)
-    740 def __call__(
-    741     self,
-    742     dataframe: pd.DataFrame,
-   (...)
-    748     inplace: bool = False,
-    749 ):
-    750     """Alias for :func:`DataFrameSchema.validate` method.
-    751 
-    752     :param pd.DataFrame dataframe: the dataframe to be validated.
-   (...)
-    766         otherwise creates a copy of the data.
-    767     """
---&gt; 768     return self.validate(
-    769         dataframe, head, tail, sample, random_state, lazy, inplace
-    770     )
-
-
-File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schemas.py:503, in DataFrameSchema.validate(self, check_obj, head, tail, sample, random_state, lazy, inplace)
-    490     check_obj = check_obj.map_partitions(
-    491         self._validate,
-    492         head=head,
-   (...)
-    498         meta=check_obj,
-    499     )
-    501     return check_obj.pandera.add_schema(self)
---&gt; 503 return self._validate(
-    504     check_obj=check_obj,
-    505     head=head,
-    506     tail=tail,
-    507     sample=sample,
-    508     random_state=random_state,
-    509     lazy=lazy,
-    510     inplace=inplace,
-    511 )
-
-
-File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schemas.py:677, in DataFrameSchema._validate(self, check_obj, head, tail, sample, random_state, lazy, inplace)
-    675     check_results.append(check_utils.is_table(result))
-    676 except errors.SchemaError as err:
---&gt; 677     error_handler.collect_error("schema_component_check", err)
-    678 except errors.SchemaErrors as err:
-    679     for schema_error_dict in err.schema_errors:
-
-
-File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/error_handlers.py:32, in SchemaErrorHandler.collect_error(self, reason_code, schema_error, original_exc)
-     26 """Collect schema error, raising exception if lazy is False.
-     27 
-     28 :param reason_code: string representing reason for error
-     29 :param schema_error: ``SchemaError`` object.
-     30 """
-     31 if not self._lazy:
----&gt; 32     raise schema_error from original_exc
-     34 # delete data of validated object from SchemaError object to prevent
-     35 # storing copies of the validated DataFrame/Series for every
-     36 # SchemaError collected.
-     37 del schema_error.data
-
-
-File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schemas.py:669, in DataFrameSchema._validate(self, check_obj, head, tail, sample, random_state, lazy, inplace)
-    667 for schema_component in schema_components:
-    668     try:
---&gt; 669         result = schema_component(
-    670             df_to_validate,
-    671             lazy=lazy,
-    672             # don't make a copy of the data
-    673             inplace=True,
-    674         )
-    675         check_results.append(check_utils.is_table(result))
-    676     except errors.SchemaError as err:
-
-
-File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schemas.py:2004, in SeriesSchemaBase.__call__(self, check_obj, head, tail, sample, random_state, lazy, inplace)
-   1993 def __call__(
-   1994     self,
-   1995     check_obj: Union[pd.DataFrame, pd.Series],
-   (...)
-   2001     inplace: bool = False,
-   2002 ) -&gt; Union[pd.DataFrame, pd.Series]:
-   2003     """Alias for ``validate`` method."""
--&gt; 2004     return self.validate(
-   2005         check_obj, head, tail, sample, random_state, lazy, inplace
-   2006     )
-
-
-File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schema_components.py:223, in Column.validate(self, check_obj, head, tail, sample, random_state, lazy, inplace)
-    219             validate_column(
-    220                 check_obj[column_name].iloc[:, [i]], column_name
-    221             )
-    222     else:
---&gt; 223         validate_column(check_obj, column_name)
-    225 return check_obj
-
-
-File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schema_components.py:196, in Column.validate.&lt;locals&gt;.validate_column(check_obj, column_name)
-    195 def validate_column(check_obj, column_name):
---&gt; 196     super(Column, copy(self).set_name(column_name)).validate(
-    197         check_obj,
-    198         head,
-    199         tail,
-    200         sample,
-    201         random_state,
-    202         lazy,
-    203         inplace=inplace,
-    204     )
-
-
-File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schemas.py:1962, in SeriesSchemaBase.validate(self, check_obj, head, tail, sample, random_state, lazy, inplace)
-   1956     check_results.append(
-   1957         _handle_check_results(
-   1958             self, check_index, check, check_obj, *check_args
-   1959         )
-   1960     )
-   1961 except errors.SchemaError as err:
--&gt; 1962     error_handler.collect_error("dataframe_check", err)
-   1963 except Exception as err:  # pylint: disable=broad-except
-   1964     # catch other exceptions that may occur when executing the
-   1965     # Check
-   1966     err_msg = f'"{err.args[0]}"' if len(err.args) &gt; 0 else ""
-
-
-File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/error_handlers.py:32, in SchemaErrorHandler.collect_error(self, reason_code, schema_error, original_exc)
-     26 """Collect schema error, raising exception if lazy is False.
-     27 
-     28 :param reason_code: string representing reason for error
-     29 :param schema_error: ``SchemaError`` object.
-     30 """
-     31 if not self._lazy:
----&gt; 32     raise schema_error from original_exc
-     34 # delete data of validated object from SchemaError object to prevent
-     35 # storing copies of the validated DataFrame/Series for every
-     36 # SchemaError collected.
-     37 del schema_error.data
-
-
-File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schemas.py:1957, in SeriesSchemaBase.validate(self, check_obj, head, tail, sample, random_state, lazy, inplace)
-   1954 for check_index, check in enumerate(self.checks):
-   1955     try:
-   1956         check_results.append(
--&gt; 1957             _handle_check_results(
-   1958                 self, check_index, check, check_obj, *check_args
-   1959             )
-   1960         )
-   1961     except errors.SchemaError as err:
-   1962         error_handler.collect_error("dataframe_check", err)
-
-
-File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/pandera/schemas.py:2353, in _handle_check_results(schema, check_index, check, check_obj, *check_args)
-   2351         warnings.warn(error_msg, UserWarning)
-   2352         return True
--&gt; 2353     raise errors.SchemaError(
-   2354         schema,
-   2355         check_obj,
-   2356         error_msg,
-   2357         failure_cases=failure_cases,
-   2358         check=check,
-   2359         check_index=check_index,
-   2360         check_output=check_result.check_output,
-   2361     )
-   2362 return check_result.check_passed
-
-
-SchemaError: &lt;Schema Column(name=column2, type=DataType(float64))&gt; failed element-wise validator 0:
-&lt;Check less_than: less_than(-1.2)&gt;
-failure cases:
-   index  failure_case
-0      0          22.0</code></pre>
-<p>As expected, this throws a “schema error” that is informative about what went wrong and what value caused it. Finding ‘bad’ data is the first step in cleaning it up, so this library and the others like it that are appearing could be really useful.</p>
-</section>
-</section>
-<section id="tenacity" class="level2">
-<h2 class="anchored" data-anchor-id="tenacity">6. Tenacity</h2>
-<p>If at first you don’t succeed, try and try again. <a href="https://tenacity.readthedocs.io/en/latest/">Tenacity</a> has several options to keep trying a function, even if execution fails. The names of the available function decorators give a clear indication as to what they do – <code>retry</code>, <code>stop_after_attempt</code>, <code>stop_after_delay</code>, <code>wait_random</code>, and there’s even a <code>wait_exponential</code>.</p>
-<p>See also: R package <code>purrr</code>’s <code>insistently</code> function.</p>
-<section id="example-of-tenacity" class="level3">
-<h3 class="anchored" data-anchor-id="example-of-tenacity">Example of Tenacity</h3>
-<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> tenacity <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> retry, stop_after_attempt</span>
-<span id="cb16-2"></span>
-<span id="cb16-3"><span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">@retry</span>(stop<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>stop_after_attempt(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>))</span>
-<span id="cb16-4"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">def</span> test_func():</span>
-<span id="cb16-5">    <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Stopping after 3 attempts"</span>)</span>
-<span id="cb16-6">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">raise</span> <span class="pp" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">Exception</span></span>
-<span id="cb16-7"></span>
-<span id="cb16-8"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(test_func())</span></code></pre></div>
-<pre><code>Stopping after 3 attempts
-Stopping after 3 attempts
-Stopping after 3 attempts
-
-
-
----------------------------------------------------------------------------
-
-Exception                                 Traceback (most recent call last)
-
-File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/tenacity/__init__.py:407, in Retrying.__call__(self, fn, *args, **kwargs)
-    406 try:
---&gt; 407     result = fn(*args, **kwargs)
-    408 except BaseException:  # noqa: B902
-
-
-Input In [13], in test_func()
-      5 print("Stopping after 3 attempts")
-----&gt; 6 raise Exception
-
-
-Exception: 
-
-
-The above exception was the direct cause of the following exception:
-
-
-RetryError                                Traceback (most recent call last)
-
-Input In [13], in &lt;module&gt;
-      5     print("Stopping after 3 attempts")
-      6     raise Exception
-----&gt; 8 print(test_func())
-
-
-File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/tenacity/__init__.py:324, in BaseRetrying.wraps.&lt;locals&gt;.wrapped_f(*args, **kw)
-    322 @functools.wraps(f)
-    323 def wrapped_f(*args: t.Any, **kw: t.Any) -&gt; t.Any:
---&gt; 324     return self(f, *args, **kw)
-
-
-File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/tenacity/__init__.py:404, in Retrying.__call__(self, fn, *args, **kwargs)
-    402 retry_state = RetryCallState(retry_object=self, fn=fn, args=args, kwargs=kwargs)
-    403 while True:
---&gt; 404     do = self.iter(retry_state=retry_state)
-    405     if isinstance(do, DoAttempt):
-    406         try:
-
-
-File /opt/anaconda3/envs/noodling/lib/python3.8/site-packages/tenacity/__init__.py:361, in BaseRetrying.iter(self, retry_state)
-    359     if self.reraise:
-    360         raise retry_exc.reraise()
---&gt; 361     raise retry_exc from fut.exception()
-    363 if self.wait:
-    364     sleep = self.wait(retry_state=retry_state)
-
-
-RetryError: RetryError[&lt;Future at 0x7f9f10f73eb0 state=finished raised Exception&gt;]</code></pre>
-</section>
-</section>
-<section id="streamlit" class="level2">
-<h2 class="anchored" data-anchor-id="streamlit">7. Streamlit</h2>
-<p>I really like <a href="https://www.streamlit.io/">streamlit</a>, which sells itself as the fastest way to build data apps that are displayed in a browser window. And my experience is that it’s true; you can do a lot with a very simple set of commands. But there’s also depth there too - a couple of the examples on their site show how streamlit can serve up explainable AI models. Very cool.</p>
-<p>If you build a streamlit app and want to host it on the web, Streamlit and Heroku offer free hosting.</p>
-<p>Because streamlit serves up content in a browser, it’s not (currently) possible to demonstrate it in a Jupyter Notebook. However, this gif gives you an idea of how easy it is to get going:</p>
-<p><img src="https://www.aeturrell.com/blog/posts/10-lesser-known-python-packages/https:/miro.medium.com/max/1400/1*6GG7uRmUw74CRKCXD-lr1w.gif" width="800"></p>
-<p>See also: <a href="https://plotly.com/dash/">Dash</a></p>
-</section>
-<section id="black" class="level2">
-<h2 class="anchored" data-anchor-id="black">8. Black</h2>
-<p><a href="https://black.readthedocs.io/en/stable/index.html">Black</a> is an uncompromising code formatter (“you can have it any colour you want, as long as it’s black”). Lots of people will find it overbearing, and think the way it splits code across lines is distracting. However, if you want to easily and automatically implement a code style – without compromise – then it’s great and you can even set it up as a github action to run on your code every time you commit. Less time formatting sounds good to me.</p>
-<p>Black is run from the command line or via IDE integration, so the example here is just a before and after of what happens to a function definition:</p>
-<div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># in:</span></span>
-<span id="cb18-2"></span>
-<span id="cb18-3"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">def</span> very_important_function(template: <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">str</span>, <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span>variables, <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">file</span>: os.PathLike, engine: <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">str</span>, header: <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">bool</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">True</span>, debug: <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">bool</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">False</span>):</span>
-<span id="cb18-4">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">"""Applies `variables` to the `template` and writes to `file`."""</span></span>
-<span id="cb18-5">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">with</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">open</span>(<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">file</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'w'</span>) <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> f:</span>
-<span id="cb18-6">        ...</span>
-<span id="cb18-7"></span>
-<span id="cb18-8"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># out:</span></span>
-<span id="cb18-9"></span>
-<span id="cb18-10"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">def</span> very_important_function(</span>
-<span id="cb18-11">    template: <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">str</span>,</span>
-<span id="cb18-12">    <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span>variables,</span>
-<span id="cb18-13">    <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">file</span>: os.PathLike,</span>
-<span id="cb18-14">    engine: <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">str</span>,</span>
-<span id="cb18-15">    header: <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">bool</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">True</span>,</span>
-<span id="cb18-16">    debug: <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">bool</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">False</span>,</span>
-<span id="cb18-17">):</span>
-<span id="cb18-18">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">"""Applies `variables` to the `template` and writes to `file`."""</span></span>
-<span id="cb18-19">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">with</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">open</span>(<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">file</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"w"</span>) <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> f:</span>
-<span id="cb18-20">        ...</span></code></pre></div>
-<p>See also: <a href="https://github.com/google/yapf">yapf</a>, yet another code formatter, from Google.</p>
-<section id="live-demo" class="level3">
-<h3 class="anchored" data-anchor-id="live-demo">Live demo</h3>
-</section>
-</section>
-<section id="pyinstrument-for-profiling-code" class="level2">
-<h2 class="anchored" data-anchor-id="pyinstrument-for-profiling-code">9. Pyinstrument for profiling code</h2>
-<p>Profiling is about finding where the bottlenecks are in your code; potentially in your data too.</p>
-<p><a href="https://github.com/joerick/pyinstrument">pyinstrument</a> is a simple-to-use tool that extends the built-in Python profiler with HTMLs output that can be rendered in a Jupyter notebook cell.</p>
-<p>Using this profiler is very simple – just wrap ‘start’ and ‘stop’ function calls around the code you’re interested in and show the results in text or HTML. The HTML report is interactive. To use the HTML report in a Jupyter notebook, you’ll need to use</p>
-<pre><code>from IPython.core.display import display, HTML</code></pre>
-<p>and then</p>
-<pre><code>display(HTML(profiler.output_html()))</code></pre>
-<p>In the example below, I’ll use the display as text option.</p>
-<p>See also: <a href="https://github.com/emeryberger/scalene">scalene</a>, which I almost featured instead because it profiles both code and memory use (important for data science). However, it isn’t supported on Windows (yet?) and it doesn’t seem to display a report inline in Jupyter notebooks.</p>
-<section id="example-of-pyinstrument" class="level3">
-<h3 class="anchored" data-anchor-id="example-of-pyinstrument">Example of Pyinstrument</h3>
-</section>
-</section>
-<section id="pyinstrument-for-profiling-code-1" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="pyinstrument-for-profiling-code-1">9. Pyinstrument for profiling code</h2>
-<p>Profiling is about finding where the bottlenecks are in your code; potentially in your data too.</p>
-<p><a href="https://github.com/joerick/pyinstrument">pyinstrument</a> is a simple-to-use tool that extends the built-in Python profiler with HTMLs output that can be rendered in a Jupyter notebook cell.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/10-lesser-known-python-packages/https:/github.com/joerick/pyinstrument/raw/main/docs/img/screenshot.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">pyinstrument screenshot</figcaption>
-</figure>
-</div>
-<p>Using this profiler is very simple – just wrap ‘start’ and ‘stop’ function calls around the code you’re interested in and show the results in text or HTML. The HTML report is interactive. To use the HTML report in a Jupyter notebook, you’ll need to use</p>
-<pre><code>from IPython.core.display import display, HTML</code></pre>
-<p>and then</p>
-<pre><code>display(HTML(profiler.output_html()))</code></pre>
-<p>In the example below, I’ll use the display as text option.</p>
-<p>See also: <a href="https://github.com/emeryberger/scalene">scalene</a>, which I almost featured instead because it profiles both code and memory use (important for data science). However, it isn’t supported on Windows (yet?) and it doesn’t seem to display a report inline in Jupyter notebooks.</p>
-<section id="example-of-pyinstrument-1" class="level3">
-<h3 class="anchored" data-anchor-id="example-of-pyinstrument-1">Example of Pyinstrument</h3>
-<p>Run this code in a notebook to check it out.</p>
-<div class="sourceCode" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> pyinstrument <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> Profiler</span>
-<span id="cb23-2"></span>
-<span id="cb23-3"></span>
-<span id="cb23-4">profiler <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> Profiler()</span>
-<span id="cb23-5">profiler.start()</span>
-<span id="cb23-6"></span>
-<span id="cb23-7"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">def</span> fibonacci(n):</span>
-<span id="cb23-8">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">if</span> n <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>:</span>
-<span id="cb23-9">        <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">raise</span> <span class="pp" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">Exception</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"BE POSITIVE!!!"</span>)</span>
-<span id="cb23-10">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">elif</span> n <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>:</span>
-<span id="cb23-11">        <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span></span>
-<span id="cb23-12">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">elif</span> n <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>:</span>
-<span id="cb23-13">        <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span></span>
-<span id="cb23-14">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">else</span>:</span>
-<span id="cb23-15">        <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">return</span> fibonacci(n <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>) <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> fibonacci(n <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>)</span>
-<span id="cb23-16"></span>
-<span id="cb23-17">fibonacci(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>)</span>
-<span id="cb23-18"></span>
-<span id="cb23-19">profiler.stop()</span>
-<span id="cb23-20"></span>
-<span id="cb23-21"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(profiler.output_text(<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">unicode</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">True</span>, color<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">True</span>))</span></code></pre></div>
-</section>
-</section>
-<section id="alive-progress" class="level1 page-columns page-full">
-<h1>10. Alive progress</h1>
-<p><a href="https://github.com/rsalmei/alive-progress">alive-progress</a> is a bit less straitlaced than tdqm but is unfortunately not yet available in notebooks. Here’s a gif that shows how it looks when run from a console launched on the command line.</p>
-<p><img src="https://www.aeturrell.com/blog/posts/10-lesser-known-python-packages/https:/raw.githubusercontent.com/rsalmei/alive-progress/master/img/alive-demo.gif" width="600"></p>
-<section id="see-also-tdqm" class="level3">
-<h3 class="anchored" data-anchor-id="see-also-tdqm">See also: tdqm</h3>
-<p><img src="https://www.aeturrell.com/blog/posts/10-lesser-known-python-packages/https:/img.tqdm.ml/tqdm.gif" width="700"></p>
-</section>
-<section id="live-demo-of-alive-progress" class="level3">
-<h3 class="anchored" data-anchor-id="live-demo-of-alive-progress">Live demo of alive progress</h3>
-</section>
-<section id="bonus-r-style-analysis-in-python" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="bonus-r-style-analysis-in-python">Bonus: R-style analysis in Python!?</h2>
-<p>Some data scientists swear by two of R’s most loved declarative packages, one for data analysis (dplyr) and one for plotting (ggplot2), and miss them when they do a project in Python. Although certainly not as well developed as the original packages, there are Python-inspired equivalents of both, called <a href="https://github.com/machow/siuba">siuba</a> and <a href="https://plotnine.readthedocs.io/en/stable/">plotnine</a> respectively.</p>
-<p>It’s worth noting that there are <em>imperative</em> and <em>declarative</em> plotting libraries. In imperative libraries, you often specify all of the steps to get the desired outcome, while in declarative libraries you often specify the desired outcome without the steps. Imperative plotting gives more control and some people may find each step clearer to read, but it can also be fiddly and cumbersome, especially with simple plots. Declarative plotting trades away control and flexibility in favour of tried and tested processes that can quickly produce good-looking standardised charts, but the specialised syntax can be a barrier for newcomers.</p>
-<p>ggplot/plotnine are both declarative, while matplotlib is imperative.</p>
-<p>As for data analysis, Python’s pandas library is very similar to dplyr, it just has slightly different names for functions (eg <code>summarize</code> versus <code>aggregate</code> but both use <code>groupby</code>) and pandas uses <code>.</code> while dplyr tends to use <code>%&gt;%</code> to apply the output of one function to the input of another.</p>
-<section id="plotnine" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="plotnine">Plotnine</h3>
-<div class="sourceCode" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> plotnine <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span></span>
-<span id="cb24-2"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> plotnine.data <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> mtcars</span>
-<span id="cb24-3"></span>
-<span id="cb24-4"></span>
-<span id="cb24-5">(ggplot(mtcars, aes(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'wt'</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'mpg'</span>, color<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'factor(gear)'</span>))</span>
-<span id="cb24-6"> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> geom_point()</span>
-<span id="cb24-7"> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> stat_smooth(method<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'lm'</span>)</span>
-<span id="cb24-8"> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> facet_wrap(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'~gear'</span>))</span></code></pre></div>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/10-lesser-known-python-packages/10_less_img_36.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">Output from plotnine</figcaption>
-</figure>
-</div>
-</section>
-<section id="siuba" class="level3">
-<h3 class="anchored" data-anchor-id="siuba">Siuba</h3>
-<p>Siuba is more or less similar to dplyr in R. It even has a pipe operator - although in Python’s <strong>pandas</strong> data analysis package, <code>.</code> usually plays the same role as the pipe in dplyr.</p>
-<div class="sourceCode" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> siuba <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> group_by, summarize, mutate, _</span>
-<span id="cb25-2"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> siuba.data <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> mtcars</span>
-<span id="cb25-3"></span>
-<span id="cb25-4">mtcars.head()</span></code></pre></div>
-<div>
-
-
-<table class="dataframe table table-sm table-striped small">
-<thead>
-<tr>
-<th>
-</th>
-<th>
-mpg
-</th>
-<th>
-cyl
-</th>
-<th>
-disp
-</th>
-<th>
-hp
-</th>
-<th>
-drat
-</th>
-<th>
-wt
-</th>
-<th>
-qsec
-</th>
-<th>
-vs
-</th>
-<th>
-am
-</th>
-<th>
-gear
-</th>
-<th>
-carb
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>
-0
-</th>
-<td>
-21.0
-</td>
-<td>
-6
-</td>
-<td>
-160.0
-</td>
-<td>
-110
-</td>
-<td>
-3.90
-</td>
-<td>
-2.620
-</td>
-<td>
-16.46
-</td>
-<td>
-0
-</td>
-<td>
-1
-</td>
-<td>
-4
-</td>
-<td>
-4
-</td>
-</tr>
-<tr>
-<th>
-1
-</th>
-<td>
-21.0
-</td>
-<td>
-6
-</td>
-<td>
-160.0
-</td>
-<td>
-110
-</td>
-<td>
-3.90
-</td>
-<td>
-2.875
-</td>
-<td>
-17.02
-</td>
-<td>
-0
-</td>
-<td>
-1
-</td>
-<td>
-4
-</td>
-<td>
-4
-</td>
-</tr>
-<tr>
-<th>
-2
-</th>
-<td>
-22.8
-</td>
-<td>
-4
-</td>
-<td>
-108.0
-</td>
-<td>
-93
-</td>
-<td>
-3.85
-</td>
-<td>
-2.320
-</td>
-<td>
-18.61
-</td>
-<td>
-1
-</td>
-<td>
-1
-</td>
-<td>
-4
-</td>
-<td>
-1
-</td>
-</tr>
-<tr>
-<th>
-3
-</th>
-<td>
-21.4
-</td>
-<td>
-6
-</td>
-<td>
-258.0
-</td>
-<td>
-110
-</td>
-<td>
-3.08
-</td>
-<td>
-3.215
-</td>
-<td>
-19.44
-</td>
-<td>
-1
-</td>
-<td>
-0
-</td>
-<td>
-3
-</td>
-<td>
-1
-</td>
-</tr>
-<tr>
-<th>
-4
-</th>
-<td>
-18.7
-</td>
-<td>
-8
-</td>
-<td>
-360.0
-</td>
-<td>
-175
-</td>
-<td>
-3.15
-</td>
-<td>
-3.440
-</td>
-<td>
-17.02
-</td>
-<td>
-0
-</td>
-<td>
-0
-</td>
-<td>
-3
-</td>
-<td>
-2
-</td>
-</tr>
-</tbody>
-
-</table>
-</div>
-<div class="sourceCode" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1">(mtcars</span>
-<span id="cb26-2">  <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> mutate(normalised <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> (_.hp <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> _.hp.mean())<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span>_.hp.std()) </span>
-<span id="cb26-3">  <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> group_by(_.cyl)</span>
-<span id="cb26-4">  <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> summarize(norm_hp_mean <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> _.normalised.mean())</span>
-<span id="cb26-5">  )</span></code></pre></div>
-<div>
-
-
-<table class="dataframe table table-sm table-striped small">
-<thead>
-<tr>
-<th>
-</th>
-<th>
-cyl
-</th>
-<th>
-norm_hp_mean
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>
-0
-</th>
-<td>
-4
-</td>
-<td>
--0.934196
-</td>
-</tr>
-<tr>
-<th>
-1
-</th>
-<td>
-6
-</td>
-<td>
--0.355904
-</td>
-</tr>
-<tr>
-<th>
-2
-</th>
-<td>
-8
-</td>
-<td>
-0.911963
-</td>
-</tr>
-</tbody>
-
-</table>
-</div>
-
-
-</section>
-</section>
-</section>
-
- ]]></description>
-  <category>code</category>
-  <category>open-source</category>
-  <category>python</category>
-  <guid>https://www.aeturrell.com/blog/posts/10-lesser-known-python-packages/index.html</guid>
-  <pubDate>Fri, 23 Oct 2020 23:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
