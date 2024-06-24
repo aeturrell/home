@@ -1,0 +1,68 @@
+---
+title: "A Review of the Effects of Pay Transparency"
+date: 2024-01-30
+author:
+  - name: Emma Duchini
+    url: https://emmaduchini.com/
+    orcid: 0000-0001-8794-3463
+    affiliation: University of Essex
+  - name: Stefania Simion
+    url: https://stefaniasimion.com/
+    affiliation: University of Bristol
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: "{{< meta orcid-meta >}}"
+    affiliation: "{{< meta affiliation-meta >}}"
+categories:
+    - gender
+    - wages
+    - evaluation
+    - gender pay gap
+    - transparency policies
+pub-info:
+  reference: >-
+    Duchini, Emma, Stefania Simion, and Arthur Turrell. "A Review of the Effects of Pay Transparency." In <i>Oxford Research Encyclopedia of Economics and Finance</i>, Oxford University Press, 2024. doi: <a href="https://doi.org/10.1093/acrefore/9780190625979.013.860"><code>10.1093/acrefore/9780190625979.013.860</code></a>
+  links:
+  - name: Book chapter
+    url: https://doi.org/10.1093/acrefore/9780190625979.013.860
+    icon: fa-solid fa-book
+  - name: Preprint
+    url: https://emmaduchini.com/wp-content/uploads/2023/09/duchini_et_al-2023-a-review-on-the-effects-of-pay-transparency.pdf
+    local: false
+    icon: fa-solid fa-file-pdf
+  - name: Add to Zotero
+    url: https://www.zotero.org/save?type=doi&q=10.1093/acrefore/9780190625979.013.860
+    icon: ai ai-zotero
+doi: 10.1093/acrefore/9780190625979.013.860
+# image: UKtightness.jpg
+# alt: "Figure from paper"
+# haiku:
+#   - Governments threatened—
+#   - NGO regulations
+#   - shift funding; missions.
+---
+
+## Important links
+
+- [Preprint](https://emmaduchini.com/wp-content/uploads/2023/09/duchini_et_al-2023-a-review-on-the-effects-of-pay-transparency.pdf)
+
+## Abstract
+
+An increasing number of countries have introduced pay transparency policies with the aim of reducing gender inequality in the labor market. Firms subject to transparency requirements must disclose publicly or to employees' representatives information on their employees' pay broken down by gender, or indicators of gender gaps in pay and career outcomes. The argument at the base of these policies is that gender inequality may in part persist because it is hidden. On the one hand, employers rarely keep track of employees’ pay and career progression by gender, and, on the other hand, employees rarely engage in conversations with their colleagues about pay. The lack of information on within-firm disparities by gender may therefore hamper progress toward a more egalitarian labor market. Transparency policies have the potential to improve women's relative pay and career outcomes for two reasons. First, by increasing the salience of gender gaps in the labor market, they can alter the relative bargaining power of male and female employees vis-à-vis the firm and lead lower-paid individuals to demand higher pay from their employer. Second, together with pressures from employees, the public availability of information on firms' gender-equality performance may also increase public pressure for firms’ action in this domain. A clear message emerges from the literature analyzing the impact of pay transparency policies on gender inequality: these policies are effective at pushing firms to reduce their gender pay gaps, although this is achieved via a slowdown of men's wage growth. Related results point to a reduction in labor productivity following the introduction of transparency mandates but no detrimental effect on firms' profits because this effect is compensated by the reduction in labor costs. Overall, the findings in this literature suggest that transparency policies can reduce the gender pay gap with limited costs for firms but may not be suited to achieve the objective of improving outcomes for lower-paid employees.
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1093/acrefore/9780190625979.013.860">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+```bibtex
+@incollection{duchinireview2024,
+  title={A Review of the Effects of Pay Transparency},
+  author={Duchini, Emma and Simion, Stefania and Turrell, Arthur},
+  booktitle={Oxford Research Encyclopedia of Economics and Finance},
+  pages={--},
+  year={2024},
+  publisher={Oxford University Press}
+}
+```

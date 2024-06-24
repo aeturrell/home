@@ -1,5 +1,5 @@
 ---
-date: "2024-04-23"
+date: "2024-04-24"
 layout: post
 title: "TIL: how to create and work with a MySQL database on Azure"
 image: ibis_query_result.png
