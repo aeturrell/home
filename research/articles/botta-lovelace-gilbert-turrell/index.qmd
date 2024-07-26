@@ -22,15 +22,15 @@ categories:
   - open-source
 pub-info:
   reference: >-
-    Botta, Federico, Robin Lovelace, Laura Gilbert, and Arthur Turrell. "Packaging code for reproducible research in the public sector." <i>arXiv e-prints</i> (2022), arXiv:2305.16205. doi: <a href="https://doi.org/10.48550/arXiv.2305.16205"><code>10.48550/arXiv.2305.16205</code></a>
+    Botta, Federico, Robin Lovelace, Laura Gilbert, and Arthur Turrell. "Packaging code and data for reproducible research: A case study of journey time statistics." <i>Environment and Planning B: Urban Analytics and City Science</i> (2024): 23998083241267331. doi: <a href="https://doi.org/10.1177/23998083241267331"><code>10.1177/23998083241267331</code></a>
   links:
     - name: Working Paper
       url: https://arxiv.org/abs/2305.16205
       icon: fa-solid fa-file-pdf
       local: false
-    # - name: Published paper
-    #   url: https://doi.org/10.1093/oxrep/grx051
-    #   icon: fa-solid fa-scroll
+    - name: Published paper
+      url: https://doi.org/10.1177/23998083241267331
+      icon: fa-solid fa-scroll
     # - name: Code
     #   url: https://github.com/andrewheiss/who-cares-about-crackdown
     #   icon: fa-brands fa-github
@@ -38,10 +38,10 @@ pub-info:
     #   url: "#data-and-code"
     #   icon: fa-solid fa-table
     - name: Add to Zotero
-      url: https://www.zotero.org/save?type=doi&q=10.48550/arXiv.2305.16205
+      url: https://www.zotero.org/save?type=doi&q=10.1177/23998083241267331
       icon: ai ai-zotero
   extra: >-
-doi: 10.48550/arXiv.2305.16205
+doi: 10.1177/23998083241267331
 image: journey_stats_fig.png
 alt: "Figure from paper"
 ---
@@ -55,17 +55,17 @@ This paper explores ways to maximise the impact of open data with reference to a
 ## Citation
 
 <p class="buttons" style="text-align:center;">
-<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.48550/arXiv.2305.16205">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1177/23998083241267331">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
 </p>
 
 
 ```bibtex
-@misc{botta2023packaging,
-      title={Packaging code for reproducible research in the public sector}, 
-      author={Federico Botta and Robin Lovelace and Laura Gilbert and Arthur Turrell},
-      year={2023},
-      eprint={2305.16205},
-      archivePrefix={arXiv},
-      primaryClass={cs.CY}
+@article{botta2024packaging,
+  title={Packaging code and data for reproducible research: A case study of journey time statistics},
+  author={Botta, Federico and Lovelace, Robin and Gilbert, Laura and Turrell, Arthur},
+  journal={Environment and Planning B: Urban Analytics and City Science},
+  pages={23998083241267331},
+  year={2024},
+  publisher={SAGE Publications Sage UK: London, England}
 }
 ```
