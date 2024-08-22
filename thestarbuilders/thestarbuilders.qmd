@@ -117,4 +117,7 @@ Would you like to see your bookstore here? Just let me know the name of your sto
 <br>
 <p class="praise-text">“Arthur Turrell captures the excitement of the race to produce the first commercial fusion energy—perhaps the most important technological race of all.”</p>
 <p class="attribution-text"><b>&#8212;Sir Steven Cowley, director of Princeton Plasma Physics Laboratory</b></p>
+<br>
+<p class="praise-text">“... Maths and physics expert Arthur Turrell has written a book brimming with enthusiasm and verve. He describes the entrepreneurial efforts of the energy pioneers and explains the scientific principles that makes their innovations conceivable. Turrell covers the ground with panache. Some of his language resonates favourably with that used by the US Nobel laureate Steven Weinberg in his 1970s epic The First Three Minutes. That book was among the most powerful books on cosmology and physics ever written. Turrell’s isn’t far behind.”</p>
+<p class="attribution-text"><b>&#8212;Peter Marsh, <a href=https://www.madeherenow.com/news/post/2024/08/12/shaping-the-future-in-difficult-times>Made Here Now</a></b></p>
 ```
