@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Arthur Turrell">
 <meta name="description" content="Arthur Turrell is an economic data scientist.">
 
-<title>Blog: Markov Wanderer</title>
+<title>Blog: Markov Wanderer – Arthur Turrell</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -49,7 +49,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -58,6 +64,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -103,13 +110,40 @@ gtag('js', new Date());
 gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="alternate" type="application/rss+xml" title="Arthur Turrell" href="index.xml"><meta property="og:title" content="Blog: Markov Wanderer">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="alternate" type="application/rss+xml" title="Arthur Turrell" href="index.xml" data-external="1"><meta property="og:title" content="Blog: Markov Wanderer">
 <meta property="og:description" content="Arthur Turrell is an economic data scientist.">
 <meta property="og:image" content="https://www.aeturrell.com//files/logo_large.png">
-<meta property="og:site-name" content="Arthur Turrell">
+<meta property="og:site_name" content="Arthur Turrell">
 <meta property="og:locale" content="en_UK">
 <meta property="og:image:height" content="1594">
 <meta property="og:image:width" content="1594">
@@ -126,83 +160,83 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Arthur Turrell</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../research/index.html" rel="" target="">
- <span class="menu-text">Research</span></a>
+    <a class="nav-link" href="../research/index.html"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../media/index.html" rel="" target="">
- <span class="menu-text">Media</span></a>
+    <a class="nav-link" href="../media/index.html"> 
+<span class="menu-text">Media</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../thestarbuilders/thestarbuilders.html" rel="" target="">
- <span class="menu-text">The Star Builders</span></a>
+    <a class="nav-link" href="../thestarbuilders/thestarbuilders.html"> 
+<span class="menu-text">The Star Builders</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../blog/index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link active" href="../blog/index.html" aria-current="page"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching/index.html" rel="" target="">
- <span class="menu-text">Teaching</span></a>
+    <a class="nav-link" href="../teaching/index.html"> 
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../code/index.html" rel="" target="">
- <span class="menu-text">Code</span></a>
+    <a class="nav-link" href="../code/index.html"> 
+<span class="menu-text">Code</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../uses/index.html" rel="" target="">
- <span class="menu-text">Setup</span></a>
+    <a class="nav-link" href="../uses/index.html"> 
+<span class="menu-text">Setup</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../atom.xml" rel="" target=""><i class="bi bi-rss" role="img" aria-label="rss">
+    <a class="nav-link" href="../atom.xml"> <i class="bi bi-rss" role="img" aria-label="rss">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../contact.html" rel="" target=""><i class="bi bi-envelope" role="img" aria-label="contact">
+    <a class="nav-link" href="../contact.html"> <i class="bi bi-envelope" role="img" aria-label="contact">
 </i> 
- <span class="menu-text"> </span></a>
+<span class="menu-text"> </span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/arthurturrell" rel="" target=""><i class="bi bi-twitter" role="img" aria-label="twitter">
+    <a class="nav-link" href="https://twitter.com/arthurturrell"> <i class="bi bi-twitter" role="img" aria-label="twitter">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/aeturrell" rel="" target=""><i class="bi bi-github" role="img" aria-label="github">
+    <a class="nav-link" href="https://github.com/aeturrell"> <i class="bi bi-github" role="img" aria-label="github">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/arthur-turrell-8b789891" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="linkedin">
+    <a class="nav-link" href="https://www.linkedin.com/in/arthur-turrell-8b789891"> <i class="bi bi-linkedin" role="img" aria-label="linkedin">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -215,7 +249,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
   </div>
     
   
-  <div class="quarto-title-meta">
+  <div class="quarto-title-meta column-page-left">
 
       <div>
       <div class="quarto-title-meta-heading">Author</div>
@@ -234,9 +268,10 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(34)</span></div><div class="category" data-category="TIL">TIL <span class="quarto-category-count">(2)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(2)</span></div><div class="category" data-category="blogging">blogging <span class="quarto-category-count">(3)</span></div><div class="category" data-category="cloud">cloud <span class="quarto-category-count">(8)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(27)</span></div><div class="category" data-category="data">data <span class="quarto-category-count">(7)</span></div><div class="category" data-category="data science">data science <span class="quarto-category-count">(7)</span></div><div class="category" data-category="econometrics">econometrics <span class="quarto-category-count">(5)</span></div><div class="category" data-category="economics">economics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="geospatial">geospatial <span class="quarto-category-count">(1)</span></div><div class="category" data-category="llm">llm <span class="quarto-category-count">(2)</span></div><div class="category" data-category="machine-learning">machine-learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(1)</span></div><div class="category" data-category="open-source">open-source <span class="quarto-category-count">(5)</span></div><div class="category" data-category="outreach">outreach <span class="quarto-category-count">(2)</span></div><div class="category" data-category="productivity">productivity <span class="quarto-category-count">(1)</span></div><div class="category" data-category="public sector">public sector <span class="quarto-category-count">(3)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(13)</span></div><div class="category" data-category="research">research <span class="quarto-category-count">(10)</span></div><div class="category" data-category="rstats">rstats <span class="quarto-category-count">(5)</span></div><div class="category" data-category="time series">time series <span class="quarto-category-count">(1)</span></div><div class="category" data-category="visualisation">visualisation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="work chat">work chat <span class="quarto-category-count">(2)</span></div><div class="category" data-category="writing">writing <span class="quarto-category-count">(3)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(35)</span></div><div class="category" data-category="TIL">TIL <span class="quarto-category-count">(2)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(2)</span></div><div class="category" data-category="blogging">blogging <span class="quarto-category-count">(3)</span></div><div class="category" data-category="cloud">cloud <span class="quarto-category-count">(8)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(27)</span></div><div class="category" data-category="data">data <span class="quarto-category-count">(7)</span></div><div class="category" data-category="data science">data science <span class="quarto-category-count">(7)</span></div><div class="category" data-category="econometrics">econometrics <span class="quarto-category-count">(5)</span></div><div class="category" data-category="economics">economics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="geospatial">geospatial <span class="quarto-category-count">(1)</span></div><div class="category" data-category="llm">llm <span class="quarto-category-count">(2)</span></div><div class="category" data-category="machine-learning">machine-learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(1)</span></div><div class="category" data-category="open-source">open-source <span class="quarto-category-count">(5)</span></div><div class="category" data-category="outreach">outreach <span class="quarto-category-count">(2)</span></div><div class="category" data-category="productivity">productivity <span class="quarto-category-count">(2)</span></div><div class="category" data-category="public sector">public sector <span class="quarto-category-count">(4)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(13)</span></div><div class="category" data-category="research">research <span class="quarto-category-count">(10)</span></div><div class="category" data-category="rstats">rstats <span class="quarto-category-count">(5)</span></div><div class="category" data-category="time series">time series <span class="quarto-category-count">(1)</span></div><div class="category" data-category="visualisation">visualisation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="work chat">work chat <span class="quarto-category-count">(3)</span></div><div class="category" data-category="writing">writing <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
 
 
 
@@ -269,19 +304,58 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="code,cloud" data-listing-date-sort="1713913200000" data-listing-file-modified-sort="1713946629879" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9">
+<div class="quarto-post image-right" data-index="0" data-categories="work chat,productivity,public sector" data-listing-date-sort="1726527600000" data-listing-file-modified-sort="1726571050441" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1177">
 <div class="thumbnail">
-<p><a href="../blog/posts/til-sql-database-azure/index.html"> <img src="../blog/posts/til-sql-database-azure/ibis_query_result.png" class="thumbnail-image"> </a></p>
+<p><a href="../blog/posts/bad-it/index.html" class="no-external"></a></p><a href="../blog/posts/bad-it/index.html" class="no-external">
+<p><img loading="lazy" src="../blog/posts/bad-it/dall_e_laptop_window.webp" class="thumbnail-image"></p>
+</a><p><a href="../blog/posts/bad-it/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/til-sql-database-azure/index.html">
 <h3 class="no-anchor listing-title">
-TIL: how to create and work with a MySQL database on Azure
+<a href="../blog/posts/bad-it/index.html" class="no-external">The false economy of bad IT</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/bad-it/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('work chat'); return false;">
+work chat
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('productivity'); return false;">
+productivity
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('public sector'); return false;">
+public sector
+</div>
+</div>
+<div class="listing-description">
+<a href="../blog/posts/bad-it/index.html" class="no-external">Many of us will have experienced bad hardware or software at work. Applications that freeze when you try and do something. A lag when typing. Some programmes ceasing to work…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../blog/posts/bad-it/index.html" class="no-external">
+<div class="listing-date">
+17 Sep 24
+</div>
+<div class="listing-reading-time">
+6 min
 </div>
 </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="code,cloud" data-listing-date-sort="1713913200000" data-listing-file-modified-sort="1713946629879" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1656">
+<div class="thumbnail">
+<p><a href="../blog/posts/til-sql-database-azure/index.html" class="no-external"></a></p><a href="../blog/posts/til-sql-database-azure/index.html" class="no-external">
+<p><img loading="lazy" src="../blog/posts/til-sql-database-azure/ibis_query_result.png" class="thumbnail-image"></p>
+</a><p><a href="../blog/posts/til-sql-database-azure/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../blog/posts/til-sql-database-azure/index.html" class="no-external">TIL: how to create and work with a MySQL database on Azure</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../blog/posts/til-sql-database-azure/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -290,14 +364,12 @@ code
 cloud
 </div>
 </div>
-<a href="../blog/posts/til-sql-database-azure/index.html">
 <div class="listing-description">
-In this TIL, I find out how to create a new MySQL database on Microsoft Azure. This is a place to…
+<a href="../blog/posts/til-sql-database-azure/index.html" class="no-external">In this TIL, I find out how to create a new MySQL database on Microsoft Azure. This is a place to store structured, tabular data. Note that the instructions below assume you…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/til-sql-database-azure/index.html">
+<a href="../blog/posts/til-sql-database-azure/index.html" class="no-external">
 <div class="listing-date">
 24 Apr 24
 </div>
@@ -307,19 +379,19 @@ In this TIL, I find out how to create a new MySQL database on Microsoft Azure. T
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="code,cloud" data-listing-date-sort="1713826800000" data-listing-file-modified-sort="1713883258971" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="quarto-post image-right" data-index="2" data-categories="code,cloud" data-listing-date-sort="1713826800000" data-listing-file-modified-sort="1713883258971" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="762">
 <div class="thumbnail">
-<p><a href="../blog/posts/til-blob-storage-azure/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="../blog/posts/til-blob-storage-azure/index.html" class="no-external"></a></p><a href="../blog/posts/til-blob-storage-azure/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../blog/posts/til-blob-storage-azure/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/til-blob-storage-azure/index.html">
 <h3 class="no-anchor listing-title">
-TIL: how to create and work with remote blob storage on Azure
+<a href="../blog/posts/til-blob-storage-azure/index.html" class="no-external">TIL: how to create and work with remote blob storage on Azure</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/til-blob-storage-azure/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -328,14 +400,12 @@ code
 cloud
 </div>
 </div>
-<a href="../blog/posts/til-blob-storage-azure/index.html">
 <div class="listing-description">
-In this TIL, I find out how to create a new blob storage account on Microsoft Azure. This…
+<a href="../blog/posts/til-blob-storage-azure/index.html" class="no-external">In this TIL, I find out how to create a new blob storage account on Microsoft Azure. This is a place to store unstructured data of any kind (as opposed to, say, a SQL…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/til-blob-storage-azure/index.html">
+<a href="../blog/posts/til-blob-storage-azure/index.html" class="no-external">
 <div class="listing-date">
 23 Apr 24
 </div>
@@ -345,19 +415,19 @@ In this TIL, I find out how to create a new blob storage account on Microsoft Az
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="code,research,cloud,python,rstats" data-listing-date-sort="1709856000000" data-listing-file-modified-sort="1709910478567" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<div class="quarto-post image-right" data-index="3" data-categories="code,research,cloud,python,rstats" data-listing-date-sort="1709856000000" data-listing-file-modified-sort="1709910478567" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1078">
 <div class="thumbnail">
-<p><a href="../blog/posts/til-how-to-run-vscode-remote-azure/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="../blog/posts/til-how-to-run-vscode-remote-azure/index.html" class="no-external"></a></p><a href="../blog/posts/til-how-to-run-vscode-remote-azure/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../blog/posts/til-how-to-run-vscode-remote-azure/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/til-how-to-run-vscode-remote-azure/index.html">
 <h3 class="no-anchor listing-title">
-TIL: how to connect Visual Studio Code to Azure Virtual Machines
+<a href="../blog/posts/til-how-to-run-vscode-remote-azure/index.html" class="no-external">TIL: how to connect Visual Studio Code to Azure Virtual Machines</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/til-how-to-run-vscode-remote-azure/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -375,14 +445,12 @@ python
 rstats
 </div>
 </div>
-<a href="../blog/posts/til-how-to-run-vscode-remote-azure/index.html">
 <div class="listing-description">
-In a previous blog post, I looked at how to connect desktop-based Visual Studio Code to a Google Cloud Virtual machine; today, it’s how to do the same…
+<a href="../blog/posts/til-how-to-run-vscode-remote-azure/index.html" class="no-external">In a previous blog post, I looked at how to connect desktop-based Visual Studio Code to a Google Cloud Virtual machine; today, it’s how to do the same using a virtual…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/til-how-to-run-vscode-remote-azure/index.html">
+<a href="../blog/posts/til-how-to-run-vscode-remote-azure/index.html" class="no-external">
 <div class="listing-date">
 08 Mar 24
 </div>
@@ -392,19 +460,19 @@ In a previous blog post, I looked at how to connect desktop-based Visual Studio 
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="code,data science,research" data-listing-date-sort="1701648000000" data-listing-file-modified-sort="1701730177783" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="4" data-categories="code,data science,research" data-listing-date-sort="1701648000000" data-listing-file-modified-sort="1701730177783" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="495">
 <div class="thumbnail">
-<p><a href="../blog/posts/virtual-desktop-from-virtual-machine/virtual-desktop-from-virtual-machine.html"> <img src="../blog/posts/virtual-desktop-from-virtual-machine/screenshot_ubuntu.png" class="thumbnail-image"> </a></p>
+<p><a href="../blog/posts/virtual-desktop-from-virtual-machine/virtual-desktop-from-virtual-machine.html" class="no-external"></a></p><a href="../blog/posts/virtual-desktop-from-virtual-machine/virtual-desktop-from-virtual-machine.html" class="no-external">
+<p><img loading="lazy" src="../blog/posts/virtual-desktop-from-virtual-machine/screenshot_ubuntu.png" class="thumbnail-image"></p>
+</a><p><a href="../blog/posts/virtual-desktop-from-virtual-machine/virtual-desktop-from-virtual-machine.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/virtual-desktop-from-virtual-machine/virtual-desktop-from-virtual-machine.html">
 <h3 class="no-anchor listing-title">
-TIL: how to create a virtual desktop from a cloud virtual machine
+<a href="../blog/posts/virtual-desktop-from-virtual-machine/virtual-desktop-from-virtual-machine.html" class="no-external">TIL: how to create a virtual desktop from a cloud virtual machine</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/virtual-desktop-from-virtual-machine/virtual-desktop-from-virtual-machine.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -416,14 +484,12 @@ data science
 research
 </div>
 </div>
-<a href="../blog/posts/virtual-desktop-from-virtual-machine/virtual-desktop-from-virtual-machine.html">
 <div class="listing-description">
-Researchers frequently want to be able to access…
+<a href="../blog/posts/virtual-desktop-from-virtual-machine/virtual-desktop-from-virtual-machine.html" class="no-external">Researchers frequently want to be able to access a second computer that works like a normal computer (think a virtual desktop rather than a virtual machine + command line)…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/virtual-desktop-from-virtual-machine/virtual-desktop-from-virtual-machine.html">
+<a href="../blog/posts/virtual-desktop-from-virtual-machine/virtual-desktop-from-virtual-machine.html" class="no-external">
 <div class="listing-date">
 04 Dec 23
 </div>
@@ -433,19 +499,19 @@ Researchers frequently want to be able to access…
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="code,python,rstats,data science,public sector" data-listing-date-sort="1699833600000" data-listing-file-modified-sort="1701737905260" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="32">
+<div class="quarto-post image-right" data-index="5" data-categories="code,python,rstats,data science,public sector" data-listing-date-sort="1699833600000" data-listing-file-modified-sort="1701737905260" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="32" data-listing-word-count-sort="6209">
 <div class="thumbnail">
-<p><a href="../blog/posts/data-science-with-impact/index.html"> <img src="../blog/posts/data-science-with-impact/npv_cover.png" class="thumbnail-image"> </a></p>
+<p><a href="../blog/posts/data-science-with-impact/index.html" class="no-external"></a></p><a href="../blog/posts/data-science-with-impact/index.html" class="no-external">
+<p><img loading="lazy" src="../blog/posts/data-science-with-impact/npv_cover.png" class="thumbnail-image"></p>
+</a><p><a href="../blog/posts/data-science-with-impact/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/data-science-with-impact/index.html">
 <h3 class="no-anchor listing-title">
-Data science with impact
+<a href="../blog/posts/data-science-with-impact/index.html" class="no-external">Data science with impact</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/data-science-with-impact/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -463,14 +529,12 @@ data science
 public sector
 </div>
 </div>
-<a href="../blog/posts/data-science-with-impact/index.html">
 <div class="listing-description">
-I was recently asked to give a talk at No.&nbsp;10 Downing Street on the topic of data science with impact and, in this post, I’m going to share some of what I said in that talk.…
+<a href="../blog/posts/data-science-with-impact/index.html" class="no-external">I was recently asked to give a talk at No.&nbsp;10 Downing Street on the topic of data science with impact and, in this post, I’m going to share some of what I said in that talk.…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/data-science-with-impact/index.html">
+<a href="../blog/posts/data-science-with-impact/index.html" class="no-external">
 <div class="listing-date">
 13 Nov 23
 </div>
@@ -480,19 +544,19 @@ I was recently asked to give a talk at No.&nbsp;10 Downing Street on the topic o
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="code,open-source,cloud,data science" data-listing-date-sort="1697151600000" data-listing-file-modified-sort="1697234534069" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12">
+<div class="quarto-post image-right" data-index="6" data-categories="code,open-source,cloud,data science" data-listing-date-sort="1697151600000" data-listing-file-modified-sort="1697234534069" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2228">
 <div class="thumbnail">
-<p><a href="../blog/posts/why-have-a-model-registry/index.html"> <p class="card-img-top"><img src="posts/why-have-a-model-registry/model_reg_img.png" alt="Schematic of a model registry."  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/why-have-a-model-registry/index.html" class="no-external"></a></p><a href="../blog/posts/why-have-a-model-registry/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/why-have-a-model-registry/model_reg_img.png" alt="Schematic of a model registry."  class="thumbnail-image card-img"/></p>
+</a><p><a href="../blog/posts/why-have-a-model-registry/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/why-have-a-model-registry/index.html">
 <h3 class="no-anchor listing-title">
-Why have a model registry?
+<a href="../blog/posts/why-have-a-model-registry/index.html" class="no-external">Why have a model registry?</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/why-have-a-model-registry/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -507,14 +571,12 @@ cloud
 data science
 </div>
 </div>
-<a href="../blog/posts/why-have-a-model-registry/index.html">
 <div class="listing-description">
-Many large institutions, including in the public sector, have a set of forecasts, predictions, or…<em></em><em></em>
+<a href="../blog/posts/why-have-a-model-registry/index.html" class="no-external">Many large institutions, including in the public sector, have a set of forecasts, predictions, or estimated statistical relationships (perhaps from a linear regression)…<em></em><em></em></a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/why-have-a-model-registry/index.html">
+<a href="../blog/posts/why-have-a-model-registry/index.html" class="no-external">
 <div class="listing-date">
 13 Oct 23
 </div>
@@ -524,19 +586,19 @@ Many large institutions, including in the public sector, have a set of forecasts
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="code,open-source,cloud,data science,python" data-listing-date-sort="1695855600000" data-listing-file-modified-sort="1697192619905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15">
+<div class="quarto-post image-right" data-index="7" data-categories="code,open-source,cloud,data science,python" data-listing-date-sort="1695855600000" data-listing-file-modified-sort="1697192619905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2825">
 <div class="thumbnail">
-<p><a href="../blog/posts/build-a-cloud-api/build-a-cloud-api.html"> <p class="card-img-top"><img src="posts/build-a-cloud-api/run_using_data.png" alt="Image showing JSON returned by API."  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/build-a-cloud-api/build-a-cloud-api.html" class="no-external"></a></p><a href="../blog/posts/build-a-cloud-api/build-a-cloud-api.html" class="no-external">
+<p class="card-img-top"><img src="posts/build-a-cloud-api/run_using_data.png" alt="Image showing JSON returned by API."  class="thumbnail-image card-img"/></p>
+</a><p><a href="../blog/posts/build-a-cloud-api/build-a-cloud-api.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/build-a-cloud-api/build-a-cloud-api.html">
 <h3 class="no-anchor listing-title">
-Building an API in the cloud in fewer than 200 lines of code
+<a href="../blog/posts/build-a-cloud-api/build-a-cloud-api.html" class="no-external">Building an API in the cloud in fewer than 200 lines of code</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/build-a-cloud-api/build-a-cloud-api.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -554,14 +616,12 @@ data science
 python
 </div>
 </div>
-<a href="../blog/posts/build-a-cloud-api/build-a-cloud-api.html">
 <div class="listing-description">
-Cloud tools and Python packages have become so powerful that you can build a…
+<a href="../blog/posts/build-a-cloud-api/build-a-cloud-api.html" class="no-external">Cloud tools and Python packages have become so powerful that you can build a (scalable) cloud-based API in fewer than 200 lines of code. In this blog post, you’ll see how to…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/build-a-cloud-api/build-a-cloud-api.html">
+<a href="../blog/posts/build-a-cloud-api/build-a-cloud-api.html" class="no-external">
 <div class="listing-date">
 28 Sep 23
 </div>
@@ -571,19 +631,19 @@ Cloud tools and Python packages have become so powerful that you can build a…
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="code,data science,python,time series" data-listing-date-sort="1694473200000" data-listing-file-modified-sort="1694547773282" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8">
+<div class="quarto-post image-right" data-index="8" data-categories="code,data science,python,time series" data-listing-date-sort="1694473200000" data-listing-file-modified-sort="1694547773282" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1454">
 <div class="thumbnail">
-<p><a href="../blog/posts/time-series-explosion/index.html"> <p class="card-img-top"><img src="posts/time-series-explosion/pymc_example.png" alt="Posteriors for outturn, trend, and seasonality."  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/time-series-explosion/index.html" class="no-external"></a></p><a href="../blog/posts/time-series-explosion/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/time-series-explosion/pymc_example.png" alt="Posteriors for outturn, trend, and seasonality."  class="thumbnail-image card-img"/></p>
+</a><p><a href="../blog/posts/time-series-explosion/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/time-series-explosion/index.html">
 <h3 class="no-anchor listing-title">
-The explosion in time series forecasting packages in data science
+<a href="../blog/posts/time-series-explosion/index.html" class="no-external">The explosion in time series forecasting packages in data science</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/time-series-explosion/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -598,14 +658,12 @@ python
 time series
 </div>
 </div>
-<a href="../blog/posts/time-series-explosion/index.html">
 <div class="listing-description">
-There have been a series of sometimes jaw-dropping developments in data…
+<a href="../blog/posts/time-series-explosion/index.html" class="no-external">There have been a series of sometimes jaw-dropping developments in data science in the last few years, with large language models by far the most prominent (and with good…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/time-series-explosion/index.html">
+<a href="../blog/posts/time-series-explosion/index.html" class="no-external">
 <div class="listing-date">
 12 Sep 23
 </div>
@@ -615,19 +673,19 @@ There have been a series of sometimes jaw-dropping developments in data…
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="writing,research,TIL" data-listing-date-sort="1688857200000" data-listing-file-modified-sort="1689457300752" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11">
+<div class="quarto-post image-right" data-index="9" data-categories="writing,research,TIL" data-listing-date-sort="1688857200000" data-listing-file-modified-sort="1689457300752" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2126">
 <div class="thumbnail">
-<p><a href="../blog/posts/til-zotero-and-obsidian/index.html"> <p class="card-img-top"><img src="posts/til-zotero-and-obsidian/obsidian-research-note-page.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/til-zotero-and-obsidian/index.html" class="no-external"></a></p><a href="../blog/posts/til-zotero-and-obsidian/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/til-zotero-and-obsidian/obsidian-research-note-page.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../blog/posts/til-zotero-and-obsidian/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/til-zotero-and-obsidian/index.html">
 <h3 class="no-anchor listing-title">
-TIL: Obsidian, and integrating it with Zotero
+<a href="../blog/posts/til-zotero-and-obsidian/index.html" class="no-external">TIL: Obsidian, and integrating it with Zotero</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/til-zotero-and-obsidian/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('writing'); return false;">
 writing
@@ -639,14 +697,12 @@ research
 TIL
 </div>
 </div>
-<a href="../blog/posts/til-zotero-and-obsidian/index.html">
 <div class="listing-description">
-I’ve long been interested in how best to store knowledge; so much that I wrote about it in this post (in the context of the public sector). Today I learned how to combine Obsidian and…
+<a href="../blog/posts/til-zotero-and-obsidian/index.html" class="no-external">I’ve long been interested in how best to store knowledge; so much that I wrote about it in this post (in the context of the public sector). Today I learned how to combine…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/til-zotero-and-obsidian/index.html">
+<a href="../blog/posts/til-zotero-and-obsidian/index.html" class="no-external">
 <div class="listing-date">
 09 Jul 23
 </div>
@@ -656,19 +712,19 @@ I’ve long been interested in how best to store knowledge; so much that I wrote
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="code,data,analysis,llm" data-listing-date-sort="1688079600000" data-listing-file-modified-sort="1688166123147" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8">
+<div class="quarto-post image-right" data-index="10" data-categories="code,data,analysis,llm" data-listing-date-sort="1688079600000" data-listing-file-modified-sort="1688166123147" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1522">
 <div class="thumbnail">
-<p><a href="../blog/posts/self-storage-meets-chatgpt/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="../blog/posts/self-storage-meets-chatgpt/index.html" class="no-external"></a></p><a href="../blog/posts/self-storage-meets-chatgpt/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../blog/posts/self-storage-meets-chatgpt/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/self-storage-meets-chatgpt/index.html">
 <h3 class="no-anchor listing-title">
-The self-storage problem meets chatGPT
+<a href="../blog/posts/self-storage-meets-chatgpt/index.html" class="no-external">The self-storage problem meets chatGPT</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/self-storage-meets-chatgpt/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -683,14 +739,12 @@ analysis
 llm
 </div>
 </div>
-<a href="../blog/posts/self-storage-meets-chatgpt/index.html">
 <div class="listing-description">
-In a previous post, I looked at four ways we might be able to establish the way that the number of <em>self-storage facilities</em> is trending over time. You can read that post using this…
+<a href="../blog/posts/self-storage-meets-chatgpt/index.html" class="no-external">In a previous post, I looked at four ways we might be able to establish the way that the number of <em>self-storage facilities</em> is trending over time. You can read that post using …</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/self-storage-meets-chatgpt/index.html">
+<a href="../blog/posts/self-storage-meets-chatgpt/index.html" class="no-external">
 <div class="listing-date">
 30 Jun 23
 </div>
@@ -700,19 +754,19 @@ In a previous post, I looked at four ways we might be able to establish the way 
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="code,data,geospatial,analysis,llm" data-listing-date-sort="1686783600000" data-listing-file-modified-sort="1686848291102" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19">
+<div class="quarto-post image-right" data-index="11" data-categories="code,data,geospatial,analysis,llm" data-listing-date-sort="1686783600000" data-listing-file-modified-sort="1686848291102" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3632">
 <div class="thumbnail">
-<p><a href="../blog/posts/self-storage-mystery/self-storage-mystery.html"> <p class="card-img-top"><img src="posts/self-storage-mystery/overpass_results.png" alt="Map of self-storage units according to Open Street Map."  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/self-storage-mystery/self-storage-mystery.html" class="no-external"></a></p><a href="../blog/posts/self-storage-mystery/self-storage-mystery.html" class="no-external">
+<p class="card-img-top"><img src="posts/self-storage-mystery/overpass_results.png" alt="Map of self-storage units according to Open Street Map."  class="thumbnail-image card-img"/></p>
+</a><p><a href="../blog/posts/self-storage-mystery/self-storage-mystery.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/self-storage-mystery/self-storage-mystery.html">
 <h3 class="no-anchor listing-title">
-The mystery of stuff: why all the self-storage?
+<a href="../blog/posts/self-storage-mystery/self-storage-mystery.html" class="no-external">The mystery of stuff: why all the self-storage?</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/self-storage-mystery/self-storage-mystery.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -730,14 +784,12 @@ analysis
 llm
 </div>
 </div>
-<a href="../blog/posts/self-storage-mystery/self-storage-mystery.html">
 <div class="listing-description">
-There’s a mystery at the fringes of our towns and cities: beyond the concrete circulars and just off the dual carriageways, a seemingly growing amount of our stuff is…
+<a href="../blog/posts/self-storage-mystery/self-storage-mystery.html" class="no-external">There’s a mystery at the fringes of our towns and cities: beyond the concrete circulars and just off the dual carriageways, a seemingly growing amount of our stuff is…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/self-storage-mystery/self-storage-mystery.html">
+<a href="../blog/posts/self-storage-mystery/self-storage-mystery.html" class="no-external">
 <div class="listing-date">
 15 Jun 23
 </div>
@@ -747,19 +799,19 @@ There’s a mystery at the fringes of our towns and cities: beyond the concrete 
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="code,python,rstats,data science,cloud,work chat,public sector" data-listing-date-sort="1677628800000" data-listing-file-modified-sort="1686848075496" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12">
+<div class="quarto-post image-right" data-index="12" data-categories="code,python,rstats,data science,cloud,work chat,public sector" data-listing-date-sort="1677628800000" data-listing-file-modified-sort="1686848075496" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2375">
 <div class="thumbnail">
-<p><a href="../blog/posts/data-science-maturity/data-science-maturity.html"> <img src="../blog/posts/data-science-maturity/dallas-reedy-H83_BXx3ChY-unsplash.jpg" class="thumbnail-image"> </a></p>
+<p><a href="../blog/posts/data-science-maturity/data-science-maturity.html" class="no-external"></a></p><a href="../blog/posts/data-science-maturity/data-science-maturity.html" class="no-external">
+<p><img loading="lazy" src="../blog/posts/data-science-maturity/dallas-reedy-H83_BXx3ChY-unsplash.jpg" class="thumbnail-image"></p>
+</a><p><a href="../blog/posts/data-science-maturity/data-science-maturity.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/data-science-maturity/data-science-maturity.html">
 <h3 class="no-anchor listing-title">
-Data science maturity and the cloud
+<a href="../blog/posts/data-science-maturity/data-science-maturity.html" class="no-external">Data science maturity and the cloud</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/data-science-maturity/data-science-maturity.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -783,14 +835,12 @@ work chat
 public sector
 </div>
 </div>
-<a href="../blog/posts/data-science-maturity/data-science-maturity.html">
 <div class="listing-description">
-Data science has enormous…<em></em><em></em>
+<a href="../blog/posts/data-science-maturity/data-science-maturity.html" class="no-external">Data science has enormous potential to do good in the public sector. The efficiencies that are possible from automation and reproducible analytical pipelines alone are…<em></em><em></em></a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/data-science-maturity/data-science-maturity.html">
+<a href="../blog/posts/data-science-maturity/data-science-maturity.html" class="no-external">
 <div class="listing-date">
 01 Mar 23
 </div>
@@ -800,19 +850,19 @@ Data science has enormous…<em></em><em></em>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="economics,productivity,public sector" data-listing-date-sort="1675814400000" data-listing-file-modified-sort="1686848075507" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19">
+<div class="quarto-post image-right" data-index="13" data-categories="economics,productivity,public sector" data-listing-date-sort="1675814400000" data-listing-file-modified-sort="1686848075507" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3639">
 <div class="thumbnail">
-<p><a href="../blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="../blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html" class="no-external"></a></p><a href="../blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html">
 <h3 class="no-anchor listing-title">
-The public sector could be better at managing knowledge ‘data’: what can we do?
+<a href="../blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html" class="no-external">The public sector could be better at managing knowledge ‘data’: what can we do?</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('economics'); return false;">
 economics
@@ -824,14 +874,12 @@ productivity
 public sector
 </div>
 </div>
-<a href="../blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html">
 <div class="listing-description">
-Who thinks the public sector is good enough at managing its stock of knowledge; the ideas, strategies, processes, and decisions that go into the efficient provision of…
+<a href="../blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html" class="no-external">Who thinks the public sector is good enough at managing its stock of knowledge; the ideas, strategies, processes, and decisions that go into the efficient provision of…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html">
+<a href="../blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html" class="no-external">
 <div class="listing-date">
 08 Feb 23
 </div>
@@ -841,19 +889,19 @@ Who thinks the public sector is good enough at managing its stock of knowledge; 
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="code,open-source,cloud,data science,work chat" data-listing-date-sort="1673568000000" data-listing-file-modified-sort="1686848075517" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10">
+<div class="quarto-post image-right" data-index="14" data-categories="code,open-source,cloud,data science,work chat" data-listing-date-sort="1673568000000" data-listing-file-modified-sort="1686848075517" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1849">
 <div class="thumbnail">
-<p><a href="../blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html"> <img src="../blog/posts/why-you-shouldnt-code/elisa-ventur-bmJAXAz6ads-unsplash.jpg" class="thumbnail-image"> </a></p>
+<p><a href="../blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html" class="no-external"></a></p><a href="../blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html" class="no-external">
+<p><img loading="lazy" src="../blog/posts/why-you-shouldnt-code/elisa-ventur-bmJAXAz6ads-unsplash.jpg" class="thumbnail-image"></p>
+</a><p><a href="../blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html">
 <h3 class="no-anchor listing-title">
-Why you shouldn’t code on your work laptop
+<a href="../blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html" class="no-external">Why you shouldn’t code on your work laptop</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -871,14 +919,12 @@ data science
 work chat
 </div>
 </div>
-<a href="../blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html">
 <div class="listing-description">
-“Nobody ever got fired for buying Microsoft” goes an old saying. Actually, it was probably first said in the 1980s in reference to IBM <span class="citation" data-cites="1983school">(<em>School Microcomputing Bulletin</em> 1983)</span>, but the meaning remains the same: as the Chief Technology Officer, or similar, you’re not going to get in trouble for buying the boring old thing that everyone else is…<em></em><em></em><em></em>
+<a href="../blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html" class="no-external">“Nobody ever got fired for buying Microsoft” goes an old saying. Actually, it was probably first said in the 1980s in reference to IBM <span class="citation" data-cites="1983school">(<em>School Microcomputing Bulletin</em> 1983)</span>…<em></em><em></em><em></em></a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html">
+<a href="../blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html" class="no-external">
 <div class="listing-date">
 13 Jan 23
 </div>
@@ -888,19 +934,19 @@ work chat
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="code,data" data-listing-date-sort="1671321600000" data-listing-file-modified-sort="1686848075516" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
+<div class="quarto-post image-right" data-index="15" data-categories="code,data" data-listing-date-sort="1671321600000" data-listing-file-modified-sort="1686848075516" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1284">
 <div class="thumbnail">
-<p><a href="../blog/posts/the-prize-with-apis/the-prize-with-apis.html"> <p class="card-img-top"><img src="posts/the-prize-with-apis/the-prize-with-apis_files/figure-html/cell-4-output-1.svg"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/the-prize-with-apis/the-prize-with-apis.html" class="no-external"></a></p><a href="../blog/posts/the-prize-with-apis/the-prize-with-apis.html" class="no-external">
+<p class="card-img-top"><img src="posts/the-prize-with-apis/the-prize-with-apis_files/figure-html/cell-4-output-1.svg"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../blog/posts/the-prize-with-apis/the-prize-with-apis.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/the-prize-with-apis/the-prize-with-apis.html">
 <h3 class="no-anchor listing-title">
-In praise of APIs (application programming interfaces)
+<a href="../blog/posts/the-prize-with-apis/the-prize-with-apis.html" class="no-external">In praise of APIs (application programming interfaces)</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/the-prize-with-apis/the-prize-with-apis.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -909,14 +955,12 @@ code
 data
 </div>
 </div>
-<a href="../blog/posts/the-prize-with-apis/the-prize-with-apis.html">
 <div class="listing-description">
-In this blog, I look at some of reasons why APIs are such a great way to share data.
+<a href="../blog/posts/the-prize-with-apis/the-prize-with-apis.html" class="no-external">In this blog, I look at some of reasons why APIs are such a great way to share data.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/the-prize-with-apis/the-prize-with-apis.html">
+<a href="../blog/posts/the-prize-with-apis/the-prize-with-apis.html" class="no-external">
 <div class="listing-date">
 18 Dec 22
 </div>
@@ -926,19 +970,19 @@ In this blog, I look at some of reasons why APIs are such a great way to share d
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="blogging,code,writing,TIL" data-listing-date-sort="1667347200000" data-listing-file-modified-sort="1686848075516" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="16" data-categories="blogging,code,writing,TIL" data-listing-date-sort="1667347200000" data-listing-file-modified-sort="1686848075516" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="269">
 <div class="thumbnail">
-<p><a href="../blog/posts/til-how-to-break-xml/index.html"> <p class="card-img-top"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Feed-icon.svg/256px-Feed-icon.svg.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/til-how-to-break-xml/index.html" class="no-external"></a></p><a href="../blog/posts/til-how-to-break-xml/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../blog/posts/til-how-to-break-xml/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/til-how-to-break-xml/index.html">
 <h3 class="no-anchor listing-title">
-TIL: How to break RSS feeds
+<a href="../blog/posts/til-how-to-break-xml/index.html" class="no-external">TIL: How to break RSS feeds</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/til-how-to-break-xml/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('blogging'); return false;">
 blogging
@@ -953,14 +997,12 @@ writing
 TIL
 </div>
 </div>
-<a href="../blog/posts/til-how-to-break-xml/index.html">
 <div class="listing-description">
-Note: this is the first post under a new tag called TIL or “today…
+<a href="../blog/posts/til-how-to-break-xml/index.html" class="no-external">Note: this is the first post under a new tag called TIL or “today I learned”. These are shorter format posts that lower the barrier to blogging and capture a mini piece of…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/til-how-to-break-xml/index.html">
+<a href="../blog/posts/til-how-to-break-xml/index.html" class="no-external">
 <div class="listing-date">
 02 Nov 22
 </div>
@@ -970,32 +1012,30 @@ Note: this is the first post under a new tag called TIL or “today…
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="news" data-listing-date-sort="1665874800000" data-listing-file-modified-sort="1687566372283" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="17" data-categories="news" data-listing-date-sort="1665874800000" data-listing-file-modified-sort="1687566372283" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="160">
 <div class="thumbnail">
-<p><a href="../blog/posts/welcome/index.html"> <p class="card-img-top"><img src="posts/welcome/thumbnail.jpg"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/welcome/index.html" class="no-external"></a></p><a href="../blog/posts/welcome/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/welcome/thumbnail.jpg"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../blog/posts/welcome/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/welcome/index.html">
 <h3 class="no-anchor listing-title">
-Welcome To The New Home for My Blog
+<a href="../blog/posts/welcome/index.html" class="no-external">Welcome To The New Home for My Blog</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/welcome/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
 news
 </div>
 </div>
-<a href="../blog/posts/welcome/index.html">
 <div class="listing-description">
-This is the first post on a brand new blog site: welcome!
+<a href="../blog/posts/welcome/index.html" class="no-external">This is the first post on a brand new blog site: welcome!</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/welcome/index.html">
+<a href="../blog/posts/welcome/index.html" class="no-external">
 <div class="listing-date">
 16 Oct 22
 </div>
@@ -1005,19 +1045,19 @@ This is the first post on a brand new blog site: welcome!
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="code,research,cloud,python,rstats" data-listing-date-sort="1664319600000" data-listing-file-modified-sort="1686848075517" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12">
+<div class="quarto-post image-right" data-index="18" data-categories="code,research,cloud,python,rstats" data-listing-date-sort="1664319600000" data-listing-file-modified-sort="1686848075517" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2246">
 <div class="thumbnail">
-<p><a href="../blog/posts/visual-studio-code-in-the-cloud/index.html"> <p class="card-img-top"><img src="https://github.com/aeturrell/coding-for-economists/blob/main/img/vscode_layout.png?raw=true"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/visual-studio-code-in-the-cloud/index.html" class="no-external"></a></p><a href="../blog/posts/visual-studio-code-in-the-cloud/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../blog/posts/visual-studio-code-in-the-cloud/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/visual-studio-code-in-the-cloud/index.html">
 <h3 class="no-anchor listing-title">
-Visual Studio Code on the Cloud
+<a href="../blog/posts/visual-studio-code-in-the-cloud/index.html" class="no-external">Visual Studio Code on the Cloud</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/visual-studio-code-in-the-cloud/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -1035,14 +1075,12 @@ python
 rstats
 </div>
 </div>
-<a href="../blog/posts/visual-studio-code-in-the-cloud/index.html">
 <div class="listing-description">
-Visual Studio Code is incredibly powerful, whether it’s for writing markdown, writing quarto (.qmd) files, getting syntax highlighting and peerless…<em></em><sup></sup>
+<a href="../blog/posts/visual-studio-code-in-the-cloud/index.html" class="no-external">Visual Studio Code is incredibly powerful, whether it’s for writing markdown, writing quarto (.qmd) files, getting syntax highlighting and peerless language support (eg…<em></em><sup></sup></a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/visual-studio-code-in-the-cloud/index.html">
+<a href="../blog/posts/visual-studio-code-in-the-cloud/index.html" class="no-external">
 <div class="listing-date">
 28 Sep 22
 </div>
@@ -1052,19 +1090,19 @@ Visual Studio Code is incredibly powerful, whether it’s for writing markdown, 
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="blogging,research,writing" data-listing-date-sort="1645401600000" data-listing-file-modified-sort="1686848075509" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12">
+<div class="quarto-post image-right" data-index="19" data-categories="blogging,research,writing" data-listing-date-sort="1645401600000" data-listing-file-modified-sort="1686848075509" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2201">
 <div class="thumbnail">
-<p><a href="../blog/posts/research-blogs/index.html"> <p class="card-img-top"><img src="posts/research-blogs/res_blog_pyramid.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/research-blogs/index.html" class="no-external"></a></p><a href="../blog/posts/research-blogs/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/research-blogs/res_blog_pyramid.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../blog/posts/research-blogs/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/research-blogs/index.html">
 <h3 class="no-anchor listing-title">
-Writing a Research Blog Post
+<a href="../blog/posts/research-blogs/index.html" class="no-external">Writing a Research Blog Post</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/research-blogs/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('blogging'); return false;">
 blogging
@@ -1076,14 +1114,12 @@ research
 writing
 </div>
 </div>
-<a href="../blog/posts/research-blogs/index.html">
 <div class="listing-description">
-In this post, you will find hints and tips for writing impactful blog posts that summarise research or analysis. This is a cross-post with a new page on <em>Coding for Economists</em> title…
+<a href="../blog/posts/research-blogs/index.html" class="no-external">In this post, you will find hints and tips for writing impactful blog posts that summarise research or analysis. This is a cross-post with a new page on <em>Coding for Economists</em>…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/research-blogs/index.html">
+<a href="../blog/posts/research-blogs/index.html" class="no-external">
 <div class="listing-date">
 21 Feb 22
 </div>
@@ -1093,19 +1129,19 @@ In this post, you will find hints and tips for writing impactful blog posts that
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="code,rstats" data-listing-date-sort="1635984000000" data-listing-file-modified-sort="1686848075514" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="20" data-categories="code,rstats" data-listing-date-sort="1635984000000" data-listing-file-modified-sort="1686848075514" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="471">
 <div class="thumbnail">
-<p><a href="../blog/posts/setting-up-r-in-vscode/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="../blog/posts/setting-up-r-in-vscode/index.html" class="no-external"></a></p><a href="../blog/posts/setting-up-r-in-vscode/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../blog/posts/setting-up-r-in-vscode/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/setting-up-r-in-vscode/index.html">
 <h3 class="no-anchor listing-title">
-Setting up R in Visual Studio Code
+<a href="../blog/posts/setting-up-r-in-vscode/index.html" class="no-external">Setting up R in Visual Studio Code</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/setting-up-r-in-vscode/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -1114,14 +1150,12 @@ code
 rstats
 </div>
 </div>
-<a href="../blog/posts/setting-up-r-in-vscode/index.html">
 <div class="listing-description">
-T…
+<a href="../blog/posts/setting-up-r-in-vscode/index.html" class="no-external">This post will show you how to set up Visual Studio Code as an integrated development environment for the statistical language R. This will include some useful features such…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/setting-up-r-in-vscode/index.html">
+<a href="../blog/posts/setting-up-r-in-vscode/index.html" class="no-external">
 <div class="listing-date">
 04 Nov 21
 </div>
@@ -1131,19 +1165,19 @@ T…
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="20" data-categories="code,blogging" data-listing-date-sort="1613088000000" data-listing-file-modified-sort="1686848075516" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13">
+<div class="quarto-post image-right" data-index="21" data-categories="code,blogging" data-listing-date-sort="1613088000000" data-listing-file-modified-sort="1686848075516" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2560">
 <div class="thumbnail">
-<p><a href="../blog/posts/three-ways-to-blog-with-code/index.html"> <p class="card-img-top"><img src="posts/three-ways-to-blog-with-code/index_files/figure-html/cell-4-output-1.svg"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/three-ways-to-blog-with-code/index.html" class="no-external"></a></p><a href="../blog/posts/three-ways-to-blog-with-code/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/three-ways-to-blog-with-code/index_files/figure-html/cell-4-output-1.svg"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../blog/posts/three-ways-to-blog-with-code/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/three-ways-to-blog-with-code/index.html">
 <h3 class="no-anchor listing-title">
-Three ways to blog with code
+<a href="../blog/posts/three-ways-to-blog-with-code/index.html" class="no-external">Three ways to blog with code</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/three-ways-to-blog-with-code/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -1152,14 +1186,12 @@ code
 blogging
 </div>
 </div>
-<a href="../blog/posts/three-ways-to-blog-with-code/index.html">
 <div class="listing-description">
-Typically, what I want to do when I create a blog post is to…
+<a href="../blog/posts/three-ways-to-blog-with-code/index.html" class="no-external">Typically, what I want to do when I create a blog post is to combine text, code, and code output, and then push it to the github repo that hosts my website. But what are the…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/three-ways-to-blog-with-code/index.html">
+<a href="../blog/posts/three-ways-to-blog-with-code/index.html" class="no-external">
 <div class="listing-date">
 12 Feb 21
 </div>
@@ -1169,19 +1201,19 @@ Typically, what I want to do when I create a blog post is to…
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="21" data-categories="code,open-source,python" data-listing-date-sort="1603494000000" data-listing-file-modified-sort="1686848075495" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="29">
+<div class="quarto-post image-right" data-index="22" data-categories="code,open-source,python" data-listing-date-sort="1603494000000" data-listing-file-modified-sort="1686848075495" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="29" data-listing-word-count-sort="5782">
 <div class="thumbnail">
-<p><a href="../blog/posts/10-lesser-known-python-packages/index.html"> <p class="card-img-top"><img src="https://pythonawesome.com/content/images/2020/08/wrong_brackets.gif"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/10-lesser-known-python-packages/index.html" class="no-external"></a></p><a href="../blog/posts/10-lesser-known-python-packages/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../blog/posts/10-lesser-known-python-packages/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/10-lesser-known-python-packages/index.html">
 <h3 class="no-anchor listing-title">
-10 less well-known Python packages
+<a href="../blog/posts/10-lesser-known-python-packages/index.html" class="no-external">10 less well-known Python packages</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/10-lesser-known-python-packages/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -1193,14 +1225,12 @@ open-source
 python
 </div>
 </div>
-<a href="../blog/posts/10-lesser-known-python-packages/index.html">
 <div class="listing-description">
-(Remember that to use these, you will need to run <code>pip install packagename</code> on the command line.)
+<a href="../blog/posts/10-lesser-known-python-packages/index.html" class="no-external">(Remember that to use these, you will need to run <code>pip install packagename</code> on the command line.)</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/10-lesser-known-python-packages/index.html">
+<a href="../blog/posts/10-lesser-known-python-packages/index.html" class="no-external">
 <div class="listing-date">
 24 Oct 20
 </div>
@@ -1210,19 +1240,19 @@ python
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="22" data-categories="code,data,research" data-listing-date-sort="1561503600000" data-listing-file-modified-sort="1686848075504" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="34">
+<div class="quarto-post image-right" data-index="23" data-categories="code,data,research" data-listing-date-sort="1561503600000" data-listing-file-modified-sort="1686848075504" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="34" data-listing-word-count-sort="6718">
 <div class="thumbnail">
-<p><a href="../blog/posts/get-organised/index.html"> <p class="card-img-top"><img src="posts/get-organised/cookiecutterorg.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/get-organised/index.html" class="no-external"></a></p><a href="../blog/posts/get-organised/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/get-organised/cookiecutterorg.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../blog/posts/get-organised/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/get-organised/index.html">
 <h3 class="no-anchor listing-title">
-Get organised
+<a href="../blog/posts/get-organised/index.html" class="no-external">Get organised</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/get-organised/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -1234,14 +1264,12 @@ data
 research
 </div>
 </div>
-<a href="../blog/posts/get-organised/index.html">
 <div class="listing-description">
-This monster blog post is going to discuss how to organise your a data science project or research project: data…
+<a href="../blog/posts/get-organised/index.html" class="no-external">This monster blog post is going to discuss how to organise your a data science project or research project: data, code and outputs. I’ll cover how to structure the project…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/get-organised/index.html">
+<a href="../blog/posts/get-organised/index.html" class="no-external">
 <div class="listing-date">
 26 Jun 19
 </div>
@@ -1251,19 +1279,19 @@ This monster blog post is going to discuss how to organise your a data science p
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="23" data-categories="code,research,open-source,econometrics" data-listing-date-sort="1548374400000" data-listing-file-modified-sort="1686848075515" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="39">
+<div class="quarto-post image-right" data-index="24" data-categories="code,research,open-source,econometrics" data-listing-date-sort="1548374400000" data-listing-file-modified-sort="1686848075515" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="39" data-listing-word-count-sort="7621">
 <div class="thumbnail">
-<p><a href="../blog/posts/specification-curve-analysis/index.html"> <img src="../blog/posts/specification-curve-analysis/output_31_0.png" class="thumbnail-image"> </a></p>
+<p><a href="../blog/posts/specification-curve-analysis/index.html" class="no-external"></a></p><a href="../blog/posts/specification-curve-analysis/index.html" class="no-external">
+<p><img loading="lazy" src="../blog/posts/specification-curve-analysis/output_31_0.png" class="thumbnail-image"></p>
+</a><p><a href="../blog/posts/specification-curve-analysis/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/specification-curve-analysis/index.html">
 <h3 class="no-anchor listing-title">
-Specification curve analysis
+<a href="../blog/posts/specification-curve-analysis/index.html" class="no-external">Specification curve analysis</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/specification-curve-analysis/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -1278,14 +1306,12 @@ open-source
 econometrics
 </div>
 </div>
-<a href="../blog/posts/specification-curve-analysis/index.html">
 <div class="listing-description">
-Since publishing this post, I have written the <strong>specification_curve</strong> package for Python. <strong>specification_curve</strong> automates some aspects of specification curve analysis, namely running multiple regressions and…
+<a href="../blog/posts/specification-curve-analysis/index.html" class="no-external">Since publishing this post, I have written the <strong>specification_curve</strong> package for Python. <strong>specification_curve</strong> automates some aspects of specification curve analysis, namely…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/specification-curve-analysis/index.html">
+<a href="../blog/posts/specification-curve-analysis/index.html" class="no-external">
 <div class="listing-date">
 25 Jan 19
 </div>
@@ -1295,19 +1321,19 @@ Since publishing this post, I have written the <strong>specification_curve</stro
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="24" data-categories="outreach,code,data" data-listing-date-sort="1535151600000" data-listing-file-modified-sort="1686848075519" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
+<div class="quarto-post image-right" data-index="25" data-categories="outreach,code,data" data-listing-date-sort="1535151600000" data-listing-file-modified-sort="1686848075519" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1378">
 <div class="thumbnail">
-<p><a href="../blog/posts/wikipedia-into-stem/index.html"> <p class="card-img-top"><img src="posts/wikipedia-into-stem/PageViewsJess.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/wikipedia-into-stem/index.html" class="no-external"></a></p><a href="../blog/posts/wikipedia-into-stem/index.html" class="no-external">
+<p class="card-img-top"><img data-src="posts/wikipedia-into-stem/PageViewsJess.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../blog/posts/wikipedia-into-stem/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/wikipedia-into-stem/index.html">
 <h3 class="no-anchor listing-title">
-Putting women scientists onto Wikipedia
+<a href="../blog/posts/wikipedia-into-stem/index.html" class="no-external">Putting women scientists onto Wikipedia</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/wikipedia-into-stem/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('outreach'); return false;">
 outreach
@@ -1319,14 +1345,12 @@ code
 data
 </div>
 </div>
-<a href="../blog/posts/wikipedia-into-stem/index.html">
 <div class="listing-description">
-In a previous post, I shared links about the predictors for <em>not</em> participating in higher education, and about how it is difficult to reach…
+<a href="../blog/posts/wikipedia-into-stem/index.html" class="no-external">In a previous post, I shared links about the predictors for <em>not</em> participating in higher education, and about how it is difficult to reach audiences in “remote rural or…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/wikipedia-into-stem/index.html">
+<a href="../blog/posts/wikipedia-into-stem/index.html" class="no-external">
 <div class="listing-date">
 25 Aug 18
 </div>
@@ -1336,19 +1360,19 @@ In a previous post, I shared links about the predictors for <em>not</em> partici
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="25" data-categories="outreach,data" data-listing-date-sort="1534546800000" data-listing-file-modified-sort="1686848075505" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="quarto-post image-right" data-index="26" data-categories="outreach,data" data-listing-date-sort="1534546800000" data-listing-file-modified-sort="1686848075505" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="864">
 <div class="thumbnail">
-<p><a href="../blog/posts/left-out-of-he/index.html"> <p class="card-img-top"><img data-src="posts/left-out-of-he/map.png" alt="Youth higher education participation rate by local authority district. Shown are Manchester and the Peak District."  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/left-out-of-he/index.html" class="no-external"></a></p><a href="../blog/posts/left-out-of-he/index.html" class="no-external">
+<p class="card-img-top"><img data-src="posts/left-out-of-he/map.png" alt="Youth higher education participation rate by local authority district. Shown are Manchester and the Peak District."  class="thumbnail-image card-img"/></p>
+</a><p><a href="../blog/posts/left-out-of-he/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/left-out-of-he/index.html">
 <h3 class="no-anchor listing-title">
-Who is not participating in Higher Education?
+<a href="../blog/posts/left-out-of-he/index.html" class="no-external">Who is not participating in Higher Education?</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/left-out-of-he/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('outreach'); return false;">
 outreach
@@ -1357,14 +1381,12 @@ outreach
 data
 </div>
 </div>
-<a href="../blog/posts/left-out-of-he/index.html">
 <div class="listing-description">
-Given my work in both economics and Science, Technology, Engineering, and…
+<a href="../blog/posts/left-out-of-he/index.html" class="no-external">Given my work in both economics and Science, Technology, Engineering, and Mathematics (STEM), I’ve become interested in what factors determine groups’ participation in…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/left-out-of-he/index.html">
+<a href="../blog/posts/left-out-of-he/index.html" class="no-external">
 <div class="listing-date">
 18 Aug 18
 </div>
@@ -1374,19 +1396,19 @@ Given my work in both economics and Science, Technology, Engineering, and…
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="26" data-categories="research,machine-learning" data-listing-date-sort="1531263600000" data-listing-file-modified-sort="1686848075500" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="quarto-post image-right" data-index="27" data-categories="research,machine-learning" data-listing-date-sort="1531263600000" data-listing-file-modified-sort="1686848075500" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="717">
 <div class="thumbnail">
-<p><a href="../blog/posts/game-theory-rescue/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="../blog/posts/game-theory-rescue/index.html" class="no-external"></a></p><a href="../blog/posts/game-theory-rescue/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../blog/posts/game-theory-rescue/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/game-theory-rescue/index.html">
 <h3 class="no-anchor listing-title">
-Why the latest, most exciting thing in machine learning is… game theory
+<a href="../blog/posts/game-theory-rescue/index.html" class="no-external">Why the latest, most exciting thing in machine learning is… game theory</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/game-theory-rescue/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('research'); return false;">
 research
@@ -1395,14 +1417,12 @@ research
 machine-learning
 </div>
 </div>
-<a href="../blog/posts/game-theory-rescue/index.html">
 <div class="listing-description">
-<em>And when I say latest, this particular method was invented in 1953.</em>
+<a href="../blog/posts/game-theory-rescue/index.html" class="no-external"><em>And when I say latest, this particular method was invented in 1953.</em></a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/game-theory-rescue/index.html">
+<a href="../blog/posts/game-theory-rescue/index.html" class="no-external">
 <div class="listing-date">
 11 Jul 18
 </div>
@@ -1412,19 +1432,19 @@ machine-learning
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="27" data-categories="code,econometrics,python" data-listing-date-sort="1525474800000" data-listing-file-modified-sort="1686848075510" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="46">
+<div class="quarto-post image-right" data-index="28" data-categories="code,econometrics,python" data-listing-date-sort="1525474800000" data-listing-file-modified-sort="1686848075510" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="46" data-listing-word-count-sort="9115">
 <div class="thumbnail">
-<p><a href="../blog/posts/running-many-regressions-alongside-pandas/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="../blog/posts/running-many-regressions-alongside-pandas/index.html" class="no-external"></a></p><a href="../blog/posts/running-many-regressions-alongside-pandas/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../blog/posts/running-many-regressions-alongside-pandas/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/running-many-regressions-alongside-pandas/index.html">
 <h3 class="no-anchor listing-title">
-Econometrics in Python Part IV - Running many regressions alongside pandas
+<a href="../blog/posts/running-many-regressions-alongside-pandas/index.html" class="no-external">Econometrics in Python Part IV - Running many regressions alongside pandas</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/running-many-regressions-alongside-pandas/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -1436,14 +1456,12 @@ econometrics
 python
 </div>
 </div>
-<a href="../blog/posts/running-many-regressions-alongside-pandas/index.html">
 <div class="listing-description">
-<em>The fourth in the series of posts covering econometrics in Python. This time: automating the boring business of running multiple regressions on columns in a pandas dataframe.</em>
+<a href="../blog/posts/running-many-regressions-alongside-pandas/index.html" class="no-external"><em>The fourth in the series of posts covering econometrics in Python. This time: automating the boring business of running multiple regressions on columns in a pandas dataframe.</em></a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/running-many-regressions-alongside-pandas/index.html">
+<a href="../blog/posts/running-many-regressions-alongside-pandas/index.html" class="no-external">
 <div class="listing-date">
 05 May 18
 </div>
@@ -1453,19 +1471,19 @@ python
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="28" data-categories="code,econometrics,machine-learning,python" data-listing-date-sort="1522191600000" data-listing-file-modified-sort="1686848075498" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<div class="quarto-post image-right" data-index="29" data-categories="code,econometrics,machine-learning,python" data-listing-date-sort="1522191600000" data-listing-file-modified-sort="1686848075498" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1186">
 <div class="thumbnail">
-<p><a href="../blog/posts/estimation-heterogeneous-treatment-random-forests/index.html"> <p class="card-img-top"><img data-src="posts/estimation-heterogeneous-treatment-random-forests/tau.png" alt="The true tau as a function of X-zero and X-one"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/estimation-heterogeneous-treatment-random-forests/index.html" class="no-external"></a></p><a href="../blog/posts/estimation-heterogeneous-treatment-random-forests/index.html" class="no-external">
+<p class="card-img-top"><img data-src="posts/estimation-heterogeneous-treatment-random-forests/tau.png" alt="The true tau as a function of X-zero and X-one"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../blog/posts/estimation-heterogeneous-treatment-random-forests/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/estimation-heterogeneous-treatment-random-forests/index.html">
 <h3 class="no-anchor listing-title">
-Econometrics in Python part III - Estimating heterogeneous treatment effects using random forests
+<a href="../blog/posts/estimation-heterogeneous-treatment-random-forests/index.html" class="no-external">Econometrics in Python part III - Estimating heterogeneous treatment effects using random forests</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/estimation-heterogeneous-treatment-random-forests/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -1480,14 +1498,12 @@ machine-learning
 python
 </div>
 </div>
-<a href="../blog/posts/estimation-heterogeneous-treatment-random-forests/index.html">
 <div class="listing-description">
-<em>The third in a series of posts covering econometrics in Python. Here I look at ‘causal forests’.</em>
+<a href="../blog/posts/estimation-heterogeneous-treatment-random-forests/index.html" class="no-external"><em>The third in a series of posts covering econometrics in Python. Here I look at ‘causal forests’.</em></a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/estimation-heterogeneous-treatment-random-forests/index.html">
+<a href="../blog/posts/estimation-heterogeneous-treatment-random-forests/index.html" class="no-external">
 <div class="listing-date">
 28 Mar 18
 </div>
@@ -1497,19 +1513,19 @@ python
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="29" data-categories="code,econometrics,python" data-listing-date-sort="1519084800000" data-listing-file-modified-sort="1686848075498" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20">
+<div class="quarto-post image-right" data-index="30" data-categories="code,econometrics,python" data-listing-date-sort="1519084800000" data-listing-file-modified-sort="1686848075498" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3812">
 <div class="thumbnail">
-<p><a href="../blog/posts/econometrics-in-python-partii-fixed-effects/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="../blog/posts/econometrics-in-python-partii-fixed-effects/index.html" class="no-external"></a></p><a href="../blog/posts/econometrics-in-python-partii-fixed-effects/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../blog/posts/econometrics-in-python-partii-fixed-effects/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/econometrics-in-python-partii-fixed-effects/index.html">
 <h3 class="no-anchor listing-title">
-Econometrics in Python Part II - Fixed effects
+<a href="../blog/posts/econometrics-in-python-partii-fixed-effects/index.html" class="no-external">Econometrics in Python Part II - Fixed effects</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/econometrics-in-python-partii-fixed-effects/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -1521,14 +1537,12 @@ econometrics
 python
 </div>
 </div>
-<a href="../blog/posts/econometrics-in-python-partii-fixed-effects/index.html">
 <div class="listing-description">
-In this second in a series on econometrics in Python, I’ll look at how to implement fixed effects.
+<a href="../blog/posts/econometrics-in-python-partii-fixed-effects/index.html" class="no-external">In this second in a series on econometrics in Python, I’ll look at how to implement fixed effects.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/econometrics-in-python-partii-fixed-effects/index.html">
+<a href="../blog/posts/econometrics-in-python-partii-fixed-effects/index.html" class="no-external">
 <div class="listing-date">
 20 Feb 18
 </div>
@@ -1538,19 +1552,19 @@ In this second in a series on econometrics in Python, I’ll look at how to impl
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="30" data-categories="code,econometrics,python" data-listing-date-sort="1518220800000" data-listing-file-modified-sort="1686848075498" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<div class="quarto-post image-right" data-index="31" data-categories="code,econometrics,python" data-listing-date-sort="1518220800000" data-listing-file-modified-sort="1686848075498" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1181">
 <div class="thumbnail">
-<p><a href="../blog/posts/econometrics-in-python-parti-ml/index.html"> <p class="card-img-top"><img data-src="posts/econometrics-in-python-parti-ml/DoubleMLCauchy.png" alt="The wrapped Cauchy distribution"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/econometrics-in-python-parti-ml/index.html" class="no-external"></a></p><a href="../blog/posts/econometrics-in-python-parti-ml/index.html" class="no-external">
+<p class="card-img-top"><img data-src="posts/econometrics-in-python-parti-ml/DoubleMLCauchy.png" alt="The wrapped Cauchy distribution"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../blog/posts/econometrics-in-python-parti-ml/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/econometrics-in-python-parti-ml/index.html">
 <h3 class="no-anchor listing-title">
-Econometrics in Python part I - Double machine learning
+<a href="../blog/posts/econometrics-in-python-parti-ml/index.html" class="no-external">Econometrics in Python part I - Double machine learning</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/econometrics-in-python-parti-ml/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -1562,14 +1576,12 @@ econometrics
 python
 </div>
 </div>
-<a href="../blog/posts/econometrics-in-python-parti-ml/index.html">
 <div class="listing-description">
-<em>The idea is that this will be the first in a series of posts covering econometrics in Python.</em>
+<a href="../blog/posts/econometrics-in-python-parti-ml/index.html" class="no-external"><em>The idea is that this will be the first in a series of posts covering econometrics in Python.</em></a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/econometrics-in-python-parti-ml/index.html">
+<a href="../blog/posts/econometrics-in-python-parti-ml/index.html" class="no-external">
 <div class="listing-date">
 10 Feb 18
 </div>
@@ -1579,19 +1591,19 @@ python
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="31" data-categories="research,visualisation,code,python" data-listing-date-sort="1517356800000" data-listing-file-modified-sort="1686848075509" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10">
+<div class="quarto-post image-right" data-index="32" data-categories="research,visualisation,code,python" data-listing-date-sort="1517356800000" data-listing-file-modified-sort="1686848075509" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1982">
 <div class="thumbnail">
-<p><a href="../blog/posts/publication-quality-plots-in-python/index.html"> <p class="card-img-top"><img data-src="posts/publication-quality-plots-in-python/ProdCountries.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/publication-quality-plots-in-python/index.html" class="no-external"></a></p><a href="../blog/posts/publication-quality-plots-in-python/index.html" class="no-external">
+<p class="card-img-top"><img data-src="posts/publication-quality-plots-in-python/ProdCountries.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../blog/posts/publication-quality-plots-in-python/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/publication-quality-plots-in-python/index.html">
 <h3 class="no-anchor listing-title">
-Making a publication quality plot with Python (and latex)
+<a href="../blog/posts/publication-quality-plots-in-python/index.html" class="no-external">Making a publication quality plot with Python (and latex)</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/publication-quality-plots-in-python/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('research'); return false;">
 research
@@ -1606,14 +1618,12 @@ code
 python
 </div>
 </div>
-<a href="../blog/posts/publication-quality-plots-in-python/index.html">
 <div class="listing-description">
-I now recommend the style file below for quick…
+<a href="../blog/posts/publication-quality-plots-in-python/index.html" class="no-external">I now recommend the style file below for quick, publication quality plots in Python using Matplotlib (tested on 3.3.4 and Python 3.8). To use the style, save it in a file…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/publication-quality-plots-in-python/index.html">
+<a href="../blog/posts/publication-quality-plots-in-python/index.html" class="no-external">
 <div class="listing-date">
 31 Jan 18
 </div>
@@ -1623,19 +1633,19 @@ I now recommend the style file below for quick…
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="32" data-categories="data,code,python" data-listing-date-sort="1514419200000" data-listing-file-modified-sort="1686848075507" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="33" data-categories="data,code,python" data-listing-date-sort="1514419200000" data-listing-file-modified-sort="1686848075507" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="356">
 <div class="thumbnail">
-<p><a href="../blog/posts/ons-api/index.html"> <p class="card-img-top"><img data-src="posts/ons-api/blogleisureonsapi.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="../blog/posts/ons-api/index.html" class="no-external"></a></p><a href="../blog/posts/ons-api/index.html" class="no-external">
+<p class="card-img-top"><img data-src="posts/ons-api/blogleisureonsapi.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../blog/posts/ons-api/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/ons-api/index.html">
 <h3 class="no-anchor listing-title">
-The ONS API
+<a href="../blog/posts/ons-api/index.html" class="no-external">The ONS API</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/ons-api/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('data'); return false;">
 data
@@ -1647,14 +1657,12 @@ code
 python
 </div>
 </div>
-<a href="../blog/posts/ons-api/index.html">
 <div class="listing-description">
-The Office for National Statistics (ONS) produces most of the macroeconomic statistics for the UK. I was delighted to discover recently that they had been working on an API.
+<a href="../blog/posts/ons-api/index.html" class="no-external">The Office for National Statistics (ONS) produces most of the macroeconomic statistics for the UK. I was delighted to discover recently that they had been working on an API.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/ons-api/index.html">
+<a href="../blog/posts/ons-api/index.html" class="no-external">
 <div class="listing-date">
 28 Dec 17
 </div>
@@ -1664,32 +1672,30 @@ The Office for National Statistics (ONS) produces most of the macroeconomic stat
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="33" data-categories="research" data-listing-date-sort="1510272000000" data-listing-file-modified-sort="1686848075495" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="34" data-categories="research" data-listing-date-sort="1510272000000" data-listing-file-modified-sort="1686848075495" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="485">
 <div class="thumbnail">
-<p><a href="../blog/posts/better-narrative-on-narratives/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="../blog/posts/better-narrative-on-narratives/index.html" class="no-external"></a></p><a href="../blog/posts/better-narrative-on-narratives/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../blog/posts/better-narrative-on-narratives/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="../blog/posts/better-narrative-on-narratives/index.html">
 <h3 class="no-anchor listing-title">
-A better narrative on narratives
+<a href="../blog/posts/better-narrative-on-narratives/index.html" class="no-external">A better narrative on narratives</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="../blog/posts/better-narrative-on-narratives/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('research'); return false;">
 research
 </div>
 </div>
-<a href="../blog/posts/better-narrative-on-narratives/index.html">
 <div class="listing-description">
-Pigou, Keynes and Shiller have all recognised the importance of narratives and sentiment for the economy. But we don’t know too much about how narratives spread. One of the…
+<a href="../blog/posts/better-narrative-on-narratives/index.html" class="no-external">Pigou, Keynes and Shiller have all recognised the importance of narratives and sentiment for the economy. But we don’t know too much about how narratives spread. One of the…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="../blog/posts/better-narrative-on-narratives/index.html">
+<a href="../blog/posts/better-narrative-on-narratives/index.html" class="no-external">
 <div class="listing-date">
 10 Nov 17
 </div>
@@ -1742,18 +1748,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1785,11 +1780,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.aeturrell\.com\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1799,8 +1833,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1812,7 +1855,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1856,6 +2022,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1881,6 +2048,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1941,6 +2134,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

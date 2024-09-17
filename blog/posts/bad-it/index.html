@@ -7,9 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Arthur Turrell">
+<meta name="dcterms.date" content="2024-09-17">
 <meta name="description" content="Arthur Turrell is an economic data scientist.">
 
-<title>Solving Heterogeneous General Equilibrium Economic Models with Deep Reinforcement Learning – Arthur Turrell</title>
+<title>The false economy of bad IT – Arthur Turrell</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -75,10 +42,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -115,32 +78,22 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 </script>
-<style>
-
-      .quarto-title-block .quarto-title-banner {
-        background: #CF4446;
-      }
-</style>
 
 
-<meta property="og:title" content="Solving Heterogeneous General Equilibrium Economic Models with Deep Reinforcement Learning">
+<meta property="og:title" content="The false economy of bad IT">
 <meta property="og:description" content="Arthur Turrell is an economic data scientist.">
-<meta property="og:image" content="https://www.aeturrell.com/research/dormant-working-papers/hill-bardoscia-turrell/epimacro_investment.png">
+<meta property="og:image" content="https://www.aeturrell.com/blog/posts/bad-it/dall_e_laptop_window.webp">
 <meta property="og:site_name" content="Arthur Turrell">
 <meta property="og:locale" content="en_UK">
-<meta property="og:image:height" content="960">
-<meta property="og:image:width" content="1800">
-<meta name="twitter:title" content="Solving Heterogeneous General Equilibrium Economic Models with Deep Reinforcement Learning">
+<meta name="twitter:title" content="The false economy of bad IT">
 <meta name="twitter:description" content="Arthur Turrell is an economic data scientist.">
-<meta name="twitter:image" content="https://www.aeturrell.com/research/dormant-working-papers/hill-bardoscia-turrell/epimacro_investment.png">
+<meta name="twitter:image" content="https://www.aeturrell.com/blog/posts/bad-it/dall_e_laptop_window.webp">
 <meta name="twitter:creator" content="@arthurturrell">
 <meta name="twitter:site" content="@arthurturrell">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image-height" content="960">
-<meta name="twitter:image-width" content="1800">
 </head>
 
-<body class="floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -224,137 +177,70 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block research default toc-left page-columns page-full">
-    <div class="quarto-title-banner page-columns page-full">
-                <div class="back-nav"><a href="../../../research/">← Back to research</a></div>
-                <div class="quarto-title column-body">
-            <h1 class="title">Solving Heterogeneous General Equilibrium Economic Models with Deep Reinforcement Learning</h1>
-
-            
-            
-            
-                                    <div class="quarto-categories">
-                                <div class="quarto-category">reinforcement learning</div>
-                                <div class="quarto-category">epidemiology</div>
-                                <div class="quarto-category">macroeconomics</div>
-                                <div class="quarto-category">agent-based modelling</div>
-                                <div class="quarto-category">COVID-19</div>
-                            </div>
-                                </div>
-    </div>
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">The false economy of bad IT</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">work chat</div>
+                <div class="quarto-category">productivity</div>
+                <div class="quarto-category">public sector</div>
+              </div>
+                  </div>
+  </div>
     
-        <div class="project-details">
-        <div class="publication-content">
-            <p>Hill, Edward, Marco Bardoscia, and Arthur Turrell. “Solving heterogeneous general equilibrium economic models with deep reinforcement learning.” <i>arXiv</i> arXiv:2103.16977 (2021).</p>
-        </div>
-                <ul class="project-links">
-                        <li class="project-link">
-                <a href="https://doi.org/10.48550/arXiv.2103.16977"><i class="fa-solid fa-scroll"></i> Working Paper</a>
-            </li>
-                        <li class="project-link">
-                <a href="https://www.zotero.org/save?type=doi&amp;q=10.48550/arXiv.2103.16977"><i class="ai ai-zotero"></i> Add to Zotero</a>
-            </li>
-                    </ul>
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Arthur Turrell </p>
             </div>
-    <div class="thumbnail">
-        <img src="epimacro_investment.png" alt="Figure from paper">
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 17, 2024</p>
+      </div>
     </div>
     
-    <div class="quarto-title-meta-author">
-      <div class="quarto-title-meta-heading">Authors</div>
-      <div class="quarto-title-meta-heading">Affiliations</div>
       
-        <div class="quarto-title-meta-contents">
-        <p class="author">Ed Hill </p>
-      </div>
-      <div class="quarto-title-meta-contents">
-            <p class="affiliation">
-                Bank of England
-              </p>
-          </div>
-        <div class="quarto-title-meta-contents">
-        <p class="author"><a href="https://www.bankofengland.co.uk/research/researchers/marco-bardoscia">Marco Bardoscia</a> <a href="https://orcid.org/0000-0003-0945-3543" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-      </div>
-      <div class="quarto-title-meta-contents">
-            <p class="affiliation">
-                Bank of England
-              </p>
-          </div>
-        <div class="quarto-title-meta-contents">
-        <p class="author"><a href="http://www.aeturrell.com">Arthur Turrell</a> <a href="https://orcid.org/0000-0002-2525-0773" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-      </div>
-      <div class="quarto-title-meta-contents">
-            <p class="affiliation">
-                Bank of England
-              </p>
-          </div>
-      </div>
-
-    <div class="quarto-title-meta">
-
-          
-        <div>
-        <div class="quarto-title-meta-heading">Published</div>
-        <div class="quarto-title-meta-contents">
-          <p class="date">March 2021</p>
-        </div>
-      </div>
-      
-        
-        <div>
-        <div class="quarto-title-meta-heading">Doi</div>
-        <div class="quarto-title-meta-contents">
-          <p class="doi">
-            <a href="https://doi.org/10.48550/arXiv.2103.16977">10.48550/arXiv.2103.16977</a>
-          </p>
-        </div>
-      </div>
-      </div>
-      
-
-    </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
-  <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation">Citation</a></li>
-  </ul>
-</nav>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
-
-<!-- Title block on individual research pages -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
 
 
 
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>General equilibrium macroeconomic models are a core tool used by policymakers to understand a nation’s economy. They represent the economy as a collection of forward-looking actors whose behaviours combine, possibly with stochastic effects, to determine global variables (such as prices) in a dynamic equilibrium. However, standard semi-analytical techniques for solving these models make it difficult to include the important effects of heterogeneous economic actors. The COVID-19 pandemic has further highlighted the importance of heterogeneity, for example in age and sector of employment, in macroeconomic outcomes and the need for models that can more easily incorporate it. We use techniques from reinforcement learning to solve such models incorporating heterogeneous agents in a way that is simple, extensible, and computationally efficient. We demonstrate the method’s accuracy and stability on a toy problem for which there is a known analytical solution, its versatility by solving a general equilibrium problem that includes global stochasticity, and its flexibility by solving a combined macroeconomic and epidemiological model to explore the economic and health implications of a pandemic. The latter successfully captures plausible economic behaviours induced by differential health risks by age.</p>
-</section>
-<section id="citation" class="level2">
-<h2 class="anchored" data-anchor-id="citation">Citation</h2>
-<p class="buttons" style="text-align:center;">
-<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&amp;q=10.48550/arXiv.2103.16977"><i class="ai  ai-zotero" title="" style="color:"></i> Add to Zotero <i class="fa-solid fa-square-arrow-up-right" aria-label="square-arrow-up-right"></i></a>
-</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">hill2021solving</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>      <span class="dt">title</span>={Solving Heterogeneous General Equilibrium Economic Models with Deep Reinforcement Learning}, </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      <span class="dt">author</span>={Edward Hill and Marco Bardoscia and Arthur Turrell},</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">year</span>={2021},</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">eprint</span>={2103.16977},</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      <span class="dt">archivePrefix</span>={arXiv},</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      <span class="dt">primaryClass</span>={econ.GN}</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
+<p>Many of us will have experienced bad hardware or software at work. Applications that freeze when you try and do something. A lag when typing. Some programmes ceasing to work before crashing completely. Maybe it’s another kind of performance that makes you want to throw your laptop out of the window: the battery dies after you’ve only been to a couple of meetings, or the text on the screen screen seems teeny tiny if you’re not plugged into a monitor. All of this is very annoying. But, worst of all, it’s a waste of your most precious resource: your time.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="dall_e_laptop_window.webp" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="margin-caption">DALL-E generated image of someone expressing their frustration with their laptop, and window(s)</figcaption>
+</figure>
+</div>
+<p>Employers should care about this because it’s losing them money, particularly if they have staff who use computers for most of their work or their staff are relatively well-paid<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, or both.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;For the sake of making this concrete, let’s take “well-paid” to mean above the current UK median of £35k.</p></div></div><p>Let’s do a back-of-the-envelope calculation to show why bad IT makes no economic sense. The mid-range hardware used in many organisations looks, at best, like a 1TB SSD, 16GB RAM, i7 touch laptop or touch surface running Windows. As examples of these sorts of machines, a Lenovo ThinkPad model <a href="https://www.lenovo.com/gb/en/p/laptops/thinkpad/thinkpadp/thinkpad-p14s-gen-4-14-inch-intel/21hf000uuk">21HF000UUK</a> and a <a href="https://www.microsoft.com/en-gb/d/surface-pro-9/93vkd8np4fvk?activetab=pivot:overviewtab">Microsoft Surface Pro 9</a> with those specifications are a good fit. The laptop has a 14-inch screen; the surface 13 inches. A quick check shows that these come in at £1600 and £2200 respectively at the time of writing. In my experience, the ThinkPad has a battery life of, at best, 2—3 hours; I’m not sure about the Surface.</p>
+<p>Now let’s take a high-end laptop: a <a href="https://www.apple.com/uk/shop/buy-mac/macbook-pro/14-inch-space-grey-apple-m3-chip-with-8-core-cpu-and-10-core-gpu-8gb-memory-512gb">14-inch M3-chip MacBook Pro</a> that can run small large language models locally (!) and has 24GB of RAM plus a 1TB SSD. It’s the same size of hard drive but has 8 extra GB of RAM, which is enough to make a substantial difference to the performance (but, also, <a href="https://www.howtogeek.com/865066/its-okay-to-buy-a-mac-with-only-8-gb-ram/">each GB of RAM is more performant</a> in a Mac.) This is all-important because many of the glitches, pauses, and slowness of less good laptops come down to insufficient RAM. It isn’t simple to compare the processors of these machines, but the Mac is very approximately 30% faster. Without going back and forth on claims about battery life, Mac laptops occupy four of the top six laptops with the best battery life as <a href="https://www.tomsguide.com/best-picks/best-laptops-for-battery-life">listed in Toms Guide</a> and personal experience suggests they go for far longer than 2—3 hours. Our high-end laptop comes in at £2300, an extra £100 or £700 relative to the mid-range ones. Now Macs do not have touchscreens but my observation is that extremely few people use the touch feature on a laptop. My other observation is that high-end laptops have problems once in a blue moon—there’s a crash once every 3 months or so. This is so rare that I take it to be zero.</p>
+<p>Let’s say the cheaper hardware has three incidents a day where something glitches, crashes, or goes slow enough to pause a workflow and, on average, this causes three minutes of lost time during each occurrence. This seems entirely reasonable because most people will start doing something else, perhaps making a cup of tea, if their laptop becomes unresponsive for any length of time. Now, imagine the average professional costs a business £60.0k a year (with pension, National Insurance, etc, etc)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> and works 7.5 hours a day, so 51.0p per working minute. This makes the cost of that lost time around £1200.0 per year, compared to spending only £700 to £100 more to get the higher end laptop.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;To give a sense of what this is as a headline salary, a base salary of £50k and pension of 7% plus National Insurance of £5644 takes the total cost to the employer to £59k.</p></div></div><p>Switching to a higher-end laptop pays off by at least £500.0 just in the first year. For the laptop, it’s worth going high-end for <em>any</em> all-in salary cost above £35.0k (remember, the UK median headline salary cost is £35k). The benefits are likely bigger when looking at a longer period: as far as I’ve been able to tell, mid-range laptops usually last around three years while higher end laptops last more like five years–with <a href="https://www.businessinsider.com/guides/tech/how-long-do-laptops-last">some reports suggesting</a> Apple laptops last longer than this. So the “payoff” from switching might be a few times this.</p>
+<p>There are a bunch of other factors here that are hard to estimate. Staff might be more motivated by better IT, and this is hard to quantify. But if staff surveys consistently rate technology as poor, the benefits may be significant. There could be better staff retention, which is worth a lot. But better IT might also discourage some bad behaviour: if people have to deal with a laptop battery that doesn’t last long enough for two meetings in a row, they will either make no notes or start using personal devices to take notes. If people are faced with a laptop or surface that’s too fiddly to use on a train, they simply won’t work when in transit.</p>
+<p>On the other hand, there is likely to be a cost to maintaining two or more separate operating systems in an enterprise. Apple laptops use MacOS, a different operating system to the one often installed on ThinkPads, Surfaces, and similar devices, which is Windows. But most organisations have already crossed the Rubicon on this with their use of iPhones for mobiles, and Linux for critical systems. It’s also really poor practice to hitch your organisation to a single provider of software and hardware. You’ll be backed into a corner when negotiating contracts, and may not be able to easily change things up if the software or hardware quality degrades. (It’s notable that frontier tech firms <a href="https://www.quora.com/What-operating-system-do-the-Google-employees-use-How-much-freedom-do-they-have-with-respect-to-an-OS-usage">allow staff to choose</a> between Windows, MacOS, and Linux.) I don’t know how to estimate the cost of maintaining two or more operating systems in an organisation but there are serious downsides to having just one.</p>
+<p>I’m not suggesting that organisations should just buy Apple laptops–this is about efficiency, and the best prescription for that is to <strong>allow staff to choose what works best for them</strong>. The apparently economically optimal choice won’t make sense for everyone: some staff might want to stick with mid-range laptops because they get along better with the operating system or laptop design, and that’s okay. By allowing staff to choose what they get on best with you keep them happy, and you make your organisation more productive. The bottom line is that everybody wins when staff have the option to use a higher-end laptop—except, maybe, glaziers.</p>
+
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

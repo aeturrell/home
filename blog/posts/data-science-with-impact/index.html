@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2023-11-13">
 <meta name="description" content="Arthur Turrell is an economic data scientist.">
 
-<title>Data science with impact</title>
+<title>Data science with impact – Arthur Turrell</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -48,7 +48,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -72,106 +79,133 @@ gtag('js', new Date());
 gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Data science with impact">
 <meta property="og:description" content="Arthur Turrell is an economic data scientist.">
-<meta property="og:image" content="https://www.aeturrell.com//files/logo_large.png">
-<meta property="og:site-name" content="Arthur Turrell">
+<meta property="og:image" content="https://www.aeturrell.com/blog/posts/data-science-with-impact/npv_cover.png">
+<meta property="og:site_name" content="Arthur Turrell">
 <meta property="og:locale" content="en_UK">
-<meta property="og:image:height" content="1594">
-<meta property="og:image:width" content="1594">
+<meta property="og:image:height" content="166">
+<meta property="og:image:width" content="604">
 <meta name="twitter:title" content="Data science with impact">
 <meta name="twitter:description" content="Arthur Turrell is an economic data scientist.">
-<meta name="twitter:image" content="https://www.aeturrell.com//files/logo_large.png">
+<meta name="twitter:image" content="https://www.aeturrell.com/blog/posts/data-science-with-impact/npv_cover.png">
 <meta name="twitter:creator" content="@arthurturrell">
 <meta name="twitter:site" content="@arthurturrell">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image-height" content="1594">
-<meta name="twitter:image-width" content="1594">
+<meta name="twitter:image-height" content="166">
+<meta name="twitter:image-width" content="604">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Arthur Turrell</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../research/index.html" rel="" target="">
- <span class="menu-text">Research</span></a>
+    <a class="nav-link" href="../../../research/index.html"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../media/index.html" rel="" target="">
- <span class="menu-text">Media</span></a>
+    <a class="nav-link" href="../../../media/index.html"> 
+<span class="menu-text">Media</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../thestarbuilders/thestarbuilders.html" rel="" target="">
- <span class="menu-text">The Star Builders</span></a>
+    <a class="nav-link" href="../../../thestarbuilders/thestarbuilders.html"> 
+<span class="menu-text">The Star Builders</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog/index.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../teaching/index.html" rel="" target="">
- <span class="menu-text">Teaching</span></a>
+    <a class="nav-link" href="../../../teaching/index.html"> 
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../code/index.html" rel="" target="">
- <span class="menu-text">Code</span></a>
+    <a class="nav-link" href="../../../code/index.html"> 
+<span class="menu-text">Code</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../uses/index.html" rel="" target="">
- <span class="menu-text">Setup</span></a>
+    <a class="nav-link" href="../../../uses/index.html"> 
+<span class="menu-text">Setup</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../atom.xml" rel="" target=""><i class="bi bi-rss" role="img" aria-label="rss">
+    <a class="nav-link" href="../../../atom.xml"> <i class="bi bi-rss" role="img" aria-label="rss">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../contact.html" rel="" target=""><i class="bi bi-envelope" role="img" aria-label="contact">
+    <a class="nav-link" href="../../../contact.html"> <i class="bi bi-envelope" role="img" aria-label="contact">
 </i> 
- <span class="menu-text"> </span></a>
+<span class="menu-text"> </span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/arthurturrell" rel="" target=""><i class="bi bi-twitter" role="img" aria-label="twitter">
+    <a class="nav-link" href="https://twitter.com/arthurturrell"> <i class="bi bi-twitter" role="img" aria-label="twitter">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/aeturrell" rel="" target=""><i class="bi bi-github" role="img" aria-label="github">
+    <a class="nav-link" href="https://github.com/aeturrell"> <i class="bi bi-github" role="img" aria-label="github">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/arthur-turrell-8b789891" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="linkedin">
+    <a class="nav-link" href="https://www.linkedin.com/in/arthur-turrell-8b789891"> <i class="bi bi-linkedin" role="img" aria-label="linkedin">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -255,13 +289,14 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 
 
 
+
 <p>I was recently asked to give a talk at No.&nbsp;10 Downing Street on the topic of data science with impact and, in this post, I’m going to share some of what I said in that talk. The context for being asked is that the folks in 10DS, the Downing Street data team, are perhaps the most obsessed with having impact of any data science team I’ve met–so even though they’re the real experts on this topic, they’re very sensibly reaching out to others to see if there is anything extra they can learn.</p>
 <p>There are plenty of caveats to the below—it’s just my take and I’m not claiming to have definitive answers; I’m sure management experts have <em>much</em> more to say on the general topic. But I’m not sure many others have talked about how to do <em>data science</em> with impact in the public sector, so hopefully that angle is useful and new. One limitation: a lot of my thinking is informed by working in the UK’s Data Science Campus as Deputy Director and then Acting Director, and so may be overly occupied with whether to undertake this or that data science project as compared with the decisions needed to be taken by data science teams in more operational areas. Throughout, I provide concrete examples and links to more detail on them. Any mistakes in referring to Campus projects, and the views expressed below, are very much my own.</p>
 <section id="what-impact-is" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="what-impact-is">What impact is</h2>
 <p>For me, to first order, data science with impact is data science for the public good. In other words, you must be able to articulate how a new project or process will benefit the public once complete.</p>
-<div class="page-columns page-full"><p>Inevitably, this prompts the question “what constitutes public good?” My very high-level mental model is that it’s a simple calculation<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> of</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;At the risk of sounding like an effective altruist.</p></li></div></div>
-<p><span class="math display">\[
+<p>Inevitably, this prompts the question “what constitutes public good?” My very high-level mental model is that it’s a simple calculation<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> of</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;At the risk of sounding like an effective altruist.</p></div></div><p><span class="math display">\[
 \text{number of people affected } \times \text{ impact on people}
 \]</span></p>
 <p>where the impact on people is the <strong>net present value of the improvement to their life</strong>. For want of a better description, let’s call this the <em>impact equation</em>. If you’re not familiar with net present value, the equation is</p>
@@ -270,8 +305,8 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 \]</span></p>
 <p>which is to say it is the sum of the “returns” at time <span class="math inline">\(t\)</span> (where <span class="math inline">\(t\)</span> is number of time steps into the future), <span class="math inline">\(R_t\)</span>, discounted by rate <span class="math inline">\(i\)</span> for <span class="math inline">\(t\)</span> steps into the future.</p>
 <p>What does this equation mean in practice? Don’t let the urgent crowd out the important, despite the strong temptation to only look directly in front of you when you’re working at a policymaking institution buffeted by short-term headwinds. It also means you should <em>look for the timeless angle in everything you do</em>—even while you’re solving an urgent problem.</p>
-<div class="page-columns page-full"><p>To be a bit more concrete about how this applies when doing data science, open-sourcing the code you’re using is a great way to make that urgent problem you’re working on more timeless. While you may never pick that code up again, someone else just might. Likewise, blogging about what you did—even in a very matter-of-fact way—can help those who come after you with a similar problem get started more quickly. It also points to thinking carefully about the ongoing maintenance costs of what you’re producing—one reason why dashboards, one of the most requested data science products, can get down-rated when looking through this lens.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;Everyone thought the UK Health Security Agency’s COVID-19 dashboard was fantastic, and so it was. But did you know there was a whole team behind it, ensuring it was kept usefully up to date? Dashboards need considerable resources to stay relevant, accurate, and useful.</p></li></div></div>
-<p>Let’s turn to the first of our examples of delivering public good using data science.</p>
+<p>To be a bit more concrete about how this applies when doing data science, open-sourcing the code you’re using is a great way to make that urgent problem you’re working on more timeless. While you may never pick that code up again, someone else just might. Likewise, blogging about what you did—even in a very matter-of-fact way—can help those who come after you with a similar problem get started more quickly. It also points to thinking carefully about the ongoing maintenance costs of what you’re producing—one reason why dashboards, one of the most requested data science products, can get down-rated when looking through this lens.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Everyone thought the UK Health Security Agency’s COVID-19 dashboard was fantastic, and so it was. But did you know there was a whole team behind it, ensuring it was kept usefully up to date? Dashboards need considerable resources to stay relevant, accurate, and useful.</p></div></div><p>Let’s turn to the first of our examples of delivering public good using data science.</p>
 <section id="example-of-public-good-least-cost-grocery-index" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="example-of-public-good-least-cost-grocery-index">Example of public good: least cost grocery index</h3>
 <p>In January 2022, food campaigner Jack Monroe put out a tweet that garnered huge press coverage. The tweet read</p>
@@ -287,14 +322,14 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="least_cost_index_v1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption margin-caption">Chart of how prices of least cost grocery items changed produced by the Campus and ONS.</figcaption>
+<figcaption class="margin-caption">Chart of how prices of least cost grocery items changed produced by the Campus and ONS.</figcaption>
 </figure>
 </div>
-<div class="page-columns page-full"><p>How does this fit in with data science for the public good? The first way is that this story, about the cost of living, reached (and was relevant to) a large number of people. While only some households were directly affected by the inflation in the lowest cost items, many were concerned—and therefore interested. Although it wasn’t certain, we knew there was a good chance this analysis would be big news, and indeed the lowest cost grocery index was picked up by all the major news shows and newspapers. In the Campus, we knew it was a hit, because we were asked to put it on the ONS website rather than the Campus’ website (albeit with a “highly experimental” label).<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;An example of what I like to call the Campus’ Andy Murray problem.</p></li></div></div>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
+<p>How does this fit in with data science for the public good? The first way is that this story, about the cost of living, reached (and was relevant to) a large number of people. While only some households were directly affected by the inflation in the lowest cost items, many were concerned—and therefore interested. Although it wasn’t certain, we knew there was a good chance this analysis would be big news, and indeed the lowest cost grocery index was picked up by all the major news shows and newspapers. In the Campus, we knew it was a hit, because we were asked to put it on the ONS website rather than the Campus’ website (albeit with a “highly experimental” label).<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;An example of what I like to call the Campus’ Andy Murray problem.</p></div></div><div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="bbc_least_cost.png" class="img-fluid figure-img" style="width:65.0%"></p>
-<figcaption class="figure-caption margin-caption">Many news organisations, including the BBC, ran a leading story on the least cost grocery index.</figcaption>
+<figcaption class="margin-caption">Many news organisations, including the BBC, ran a leading story on the least cost grocery index.</figcaption>
 </figure>
 </div>
 <p>This story reached a large number of people, and, for some, it hopefully affected them too: by validating their experience but also pointing to the items that had fallen in price. It also showed that the <em>next cheapest</em> product was often a substantially more (20%+) than the cheapest and arguably influenced supermarkets to focus more on their budget lines.</p>
@@ -318,7 +353,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="purs_savings_by_size.png" class="img-fluid figure-img" style="width:55.0%"></p>
-<figcaption class="figure-caption margin-caption">Potential duty savings as estimated in a project bringing together disparate datasets to look at the use of preferential tariffs.</figcaption>
+<figcaption class="margin-caption">Potential duty savings as estimated in a project bringing together disparate datasets to look at the use of preferential tariffs.</figcaption>
 </figure>
 </div>
 </section>
@@ -336,8 +371,8 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <section id="example-of-building-human-capital-statschat" class="level4 page-columns page-full">
 <h4 class="anchored" data-anchor-id="example-of-building-human-capital-statschat">Example of building human capital: StatsChat</h4>
 <p>Artificial intelligence and machine learning are critical parts of data science, and staff at the Campus followed the developments in large language models such as ChatGPT with excitement. In the UK context, it very quickly became clear that there was huge interest across the public sector in large language models—and it would only be a matter of time before the Campus would be asked to do a project involving a large language model.</p>
-<div class="page-columns page-full"><p>Rather than wait for the call, we took a decision to proactively get some experience with large language models<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> by creating an experimental website search function based on LLM-related technologies. Those of you familiar with the ONS website will be aware that the search functionality is, erm, less than optimal and <a href="https://datasciencecampus.ons.gov.uk/optimising-the-ons-site-search-function-with-google-analytics-and-natural-language-processing/">this isn’t the first time the Campus</a> has attempted to provide better search tools that central ONS services could use to improve the website.</p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;A lot of the credit for pushing this forward goes to my former colleagues in the Data Science Campus; while I was an early and enthusiastic supporter, they did all of the work. Ed Sherman and Andy Banks, plus Andy’s team, were key in making StatsChat happen.</p></li></div></div>
-<p>The team built a demo app that, in examples, seems to dramatically improve the experience of using the ONS website while minimising the potential issues of LLMs, such as hallucinations. You can <a href="https://datasciencecampus.ons.gov.uk/using-large-language-models-llms-to-improve-website-search-experience-with-statschat/">read more about the project in this blog post</a>, but the basic steps were:</p>
+<p>Rather than wait for the call, we took a decision to proactively get some experience with large language models<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> by creating an experimental website search function based on LLM-related technologies. Those of you familiar with the ONS website will be aware that the search functionality is, erm, less than optimal and <a href="https://datasciencecampus.ons.gov.uk/optimising-the-ons-site-search-function-with-google-analytics-and-natural-language-processing/">this isn’t the first time the Campus</a> has attempted to provide better search tools that central ONS services could use to improve the website.</p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;A lot of the credit for pushing this forward goes to my former colleagues in the Data Science Campus; while I was an early and enthusiastic supporter, they did all of the work. Ed Sherman and Andy Banks, plus Andy’s team, were key in making StatsChat happen.</p></div></div><p>The team built a demo app that, in examples, seems to dramatically improve the experience of using the ONS website while minimising the potential issues of LLMs, such as hallucinations. You can <a href="https://datasciencecampus.ons.gov.uk/using-large-language-models-llms-to-improve-website-search-experience-with-statschat/">read more about the project in this blog post</a>, but the basic steps were:</p>
 <ul>
 <li>create a document store of every publication on the ONS website with accompanying metadata</li>
 <li>partition documents into chunks of roughly 1000 characters and converted these into vector embeddings using a sentence transformers model</li>
@@ -348,7 +383,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="statschat_example.png" class="img-fluid figure-img" style="width:65.0%"></p>
-<figcaption class="figure-caption margin-caption">An example of StatsChat in action.</figcaption>
+<figcaption class="margin-caption">An example of StatsChat in action.</figcaption>
 </figure>
 </div>
 <p>Following this exploratory project, the team is in a much better place to use LLMs in future. And having a ready-made, cutting-edge improvement to the ONS’ website just waiting to be implemented by the Communications department isn’t a bad side outcome either. You can find the <a href="https://github.com/datasciencecampus/statschat-app">code here</a>.</p>
@@ -369,15 +404,15 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 </section>
 <section id="enabling-higher-quality" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="enabling-higher-quality">Enabling higher quality</h3>
-<div class="page-columns page-full"><p>There are so many examples where data science might improve quality. I’ve written recently about how <a href="../../../blog/posts/why-have-a-model-registry/index.html">model registries can reduce model risk</a> for organisations. Data science tools for checking data for issues, like <a href="https://docs.greatexpectations.io/docs/">Great Expectations</a>, or for proactively finding examples that break code, like <a href="https://hypothesis.readthedocs.io/en/latest/">hypothesis</a>, have come on leaps and bounds. And switching from risky spreadsheets to easily auditable version-controlled code represents a phenomenal increase in quality (via a decrease in mistakes).<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn5"><p><sup>5</sup>&nbsp;It’s very possible to make mistakes in code too, but the use of tests, version control, and the separation of data and logic make—in my view—analysis based on code inherently much less risky than analysis in spreadsheets. Every few months there is a massive spreadsheet-related data leak or costly mistake. Some of these are curated in the “horror stories” section of the <a href="https://eusprig.org/research-info/horror-stories/">European Spreadsheet Risks Interest Group</a>.</p></li></div></div>
-<p>As a specific example, the Campus was asked to help with the NHS (National Health Service) Covid App. For those not familiar with the UK context, this app was promoted to the population at large and was very widely used during the Covid-19 pandemic. As such, it collected huge amounts of feedback (good and bad) via both the Apple App Store and the Google Play App Store. Due to the scale of use of the app, there was too much feedback for even a substantial team to read through it all.</p>
+<p>There are so many examples where data science might improve quality. I’ve written recently about how <a href="../../../blog/posts/why-have-a-model-registry/index.html">model registries can reduce model risk</a> for organisations. Data science tools for checking data for issues, like <a href="https://docs.greatexpectations.io/docs/">Great Expectations</a>, or for proactively finding examples that break code, like <a href="https://hypothesis.readthedocs.io/en/latest/">hypothesis</a>, have come on leaps and bounds. And switching from risky spreadsheets to easily auditable version-controlled code represents a phenomenal increase in quality (via a decrease in mistakes).<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;It’s very possible to make mistakes in code too, but the use of tests, version control, and the separation of data and logic make—in my view—analysis based on code inherently much less risky than analysis in spreadsheets. Every few months there is a massive spreadsheet-related data leak or costly mistake. Some of these are curated in the “horror stories” section of the <a href="https://eusprig.org/research-info/horror-stories/">European Spreadsheet Risks Interest Group</a>.</p></div></div><p>As a specific example, the Campus was asked to help with the NHS (National Health Service) Covid App. For those not familiar with the UK context, this app was promoted to the population at large and was very widely used during the Covid-19 pandemic. As such, it collected huge amounts of feedback (good and bad) via both the Apple App Store and the Google Play App Store. Due to the scale of use of the app, there was too much feedback for even a substantial team to read through it all.</p>
 <p>A team from the Campus worked with the NHS to use a data science method, called topic modelling, and a data science tool, a dashboard, to help software developers triage the most impactful issues so that they could be fixed first.</p>
 <p>You can <a href="https://datasciencecampus.ons.gov.uk/understanding-nhs-coronavirus-covid-19-app-reviews-using-topic-modelling/">read more about this project here</a>, but the bottom line is that there were limited resources to work on the app but the data scientists involved were able to ensure that these resources were focused on improving the app’s quality in the most impactful way. They did this by using data science methods to capture common themes even if the people reporting them had used quite different phrasing. One innovation that was particularly helpful to developers was the ability to spit out a ‘canonical’ feedback text for each emerging topic: this stated the problem in plain English. The pipeline was run in the cloud.</p>
 <p>Without the data science, improvements to the app would still have happened, but they would have had less impact.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="nhs_app.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">Screenshot of the dashboard summarising the most important issues to fix with the NHS Covid app.</figcaption>
+<figcaption class="margin-caption">Screenshot of the dashboard summarising the most important issues to fix with the NHS Covid app.</figcaption>
 </figure>
 </div>
 </section>
@@ -399,7 +434,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="cars_pandemic.svg" class="img-fluid figure-img" style="width:55.0%"></p>
-<figcaption class="figure-caption margin-caption">The activity of cars over the pandemic in six UK regions showing the timing of national lockdowns and the anticipatory effect.</figcaption>
+<figcaption class="margin-caption">The activity of cars over the pandemic in six UK regions showing the timing of national lockdowns and the anticipatory effect.</figcaption>
 </figure>
 </div>
 <p>It’s worth mentioning that this project would simply not have been possible without the use of cloud. Public sector institutions looking to get the most value from data science absolutely must empower their data scientists with cloud technologies. You can read more about unleashing the full productivity of data scientists with cloud <a href="../../../blog/posts/data-science-maturity/data-science-maturity.html">in this blog post</a>.</p>
@@ -442,11 +477,11 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="capital_stock_uk.jpeg" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption margin-caption">Capital is important for the productivity of data scientists. Chart by Tera Allas.</figcaption>
+<figcaption class="margin-caption">Capital is important for the productivity of data scientists. Chart by Tera Allas.</figcaption>
 </figure>
 </div>
-<div class="page-columns page-full"><p>It’s always wise to check what capital is available before agreeing to a project. For example, at the Campus, we would downrate anything that had to be done on a particular legacy system because data scientists working on it reported that everything took 20 or 30% longer as compared to the best alternative system. Lower productivity means fewer projects means less impact, not to mention frustrated staff. You can do some simple back-of-the-envelope estimates that strongly suggest that skimping on hardware for data scientists makes poor business sense.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> Because of the constraints of most enterprise IT systems this effectively means that anything where data scientists are in control of their own software and hardware, eg on cloud, looks relatively much more attractive—you can simply get more done. In the case of cloud, the monetary costs could be <em>lower</em> than using traditional on-premises hardware, though it does depend on what you’re doing and how carefully you’re doing it.</p><div class="no-row-height column-margin column-container"><li id="fn6"><p><sup>6</sup>&nbsp;A note on that back-of-the-envelope argument for investing in better capital for data scientists. The hardware used in many public organisations looks, at best, like a 1TB SSD, 16GB RAM, i7 touch laptop or surface running Windows. A quick check shows that these come in at £1500 and £2200 respectively from a major provider. For our high-end laptop, we’ll go for a 14-inch M3-chip MacBook Pro that can run small large language models locally (!) and has 24GB of RAM plus a 1TB SSD, which costs £2300. This is more RAM but also <a href="https://www.howtogeek.com/865066/its-okay-to-buy-a-mac-with-only-8-gb-ram/">each GB of RAM is more performant in a Mac</a>. Let’s say the cheaper hardware has three incidents a day where something glitches, crashes, or goes slow enough to pause a workflow and, on average, this causes three minutes of lost time during each occurrence. Now, imagine the average data scientist costs a business £74k a year (with pension, National Insurance, etc, etc) and works 7.5 hours a day, so 65p per working minute. This makes the cost of that lost time £1480 per year, compared to spending £100 to £800 more to get the higher end laptop. That’s just one year too: as far as I can tell, mid-range laptops usually last around three years while higher end laptops last more like five years–with some <a href="https://www.businessinsider.com/guides/tech/how-long-do-laptops-last">reports suggesting Apple laptops last even longer than this</a>. So it’s worth it even before we add on the other costs of worse capital, such as poorer staff retention. At the Campus, we issued most staff with MacBooks.</p></li></div></div>
-</section>
+<p>It’s always wise to check what capital is available before agreeing to a project. For example, at the Campus, we would downrate anything that had to be done on a particular legacy system because data scientists working on it reported that everything took 20 or 30% longer as compared to the best alternative system. Lower productivity means fewer projects means less impact, not to mention frustrated staff. You can do some simple back-of-the-envelope estimates that strongly suggest that skimping on hardware for data scientists makes poor business sense.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> Because of the constraints of most enterprise IT systems this effectively means that anything where data scientists are in control of their own software and hardware, eg on cloud, looks relatively much more attractive—you can simply get more done. In the case of cloud, the monetary costs could be <em>lower</em> than using traditional on-premises hardware, though it does depend on what you’re doing and how carefully you’re doing it.</p>
+<div class="no-row-height column-margin column-container"><div id="fn6"><p><sup>6</sup>&nbsp;A note on that back-of-the-envelope argument for investing in better capital for data scientists. The hardware used in many public organisations looks, at best, like a 1TB SSD, 16GB RAM, i7 touch laptop or surface running Windows. A quick check shows that these come in at £1500 and £2200 respectively from a major provider. For our high-end laptop, we’ll go for a 14-inch M3-chip MacBook Pro that can run small large language models locally (!) and has 24GB of RAM plus a 1TB SSD, which costs £2300. This is more RAM but also <a href="https://www.howtogeek.com/865066/its-okay-to-buy-a-mac-with-only-8-gb-ram/">each GB of RAM is more performant in a Mac</a>. Let’s say the cheaper hardware has three incidents a day where something glitches, crashes, or goes slow enough to pause a workflow and, on average, this causes three minutes of lost time during each occurrence. Now, imagine the average data scientist costs a business £74k a year (with pension, National Insurance, etc, etc) and works 7.5 hours a day, so 65p per working minute. This makes the cost of that lost time £1480 per year, compared to spending £100 to £800 more to get the higher end laptop. That’s just one year too: as far as I can tell, mid-range laptops usually last around three years while higher end laptops last more like five years–with some <a href="https://www.businessinsider.com/guides/tech/how-long-do-laptops-last">reports suggesting Apple laptops last even longer than this</a>. So it’s worth it even before we add on the other costs of worse capital, such as poorer staff retention. At the Campus, we issued most staff with MacBooks.</p></div></div></section>
 <section id="constraints-and-dependencies" class="level3">
 <h3 class="anchored" data-anchor-id="constraints-and-dependencies">Constraints and dependencies</h3>
 <p>My point here about giving data scientists agency in the capital they use applies more generally too: what other constraints and dependencies are there? To state the obvious, optimisation under constraints is harder than optimisation. If there’s a constraint around using a particular system, it will be harder to have the same impact, all else equal. If there’s a critical dependency on another organisation over which you have is limited control, or if that org has limited incentives to help, it’s going to be harder to have impact than if the only dependencies are internal.</p>
@@ -510,18 +545,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -553,11 +577,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.aeturrell\.com\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -567,8 +630,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -580,7 +652,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -624,6 +819,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -649,6 +845,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -709,6 +931,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

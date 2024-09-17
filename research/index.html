@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Arthur Turrell">
 <meta name="description" content="Arthur Turrell is an economic data scientist.">
 
-<title>Research</title>
+<title>Research – Arthur Turrell</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -49,7 +49,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -58,6 +64,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -73,9 +80,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-freeze','listing-bibliography','listing-csl','listing-pagetitle','listing-description-meta','listing-author-meta','listing-affiliation-meta','listing-orcid-meta','listing-website','listing-format','listing-_quarto-vars','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-toc-title','listing-toc-location','listing-execute','listing-include-back-link','listing-title','listing-date','listing-author','listing-categories','listing-pub-info','listing-doi','listing-image','listing-alt','listing-path','listing-outputHref','listing-date-modified','listing-description','listing-filename','listing-file-modified','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
+      valueNames: ['listing-project','listing-freeze','listing-bibliography','listing-csl','listing-pagetitle','listing-description-meta','listing-author-meta','listing-affiliation-meta','listing-orcid-meta','listing-website','listing-format','listing-_quarto-vars','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-toc-title','listing-toc-location','listing-execute','listing-include-back-link','listing-title','listing-date','listing-author','listing-categories','listing-pub-info','listing-doi','listing-image','listing-alt','listing-path','listing-outputHref','listing-date-modified','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-project","listing-freeze","listing-bibliography","listing-csl","listing-pagetitle","listing-description-meta","listing-author-meta","listing-affiliation-meta","listing-orcid-meta","listing-website","listing-format","listing-_quarto-vars","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-toc-title","listing-toc-location","listing-execute","listing-include-back-link","listing-title","listing-date","listing-author","listing-categories","listing-pub-info","listing-doi","listing-image","listing-alt","listing-path","listing-outputHref","listing-date-modified","listing-description","listing-filename","listing-file-modified","listing-reading-time"],
+      searchColumns: ["listing-project","listing-freeze","listing-bibliography","listing-csl","listing-pagetitle","listing-description-meta","listing-author-meta","listing-affiliation-meta","listing-orcid-meta","listing-website","listing-format","listing-_quarto-vars","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-toc-title","listing-toc-location","listing-execute","listing-include-back-link","listing-title","listing-date","listing-author","listing-categories","listing-pub-info","listing-doi","listing-image","listing-alt","listing-path","listing-outputHref","listing-date-modified","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -101,9 +108,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-freeze','listing-bibliography','listing-csl','listing-pagetitle','listing-description-meta','listing-author-meta','listing-affiliation-meta','listing-orcid-meta','listing-website','listing-format','listing-_quarto-vars','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-toc-title','listing-toc-location','listing-execute','listing-include-back-link','listing-title','listing-date','listing-author','listing-categories','listing-pub-info','listing-image','listing-alt','listing-path','listing-outputHref','listing-date-modified','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-doi',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
+      valueNames: ['listing-project','listing-freeze','listing-bibliography','listing-csl','listing-pagetitle','listing-description-meta','listing-author-meta','listing-affiliation-meta','listing-orcid-meta','listing-website','listing-format','listing-_quarto-vars','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-toc-title','listing-toc-location','listing-execute','listing-include-back-link','listing-title','listing-date','listing-author','listing-categories','listing-pub-info','listing-image','listing-alt','listing-path','listing-outputHref','listing-date-modified','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count','listing-doi',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-project","listing-freeze","listing-bibliography","listing-csl","listing-pagetitle","listing-description-meta","listing-author-meta","listing-affiliation-meta","listing-orcid-meta","listing-website","listing-format","listing-_quarto-vars","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-toc-title","listing-toc-location","listing-execute","listing-include-back-link","listing-title","listing-date","listing-author","listing-categories","listing-pub-info","listing-image","listing-alt","listing-path","listing-outputHref","listing-date-modified","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-doi"],
+      searchColumns: ["listing-project","listing-freeze","listing-bibliography","listing-csl","listing-pagetitle","listing-description-meta","listing-author-meta","listing-affiliation-meta","listing-orcid-meta","listing-website","listing-format","listing-_quarto-vars","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-toc-title","listing-toc-location","listing-execute","listing-include-back-link","listing-title","listing-date","listing-author","listing-categories","listing-pub-info","listing-image","listing-alt","listing-path","listing-outputHref","listing-date-modified","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count","listing-doi"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -129,9 +136,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-freeze','listing-bibliography','listing-csl','listing-pagetitle','listing-description-meta','listing-author-meta','listing-affiliation-meta','listing-orcid-meta','listing-website','listing-format','listing-_quarto-vars','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-toc-title','listing-toc-location','listing-execute','listing-include-back-link','listing-title','listing-date','listing-author','listing-categories','listing-pub-info','listing-doi','listing-path','listing-outputHref','listing-date-modified','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-image','listing-alt',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
+      valueNames: ['listing-project','listing-freeze','listing-bibliography','listing-csl','listing-pagetitle','listing-description-meta','listing-author-meta','listing-affiliation-meta','listing-orcid-meta','listing-website','listing-format','listing-_quarto-vars','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-toc-title','listing-toc-location','listing-execute','listing-include-back-link','listing-title','listing-date','listing-author','listing-categories','listing-pub-info','listing-doi','listing-path','listing-outputHref','listing-date-modified','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count','listing-image','listing-alt',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-project","listing-freeze","listing-bibliography","listing-csl","listing-pagetitle","listing-description-meta","listing-author-meta","listing-affiliation-meta","listing-orcid-meta","listing-website","listing-format","listing-_quarto-vars","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-toc-title","listing-toc-location","listing-execute","listing-include-back-link","listing-title","listing-date","listing-author","listing-categories","listing-pub-info","listing-doi","listing-path","listing-outputHref","listing-date-modified","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-image","listing-alt"],
+      searchColumns: ["listing-project","listing-freeze","listing-bibliography","listing-csl","listing-pagetitle","listing-description-meta","listing-author-meta","listing-affiliation-meta","listing-orcid-meta","listing-website","listing-format","listing-_quarto-vars","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-toc-title","listing-toc-location","listing-execute","listing-include-back-link","listing-title","listing-date","listing-author","listing-categories","listing-pub-info","listing-doi","listing-path","listing-outputHref","listing-date-modified","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count","listing-image","listing-alt"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -157,9 +164,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-freeze','listing-bibliography','listing-csl','listing-pagetitle','listing-description-meta','listing-author-meta','listing-affiliation-meta','listing-orcid-meta','listing-website','listing-format','listing-_quarto-vars','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-toc-title','listing-toc-location','listing-execute','listing-include-back-link','listing-title','listing-date','listing-author','listing-categories','listing-pub-info','listing-doi','listing-image','listing-alt','listing-pub-status','listing-path','listing-outputHref','listing-date-modified','listing-description','listing-filename','listing-file-modified','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
+      valueNames: ['listing-project','listing-freeze','listing-bibliography','listing-csl','listing-pagetitle','listing-description-meta','listing-author-meta','listing-affiliation-meta','listing-orcid-meta','listing-website','listing-format','listing-_quarto-vars','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-toc-title','listing-toc-location','listing-execute','listing-include-back-link','listing-title','listing-date','listing-author','listing-categories','listing-pub-info','listing-doi','listing-image','listing-alt','listing-pub-status','listing-path','listing-outputHref','listing-date-modified','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-project","listing-freeze","listing-bibliography","listing-csl","listing-pagetitle","listing-description-meta","listing-author-meta","listing-affiliation-meta","listing-orcid-meta","listing-website","listing-format","listing-_quarto-vars","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-toc-title","listing-toc-location","listing-execute","listing-include-back-link","listing-title","listing-date","listing-author","listing-categories","listing-pub-info","listing-doi","listing-image","listing-alt","listing-pub-status","listing-path","listing-outputHref","listing-date-modified","listing-description","listing-filename","listing-file-modified","listing-reading-time"],
+      searchColumns: ["listing-project","listing-freeze","listing-bibliography","listing-csl","listing-pagetitle","listing-description-meta","listing-author-meta","listing-affiliation-meta","listing-orcid-meta","listing-website","listing-format","listing-_quarto-vars","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-toc-title","listing-toc-location","listing-execute","listing-include-back-link","listing-title","listing-date","listing-author","listing-categories","listing-pub-info","listing-doi","listing-image","listing-alt","listing-pub-status","listing-path","listing-outputHref","listing-date-modified","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -192,13 +199,40 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
       }
 </style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Research">
 <meta property="og:description" content="Arthur Turrell is an economic data scientist.">
 <meta property="og:image" content="https://www.aeturrell.com//files/logo_large.png">
-<meta property="og:site-name" content="Arthur Turrell">
+<meta property="og:site_name" content="Arthur Turrell">
 <meta property="og:locale" content="en_UK">
 <meta property="og:image:height" content="1594">
 <meta property="og:image:width" content="1594">
@@ -215,83 +249,83 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Arthur Turrell</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../research/index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Research</span></a>
+    <a class="nav-link active" href="../research/index.html" aria-current="page"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../media/index.html" rel="" target="">
- <span class="menu-text">Media</span></a>
+    <a class="nav-link" href="../media/index.html"> 
+<span class="menu-text">Media</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../thestarbuilders/thestarbuilders.html" rel="" target="">
- <span class="menu-text">The Star Builders</span></a>
+    <a class="nav-link" href="../thestarbuilders/thestarbuilders.html"> 
+<span class="menu-text">The Star Builders</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog/index.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching/index.html" rel="" target="">
- <span class="menu-text">Teaching</span></a>
+    <a class="nav-link" href="../teaching/index.html"> 
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../code/index.html" rel="" target="">
- <span class="menu-text">Code</span></a>
+    <a class="nav-link" href="../code/index.html"> 
+<span class="menu-text">Code</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../uses/index.html" rel="" target="">
- <span class="menu-text">Setup</span></a>
+    <a class="nav-link" href="../uses/index.html"> 
+<span class="menu-text">Setup</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../atom.xml" rel="" target=""><i class="bi bi-rss" role="img" aria-label="rss">
+    <a class="nav-link" href="../atom.xml"> <i class="bi bi-rss" role="img" aria-label="rss">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../contact.html" rel="" target=""><i class="bi bi-envelope" role="img" aria-label="contact">
+    <a class="nav-link" href="../contact.html"> <i class="bi bi-envelope" role="img" aria-label="contact">
 </i> 
- <span class="menu-text"> </span></a>
+<span class="menu-text"> </span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/arthurturrell" rel="" target=""><i class="bi bi-twitter" role="img" aria-label="twitter">
+    <a class="nav-link" href="https://twitter.com/arthurturrell"> <i class="bi bi-twitter" role="img" aria-label="twitter">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/aeturrell" rel="" target=""><i class="bi bi-github" role="img" aria-label="github">
+    <a class="nav-link" href="https://github.com/aeturrell"> <i class="bi bi-github" role="img" aria-label="github">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/arthur-turrell-8b789891" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="linkedin">
+    <a class="nav-link" href="https://www.linkedin.com/in/arthur-turrell-8b789891"> <i class="bi bi-linkedin" role="img" aria-label="linkedin">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -309,7 +343,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
     
     
     
-    <div class="quarto-title-meta">
+    <div class="quarto-title-meta column-page-left">
 
         
       
@@ -338,30 +372,42 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <!-- Title block on individual research pages -->
 
 
+
 <p>My research is on <em>economic data science</em>—the application of data science (including AI, natural language processing, and modelling) to answer economic questions. I’m particularly interested in public policy, macroeconomic modelling (including forecasting), the interactions between households, firms, and the financial system, and productivity.</p>
 <section id="journal-articles" class="level2">
 <h2 class="anchored" data-anchor-id="journal-articles">Journal articles</h2>
 <div id="listing-articles" class="quarto-listing quarto-listing-container-custom">
 <div class="research project-list">
 <ul class="list">
-        <li class="project" data-index="0" data-categories="public sector,coding,open-source" data-listing-date-sort="1684969200000" data-listing-file-modified-sort="1722001131453" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+    
+        <li class="project" data-index="0" data-categories="public sector,coding,open-source" data-listing-date-sort="1684969200000" data-listing-file-modified-sort="1722001131453" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="269">
             <div class="project-content listing-pub-info">
                 <p>Botta, Federico, Robin Lovelace, Laura Gilbert, and Arthur Turrell. "Packaging code and data for reproducible research: A case study of journey time statistics." <i>Environment and Planning B: Urban Analytics and City Science</i> (2024): 23998083241267331. doi: <a href="https://doi.org/10.1177/23998083241267331"><code>10.1177/23998083241267331</code></a></p>
             </div>
             <div class="thumbnail">
                 <img src="../research/articles/botta-lovelace-gilbert-turrell/journey_stats_fig.png" alt="Figure from paper">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=public sector">
                             public sector
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=coding">
                             coding
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=open-source">
                             open-source
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -369,45 +415,69 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="https://arxiv.org/abs/2305.16205">
+                        
                             <i class="fa-solid fa-file-pdf"></i> Working Paper
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://doi.org/10.1177/23998083241267331">
+                        
                             <i class="fa-solid fa-scroll"></i> Published paper
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.zotero.org/save?type=doi&amp;q=10.1177/23998083241267331">
+                        
                             <i class="ai ai-zotero"></i> Add to Zotero
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
-        <li class="project" data-index="1" data-categories="text analysis,forecasting,macroeconomics,machine learning" data-listing-date-sort="1652223600000" data-listing-file-modified-sort="1687614831707" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+        
+        <li class="project" data-index="1" data-categories="text analysis,forecasting,macroeconomics,machine learning" data-listing-date-sort="1652223600000" data-listing-file-modified-sort="1687614831707" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="189">
             <div class="project-content listing-pub-info">
                 <p>Kalamara, Eleni, Arthur Turrell, Chris Redl, George Kapetanios, and Sujit Kapadia. "Making text count: economic forecasting using newspaper text." <i>Journal of Applied Econometrics</i> 37, no. 5 (2022): 896-919. doi: <a href="https://doi.org/10.1002/jae.2907"><code>10.1002/jae.2907</code></a></p>
             </div>
             <div class="thumbnail">
                 <img src="../research/articles/kalamara-turrell-redl-kapetanios-kapadia/textcounts.png" alt="Figure from paper">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=text analysis">
                             text analysis
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=forecasting">
                             forecasting
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=macroeconomics">
                             macroeconomics
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=machine learning">
                             machine learning
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -415,48 +485,73 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="../research/articles/kalamara-turrell-redl-kapetanios-kapadia/kalamara-turrell-redl-kapetanios-kapadia.pdf">
+                        
                             <i class="fa-solid fa-file-pdf"></i> Preprint
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://doi.org/10.1002/jae.2907">
+                        
                             <i class="fa-solid fa-scroll"></i> Journal link
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.zotero.org/save?type=doi&amp;q=10.1002/jae.2907">
+                        
                             <i class="ai ai-zotero"></i> Add to Zotero
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
-        <li class="project" data-index="2" data-categories="labour,vacancies,big data,productivity,text analysis" data-listing-date-sort="1627772400000" data-listing-file-modified-sort="1687563959206" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+        
+        <li class="project" data-index="2" data-categories="labour,vacancies,big data,productivity,text analysis" data-listing-date-sort="1627772400000" data-listing-file-modified-sort="1687563959206" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="218">
             <div class="project-content listing-pub-info">
                 <p>Turrell, A., Speigner, B., Copple, D., Djumalieva, J. and Thurgood, J., 2021. Is the UK’s productivity puzzle mostly driven by occupational mismatch? An analysis using big data on job vacancies. <i>Labour Economics</i>, 71, p.102013. doi: <a href="https://doi.org/10.1016/j.labeco.2021.102013"><code>10.1016/j.labeco.2021.102013</code></a></p>
             </div>
             <div class="thumbnail">
                 <img src="../research/articles/turrell-djumaliev-copple-speigner-thurgood/mismatch_img.png" alt="Figure from paper">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=labour">
                             labour
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=vacancies">
                             vacancies
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=big data">
                             big data
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=productivity">
                             productivity
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=text analysis">
                             text analysis
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -464,42 +559,65 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="../research/articles/turrell-djumaliev-copple-speigner-thurgood/LabourEconomics2021OccupationalMismatch.pdf">
+                        
                             <i class="fa-solid fa-file-pdf"></i> Working Paper
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://doi.org/10.1016/j.labeco.2021.102013">
+                        
                             <i class="fa-solid fa-scroll"></i> Published paper
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.zotero.org/save?type=doi&amp;q=10.1016/j.labeco.2021.102013">
+                        
                             <i class="ai ai-zotero"></i> Add to Zotero
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
-        <li class="project" data-index="3" data-categories="macroeconomics,agent-based modelling,heterodox" data-listing-date-sort="1551484800000" data-listing-file-modified-sort="1687565305129" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+        
+        <li class="project" data-index="3" data-categories="macroeconomics,agent-based modelling,heterodox" data-listing-date-sort="1551484800000" data-listing-file-modified-sort="1687565305129" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="190">
             <div class="project-content listing-pub-info">
                 <p>Haldane, Andrew G., and Arthur E. Turrell. "Drawing on different disciplines: macroeconomic agent-based models." <i>Journal of Evolutionary Economics</i> 29 (2019): 39-66. doi: <a href="https://doi.org/10.1007/s00191-018-0557-5"><code>10.1007/s00191-018-0557-5</code></a></p>
             </div>
             <div class="thumbnail">
                 <img src="../research/articles/haldane-turrell-2019/gdp-non-gauss.png" alt="Figure from paper">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=macroeconomics">
                             macroeconomics
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=agent-based modelling">
                             agent-based modelling
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=heterodox">
                             heterodox
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -507,42 +625,65 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="../research/articles/haldane-turrell-2019/haldane-turrell-2019.pdf">
+                        
                             <i class="fa-solid fa-file-pdf"></i> Preprint
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://doi.org/10.1007/s00191-018-0557-5">
+                        
                             <i class="fa-solid fa-scroll"></i> Published paper
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.zotero.org/save?type=doi&amp;q=10.1007/s00191-018-0557-5">
+                        
                             <i class="ai ai-zotero"></i> Add to Zotero
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
-        <li class="project" data-index="4" data-categories="macroeconomics,agent-based modelling,heterodox" data-listing-date-sort="1515110400000" data-listing-file-modified-sort="1687516257462" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+        
+        <li class="project" data-index="4" data-categories="macroeconomics,agent-based modelling,heterodox" data-listing-date-sort="1515110400000" data-listing-file-modified-sort="1687516257462" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="181">
             <div class="project-content listing-pub-info">
                 <p>Haldane, Andrew G., and Arthur E. Turrell. "An interdisciplinary model for macroeconomics." <i>Oxford Review of Economic Policy</i> 34, no. 1-2 (2018): 219-251. doi: <a href="https://doi.org/10.1093/oxrep/grx051"><code>10.1093/oxrep/grx051</code></a></p>
             </div>
             <div class="thumbnail">
                 <img src="../research/articles/haldane-turrell/interdis-macro-citations.jpg" alt="Figure from paper">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=macroeconomics">
                             macroeconomics
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=agent-based modelling">
                             agent-based modelling
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=heterodox">
                             heterodox
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -550,42 +691,65 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.bankofengland.co.uk/working-paper/2017/an-interdisciplinary-model-for-macroeconomics">
+                        
                             <i class="fa-solid fa-file-pdf"></i> Working Paper
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://doi.org/10.1093/oxrep/grx051">
+                        
                             <i class="fa-solid fa-scroll"></i> Published paper
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.zotero.org/save?type=doi&amp;q=10.1093/oxrep/grx051">
+                        
                             <i class="ai ai-zotero"></i> Add to Zotero
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
-        <li class="project" data-index="5" data-categories="agent-based modelling,bond markets,financial stability" data-listing-date-sort="1489536000000" data-listing-file-modified-sort="1687563140458" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+        
+        <li class="project" data-index="5" data-categories="agent-based modelling,bond markets,financial stability" data-listing-date-sort="1489536000000" data-listing-file-modified-sort="1687563140458" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="196">
             <div class="project-content listing-pub-info">
                 <p>Braun-Munzinger, Karen, Z. Liu, and A. E. Turrell. "An agent-based model of corporate bond trading." <i>Quantitative Finance</i> 18, no. 4 (2018): 591-608. doi: <a href="https://doi.org/10.1080/14697688.2017.1380310"><code>10.1080/14697688.2017.1380310</code></a></p>
             </div>
             <div class="thumbnail">
                 <img src="../research/articles/braunmunzinger-liu-turrell/agent-reactions.jpg" alt="Figure from paper">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=agent-based modelling">
                             agent-based modelling
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=bond markets">
                             bond markets
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=financial stability">
                             financial stability
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -593,42 +757,65 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="../research/articles/braunmunzinger-liu-turrell/braunmunzinger-liu-turrell.pdf">
+                        
                             <i class="fa-solid fa-file-pdf"></i> Preprint
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://doi.org/10.1080/14697688.2017.1380310">
+                        
                             <i class="fa-solid fa-scroll"></i> Journal link
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.zotero.org/save?type=doi&amp;q=10.1080/14697688.2017.1380310">
+                        
                             <i class="ai ai-zotero"></i> Add to Zotero
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
-        <li class="project" data-index="6" data-categories="plasma,high power lasers,simulations" data-listing-date-sort="1455062400000" data-listing-file-modified-sort="1687562628040" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+        
+        <li class="project" data-index="6" data-categories="plasma,high power lasers,simulations" data-listing-date-sort="1455062400000" data-listing-file-modified-sort="1687562628040" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="136">
             <div class="project-content listing-pub-info">
                 <p>Turrell, A. E., M. Sherlock, and S. J. Rose. "Efficient evaluation of collisional energy transfer terms for plasma particle simulations." <i>Journal of Plasma Physics</i> 82, no. 1 (2016): 905820107. doi: <a href="https://doi.org/10.1017/S0022377816000131"><code>10.1017/S0022377816000131</code></a></p>
             </div>
             <div class="thumbnail">
                 <img src="../research/articles/turrell-sherlock-rose-2016/pic-sim-equations.png" alt="Figure from paper">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=plasma">
                             plasma
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=high power lasers">
                             high power lasers
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=simulations">
                             simulations
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -636,42 +823,65 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="../research/articles/turrell-sherlock-rose-2016/turrell_2016_efficient.pdf">
+                        
                             <i class="fa-solid fa-file-pdf"></i> Preprint
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://doi.org/10.1017/S0022377816000131">
+                        
                             <i class="fa-solid fa-scroll"></i> Journal link
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.zotero.org/save?type=doi&amp;q=10.1017/S0022377816000131">
+                        
                             <i class="ai ai-zotero"></i> Add to Zotero
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
-        <li class="project" data-index="7" data-categories="plasma,high power lasers,heating" data-listing-date-sort="1447372800000" data-listing-file-modified-sort="1687562441239" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+        
+        <li class="project" data-index="7" data-categories="plasma,high power lasers,heating" data-listing-date-sort="1447372800000" data-listing-file-modified-sort="1687562441239" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="212">
             <div class="project-content listing-pub-info">
                 <p>Turrell, A. E., M. Sherlock, and S. J. Rose. "Ultrafast collisional ion heating by electrostatic shocks." <i>Nature Communications</i> 6, no. 1 (2015): 8905. doi: <a href="https://doi.org/10.1038/ncomms9905"><code>10.1038/ncomms9905</code></a></p>
             </div>
             <div class="thumbnail">
                 <img src="../research/articles/turrell-sherlock-rose-2015b/phase-space-ultrafast.jpg" alt="Carbon ion phase space">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=plasma">
                             plasma
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=high power lasers">
                             high power lasers
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=heating">
                             heating
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -679,42 +889,65 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="../research/articles/turrell-sherlock-rose-2015b/turrell_2015_ultrafast.pdf">
+                        
                             <i class="fa-solid fa-file-pdf"></i> Preprint
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://doi.org/10.1038/ncomms9905">
+                        
                             <i class="fa-solid fa-scroll"></i> Journal link
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.zotero.org/save?type=doi&amp;q=10.1038/ncomms9905">
+                        
                             <i class="ai ai-zotero"></i> Add to Zotero
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
-        <li class="project" data-index="8" data-categories="plasma,intertial confinement fusion,large-angle collisions" data-listing-date-sort="1444863600000" data-listing-file-modified-sort="1687561717282" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+        
+        <li class="project" data-index="8" data-categories="plasma,intertial confinement fusion,large-angle collisions" data-listing-date-sort="1444863600000" data-listing-file-modified-sort="1687561717282" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="203">
             <div class="project-content listing-pub-info">
                 <p>Turrell, Arthur E., Mark Sherlock, and Steven J. Rose. "Self-consistent inclusion of classical large-angle Coulomb collisions in plasma Monte Carlo simulations." <i>Journal of Computational Physics</i> 299 (2015): 144-155. doi: <a href="https://doi.org/10.1016/j.jcp.2015.06.034"><code>10.1016/j.jcp.2015.06.034</code></a></p>
             </div>
             <div class="thumbnail">
                 <img src="../research/articles/turrell-sherlock-rose-2015/large-angle-vis.jpg" alt="Figure from paper">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=plasma">
                             plasma
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=intertial confinement fusion">
                             intertial confinement fusion
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=large-angle collisions">
                             large-angle collisions
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -722,42 +955,65 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="../research/articles/turrell-sherlock-rose-2015/turrell-sherlock-rose-2015.pdf">
+                        
                             <i class="fa-solid fa-file-pdf"></i> Preprint
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://doi.org/10.1016/j.jcp.2015.06.034">
+                        
                             <i class="fa-solid fa-scroll"></i> Journal link
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.zotero.org/save?type=doi&amp;q=10.1016/j.jcp.2015.06.034">
+                        
                             <i class="ai ai-zotero"></i> Add to Zotero
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
-        <li class="project" data-index="9" data-categories="plasma,intertial confinement fusion,Monte Carlo" data-listing-date-sort="1379199600000" data-listing-file-modified-sort="1687561061281" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+        
+        <li class="project" data-index="9" data-categories="plasma,intertial confinement fusion,Monte Carlo" data-listing-date-sort="1379199600000" data-listing-file-modified-sort="1687561061281" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="146">
             <div class="project-content listing-pub-info">
                 <p>Turrell, Arthur E., Mark Sherlock, and Steven J. Rose. "A Monte Carlo algorithm for degenerate plasmas." <i>Journal of Computational Physics</i> 249 (2013): 13-21. doi: <a href="https://doi.org/10.1016/j.jcp.2013.03.052"><code>10.1016/j.jcp.2013.03.052</code></a></p>
             </div>
             <div class="thumbnail">
                 <img src="../research/articles/turrell-sherlock-rose-2013/monte-carlo-sim.jpg" alt="Figure from paper">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=plasma">
                             plasma
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=intertial confinement fusion">
                             intertial confinement fusion
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=Monte Carlo">
                             Monte Carlo
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -765,24 +1021,37 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="../research/articles/turrell-sherlock-rose-2013/turrell_monte_2013.pdf">
+                        
                             <i class="fa-solid fa-file-pdf"></i> Published paper
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://doi.org/10.1016/j.jcp.2013.03.052">
+                        
                             <i class="fa-solid fa-scroll"></i> Journal link
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.zotero.org/save?type=doi&amp;q=10.1016/j.jcp.2013.03.052">
+                        
                             <i class="ai ai-zotero"></i> Add to Zotero
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
+        
 </ul>
 </div>
 <div class="listing-no-matching d-none">
@@ -793,30 +1062,41 @@ No matching items
 <section id="working-papers" class="level2">
 <h2 class="anchored" data-anchor-id="working-papers">Working papers</h2>
 <div id="listing-working-papers" class="quarto-listing quarto-listing-container-custom">
-
 <div class="research project-list">
 <ul class="list">
-        <li class="project" data-index="0" data-categories="firms,labour,vacancies,COVID-19" data-listing-date-sort="1689894000000" data-listing-file-modified-sort="1691686186260" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+    
+        <li class="project" data-index="0" data-categories="firms,labour,vacancies,COVID-19" data-listing-date-sort="1689894000000" data-listing-file-modified-sort="1691686186260" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="156">
             <div class="project-content listing-pub-info">
                 <p>Van Dijcke, David, Marcus Buckmann, Arthur Turrell, and Tomas Key. "Vacancy Posting, Firm Balance Sheets, and Pandemic Policy Interventions." <i>Bank of England Staff Working Paper Series</i> 1033 (2022).</p>
             </div>
             <div class="thumbnail">
                 <img src="../research/working-papers/dijcke-buckmann-key-turrell/dicjke_et_al_table7.png" alt="Figure from paper">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=firms">
                             firms
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=labour">
                             labour
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=vacancies">
                             vacancies
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=COVID-19">
                             COVID-19
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -824,35 +1104,53 @@ No matching items
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.bankofengland.co.uk/-/media/boe/files/working-paper/2023/vacancy-posting-firm-balance-sheets-and-pandemic-policy.pdf">
+                        
                             <i class="fa-solid fa-file-pdf"></i> Working paper (PDF)
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
-        <li class="project" data-index="1" data-categories="work from home,labour,vacancies,COVID-19" data-listing-date-sort="1651359600000" data-listing-file-modified-sort="1687564711698" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+        
+        <li class="project" data-index="1" data-categories="work from home,labour,vacancies,COVID-19" data-listing-date-sort="1651359600000" data-listing-file-modified-sort="1687564711698" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="182">
             <div class="project-content listing-pub-info">
                 <p>Draca, Mirko, Emma Duchini, Roland Rathelot, Arthur Turrell, and Giulia Vattuone. Revolution in Progress? The Rise of Remote Work in the UK. <i>University of Warwick, Department of Economics</i>, 2022.</p>
             </div>
             <div class="thumbnail">
                 <img src="../research/working-papers/draca-duchini-rathelot-turrell-vattuone/revolution_in_progress.png" alt="Figure from paper">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=work from home">
                             work from home
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=labour">
                             labour
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=vacancies">
                             vacancies
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=COVID-19">
                             COVID-19
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -860,41 +1158,61 @@ No matching items
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="https://wrap.warwick.ac.uk/165601/1/WRAP-revolution-progress-rise-remote-work-UK-2022.pdf">
+                        
                             <i class="fa-solid fa-file-pdf"></i> Working paper (PDF)
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
-        <li class="project" data-index="2" data-categories="gender,wages,evaluation,gender pay gap,labour,text analysis" data-listing-date-sort="1604448000000" data-listing-file-modified-sort="1687518097497" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+        
+        <li class="project" data-index="2" data-categories="gender,wages,evaluation,gender pay gap,labour,text analysis" data-listing-date-sort="1604448000000" data-listing-file-modified-sort="1687518097497" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="167">
             <div class="project-content listing-pub-info">
                 <p>Duchini, Emma, Stefania Simion, Arthur Turrell, and Jack Blundell. "Pay Transparency and Gender Equality." <i>arXiv e-prints</i> (2020), arxiv:2006.16099. doi: <a href="https://doi.org/10.48550/arXiv.2006.16099"><code>10.48550/arXiv.2006.16099</code></a></p>
             </div>
             <div class="thumbnail">
                 <img src="../research/working-papers/duchini-simion-turrell-blundell/gpg_corr_analysis.png" alt="Figure from paper">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=gender">
                             gender
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=wages">
                             wages
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=evaluation">
                             evaluation
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=gender pay gap">
                             gender pay gap
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=labour">
                             labour
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=text analysis">
                             text analysis
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -902,19 +1220,29 @@ No matching items
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="https://arxiv.org/abs/2006.16099">
+                        
                             <i class="fa-solid fa-file-pdf"></i> Working Paper
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.zotero.org/save?type=doi&amp;q=10.48550/arXiv.2006.16099">
+                        
                             <i class="ai ai-zotero"></i> Add to Zotero
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
+        
 </ul>
 </div>
 <div class="listing-no-matching d-none">
@@ -927,30 +1255,43 @@ No matching items
 <div id="listing-book-chapters" class="quarto-listing quarto-listing-container-custom">
 <div class="research project-list">
 <ul class="list">
-        <li class="project" data-index="0" data-categories="gender,wages,evaluation,gender pay gap,transparency policies" data-listing-date-sort="1706572800000" data-listing-file-modified-sort="1719244629889" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+    
+        <li class="project" data-index="0" data-categories="gender,wages,evaluation,gender pay gap,transparency policies" data-listing-date-sort="1706572800000" data-listing-file-modified-sort="1719244629889" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="364">
             <div class="project-content listing-pub-info">
                 <p>Duchini, Emma, Stefania Simion, and Arthur Turrell. "A Review of the Effects of Pay Transparency." In <i>Oxford Research Encyclopedia of Economics and Finance</i>, Oxford University Press, 2024. doi: <a href="https://doi.org/10.1093/acrefore/9780190625979.013.860"><code>10.1093/acrefore/9780190625979.013.860</code></a></p>
             </div>
             <div class="thumbnail">
                 <img src="" alt="">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=gender">
                             gender
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=wages">
                             wages
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=evaluation">
                             evaluation
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=gender pay gap">
                             gender pay gap
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=transparency policies">
                             transparency policies
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -958,45 +1299,69 @@ No matching items
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="https://doi.org/10.1093/acrefore/9780190625979.013.860">
+                        
                             <i class="fa-solid fa-book"></i> Book chapter
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://emmaduchini.com/wp-content/uploads/2023/09/duchini_et_al-2023-a-review-on-the-effects-of-pay-transparency.pdf">
+                        
                             <i class="fa-solid fa-file-pdf"></i> Preprint
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.zotero.org/save?type=doi&amp;q=10.1093/acrefore/9780190625979.013.860">
+                        
                             <i class="ai ai-zotero"></i> Add to Zotero
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
-        <li class="project" data-index="1" data-categories="text analysis,labour,economic statistics,vacancies" data-listing-date-sort="1640995200000" data-listing-file-modified-sort="1687518448229" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+        
+        <li class="project" data-index="1" data-categories="text analysis,labour,economic statistics,vacancies" data-listing-date-sort="1640995200000" data-listing-file-modified-sort="1687518448229" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="171">
             <div class="project-content listing-pub-info">
                 <p>Turrell, Arthur, Bradley Speigner, Jyldyz Djumalieva, David Copple, and James Thurgood. "6. Transforming Naturally Occurring Text Data into Economic Statistics." In <i>Big Data for Twenty-First-Century Economic Statistics</i>, pp. 173-208. University of Chicago Press, 2022. doi: <a href="https://doi.org/10.7208/chicago/9780226801391-008"><code>10.7208/chicago/9780226801391-008</code></a></p>
             </div>
             <div class="thumbnail">
                 <img src="../research/chapters/turrell-speigner-djumaliev-copple-thurgood/UKtightness.jpg" alt="Figure from paper">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=text analysis">
                             text analysis
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=labour">
                             labour
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=economic statistics">
                             economic statistics
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=vacancies">
                             vacancies
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -1004,42 +1369,65 @@ No matching items
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="https://doi.org/10.7208/chicago/9780226801391-008">
+                        
                             <i class="fa-solid fa-book"></i> Book chapter
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.nber.org/papers/w25837">
+                        
                             <i class="fa-solid fa-file-pdf"></i> Preprint (NBER working paper)
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.zotero.org/save?type=isbn&amp;q=9780817321147">
+                        
                             <i class="ai ai-zotero"></i> Add to Zotero
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
-        <li class="project" data-index="2" data-categories="agent-based modelling,macroeconomics,modelling" data-listing-date-sort="1481846400000" data-listing-file-modified-sort="1687529159789" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+        
+        <li class="project" data-index="2" data-categories="agent-based modelling,macroeconomics,modelling" data-listing-date-sort="1481846400000" data-listing-file-modified-sort="1687529159789" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="67">
             <div class="project-content listing-pub-info">
                 <p>Turrell, Arthur. "Agent-based models: understanding the economy from the bottom up" In <i>Quarterly Bulletin</i>, Q4. Bank of England, 2016.</p>
             </div>
             <div class="thumbnail">
                 <img src="../research/chapters/turrell-2016/abmv2.png" alt="Figure from paper">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=agent-based modelling">
                             agent-based modelling
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=macroeconomics">
                             macroeconomics
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=modelling">
                             modelling
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -1047,14 +1435,21 @@ No matching items
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.bankofengland.co.uk/quarterly-bulletin/2016/q4/agent-based-models-understanding-the-economy-from-the-bottom-up">
+                        
                             <i class="fa-solid fa-book"></i> Book chapter
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
+        
 </ul>
 </div>
 <div class="listing-no-matching d-none">
@@ -1071,30 +1466,43 @@ No matching items
 <div id="listing-dormant-working-papers" class="quarto-listing quarto-listing-container-custom">
 <div class="research project-list">
 <ul class="list">
-        <li class="project" data-index="0" data-categories="reinforcement learning,epidemiology,macroeconomics,agent-based modelling,COVID-19" data-listing-date-sort="1617145200000" data-listing-file-modified-sort="1687564469568" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+    
+        <li class="project" data-index="0" data-categories="reinforcement learning,epidemiology,macroeconomics,agent-based modelling,COVID-19" data-listing-date-sort="1617145200000" data-listing-file-modified-sort="1687564469568" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="254">
             <div class="project-content listing-pub-info">
                 <p>Hill, Edward, Marco Bardoscia, and Arthur Turrell. "Solving heterogeneous general equilibrium economic models with deep reinforcement learning." <i>arXiv</i> arXiv:2103.16977 (2021).</p>
             </div>
             <div class="thumbnail">
                 <img src="../research/dormant-working-papers/hill-bardoscia-turrell/epimacro_investment.png" alt="Figure from paper">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=reinforcement learning">
                             reinforcement learning
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=epidemiology">
                             epidemiology
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=macroeconomics">
                             macroeconomics
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=agent-based modelling">
                             agent-based modelling
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=COVID-19">
                             COVID-19
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -1102,40 +1510,61 @@ No matching items
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="https://doi.org/10.48550/arXiv.2103.16977">
+                        
                             <i class="fa-solid fa-scroll"></i> Working Paper
                         </a>
                     </li>
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.zotero.org/save?type=doi&amp;q=10.48550/arXiv.2103.16977">
+                        
                             <i class="ai ai-zotero"></i> Add to Zotero
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
-        <li class="project" data-index="1" data-categories="vacancies,labour,machine learning,text analysis" data-listing-date-sort="1531868400000" data-listing-file-modified-sort="1687564576781" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+        
+        <li class="project" data-index="1" data-categories="vacancies,labour,machine learning,text analysis" data-listing-date-sort="1531868400000" data-listing-file-modified-sort="1687564576781" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="231">
             <div class="project-content listing-pub-info">
                 <p>Turrell, Arthur, James Thurgood, David Copple, Jyldyz Djumalieva, and Bradley Speigner. "Using online job vacancies to understand the UK labour market from the bottom-up." <i>Bank of England Staff Working Papers</i> 742 (2018).</p>
             </div>
             <div class="thumbnail">
                 <img src="../research/dormant-working-papers/turrell-thurgood-copple-djumalieva-speigner/topicscropped.jpg" alt="Figure from paper">
             </div>
+            
             <div class="project-categories">
+                
                     <div class="project-category"><a href="#category=vacancies">
                             vacancies
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=labour">
                             labour
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=machine learning">
                             machine learning
                         </a></div>
+                    
                     <div class="project-category"><a href="#category=text analysis">
                             text analysis
                         </a></div>
+                    
             </div>
+            
+
+            
+            
+            
             <div class="project-details-listing">
                 <ul class="project-links">
                     <li class="project-link details">
@@ -1143,14 +1572,21 @@ No matching items
                             <i class="fa-solid fa-circle-info"></i> Full details »
                         </a>
                     </li>
+                    
+                        
                     <li class="project-link">
+                        
                         <a href="https://www.bankofengland.co.uk/working-paper/2018/using-online-job-vacancies-to-understand-the-uk-labour-market-from-the-bottom-up">
+                        
                             <i class="fa-solid fa-scroll"></i> Working Paper
                         </a>
                     </li>
+                        
+                    
                 </ul>
             </div>
         </li>
+        
 </ul>
 </div>
 <div class="listing-no-matching d-none">
@@ -1198,18 +1634,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1241,11 +1666,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.aeturrell\.com\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1255,8 +1719,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1268,7 +1741,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1312,6 +1908,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1337,6 +1934,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1397,6 +2020,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

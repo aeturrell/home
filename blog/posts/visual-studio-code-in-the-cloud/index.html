@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2022-09-28">
 <meta name="description" content="Arthur Turrell is an economic data scientist.">
 
-<title>Visual Studio Code on the Cloud</title>
+<title>Visual Studio Code on the Cloud – Arthur Turrell</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,7 +25,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -36,7 +36,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -82,7 +82,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -91,6 +97,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -110,7 +117,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <meta property="og:title" content="Visual Studio Code on the Cloud">
 <meta property="og:description" content="Arthur Turrell is an economic data scientist.">
 <meta property="og:image" content="https://www.aeturrell.com//files/logo_large.png">
-<meta property="og:site-name" content="Arthur Turrell">
+<meta property="og:site_name" content="Arthur Turrell">
 <meta property="og:locale" content="en_UK">
 <meta property="og:image:height" content="1594">
 <meta property="og:image:width" content="1594">
@@ -127,83 +134,83 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Arthur Turrell</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../research/index.html" rel="" target="">
- <span class="menu-text">Research</span></a>
+    <a class="nav-link" href="../../../research/index.html"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../media/index.html" rel="" target="">
- <span class="menu-text">Media</span></a>
+    <a class="nav-link" href="../../../media/index.html"> 
+<span class="menu-text">Media</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../thestarbuilders/thestarbuilders.html" rel="" target="">
- <span class="menu-text">The Star Builders</span></a>
+    <a class="nav-link" href="../../../thestarbuilders/thestarbuilders.html"> 
+<span class="menu-text">The Star Builders</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog/index.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../teaching/index.html" rel="" target="">
- <span class="menu-text">Teaching</span></a>
+    <a class="nav-link" href="../../../teaching/index.html"> 
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../code/index.html" rel="" target="">
- <span class="menu-text">Code</span></a>
+    <a class="nav-link" href="../../../code/index.html"> 
+<span class="menu-text">Code</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../uses/index.html" rel="" target="">
- <span class="menu-text">Setup</span></a>
+    <a class="nav-link" href="../../../uses/index.html"> 
+<span class="menu-text">Setup</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../atom.xml" rel="" target=""><i class="bi bi-rss" role="img" aria-label="rss">
+    <a class="nav-link" href="../../../atom.xml"> <i class="bi bi-rss" role="img" aria-label="rss">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../contact.html" rel="" target=""><i class="bi bi-envelope" role="img" aria-label="contact">
+    <a class="nav-link" href="../../../contact.html"> <i class="bi bi-envelope" role="img" aria-label="contact">
 </i> 
- <span class="menu-text"> </span></a>
+<span class="menu-text"> </span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/arthurturrell" rel="" target=""><i class="bi bi-twitter" role="img" aria-label="twitter">
+    <a class="nav-link" href="https://twitter.com/arthurturrell"> <i class="bi bi-twitter" role="img" aria-label="twitter">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/aeturrell" rel="" target=""><i class="bi bi-github" role="img" aria-label="github">
+    <a class="nav-link" href="https://github.com/aeturrell"> <i class="bi bi-github" role="img" aria-label="github">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/arthur-turrell-8b789891" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="linkedin">
+    <a class="nav-link" href="https://www.linkedin.com/in/arthur-turrell-8b789891"> <i class="bi bi-linkedin" role="img" aria-label="linkedin">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -274,17 +281,18 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 
 
 
-<div class="page-columns page-full"><p>Visual Studio Code is incredibly powerful, whether it’s for writing <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-markdown.html">markdown</a>, writing <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-quarto.html">quarto</a> (.qmd) files, getting syntax highlighting and peerless language support (eg auto-completion), getting peerless git support, working with a <a href="https://github.com/features/copilot">co-pilot</a>, <a href="https://visualstudio.microsoft.com/services/live-share/">working with collaborators in real-time</a>, or even running <a href="../../../blog/posts/setting-up-r-in-vscode/index.html">R code in a modern REPL</a>. For me, it’s the best IDE by some way. One of its strongest features for data science is its ability to do interactive window coding with scripts <em>and</em> notebooks. Yet most online or cloud-based data science services focus only on notebooks. Wouldn’t it be great if there was a reliable way to use all of Visual Studio Code’s features in the cloud?<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;If you have a GitHub account you can just press ‘.’ on a repo and it will load up something that looks a lot like Visual Studio Code but this can’t run code, it’s only a text editor.</p></li></div></div>
-<div class="page-columns page-full"><p>In this blog post, I’ll show you how to set up Visual Studio Code on your desktop so that it connects remotely to a cloud virtual machine. This will allow you to code on the cloud as if you were developing locally.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;We’ll be using Google Cloud Compute but the concepts will be similar for other cloud services. You should also note that using cloud services is usually charged though free credits are often available for new accounts. Also, this has only been tested on MacOS.</p></li></div></div>
+
+<p>Visual Studio Code is incredibly powerful, whether it’s for writing <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-markdown.html">markdown</a>, writing <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-quarto.html">quarto</a> (.qmd) files, getting syntax highlighting and peerless language support (eg auto-completion), getting peerless git support, working with a <a href="https://github.com/features/copilot">co-pilot</a>, <a href="https://visualstudio.microsoft.com/services/live-share/">working with collaborators in real-time</a>, or even running <a href="../../../blog/posts/setting-up-r-in-vscode/index.html">R code in a modern REPL</a>. For me, it’s the best IDE by some way. One of its strongest features for data science is its ability to do interactive window coding with scripts <em>and</em> notebooks. Yet most online or cloud-based data science services focus only on notebooks. Wouldn’t it be great if there was a reliable way to use all of Visual Studio Code’s features in the cloud?<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;If you have a GitHub account you can just press ‘.’ on a repo and it will load up something that looks a lot like Visual Studio Code but this can’t run code, it’s only a text editor.</p></div><div id="fn2"><p><sup>2</sup>&nbsp;We’ll be using Google Cloud Compute but the concepts will be similar for other cloud services. You should also note that using cloud services is usually charged though free credits are often available for new accounts. Also, this has only been tested on MacOS.</p></div></div><p>In this blog post, I’ll show you how to set up Visual Studio Code on your desktop so that it connects remotely to a cloud virtual machine. This will allow you to code on the cloud as if you were developing locally.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <p>Why should you care? Because having a reproducible environment on the cloud that you can use with your cutting-edge tools is pretty nifty!</p>
 <p>There are pre-made resources out there that do this already such as <a href="https://github.com/features/codespaces">Github Codespaces</a> and <a href="https://www.gitpod.io/">Gitpod</a>, which even has a free tier. They are incredible and well worth checking out for, more or less, a one click solution for fully-featued Visual Studio Code in the cloud. But they’re probably a bit more pricey than a roll your own version, clearly have less flexibility in terms of virtual machines, and don’t come with the nice data backends that are provided by a huge cloud provider (yet).</p>
 <section id="interactive-window-coding" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="interactive-window-coding">Interactive Window Coding</h2>
-<div class="page-columns page-full"><p>If you’re not familiar with it, the <em>interactive window</em><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> is a convenient and flexible way to run code that you have open in a script or that you type directly into the interactive window code box. It allows you to remix, explore, and try out code one line at a time or in chunks or as a whole script–which makes it perfect for analysis and data science on those occassions when you don’t need text alongside code. You can find out more about <a href="https://aeturrell.github.io/python4DS/introduction.html#installing-visual-studio-code-to-run-python">how to set up interactive window coding in Python with Visual Studio Code here</a> (and R <a href="http://aeturrell.com//2021/11/04/setting-up-r-in-vscode/">here</a>). More generally, Visual Studio Code is a fantastic environment for doing data science in and many of its features eventually got adopted by other tools.</p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;This is actually a special kind of ipython console.</p></li></div></div>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
+<p>If you’re not familiar with it, the <em>interactive window</em><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> is a convenient and flexible way to run code that you have open in a script or that you type directly into the interactive window code box. It allows you to remix, explore, and try out code one line at a time or in chunks or as a whole script–which makes it perfect for analysis and data science on those occassions when you don’t need text alongside code. You can find out more about <a href="https://aeturrell.github.io/python4DS/introduction.html#installing-visual-studio-code-to-run-python">how to set up interactive window coding in Python with Visual Studio Code here</a> (and R <a href="http://aeturrell.com//2021/11/04/setting-up-r-in-vscode/">here</a>). More generally, Visual Studio Code is a fantastic environment for doing data science in and many of its features eventually got adopted by other tools.</p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;This is actually a special kind of ipython console.</p></div></div><div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://github.com/aeturrell/coding-for-economists/blob/main/img/vscode_layout.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">Typical layout of Visual Studio Code</figcaption>
+<figcaption class="margin-caption">Typical layout of Visual Studio Code</figcaption>
 </figure>
 </div>
 <p>The figure above shows the typical layout of Visual Studio Code. Number 5 is the interactive Python window, which is where code and code outputs appear after you select and execute them from a script (number 3) or just by writing in the box ‘Type code here’ box.</p>
@@ -444,18 +452,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -487,11 +484,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.aeturrell\.com\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -501,8 +537,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -514,7 +559,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -558,6 +726,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -583,6 +752,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -643,6 +838,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

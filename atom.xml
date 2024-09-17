@@ -9,13 +9,51 @@
 <link>https://www.aeturrell.com/atom.html</link>
 <atom:link href="https://www.aeturrell.com/atom.xml" rel="self" type="application/rss+xml"/>
 <description>{{&lt; meta description-meta &gt;}}</description>
-<generator>quarto-1.3.361</generator>
-<lastBuildDate>Tue, 23 Apr 2024 23:00:00 GMT</lastBuildDate>
+<generator>quarto-1.5.56</generator>
+<lastBuildDate>Mon, 16 Sep 2024 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>The false economy of bad IT</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>https://www.aeturrell.com/blog/posts/bad-it/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Many of us will have experienced bad hardware or software at work. Applications that freeze when you try and do something. A lag when typing. Some programmes ceasing to work before crashing completely. Maybe it’s another kind of performance that makes you want to throw your laptop out of the window: the battery dies after you’ve only been to a couple of meetings, or the text on the screen screen seems teeny tiny if you’re not plugged into a monitor. All of this is very annoying. But, worst of all, it’s a waste of your most precious resource: your time.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="https://www.aeturrell.com/blog/posts/bad-it/dall_e_laptop_window.webp" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="margin-caption">DALL-E generated image of someone expressing their frustration with their laptop, and window(s)</figcaption>
+</figure>
+</div>
+<p>Employers should care about this because it’s losing them money, particularly if they have staff who use computers for most of their work or their staff are relatively well-paid<sup>1</sup>, or both.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;For the sake of making this concrete, let’s take “well-paid” to mean above the current UK median of £35k.</p></div></div><p>Let’s do a back-of-the-envelope calculation to show why bad IT makes no economic sense. The mid-range hardware used in many organisations looks, at best, like a 1TB SSD, 16GB RAM, i7 touch laptop or touch surface running Windows. As examples of these sorts of machines, a Lenovo ThinkPad model <a href="https://www.lenovo.com/gb/en/p/laptops/thinkpad/thinkpadp/thinkpad-p14s-gen-4-14-inch-intel/21hf000uuk">21HF000UUK</a> and a <a href="https://www.microsoft.com/en-gb/d/surface-pro-9/93vkd8np4fvk?activetab=pivot:overviewtab">Microsoft Surface Pro 9</a> with those specifications are a good fit. The laptop has a 14-inch screen; the surface 13 inches. A quick check shows that these come in at £1600 and £2200 respectively at the time of writing. In my experience, the ThinkPad has a battery life of, at best, 2—3 hours; I’m not sure about the Surface.</p>
+<p>Now let’s take a high-end laptop: a <a href="https://www.apple.com/uk/shop/buy-mac/macbook-pro/14-inch-space-grey-apple-m3-chip-with-8-core-cpu-and-10-core-gpu-8gb-memory-512gb">14-inch M3-chip MacBook Pro</a> that can run small large language models locally (!) and has 24GB of RAM plus a 1TB SSD. It’s the same size of hard drive but has 8 extra GB of RAM, which is enough to make a substantial difference to the performance (but, also, <a href="https://www.howtogeek.com/865066/its-okay-to-buy-a-mac-with-only-8-gb-ram/">each GB of RAM is more performant</a> in a Mac.) This is all-important because many of the glitches, pauses, and slowness of less good laptops come down to insufficient RAM. It isn’t simple to compare the processors of these machines, but the Mac is very approximately 30% faster. Without going back and forth on claims about battery life, Mac laptops occupy four of the top six laptops with the best battery life as <a href="https://www.tomsguide.com/best-picks/best-laptops-for-battery-life">listed in Toms Guide</a> and personal experience suggests they go for far longer than 2—3 hours. Our high-end laptop comes in at £2300, an extra £100 or £700 relative to the mid-range ones. Now Macs do not have touchscreens but my observation is that extremely few people use the touch feature on a laptop. My other observation is that high-end laptops have problems once in a blue moon—there’s a crash once every 3 months or so. This is so rare that I take it to be zero.</p>
+<p>Let’s say the cheaper hardware has three incidents a day where something glitches, crashes, or goes slow enough to pause a workflow and, on average, this causes three minutes of lost time during each occurrence. This seems entirely reasonable because most people will start doing something else, perhaps making a cup of tea, if their laptop becomes unresponsive for any length of time. Now, imagine the average professional costs a business £60.0k a year (with pension, National Insurance, etc, etc)<sup>2</sup> and works 7.5 hours a day, so 51.0p per working minute. This makes the cost of that lost time around £1200.0 per year, compared to spending only £700 to £100 more to get the higher end laptop.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;To give a sense of what this is as a headline salary, a base salary of £50k and pension of 7% plus National Insurance of £5644 takes the total cost to the employer to £59k.</p></div></div><p>Switching to a higher-end laptop pays off by at least £500.0 just in the first year. For the laptop, it’s worth going high-end for <em>any</em> all-in salary cost above £35.0k (remember, the UK median headline salary cost is £35k). The benefits are likely bigger when looking at a longer period: as far as I’ve been able to tell, mid-range laptops usually last around three years while higher end laptops last more like five years–with <a href="https://www.businessinsider.com/guides/tech/how-long-do-laptops-last">some reports suggesting</a> Apple laptops last longer than this. So the “payoff” from switching might be a few times this.</p>
+<p>There are a bunch of other factors here that are hard to estimate. Staff might be more motivated by better IT, and this is hard to quantify. But if staff surveys consistently rate technology as poor, the benefits may be significant. There could be better staff retention, which is worth a lot. But better IT might also discourage some bad behaviour: if people have to deal with a laptop battery that doesn’t last long enough for two meetings in a row, they will either make no notes or start using personal devices to take notes. If people are faced with a laptop or surface that’s too fiddly to use on a train, they simply won’t work when in transit.</p>
+<p>On the other hand, there is likely to be a cost to maintaining two or more separate operating systems in an enterprise. Apple laptops use MacOS, a different operating system to the one often installed on ThinkPads, Surfaces, and similar devices, which is Windows. But most organisations have already crossed the Rubicon on this with their use of iPhones for mobiles, and Linux for critical systems. It’s also really poor practice to hitch your organisation to a single provider of software and hardware. You’ll be backed into a corner when negotiating contracts, and may not be able to easily change things up if the software or hardware quality degrades. (It’s notable that frontier tech firms <a href="https://www.quora.com/What-operating-system-do-the-Google-employees-use-How-much-freedom-do-they-have-with-respect-to-an-OS-usage">allow staff to choose</a> between Windows, MacOS, and Linux.) I don’t know how to estimate the cost of maintaining two or more operating systems in an organisation but there are serious downsides to having just one.</p>
+<p>I’m not suggesting that organisations should just buy Apple laptops–this is about efficiency, and the best prescription for that is to <strong>allow staff to choose what works best for them</strong>. The apparently economically optimal choice won’t make sense for everyone: some staff might want to stick with mid-range laptops because they get along better with the operating system or laptop design, and that’s okay. By allowing staff to choose what they get on best with you keep them happy, and you make your organisation more productive. The bottom line is that everybody wins when staff have the option to use a higher-end laptop—except, maybe, glaziers.</p>
+
+
+
+
+ ]]></description>
+  <category>work chat</category>
+  <category>productivity</category>
+  <category>public sector</category>
+  <guid>https://www.aeturrell.com/blog/posts/bad-it/</guid>
+  <pubDate>Mon, 16 Sep 2024 23:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/bad-it/dall_e_laptop_window.webp" medium="image" type="image/webp"/>
+</item>
 <item>
   <title>TIL: how to create and work with a MySQL database on Azure</title>
   <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/til-sql-database-azure/index.html</link>
+  <link>https://www.aeturrell.com/blog/posts/til-sql-database-azure/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -62,11 +100,9 @@ font-style: inherit;">=&lt;&gt;</span></span>
 background-color: null;
 font-style: inherit;">location</span><span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=&lt;&gt;</span>  # <span class="ex" style="color: null;
+font-style: inherit;">=&lt;&gt;</span>  <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">eg</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"uksouth"</span></span></code></pre></div>
+font-style: inherit;"># eg "uksouth"</span></span></code></pre></div>
 <p>Then to create the server (with conservative cost settings), it’s</p>
 <div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
 background-color: null;
@@ -196,8 +232,10 @@ background-color: null;
 font-style: inherit;">"Show databases;"</span>)</span>
 <span id="cb9-2"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> db <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> mycursor:</span>
 <span id="cb9-3">    <span class="bu" style="color: null;
 background-color: null;
@@ -384,8 +422,10 @@ background-color: null;
 font-style: inherit;">=</span> mycursor.fetchall()</span>
 <span id="cb13-4"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> row <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> result:</span>
 <span id="cb13-5">    <span class="bu" style="color: null;
 background-color: null;
@@ -444,7 +484,7 @@ font-style: inherit;">=</span> con.table(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"movies"</span>)</span>
 <span id="cb17-2">t.head().to_pandas()</span></code></pre></div>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 3%">
 <col style="width: 4%">
@@ -517,7 +557,7 @@ font-style: inherit;">1996</span>)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/til-sql-database-azure/ibis_query_result.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">Returned result from filter using Ibis</figcaption>
+<figcaption class="margin-caption">Returned result from filter using Ibis</figcaption>
 </figure>
 </div>
 <p>But you can also get this as SQL:</p>
@@ -530,9 +570,11 @@ background-color: null;
 font-style: inherit;">1996</span>))</span></code></pre></div>
 <div class="sourceCode" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">SELECT</span></span>
 <span id="cb20-2">  t0.<span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">id</span>,</span>
 <span id="cb20-3">  t0.title,</span>
 <span id="cb20-4">  t0.release_year,</span>
@@ -540,11 +582,14 @@ font-style: inherit;">id</span>,</span>
 <span id="cb20-6">  t0.collection_in_mil</span>
 <span id="cb20-7"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">FROM</span> movies <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">AS</span> t0</span>
 <span id="cb20-8"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">WHERE</span></span>
 <span id="cb20-9">  t0.release_year <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -562,15 +607,16 @@ font-style: inherit;">1996</span></span></code></pre></div>
  ]]></description>
   <category>code</category>
   <category>cloud</category>
-  <guid>https://www.aeturrell.com/blog/posts/til-sql-database-azure/index.html</guid>
+  <guid>https://www.aeturrell.com/blog/posts/til-sql-database-azure/</guid>
   <pubDate>Tue, 23 Apr 2024 23:00:00 GMT</pubDate>
   <media:content url="https://www.aeturrell.com/blog/posts/til-sql-database-azure/ibis_query_result.png" medium="image" type="image/png" height="51" width="144"/>
 </item>
 <item>
   <title>TIL: how to create and work with remote blob storage on Azure</title>
   <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/til-blob-storage-azure/index.html</link>
+  <link>https://www.aeturrell.com/blog/posts/til-blob-storage-azure/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -604,11 +650,9 @@ font-style: inherit;">=&lt;&gt;</span></span>
 background-color: null;
 font-style: inherit;">location</span><span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=&lt;&gt;</span> # <span class="ex" style="color: null;
+font-style: inherit;">=&lt;&gt;</span> <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">eg</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"uksouth"</span></span>
+font-style: inherit;"># eg "uksouth"</span></span>
 <span id="cb1-4"><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">sku</span><span class="op" style="color: #5E5E5E;
@@ -718,9 +762,9 @@ font-style: inherit;">--encryption-services</span> blob</span></code></pre></div
 background-color: null;
 font-style: inherit;">subscriptionid</span><span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=&lt;&gt;</span>  # <span class="ex" style="color: null;
+font-style: inherit;">=&lt;&gt;</span>  <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">long</span> combination of numbers and letters with dashes</span>
+font-style: inherit;"># long combination of numbers and letters with dashes</span></span>
 <span id="cb4-2"></span>
 <span id="cb4-3"><span class="ex" style="color: null;
 background-color: null;
@@ -730,6 +774,7 @@ font-style: inherit;">--query</span> id <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">-o</span> tsv <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">|</span> <span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">az</span> role assignment create <span class="dt" style="color: #AD0000;
@@ -773,11 +818,9 @@ font-style: inherit;">"</span></span></code></pre></div>
 background-color: null;
 font-style: inherit;">containername</span><span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=&lt;&gt;</span>  # <span class="ex" style="color: null;
+font-style: inherit;">=&lt;&gt;</span>  <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">eg</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"mydemocontainer"</span></span>
+font-style: inherit;"># eg "mydemocontainer"</span></span>
 <span id="cb5-2"></span>
 <span id="cb5-3"><span class="ex" style="color: null;
 background-color: null;
@@ -884,14 +927,15 @@ font-style: inherit;">--auth-mode</span> login</span></code></pre></div>
  ]]></description>
   <category>code</category>
   <category>cloud</category>
-  <guid>https://www.aeturrell.com/blog/posts/til-blob-storage-azure/index.html</guid>
+  <guid>https://www.aeturrell.com/blog/posts/til-blob-storage-azure/</guid>
   <pubDate>Mon, 22 Apr 2024 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>TIL: how to connect Visual Studio Code to Azure Virtual Machines</title>
   <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/til-how-to-run-vscode-remote-azure/index.html</link>
+  <link>https://www.aeturrell.com/blog/posts/til-how-to-run-vscode-remote-azure/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1009,7 +1053,7 @@ font-style: inherit;">-i</span> ~/.ssh/id_rsa.pem VM-USERNAME@VM-IP-ADDRESS</spa
   <category>cloud</category>
   <category>python</category>
   <category>rstats</category>
-  <guid>https://www.aeturrell.com/blog/posts/til-how-to-run-vscode-remote-azure/index.html</guid>
+  <guid>https://www.aeturrell.com/blog/posts/til-how-to-run-vscode-remote-azure/</guid>
   <pubDate>Fri, 08 Mar 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
@@ -1021,9 +1065,10 @@ font-style: inherit;">-i</span> ~/.ssh/id_rsa.pem VM-USERNAME@VM-IP-ADDRESS</spa
 
 
 
+
 <p>Researchers frequently want to be able to access a second computer that works like a normal computer (think a virtual desktop rather than a virtual machine + command line) just to offload some computation. This post shows how.</p>
-<div class="page-columns page-full"><p>The basic idea here is you don’t want to gum up your own laptop with lots of lengthy computations<sup>1</sup> but you don’t feel confident just using a virtual machine via the command line, or using <a href="../../../blog/posts/visual-studio-code-in-the-cloud/index.html">visual studio code remotely</a>, but you want a virtual desktop that feels a bit similar to using a laptop (only in a browser window). We’ll be using Google’s handy remote desktop service for this.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;And you’ve already optimised in the obvious ways.</p></li></div></div>
-<section id="recipe" class="level2 page-columns page-full">
+<p>The basic idea here is you don’t want to gum up your own laptop with lots of lengthy computations<sup>1</sup> but you don’t feel confident just using a virtual machine via the command line, or using <a href="../../../blog/posts/visual-studio-code-in-the-cloud/index.html">visual studio code remotely</a>, but you want a virtual desktop that feels a bit similar to using a laptop (only in a browser window). We’ll be using Google’s handy remote desktop service for this.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;And you’ve already optimised in the obvious ways.</p></div></div><section id="recipe" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="recipe">Recipe</h2>
 <p>For this, you’ll need a Google Cloud (GCP) account and project with the compute engine API enabled.</p>
 <ol type="1">
@@ -1055,7 +1100,7 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/virtual-desktop-from-virtual-machine/screenshot_ubuntu.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption margin-caption">Screenshot of the desktop changer and app selection functions of Ubuntu desktop accessed through Google’s remote desktop facility</figcaption>
+<figcaption class="margin-caption">Screenshot of the desktop changer and app selection functions of Ubuntu desktop accessed through Google’s remote desktop facility</figcaption>
 </figure>
 </div>
 <p>Remember: you will be charged for the time that your instance is running. This is usually inexpensive but you do want to turn off the virtual machine when you’re not actively using it. You can do this on the instances page with the “stop” button. And, as ever, to tear down the virtual machine completely (and lose anything on it), go to the instances page on GCP and use the delete option.</p>
@@ -1075,8 +1120,9 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
 <item>
   <title>Data science with impact</title>
   <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/data-science-with-impact/index.html</link>
+  <link>https://www.aeturrell.com/blog/posts/data-science-with-impact/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1086,14 +1132,14 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
 <section id="what-impact-is" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="what-impact-is">What impact is</h2>
 <p>For me, to first order, data science with impact is data science for the public good. In other words, you must be able to articulate how a new project or process will benefit the public once complete.</p>
-<div class="page-columns page-full"><p>Inevitably, this prompts the question “what constitutes public good?” My very high-level mental model is that it’s a simple calculation<sup>1</sup> of</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;At the risk of sounding like an effective altruist.</p></li></div></div>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7Bnumber%20of%20people%20affected%20%7D%20%5Ctimes%20%5Ctext%7B%20impact%20on%20people%7D%0A"></p>
+<p>Inevitably, this prompts the question “what constitutes public good?” My very high-level mental model is that it’s a simple calculation<sup>1</sup> of</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;At the risk of sounding like an effective altruist.</p></div></div><p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7Bnumber%20of%20people%20affected%20%7D%20%5Ctimes%20%5Ctext%7B%20impact%20on%20people%7D%0A"></p>
 <p>where the impact on people is the <strong>net present value of the improvement to their life</strong>. For want of a better description, let’s call this the <em>impact equation</em>. If you’re not familiar with net present value, the equation is</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7BNPV%7D%20=%20%5Cdisplaystyle%5Csum%20%5Cfrac%7BR_t%7D%7B(1+i)%5Et%7D%0A"></p>
 <p>which is to say it is the sum of the “returns” at time <img src="https://latex.codecogs.com/png.latex?t"> (where <img src="https://latex.codecogs.com/png.latex?t"> is number of time steps into the future), <img src="https://latex.codecogs.com/png.latex?R_t">, discounted by rate <img src="https://latex.codecogs.com/png.latex?i"> for <img src="https://latex.codecogs.com/png.latex?t"> steps into the future.</p>
 <p>What does this equation mean in practice? Don’t let the urgent crowd out the important, despite the strong temptation to only look directly in front of you when you’re working at a policymaking institution buffeted by short-term headwinds. It also means you should <em>look for the timeless angle in everything you do</em>—even while you’re solving an urgent problem.</p>
-<div class="page-columns page-full"><p>To be a bit more concrete about how this applies when doing data science, open-sourcing the code you’re using is a great way to make that urgent problem you’re working on more timeless. While you may never pick that code up again, someone else just might. Likewise, blogging about what you did—even in a very matter-of-fact way—can help those who come after you with a similar problem get started more quickly. It also points to thinking carefully about the ongoing maintenance costs of what you’re producing—one reason why dashboards, one of the most requested data science products, can get down-rated when looking through this lens.<sup>2</sup></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;Everyone thought the UK Health Security Agency’s COVID-19 dashboard was fantastic, and so it was. But did you know there was a whole team behind it, ensuring it was kept usefully up to date? Dashboards need considerable resources to stay relevant, accurate, and useful.</p></li></div></div>
-<p>Let’s turn to the first of our examples of delivering public good using data science.</p>
+<p>To be a bit more concrete about how this applies when doing data science, open-sourcing the code you’re using is a great way to make that urgent problem you’re working on more timeless. While you may never pick that code up again, someone else just might. Likewise, blogging about what you did—even in a very matter-of-fact way—can help those who come after you with a similar problem get started more quickly. It also points to thinking carefully about the ongoing maintenance costs of what you’re producing—one reason why dashboards, one of the most requested data science products, can get down-rated when looking through this lens.<sup>2</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Everyone thought the UK Health Security Agency’s COVID-19 dashboard was fantastic, and so it was. But did you know there was a whole team behind it, ensuring it was kept usefully up to date? Dashboards need considerable resources to stay relevant, accurate, and useful.</p></div></div><p>Let’s turn to the first of our examples of delivering public good using data science.</p>
 <section id="example-of-public-good-least-cost-grocery-index" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="example-of-public-good-least-cost-grocery-index">Example of public good: least cost grocery index</h3>
 <p>In January 2022, food campaigner Jack Monroe put out a tweet that garnered huge press coverage. The tweet read</p>
@@ -1109,14 +1155,14 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/data-science-with-impact/least_cost_index_v1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption margin-caption">Chart of how prices of least cost grocery items changed produced by the Campus and ONS.</figcaption>
+<figcaption class="margin-caption">Chart of how prices of least cost grocery items changed produced by the Campus and ONS.</figcaption>
 </figure>
 </div>
-<div class="page-columns page-full"><p>How does this fit in with data science for the public good? The first way is that this story, about the cost of living, reached (and was relevant to) a large number of people. While only some households were directly affected by the inflation in the lowest cost items, many were concerned—and therefore interested. Although it wasn’t certain, we knew there was a good chance this analysis would be big news, and indeed the lowest cost grocery index was picked up by all the major news shows and newspapers. In the Campus, we knew it was a hit, because we were asked to put it on the ONS website rather than the Campus’ website (albeit with a “highly experimental” label).<sup>3</sup></p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;An example of what I like to call the Campus’ Andy Murray problem.</p></li></div></div>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
+<p>How does this fit in with data science for the public good? The first way is that this story, about the cost of living, reached (and was relevant to) a large number of people. While only some households were directly affected by the inflation in the lowest cost items, many were concerned—and therefore interested. Although it wasn’t certain, we knew there was a good chance this analysis would be big news, and indeed the lowest cost grocery index was picked up by all the major news shows and newspapers. In the Campus, we knew it was a hit, because we were asked to put it on the ONS website rather than the Campus’ website (albeit with a “highly experimental” label).<sup>3</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;An example of what I like to call the Campus’ Andy Murray problem.</p></div></div><div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/data-science-with-impact/bbc_least_cost.png" class="img-fluid figure-img" style="width:65.0%"></p>
-<figcaption class="figure-caption margin-caption">Many news organisations, including the BBC, ran a leading story on the least cost grocery index.</figcaption>
+<figcaption class="margin-caption">Many news organisations, including the BBC, ran a leading story on the least cost grocery index.</figcaption>
 </figure>
 </div>
 <p>This story reached a large number of people, and, for some, it hopefully affected them too: by validating their experience but also pointing to the items that had fallen in price. It also showed that the <em>next cheapest</em> product was often a substantially more (20%+) than the cheapest and arguably influenced supermarkets to focus more on their budget lines.</p>
@@ -1140,7 +1186,7 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/data-science-with-impact/purs_savings_by_size.png" class="img-fluid figure-img" style="width:55.0%"></p>
-<figcaption class="figure-caption margin-caption">Potential duty savings as estimated in a project bringing together disparate datasets to look at the use of preferential tariffs.</figcaption>
+<figcaption class="margin-caption">Potential duty savings as estimated in a project bringing together disparate datasets to look at the use of preferential tariffs.</figcaption>
 </figure>
 </div>
 </section>
@@ -1158,8 +1204,8 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
 <section id="example-of-building-human-capital-statschat" class="level4 page-columns page-full">
 <h4 class="anchored" data-anchor-id="example-of-building-human-capital-statschat">Example of building human capital: StatsChat</h4>
 <p>Artificial intelligence and machine learning are critical parts of data science, and staff at the Campus followed the developments in large language models such as ChatGPT with excitement. In the UK context, it very quickly became clear that there was huge interest across the public sector in large language models—and it would only be a matter of time before the Campus would be asked to do a project involving a large language model.</p>
-<div class="page-columns page-full"><p>Rather than wait for the call, we took a decision to proactively get some experience with large language models<sup>4</sup> by creating an experimental website search function based on LLM-related technologies. Those of you familiar with the ONS website will be aware that the search functionality is, erm, less than optimal and <a href="https://datasciencecampus.ons.gov.uk/optimising-the-ons-site-search-function-with-google-analytics-and-natural-language-processing/">this isn’t the first time the Campus</a> has attempted to provide better search tools that central ONS services could use to improve the website.</p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;A lot of the credit for pushing this forward goes to my former colleagues in the Data Science Campus; while I was an early and enthusiastic supporter, they did all of the work. Ed Sherman and Andy Banks, plus Andy’s team, were key in making StatsChat happen.</p></li></div></div>
-<p>The team built a demo app that, in examples, seems to dramatically improve the experience of using the ONS website while minimising the potential issues of LLMs, such as hallucinations. You can <a href="https://datasciencecampus.ons.gov.uk/using-large-language-models-llms-to-improve-website-search-experience-with-statschat/">read more about the project in this blog post</a>, but the basic steps were:</p>
+<p>Rather than wait for the call, we took a decision to proactively get some experience with large language models<sup>4</sup> by creating an experimental website search function based on LLM-related technologies. Those of you familiar with the ONS website will be aware that the search functionality is, erm, less than optimal and <a href="https://datasciencecampus.ons.gov.uk/optimising-the-ons-site-search-function-with-google-analytics-and-natural-language-processing/">this isn’t the first time the Campus</a> has attempted to provide better search tools that central ONS services could use to improve the website.</p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;A lot of the credit for pushing this forward goes to my former colleagues in the Data Science Campus; while I was an early and enthusiastic supporter, they did all of the work. Ed Sherman and Andy Banks, plus Andy’s team, were key in making StatsChat happen.</p></div></div><p>The team built a demo app that, in examples, seems to dramatically improve the experience of using the ONS website while minimising the potential issues of LLMs, such as hallucinations. You can <a href="https://datasciencecampus.ons.gov.uk/using-large-language-models-llms-to-improve-website-search-experience-with-statschat/">read more about the project in this blog post</a>, but the basic steps were:</p>
 <ul>
 <li>create a document store of every publication on the ONS website with accompanying metadata</li>
 <li>partition documents into chunks of roughly 1000 characters and converted these into vector embeddings using a sentence transformers model</li>
@@ -1170,7 +1216,7 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/data-science-with-impact/statschat_example.png" class="img-fluid figure-img" style="width:65.0%"></p>
-<figcaption class="figure-caption margin-caption">An example of StatsChat in action.</figcaption>
+<figcaption class="margin-caption">An example of StatsChat in action.</figcaption>
 </figure>
 </div>
 <p>Following this exploratory project, the team is in a much better place to use LLMs in future. And having a ready-made, cutting-edge improvement to the ONS’ website just waiting to be implemented by the Communications department isn’t a bad side outcome either. You can find the <a href="https://github.com/datasciencecampus/statschat-app">code here</a>.</p>
@@ -1191,15 +1237,15 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
 </section>
 <section id="enabling-higher-quality" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="enabling-higher-quality">Enabling higher quality</h3>
-<div class="page-columns page-full"><p>There are so many examples where data science might improve quality. I’ve written recently about how <a href="../../../blog/posts/why-have-a-model-registry/index.html">model registries can reduce model risk</a> for organisations. Data science tools for checking data for issues, like <a href="https://docs.greatexpectations.io/docs/">Great Expectations</a>, or for proactively finding examples that break code, like <a href="https://hypothesis.readthedocs.io/en/latest/">hypothesis</a>, have come on leaps and bounds. And switching from risky spreadsheets to easily auditable version-controlled code represents a phenomenal increase in quality (via a decrease in mistakes).<sup>5</sup></p><div class="no-row-height column-margin column-container"><li id="fn5"><p><sup>5</sup>&nbsp;It’s very possible to make mistakes in code too, but the use of tests, version control, and the separation of data and logic make—in my view—analysis based on code inherently much less risky than analysis in spreadsheets. Every few months there is a massive spreadsheet-related data leak or costly mistake. Some of these are curated in the “horror stories” section of the <a href="https://eusprig.org/research-info/horror-stories/">European Spreadsheet Risks Interest Group</a>.</p></li></div></div>
-<p>As a specific example, the Campus was asked to help with the NHS (National Health Service) Covid App. For those not familiar with the UK context, this app was promoted to the population at large and was very widely used during the Covid-19 pandemic. As such, it collected huge amounts of feedback (good and bad) via both the Apple App Store and the Google Play App Store. Due to the scale of use of the app, there was too much feedback for even a substantial team to read through it all.</p>
+<p>There are so many examples where data science might improve quality. I’ve written recently about how <a href="../../../blog/posts/why-have-a-model-registry/index.html">model registries can reduce model risk</a> for organisations. Data science tools for checking data for issues, like <a href="https://docs.greatexpectations.io/docs/">Great Expectations</a>, or for proactively finding examples that break code, like <a href="https://hypothesis.readthedocs.io/en/latest/">hypothesis</a>, have come on leaps and bounds. And switching from risky spreadsheets to easily auditable version-controlled code represents a phenomenal increase in quality (via a decrease in mistakes).<sup>5</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;It’s very possible to make mistakes in code too, but the use of tests, version control, and the separation of data and logic make—in my view—analysis based on code inherently much less risky than analysis in spreadsheets. Every few months there is a massive spreadsheet-related data leak or costly mistake. Some of these are curated in the “horror stories” section of the <a href="https://eusprig.org/research-info/horror-stories/">European Spreadsheet Risks Interest Group</a>.</p></div></div><p>As a specific example, the Campus was asked to help with the NHS (National Health Service) Covid App. For those not familiar with the UK context, this app was promoted to the population at large and was very widely used during the Covid-19 pandemic. As such, it collected huge amounts of feedback (good and bad) via both the Apple App Store and the Google Play App Store. Due to the scale of use of the app, there was too much feedback for even a substantial team to read through it all.</p>
 <p>A team from the Campus worked with the NHS to use a data science method, called topic modelling, and a data science tool, a dashboard, to help software developers triage the most impactful issues so that they could be fixed first.</p>
 <p>You can <a href="https://datasciencecampus.ons.gov.uk/understanding-nhs-coronavirus-covid-19-app-reviews-using-topic-modelling/">read more about this project here</a>, but the bottom line is that there were limited resources to work on the app but the data scientists involved were able to ensure that these resources were focused on improving the app’s quality in the most impactful way. They did this by using data science methods to capture common themes even if the people reporting them had used quite different phrasing. One innovation that was particularly helpful to developers was the ability to spit out a ‘canonical’ feedback text for each emerging topic: this stated the problem in plain English. The pipeline was run in the cloud.</p>
 <p>Without the data science, improvements to the app would still have happened, but they would have had less impact.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/data-science-with-impact/nhs_app.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">Screenshot of the dashboard summarising the most important issues to fix with the NHS Covid app.</figcaption>
+<figcaption class="margin-caption">Screenshot of the dashboard summarising the most important issues to fix with the NHS Covid app.</figcaption>
 </figure>
 </div>
 </section>
@@ -1221,7 +1267,7 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/data-science-with-impact/cars_pandemic.svg" class="img-fluid figure-img" style="width:55.0%"></p>
-<figcaption class="figure-caption margin-caption">The activity of cars over the pandemic in six UK regions showing the timing of national lockdowns and the anticipatory effect.</figcaption>
+<figcaption class="margin-caption">The activity of cars over the pandemic in six UK regions showing the timing of national lockdowns and the anticipatory effect.</figcaption>
 </figure>
 </div>
 <p>It’s worth mentioning that this project would simply not have been possible without the use of cloud. Public sector institutions looking to get the most value from data science absolutely must empower their data scientists with cloud technologies. You can read more about unleashing the full productivity of data scientists with cloud <a href="../../../blog/posts/data-science-maturity/data-science-maturity.html">in this blog post</a>.</p>
@@ -1264,11 +1310,11 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/data-science-with-impact/capital_stock_uk.jpeg" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption margin-caption">Capital is important for the productivity of data scientists. Chart by Tera Allas.</figcaption>
+<figcaption class="margin-caption">Capital is important for the productivity of data scientists. Chart by Tera Allas.</figcaption>
 </figure>
 </div>
-<div class="page-columns page-full"><p>It’s always wise to check what capital is available before agreeing to a project. For example, at the Campus, we would downrate anything that had to be done on a particular legacy system because data scientists working on it reported that everything took 20 or 30% longer as compared to the best alternative system. Lower productivity means fewer projects means less impact, not to mention frustrated staff. You can do some simple back-of-the-envelope estimates that strongly suggest that skimping on hardware for data scientists makes poor business sense.<sup>6</sup> Because of the constraints of most enterprise IT systems this effectively means that anything where data scientists are in control of their own software and hardware, eg on cloud, looks relatively much more attractive—you can simply get more done. In the case of cloud, the monetary costs could be <em>lower</em> than using traditional on-premises hardware, though it does depend on what you’re doing and how carefully you’re doing it.</p><div class="no-row-height column-margin column-container"><li id="fn6"><p><sup>6</sup>&nbsp;A note on that back-of-the-envelope argument for investing in better capital for data scientists. The hardware used in many public organisations looks, at best, like a 1TB SSD, 16GB RAM, i7 touch laptop or surface running Windows. A quick check shows that these come in at £1500 and £2200 respectively from a major provider. For our high-end laptop, we’ll go for a 14-inch M3-chip MacBook Pro that can run small large language models locally (!) and has 24GB of RAM plus a 1TB SSD, which costs £2300. This is more RAM but also <a href="https://www.howtogeek.com/865066/its-okay-to-buy-a-mac-with-only-8-gb-ram/">each GB of RAM is more performant in a Mac</a>. Let’s say the cheaper hardware has three incidents a day where something glitches, crashes, or goes slow enough to pause a workflow and, on average, this causes three minutes of lost time during each occurrence. Now, imagine the average data scientist costs a business £74k a year (with pension, National Insurance, etc, etc) and works 7.5 hours a day, so 65p per working minute. This makes the cost of that lost time £1480 per year, compared to spending £100 to £800 more to get the higher end laptop. That’s just one year too: as far as I can tell, mid-range laptops usually last around three years while higher end laptops last more like five years–with some <a href="https://www.businessinsider.com/guides/tech/how-long-do-laptops-last">reports suggesting Apple laptops last even longer than this</a>. So it’s worth it even before we add on the other costs of worse capital, such as poorer staff retention. At the Campus, we issued most staff with MacBooks.</p></li></div></div>
-</section>
+<p>It’s always wise to check what capital is available before agreeing to a project. For example, at the Campus, we would downrate anything that had to be done on a particular legacy system because data scientists working on it reported that everything took 20 or 30% longer as compared to the best alternative system. Lower productivity means fewer projects means less impact, not to mention frustrated staff. You can do some simple back-of-the-envelope estimates that strongly suggest that skimping on hardware for data scientists makes poor business sense.<sup>6</sup> Because of the constraints of most enterprise IT systems this effectively means that anything where data scientists are in control of their own software and hardware, eg on cloud, looks relatively much more attractive—you can simply get more done. In the case of cloud, the monetary costs could be <em>lower</em> than using traditional on-premises hardware, though it does depend on what you’re doing and how carefully you’re doing it.</p>
+<div class="no-row-height column-margin column-container"><div id="fn6"><p><sup>6</sup>&nbsp;A note on that back-of-the-envelope argument for investing in better capital for data scientists. The hardware used in many public organisations looks, at best, like a 1TB SSD, 16GB RAM, i7 touch laptop or surface running Windows. A quick check shows that these come in at £1500 and £2200 respectively from a major provider. For our high-end laptop, we’ll go for a 14-inch M3-chip MacBook Pro that can run small large language models locally (!) and has 24GB of RAM plus a 1TB SSD, which costs £2300. This is more RAM but also <a href="https://www.howtogeek.com/865066/its-okay-to-buy-a-mac-with-only-8-gb-ram/">each GB of RAM is more performant in a Mac</a>. Let’s say the cheaper hardware has three incidents a day where something glitches, crashes, or goes slow enough to pause a workflow and, on average, this causes three minutes of lost time during each occurrence. Now, imagine the average data scientist costs a business £74k a year (with pension, National Insurance, etc, etc) and works 7.5 hours a day, so 65p per working minute. This makes the cost of that lost time £1480 per year, compared to spending £100 to £800 more to get the higher end laptop. That’s just one year too: as far as I can tell, mid-range laptops usually last around three years while higher end laptops last more like five years–with some <a href="https://www.businessinsider.com/guides/tech/how-long-do-laptops-last">reports suggesting Apple laptops last even longer than this</a>. So it’s worth it even before we add on the other costs of worse capital, such as poorer staff retention. At the Campus, we issued most staff with MacBooks.</p></div></div></section>
 <section id="constraints-and-dependencies" class="level3">
 <h3 class="anchored" data-anchor-id="constraints-and-dependencies">Constraints and dependencies</h3>
 <p>My point here about giving data scientists agency in the capital they use applies more generally too: what other constraints and dependencies are there? To state the obvious, optimisation under constraints is harder than optimisation. If there’s a constraint around using a particular system, it will be harder to have the same impact, all else equal. If there’s a critical dependency on another organisation over which you have is limited control, or if that org has limited incentives to help, it’s going to be harder to have impact than if the only dependencies are internal.</p>
@@ -1302,15 +1348,16 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
   <category>rstats</category>
   <category>data science</category>
   <category>public sector</category>
-  <guid>https://www.aeturrell.com/blog/posts/data-science-with-impact/index.html</guid>
+  <guid>https://www.aeturrell.com/blog/posts/data-science-with-impact/</guid>
   <pubDate>Mon, 13 Nov 2023 00:00:00 GMT</pubDate>
   <media:content url="https://www.aeturrell.com/blog/posts/data-science-with-impact/npv_cover.png" medium="image" type="image/png" height="40" width="144"/>
 </item>
 <item>
   <title>Why have a model registry?</title>
   <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/why-have-a-model-registry/index.html</link>
+  <link>https://www.aeturrell.com/blog/posts/why-have-a-model-registry/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1319,8 +1366,8 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
 <p>If you’re not familiar with the idea of a <em>model registry</em>, it’s a service offered by all three major cloud providers (<a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry.html">Amazon Web Services</a>, <a href="https://cloud.google.com/vertex-ai/docs/model-registry/introduction">Google Cloud Platform</a>, and <a href="https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-models">Microsoft Azure Platform</a>) that allows you to lodge models in a (private) repository online. You can also custom build your own model registry (and much more) using the wonderful open source package <a href="https://mlflow.org/docs/latest">MLflow</a>.</p>
 <section id="what-even-is-a-model" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="what-even-is-a-model">What even is a model?</h2>
-<div class="page-columns page-full"><p>The word “model” is doing a lot of work here: it means a digital artefact that is (usually) trained on some data and which either contains coefficient estimates or can make predictions or both. A linear regression is an example of a model. In the data science world, it would usually mean a trained machine learning model that can make new predictions given new inputs. Perhaps the most commonly used file format for models is pickle, with extension <code>.pkl</code>.<sup>1</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Of course, I’m not naïve, I know people are out there building models in Excel. What I really mean is “the file format most commonly used by data professionals for models is pickle”. Today, almost undoubtedly, <code>.xlsx</code> is the most common file format for models but we’ll see why that’s not satisfactory.</p></li></div></div>
-<p>Want to see an example of a simple model in code, and the command to save it to disk? Scroll down or click here.</p>
+<p>The word “model” is doing a lot of work here: it means a digital artefact that is (usually) trained on some data and which either contains coefficient estimates or can make predictions or both. A linear regression is an example of a model. In the data science world, it would usually mean a trained machine learning model that can make new predictions given new inputs. Perhaps the most commonly used file format for models is pickle, with extension <code>.pkl</code>.<sup>1</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Of course, I’m not naïve, I know people are out there building models in Excel. What I really mean is “the file format most commonly used by data professionals for models is pickle”. Today, almost undoubtedly, <code>.xlsx</code> is the most common file format for models but we’ll see why that’s not satisfactory.</p></div></div><p>Want to see an example of a simple model in code, and the command to save it to disk? Scroll down or click here.</p>
 </section>
 <section id="what-is-a-model-registry-and-why-do-i-need-it" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="what-is-a-model-registry-and-why-do-i-need-it">What is a <em>model registry</em> and why do I need it?</h2>
@@ -1330,7 +1377,7 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/why-have-a-model-registry/model_reg_img.png" class="img-fluid figure-img" style="width:100.0%" alt="Schematic of a model registry."></p>
-<figcaption class="figure-caption margin-caption">Schematic of a model registry.</figcaption>
+<figcaption class="margin-caption">Schematic of a model registry.</figcaption>
 </figure>
 </div>
 <p>Reasons you might want to use a model registry include:</p>
@@ -1349,8 +1396,8 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
 <li>you want to make sure that you’re all using the same model. When you load a model from a registry, you pull it <em>directly</em> from the cloud repository—so there’s no chance of you accidentally changing a version that you’ve downloaded to your own machine and running something that’s inconsistent with the online version.</li>
 </ul>
 <p><em>Not</em> having some of these features comes with significant <em>model risk</em>. By model risk, I mean risks relating to models such as not knowing which model or model version was used in a particular decision or at a particular time, losing track of key models, people having access to sensitive models that they shouldn’t, not realising that a model’s performance has significantly degraded, and being unable to reproduce results that were used in critical decision making.</p>
-<div class="page-columns page-full"><p>I said I would come back to models in Excel. In principle, you might (?) be able to store Excel models in a model registry and get some of these benefits (some, but definitely not all: you can’t deploy Excel to an API endpoint, for example, or use it with continuous integration). But Excel comes with so many other issues, I really don’t think you should. Some of the big ones are that they bundle code and data and model together, so you lose all the (not addressed in this post) benefits of version control, you lose control of data (very explicitly—<a href="https://www.nature.com/articles/d41586-021-02211-4">Excel changes your data</a>), and the code is repeated across cells, which makes some errors more likely.<sup>2</sup> The bottom line is that if the model is doing anything important, it shouldn’t be in a spreadsheet.</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;The classic examples are not pulling a formula down to cover all rows or columns and hard-pasting numbers over formula cells.</p></li></div></div>
-</section>
+<p>I said I would come back to models in Excel. In principle, you might (?) be able to store Excel models in a model registry and get some of these benefits (some, but definitely not all: you can’t deploy Excel to an API endpoint, for example, or use it with continuous integration). But Excel comes with so many other issues, I really don’t think you should. Some of the big ones are that they bundle code and data and model together, so you lose all the (not addressed in this post) benefits of version control, you lose control of data (very explicitly—<a href="https://www.nature.com/articles/d41586-021-02211-4">Excel changes your data</a>), and the code is repeated across cells, which makes some errors more likely.<sup>2</sup> The bottom line is that if the model is doing anything important, it shouldn’t be in a spreadsheet.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;The classic examples are not pulling a formula down to cover all rows or columns and hard-pasting numbers over formula cells.</p></div></div></section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p>If your institution relies on models in any way that’s even vaguely critical, it’s hard to see why you wouldn’t want most of the functionality of a model registry or the attendant reduction in risks it can provide. Additionally, this is pretty cheap (or even free), and, because cloud services are scriptable, very automatable, so it’s plausible that the extra functionality comes along with a <em>boost</em> in productivity. Model behaviour indeed!</p>
@@ -1406,7 +1453,7 @@ font-style: inherit;">float</span>},</span>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1533,7 +1580,7 @@ font-style: inherit;">=</span>mpg).fit()</span></code></pre></div>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">lin_model.summary()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>OLS Regression Results</caption>
 <tbody>
 <tr class="odd">
@@ -1592,7 +1639,9 @@ font-style: inherit;">=</span>mpg).fit()</span></code></pre></div>
 </tr>
 </tbody>
 </table>
-<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
+
+
+<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
 <td></td>
@@ -1650,7 +1699,9 @@ font-style: inherit;">=</span>mpg).fit()</span></code></pre></div>
 </tr>
 </tbody>
 </table>
-<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
+
+
+<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Omnibus:</td>
@@ -1742,14 +1793,14 @@ font-style: inherit;">"Model created from local file."</span>,</span>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/why-have-a-model-registry/list_view_google_mr.jpg" class="img-fluid figure-img" style="width:100.0%" alt="A Google model registry with some models in."></p>
-<figcaption class="figure-caption margin-caption">Screenshot showing the model registry page on Vertex AI.</figcaption>
+<figcaption class="margin-caption">Screenshot showing the model registry page on Vertex AI.</figcaption>
 </figure>
 </div>
 <p>You can see high level information such as the name, number of versions, default version, deployment status, and type. If you click through to one of those models, you get a more detailed view.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/why-have-a-model-registry/single_model_view_google_mr.jpg" class="img-fluid figure-img" style="width:100.0%" alt="A single model's page in a Google model registry."></p>
-<figcaption class="figure-caption margin-caption">Screenshot showing a single model’s page in a Google model registry.</figcaption>
+<figcaption class="margin-caption">Screenshot showing a single model’s page in a Google model registry.</figcaption>
 </figure>
 </div>
 <p>This view shows the labels applied to each version of a specific model, and more. One of the great features of a model registry is that performance can be automatically assessed (“continous integration”).</p>
@@ -1757,7 +1808,7 @@ font-style: inherit;">"Model created from local file."</span>,</span>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/why-have-a-model-registry/performance_view_google_mr.jpg" class="img-fluid figure-img" style="width:100.0%" alt="A single model's performance metrics in Google model registry."></p>
-<figcaption class="figure-caption margin-caption">Screenshot showing a single model’s performance metrics in Google model registry.</figcaption>
+<figcaption class="margin-caption">Screenshot showing a single model’s performance metrics in Google model registry.</figcaption>
 </figure>
 </div>
 <section id="metadata" class="level3">
@@ -1795,7 +1846,7 @@ signature:
   <category>open-source</category>
   <category>cloud</category>
   <category>data science</category>
-  <guid>https://www.aeturrell.com/blog/posts/why-have-a-model-registry/index.html</guid>
+  <guid>https://www.aeturrell.com/blog/posts/why-have-a-model-registry/</guid>
   <pubDate>Thu, 12 Oct 2023 23:00:00 GMT</pubDate>
 </item>
 <item>
@@ -1807,12 +1858,13 @@ signature:
 
 
 
+
 <p>Cloud tools and Python packages have become so powerful that you can build a (scalable) cloud-based API in fewer than 200 lines of code. In this blog post, you’ll see how to use Google Cloud, Terraform, and FastAPI to deploy a queryable data API on the cloud.</p>
 <p>The repository associated with this project <a href="https://github.com/aeturrell/deploy-api">can be found here</a> should you wish to try this for yourself.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/build-a-cloud-api/run_using_data.png" class="img-fluid figure-img" style="width:30.0%" alt="Image showing JSON returned by API."></p>
-<figcaption class="figure-caption margin-caption">An example of the API created in this blog post returning data.</figcaption>
+<figcaption class="margin-caption">An example of the API created in this blog post returning data.</figcaption>
 </figure>
 </div>
 <section id="background" class="level2">
@@ -1860,8 +1912,10 @@ background-color: null;
 font-style: inherit;">"</span>)</span>
 <span id="cb1-2"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">async</span> <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">def</span> read_item(year: <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">int</span>, geo_code: <span class="bu" style="color: null;
@@ -1886,6 +1940,7 @@ font-style: inherit;">"deaths"</span></span>
 <span id="cb1-5">    ].to_dict()</span>
 <span id="cb1-6">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">return</span> {<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"year"</span>: year, <span class="st" style="color: #20794D;
@@ -2145,8 +2200,9 @@ Done.</code></pre>
 <item>
   <title>The explosion in time series forecasting packages in data science</title>
   <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/time-series-explosion/index.html</link>
+  <link>https://www.aeturrell.com/blog/posts/time-series-explosion/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -2157,7 +2213,7 @@ Done.</code></pre>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/time-series-explosion/pymc_example.png" class="img-fluid figure-img" style="width:60.0%" alt="Posteriors for outturn, trend, and seasonality."></p>
-<figcaption class="figure-caption margin-caption">An example: forecasting airline passenger numbers in Bayesian package PyMC</figcaption>
+<figcaption class="margin-caption">An example: forecasting airline passenger numbers in Bayesian package PyMC</figcaption>
 </figure>
 </div>
 <section id="background" class="level2">
@@ -2173,8 +2229,7 @@ Done.</code></pre>
 <p>So what does the landscape look like today? Well, of course, it depends on where we draw the line. Anything that can predict a number can be used for time series forecasting, so all of <a href="https://scikit-learn.org/">scikit-learn</a> and <a href="https://pytorch.org/">pytorch</a> would qualify. But we’re going to focus on packages that can do competent time series analysis more or less out of the box. Secondly, we’re going to focus more on forecasting than, say, classification or anomaly detection—though a lot of the libraries below offer these features too. Similarly, more time series feature discovery packages (<a href="https://github.com/alteryx/featuretools">featuretools</a>, <a href="https://github.com/blue-yonder/tsfresh">tsfresh</a>) have appeared, but we won’t cover those. Finally, I also ignored packages that didn’t seem to be under active development or being maintained.</p>
 <p>Let’s dive into what’s on offer now for <em>time series forecasting</em>. The table below gives the name, organisation, and homepage of each package. The “About” column is largely drawn from the websites of these packages, with some extra context in italics.</p>
 <p>As you can see from the table, we’re spoiled for choice right now. I guess you could say, for data scientists doing forecasting, times are good 😉.</p>
-<table class="table-striped table-hover table">
-<caption></caption>
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 20%">
 <col style="width: 20%">
@@ -2274,14 +2329,15 @@ Done.</code></pre>
   <category>data science</category>
   <category>python</category>
   <category>time series</category>
-  <guid>https://www.aeturrell.com/blog/posts/time-series-explosion/index.html</guid>
+  <guid>https://www.aeturrell.com/blog/posts/time-series-explosion/</guid>
   <pubDate>Mon, 11 Sep 2023 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>TIL: Obsidian, and integrating it with Zotero</title>
   <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/til-zotero-and-obsidian/index.html</link>
+  <link>https://www.aeturrell.com/blog/posts/til-zotero-and-obsidian/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -2299,8 +2355,8 @@ Done.</code></pre>
 </section>
 <section id="integrating-zotero" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="integrating-zotero">Integrating Zotero</h2>
-<div class="page-columns page-full"><p>You might not be familiar with <a href="https://www.zotero.org/">Zotero</a>, but it’s an excellent, open-source programme for collecting and organising research literature in the form of citations (for example, .bib files) <em>and</em> the PDFs of the actual papers. It’s basically a database of your research literature, but it (very helpfully) also tracks any notes you might make on a paper <em>and</em> automatically extracts any text you highlight in a PDF into plain-text notes.<sup>1</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;It does some of what Mendeley did in its hey day, but is a lot better.</p></li></div></div>
-<p>Now, imagine you want to use a hot key to <em>automatically</em> create an Obsidian note page that contains, for a specific paper, i) metadata on that paper, ii) notes you’ve made in Zotero on that paper, and iii) any annotations you made in Zotero on that paper. And imagine that, as well as all that, every time you need to link to a paper from your Zotero library that you already turned into an Obsidian note, you could just start typing <code>@</code> and get a drop down list of all your papers. <strong>Well, amazingly, you <em>can</em> do all of this</strong>. Honestly, it’s a revelation.</p>
+<p>You might not be familiar with <a href="https://www.zotero.org/">Zotero</a>, but it’s an excellent, open-source programme for collecting and organising research literature in the form of citations (for example, .bib files) <em>and</em> the PDFs of the actual papers. It’s basically a database of your research literature, but it (very helpfully) also tracks any notes you might make on a paper <em>and</em> automatically extracts any text you highlight in a PDF into plain-text notes.<sup>1</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;It does some of what Mendeley did in its hey day, but is a lot better.</p></div></div><p>Now, imagine you want to use a hot key to <em>automatically</em> create an Obsidian note page that contains, for a specific paper, i) metadata on that paper, ii) notes you’ve made in Zotero on that paper, and iii) any annotations you made in Zotero on that paper. And imagine that, as well as all that, every time you need to link to a paper from your Zotero library that you already turned into an Obsidian note, you could just start typing <code>@</code> and get a drop down list of all your papers. <strong>Well, amazingly, you <em>can</em> do all of this</strong>. Honestly, it’s a revelation.</p>
 <p>If you want to achieve this research-note-taking zen, you’ll need to follow a few steps. First, you’ll need to install Zotero and Obsidian, and a couple of add-ons:</p>
 <ul>
 <li>the better bibtex add-on for Zotero</li>
@@ -2329,7 +2385,7 @@ Done.</code></pre>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/til-zotero-and-obsidian/obsidian-research-note-page.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">Example research page from an Obsidian note</figcaption>
+<figcaption class="margin-caption">Example research page from an Obsidian note</figcaption>
 </figure>
 </div>
 <p>You can see a note that has been made on the paper overall, and an annotation (which inherits the colour you used in Zotero originally) that also has a comment.</p>
@@ -2716,7 +2772,9 @@ font-style: inherit;">/* annotation */</span></span>
 background-color: null;
 font-style: inherit;">.callout</span><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">[data-callout</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">[</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">data-callout</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -2725,7 +2783,9 @@ background-color: null;
 font-style: inherit;">]</span> {</span>
 <span id="cb2-5">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-color</span>: <span class="dv" style="color: #AD0000;
+font-style: inherit;">--callout-color</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">255</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2740,14 +2800,20 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb2-6">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-icon</span>: lucide-highlighter </span>
+font-style: inherit;">--callout-icon</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">lucide-highlighter </span></span>
 <span id="cb2-7">}</span>
 <span id="cb2-8"></span>
 <span id="cb2-9"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">.callout</span><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">[data-callout</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">[</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">data-callout</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -2756,7 +2822,9 @@ background-color: null;
 font-style: inherit;">]</span> {</span>
 <span id="cb2-10">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-color</span>: <span class="dv" style="color: #AD0000;
+font-style: inherit;">--callout-color</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">255</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2771,14 +2839,20 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb2-11">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-icon</span>: lucide-highlighter </span>
+font-style: inherit;">--callout-icon</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">lucide-highlighter </span></span>
 <span id="cb2-12">}</span>
 <span id="cb2-13"></span>
 <span id="cb2-14"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">.callout</span><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">[data-callout</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">[</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">data-callout</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -2787,7 +2861,9 @@ background-color: null;
 font-style: inherit;">]</span> {</span>
 <span id="cb2-15">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-color</span>: <span class="dv" style="color: #AD0000;
+font-style: inherit;">--callout-color</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">95</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2802,14 +2878,20 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb2-16">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-icon</span>: lucide-highlighter </span>
+font-style: inherit;">--callout-icon</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">lucide-highlighter </span></span>
 <span id="cb2-17">}</span>
 <span id="cb2-18"></span>
 <span id="cb2-19"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">.callout</span><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">[data-callout</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">[</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">data-callout</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -2818,7 +2900,9 @@ background-color: null;
 font-style: inherit;">]</span> {</span>
 <span id="cb2-20">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-color</span>: <span class="dv" style="color: #AD0000;
+font-style: inherit;">--callout-color</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">46</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2833,14 +2917,20 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb2-21">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-icon</span>: lucide-highlighter </span>
+font-style: inherit;">--callout-icon</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">lucide-highlighter </span></span>
 <span id="cb2-22">}</span>
 <span id="cb2-23"></span>
 <span id="cb2-24"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">.callout</span><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">[data-callout</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">[</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">data-callout</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -2849,7 +2939,9 @@ background-color: null;
 font-style: inherit;">]</span> {</span>
 <span id="cb2-25">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-color</span>: <span class="dv" style="color: #AD0000;
+font-style: inherit;">--callout-color</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">162</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2864,14 +2956,20 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb2-26">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-icon</span>: lucide-highlighter </span>
+font-style: inherit;">--callout-icon</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">lucide-highlighter </span></span>
 <span id="cb2-27">}</span>
 <span id="cb2-28"></span>
 <span id="cb2-29"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">.callout</span><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">[data-callout</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">[</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">data-callout</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -2880,7 +2978,9 @@ background-color: null;
 font-style: inherit;">]</span> {</span>
 <span id="cb2-30">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-color</span>: <span class="dv" style="color: #AD0000;
+font-style: inherit;">--callout-color</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">162</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2895,14 +2995,20 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb2-31">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-icon</span>: lucide-highlighter </span>
+font-style: inherit;">--callout-icon</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">lucide-highlighter </span></span>
 <span id="cb2-32">}</span>
 <span id="cb2-33"></span>
 <span id="cb2-34"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">.callout</span><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">[data-callout</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">[</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">data-callout</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -2911,7 +3017,9 @@ background-color: null;
 font-style: inherit;">]</span> {</span>
 <span id="cb2-35">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-color</span>: <span class="dv" style="color: #AD0000;
+font-style: inherit;">--callout-color</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">229</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2926,14 +3034,20 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb2-36">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-icon</span>: lucide-highlighter </span>
+font-style: inherit;">--callout-icon</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">lucide-highlighter </span></span>
 <span id="cb2-37">}</span>
 <span id="cb2-38"></span>
 <span id="cb2-39"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">.callout</span><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">[data-callout</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">[</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">data-callout</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -2942,7 +3056,9 @@ background-color: null;
 font-style: inherit;">]</span> {</span>
 <span id="cb2-40">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-color</span>: <span class="dv" style="color: #AD0000;
+font-style: inherit;">--callout-color</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">241</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2957,14 +3073,20 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb2-41">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-icon</span>: lucide-highlighter </span>
+font-style: inherit;">--callout-icon</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">lucide-highlighter </span></span>
 <span id="cb2-42">}</span>
 <span id="cb2-43"></span>
 <span id="cb2-44"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">.callout</span><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">[data-callout</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">[</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">data-callout</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -2973,7 +3095,9 @@ background-color: null;
 font-style: inherit;">]</span> {</span>
 <span id="cb2-45">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-color</span>: <span class="dv" style="color: #AD0000;
+font-style: inherit;">--callout-color</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">170</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2988,7 +3112,11 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb2-46">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-icon</span>: lucide-highlighter </span>
+font-style: inherit;">--callout-icon</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">lucide-highlighter </span></span>
 <span id="cb2-47">}</span>
 <span id="cb2-48"></span>
 <span id="cb2-49"><span class="co" style="color: #5E5E5E;
@@ -2998,7 +3126,9 @@ font-style: inherit;">/* note */</span></span>
 background-color: null;
 font-style: inherit;">.callout</span><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">[data-callout</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">[</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">data-callout</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -3007,7 +3137,9 @@ background-color: null;
 font-style: inherit;">]</span> {</span>
 <span id="cb2-51">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-color</span>: <span class="dv" style="color: #AD0000;
+font-style: inherit;">--callout-color</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">255</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -3022,14 +3154,20 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb2-52">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-icon</span>: lucide-sticky-note </span>
+font-style: inherit;">--callout-icon</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">lucide-sticky-note </span></span>
 <span id="cb2-53">}</span>
 <span id="cb2-54"></span>
 <span id="cb2-55"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">.callout</span><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">[data-callout</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">[</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">data-callout</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -3038,7 +3176,9 @@ background-color: null;
 font-style: inherit;">]</span> {</span>
 <span id="cb2-56">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-color</span>: <span class="dv" style="color: #AD0000;
+font-style: inherit;">--callout-color</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">255</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -3053,14 +3193,20 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb2-57">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-icon</span>: lucide-sticky-note </span>
+font-style: inherit;">--callout-icon</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">lucide-sticky-note </span></span>
 <span id="cb2-58">}</span>
 <span id="cb2-59"></span>
 <span id="cb2-60"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">.callout</span><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">[data-callout</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">[</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">data-callout</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -3069,7 +3215,9 @@ background-color: null;
 font-style: inherit;">]</span> {</span>
 <span id="cb2-61">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-color</span>: <span class="dv" style="color: #AD0000;
+font-style: inherit;">--callout-color</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">95</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -3084,14 +3232,20 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb2-62">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-icon</span>: lucide-sticky-note </span>
+font-style: inherit;">--callout-icon</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">lucide-sticky-note </span></span>
 <span id="cb2-63">}</span>
 <span id="cb2-64"></span>
 <span id="cb2-65"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">.callout</span><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">[data-callout</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">[</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">data-callout</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -3100,7 +3254,9 @@ background-color: null;
 font-style: inherit;">]</span> {</span>
 <span id="cb2-66">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-color</span>: <span class="dv" style="color: #AD0000;
+font-style: inherit;">--callout-color</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">46</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -3115,14 +3271,20 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb2-67">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-icon</span>: lucide-sticky-note </span>
+font-style: inherit;">--callout-icon</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">lucide-sticky-note </span></span>
 <span id="cb2-68">}</span>
 <span id="cb2-69"></span>
 <span id="cb2-70"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">.callout</span><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">[data-callout</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">[</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">data-callout</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -3131,7 +3293,9 @@ background-color: null;
 font-style: inherit;">]</span> {</span>
 <span id="cb2-71">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-color</span>: <span class="dv" style="color: #AD0000;
+font-style: inherit;">--callout-color</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">162</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -3146,7 +3310,11 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb2-72">  <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">--callout-icon</span>: lucide-sticky-note </span>
+font-style: inherit;">--callout-icon</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">lucide-sticky-note </span></span>
 <span id="cb2-73">}</span></code></pre></div>
 
 
@@ -3157,14 +3325,15 @@ font-style: inherit;">--callout-icon</span>: lucide-sticky-note </span>
   <category>writing</category>
   <category>research</category>
   <category>TIL</category>
-  <guid>https://www.aeturrell.com/blog/posts/til-zotero-and-obsidian/index.html</guid>
+  <guid>https://www.aeturrell.com/blog/posts/til-zotero-and-obsidian/</guid>
   <pubDate>Sat, 08 Jul 2023 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>The self-storage problem meets chatGPT</title>
   <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/self-storage-meets-chatgpt/index.html</link>
+  <link>https://www.aeturrell.com/blog/posts/self-storage-meets-chatgpt/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -3423,8 +3592,8 @@ font-style: inherit;">0</span>)</span>
 <li>Clean the locations up—removing anything with more than four words seems like a good place to start, given the above; remove duplicates of year-firm information—perhaps some firms only have snapshots once every two years, for example</li>
 <li>Count the number of sites over time</li>
 </ul>
-<div class="page-columns page-full"><p>There were nine self-storage firms that OSM data found in the previous blog post, and perhaps a ten year period seems reasonable, so we’d be asking for 90 ChatGPT hits to get all of the data. In practice, some firms may not have existed ten years ago and we’d be pretty lucky to have the extension to the sites not change at all in that time: indeed, Shurgard is an exception; the URL to the list of sites only persists back to 2020 for Big Yellow and Ready Steady Store.<sup>1</sup> There are other problems: Access Self Storage has a fancier website that makes it harder for ChatGPT to get location information out. Optimistically though, this approach might be possible for most of the firms for a small number of years, and that would still give a good indication of the trend.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Of course, the traditional way to solve problems like this in academic economics was to pay Research Assistants to do it manually, and then not put them on the paper as authors. Data collection <em>is</em> research: please put RAs on your papers!</p></li></div></div>
-<p>If I get time, I might try out a more systematic data collection broadly following this recipe—then we might get a bit closer to finding an answer to the <a href="../../../blog/posts/self-storage-mystery/self-storage-mystery.html">mystery of self-storage</a> in the UK!</p>
+<p>There were nine self-storage firms that OSM data found in the previous blog post, and perhaps a ten year period seems reasonable, so we’d be asking for 90 ChatGPT hits to get all of the data. In practice, some firms may not have existed ten years ago and we’d be pretty lucky to have the extension to the sites not change at all in that time: indeed, Shurgard is an exception; the URL to the list of sites only persists back to 2020 for Big Yellow and Ready Steady Store.<sup>1</sup> There are other problems: Access Self Storage has a fancier website that makes it harder for ChatGPT to get location information out. Optimistically though, this approach might be possible for most of the firms for a small number of years, and that would still give a good indication of the trend.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Of course, the traditional way to solve problems like this in academic economics was to pay Research Assistants to do it manually, and then not put them on the paper as authors. Data collection <em>is</em> research: please put RAs on your papers!</p></div></div><p>If I get time, I might try out a more systematic data collection broadly following this recipe—then we might get a bit closer to finding an answer to the <a href="../../../blog/posts/self-storage-mystery/self-storage-mystery.html">mystery of self-storage</a> in the UK!</p>
 
 
 </section>
@@ -3435,7 +3604,7 @@ font-style: inherit;">0</span>)</span>
   <category>data</category>
   <category>analysis</category>
   <category>llm</category>
-  <guid>https://www.aeturrell.com/blog/posts/self-storage-meets-chatgpt/index.html</guid>
+  <guid>https://www.aeturrell.com/blog/posts/self-storage-meets-chatgpt/</guid>
   <pubDate>Thu, 29 Jun 2023 23:00:00 GMT</pubDate>
 </item>
 <item>
@@ -3443,6 +3612,7 @@ font-style: inherit;">0</span>)</span>
   <dc:creator>Arthur Turrell</dc:creator>
   <link>https://www.aeturrell.com/blog/posts/self-storage-mystery/self-storage-mystery.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -3504,7 +3674,7 @@ background-color: null;
 font-style: inherit;">&gt;</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>]</span></code></pre></div>
-<table class="table">
+<table class="caption-top table">
 <caption>Numbers of self-storage sites by firm, according to Open Street Map data</caption>
 <thead>
 <tr class="header">
@@ -3569,8 +3739,8 @@ font-style: inherit;">"Yellow"</span>)].<span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">sum</span>()</span></code></pre></div>
 <pre class="text"><code>52</code></pre>
-<div class="page-columns page-full"><p>We get 52, still far short of what we know the total is (assuming Big Yellow Self Storage’s website is up to date!)<sup>1</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;<em>Safestore</em> has 130 sites on its website, while OSM finds only 38, so this isn’t just a problem with <em>Big Yellow Self-Storage</em>.</p></li></div></div>
-<p>Even if the numbers were correct, we don’t just need the number for today, we need it <em>over time</em>. This is an API query that, in principle, can help us understand the change since 2019 (when used in combination with the other data we already got).</p>
+<p>We get 52, still far short of what we know the total is (assuming Big Yellow Self Storage’s website is up to date!)<sup>1</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;<em>Safestore</em> has 130 sites on its website, while OSM finds only 38, so this isn’t just a problem with <em>Big Yellow Self-Storage</em>.</p></div></div><p>Even if the numbers were correct, we don’t just need the number for today, we need it <em>over time</em>. This is an API query that, in principle, can help us understand the change since 2019 (when used in combination with the other data we already got).</p>
 <pre class="text"><code>[out:json];
 area["ISO3166-1"="GB"]-&gt;.uk;
 (
@@ -3595,12 +3765,12 @@ font-style: inherit;">sum</span>()</span></code></pre></div>
 <blockquote class="blockquote">
 <p>a network of 89 storage facilities across London and the UK in high profile, easy–to–access location</p>
 </blockquote>
-<div class="page-columns page-full"><p>Open Street Map is an amazing resource but, for this purpose, it just doesn’t have the information we’re looking for.<sup>2</sup></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;A similar exercise for <a href="https://web.archive.org/web/20110102193907/http://www.safestore.co.uk/default.aspx"><em>SafeStore</em></a> shows 90 locations in 2011, and <a href="https://web.archive.org/web/20160206185739/https://www.safestore.co.uk/">over 100 by 2016</a> but only one from OSM in 2017.</p></li></div></div>
-</section>
+<p>Open Street Map is an amazing resource but, for this purpose, it just doesn’t have the information we’re looking for.<sup>2</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;A similar exercise for <a href="https://web.archive.org/web/20110102193907/http://www.safestore.co.uk/default.aspx"><em>SafeStore</em></a> shows 90 locations in 2011, and <a href="https://web.archive.org/web/20160206185739/https://www.safestore.co.uk/">over 100 by 2016</a> but only one from OSM in 2017.</p></div></div></section>
 <section id="uk-site-firm-level-data" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="uk-site-firm-level-data">UK site-firm level data</h3>
-<div class="page-columns page-full"><p>The Inter-Departmental Business Register is an excellent within-government resource that does have some site-level information (but those who work on it note that there’s lots of pitfalls in using these data).<sup>3</sup></p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;ESCOE and ONS have done some great work trying to turn the IDBR into a longitudinal business database; check out the working paper <a href="https://escoe-website.s3.amazonaws.com/wp-content/uploads/2020/10/15063641/ESCoE-DP-2020-14.pdf">here</a>.</p></li></div></div>
-<p>We could put in a request to the Office for National Statistics (ONS) to use the IDBR to produce the numbers of local units by firm but… they’d have to reject it! Even though you could walk down the street and see these units, and which firm they belong to, for yourself, it’s currently illegal for ONS to make firm-level data public even if it’s already in the public domain. The exact bit of legislation is outlined here:</p>
+<p>The Inter-Departmental Business Register is an excellent within-government resource that does have some site-level information (but those who work on it note that there’s lots of pitfalls in using these data).<sup>3</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;ESCOE and ONS have done some great work trying to turn the IDBR into a longitudinal business database; check out the working paper <a href="https://escoe-website.s3.amazonaws.com/wp-content/uploads/2020/10/15063641/ESCoE-DP-2020-14.pdf">here</a>.</p></div></div><p>We could put in a request to the Office for National Statistics (ONS) to use the IDBR to produce the numbers of local units by firm but… they’d have to reject it! Even though you could walk down the street and see these units, and which firm they belong to, for yourself, it’s currently illegal for ONS to make firm-level data public even if it’s already in the public domain. The exact bit of legislation is outlined here:</p>
 <blockquote class="blockquote">
 <p>Unfortunately, we are unable to provide the names of organisations operating within a particular sector of the economy. Under s.39 of the Statistics and Registration Service Act 2007, personal information held by us (including that which identifies a body corporate), must not be disclosed. Furthermore, under s.9 of the Statistics of Trade Act 1947, the disclosure of information relating to an individual undertaking, obtained for statistical purposes, is prohibited. As the release of this information is prohibited by law, s.44 of the Freedom of Information Act 2000 applies.</p>
 </blockquote>
@@ -3617,8 +3787,8 @@ font-style: inherit;">sum</span>()</span></code></pre></div>
 </section>
 <section id="scraping-the-websites-of-the-self-storage-firms" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="scraping-the-websites-of-the-self-storage-firms">Scraping the websites of the self-storage firms</h3>
-<div class="page-columns page-full"><p>In this approach, we would scrape the websites of the self-storage firms to get information on their physical sites. This option has legs; so much so that we used it to validate our attempt to get these data from OSM. It works.<sup>4</sup> The problem is that it requires us to scrape <em>all</em> of the websites of the self-storage firms and to also scrape their <em>historical</em> websites too (via the internet archive). That’s possible, but quite hard work, as my guess is that each firm-time combination will need a bespoke scraping solution.</p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;Some data firms, such as Glass.AI, have specialised in firm website data so they may have some better ideas as to how to do this.</p></li></div></div>
-<p>There is one big limitation beyond needing bespoke scrapers: the internet archive doesn’t get <em>all</em> of a website, and so might be missing the key pages / information, especially if we rely on tricks like grabbing the address only.</p>
+<p>In this approach, we would scrape the websites of the self-storage firms to get information on their physical sites. This option has legs; so much so that we used it to validate our attempt to get these data from OSM. It works.<sup>4</sup> The problem is that it requires us to scrape <em>all</em> of the websites of the self-storage firms and to also scrape their <em>historical</em> websites too (via the internet archive). That’s possible, but quite hard work, as my guess is that each firm-time combination will need a bespoke scraping solution.</p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Some data firms, such as Glass.AI, have specialised in firm website data so they may have some better ideas as to how to do this.</p></div></div><p>There is one big limitation beyond needing bespoke scrapers: the internet archive doesn’t get <em>all</em> of a website, and so might be missing the key pages / information, especially if we rely on tricks like grabbing the address only.</p>
 <p>That aside, how might you go about getting this data using a scraper? Each location probably has a full address somewhere, so we could just scrape the entire website and use some kind of NLP to grab locations and hope that what gets picked up corresponds to the sites that are offered. There’d be some errors, like recording their primary office, but if you kept the page that the addresses were scraped from you could do something like eliminate any pages with just a single address.</p>
 <p>To put rocket boosters on this approach, you could use a large language model (LLM). A new feature just introduced by OpenAI, called <a href="https://platform.openai.com/docs/guides/gpt/function-calling">function calling</a>, makes this possible: essentially, it allows you to generate <em>structured</em> output from an LLM—think a JSON file—by defining a schema of data fields you’d like and then feeding it the text to find those fields. There’s a great prototype gist <a href="https://gist.github.com/kylemcdonald/dbac21de2d7855633689f5526225154c">here</a> that shows how to send an LLM a Washington Post article about a shooting and get it to extract salient information according to a schema. As it’s short, I’m including the code below. Note that not only is the schema defined, but there is a short description of each field too.</p>
 <div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="im" style="color: #00769E;
@@ -3958,6 +4128,7 @@ font-style: inherit;">41000</span>]</span>
 
 
 
+
 <p>Data science has enormous potential to do good in the public sector. The efficiencies that are possible from automation and reproducible analytical pipelines alone are huge—if you like this is improvement at <em>existing</em> tasks. Throw machine learning and advanced analytics into the mix and data science can also complete entirely new tasks, <em>expanding the horizon of what’s possible</em>. It’s an exciting time to be a data scientist.</p>
 <p>And yet I regularly speak to data scientists who are frustrated in their roles because the tech in their organisation simply does not give them the ability to do their job in the best way possible; or, even worse, they do not have the <em>agency</em> to do their job well. Data science, and data scientists, need the right conditions to flourish.</p>
 <p>So, if you’re looking at your own organisation’s data science offering, what are the key things you should be able to do? And how can we ensure that data scientists have them?</p>
@@ -3997,7 +4168,7 @@ font-style: inherit;">41000</span>]</span>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/data-science-maturity/dallas-reedy-H83_BXx3ChY-unsplash.jpg" class="img-fluid figure-img" alt="A heart-shaped cloud floating by."></p>
-<figcaption class="figure-caption margin-caption">Avoid the wrong sort of cloud provision</figcaption>
+<figcaption class="margin-caption">Avoid the wrong sort of cloud provision</figcaption>
 </figure>
 </div>
 <p>If you stop to think about it, the model we usually use is the one where enabling functions determine a service provider then let people choose the specific products or services according to their local budget. The Chief Operating Office might choose which firm serves up food in the canteen, but the COO isn’t going to actually come to the canteen and force you to eat the salad; you get to choose within your budget. Similarly, back when organisations actually needed stationary, there was usually a high-level agreement with a supplier but local business areas would then decide what their area needed within their budget. Why should it be different for specific cloud services for experts like data scientists?</p>
@@ -4024,6 +4195,7 @@ font-style: inherit;">41000</span>]</span>
   <dc:creator>Arthur Turrell</dc:creator>
   <link>https://www.aeturrell.com/blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -4071,8 +4243,8 @@ font-style: inherit;">41000</span>]</span>
 <p>All of those benefits that come with standing on the shoulders of giants will only be available if knowledge is <strong>findable</strong>. In practice, this means ensuring staff have powerful search capabilities on hand. Sharepoint, with its very limited search capabilities (and its lack of full support for file types not covered by Microsoft Office products), will not do. Staff must be able to look for notes or documents within a certain date range. They need to be able to find all documents with specific words or phrases in. They should be able to browse documents using (preferably automatically generated) tags.</p>
 <p>Of course, these documents must be <strong>accessible</strong>, both today and in the future. This means that they should be in a database that can be accessed easily from their computer, and which can be queried in milliseconds. There should be backups and system redundancy.</p>
 <p><strong>Interoperability</strong> is more important than it first appears. One public sector organisation I know of had terrible trouble because many of its documents were written in a propriety file format for a piece of software that has fallen out of favour. For new staff to use them, either the documents would have had to be converted (with potential information loss on the way), or the software contract renewed at considerable cost–even though no-one would be using it to write new documents! I put the Microsoft Office suite of file formats in this bucket as, to get the most from those types of files (eg .docx, .pptx), you really need to purchase Microsoft’s proprietary software. As an example of this lack of interoperability, there is no Microsoft Office support for Linux, the popular free and open source operating system. Interoperability prevents vendor lock-in too.</p>
-<div class="page-columns page-full"><p><strong>Re-usability</strong> is about people being able to dive in to the historical archive, grab what they need, and put it to work on a contemporary project. This rules out anything that doesn’t allow for easy copy and paste. So PDFs and similar are out. PDFs do have their uses <em>because</em> they do not change once created, but we don’t want to tap into that here. Re-usability once again pushes us toward a solution that looks a lot like plain text files because–no matter what whizzy developments there are in the future–it’s extremely likely that people will still be able to copy and paste from plain text files.<sup>1</sup> You might think this causes a problem for slide decks, in the cases where they are warranted: it doesn’t. You can write slide decks in plain text files too, using Markdown. To make images re-usable, you will want to either provide reproducible code to recreate a particular image or figure or to include the image as a separate asset. And, if your stock of knowledge is just plain text files and some image files, moving your entire stock of knowledge to a new system is as easy as copying and pasting everything.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Though you do need to be careful about something called encoding. The TL;DR is that all text should be encoded as UTF-8.</p></li></div></div>
-<p>It would also be nice if the technology behind all of this was free and open source. Note that free software does <em>not</em> mean totally free–you always need someone to maintain the software and database. But you’d need that with proprietary software too, so there’s still potentially a big pecuniary cost saving here if the tech is free.</p>
+<p><strong>Re-usability</strong> is about people being able to dive in to the historical archive, grab what they need, and put it to work on a contemporary project. This rules out anything that doesn’t allow for easy copy and paste. So PDFs and similar are out. PDFs do have their uses <em>because</em> they do not change once created, but we don’t want to tap into that here. Re-usability once again pushes us toward a solution that looks a lot like plain text files because–no matter what whizzy developments there are in the future–it’s extremely likely that people will still be able to copy and paste from plain text files.<sup>1</sup> You might think this causes a problem for slide decks, in the cases where they are warranted: it doesn’t. You can write slide decks in plain text files too, using Markdown. To make images re-usable, you will want to either provide reproducible code to recreate a particular image or figure or to include the image as a separate asset. And, if your stock of knowledge is just plain text files and some image files, moving your entire stock of knowledge to a new system is as easy as copying and pasting everything.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Though you do need to be careful about something called encoding. The TL;DR is that all text should be encoded as UTF-8.</p></div></div><p>It would also be nice if the technology behind all of this was free and open source. Note that free software does <em>not</em> mean totally free–you always need someone to maintain the software and database. But you’d need that with proprietary software too, so there’s still potentially a big pecuniary cost saving here if the tech is free.</p>
 </section>
 </section>
 <section id="solutions-to-the-knowledge-data-management-problem" class="level3">
@@ -4112,6 +4284,7 @@ font-style: inherit;">41000</span>]</span>
   <dc:creator>Arthur Turrell</dc:creator>
   <link>https://www.aeturrell.com/blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -4158,7 +4331,7 @@ font-style: inherit;">41000</span>]</span>
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-nagle2019open" class="csl-entry">
 Nagle, Frank. 2019. <span>“Open Source Software and Firm Productivity.”</span> <em>Management Science</em> 65 (3): 1191–1215.
 </div>
@@ -4180,6 +4353,7 @@ Nagle, Frank. 2019. <span>“Open Source Software and Firm Productivity.”</spa
   <dc:creator>Arthur Turrell</dc:creator>
   <link>https://www.aeturrell.com/blog/posts/the-prize-with-apis/the-prize-with-apis.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -4259,6 +4433,7 @@ font-style: inherit;">"country"</span>].<span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">apply</span>(<span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">lambda</span> x: textwrap.fill(x, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10</span>))  <span class="co" style="color: #5E5E5E;
@@ -4276,7 +4451,7 @@ font-style: inherit;"># re-order</span></span>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -4368,8 +4543,10 @@ background-color: null;
 font-style: inherit;">1.01</span>)</span>
 <span id="cb2-7"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> key, spine <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> ax.spines.items():</span>
 <span id="cb2-8">    spine.set_visible(<span class="va" style="color: #111111;
 background-color: null;
@@ -4383,7 +4560,11 @@ font-style: inherit;">""</span>)</span>
 <span id="cb2-11">ax.yaxis.tick_right()</span>
 <span id="cb2-12">plt.show()</span></code></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="https://www.aeturrell.com/blog/posts/the-prize-with-apis/the-prize-with-apis_files/figure-html/cell-4-output-1.svg" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.aeturrell.com/blog/posts/the-prize-with-apis/the-prize-with-apis_files/figure-html/cell-4-output-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>This shows how data can be pulled straight down into analytical tools, reports, forecasts, and so on; any output or analysis you can think of.</p>
@@ -4419,10 +4600,10 @@ font-style: inherit;">""</span>)</span>
 <section id="api-best-practice" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="api-best-practice">API Best Practice</h2>
 <p>There are a number of API standards out there, and the best one depends on the context. In the UK, there is <a href="https://www.gov.uk/guidance/gds-api-technical-and-data-standards">gov.uk guidance</a> on APIs.</p>
-<div class="page-columns page-full"><p>The approach followed for open data APIs across a <a href="https://sdmx.org/?page_id=2705">wide range of international and national statistical organisations</a><sup>1</sup> is a standard called SDMX: <a href="https://sdmx.org/?page_id=2555">Statistical Data and Metadata eXchange</a>. It’s an ISO (International Organization for Standardization) standard designed to describe statistical data and metadata, normalise their exchange, and improve their efficient sharing across statistical and similar organisations.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;The BIS (Bank for International Settlements), ECB (European Central Bank), EUROSTAT (Statistical Office of the European Union), IMF (International Monetary Fund), OECD (Organisation for Economic Co-operation and Development), UN (United Nations), and the World Bank.</p></li></div></div>
+<p>The approach followed for open data APIs across a <a href="https://sdmx.org/?page_id=2705">wide range of international and national statistical organisations</a><sup>1</sup> is a standard called SDMX: <a href="https://sdmx.org/?page_id=2555">Statistical Data and Metadata eXchange</a>. It’s an ISO (International Organization for Standardization) standard designed to describe statistical data and metadata, normalise their exchange, and improve their efficient sharing across statistical and similar organisations.</p>
 
 
-</section>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;The BIS (Bank for International Settlements), ECB (European Central Bank), EUROSTAT (Statistical Office of the European Union), IMF (International Monetary Fund), OECD (Organisation for Economic Co-operation and Development), UN (United Nations), and the World Bank.</p></div></div></section>
 
 
  ]]></description>
@@ -4434,8 +4615,9 @@ font-style: inherit;">""</span>)</span>
 <item>
   <title>TIL: How to break RSS feeds</title>
   <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/til-how-to-break-xml/index.html</link>
+  <link>https://www.aeturrell.com/blog/posts/til-how-to-break-xml/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -4446,8 +4628,8 @@ font-style: inherit;">""</span>)</span>
 <p>It’s really useful to have an RSS feed associated with a blog so that people can automatically pick up new posts. A lot of blogging technology (including Quarto and Jekyll) automatically creates these feeds at a URL called <code>&lt;website name&gt;/index.xml</code>, or similar, relative to the root of your website.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/til-how-to-break-xml/https:/upload.wikimedia.org/wikipedia/en/thumb/4/43/Feed-icon.svg/256px-Feed-icon.svg.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">The RSS feed icon (Image: Wikipedia)</figcaption>
+<p><img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Feed-icon.svg/256px-Feed-icon.svg.png" class="img-fluid figure-img"></p>
+<figcaption class="margin-caption">The RSS feed icon (Image: Wikipedia)</figcaption>
 </figure>
 </div>
 <p>But I kept finding a problem with generating these feeds: either they did not generate at all or they were corrupted and unreadable.</p>
@@ -4473,14 +4655,15 @@ ax.set_xlabel(r"$e^\frac{-x^2}{2}$")
   <category>code</category>
   <category>writing</category>
   <category>TIL</category>
-  <guid>https://www.aeturrell.com/blog/posts/til-how-to-break-xml/index.html</guid>
+  <guid>https://www.aeturrell.com/blog/posts/til-how-to-break-xml/</guid>
   <pubDate>Wed, 02 Nov 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Welcome To The New Home for My Blog</title>
   <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/welcome/index.html</link>
+  <link>https://www.aeturrell.com/blog/posts/welcome/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -4488,42 +4671,43 @@ ax.set_xlabel(r"$e^\frac{-x^2}{2}$")
 <p>This is the first post on a brand new blog site: welcome!</p>
 <p><img src="https://www.aeturrell.com/blog/posts/welcome/thumbnail.jpg" class="img-fluid"></p>
 <p>After a while of getting (minorly) frustrated with the code-integration available for a Jekyll-based blog, I’m making the switch to one that’s based on <a href="https://quarto.org/">Quarto</a>, the document and website preparation software tool that supports executable chunks in Python, R, and other-languages.</p>
-<div class="page-columns page-full"><p>In getting this setup, <a href="https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html">this post</a> by Albert Rapp has been especially useful. A while ago, I did a post on <a href="../../../blog/posts/three-ways-to-blog-with-code/index.html">three ways to blog</a>, which at that time were Jupyter (with <a href="https://nbconvert.readthedocs.io/">nbconvert</a> to markdown with execution), <a href="https://github.com/gpoore/codebraid">codebraid</a>, and R markdown–none of which were perfect. Quarto takes what was good about R markdown and makes it cross-language plus a bit better.<sup>1</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Though it’s still based on the fantastic <a href="https://pandoc.org/">pandoc</a>.</p></li></div></div>
-<p>There are <em>tons</em> of nice features of blogging with Quarto, but one that’s particularly useful for me is being able to have proper citations, like <span class="citation" data-cites="turrell2013monte">Turrell, Sherlock, and Rose (2013)</span>. And the support for executable code plus output figures–in multiple languages–is more or less unparalled.</p>
+<p>In getting this setup, <a href="https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html">this post</a> by Albert Rapp has been especially useful. A while ago, I did a post on <a href="../../../blog/posts/three-ways-to-blog-with-code/index.html">three ways to blog</a>, which at that time were Jupyter (with <a href="https://nbconvert.readthedocs.io/">nbconvert</a> to markdown with execution), <a href="https://github.com/gpoore/codebraid">codebraid</a>, and R markdown–none of which were perfect. Quarto takes what was good about R markdown and makes it cross-language plus a bit better.<sup>1</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Though it’s still based on the fantastic <a href="https://pandoc.org/">pandoc</a>.</p></div></div><p>There are <em>tons</em> of nice features of blogging with Quarto, but one that’s particularly useful for me is being able to have proper citations, like <span class="citation" data-cites="turrell2013monte">Turrell, Sherlock, and Rose (2013)</span>. And the support for executable code plus output figures–in multiple languages–is more or less unparalled.</p>
 
 
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-turrell2013monte" class="csl-entry">
 Turrell, Arthur E, Mark Sherlock, and Steven J Rose. 2013. <span>“A Monte Carlo Algorithm for Degenerate Plasmas.”</span> <em>Journal of Computational Physics</em> 249: 13–21.
 </div>
 </div></section></div> ]]></description>
   <category>news</category>
-  <guid>https://www.aeturrell.com/blog/posts/welcome/index.html</guid>
+  <guid>https://www.aeturrell.com/blog/posts/welcome/</guid>
   <pubDate>Sat, 15 Oct 2022 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Visual Studio Code on the Cloud</title>
   <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/visual-studio-code-in-the-cloud/index.html</link>
+  <link>https://www.aeturrell.com/blog/posts/visual-studio-code-in-the-cloud/</link>
   <description><![CDATA[ 
 
 
 
 
-<div class="page-columns page-full"><p>Visual Studio Code is incredibly powerful, whether it’s for writing <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-markdown.html">markdown</a>, writing <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-quarto.html">quarto</a> (.qmd) files, getting syntax highlighting and peerless language support (eg auto-completion), getting peerless git support, working with a <a href="https://github.com/features/copilot">co-pilot</a>, <a href="https://visualstudio.microsoft.com/services/live-share/">working with collaborators in real-time</a>, or even running <a href="../../../blog/posts/setting-up-r-in-vscode/index.html">R code in a modern REPL</a>. For me, it’s the best IDE by some way. One of its strongest features for data science is its ability to do interactive window coding with scripts <em>and</em> notebooks. Yet most online or cloud-based data science services focus only on notebooks. Wouldn’t it be great if there was a reliable way to use all of Visual Studio Code’s features in the cloud?<sup>1</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;If you have a GitHub account you can just press ‘.’ on a repo and it will load up something that looks a lot like Visual Studio Code but this can’t run code, it’s only a text editor.</p></li></div></div>
-<div class="page-columns page-full"><p>In this blog post, I’ll show you how to set up Visual Studio Code on your desktop so that it connects remotely to a cloud virtual machine. This will allow you to code on the cloud as if you were developing locally.<sup>2</sup></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;We’ll be using Google Cloud Compute but the concepts will be similar for other cloud services. You should also note that using cloud services is usually charged though free credits are often available for new accounts. Also, this has only been tested on MacOS.</p></li></div></div>
+
+<p>Visual Studio Code is incredibly powerful, whether it’s for writing <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-markdown.html">markdown</a>, writing <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-quarto.html">quarto</a> (.qmd) files, getting syntax highlighting and peerless language support (eg auto-completion), getting peerless git support, working with a <a href="https://github.com/features/copilot">co-pilot</a>, <a href="https://visualstudio.microsoft.com/services/live-share/">working with collaborators in real-time</a>, or even running <a href="../../../blog/posts/setting-up-r-in-vscode/index.html">R code in a modern REPL</a>. For me, it’s the best IDE by some way. One of its strongest features for data science is its ability to do interactive window coding with scripts <em>and</em> notebooks. Yet most online or cloud-based data science services focus only on notebooks. Wouldn’t it be great if there was a reliable way to use all of Visual Studio Code’s features in the cloud?<sup>1</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;If you have a GitHub account you can just press ‘.’ on a repo and it will load up something that looks a lot like Visual Studio Code but this can’t run code, it’s only a text editor.</p></div><div id="fn2"><p><sup>2</sup>&nbsp;We’ll be using Google Cloud Compute but the concepts will be similar for other cloud services. You should also note that using cloud services is usually charged though free credits are often available for new accounts. Also, this has only been tested on MacOS.</p></div></div><p>In this blog post, I’ll show you how to set up Visual Studio Code on your desktop so that it connects remotely to a cloud virtual machine. This will allow you to code on the cloud as if you were developing locally.<sup>2</sup></p>
 <p>Why should you care? Because having a reproducible environment on the cloud that you can use with your cutting-edge tools is pretty nifty!</p>
 <p>There are pre-made resources out there that do this already such as <a href="https://github.com/features/codespaces">Github Codespaces</a> and <a href="https://www.gitpod.io/">Gitpod</a>, which even has a free tier. They are incredible and well worth checking out for, more or less, a one click solution for fully-featued Visual Studio Code in the cloud. But they’re probably a bit more pricey than a roll your own version, clearly have less flexibility in terms of virtual machines, and don’t come with the nice data backends that are provided by a huge cloud provider (yet).</p>
 <section id="interactive-window-coding" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="interactive-window-coding">Interactive Window Coding</h2>
-<div class="page-columns page-full"><p>If you’re not familiar with it, the <em>interactive window</em><sup>3</sup> is a convenient and flexible way to run code that you have open in a script or that you type directly into the interactive window code box. It allows you to remix, explore, and try out code one line at a time or in chunks or as a whole script–which makes it perfect for analysis and data science on those occassions when you don’t need text alongside code. You can find out more about <a href="https://aeturrell.github.io/python4DS/introduction.html#installing-visual-studio-code-to-run-python">how to set up interactive window coding in Python with Visual Studio Code here</a> (and R <a href="http://aeturrell.com//2021/11/04/setting-up-r-in-vscode/">here</a>). More generally, Visual Studio Code is a fantastic environment for doing data science in and many of its features eventually got adopted by other tools.</p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;This is actually a special kind of ipython console.</p></li></div></div>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
+<p>If you’re not familiar with it, the <em>interactive window</em><sup>3</sup> is a convenient and flexible way to run code that you have open in a script or that you type directly into the interactive window code box. It allows you to remix, explore, and try out code one line at a time or in chunks or as a whole script–which makes it perfect for analysis and data science on those occassions when you don’t need text alongside code. You can find out more about <a href="https://aeturrell.github.io/python4DS/introduction.html#installing-visual-studio-code-to-run-python">how to set up interactive window coding in Python with Visual Studio Code here</a> (and R <a href="http://aeturrell.com//2021/11/04/setting-up-r-in-vscode/">here</a>). More generally, Visual Studio Code is a fantastic environment for doing data science in and many of its features eventually got adopted by other tools.</p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;This is actually a special kind of ipython console.</p></div></div><div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/visual-studio-code-in-the-cloud/https:/github.com/aeturrell/coding-for-economists/blob/main/img/vscode_layout.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">Typical layout of Visual Studio Code</figcaption>
+<p><img src="https://github.com/aeturrell/coding-for-economists/blob/main/img/vscode_layout.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption class="margin-caption">Typical layout of Visual Studio Code</figcaption>
 </figure>
 </div>
 <p>The figure above shows the typical layout of Visual Studio Code. Number 5 is the interactive Python window, which is where code and code outputs appear after you select and execute them from a script (number 3) or just by writing in the box ‘Type code here’ box.</p>
@@ -4663,10 +4847,12 @@ font-style: inherit;">bash</span> Miniconda3-latest-Linux-x86_64.sh</span></code
 <p>This will install Miniconda. Relaunch the terminal and you should see the familiar <code>(base)</code> prompt appearing so that your VM command line prompt now looks like</p>
 <div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">(</span><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">base</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">)</span> <span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">USERNAME@INSTANCE-NAME:~$</span></span></code></pre></div>
@@ -4751,14 +4937,15 @@ font-style: inherit;">glcoud</span> storage cp FILE-NAME gs://DESTINATION_BUCKET
   <category>cloud</category>
   <category>python</category>
   <category>rstats</category>
-  <guid>https://www.aeturrell.com/blog/posts/visual-studio-code-in-the-cloud/index.html</guid>
+  <guid>https://www.aeturrell.com/blog/posts/visual-studio-code-in-the-cloud/</guid>
   <pubDate>Tue, 27 Sep 2022 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Writing a Research Blog Post</title>
   <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/research-blogs/index.html</link>
+  <link>https://www.aeturrell.com/blog/posts/research-blogs/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -4780,7 +4967,7 @@ font-style: inherit;">glcoud</span> storage cp FILE-NAME gs://DESTINATION_BUCKET
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="https://www.aeturrell.com/blog/posts/research-blogs/res_blog_pyramid.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">Dissemination and blogs follow an inverted pyramid structure</figcaption>
+<figcaption class="margin-caption">Dissemination and blogs follow an inverted pyramid structure</figcaption>
 </figure>
 </div>
 <p>Each stage of the inverted pyramid is valuable, but it’s important to recognise that:</p>
@@ -4854,163 +5041,8 @@ font-style: inherit;">glcoud</span> storage cp FILE-NAME gs://DESTINATION_BUCKET
   <category>blogging</category>
   <category>research</category>
   <category>writing</category>
-  <guid>https://www.aeturrell.com/blog/posts/research-blogs/index.html</guid>
+  <guid>https://www.aeturrell.com/blog/posts/research-blogs/</guid>
   <pubDate>Mon, 21 Feb 2022 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Setting up R in Visual Studio Code</title>
-  <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/setting-up-r-in-vscode/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>This post will show you how to set up Visual Studio Code as an integrated development environment for the statistical language R. This will include some useful features such as:</p>
-<ul>
-<li>plots that appear within a VS Code panel</li>
-<li>a language server with autocomplete</li>
-<li>syntax highlighting of R code in console and scripts</li>
-<li>interactive window development</li>
-</ul>
-<p>Of course, RStudio has all of these features for R too. However, Visual Studio Code does a lot more than just R, and has tons of cutting edge integrated development environment features that we’d like to make use of.</p>
-<p>The prerequisites are:</p>
-<ol type="1">
-<li>An installation of the R language</li>
-<li>An installation of Python</li>
-<li>Visual Studio Code</li>
-<li>The R extension for Visual Studio Code</li>
-</ol>
-<p>Steps:</p>
-<ol type="1">
-<li>Install the Python package <a href="https://github.com/randy3k/radian">radian</a>, which provides multiline editing and rich syntax highlighting. It sells itself as “A 21 century R console”. The installation can be achieved by running <code>conda install -c conda-forge radian</code> on the command line, if you manage your Python environments with conda, or <code>pip install -U radian</code> if you use pip.</li>
-<li>Start up R (wherever) and run <code>install.packages("languageserver")</code> to install a language server.</li>
-<li>Also <code>install.packages("httpgd")</code> to install the plot viewer.</li>
-<li>Hit <kbd>Ctrl</kbd> (command on mac) + <kbd>,</kbd> in Visual Studio Code to open up the settings. Then make the following changes: enable R Bracketed Paste, R Session Watcher, and R: Always Use ActiveTerminal.</li>
-<li>Now we want to make plots show up automatically within Visual Studio Code. If you don’t have an R profile on your computer already, create it with <code>touch ~/.Rprofile</code>. You can check if you have it already using <code>ls -a ~</code>.</li>
-<li>Use <code>code ~/.Rprofile</code> to open the Rprofile file. Add the following code to it:</li>
-</ol>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">interactive</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&amp;&amp;</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">Sys.getenv</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"RSTUDIO"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">""</span>) {</span>
-<span id="cb1-2">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">Sys.setenv</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">TERM_PROGRAM =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"vscode"</span>)</span>
-<span id="cb1-3">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">if</span> (<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"httpgd"</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%in%</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">.packages</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">all.available =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>)) {</span>
-<span id="cb1-4">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">options</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">vsc.plot =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">FALSE</span>)</span>
-<span id="cb1-5">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">options</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">device =</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">function</span>(...) {</span>
-<span id="cb1-6">      httpgd<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">hgd</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">silent =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>)</span>
-<span id="cb1-7">      <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">.vsc.browser</span>(httpgd<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">hgd_url</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">history =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">FALSE</span>), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">viewer =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Beside"</span>)</span>
-<span id="cb1-8">    })</span>
-<span id="cb1-9">  }</span>
-<span id="cb1-10">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">source</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">file.path</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">Sys.getenv</span>(<span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">if</span> (.Platform<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>OS.type <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"windows"</span>) <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"USERPROFILE"</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">else</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"HOME"</span>), <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">".vscode-R"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"init.R"</span>))</span>
-<span id="cb1-11">}</span></code></pre></div>
-<ol start="7" type="1">
-<li>In the terminal window of VS Code, type <code>radian</code> to bring up the R console.</li>
-<li>Create an R script. Why not try writing <code>hist(trees$Height, breaks = 10, col = "orange")</code> in it? Then use <kbd>Ctrl</kbd> (command on mac) + <kbd>⏎</kbd> to send the line of code to the console. You should see your plot appear!</li>
-</ol>
-<p>Tips:</p>
-<ul>
-<li>You can find the workspace viewer under the <code>R</code> tab on the left-hand side of VS Code along with the Help Pages.</li>
-<li>To bring up the variable explorer, use <code>View(data)</code> where data is an object containing data.</li>
-<li>Interactive plotly charts work, as does a webviewer (eg for Shiny apps; try <code>shiny::runExample("01_hello")</code>)</li>
-<li>Help pages can be revealed via <code>?symbol</code> in the console</li>
-</ul>
-<p>You can find more information on the R extension for VS Code <a href="https://github.com/REditorSupport/vscode-R">here</a>.</p>
-
-
-
- ]]></description>
-  <category>code</category>
-  <category>rstats</category>
-  <guid>https://www.aeturrell.com/blog/posts/setting-up-r-in-vscode/index.html</guid>
-  <pubDate>Thu, 04 Nov 2021 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

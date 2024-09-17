@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2023-10-13">
 <meta name="description" content="Arthur Turrell is an economic data scientist.">
 
-<title>Why have a model registry?</title>
+<title>Why have a model registry? – Arthur Turrell</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,7 +25,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -36,7 +36,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -82,7 +82,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -91,6 +97,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -113,7 +120,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <meta property="og:title" content="Why have a model registry?">
 <meta property="og:description" content="Arthur Turrell is an economic data scientist.">
 <meta property="og:image" content="https://www.aeturrell.com//files/logo_large.png">
-<meta property="og:site-name" content="Arthur Turrell">
+<meta property="og:site_name" content="Arthur Turrell">
 <meta property="og:locale" content="en_UK">
 <meta property="og:image:height" content="1594">
 <meta property="og:image:width" content="1594">
@@ -130,83 +137,83 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Arthur Turrell</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../research/index.html" rel="" target="">
- <span class="menu-text">Research</span></a>
+    <a class="nav-link" href="../../../research/index.html"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../media/index.html" rel="" target="">
- <span class="menu-text">Media</span></a>
+    <a class="nav-link" href="../../../media/index.html"> 
+<span class="menu-text">Media</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../thestarbuilders/thestarbuilders.html" rel="" target="">
- <span class="menu-text">The Star Builders</span></a>
+    <a class="nav-link" href="../../../thestarbuilders/thestarbuilders.html"> 
+<span class="menu-text">The Star Builders</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog/index.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../teaching/index.html" rel="" target="">
- <span class="menu-text">Teaching</span></a>
+    <a class="nav-link" href="../../../teaching/index.html"> 
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../code/index.html" rel="" target="">
- <span class="menu-text">Code</span></a>
+    <a class="nav-link" href="../../../code/index.html"> 
+<span class="menu-text">Code</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../uses/index.html" rel="" target="">
- <span class="menu-text">Setup</span></a>
+    <a class="nav-link" href="../../../uses/index.html"> 
+<span class="menu-text">Setup</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../atom.xml" rel="" target=""><i class="bi bi-rss" role="img" aria-label="rss">
+    <a class="nav-link" href="../../../atom.xml"> <i class="bi bi-rss" role="img" aria-label="rss">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../contact.html" rel="" target=""><i class="bi bi-envelope" role="img" aria-label="contact">
+    <a class="nav-link" href="../../../contact.html"> <i class="bi bi-envelope" role="img" aria-label="contact">
 </i> 
- <span class="menu-text"> </span></a>
+<span class="menu-text"> </span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/arthurturrell" rel="" target=""><i class="bi bi-twitter" role="img" aria-label="twitter">
+    <a class="nav-link" href="https://twitter.com/arthurturrell"> <i class="bi bi-twitter" role="img" aria-label="twitter">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/aeturrell" rel="" target=""><i class="bi bi-github" role="img" aria-label="github">
+    <a class="nav-link" href="https://github.com/aeturrell"> <i class="bi bi-github" role="img" aria-label="github">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/arthur-turrell-8b789891" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="linkedin">
+    <a class="nav-link" href="https://www.linkedin.com/in/arthur-turrell-8b789891"> <i class="bi bi-linkedin" role="img" aria-label="linkedin">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -274,12 +281,13 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 
 
 
+
 <p>Many large institutions, including in the public sector, have a set of forecasts, predictions, or estimated statistical relationships (perhaps from a linear regression), that are key to their operations. In this post, I’ll run through how these institutions might benefit from a <em>model registry</em> of the kind that more digitally-savvy frontier firms are already using. And why, without one, an institution might be running <em>model risk</em> without even realising it.</p>
 <p>If you’re not familiar with the idea of a <em>model registry</em>, it’s a service offered by all three major cloud providers (<a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry.html">Amazon Web Services</a>, <a href="https://cloud.google.com/vertex-ai/docs/model-registry/introduction">Google Cloud Platform</a>, and <a href="https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-models">Microsoft Azure Platform</a>) that allows you to lodge models in a (private) repository online. You can also custom build your own model registry (and much more) using the wonderful open source package <a href="https://mlflow.org/docs/latest">MLflow</a>.</p>
 <section id="what-even-is-a-model" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="what-even-is-a-model">What even is a model?</h2>
-<div class="page-columns page-full"><p>The word “model” is doing a lot of work here: it means a digital artefact that is (usually) trained on some data and which either contains coefficient estimates or can make predictions or both. A linear regression is an example of a model. In the data science world, it would usually mean a trained machine learning model that can make new predictions given new inputs. Perhaps the most commonly used file format for models is pickle, with extension <code>.pkl</code>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Of course, I’m not naïve, I know people are out there building models in Excel. What I really mean is “the file format most commonly used by data professionals for models is pickle”. Today, almost undoubtedly, <code>.xlsx</code> is the most common file format for models but we’ll see why that’s not satisfactory.</p></li></div></div>
-<p>Want to see an example of a simple model in code, and the command to save it to disk? Scroll down or <a href="#a-simple-model-in-code-as-an-example">click here</a>.</p>
+<p>The word “model” is doing a lot of work here: it means a digital artefact that is (usually) trained on some data and which either contains coefficient estimates or can make predictions or both. A linear regression is an example of a model. In the data science world, it would usually mean a trained machine learning model that can make new predictions given new inputs. Perhaps the most commonly used file format for models is pickle, with extension <code>.pkl</code>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Of course, I’m not naïve, I know people are out there building models in Excel. What I really mean is “the file format most commonly used by data professionals for models is pickle”. Today, almost undoubtedly, <code>.xlsx</code> is the most common file format for models but we’ll see why that’s not satisfactory.</p></div></div><p>Want to see an example of a simple model in code, and the command to save it to disk? Scroll down or <a href="#a-simple-model-in-code-as-an-example">click here</a>.</p>
 </section>
 <section id="what-is-a-model-registry-and-why-do-i-need-it" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="what-is-a-model-registry-and-why-do-i-need-it">What is a <em>model registry</em> and why do I need it?</h2>
@@ -289,7 +297,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="model_reg_img.png" class="img-fluid figure-img" style="width:100.0%" alt="Schematic of a model registry."></p>
-<figcaption class="figure-caption margin-caption">Schematic of a model registry.</figcaption>
+<figcaption class="margin-caption">Schematic of a model registry.</figcaption>
 </figure>
 </div>
 <p>Reasons you might want to use a model registry include:</p>
@@ -308,8 +316,8 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <li>you want to make sure that you’re all using the same model. When you load a model from a registry, you pull it <em>directly</em> from the cloud repository—so there’s no chance of you accidentally changing a version that you’ve downloaded to your own machine and running something that’s inconsistent with the online version.</li>
 </ul>
 <p><em>Not</em> having some of these features comes with significant <em>model risk</em>. By model risk, I mean risks relating to models such as not knowing which model or model version was used in a particular decision or at a particular time, losing track of key models, people having access to sensitive models that they shouldn’t, not realising that a model’s performance has significantly degraded, and being unable to reproduce results that were used in critical decision making.</p>
-<div class="page-columns page-full"><p>I said I would come back to models in Excel. In principle, you might (?) be able to store Excel models in a model registry and get some of these benefits (some, but definitely not all: you can’t deploy Excel to an API endpoint, for example, or use it with continuous integration). But Excel comes with so many other issues, I really don’t think you should. Some of the big ones are that they bundle code and data and model together, so you lose all the (not addressed in this post) benefits of version control, you lose control of data (very explicitly—<a href="https://www.nature.com/articles/d41586-021-02211-4">Excel changes your data</a>), and the code is repeated across cells, which makes some errors more likely.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> The bottom line is that if the model is doing anything important, it shouldn’t be in a spreadsheet.</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;The classic examples are not pulling a formula down to cover all rows or columns and hard-pasting numbers over formula cells.</p></li></div></div>
-</section>
+<p>I said I would come back to models in Excel. In principle, you might (?) be able to store Excel models in a model registry and get some of these benefits (some, but definitely not all: you can’t deploy Excel to an API endpoint, for example, or use it with continuous integration). But Excel comes with so many other issues, I really don’t think you should. Some of the big ones are that they bundle code and data and model together, so you lose all the (not addressed in this post) benefits of version control, you lose control of data (very explicitly—<a href="https://www.nature.com/articles/d41586-021-02211-4">Excel changes your data</a>), and the code is repeated across cells, which makes some errors more likely.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> The bottom line is that if the model is doing anything important, it shouldn’t be in a spreadsheet.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;The classic examples are not pulling a formula down to cover all rows or columns and hard-pasting numbers over formula cells.</p></div></div></section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p>If your institution relies on models in any way that’s even vaguely critical, it’s hard to see why you wouldn’t want most of the functionality of a model registry or the attendant reduction in risks it can provide. Additionally, this is pretty cheap (or even free), and, because cloud services are scriptable, very automatable, so it’s plausible that the extra functionality comes along with a <em>boost</em> in productivity. Model behaviour indeed!</p>
@@ -331,7 +339,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -444,7 +452,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lin_model.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>OLS Regression Results</caption>
 <tbody>
 <tr class="odd">
@@ -503,7 +511,9 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 </tr>
 </tbody>
 </table>
-<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
+
+
+<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
 <td></td>
@@ -561,7 +571,9 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 </tr>
 </tbody>
 </table>
-<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
+
+
+<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Omnibus:</td>
@@ -627,14 +639,14 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="list_view_google_mr.jpg" class="img-fluid figure-img" style="width:100.0%" alt="A Google model registry with some models in."></p>
-<figcaption class="figure-caption margin-caption">Screenshot showing the model registry page on Vertex AI.</figcaption>
+<figcaption class="margin-caption">Screenshot showing the model registry page on Vertex AI.</figcaption>
 </figure>
 </div>
 <p>You can see high level information such as the name, number of versions, default version, deployment status, and type. If you click through to one of those models, you get a more detailed view.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="single_model_view_google_mr.jpg" class="img-fluid figure-img" style="width:100.0%" alt="A single model's page in a Google model registry."></p>
-<figcaption class="figure-caption margin-caption">Screenshot showing a single model’s page in a Google model registry.</figcaption>
+<figcaption class="margin-caption">Screenshot showing a single model’s page in a Google model registry.</figcaption>
 </figure>
 </div>
 <p>This view shows the labels applied to each version of a specific model, and more. One of the great features of a model registry is that performance can be automatically assessed (“continous integration”).</p>
@@ -642,7 +654,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="performance_view_google_mr.jpg" class="img-fluid figure-img" style="width:100.0%" alt="A single model's performance metrics in Google model registry."></p>
-<figcaption class="figure-caption margin-caption">Screenshot showing a single model’s performance metrics in Google model registry.</figcaption>
+<figcaption class="margin-caption">Screenshot showing a single model’s performance metrics in Google model registry.</figcaption>
 </figure>
 </div>
 <section id="metadata" class="level3">
@@ -711,18 +723,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -754,11 +755,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.aeturrell\.com\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -768,8 +808,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -781,7 +830,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -825,6 +997,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -850,6 +1023,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -910,6 +1109,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
