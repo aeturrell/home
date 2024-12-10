@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2019-06-26">
 <meta name="description" content="Arthur Turrell is an economic data scientist.">
 
-<title>Get organised – Arthur Turrell</title>
+<title>Arthur Turrell</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -38,10 +38,11 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dd08061cb7210c315e315379d94beb87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-757dae479023e90f60420cb4a75f766d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,21 +110,21 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="Get organised">
+<meta property="og:title" content="Arthur Turrell">
 <meta property="og:description" content="Arthur Turrell is an economic data scientist.">
-<meta property="og:image" content="https://www.aeturrell.com//files/logo_large.png">
+<meta property="og:image" content="https://www.aeturrell.com/blog/posts/get-organised/tidy_data_example.png">
 <meta property="og:site_name" content="Arthur Turrell">
 <meta property="og:locale" content="en_UK">
-<meta property="og:image:height" content="1594">
-<meta property="og:image:width" content="1594">
-<meta name="twitter:title" content="Get organised">
+<meta property="og:image:height" content="600">
+<meta property="og:image:width" content="1920">
+<meta name="twitter:title" content="Arthur Turrell">
 <meta name="twitter:description" content="Arthur Turrell is an economic data scientist.">
-<meta name="twitter:image" content="https://www.aeturrell.com//files/logo_large.png">
+<meta name="twitter:image" content="https://www.aeturrell.com/blog/posts/get-organised/tidy_data_example.png">
 <meta name="twitter:creator" content="@arthurturrell">
 <meta name="twitter:site" content="@arthurturrell">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image-height" content="1594">
-<meta name="twitter:image-width" content="1594">
+<meta name="twitter:image-height" content="600">
+<meta name="twitter:image-width" content="1920">
 </head>
 
 <body class="nav-fixed">
@@ -192,6 +193,10 @@ window.Quarto = {
 </i> 
 <span class="menu-text"></span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/arthurturrell.bsky.social"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="bi:cloud-slash" aria-label="Icon cloud-slash from bi Iconify.design set." title="Icon cloud-slash from bi Iconify.design set."></iconify-icon></span></a>
+  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/aeturrell"> <i class="bi bi-github" role="img" aria-label="github">
 </i> 
@@ -253,10 +258,22 @@ window.Quarto = {
   <ul>
   <li><a href="#best-practice-for-research-project-organisation" id="toc-best-practice-for-research-project-organisation" class="nav-link active" data-scroll-target="#best-practice-for-research-project-organisation">Best practice for research project organisation</a>
   <ul class="collapse">
+  <li><a href="#caveats" id="toc-caveats" class="nav-link" data-scroll-target="#caveats">Caveats</a></li>
+  <li><a href="#the-example-project" id="toc-the-example-project" class="nav-link" data-scroll-target="#the-example-project">The example project</a></li>
+  </ul></li>
   <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of Contents</a></li>
-  <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure">Project structure</a></li>
+  <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure">Project structure</a>
+  <ul class="collapse">
+  <li><a href="#configuration-files" id="toc-configuration-files" class="nav-link" data-scroll-target="#configuration-files">Configuration files</a></li>
+  </ul></li>
   <li><a href="#version-control" id="toc-version-control" class="nav-link" data-scroll-target="#version-control">Version control</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
+  <ul class="collapse">
+  <li><a href="#raw-data" id="toc-raw-data" class="nav-link" data-scroll-target="#raw-data">Raw data</a></li>
+  <li><a href="#intermediate-data" id="toc-intermediate-data" class="nav-link" data-scroll-target="#intermediate-data">Intermediate data</a></li>
+  <li><a href="#cleaned-data" id="toc-cleaned-data" class="nav-link" data-scroll-target="#cleaned-data">Cleaned data</a></li>
+  <li><a href="#output-data" id="toc-output-data" class="nav-link" data-scroll-target="#output-data">Output data</a></li>
+  </ul></li>
   <li><a href="#analytical-tools" id="toc-analytical-tools" class="nav-link" data-scroll-target="#analytical-tools">Analytical tools</a></li>
   <li><a href="#coding-standards" id="toc-coding-standards" class="nav-link" data-scroll-target="#coding-standards">Coding standards</a></li>
   <li><a href="#writing-the-paper" id="toc-writing-the-paper" class="nav-link" data-scroll-target="#writing-the-paper">Writing the paper</a>
@@ -269,7 +286,6 @@ window.Quarto = {
   </ul></li>
   <li><a href="#after-the-project" id="toc-after-the-project" class="nav-link" data-scroll-target="#after-the-project">After the project</a></li>
   <li><a href="#conclusion-1" id="toc-conclusion-1" class="nav-link" data-scroll-target="#conclusion-1">Conclusion</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -280,23 +296,24 @@ window.Quarto = {
 
 
 
-<section id="best-practice-for-research-project-organisation" class="level1 page-columns page-full">
-<h1>Best practice for research project organisation</h1>
+<section id="best-practice-for-research-project-organisation" class="level2">
+<h2 class="anchored" data-anchor-id="best-practice-for-research-project-organisation">Best practice for research project organisation</h2>
 <p>This monster blog post is going to discuss how to organise your a data science project or research project: data, code and outputs. I’ll cover how to structure the project, version control, data and data storage, analytical tools, coding standards, and what to do when your project is over.</p>
-<section id="caveats" class="level5">
-<h5 class="anchored" data-anchor-id="caveats">Caveats</h5>
+<section id="caveats" class="level3">
+<h3 class="anchored" data-anchor-id="caveats">Caveats</h3>
 <p>Of course, these are just my opinions, they’re far from exhaustive, and there may well be good reasons to set up your project differently depending on what it is that you’re doing. I’m interested in hearing different perspectives so get in touch if you have them.</p>
 <p>Inevitably the post is going to be geared toward Python because it’s my primary language but much of the advice applies equally well to R. Similarly, although most of what I’m saying applies across platforms, in some in places it may be more relevant to Mac OS.</p>
 <p>I’m not going to discuss topics like unit tests, automatic creation of documentation, or making the project into an installable package in this post and, for most small research projects, these features would probably be overkill.</p>
 <p>For a more detailed perspective on best practice research project organisation, see <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510">Good enough practices in scientific computing. PLoS computational biology, 13(6), e1005510</a>. A similar post from a more pure data science perspective may be <a href="https://www.kaggle.com/rtatman/reproducible-research-best-practices-jupytercon">found here</a>, and there’s a <a href="https://drivendata.github.io/cookiecutter-data-science/">machine learning oriented cookiecutter project here</a>.</p>
 </section>
-<section id="the-example-project" class="level4">
-<h4 class="anchored" data-anchor-id="the-example-project">The example project</h4>
+<section id="the-example-project" class="level3">
+<h3 class="anchored" data-anchor-id="the-example-project">The example project</h3>
 <p>There’s a <a href="https://github.com/aeturrell/cookie-cutter-research-project">small research project github repository</a> that accompanies this post. To use it as the basis of your small research project, open up a command line and type <code>git clone https://github.com/aeturrell/cookie-cutter-research-project.git</code> in the directory in which you want to clone it, or download it directly from github.</p>
 <p>It is in Python 3 and uses the ONS API to download some macroeconomic time series, process them into tidy data, and then use them within a dynamic factor model† inspired by <a href="http://www.chadfulton.com/">Chad Fulton</a>’s tutorials/notebooks which you can find <a href="http://www.chadfulton.com/fulton_statsmodels_2017/sections/6-out-of-the-box_models.html#dynamic-factors">here</a> and <a href="https://www.statsmodels.org/dev/examples/notebooks/generated/statespace_dfm_coincident.html">here</a>.</p>
 <p>It is very much a toy example and not intended to be accurate or say anything at all about the real world! It is designed to showcase how the various components of what I’ll say below fit together in practice.</p>
 <p>Within the example project, there are Latex templates for both slides and a working paper. These are based on <a href="https://twitter.com/paulgp?lang=en">Paul Goldsmith-Pinkham</a>’s excellent templates, the originals of which you can find <a href="https://github.com/paulgp/beamer-tips">here for slides</a> and <a href="https://github.com/paulgp/draft-tex">here for the working paper</a>.</p>
 <p>Okay, on to the main event…</p>
+</section>
 </section>
 <section id="table-of-contents" class="level2">
 <h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
@@ -327,8 +344,8 @@ window.Quarto = {
 <p>If you haven’t tried putting figures and tables in a separate directory to your Latex code before then the example project implements an efficient way to do so. You set a single path and can then refer to outputs only by their name (not their full path). If you want to be even more fancy you can <a href="http://www.jespertoftkristensen.com/JTK/Blog/Entries/2014/1/13_Organize_your_LaTeX_Project.html">move files around</a> during Latex compilation.</p>
 <p>Perhaps you need to output your (Latex) writing to Microsoft’s Word format or to markdown as part of your workflow? In that case, I’d suggest using <a href="https://pandoc.org/">pandoc</a> but be warned that ensuring references, citations, equations, and inputs are included correctly can be fiddly.</p>
 <p>One other important principle: friends do not let friends use whitespace in filenames or paths.</p>
-<section id="configuration-files" class="level5">
-<h5 class="anchored" data-anchor-id="configuration-files">Configuration files</h5>
+<section id="configuration-files" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-files">Configuration files</h3>
 <p>You’ll notice that there is a config file, config.yaml, that sits above everything else. The purpose of this is to make adding global settings to your project easier, especially if they are directories. The advantage of this config file is that you can see what settings are being run from one place and, if you do need to change the structure of the project, you only have to do it in one place. Similarly, others on the project can clearly see when and how important settings were changed without trawling through lots of code.</p>
 <p>In the example project, I’ve put settings for plots into the config.yaml where they can be conveniently loaded. These start with the <code>- viz:</code> heading in the file.</p>
 <p>.yaml is not the only configuration file available and I don’t have a very strong view as to which is best as they all have their pros and cons. I’ve used both .ini and .yaml, and both can work for a simple project. You can find more about the ins and outs of different config file formats <a href="https://martin-thoma.com/configuration-files-in-python/">here</a> (with handy examples) and <a href="https://hackersandslackers.com/simplify-your-python-projects-configuration/">here</a>.</p>
@@ -342,7 +359,7 @@ window.Quarto = {
 <p lang="en" dir="ltr">
 who called it <code>git blame</code> and not <code>git whose-line-is-it-anyway</code>?
 </p>
-— Jessica🏳️‍🌈 (<span class="citation" data-cites="ticky">(<a href="#ref-ticky" role="doc-biblioref"><strong>ticky?</strong></a>)</span>) <a href="https://twitter.com/ticky/status/1032028502961209344?ref_src=twsrc%5Etfw">August 21, 2018</a>
+— Jessica🏳️‍🌈 <a href="https://twitter.com/ticky/status/1032028502961209344?ref_src=twsrc%5Etfw">August 21, 2018</a>
 </blockquote>
 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <p>The other great use of the various git platforms is to track bugs, to do lists, and even to host wikis.</p>
@@ -356,17 +373,17 @@ who called it <code>git blame</code> and not <code>git whose-line-is-it-anyway</
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <p>I find it useful to think about the main possible classes of data in a research project as being raw, intermediate, cleaned, and output.</p>
 <p>As the example project is simple, we are going to skip intermediate data and go straight for clean data.</p>
-<section id="raw-data" class="level5">
-<h5 class="anchored" data-anchor-id="raw-data">Raw data</h5>
+<section id="raw-data" class="level3">
+<h3 class="anchored" data-anchor-id="raw-data">Raw data</h3>
 <p>Raw data is just that. No matter how horrible a format it comes to you in (a 50 sheet Excel file with different formats on each sheet anyone?), you should preserve that. Don’t mess with it, keep it to one side and derive other, better data from it. You’ll need it later when you try and replicate your own work.</p>
 </section>
-<section id="intermediate-data" class="level5">
-<h5 class="anchored" data-anchor-id="intermediate-data">Intermediate data</h5>
+<section id="intermediate-data" class="level3">
+<h3 class="anchored" data-anchor-id="intermediate-data">Intermediate data</h3>
 <p>Intermediate data is the data you get once you’ve made some progress on getting whatever mess you started with into shape. Maybe you had 5 different spreadsheets and you’ve managed to clean each one and dump them into CSVs. Yes, they are still not tidy, or in the format you need for analysis, or merged. But you’ve made some progress, progress worth making into a distinct phase of your analysis.</p>
 <p>Intermediate data can be very large, in which case you may want to consider the speed and efficiency of storing it. For the python library pandas, there’s a <a href="https://towardsdatascience.com/the-best-format-to-save-pandas-data-414dca023e0d">nice post here</a> looking at file sizes and loading/saving speeds. As noted, intermediate data should not be under version control. Data versioning does exist but I’ve not (yet) seen it used for research projects - see <a href="https://github.com/pachyderm/pachyderm">pachyderm</a> for an example.</p>
 </section>
-<section id="cleaned-data" class="level5 page-columns page-full">
-<h5 class="anchored" data-anchor-id="cleaned-data">Cleaned data</h5>
+<section id="cleaned-data" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="cleaned-data">Cleaned data</h3>
 <p>Cleaned data is what’s used to do the analysis. It’s data that’s ready to go into a machine learning model or regression. If a colleague were working on a similar project, this is (hopefully) what you’d send them instead of the 50-sheet Excel monstrosity.</p>
 <p>Cleaned data should be stored in tidy format, that is data in which each observation is a row, each variable is a column, and each type of observation unit forms a table. This figure shows a visual example of tidy data.</p>
 <p><img src="tidy_data_example.png" class="img-fluid" alt="A diagram showing how tidy data work."> From <a href="https://r4ds.had.co.nz/tidy-data.html">R for Data Science</a>.</p>
@@ -382,8 +399,8 @@ who called it <code>git blame</code> and not <code>git whose-line-is-it-anyway</
 </div>
 <p>Should you put your tidy, cleaned data under version control? Probably not. But if it’s small and unlikely to change much, it can be quite convenient to do so.</p>
 </section>
-<section id="output-data" class="level5">
-<h5 class="anchored" data-anchor-id="output-data">Output data</h5>
+<section id="output-data" class="level3">
+<h3 class="anchored" data-anchor-id="output-data">Output data</h3>
 <p>These are the final figures and tables that tell the story in your analysis. As noted, it’s convenient to put the ones that are going to make it into your paper and any presentations you give under version control, and have a scratch folder for the rest. This a folder that’s for the many extra figures and tables that you’ll create, and perhaps want to glance at, but won’t hold on to.</p>
 <p>For figures, most journals require that you use lossless formats such as PDF and EPS. .eps and .pdf are vector image formats, they work by representing the shapes and lines of the image and so can be reproduced any resolution. They are distinct from rasterised formats (.png, .jpg) that work by having pixels that reproduce the image but only at a specific resolution. For images made up of smooth shapes and colours, like most charts, vector formats are superior because they encode the information to show an image at any resolution. For complex images, such as photographs, jpg is usually better because there is a natural limit to the resolution you would ever need in such an image. As journals tend to prefer it, my general recommendation is to use .eps wherever possible and, if you do have real images, find out what format the journal prefers. Not only do .eps files look better, but for figures they tend to take up less space on disk versus the equivalent png or jpg file. Modern programming languages like R and Python can export to all of these formats.</p>
 <p>For reasons that are not at all obvious, Powerpoint does not play nicely with vector images but Keynote (Mac OS) and Beamer/Latex (all operating systems) do.‡</p>
@@ -534,7 +551,6 @@ who called it <code>git blame</code> and not <code>git whose-line-is-it-anyway</
 
 
 </section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -619,8 +635,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -731,7 +745,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

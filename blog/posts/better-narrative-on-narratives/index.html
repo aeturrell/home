@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2017-11-10">
 <meta name="description" content="Arthur Turrell is an economic data scientist.">
 
-<title>A better narrative on narratives – Arthur Turrell</title>
+<title>Arthur Turrell</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +23,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -38,10 +58,11 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dd08061cb7210c315e315379d94beb87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-757dae479023e90f60420cb4a75f766d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,21 +101,17 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 </script>
 
 
-<meta property="og:title" content="A better narrative on narratives">
+<meta property="og:title" content="Arthur Turrell">
 <meta property="og:description" content="Arthur Turrell is an economic data scientist.">
-<meta property="og:image" content="https://www.aeturrell.com//files/logo_large.png">
+<meta property="og:image" content="https://www.aeturrell.com/blog/posts/better-narrative-on-narratives/king_et_al.webp">
 <meta property="og:site_name" content="Arthur Turrell">
 <meta property="og:locale" content="en_UK">
-<meta property="og:image:height" content="1594">
-<meta property="og:image:width" content="1594">
-<meta name="twitter:title" content="A better narrative on narratives">
+<meta name="twitter:title" content="Arthur Turrell">
 <meta name="twitter:description" content="Arthur Turrell is an economic data scientist.">
-<meta name="twitter:image" content="https://www.aeturrell.com//files/logo_large.png">
+<meta name="twitter:image" content="https://www.aeturrell.com/blog/posts/better-narrative-on-narratives/king_et_al.webp">
 <meta name="twitter:creator" content="@arthurturrell">
 <meta name="twitter:site" content="@arthurturrell">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image-height" content="1594">
-<meta name="twitter:image-width" content="1594">
 </head>
 
 <body class="nav-fixed">
@@ -163,6 +180,10 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 </i> 
 <span class="menu-text"></span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/arthurturrell.bsky.social"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="bi:cloud-slash" aria-label="Icon cloud-slash from bi Iconify.design set." title="Icon cloud-slash from bi Iconify.design set."></iconify-icon></span></a>
+  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/aeturrell"> <i class="bi bi-github" role="img" aria-label="github">
 </i> 
@@ -187,6 +208,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
       <h1 class="title">A better narrative on narratives</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">research</div>
+                <div class="quarto-category">news</div>
               </div>
                   </div>
   </div>
@@ -215,18 +237,30 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#references" id="toc-references" class="nav-link active" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
 
 
 
 
 
-<p>Pigou, Keynes and Shiller have all recognised the importance of narratives and sentiment for the economy. But we don’t know too much about how narratives spread. One of the most powerful ways to find out would be to run a randomised controlled experiment that surfaces a particular narrative and then tries to measure how much that narrative catches on.</p>
-<p>Researchers, writing in the journal <a href="https://www.sciencemag.org"><em>Science</em></a>, have come admirably close to an experiment which does just this. Their interest was more general than just economic narratives. They managed to cajole 48 media outlets into taking part in a randomised trial in which articles were published on the same topic on the same date. As they say, “Our unit of treatment was the entire nation during an experiment-week”. Following publication of the articles, the researchers monitored Twitter to see if the topics they had pushed did get picked up. Astonishingly, their intervention increased the volume of tweets on that topic by ~60%. Not only that, but the number of unique authors tweeting about the topic increased too.</p>
+<p>Pigou, Keynes and Shiller all recognised the importance of narratives and sentiment for the economy. But we don’t know too much about how narratives spread. One of the most powerful ways to find out would be to run a randomised controlled experiment that surfaces a particular narrative and then tries to measure how much that narrative catches on.</p>
+<p><span class="citation" data-cites="king2017news">King, Schneer, and White (<a href="#ref-king2017news" role="doc-biblioref">2017</a>)</span>, writing in the journal <a href="https://www.sciencemag.org"><em>Science</em></a>, have come admirably close to an experiment which does just this. Their interest was more general than just economic narratives. They managed to cajole 48 media outlets into taking part in a randomised trial in which articles were published on the same topic on the same date. As they say, “Our unit of treatment was the entire nation during an experiment-week”. Following publication of the articles, the researchers monitored Twitter to see if the topics they had pushed did get picked up. Astonishingly, their intervention increased the volume of tweets on that topic by ~60%. Not only that, but the number of unique authors tweeting about the topic increased too.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="king_et_al.webp" class="img-fluid figure-img"></p>
+<figcaption class="margin-caption">Image taken from paper showing causal chain of events</figcaption>
+</figure>
+</div>
 <p>Perhaps the most interesting result is that the experiment seemed to help change the narrative,</p>
 <blockquote class="blockquote">
 <p>“Our news media intervention also changed the composition of opinion expressed in the national conversation by 2.3 percentage points in the ideological direction conveyed by our published articles; individuals may or not have been persuaded to change their views, but the overall testimony given publicly changed noticeably”</p>
@@ -238,11 +272,16 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 </blockquote>
 <p>Expectations drive modern structural macroeconomic models, and narratives drive expectations, so this work has implications for understanding the ‘animal spirits’ of the economy. Narratives in newspapers, especially those with high circulation, could be important drivers of expectations amongst consumers.</p>
 <p>I personally think that there’s more work to be done in understanding the narratives expressed in popular media. I’m interested in research which goes in this direction but, as these authors explain, there are many practical barriers to finding good empirical answers to even the most basic questions.</p>
-<p>Article:</p>
-<p>GARY KING, BENJAMIN SCHNEER, ARIEL WHITE, How the news media activate public expression and influence national agendas, SCIENCE, Vol. 358, Issue 6364, pp.&nbsp;776-780</p>
-<p>or <a href="http://www.dx.doi.org/10.1126/science.aao1100">click here</a>.</p>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-king2017news" class="csl-entry" role="listitem">
+King, Gary, Benjamin Schneer, and Ariel White. 2017. <span>“How the News Media Activate Public Expression and Influence National Agendas.”</span> <em>Science</em> 358 (6364): 776–80. <a href="http://www.dx.doi.org/10.1126/science.aao1100">http://www.dx.doi.org/10.1126/science.aao1100</a>.
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -327,8 +366,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -439,7 +476,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

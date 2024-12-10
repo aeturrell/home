@@ -9,7 +9,7 @@
 <link>https://www.aeturrell.com/atom.html</link>
 <atom:link href="https://www.aeturrell.com/atom.xml" rel="self" type="application/rss+xml"/>
 <description>{{&lt; meta description-meta &gt;}}</description>
-<generator>quarto-1.5.56</generator>
+<generator>quarto-1.6.39</generator>
 <lastBuildDate>Mon, 16 Sep 2024 23:00:00 GMT</lastBuildDate>
 <item>
   <title>The false economy of bad IT</title>
@@ -929,6 +929,7 @@ font-style: inherit;">--auth-mode</span> login</span></code></pre></div>
   <category>cloud</category>
   <guid>https://www.aeturrell.com/blog/posts/til-blob-storage-azure/</guid>
   <pubDate>Mon, 22 Apr 2024 23:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/til-blob-storage-azure/None" medium="image"/>
 </item>
 <item>
   <title>TIL: how to connect Visual Studio Code to Azure Virtual Machines</title>
@@ -1055,6 +1056,7 @@ font-style: inherit;">-i</span> ~/.ssh/id_rsa.pem VM-USERNAME@VM-IP-ADDRESS</spa
   <category>rstats</category>
   <guid>https://www.aeturrell.com/blog/posts/til-how-to-run-vscode-remote-azure/</guid>
   <pubDate>Fri, 08 Mar 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/til-how-to-run-vscode-remote-azure/None" medium="image"/>
 </item>
 <item>
   <title>TIL: how to create a virtual desktop from a cloud virtual machine</title>
@@ -1407,7 +1409,7 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
 <section id="a-simple-model-in-code-as-an-example" class="level3">
 <h3 class="anchored" data-anchor-id="a-simple-model-in-code-as-an-example">A simple model in code as an example</h3>
 <p>The simplest model you can think of is something like the below, where we feed some data on the miles per gallon of cars into a regression.</p>
-<div class="cell" data-execution_count="1">
+<div id="72a1c4e8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
@@ -1554,7 +1556,7 @@ font-style: inherit;">float</span>},</span>
 </div>
 </div>
 <p>Now we can fit a linear model, <code>lin_model</code>.</p>
-<div class="cell" data-execution_count="2">
+<div id="96b111a2" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> statsmodels.api <span class="im" style="color: #00769E;
@@ -1577,7 +1579,7 @@ font-style: inherit;">=</span>mpg).fit()</span></code></pre></div>
 <p>This has a predict method, accessed via <code>lin_model.predict()</code>.</p>
 <p>Okay, <em>here’s the important bit</em>: to save this model locally on your computer (ready to upload to a model registru), it would be <code>lin_model.save("lin_reg_model.pkl")</code>.</p>
 <p>For this particular package, <strong>statsmodels</strong>, you can see a summary of the underlying model using <code>.summary()</code></p>
-<div class="cell" data-execution_count="3">
+<div id="a72c7761" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">lin_model.summary()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
@@ -1603,13 +1605,13 @@ font-style: inherit;">=</span>mpg).fit()</span></code></pre></div>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Date:</td>
-<td>Fri, 13 Oct 2023</td>
+<td>Tue, 10 Dec 2024</td>
 <td data-quarto-table-cell-role="th">Prob (F-statistic):</td>
 <td>4.87e-11</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Time:</td>
-<td>23:02:03</td>
+<td>12:21:31</td>
 <td data-quarto-table-cell-role="th">Log-Likelihood:</td>
 <td>-71.235</td>
 </tr>
@@ -1848,6 +1850,7 @@ signature:
   <category>data science</category>
   <guid>https://www.aeturrell.com/blog/posts/why-have-a-model-registry/</guid>
   <pubDate>Thu, 12 Oct 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/why-have-a-model-registry/model_reg_img.png" medium="image" type="image/png" height="55" width="144"/>
 </item>
 <item>
   <title>Building an API in the cloud in fewer than 200 lines of code</title>
@@ -2196,6 +2199,7 @@ Done.</code></pre>
   <category>python</category>
   <guid>https://www.aeturrell.com/blog/posts/build-a-cloud-api/build-a-cloud-api.html</guid>
   <pubDate>Wed, 27 Sep 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/build-a-cloud-api/run_using_dat.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>The explosion in time series forecasting packages in data science</title>
@@ -2331,6 +2335,7 @@ Done.</code></pre>
   <category>time series</category>
   <guid>https://www.aeturrell.com/blog/posts/time-series-explosion/</guid>
   <pubDate>Mon, 11 Sep 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/time-series-explosion/pymc_example.png" medium="image" type="image/png" height="108" width="144"/>
 </item>
 <item>
   <title>TIL: Obsidian, and integrating it with Zotero</title>
@@ -3327,6 +3332,7 @@ font-style: inherit;">lucide-sticky-note </span></span>
   <category>TIL</category>
   <guid>https://www.aeturrell.com/blog/posts/til-zotero-and-obsidian/</guid>
   <pubDate>Sat, 08 Jul 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/til-zotero-and-obsidian/None" medium="image"/>
 </item>
 <item>
   <title>The self-storage problem meets chatGPT</title>
@@ -3606,6 +3612,7 @@ font-style: inherit;">0</span>)</span>
   <category>llm</category>
   <guid>https://www.aeturrell.com/blog/posts/self-storage-meets-chatgpt/</guid>
   <pubDate>Thu, 29 Jun 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/self-storage-meets-chatgpt/None" medium="image"/>
 </item>
 <item>
   <title>The mystery of stuff: why all the self-storage?</title>
@@ -4118,6 +4125,7 @@ font-style: inherit;">41000</span>]</span>
   <category>llm</category>
   <guid>https://www.aeturrell.com/blog/posts/self-storage-mystery/self-storage-mystery.html</guid>
   <pubDate>Wed, 14 Jun 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/self-storage-mystery/overpass_results.png" medium="image" type="image/png" height="186" width="144"/>
 </item>
 <item>
   <title>Data science maturity and the cloud</title>
@@ -4278,6 +4286,7 @@ font-style: inherit;">41000</span>]</span>
   <category>public sector</category>
   <guid>https://www.aeturrell.com/blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html</guid>
   <pubDate>Wed, 08 Feb 2023 00:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/managing-public-sector-knowledge/None" medium="image"/>
 </item>
 <item>
   <title>Why you shouldn’t code on your work laptop</title>
@@ -4366,7 +4375,7 @@ Nagle, Frank. 2019. <span>“Open Source Software and Firm Productivity.”</spa
 <p>APIs, or application programming interfaces, are a set of rules and protocols that enable communication between different software systems. They allow different systems to exchange data and functionality programmatically. They are programming language agnostic, and sometimes make data available in several formats.</p>
 <p>In the context of data and statistics, APIs are particularly useful because they allow organisations to access and use data from a variety of sources in a consistent and controlled manner. For example, a government department might wish to use APIs to reproducibly and reliably access data from a national statistical office.</p>
 <p>It’s easiest to show how APIs work with an example. Let’s pull down CO2 emissions per capita by country from the World Bank using the <a href="https://pandas-datareader.readthedocs.io/"><strong>pandas_datareader</strong></a> package in Python. <strong>pandas_datareader</strong> provides convenient access to a wide range of APIs including those serving up data from the <a href="https://fred.stlouisfed.org/docs/api/fred/">US Federal Reserve (FRED)</a>, the <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation">World Bank</a>, the <a href="https://data.oecd.org/api/">OECD</a>, the <a href="https://www.bankofcanada.ca/valet/docs">Bank of Canada</a>, <a href="https://ec.europa.eu/eurostat/data/web-services">Eurostat</a>, and more.</p>
-<div class="cell" data-execution_count="2">
+<div id="a42c672d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> textwrap</span>
@@ -4385,7 +4394,7 @@ font-style: inherit;"># download the data from the world bank</span></span>
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"EN.ATM.CO2E.PC"</span>,                <span class="co" style="color: #5E5E5E;
+font-style: inherit;">"EN.GHG.ALL.PC.CE.AR5"</span>,                <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># indicator code</span></span>
 <span id="cb1-6">    country<span class="op" style="color: #5E5E5E;
@@ -4443,7 +4452,7 @@ font-style: inherit;"># wrap long names</span></span>
 background-color: null;
 font-style: inherit;">=</span> df.sort_values(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"EN.ATM.CO2E.PC"</span>)          <span class="co" style="color: #5E5E5E;
+font-style: inherit;">"EN.GHG.ALL.PC.CE.AR5"</span>)          <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># re-order</span></span>
 <span id="cb1-13">df.head()</span></code></pre></div>
@@ -4457,7 +4466,7 @@ font-style: inherit;"># re-order</span></span>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">country</th>
 <th data-quarto-table-cell-role="th">year</th>
-<th data-quarto-table-cell-role="th">EN.ATM.CO2E.PC</th>
+<th data-quarto-table-cell-role="th">EN.GHG.ALL.PC.CE.AR5</th>
 </tr>
 </thead>
 <tbody>
@@ -4465,31 +4474,31 @@ font-style: inherit;"># re-order</span></span>
 <td data-quarto-table-cell-role="th">3</td>
 <td>India</td>
 <td>2019</td>
-<td>1.775923</td>
+<td>2.695871</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>East Asia\n&amp; Pacific</td>
 <td>2019</td>
-<td>6.227609</td>
+<td>8.790307</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>Europe &amp;\nCentral\nAsia</td>
 <td>2019</td>
-<td>6.562452</td>
+<td>9.468142</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">0</td>
 <td>China</td>
 <td>2019</td>
-<td>7.605937</td>
+<td>10.359449</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>United\nStates</td>
 <td>2019</td>
-<td>14.673407</td>
+<td>18.718205</td>
 </tr>
 </tbody>
 </table>
@@ -4504,7 +4513,7 @@ font-style: inherit;"># re-order</span></span>
 <li>getting the data for the period we want is as simple as changing the year</li>
 </ul>
 <p>Having downloaded the data, let’s now plot it:</p>
-<div class="cell" data-execution_count="3">
+<div id="4c3a8e51" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> seaborn <span class="im" style="color: #00769E;
@@ -4522,7 +4531,7 @@ font-style: inherit;">"country"</span>, y<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"EN.ATM.CO2E.PC"</span>, data<span class="op" style="color: #5E5E5E;
+font-style: inherit;">"EN.GHG.ALL.PC.CE.AR5"</span>, data<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>df.reset_index(), ax<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -4611,6 +4620,7 @@ font-style: inherit;">""</span>)</span>
   <category>data</category>
   <guid>https://www.aeturrell.com/blog/posts/the-prize-with-apis/the-prize-with-apis.html</guid>
   <pubDate>Sun, 18 Dec 2022 00:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/the-prize-with-apis/None" medium="image"/>
 </item>
 <item>
   <title>TIL: How to break RSS feeds</title>
@@ -4657,6 +4667,7 @@ ax.set_xlabel(r"$e^\frac{-x^2}{2}$")
   <category>TIL</category>
   <guid>https://www.aeturrell.com/blog/posts/til-how-to-break-xml/</guid>
   <pubDate>Wed, 02 Nov 2022 00:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/til-how-to-break-xml/None" medium="image"/>
 </item>
 <item>
   <title>Welcome To The New Home for My Blog</title>
@@ -4686,6 +4697,7 @@ Turrell, Arthur E, Mark Sherlock, and Steven J Rose. 2013. <span>“A Monte Carl
   <category>news</category>
   <guid>https://www.aeturrell.com/blog/posts/welcome/</guid>
   <pubDate>Sat, 15 Oct 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/welcome/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Visual Studio Code on the Cloud</title>
@@ -4939,6 +4951,7 @@ font-style: inherit;">glcoud</span> storage cp FILE-NAME gs://DESTINATION_BUCKET
   <category>rstats</category>
   <guid>https://www.aeturrell.com/blog/posts/visual-studio-code-in-the-cloud/</guid>
   <pubDate>Tue, 27 Sep 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/visual-studio-code-in-the-cloud/None" medium="image"/>
 </item>
 <item>
   <title>Writing a Research Blog Post</title>
@@ -5043,6 +5056,7 @@ font-style: inherit;">glcoud</span> storage cp FILE-NAME gs://DESTINATION_BUCKET
   <category>writing</category>
   <guid>https://www.aeturrell.com/blog/posts/research-blogs/</guid>
   <pubDate>Mon, 21 Feb 2022 00:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/research-blogs/res_blog_pyramid.png" medium="image" type="image/png" height="53" width="144"/>
 </item>
 </channel>
 </rss>

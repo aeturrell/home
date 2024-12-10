@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2022-12-18">
 <meta name="description" content="Arthur Turrell is an economic data scientist.">
 
-<title>In praise of APIs (application programming interfaces) – Arthur Turrell</title>
+<title>Arthur Turrell</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,7 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
@@ -72,10 +72,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dd08061cb7210c315e315379d94beb87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-757dae479023e90f60420cb4a75f766d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -113,25 +114,21 @@ gtag('js', new Date());
 gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<meta property="og:title" content="In praise of APIs (application programming interfaces)">
+<meta property="og:title" content="Arthur Turrell">
 <meta property="og:description" content="Arthur Turrell is an economic data scientist.">
-<meta property="og:image" content="https://www.aeturrell.com//files/logo_large.png">
+<meta property="og:image" content="https://www.aeturrell.com/blog/posts/the-prize-with-apis/None">
 <meta property="og:site_name" content="Arthur Turrell">
 <meta property="og:locale" content="en_UK">
-<meta property="og:image:height" content="1594">
-<meta property="og:image:width" content="1594">
-<meta name="twitter:title" content="In praise of APIs (application programming interfaces)">
+<meta name="twitter:title" content="Arthur Turrell">
 <meta name="twitter:description" content="Arthur Turrell is an economic data scientist.">
-<meta name="twitter:image" content="https://www.aeturrell.com//files/logo_large.png">
+<meta name="twitter:image" content="https://www.aeturrell.com/blog/posts/the-prize-with-apis/None">
 <meta name="twitter:creator" content="@arthurturrell">
 <meta name="twitter:site" content="@arthurturrell">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image-height" content="1594">
-<meta name="twitter:image-width" content="1594">
 </head>
 
 <body class="nav-fixed">
@@ -199,6 +196,10 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
     <a class="nav-link" href="https://twitter.com/arthurturrell"> <i class="bi bi-twitter" role="img" aria-label="twitter">
 </i> 
 <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/arthurturrell.bsky.social"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="bi:cloud-slash" aria-label="Icon cloud-slash from bi Iconify.design set." title="Icon cloud-slash from bi Iconify.design set."></iconify-icon></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/aeturrell"> <i class="bi bi-github" role="img" aria-label="github">
@@ -279,19 +280,19 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <p>APIs, or application programming interfaces, are a set of rules and protocols that enable communication between different software systems. They allow different systems to exchange data and functionality programmatically. They are programming language agnostic, and sometimes make data available in several formats.</p>
 <p>In the context of data and statistics, APIs are particularly useful because they allow organisations to access and use data from a variety of sources in a consistent and controlled manner. For example, a government department might wish to use APIs to reproducibly and reliably access data from a national statistical office.</p>
 <p>It’s easiest to show how APIs work with an example. Let’s pull down CO2 emissions per capita by country from the World Bank using the <a href="https://pandas-datareader.readthedocs.io/"><strong>pandas_datareader</strong></a> package in Python. <strong>pandas_datareader</strong> provides convenient access to a wide range of APIs including those serving up data from the <a href="https://fred.stlouisfed.org/docs/api/fred/">US Federal Reserve (FRED)</a>, the <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation">World Bank</a>, the <a href="https://data.oecd.org/api/">OECD</a>, the <a href="https://www.bankofcanada.ca/valet/docs">Bank of Canada</a>, <a href="https://ec.europa.eu/eurostat/data/web-services">Eurostat</a>, and more.</p>
-<div class="cell" data-execution_count="2">
+<div id="a42c672d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> textwrap</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas_datareader <span class="im">import</span> wb</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> wb.download(                              <span class="co"># download the data from the world bank</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    indicator<span class="op">=</span><span class="st">"EN.ATM.CO2E.PC"</span>,                <span class="co"># indicator code</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    indicator<span class="op">=</span><span class="st">"EN.GHG.ALL.PC.CE.AR5"</span>,                <span class="co"># indicator code</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    country<span class="op">=</span>[<span class="st">"US"</span>, <span class="st">"CHN"</span>, <span class="st">"IND"</span>, <span class="st">"Z4"</span>, <span class="st">"Z7"</span>],  <span class="co"># country codes</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    start<span class="op">=</span><span class="dv">2019</span>,                                <span class="co"># start year</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    end<span class="op">=</span><span class="dv">2019</span>,                                  <span class="co"># end year</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.reset_index()                          <span class="co"># remove country as index</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"country"</span>] <span class="op">=</span> df[<span class="st">"country"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: textwrap.fill(x, <span class="dv">10</span>))  <span class="co"># wrap long names</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.sort_values(<span class="st">"EN.ATM.CO2E.PC"</span>)          <span class="co"># re-order</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.sort_values(<span class="st">"EN.GHG.ALL.PC.CE.AR5"</span>)          <span class="co"># re-order</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
@@ -303,7 +304,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">country</th>
 <th data-quarto-table-cell-role="th">year</th>
-<th data-quarto-table-cell-role="th">EN.ATM.CO2E.PC</th>
+<th data-quarto-table-cell-role="th">EN.GHG.ALL.PC.CE.AR5</th>
 </tr>
 </thead>
 <tbody>
@@ -311,31 +312,31 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <td data-quarto-table-cell-role="th">3</td>
 <td>India</td>
 <td>2019</td>
-<td>1.775923</td>
+<td>2.695871</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>East Asia\n&amp; Pacific</td>
 <td>2019</td>
-<td>6.227609</td>
+<td>8.790307</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>Europe &amp;\nCentral\nAsia</td>
 <td>2019</td>
-<td>6.562452</td>
+<td>9.468142</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">0</td>
 <td>China</td>
 <td>2019</td>
-<td>7.605937</td>
+<td>10.359449</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>United\nStates</td>
 <td>2019</td>
-<td>14.673407</td>
+<td>18.718205</td>
 </tr>
 </tbody>
 </table>
@@ -350,11 +351,11 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <li>getting the data for the period we want is as simple as changing the year</li>
 </ul>
 <p>Having downloaded the data, let’s now plot it:</p>
-<div class="cell" data-execution_count="3">
+<div id="4c3a8e51" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">"country"</span>, y<span class="op">=</span><span class="st">"EN.ATM.CO2E.PC"</span>, data<span class="op">=</span>df.reset_index(), ax<span class="op">=</span>ax)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">"country"</span>, y<span class="op">=</span><span class="st">"EN.GHG.ALL.PC.CE.AR5"</span>, data<span class="op">=</span>df.reset_index(), ax<span class="op">=</span>ax)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="vs">r"CO$_2$ (metric tons per capita)"</span>, loc<span class="op">=</span><span class="st">"right"</span>)</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"The USA leads the world on per-capita emissions"</span>, y<span class="op">=</span><span class="fl">1.01</span>)</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key, spine <span class="kw">in</span> ax.spines.items():</span>
@@ -493,8 +494,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -605,7 +604,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

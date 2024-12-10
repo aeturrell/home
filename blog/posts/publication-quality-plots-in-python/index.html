@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2018-01-31">
 <meta name="description" content="Arthur Turrell is an economic data scientist.">
 
-<title>Making a publication quality plot with Python (and latex) – Arthur Turrell</title>
+<title>Arthur Turrell</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,10 +72,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dd08061cb7210c315e315379d94beb87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-757dae479023e90f60420cb4a75f766d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -143,21 +144,21 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="Making a publication quality plot with Python (and latex)">
+<meta property="og:title" content="Arthur Turrell">
 <meta property="og:description" content="Arthur Turrell is an economic data scientist.">
-<meta property="og:image" content="https://www.aeturrell.com//files/logo_large.png">
+<meta property="og:image" content="https://www.aeturrell.com/blog/posts/publication-quality-plots-in-python/ProdCountries.png">
 <meta property="og:site_name" content="Arthur Turrell">
 <meta property="og:locale" content="en_UK">
-<meta property="og:image:height" content="1594">
-<meta property="og:image:width" content="1594">
-<meta name="twitter:title" content="Making a publication quality plot with Python (and latex)">
+<meta property="og:image:height" content="1335">
+<meta property="og:image:width" content="2160">
+<meta name="twitter:title" content="Arthur Turrell">
 <meta name="twitter:description" content="Arthur Turrell is an economic data scientist.">
-<meta name="twitter:image" content="https://www.aeturrell.com//files/logo_large.png">
+<meta name="twitter:image" content="https://www.aeturrell.com/blog/posts/publication-quality-plots-in-python/ProdCountries.png">
 <meta name="twitter:creator" content="@arthurturrell">
 <meta name="twitter:site" content="@arthurturrell">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image-height" content="1594">
-<meta name="twitter:image-width" content="1594">
+<meta name="twitter:image-height" content="1335">
+<meta name="twitter:image-width" content="2160">
 </head>
 
 <body class="nav-fixed">
@@ -226,6 +227,10 @@ window.Quarto = {
 </i> 
 <span class="menu-text"></span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/arthurturrell.bsky.social"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="bi:cloud-slash" aria-label="Icon cloud-slash from bi Iconify.design set." title="Icon cloud-slash from bi Iconify.design set."></iconify-icon></span></a>
+  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/aeturrell"> <i class="bi bi-github" role="img" aria-label="github">
 </i> 
@@ -287,9 +292,11 @@ window.Quarto = {
    
   <ul>
   <li><a href="#update-2021.03.06" id="toc-update-2021.03.06" class="nav-link active" data-scroll-target="#update-2021.03.06">Update 2021.03.06</a></li>
-  <li><a href="#original-post" id="toc-original-post" class="nav-link" data-scroll-target="#original-post">Original post</a></li>
+  <li><a href="#original-post" id="toc-original-post" class="nav-link" data-scroll-target="#original-post">Original post</a>
+  <ul class="collapse">
   <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The data</a></li>
   <li><a href="#the-code" id="toc-the-code" class="nav-link" data-scroll-target="#the-code">The code</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -300,8 +307,8 @@ window.Quarto = {
 
 
 
-<section id="update-2021.03.06" class="level3">
-<h3 class="anchored" data-anchor-id="update-2021.03.06">Update 2021.03.06</h3>
+<section id="update-2021.03.06" class="level2">
+<h2 class="anchored" data-anchor-id="update-2021.03.06">Update 2021.03.06</h2>
 <p>I now recommend the style file below for quick, publication quality plots in Python using Matplotlib (tested on 3.3.4 and Python 3.8). To use the style, save it in a file called ‘plot_style.txt’ and load it in Matplotlib using:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -351,8 +358,8 @@ figure.dpi: 300</code></pre>
 <p>You can find more information on plotting in Python in my online book: see the <a href="https://aeturrell.github.io/coding-for-economists/vis-intro.html">Intro to Data Visualisation</a> page for an overview of libraries and the basics of using them or, for lots of examples of standard charts, the <a href="https://aeturrell.github.io/coding-for-economists/vis-common-plots.html">Common Plots</a> page.</p>
 <p>If you’re looking for easier customisation of plots in Matplotlib, try out the <a href="https://github.com/petermckeeverPerform/themepy"><strong>themepy</strong></a> package.</p>
 </section>
-<section id="original-post" class="level3">
-<h3 class="anchored" data-anchor-id="original-post">Original post</h3>
+<section id="original-post" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="original-post">Original post</h2>
 <p>High level languages like Python and R are great partly because entire workflows can be done within them; from data ingestion, to cleaning, to analysis, to producing plots and regression tables. But when I looked around online, I found that there wasn’t a huge amount of information on how to do one of the last stages - producing plots - in a way that is consistent with what is required by journals.</p>
 <p>Journals often ask for figures in lossless formats (think pdf, tiff, svg, and eps as opposed to png or jpg), in certain sizes, and at a specific or minimum resolution. What is most important in a journal article or working paper is clearly the content. However, when a paper looks good, and its figures are crisp, clear, and communicate a message, it helps to deliver the content in the way intended. Low resolution, rasterised images just look bad (at best) and distract from the point of the figure (at worst).</p>
 <p>If you’re not convinced of the benefits of lossless formats over rasterised ones, try creating a pdf with more than five or six very high resolution but simple (= not too many features) plots embedded as pngs using latex. Yes, it’s big! For simple plots, lossless formats take up far less space on disk <em>and</em> they look better.</p>
@@ -372,7 +379,6 @@ legend.fontsize: 13
 mathtext.fontset: stix
 font.family: STIXGeneral</code></pre>
 <p>The first real choice is about the relative size of the figure, and the font sizes of the plot title, axes titles, and label sizes. The journal <em>Nature</em> requires that <a href="https://www.nature.com/nature/for-authors/final-submission">double-column figures be 183 mm wide</a>, which is 7.2 inches using the units which Matplotlib works in. Heights can differ, but I choose an eye-pleasing 1.6 ratio. The only other really important choice here is what fonts to use. I’ve gone for Stix as it can be used for both latex and normal fonts, and it looks professional in plots. To use these settings, they just need to go in a plain text file called ‘PaperDoubleFig.mplstyle’ which we can point Matplotlib at later.</p>
-</section>
 <section id="the-data" class="level3">
 <h3 class="anchored" data-anchor-id="the-data">The data</h3>
 <p>The data for the example are from the <a href="https://www.ons.gov.uk/">Office for National Statistics</a> (ONS) website and are international comparisons of productivity. You can find the <a href="https://www.ons.gov.uk/economy/economicoutputandproductivity/productivitymeasures/bulletins/internationalcomparisonsofproductivityfinalestimates/2015">raw data here</a>, and I’m using the data behind their Figure 4. Although the page has an interactive feature, a hover which tells you the values in cross-section, the plot is hard to read if (as the article presumes) you’re interested mostly in the UK relative to the other countries. We’ll fix that later. Personally, I’m not a fan of the horizontal guide lines so I’ll be omitting those too.</p>
@@ -588,6 +594,7 @@ font.family: STIXGeneral</code></pre>
 
 
 </section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -672,8 +679,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -784,7 +789,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
