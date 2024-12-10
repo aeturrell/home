@@ -37,7 +37,7 @@ pub-info:
 doi: 10.1007/s00191-018-0557-5
 image: gdp-non-gauss.png
 alt: "Figure from paper"
-bibliography: ../../my-papers.bib
+bibliography: "../../../files/bib/references.bib"
 ---
 
 <!-- ![](mismatch_img.png){fig-align="center" width=80%} -->

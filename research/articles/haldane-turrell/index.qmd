@@ -41,7 +41,7 @@ alt: "Figure from paper"
 #   - productivity
 #   - a great problem for GB
 #   - but data say not now
-bibliography: ../../my-papers.bib
+bibliography: "../../../files/bib/references.bib"
 ---
 
 <!-- ![](mismatch_img.png){fig-align="center" width=80%} -->
