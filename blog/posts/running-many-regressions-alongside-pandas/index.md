@@ -3,6 +3,7 @@ date: "2018-05-05"
 layout: post
 title: Econometrics in Python Part IV - Running many regressions alongside pandas
 categories: [code, econometrics, python]
+image: regression_many_regressions.png
 ---
 *The fourth in the series of posts covering econometrics in Python. This time: automating the boring business of running multiple regressions on columns in a pandas dataframe.*
 

@@ -4,6 +4,16 @@ title-block-banner: "#EE6A24"
 page-layout: full
 ---
 
+
+![](core_econ.webp){fig-alt="Giving a talk about Core Econ" fig-align="center" width=50%}
+
+## Lecture Courses
+
+I am currently developing and teaching courses for the Government Economic Service (GES), the University of Warwick, and the University of Durham.
+
+<br>
+<br>
+
 ![](smith_lovelace.png){fig-alt="Adam Smith and Ada Lovelace share the frame." fig-align="center" width=50%}
 
 ## [Coding For Economists](https://aeturrell.github.io/coding-for-economists/)

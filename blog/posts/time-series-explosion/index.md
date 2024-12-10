@@ -3,6 +3,7 @@ date: "2023-09-12"
 layout: post
 title: The explosion in time series forecasting packages in data science
 categories: [code, data science, python, time series]
+image: pymc_example.png
 ---
 
 There have been a series of sometimes jaw-dropping developments in data science in the last few years, with large language models by far the most prominent (and with good reason). But another story has been the huge explosion in time series packages.

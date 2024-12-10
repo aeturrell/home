@@ -1,10 +1,12 @@
 ---
 date: "2017-12-28"
 layout: post
-title: The ONS API
+title: "The ONS API"
 categories: [data, code, python]
+image: blogleisureonsapi.png
 ---
 
+## Introduction
 
 The [Office for National Statistics](https://www.ons.gov.uk/) (ONS) produces most of the macroeconomic statistics for the UK. I was delighted to discover recently that they had been working on an API.
 
@@ -60,6 +62,10 @@ plt.show()
 
 Here's the plot which comes out:
 
-![codeoutput](blogleisureonsapi.png)
+![Output from code](blogleisureonsapi.png)
 
 Pretty neat!
+
+## Update 2024/12/10
+
+The ONS API has been updated, and this code will no longer run.

@@ -3,6 +3,7 @@ date: "2022-11-02"
 layout: post
 title: "TIL: How to break RSS feeds"
 categories: [blogging, code, writing, TIL]
+image: None
 ---
 
 > Note: this is the first post under a new tag called TIL or "today I learned". These are shorter format posts that lower the barrier to blogging and capture a mini piece of learning. The idea for TILs has been inspired by Simon Willison's own [TIL posts](https://til.simonwillison.net/).

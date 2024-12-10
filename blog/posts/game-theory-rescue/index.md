@@ -3,6 +3,7 @@ date: "2018-07-11"
 layout: post
 title: Why the latest, most exciting thing in machine learning is... game theory
 categories: [research, machine-learning]
+image: None
 ---
 
 

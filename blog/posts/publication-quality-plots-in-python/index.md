@@ -3,9 +3,10 @@ date: "2018-01-31"
 layout: post
 title: Making a publication quality plot with Python (and latex)
 categories: [research, visualisation, code, python]
+image: ProdCountries.png
 ---
 
-### Update 2021.03.06
+## Update 2021.03.06
 
 I now recommend the style file below for quick, publication quality plots in Python using Matplotlib (tested on 3.3.4 and Python 3.8). To use the style, save it in a file called 'plot_style.txt' and load it in Matplotlib using:
 
@@ -66,7 +67,7 @@ You can find more information on plotting in Python in my online book: see the [
 
 If you're looking for easier customisation of plots in Matplotlib, try out the [**themepy**](https://github.com/petermckeeverPerform/themepy) package.
 
-### Original post
+## Original post
 
 High level languages like Python and R are great partly because entire workflows can be done within them; from data ingestion, to cleaning, to analysis, to producing plots and regression tables. But when I looked around online, I found that there wasn't a huge amount of information on how to do one of the last stages - producing plots - in a way that is consistent with what is required by journals.
 

@@ -9,6 +9,7 @@ date: "2022-12-18"
 layout: post
 title: "In praise of APIs (application programming interfaces)"
 categories: [code, data]
+image: None
 ---
 
 ```{python}
@@ -46,14 +47,14 @@ import textwrap
 from pandas_datareader import wb
 
 df = wb.download(                              # download the data from the world bank
-    indicator="EN.ATM.CO2E.PC",                # indicator code
+    indicator="EN.GHG.ALL.PC.CE.AR5",                # indicator code
     country=["US", "CHN", "IND", "Z4", "Z7"],  # country codes
     start=2019,                                # start year
     end=2019,                                  # end year
 )
 df = df.reset_index()                          # remove country as index
 df["country"] = df["country"].apply(lambda x: textwrap.fill(x, 10))  # wrap long names
-df = df.sort_values("EN.ATM.CO2E.PC")          # re-order
+df = df.sort_values("EN.GHG.ALL.PC.CE.AR5")          # re-order
 df.head()
 ```
 
@@ -70,7 +71,7 @@ Having downloaded the data, let's now plot it:
 import seaborn as sns
 
 fig, ax = plt.subplots()
-sns.barplot(x="country", y="EN.ATM.CO2E.PC", data=df.reset_index(), ax=ax)
+sns.barplot(x="country", y="EN.GHG.ALL.PC.CE.AR5", data=df.reset_index(), ax=ax)
 ax.set_title(r"CO$_2$ (metric tons per capita)", loc="right")
 plt.suptitle("The USA leads the world on per-capita emissions", y=1.01)
 for key, spine in ax.spines.items():

@@ -3,13 +3,15 @@ date: "2019-06-26"
 layout: post
 title: Get organised
 categories: [code, data, research]
+image: tidy_data_example.png
 ---
 
-# Best practice for research project organisation
+## Best practice for research project organisation
 
 This monster blog post is going to discuss how to organise your a data science project or research project: data, code and outputs. I'll cover how to structure the project, version control, data and data storage, analytical tools, coding standards, and what to do when your project is over.
 
-##### Caveats
+### Caveats
+
 Of course, these are just my opinions, they're far from exhaustive, and there may well be good reasons to set up your project differently depending on what it is that you're doing. I'm interested in hearing different perspectives so get in touch if you have them.
 
 Inevitably the post is going to be geared toward Python because it's my primary language but much of the advice applies equally well to R. Similarly, although most of what I'm saying applies across platforms, in some in places it may be more relevant to Mac OS.
@@ -18,7 +20,7 @@ I'm not going to discuss topics like unit tests, automatic creation of documenta
 
 For a more detailed perspective on best practice research project organisation, see [Good enough practices in scientific computing. PLoS computational biology, 13(6), e1005510](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510). A similar post from a more pure data science perspective may be [found here](https://www.kaggle.com/rtatman/reproducible-research-best-practices-jupytercon), and there's a [machine learning oriented cookiecutter project here](https://drivendata.github.io/cookiecutter-data-science/).
 
-#### The example project
+### The example project
 
 There's a [small research project github repository](https://github.com/aeturrell/cookie-cutter-research-project) that accompanies this post. To use it as the basis of your small research project, open up a command line and type ```git clone https://github.com/aeturrell/cookie-cutter-research-project.git``` in the directory in which you want to clone it, or download it directly from github.
 
@@ -31,6 +33,7 @@ Within the example project, there are Latex templates for both slides and a work
 Okay, on to the main event...
 
 ## Table of Contents
+
 1. [Project structure](#structure)
 2. [Version control](#version-control)
 3. [Data](#data)
@@ -62,7 +65,7 @@ Perhaps you need to output your (Latex) writing to Microsoft's Word format or to
 
 One other important principle: friends do not let friends use whitespace in filenames or paths.
 
-##### Configuration files
+### Configuration files
 
 You'll notice that there is a config file, config.yaml, that sits above everything else. The purpose of this is to make adding global settings to your project easier, especially if they are directories. The advantage of this config file is that you can see what settings are being run from one place and, if you do need to change the structure of the project, you only have to do it in one place. Similarly, others on the project can clearly see when and how important settings were changed without trawling through lots of code.
 
@@ -76,7 +79,7 @@ There are many articles on why you should use version control if you're doing an
 
 Beyond the software development-type reasons for version control, there are benefits that are particular to research. Journals increasingly require code to be submitted alongside papers; version control encourages good code management that will make submitting your code much easier when the time comes. If you host your code on platforms such as [github](https://github.com/) and [gitlab](https://about.gitlab.com/), privately at first, and then publicly when you publish, you can significantly extend the impact of your work. Those same platforms enable collaboration on code, including Latex, with co-authors. Even better, you can use tools like [git-blame](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-blame) to understand who changed what and when - useful in all kinds of situations, not just blaming co-authors for that misplaced semi-colon.
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">who called it `git blame` and not `git whose-line-is-it-anyway`?</p>&mdash; Jessica🏳️‍🌈 (@ticky) <a href="https://twitter.com/ticky/status/1032028502961209344?ref_src=twsrc%5Etfw">August 21, 2018</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">who called it `git blame` and not `git whose-line-is-it-anyway`?</p>&mdash; Jessica🏳️‍🌈 <a href="https://twitter.com/ticky/status/1032028502961209344?ref_src=twsrc%5Etfw">August 21, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 The other great use of the various git platforms is to track bugs, to do lists, and even to host wikis.
@@ -99,15 +102,17 @@ I find it useful to think about the main possible classes of data in a research 
 
 As the example project is simple, we are going to skip intermediate data and go straight for clean data.
 
-##### Raw data 
+### Raw data 
 Raw data is just that. No matter how horrible a format it comes to you in (a 50 sheet Excel file with different formats on each sheet anyone?), you should preserve that. Don't mess with it, keep it to one side and derive other, better data from it. You'll need it later when you try and replicate your own work.
 
-##### Intermediate data 
+### Intermediate data
+
 Intermediate data is the data you get once you've made some progress on getting whatever mess you started with into shape. Maybe you had 5 different spreadsheets and you've managed to clean each one and dump them into CSVs. Yes, they are still not tidy, or in the format you need for analysis, or merged. But you've made some progress, progress worth making into a distinct phase of your analysis.
 
 Intermediate data can be very large, in which case you may want to consider the speed and efficiency of storing it. For the python library pandas, there's a [nice post here](https://towardsdatascience.com/the-best-format-to-save-pandas-data-414dca023e0d) looking at file sizes and loading/saving speeds. As noted, intermediate data should not be under version control. Data versioning does exist but I've not (yet) seen it used for research projects - see [pachyderm](https://github.com/pachyderm/pachyderm) for an example.
 
-##### Cleaned data 
+### Cleaned data
+
 Cleaned data is what's used to do the analysis. It's data that's ready to go into a machine learning model or regression. If a colleague were working on a similar project, this is (hopefully) what you'd send them instead of the 50-sheet Excel monstrosity.
 
 Cleaned data should be stored in tidy format, that is data in which each observation is a row, each variable is a column, and each type of observation unit forms a table. This figure shows a visual example of tidy data.
@@ -127,7 +132,7 @@ Do not store your data in Excel file formats. Ever. Firstly, it's not an open fo
 
 Should you put your tidy, cleaned data under version control? Probably not. But if it's small and unlikely to change much, it can be quite convenient to do so.
 
-##### Output data
+### Output data
 
 These are the final figures and tables that tell the story in your analysis. As noted, it's convenient to put the ones that are going to make it into your paper and any presentations you give under version control, and have a scratch folder for the rest. This a folder that's for the many extra figures and tables that you'll create, and perhaps want to glance at, but won't hold on to.
 
@@ -136,7 +141,6 @@ For figures, most journals require that you use lossless formats such as PDF and
 For reasons that are not at all obvious, Powerpoint does not play nicely with vector images but Keynote (Mac OS) and Beamer/Latex (all operating systems) do.&Dagger;
 
 What about tables? My current strategy is to export these directly to Latex as .tex files. It's not so easy to look at these without compiling them using Latex but it saves a lot of time when (automatically) incorporating them into your paper and presentations. Tables as tex files also take up little space on disk and can happily go under version control.*
-
 
 ## Analytical tools
 

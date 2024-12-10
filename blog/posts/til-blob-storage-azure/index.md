@@ -3,6 +3,7 @@ date: "2024-04-23"
 layout: post
 title: "TIL: how to create and work with remote blob storage on Azure"
 categories: [code, cloud]
+image: None
 ---
 
 In this TIL, I find out how to create a new blob storage account on Microsoft Azure. This is a place to store unstructured data of any kind (as opposed to, say, a SQL database). Note that the instructions below assume you are using a bash-like terminal, for example [zsh](https://ohmyz.sh/), rather than [Powershell](https://learn.microsoft.com/en-us/powershell/).

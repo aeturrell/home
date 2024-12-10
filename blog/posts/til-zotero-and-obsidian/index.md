@@ -3,6 +3,7 @@ date: "2023-07-09"
 layout: post
 title: "TIL: Obsidian, and integrating it with Zotero"
 categories: [writing, research, TIL]
+image: None
 ---
 
 I've long been interested in how best to store knowledge; so much that I wrote about it in [this post]("../managing-public-sector-knowledge/managing-public-sector-knowledge.qmd") (in the context of the public sector). Today I learned how to combine Obsidian and Zotero to make taking notes about research literature easier and more effective!

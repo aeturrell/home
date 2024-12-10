@@ -1,0 +1,62 @@
+---
+title: "Pay Transparency and Gender Equality"
+date: 2024-06-01
+author:
+  - name: Jack Blundell
+    url: https://www.jackblundell.co.uk/
+    affiliation: Deliveroo
+  - name: Emma Duchini
+    url: https://emmaduchini.com/
+    affiliation: University of Essex
+  - name: Ștefania Simion
+    affiliation: University of Bristol
+    url: https://stefaniasimion.com/
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: "{{< meta orcid-meta >}}"
+    affiliation: "{{< meta affiliation-meta >}}"
+categories:
+  - gender pay gap
+  - vacancies
+  - labour
+pub-info:
+  reference: >-
+    Blundell, Jack, Emma Duchini, Stefania Simion, and Arthur Turrell. "Pay transparency and gender equality." <i>American Economic Journal: Economic Policy</i> (2024). doi: <a href="https://www.aeaweb.org/articles?id=10.1257/pol.20220766&from=f"><code>10.1257/pol.20220766</code></a>
+  links:
+    - name: Working Paper
+      url: Pay_Transparency_and_Gender_Equality.pdf
+      icon: fa-solid fa-file-pdf
+      local: true
+    - name: Published paper
+      url: https://www.aeaweb.org/articles?id=10.1257/pol.20220766&from=f
+      icon: fa-solid fa-scroll
+    # - name: Add to Zotero
+    #   url: https://www.zotero.org/save?type=doi&q=10.1177/23998083241267331
+    #   icon: ai ai-zotero
+  extra: >-
+doi: 10.1257/pol.20220766
+image: table_3_gender_pay.webp
+alt: "Table 3 from paper"
+---
+
+## Abstract
+
+Since 2018, UK firms with at least 250 employees have been mandated to publicly disclose gender equality indicators. Exploiting variations in this mandate across firm size and time, we show that pay transparency closes 19 percent of the gender pay gap by reducing men’s pay growth. By combining different sources of data, we also provide suggestive evidence that the public availability of the equality indicators enhances public scrutiny. In turn, employers more exposed to public scrutiny seem to reduce their gender pay gap the most.
+
+<!-- ## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1177/23998083241267331">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p> -->
+
+
+```bibtex
+@article{blundell2024pay,
+  title={Pay transparency and gender equality},
+  author={Blundell, Jack and Duchini, Emma and Simion, Stefania and Turrell, Arthur},
+  journal={American Economic Journal: Economic Policy},
+  year={2024},
+  publisher={American Economic Association},
+  url={https://www.aeaweb.org/articles?id=10.1257/pol.20220766&from=f}
+}
+```

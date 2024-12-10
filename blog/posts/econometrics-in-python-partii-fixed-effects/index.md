@@ -3,6 +3,7 @@ date: "2018-02-20"
 layout: post
 title: Econometrics in Python Part II - Fixed effects
 categories: [code, econometrics, python]
+image: hhi_equation_fixed_eff.png
 ---
 
 

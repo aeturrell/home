@@ -20,3 +20,11 @@
   date: 2020-09-25
   description: "A webinar discussing the application of natural language processing to economics and finance hosted by Dow Jones."
   video: "https://www.youtube.com/embed/6FCNVdHeSis"
+
+- title: "Podcast: Inside Tech Careers by Mission Encodeable"
+  date: 2024-12-09
+  description: "Inside Tech Careers podcast interview with [Mission Encodeable](https://missionencodeable.com/), an organisation that promotes coding for young people."
+  image: inside_tech_careers_logo.webp
+  links:
+  - name: Link
+    url: https://podcasts.apple.com/ca/podcast/s1e7-arthur-turrell-senior-manager-for-research-and/id1775260741?i=1000679710215

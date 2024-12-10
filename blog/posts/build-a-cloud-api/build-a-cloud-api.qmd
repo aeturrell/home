@@ -3,6 +3,7 @@ date: "2023-09-28"
 layout: post
 title: "Building an API in the cloud in fewer than 200 lines of code"
 categories: [code, open-source, cloud, data science, python]
+image: run_using_dat.png
 ---
 
 Cloud tools and Python packages have become so powerful that you can build a (scalable) cloud-based API in fewer than 200 lines of code. In this blog post, you'll see how to use Google Cloud, Terraform, and FastAPI to deploy a queryable data API on the cloud.

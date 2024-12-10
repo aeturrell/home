@@ -3,6 +3,7 @@ date: "2018-08-18"
 layout: post
 title: Who is not participating in Higher Education?
 categories: [outreach, data]
+image: map.png
 ---
 
 Given my work in both economics and Science, Technology, Engineering, and Mathematics (STEM), I've become interested in what factors determine groups' participation in higher education, what groups are being left out, and what might be done about it.

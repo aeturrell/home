@@ -23,7 +23,7 @@ bibliography: files/bib/references.bib
 csl: files/bib/chicago-author-date.csl
 
 # Metadata stuff
-pagetitle: "{{< meta title >}}"
+pagetitle: "Arthur Turrell"
 description-meta: "Arthur Turrell is an economic data scientist."
 author-meta: "Arthur Turrell"
 affiliation-meta: "Bank of England"
@@ -82,6 +82,9 @@ website:
       - icon: twitter
         aria-label: twitter
         href: https://twitter.com/arthurturrell
+      - text: "{{< iconify bi cloud-slash >}}"
+        aria-label: bluesky
+        href: https://bsky.app/profile/arthurturrell.bsky.social
       - icon: github
         aria-label: github
         href: https://github.com/aeturrell

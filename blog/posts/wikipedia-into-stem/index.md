@@ -3,6 +3,7 @@ date: "2018-08-25"
 layout: post
 title: Putting women scientists onto Wikipedia
 categories: [outreach, code, data]
+image: PageViewsJess.png
 ---
 
 In a [previous post](http://aeturrell.github.io/home//2018/08/18/left-out-of-HE/), I shared links about the predictors for *not* participating in higher education, and about how it is difficult to reach audiences in "remote rural or coastal areas and in former industrial areas, especially in the Midlands" (according to the [Social Mobility Commission](https://www.gov.uk/government/publications/state-of-the-nation-2017)). In this post, I look at another dimension of participation in higher education: gender.
@@ -13,7 +14,7 @@ It's little better for economics, as this [article in the Financial Times](https
 
 # A campaign to inspire women to enter STEM subjects
 
-My Imperial College London physics colleague Dr. Jess Wade ([@jesswade](https://twitter.com/jesswade) on twitter) has come up with a novel way to help inspire more women to enter STEM subjects. She has been busily and heroically writing Wikipedia articles on women scientists of note since 2016. As [she says](https://www.theguardian.com/education/2018/jul/24/academic-writes-270-wikipedia-pages-year-female-scientists-noticed),
+My Imperial College London physics colleague Dr. Jess Wade ([Click here for Jess' Twitter](https://twitter.com/jesswade)) has come up with a novel way to help inspire more women to enter STEM subjects. She has been busily and heroically writing Wikipedia articles on women scientists of note since 2016. As [she says](https://www.theguardian.com/education/2018/jul/24/academic-writes-270-wikipedia-pages-year-female-scientists-noticed),
 >>"Wikipedia is a really great way to engage people in this mission because the more you read about these sensational women, the more you get so motivated and inspired by their personal stories."                  - Dr. Jess Wade
 
 
