@@ -1,6 +1,6 @@
 ---
 title: "Get In Touch"
-pagetitle: "{{< meta website.title >}}"
+pagetitle: "Arthur Turrell - Contact"
 main-photo: "/files/profiles/PlasmaBulbMe.jpg"
 main-photo-square: "/files/profiles/PlasmaBulbMe.jpg"
 title-block-banner: "#f05e40"

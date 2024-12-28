@@ -1,6 +1,6 @@
 ---
 title: "The Star Builders:<br> Nuclear Fusion and the Race to Power the Planet"
-pagetitle: "{{< meta website.title >}}"
+pagetitle: "Arthur Turrell — The Star Builders"
 title-block-banner: "#f05e40"
 format:
   html:

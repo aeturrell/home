@@ -1,8 +1,8 @@
 ---
 title: "Physics, economics, data science, & writing"
 pagetitle: "Arthur Turrell"
-main-photo: /files/profiles/plasma-bulb-me.jpg
-main-photo-square: /files/profiles/plasma-bulb-me.jpg
+main-photo: "/files/profiles/plasma-bulb-me.jpg"
+main-photo-square: "/files/profiles/plasma-bulb-me.jpg"
 title-block-banner: "#f05e40"
 format:
   html:

@@ -1,0 +1,70 @@
+---
+date: "2024-12-28"
+layout: post
+title: "Converting handwritten, maths-heavy lecture notes to markdown using large language models"
+categories: [llm, python, data science]
+image: lecture_output_gemini.webp
+execute:
+  echo: false
+jupyter: python3
+---
+
+It would be nice to have digital copies of all of those old handwritten lecture notes that I so lovingly put together. Some of them might even still be useful, though I have to admit I don't have tons of opportunities to use quantum field theory these days.
+
+Recent Large Language Models (LLMs) have stunning vision capabilities and so it occurred to me that they might be able to convert even old notes into beautifully formatted markdown and equations.
+
+## Models
+
+I'll try out two recent models from OpenAI and Google respectively,
+
+- chatgpt-4o-latest
+- gemini-exp-1206
+
+The latter has a generous free tier, the former cost $0.03 to run one image.
+
+## Code
+
+The Python APIs for both of these couldn't really be simpler—you can find the example [in this repo](https://github.com/aeturrell/digitise-lecture-notes), but, to give you a sense, here is the complete code to use Google's Gemini model:
+
+```python
+import os
+from pathlib import Path
+
+import google.generativeai as genai
+import PIL.Image
+from dotenv import load_dotenv
+
+load_dotenv()
+genai.configure(api_key=os.getenv("API_KEY_GOOGLE"))
+
+# Path to image
+image_path = Path("input/test_lecture_note_photo.jpg")
+sample_file = PIL.Image.open(image_path)
+
+# Choose a Gemini model.
+model = genai.GenerativeModel(model_name="gemini-exp-1206")
+
+prompt = "The photograph shows some lecture notes. Please transcribe the text in this photograph to markdown, using latex for equations where needed."
+
+response = model.generate_content([prompt, sample_file])
+
+open(Path("output/output_example_gemini.md"), "w").write(response.text)
+```
+
+## Results
+
+This is the input file. Yes, I took a bad photograph. In some ways, that's quite helpful, as it gives a sense of how these models do in a difficult situation. If you were doing this at scale, you'd probably want to find a consistent way of taking high quality photographs, however.
+
+![Example input of handwritten lecture note](test_lecture_note.webp){width=80%}
+
+And here are the outputs:
+
+![Output capture from GPT-4o](lecture_output_gpt4o.webp){width=80%}
+
+![Output capture from gemini-exp-1206](lecture_output_gemini.webp){width=80%}
+
+The GPT-4o model cost around $0.03, while the experimental Gemini model is free up to so many tokens per day. They both do a really great job given the quality of the input and you can see that this would probably work at scale with some better photographs.[^1] They each make a couple of mistakes, and Gemini seems more keen on beautiful latex equations than it does on markdown formatting, at least relative to GPT-4o. Bear in mind, there was close to zero effort expended on designing the prompt here too—so it's likely that this could be improved too.
+
+All in all, this looks completely feasible. And there's some speculation (h/t: [Simon Willison](https://simonwillison.net/)) that vision models that can run *locally* (Llama 3.2, Qwen-VL, and Pixtral) would be able to handle it too.
+
+[^1]: Garbage in, garbage out.
