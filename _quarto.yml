@@ -94,7 +94,7 @@ website:
 
 format:
   html:
-    theme: 
+    theme:
       - html/ath.scss
     toc: false
     code-link: true
