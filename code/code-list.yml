@@ -22,6 +22,16 @@
   - name: PyPI
     url: https://pypi.org/project/specification-curve/
 
+- title: cookiecutter-research-project
+  description: "Used with the cookiecutter package, this template can generate the structure of a research project complete with paper, slides, and reproducible code."
+  university: Developing
+  language: Python/Markdown/Quarto
+  url: https://github.com/aeturrell/cookiecutter-research-project
+  logo: logos/cookie-research-ms.png
+  semester:
+  - name: GitHub
+    url: https://github.com/aeturrell/cookiecutter-research-project
+
 - title: Occupationcoder
   description: "Given a job title and job description, provides an algorithm to assign a UK standard occupational classification (SOC) code to the job."
   university: Mature
@@ -35,9 +45,9 @@
     url: https://github.com/bank-of-england/occupationcoder
 
 - title: cookie-cutter-quarto-book-manuscript
-  description: "A minimal but fully featured template to use quarto and markdown to write a book manuscript."
+  description: "A minimal but fully featured template that uses quarto and markdown to create a book manuscript."
   university: Mature
-  language: Quarto/markdown
+  language: Quarto/Markdown
   url: https://github.com/aeturrell/cookie-cutter-quarto-book-manuscript
   logo: logos/cookie-quarto-ms.png
   semester:
