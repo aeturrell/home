@@ -1,0 +1,55 @@
+---
+title: "Cutting through Complexity: How Data Science Can Help Policymakers Understand the World"
+date: 2025-02-06
+author:
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: "{{< meta orcid-meta >}}"
+    affiliation: "{{< meta affiliation-meta >}}"
+categories:
+    - data science
+    - public policy
+pub-info:
+  reference: >-
+    Turrell, Arthur. "Cutting through Complexity: How Data Science Can Help Policymakers Understand the World." In <i>The Economy as a Complex Evolving System, Part IV</i>. Sante Fe Institute, 2025. doi: <a href="https://doi.org/10.48550/arXiv.2502.03010"><code>10.48550/arXiv.2502.03010</code></a>
+  links:
+    - name: Preprint (arXiv)
+      url: https://doi.org/10.48550/arXiv.2502.03010
+      local: false
+      icon: fa-solid fa-scroll
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.48550/arXiv.2502.03010
+      icon: ai ai-zotero
+doi: 10.7208/chicago/9780226801391-008
+image: travel_area_web.webp
+alt: "Travel time from St. Helens, UK"
+# haiku:
+#   - Governments threatened—
+#   - NGO regulations
+#   - shift funding; missions.
+---
+
+## Important links
+
+- [arXiv preprint](https://doi.org/10.48550/arXiv.2502.03010)
+
+## Abstract
+
+Economies are fundamentally complex and becoming more so, but the new discipline of data science—which combines programming, statistics, and domain knowledge—can help cut through that complexity, potentially with productivity benefits to boot. This chapter looks at examples of where innovations from data science are cutting through the complexities faced by policymakers in measurement, allocating resources, monitoring the natural world, making predictions, and more. These examples show the promise and potential of data science to aid policymakers, and point to where actions may be taken that would support further progress in this space.
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.48550/arXiv.2502.03010">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+```bibtex
+@incollection{turrell2025cutting,
+  title={Cutting through Complexity: How Data Science Can Help Policymakers Understand the World},
+  author={Turrell, Arthur},
+  booktitle={The Economy as a Complex Evolving System, Part IV},
+  pages={},
+  year={2025},
+  publisher={Sante Fe Institute}
+}
+```
