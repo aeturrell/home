@@ -20,7 +20,7 @@ pub-info:
     - name: Add to Zotero
       url: https://www.zotero.org/save?type=doi&q=10.48550/arXiv.2502.03010
       icon: ai ai-zotero
-doi: 10.7208/chicago/9780226801391-008
+doi: 10.48550/arXiv.2502.03010
 image: travel_area_web.webp
 alt: "Travel time from St. Helens, UK"
 # haiku:
