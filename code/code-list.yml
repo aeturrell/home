@@ -32,6 +32,16 @@
   - name: GitHub
     url: https://github.com/aeturrell/cookiecutter-research-project
 
+- title: cookiecutter-python-package
+  description: "Used with the cookiecutter package, this template can generate the structure of a modern Python package with lots of extras for quality and convenience."
+  university: Developing
+  language: Python/Markdown/Quarto
+  url: https://github.com/aeturrell/cookiecutter-python-package
+  logo: logos/cookie-package-py.png
+  semester:
+  - name: GitHub
+    url: https://github.com/aeturrell/cookiecutter-python-package
+
 - title: Occupationcoder
   description: "Given a job title and job description, provides an algorithm to assign a UK standard occupational classification (SOC) code to the job."
   university: Mature

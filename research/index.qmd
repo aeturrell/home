@@ -6,12 +6,12 @@ listing:
     sort: "date desc"
     template: ../html/research/listing.ejs
     categories: true
-  - id: working-papers
-    contents: "working-papers/*/index.qmd"
-    sort: "date desc"
-    template: ../html/research/listing.ejs
   - id: book-chapters
     contents: "chapters/*/index.qmd"
+    sort: "date desc"
+    template: ../html/research/listing.ejs
+  - id: working-papers
+    contents: "working-papers/*/index.qmd"
     sort: "date desc"
     template: ../html/research/listing.ejs
   # - id: reviews
@@ -39,24 +39,20 @@ My research is on *economic data science*—the application of data science (inc
 :::{#articles}
 :::
 
+## Book chapters
+
+:::{#book-chapters}
+:::
 
 ## Working papers
 
 :::{#working-papers}
 :::
 
-
-## Book chapters
-
-:::{#book-chapters}
-:::
-
-
 <!-- ## Reviews
 
 :::{#reviews}
 ::: -->
-
 
 ## Dormant working papers
 
