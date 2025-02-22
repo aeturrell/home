@@ -1,0 +1,132 @@
+---
+date: "2025-02-22"
+layout: post
+title: "Ultra-modern Python Cookiecutters"
+categories: [code, data science, research]
+image: "../../../code/logos/cookiecutter_logo_package.svg"
+---
+
+In January 2020, [Claudio Jolowicz](https://cjolowicz.github.io/) published an extremely influential post on [Hypermodern Python](https://cjolowicz.github.io/posts/hypermodern-python-01-setup/). It was extremely influential on me, anyway, because it introduced me to a number of tools that I now consider essential to creating solid, high-quality and low-maintenance Python packages. As part of the article, a [cookiecutter](https://github.com/cookiecutter/cookiecutter) template was released to help people create new packages with all of these exciting features.[^3]
+
+But a lot has changed since 2020, and the brilliant hypermodern python cookiecutter repo hasn't been updated in two years. There are at least three big changes (we'll come to these) since then that mean it's well worth revisiting what a modern (or ultramodern) Python package cookiecutter should look like... and I've tried to capture them.
+
+So, in this post, I'm introducing two new, ultramodern repos: a [Cookiecutter Python Package](https://github.com/aeturrell/cookiecutter-python-package) and a [Cookiecutter Research Project](https://github.com/aeturrell/cookiecutter-research-project/tree/main). Neither of them are battle tested, far from it, but they do deliver the core goods they promise.
+
+::: {#fig-logos layout-ncol=2}
+
+![Package](../../../code/logos/cookiecutter_logo_package.svg){#fig-package}
+
+![Research](../../../code/logos/cookiecutter_logo_research.svg){#fig-research}
+
+Logos for these dev tools
+:::
+
+The [cookiecutter python package](https://github.com/aeturrell/cookiecutter-python-package) is designed to help people ([including me!](../../../code/index.qmd)) build open source software. The [cookiecutter research project](https://github.com/aeturrell/cookiecutter-research-project/tree/main) is designed to help people ([especially me!](../../../research/index.qmd)) spend more research time thinking.
+
+## Ultramodern tooling
+
+Both of these new cookiecutters take advantage of major developments in Python tooling:
+
+- Astral's extremely fast linter and formatter, [Ruff](https://astral.sh/ruff), has burst onto the scene since 2020. And in tjhis repo, it replaces Black (which was in the hypermodern setup) as a linter and formatter, and isort for sorting imports.
+
+- The arrival of another tool from Astral, [uv](https://docs.astral.sh/uv/), which replaces a whole host of tools (including Poetry, which was part of the hypermodern setup). At a minimum, this is a blazing fast package manager and drop-in replacement for pip, but it also:
+  - resolves dependency conflicts
+  - produces a lockfile
+  - automatically creates virtual environments per-project, per-folder
+  - can spin up an environment just to run a single script[^1]
+  - builds packages
+  - can install some versions of Python for some systems
+  - creates a valid `pyproject.toml` file
+  - can install and run tools globally with `uv tool install` and `uv tool run`.
+
+- The release of [Quarto](https://quarto.org/), which, among many other things, can build websites, and [Quartodoc](https://machow.github.io/quartodoc/get-started/overview.html), which can produce automatic reference documentation based on a code base in concert with Quarto. Quarto means you can write your documentation in a Jupyter Notebook, importing your actual package so that the code and code outputs are in lockstep with the codebase. The addition of Quartodoc means that the API reference on your docs is also *exactly* what is in your code base.[^2] Quarto requires a standalone installation, while Quartdoc is a Python package. You can find more about using Quarto in anger for research over at [Coding for Economists](https://aeturrell.github.io/coding-for-economists).
+
+[^1]: Yes, that's how fast it is!
+
+[^2]: Note that Quartodoc is only relevant for the Cookiecutter Python Package.
+
+[^3]: Cookiecutter templates allow people to fill in a few details in the command line, like project name and Python version, to both copy a repo and populate it with their choices. It's a simple trick that saves a lot of time in creating a basic project structure. The [cookiecutter](https://github.com/cookiecutter/cookiecutter) Python package is used to populate the templates.
+
+## Cookiecutter Python Package
+
+So what are the key features of the new ultramodern cookiecutter? As of the time of writing, it packs the following:
+
+- [Nox](https://nox.thea.codes/en/stable/) for isolated testing
+- Modern Python dependency management with [uv](https://astral.sh/blog/uv)
+- [pytest](https://docs.pytest.org/en/7.4.x/) for testing
+- Code formatting with [ruff](https://docs.astral.sh/ruff/) (including formatting and import sorting)
+- [xdoctest](https://github.com/Erotemic/xdoctest) to check that examples of use in docstrings work as intended
+- [typeguard](https://github.com/agronholm/typeguard) for run-time type checking
+- Git pre-commit hooks for code quality:
+  - [Ruff](https://docs.astral.sh/ruff/) lint/format/sort imports
+  - check for added large files
+    - check TOML
+    - check YAML
+    - end of file fixer
+    - trailing whitespace trimmer
+    - [nbstripout](https://github.com/kynan/nbstripout) for ensuring notebook outputs are not committed. (Notebook outputs are included when Quarto pushes the docs website to GitHub pages, however, as you'd expect.)
+    - [pydoclint](https://github.com/jsh9/pydoclint) for checking docstrings agree with function definitions
+- Continuous Integration/Continuous Deployment with [GitHub Actions](https://github.com/features/actions)
+  - covers multiple versions of Python, and all three major operating systems
+  - tests with [pytest](https://docs.pytest.org/en) + [Nox](https://nox.thea.codes/en/stable/)
+    - Test cover with [Coverage.py](https://coverage.readthedocs.io/)
+    - Automatic [release labeler](https://github.com/actions/labeler)
+    - Automatic publishing to [PyPI](https://pypi.org/)
+    - Dynamic docs build and deploy using [Quarto](https://quarto.org/) for a docs site, [Quartodoc](https://machow.github.io/quartodoc) for automatic API documentation, and [GitHub Pages](https://pages.github.com/) for deployment.
+
+For some of this, you'll need to get API keys. But all of it is free if your repo is public and you have a paid GitHub account.
+
+In the choice of what's included, I've tried to strike a balance between not bloating the features and providing a serious foundation for a strong package. I took the decision *not* to include the following, for the following reasons:
+
+- an automatic updating utility, like [dependabot](https://github.com/dependabot); mostly because I'm not sure if there's one that works well with uv yet.
+- a static type checker, like [mypy](https://github.com/python/mypy), because it seemed to be of marginal value-add in other projects and its strictness can be daunting. There was a recent announcement that Astral is working on a static type checker code-named [red-knot](https://github.com/astral-sh/ruff/pulls?q=is%3Apr+is%3Aopen+label%3Ared-knot), and I'm inclined to see what that's like given the quality of their other tools.
+
+Both of these features could be added in future.
+
+## Cookiecutter Research Project
+
+The second new dev tool is a [Cookiecutter Research Project](https://github.com/aeturrell/cookiecutter-research-project/tree/main) that is Python-oriented and flexible. It has a number of useful features designed to make starting, and maintaining, a research project less of a slog:
+
+- a well-designed folder structure with folders for data at different stages, models, notebooks, code, and outputs.
+- sensible defaults on which of these folders are ignored by git (via a `.gitignore` file). For example, code, references, paper, and slides folders are under version control. But data, logs, outputs, and so, folders are not.
+- a .env file for storing secrets---researchers are increasingly using cloud computer to do research (see [this post](..//visual-studio-code-in-the-cloud/index.md) for doing this with VS Code and Google Cloud.)
+- pre-commit with Ruff (linting, formating, import sorting), nbstripout, end of file fixer, large file check, trailing whitespace fixer, and toml/yaml checks.
+- uv for managing the Python environment, and making it reproducible via the lockfile.
+- a Makefile with commands for installing the environment (for reproducibility), and for compiling the paper, and the slides.
+- paper and slides based on Quarto---more detail on these below.
+- a project config TOML file where global project settings can be stored. For example, you could have all your chart configurations here, or the hyperparameter settings.
+
+One of the big innovations is the use of Quarto for the paper and the slides (and for the references that get picked up in both.) [Quarto](https://quarto.org/) is a document, slide, and website publishing tool. It uses an extended form of markdown, supports LaTeX equations, and can execute and insert code into the final document.
+
+One small advantage of Quarto over using LaTeX directly is the use of citation style language files. References are in a `.bib` file as normal for a LaTeX document with a bibliography, but the style of citations is defined in a `.csl` (csl = citation style language) file, which is clearer and more flexible than other methods (at least in my view.) You can find a very long list of citation styles, including for most major journals, [here](https://github.com/citation-style-language/styles).
+
+Another advantage, and hold your horses, because it's a big one, is that you can *automatically update charts, tables, and *even text** when your results change. People have long [pointed their LaTeX document at their results folder](https://aeturrell.github.io/coding-for-economists/auto-research-outputs.html) so that when the results change, their paper updates. Some people have done it for slides too, if they're created with Beamer. But now the *text* in the document can be updated too.
+
+Quarto can support execution of code *within* the document itself. So you can have a code block that reads in your results and assigns them to the variables, say, `number` and `big_pen`. Then the syntax below shows how to insert these numbers directly into the text.
+
+```markdown
+## Report
+
+We find that the heaviest penguin, out of a total of `python f"{number}"` penguins, has a mass of `python f"{big_pen:.2f}"` kilograms.
+
+```
+
+Images and equations can be included using the standard markdown syntax, and LaTeX tables can be included in PDF outputs simply by reading and printing a LaTeX table `.tex` file with the `#| output: asis` option in a code block. You can see an example in the `paper.qmd` file in the [repo](https://github.com/aeturrell/cookiecutter-research-project/tree/main). That paper is set up to compile into something that looks like the default arXiv style. It actually compiles by creating a `.tex` file as an intermediary and there's a Quarto config option to save that, should you need too (eg arXiv prefers you to submit a `.tex` over a PDF.)
+
+Currently, the slides use Reveal.js to output a `.html` file rather than a PDF so while the code/text and charts work in the same way, the command to include LaTeX is slightly different---and I've only tested it for equations. The syntax is: `{{< include path/to/equation.tex >}}`. Anything that has a HTML output should work too, and that's true of most regression table packages (eg [Pyfixest](https://github.com/py-econometrics/pyfixest).) If you prefer Powerpoint[^4], you can export to that with Quarto too, though I haven't tested it with typical research outputs.
+
+There are a couple of features one could argue for that I have *not* implemented for the research cookiecutter:
+
+- a way to re-run all of the analysis. This is quite bespoke to your project so it was hard to include anything meaningful in the template. There is a Makefile in there, so you could extend that to include a part that executes the analysis---you can see an example along these lines [here](https://github.com/aeturrell/example-reproducible-research).[^5]
+- a Dockerfile to run your project reliably across systems. It's possible this will be added in future. Again, you can find an example research project that uses uv and a Dockerfile [here](https://github.com/aeturrell/example-reproducible-research).
+- a way to automatically generate a DAG (directed acyclic graph) of all the operations that go into producing the outputs. I find this very useful to understand research projects (even if they're my own.) The [example I keep mentioning](https://github.com/aeturrell/example-reproducible-research) uses `make2graph` to do this if you want to see what I mean and why it might be useful.
+
+Imagine how much time you will save if new results can be incorporated into your paper and slides simply by recompiling! For me, this is a huge win for the amount of time actually spent on the research question vs doing tedious updating.
+
+[^4]: Some people might. No-one I've ever met. Or heard about. But it could happen. Probably.
+
+[^5]: For more on making your research project a reproducible analytical pipeline, check out [this page](https://aeturrell.github.io/coding-for-economists/wrkflow-rap.html) on Coding for Economists.
+
+## Conclusion
+
+While these templates are both still wet behind the ears, they could be useful to people today---which is why I'm releasing them now. Feedback and pull requests are welcome. Finally, if you use either of them to produce your own content, let me know by raising an issue. I'll add your work to the relevant repo---showing that these cookiecutters can be part of a recipe for success!

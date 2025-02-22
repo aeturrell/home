@@ -27,7 +27,7 @@
   university: Developing
   language: Python/Markdown/Quarto
   url: https://github.com/aeturrell/cookiecutter-research-project
-  logo: logos/cookie-research-ms.png
+  logo: logos/cookiecutter_logo_research.svg
   semester:
   - name: GitHub
     url: https://github.com/aeturrell/cookiecutter-research-project
@@ -37,7 +37,7 @@
   university: Developing
   language: Python/Markdown/Quarto
   url: https://github.com/aeturrell/cookiecutter-python-package
-  logo: logos/cookie-package-py.png
+  logo: logos/cookiecutter_logo_package.svg
   semester:
   - name: GitHub
     url: https://github.com/aeturrell/cookiecutter-python-package
