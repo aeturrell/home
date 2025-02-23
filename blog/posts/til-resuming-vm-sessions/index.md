@@ -2,6 +2,7 @@
 date: "2025-01-01"
 layout: post
 title: "TIL: How to resume sessions on virtual machines"
+image: "dall_e_haynes_style_screens.webp"
 categories: [code, cloud, TIL]
 ---
 
@@ -20,3 +21,5 @@ screen -S YOUR-SHELL-NAME
 to initiate a shell with screen name `YOUR-SHELL-NAME` that will persist.
 
 Once you reconnect to the virtual machine run `screen -ls` to see existing running shells and `screen -r YOUR-SHELL-NAME` to reconnect to the running session! Super useful.
+
+![DALL-E rendition of resuming a session](dall_e_haynes_style_screens.webp)

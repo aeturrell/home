@@ -1,5 +1,5 @@
 ---
-date: "2025-02-22"
+date: "2025-02-23"
 layout: post
 title: "Ultra-modern Python Cookiecutters"
 categories: [code, data science, research]
