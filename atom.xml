@@ -10,7 +10,170 @@
 <atom:link href="https://www.aeturrell.com/atom.xml" rel="self" type="application/rss+xml"/>
 <description>{{&lt; meta description-meta &gt;}}</description>
 <generator>quarto-1.6.39</generator>
-<lastBuildDate>Wed, 01 Jan 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 23 Feb 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Ultra-modern Python Cookiecutters</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>https://www.aeturrell.com/blog/posts/ultra-modern-python-cookiecutters/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>In January 2020, <a href="https://cjolowicz.github.io/">Claudio Jolowicz</a> published an extremely influential post on <a href="https://cjolowicz.github.io/posts/hypermodern-python-01-setup/">Hypermodern Python</a>. It was extremely influential on me, anyway, because it introduced me to a number of tools that I now consider essential to creating solid, high-quality and low-maintenance Python packages. As part of the article, a <a href="https://github.com/cookiecutter/cookiecutter">cookiecutter</a> template was released to help people create new packages with all of these exciting features.<sup>1</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Cookiecutter templates allow people to fill in a few details in the command line, like project name and Python version, to both copy a repo and populate it with their choices. It’s a simple trick that saves a lot of time in creating a basic project structure. The <a href="https://github.com/cookiecutter/cookiecutter">cookiecutter</a> Python package is used to populate the templates.</p></div></div><p>But a lot has changed since 2020, and the brilliant hypermodern python cookiecutter repo hasn’t been updated in two years. There are at least three big changes (we’ll come to these) since then that mean it’s well worth revisiting what a modern (or ultramodern) Python package cookiecutter should look like… and I’ve tried to capture them.</p>
+<p>So, in this post, I’m introducing two new, ultramodern repos: a <a href="https://github.com/aeturrell/cookiecutter-python-package">Cookiecutter Python Package</a> and a <a href="https://github.com/aeturrell/cookiecutter-research-project/tree/main">Cookiecutter Research Project</a>. Neither of them are battle tested, far from it, but they do deliver the core goods they promise.</p>
+<div id="fig-logos" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-logos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-logos" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-package" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-package-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://www.aeturrell.com/code/logos/cookiecutter_logo_package.svg" class="img-fluid figure-img" data-ref-parent="fig-logos">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-subfloat-caption quarto-subfloat-fig" id="fig-package-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Package
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-logos" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-research" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-research-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://www.aeturrell.com/code/logos/cookiecutter_logo_research.svg" class="img-fluid figure-img" data-ref-parent="fig-logos">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-subfloat-caption quarto-subfloat-fig" id="fig-research-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Research
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-logos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Logos for these dev tools
+</figcaption>
+</figure>
+</div>
+<p>The <a href="https://github.com/aeturrell/cookiecutter-python-package">cookiecutter python package</a> is designed to help people (<a href="../../../code/index.html">including me!</a>) build open source software. The <a href="https://github.com/aeturrell/cookiecutter-research-project/tree/main">cookiecutter research project</a> is designed to help people (<a href="../../../research/index.html">especially me!</a>) spend more research time thinking.</p>
+<section id="ultramodern-tooling" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="ultramodern-tooling">Ultramodern tooling</h2>
+<p>Both of these new cookiecutters take advantage of major developments in Python tooling:</p>
+<ul>
+<li><p>Astral’s extremely fast linter and formatter, <a href="https://astral.sh/ruff">Ruff</a>, has burst onto the scene since 2020. And in tjhis repo, it replaces Black (which was in the hypermodern setup) as a linter and formatter, and isort for sorting imports.</p></li>
+<li><p>The arrival of another tool from Astral, <a href="https://docs.astral.sh/uv/">uv</a>, which replaces a whole host of tools (including Poetry, which was part of the hypermodern setup). At a minimum, this is a blazing fast package manager and drop-in replacement for pip, but it also:</p>
+<ul>
+<li>resolves dependency conflicts</li>
+<li>produces a lockfile</li>
+<li>automatically creates virtual environments per-project, per-folder</li>
+<li>can spin up an environment just to run a single script<sup>2</sup></li>
+<li>builds packages</li>
+<li>can install some versions of Python for some systems</li>
+<li>creates a valid <code>pyproject.toml</code> file</li>
+<li>can install and run tools globally with <code>uv tool install</code> and <code>uv tool run</code>.</li>
+</ul></li>
+<li><p>The release of <a href="https://quarto.org/">Quarto</a>, which, among many other things, can build websites, and <a href="https://machow.github.io/quartodoc/get-started/overview.html">Quartodoc</a>, which can produce automatic reference documentation based on a code base in concert with Quarto. Quarto means you can write your documentation in a Jupyter Notebook, importing your actual package so that the code and code outputs are in lockstep with the codebase. The addition of Quartodoc means that the API reference on your docs is also <em>exactly</em> what is in your code base.<sup>3</sup> Quarto requires a standalone installation, while Quartdoc is a Python package. You can find more about using Quarto in anger for research over at <a href="https://aeturrell.github.io/coding-for-economists">Coding for Economists</a>.</p></li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Yes, that’s how fast it is!</p></div><div id="fn3"><p><sup>3</sup>&nbsp;Note that Quartodoc is only relevant for the Cookiecutter Python Package.</p></div></div></section>
+<section id="cookiecutter-python-package" class="level2">
+<h2 class="anchored" data-anchor-id="cookiecutter-python-package">Cookiecutter Python Package</h2>
+<p>So what are the key features of the new ultramodern cookiecutter? As of the time of writing, it packs the following:</p>
+<ul>
+<li><a href="https://nox.thea.codes/en/stable/">Nox</a> for isolated testing</li>
+<li>Modern Python dependency management with <a href="https://astral.sh/blog/uv">uv</a></li>
+<li><a href="https://docs.pytest.org/en/7.4.x/">pytest</a> for testing</li>
+<li>Code formatting with <a href="https://docs.astral.sh/ruff/">ruff</a> (including formatting and import sorting)</li>
+<li><a href="https://github.com/Erotemic/xdoctest">xdoctest</a> to check that examples of use in docstrings work as intended</li>
+<li><a href="https://github.com/agronholm/typeguard">typeguard</a> for run-time type checking</li>
+<li>Git pre-commit hooks for code quality:
+<ul>
+<li><a href="https://docs.astral.sh/ruff/">Ruff</a> lint/format/sort imports</li>
+<li>check for added large files
+<ul>
+<li>check TOML</li>
+<li>check YAML</li>
+<li>end of file fixer</li>
+<li>trailing whitespace trimmer</li>
+<li><a href="https://github.com/kynan/nbstripout">nbstripout</a> for ensuring notebook outputs are not committed. (Notebook outputs are included when Quarto pushes the docs website to GitHub pages, however, as you’d expect.)</li>
+<li><a href="https://github.com/jsh9/pydoclint">pydoclint</a> for checking docstrings agree with function definitions</li>
+</ul></li>
+</ul></li>
+<li>Continuous Integration/Continuous Deployment with <a href="https://github.com/features/actions">GitHub Actions</a>
+<ul>
+<li>covers multiple versions of Python, and all three major operating systems</li>
+<li>tests with <a href="https://docs.pytest.org/en">pytest</a> + <a href="https://nox.thea.codes/en/stable/">Nox</a>
+<ul>
+<li>Test cover with <a href="https://coverage.readthedocs.io/">Coverage.py</a></li>
+<li>Automatic <a href="https://github.com/actions/labeler">release labeler</a></li>
+<li>Automatic publishing to <a href="https://pypi.org/">PyPI</a></li>
+<li>Dynamic docs build and deploy using <a href="https://quarto.org/">Quarto</a> for a docs site, <a href="https://machow.github.io/quartodoc">Quartodoc</a> for automatic API documentation, and <a href="https://pages.github.com/">GitHub Pages</a> for deployment.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>For some of this, you’ll need to get API keys. But all of it is free if your repo is public and you have a paid GitHub account.</p>
+<p>In the choice of what’s included, I’ve tried to strike a balance between not bloating the features and providing a serious foundation for a strong package. I took the decision <em>not</em> to include the following, for the following reasons:</p>
+<ul>
+<li>an automatic updating utility, like <a href="https://github.com/dependabot">dependabot</a>; mostly because I’m not sure if there’s one that works well with uv yet.</li>
+<li>a static type checker, like <a href="https://github.com/python/mypy">mypy</a>, because it seemed to be of marginal value-add in other projects and its strictness can be daunting. There was a recent announcement that Astral is working on a static type checker code-named <a href="https://github.com/astral-sh/ruff/pulls?q=is%3Apr+is%3Aopen+label%3Ared-knot">red-knot</a>, and I’m inclined to see what that’s like given the quality of their other tools.</li>
+</ul>
+<p>Both of these features could be added in future.</p>
+</section>
+<section id="cookiecutter-research-project" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="cookiecutter-research-project">Cookiecutter Research Project</h2>
+<p>The second new dev tool is a <a href="https://github.com/aeturrell/cookiecutter-research-project/tree/main">Cookiecutter Research Project</a> that is Python-oriented and flexible. It has a number of useful features designed to make starting, and maintaining, a research project less of a slog:</p>
+<ul>
+<li>a well-designed folder structure with folders for data at different stages, models, notebooks, code, and outputs.</li>
+<li>sensible defaults on which of these folders are ignored by git (via a <code>.gitignore</code> file). For example, code, references, paper, and slides folders are under version control. But data, logs, outputs, and so, folders are not.</li>
+<li>a .env file for storing secrets—researchers are increasingly using cloud computer to do research (see <a href="../../../blog/posts/visual-studio-code-in-the-cloud/index.html">this post</a> for doing this with VS Code and Google Cloud.)</li>
+<li>pre-commit with Ruff (linting, formating, import sorting), nbstripout, end of file fixer, large file check, trailing whitespace fixer, and toml/yaml checks.</li>
+<li>uv for managing the Python environment, and making it reproducible via the lockfile.</li>
+<li>a Makefile with commands for installing the environment (for reproducibility), and for compiling the paper, and the slides.</li>
+<li>paper and slides based on Quarto—more detail on these below.</li>
+<li>a project config TOML file where global project settings can be stored. For example, you could have all your chart configurations here, or the hyperparameter settings.</li>
+</ul>
+<p>One of the big innovations is the use of Quarto for the paper and the slides (and for the references that get picked up in both.) <a href="https://quarto.org/">Quarto</a> is a document, slide, and website publishing tool. It uses an extended form of markdown, supports LaTeX equations, and can execute and insert code into the final document.</p>
+<p>One small advantage of Quarto over using LaTeX directly is the use of citation style language files. References are in a <code>.bib</code> file as normal for a LaTeX document with a bibliography, but the style of citations is defined in a <code>.csl</code> (csl = citation style language) file, which is clearer and more flexible than other methods (at least in my view.) You can find a very long list of citation styles, including for most major journals, <a href="https://github.com/citation-style-language/styles">here</a>.</p>
+<p>Another advantage, and hold your horses, because it’s a big one, is that you can <em>automatically update charts, tables, and </em>even text** when your results change. People have long <a href="https://aeturrell.github.io/coding-for-economists/auto-research-outputs.html">pointed their LaTeX document at their results folder</a> so that when the results change, their paper updates. Some people have done it for slides too, if they’re created with Beamer. But now the <em>text</em> in the document can be updated too.</p>
+<p>Quarto can support execution of code <em>within</em> the document itself. So you can have a code block that reads in your results and assigns them to the variables, say, <code>number</code> and <code>big_pen</code>. Then the syntax below shows how to insert these numbers directly into the text.</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">## Report</span></span>
+<span id="cb1-2"></span>
+<span id="cb1-3">We find that the heaviest penguin, out of a total of <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`python f"{number}"`</span> penguins, has a mass of <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`python f"{big_pen:.2f}"`</span> kilograms.</span></code></pre></div>
+<p>Images and equations can be included using the standard markdown syntax, and LaTeX tables can be included in PDF outputs simply by reading and printing a LaTeX table <code>.tex</code> file with the <code>#| output: asis</code> option in a code block. You can see an example in the <code>paper.qmd</code> file in the <a href="https://github.com/aeturrell/cookiecutter-research-project/tree/main">repo</a>. That paper is set up to compile into something that looks like the default arXiv style. It actually compiles by creating a <code>.tex</code> file as an intermediary and there’s a Quarto config option to save that, should you need too (eg arXiv prefers you to submit a <code>.tex</code> over a PDF.)</p>
+<p>Currently, the slides use Reveal.js to output a <code>.html</code> file rather than a PDF so while the code/text and charts work in the same way, the command to include LaTeX is slightly different—and I’ve only tested it for equations. The syntax is: <code>{{&lt; include path/to/equation.tex &gt;}}</code>. Anything that has a HTML output should work too, and that’s true of most regression table packages (eg <a href="https://github.com/py-econometrics/pyfixest">Pyfixest</a>.) If you prefer Powerpoint<sup>4</sup>, you can export to that with Quarto too, though I haven’t tested it with typical research outputs.</p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Some people might. No-one I’ve ever met. Or heard about. But it could happen. Probably.</p></div></div><p>There are a couple of features one could argue for that I have <em>not</em> implemented for the research cookiecutter:</p>
+<ul>
+<li>a way to re-run all of the analysis. This is quite bespoke to your project so it was hard to include anything meaningful in the template. There is a Makefile in there, so you could extend that to include a part that executes the analysis—you can see an example along these lines <a href="https://github.com/aeturrell/example-reproducible-research">here</a>.<sup>5</sup></li>
+<li>a Dockerfile to run your project reliably across systems. It’s possible this will be added in future. Again, you can find an example research project that uses uv and a Dockerfile <a href="https://github.com/aeturrell/example-reproducible-research">here</a>.</li>
+<li>a way to automatically generate a DAG (directed acyclic graph) of all the operations that go into producing the outputs. I find this very useful to understand research projects (even if they’re my own.) The <a href="https://github.com/aeturrell/example-reproducible-research">example I keep mentioning</a> uses <code>make2graph</code> to do this if you want to see what I mean and why it might be useful.</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;For more on making your research project a reproducible analytical pipeline, check out <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-rap.html">this page</a> on Coding for Economists.</p></div></div><p>Imagine how much time you will save if new results can be incorporated into your paper and slides simply by recompiling! For me, this is a huge win for the amount of time actually spent on the research question vs doing tedious updating.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>While these templates are both still wet behind the ears, they could be useful to people today—which is why I’m releasing them now. Feedback and pull requests are welcome. Finally, if you use either of them to produce your own content, let me know by raising an issue. I’ll add your work to the relevant repo—showing that these cookiecutters can be part of a recipe for success!</p>
+
+
+</section>
+
+
+ ]]></description>
+  <category>code</category>
+  <category>data science</category>
+  <category>research</category>
+  <guid>https://www.aeturrell.com/blog/posts/ultra-modern-python-cookiecutters/</guid>
+  <pubDate>Sun, 23 Feb 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/code/logos/cookiecutter_logo_package.svg" medium="image" type="image/svg+xml"/>
+</item>
 <item>
   <title>TIL: How to resume sessions on virtual machines</title>
   <dc:creator>Arthur Turrell</dc:creator>
@@ -32,6 +195,12 @@ background-color: null;
 font-style: inherit;">-S</span> YOUR-SHELL-NAME</span></code></pre></div>
 <p>to initiate a shell with screen name <code>YOUR-SHELL-NAME</code> that will persist.</p>
 <p>Once you reconnect to the virtual machine run <code>screen -ls</code> to see existing running shells and <code>screen -r YOUR-SHELL-NAME</code> to reconnect to the running session! Super useful.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="https://www.aeturrell.com/blog/posts/til-resuming-vm-sessions/dall_e_haynes_style_screens.webp" class="img-fluid figure-img"></p>
+<figcaption class="margin-caption">DALL-E rendition of resuming a session</figcaption>
+</figure>
+</div>
 
 
 
@@ -41,6 +210,7 @@ font-style: inherit;">-S</span> YOUR-SHELL-NAME</span></code></pre></div>
   <category>TIL</category>
   <guid>https://www.aeturrell.com/blog/posts/til-resuming-vm-sessions/</guid>
   <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/til-resuming-vm-sessions/dall_e_haynes_style_screens.webp" medium="image" type="image/webp"/>
 </item>
 <item>
   <title>Converting handwritten, maths-heavy lecture notes to markdown using large language models</title>
@@ -4834,36 +5004,6 @@ ax.set_xlabel(r"$e^\frac{-x^2}{2}$")
   <guid>https://www.aeturrell.com/blog/posts/til-how-to-break-xml/</guid>
   <pubDate>Wed, 02 Nov 2022 00:00:00 GMT</pubDate>
   <media:content url="https://www.aeturrell.com/blog/posts/til-how-to-break-xml/None" medium="image"/>
-</item>
-<item>
-  <title>Welcome To The New Home for My Blog</title>
-  <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/welcome/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>This is the first post on a brand new blog site: welcome!</p>
-<p><img src="https://www.aeturrell.com/blog/posts/welcome/thumbnail.jpg" class="img-fluid"></p>
-<p>After a while of getting (minorly) frustrated with the code-integration available for a Jekyll-based blog, I’m making the switch to one that’s based on <a href="https://quarto.org/">Quarto</a>, the document and website preparation software tool that supports executable chunks in Python, R, and other-languages.</p>
-<p>In getting this setup, <a href="https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html">this post</a> by Albert Rapp has been especially useful. A while ago, I did a post on <a href="../../../blog/posts/three-ways-to-blog-with-code/index.html">three ways to blog</a>, which at that time were Jupyter (with <a href="https://nbconvert.readthedocs.io/">nbconvert</a> to markdown with execution), <a href="https://github.com/gpoore/codebraid">codebraid</a>, and R markdown–none of which were perfect. Quarto takes what was good about R markdown and makes it cross-language plus a bit better.<sup>1</sup></p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Though it’s still based on the fantastic <a href="https://pandoc.org/">pandoc</a>.</p></div></div><p>There are <em>tons</em> of nice features of blogging with Quarto, but one that’s particularly useful for me is being able to have proper citations, like <span class="citation" data-cites="turrell2013monte">Turrell, Sherlock, and Rose (2013)</span>. And the support for executable code plus output figures–in multiple languages–is more or less unparalled.</p>
-
-
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-<div id="ref-turrell2013monte" class="csl-entry">
-Turrell, Arthur E, Mark Sherlock, and Steven J Rose. 2013. <span>“A Monte Carlo Algorithm for Degenerate Plasmas.”</span> <em>Journal of Computational Physics</em> 249: 13–21.
-</div>
-</div></section></div> ]]></description>
-  <category>news</category>
-  <guid>https://www.aeturrell.com/blog/posts/welcome/</guid>
-  <pubDate>Sat, 15 Oct 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://www.aeturrell.com/blog/posts/welcome/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

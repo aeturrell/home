@@ -102,34 +102,6 @@ ul.task-list li input[type="checkbox"] {
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-working-papers .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-project','listing-freeze','listing-bibliography','listing-csl','listing-pagetitle','listing-description-meta','listing-author-meta','listing-affiliation-meta','listing-orcid-meta','listing-website','listing-format','listing-_quarto-vars','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-toc-title','listing-toc-location','listing-execute','listing-include-back-link','listing-title','listing-date','listing-author','listing-categories','listing-pub-info','listing-image','listing-alt','listing-path','listing-outputHref','listing-date-modified','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
-      
-      searchColumns: ["listing-project","listing-freeze","listing-bibliography","listing-csl","listing-pagetitle","listing-description-meta","listing-author-meta","listing-affiliation-meta","listing-orcid-meta","listing-website","listing-format","listing-_quarto-vars","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-toc-title","listing-toc-location","listing-execute","listing-include-back-link","listing-title","listing-date","listing-author","listing-categories","listing-pub-info","listing-image","listing-alt","listing-path","listing-outputHref","listing-date-modified","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-working-papers'] = new List('listing-working-papers', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-book-chapters .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -144,6 +116,34 @@ ul.task-list li input[type="checkbox"] {
 
     window['quarto-listings'] = window['quarto-listings'] || {};
     window['quarto-listings']['listing-book-chapters'] = new List('listing-book-chapters', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-working-papers .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-project','listing-freeze','listing-bibliography','listing-csl','listing-pagetitle','listing-description-meta','listing-author-meta','listing-affiliation-meta','listing-orcid-meta','listing-website','listing-format','listing-_quarto-vars','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-toc-title','listing-toc-location','listing-execute','listing-include-back-link','listing-title','listing-date','listing-author','listing-categories','listing-pub-info','listing-image','listing-alt','listing-path','listing-outputHref','listing-date-modified','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      
+      searchColumns: ["listing-project","listing-freeze","listing-bibliography","listing-csl","listing-pagetitle","listing-description-meta","listing-author-meta","listing-affiliation-meta","listing-orcid-meta","listing-website","listing-format","listing-_quarto-vars","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-toc-title","listing-toc-location","listing-execute","listing-include-back-link","listing-title","listing-date","listing-author","listing-categories","listing-pub-info","listing-image","listing-alt","listing-path","listing-outputHref","listing-date-modified","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-working-papers'] = new List('listing-working-papers', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -365,8 +365,8 @@ window.Quarto = {
    
   <ul>
   <li><a href="#journal-articles" id="toc-journal-articles" class="nav-link active" data-scroll-target="#journal-articles">Journal articles</a></li>
-  <li><a href="#working-papers" id="toc-working-papers" class="nav-link" data-scroll-target="#working-papers">Working papers</a></li>
   <li><a href="#book-chapters" id="toc-book-chapters" class="nav-link" data-scroll-target="#book-chapters">Book chapters</a></li>
+  <li><a href="#working-papers" id="toc-working-papers" class="nav-link" data-scroll-target="#working-papers">Working papers</a></li>
   <li><a href="#dormant-working-papers" id="toc-dormant-working-papers" class="nav-link" data-scroll-target="#dormant-working-papers">Dormant working papers</a></li>
   </ul>
 </nav>
@@ -1122,134 +1122,13 @@ No matching items
 </div>
 </div>
 </section>
-<section id="working-papers" class="level2">
-<h2 class="anchored" data-anchor-id="working-papers">Working papers</h2>
-<div id="listing-working-papers" class="quarto-listing quarto-listing-container-custom">
-<div class="research project-list">
-<ul class="list">
-    
-        <li class="project" data-index="0" data-categories="ZmlybXMlMkNsYWJvdXIlMkN2YWNhbmNpZXMlMkNDT1ZJRC0xOQ==" data-listing-date-sort="1689894000000" data-listing-file-modified-sort="1691686186260" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="156">
-            <div class="project-content listing-pub-info">
-                <p>Van Dijcke, David, Marcus Buckmann, Arthur Turrell, and Tomas Key. "Vacancy Posting, Firm Balance Sheets, and Pandemic Policy Interventions." <i>Bank of England Staff Working Paper Series</i> 1033 (2022).</p>
-            </div>
-            <div class="thumbnail">
-                <img src="../research/working-papers/dijcke-buckmann-key-turrell/dicjke_et_al_table7.png" alt="Figure from paper">
-            </div>
-            
-            <div class="project-categories">
-                
-                    <div class="project-category"><a href="#category=firms">
-                            firms
-                        </a></div>
-                    
-                    <div class="project-category"><a href="#category=labour">
-                            labour
-                        </a></div>
-                    
-                    <div class="project-category"><a href="#category=vacancies">
-                            vacancies
-                        </a></div>
-                    
-                    <div class="project-category"><a href="#category=COVID-19">
-                            COVID-19
-                        </a></div>
-                    
-            </div>
-            
-
-            
-            
-            
-            <div class="project-details-listing">
-                <ul class="project-links">
-                    <li class="project-link details">
-                        <a href="../research/working-papers/dijcke-buckmann-key-turrell/index.html" class="listing-name">
-                            <i class="fa-solid fa-circle-info"></i> Full details »
-                        </a>
-                    </li>
-                    
-                        
-                    <li class="project-link">
-                        
-                        <a href="https://www.bankofengland.co.uk/-/media/boe/files/working-paper/2023/vacancy-posting-firm-balance-sheets-and-pandemic-policy.pdf">
-                        
-                            <i class="fa-solid fa-file-pdf"></i> Working paper (PDF)
-                        </a>
-                    </li>
-                        
-                    
-                </ul>
-            </div>
-        </li>
-        
-        <li class="project" data-index="1" data-categories="d29yayUyMGZyb20lMjBob21lJTJDbGFib3VyJTJDdmFjYW5jaWVzJTJDQ09WSUQtMTk=" data-listing-date-sort="1651359600000" data-listing-file-modified-sort="1687564711698" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="182">
-            <div class="project-content listing-pub-info">
-                <p>Draca, Mirko, Emma Duchini, Roland Rathelot, Arthur Turrell, and Giulia Vattuone. Revolution in Progress? The Rise of Remote Work in the UK. <i>University of Warwick, Department of Economics</i>, 2022.</p>
-            </div>
-            <div class="thumbnail">
-                <img src="../research/working-papers/draca-duchini-rathelot-turrell-vattuone/revolution_in_progress.png" alt="Figure from paper">
-            </div>
-            
-            <div class="project-categories">
-                
-                    <div class="project-category"><a href="#category=work from home">
-                            work from home
-                        </a></div>
-                    
-                    <div class="project-category"><a href="#category=labour">
-                            labour
-                        </a></div>
-                    
-                    <div class="project-category"><a href="#category=vacancies">
-                            vacancies
-                        </a></div>
-                    
-                    <div class="project-category"><a href="#category=COVID-19">
-                            COVID-19
-                        </a></div>
-                    
-            </div>
-            
-
-            
-            
-            
-            <div class="project-details-listing">
-                <ul class="project-links">
-                    <li class="project-link details">
-                        <a href="../research/working-papers/draca-duchini-rathelot-turrell-vattuone/index.html" class="listing-name">
-                            <i class="fa-solid fa-circle-info"></i> Full details »
-                        </a>
-                    </li>
-                    
-                        
-                    <li class="project-link">
-                        
-                        <a href="https://wrap.warwick.ac.uk/165601/1/WRAP-revolution-progress-rise-remote-work-UK-2022.pdf">
-                        
-                            <i class="fa-solid fa-file-pdf"></i> Working paper (PDF)
-                        </a>
-                    </li>
-                        
-                    
-                </ul>
-            </div>
-        </li>
-        
-</ul>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-</section>
 <section id="book-chapters" class="level2">
 <h2 class="anchored" data-anchor-id="book-chapters">Book chapters</h2>
 <div id="listing-book-chapters" class="quarto-listing quarto-listing-container-custom">
 <div class="research project-list">
 <ul class="list">
     
-        <li class="project" data-index="0" data-categories="ZGF0YSUyMHNjaWVuY2UlMkNwdWJsaWMlMjBwb2xpY3k=" data-listing-date-sort="1738800000000" data-listing-file-modified-sort="1738851077570" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="145">
+        <li class="project" data-index="0" data-categories="ZGF0YSUyMHNjaWVuY2UlMkNwdWJsaWMlMjBwb2xpY3k=" data-listing-date-sort="1738800000000" data-listing-file-modified-sort="1739367398807" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="145">
             <div class="project-content listing-pub-info">
                 <p>Turrell, Arthur. "Cutting through Complexity: How Data Science Can Help Policymakers Understand the World." In <i>The Economy as a Complex Evolving System, Part IV</i>. Sante Fe Institute, 2025. doi: <a href="https://doi.org/10.48550/arXiv.2502.03010"><code>10.48550/arXiv.2502.03010</code></a></p>
             </div>
@@ -1489,6 +1368,127 @@ No matching items
                         <a href="https://www.bankofengland.co.uk/quarterly-bulletin/2016/q4/agent-based-models-understanding-the-economy-from-the-bottom-up">
                         
                             <i class="fa-solid fa-book"></i> Book chapter
+                        </a>
+                    </li>
+                        
+                    
+                </ul>
+            </div>
+        </li>
+        
+</ul>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
+<section id="working-papers" class="level2">
+<h2 class="anchored" data-anchor-id="working-papers">Working papers</h2>
+<div id="listing-working-papers" class="quarto-listing quarto-listing-container-custom">
+<div class="research project-list">
+<ul class="list">
+    
+        <li class="project" data-index="0" data-categories="ZmlybXMlMkNsYWJvdXIlMkN2YWNhbmNpZXMlMkNDT1ZJRC0xOQ==" data-listing-date-sort="1689894000000" data-listing-file-modified-sort="1691686186260" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="156">
+            <div class="project-content listing-pub-info">
+                <p>Van Dijcke, David, Marcus Buckmann, Arthur Turrell, and Tomas Key. "Vacancy Posting, Firm Balance Sheets, and Pandemic Policy Interventions." <i>Bank of England Staff Working Paper Series</i> 1033 (2022).</p>
+            </div>
+            <div class="thumbnail">
+                <img src="../research/working-papers/dijcke-buckmann-key-turrell/dicjke_et_al_table7.png" alt="Figure from paper">
+            </div>
+            
+            <div class="project-categories">
+                
+                    <div class="project-category"><a href="#category=firms">
+                            firms
+                        </a></div>
+                    
+                    <div class="project-category"><a href="#category=labour">
+                            labour
+                        </a></div>
+                    
+                    <div class="project-category"><a href="#category=vacancies">
+                            vacancies
+                        </a></div>
+                    
+                    <div class="project-category"><a href="#category=COVID-19">
+                            COVID-19
+                        </a></div>
+                    
+            </div>
+            
+
+            
+            
+            
+            <div class="project-details-listing">
+                <ul class="project-links">
+                    <li class="project-link details">
+                        <a href="../research/working-papers/dijcke-buckmann-key-turrell/index.html" class="listing-name">
+                            <i class="fa-solid fa-circle-info"></i> Full details »
+                        </a>
+                    </li>
+                    
+                        
+                    <li class="project-link">
+                        
+                        <a href="https://www.bankofengland.co.uk/-/media/boe/files/working-paper/2023/vacancy-posting-firm-balance-sheets-and-pandemic-policy.pdf">
+                        
+                            <i class="fa-solid fa-file-pdf"></i> Working paper (PDF)
+                        </a>
+                    </li>
+                        
+                    
+                </ul>
+            </div>
+        </li>
+        
+        <li class="project" data-index="1" data-categories="d29yayUyMGZyb20lMjBob21lJTJDbGFib3VyJTJDdmFjYW5jaWVzJTJDQ09WSUQtMTk=" data-listing-date-sort="1651359600000" data-listing-file-modified-sort="1687564711698" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="182">
+            <div class="project-content listing-pub-info">
+                <p>Draca, Mirko, Emma Duchini, Roland Rathelot, Arthur Turrell, and Giulia Vattuone. Revolution in Progress? The Rise of Remote Work in the UK. <i>University of Warwick, Department of Economics</i>, 2022.</p>
+            </div>
+            <div class="thumbnail">
+                <img src="../research/working-papers/draca-duchini-rathelot-turrell-vattuone/revolution_in_progress.png" alt="Figure from paper">
+            </div>
+            
+            <div class="project-categories">
+                
+                    <div class="project-category"><a href="#category=work from home">
+                            work from home
+                        </a></div>
+                    
+                    <div class="project-category"><a href="#category=labour">
+                            labour
+                        </a></div>
+                    
+                    <div class="project-category"><a href="#category=vacancies">
+                            vacancies
+                        </a></div>
+                    
+                    <div class="project-category"><a href="#category=COVID-19">
+                            COVID-19
+                        </a></div>
+                    
+            </div>
+            
+
+            
+            
+            
+            <div class="project-details-listing">
+                <ul class="project-links">
+                    <li class="project-link details">
+                        <a href="../research/working-papers/draca-duchini-rathelot-turrell-vattuone/index.html" class="listing-name">
+                            <i class="fa-solid fa-circle-info"></i> Full details »
+                        </a>
+                    </li>
+                    
+                        
+                    <li class="project-link">
+                        
+                        <a href="https://wrap.warwick.ac.uk/165601/1/WRAP-revolution-progress-rise-remote-work-UK-2022.pdf">
+                        
+                            <i class="fa-solid fa-file-pdf"></i> Working paper (PDF)
                         </a>
                     </li>
                         
