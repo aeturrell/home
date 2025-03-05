@@ -1,0 +1,325 @@
+---
+date: "2025-03-05"
+layout: post
+title: "The data validation landscape in 2025"
+categories: [data science, data, data engineering, public sector]
+image: "pointblank-tabular-report.png"
+---
+
+What's going on in the world of data validation? For those of you who don't know, data validation is the process of checking data quality in an automated or semi-automated way---for example, checking datatypes, checking the number of missing values, and detecting whether there are anomalous numbers. It doesn't have to be rows in a dataframe though, it could be for validating API input or form submissions. The user provides rules for what should be flagged as an issue, for example saying that all values in a particular column should be within a certain number range. And, depending on the package, data that fail the validation either result in an outright error or in a data validation report that determines (either automatically or manually) what should happen next.
+
+Note: while most of what I say in this post will be relevant in general to data validation tools, I'll be making a few observations of how this might be useful or not for the public sector specifically. And this is not going to be a comprehensive list---it's just going to feature some of the more widely-used packages.
+
+## Why is data validation useful?
+
+In my experience, there are broadly two types of analytical work that public sector institutions undertake. One is ad hoc analysis, the other is regular production of statistics. In the latter case, data validation is extremely helpful because you want to know whether there are problems with, say, the latest data you've ingested *before* it goes to senior leaders or, even worse, is published externally. But even for ad hoc data analysis, if it's on a standard dataset that is ingested, say, every month, you probably do want to have data validation checks so you're not caught out by an anomaly that you misinterpret as a real effect.
+
+Ultimately, if you want the analysis you're doing to be accurate, then data validation is a great way to efficiently remove some of the risks of making a mistake.
+
+## Data validation tooling landscape
+
+### Great Expectations
+
+I think the first data validation tool I came across was [Great Expectations](https://greatexpectations.io/). The landscape has evolved and now there are many other tools; meanwhile Great Expectations has developed into a heavy-duty production-grade data validation tool. The website pushes you quite hard in the direction of their hosted solution, but there is an open source package underlying it all that anyone can use.[^1] Perhaps because it has become  production-grade, it now seems a little more difficult to configure and get going with than some of the other options on this list, and perhaps less well-suited to teams where not everyone has advanced data science skill (this is common in the public sector; eg teams composed of economists with one data scientist.)
+
+It's well worth checking out in any case, though, as it has a number of advanced features that other packages on this list don't have (at least not without significant further effort). For example, if validations fail, you can use nifty integrations to do things like send a message on Slack.[^2]
+
+[^2]: Hopefully one could rig up an action to send an alert on a tool that is more likely to be in use in the public sector too.
+
+[^1]: For example, you have to click through a few menus on their website to find their original open source package as they are understandably keen to get you to use their hosted GX Cloud solution.
+
+If you do use the open source element of Great Expectations, it works a bit like this:
+
+```python
+# Import required modules from GX library.
+import great_expectations as gx
+
+import pandas as pd
+
+# Create Data Context.
+context = gx.get_context()
+
+# Import sample data into Pandas DataFrame.
+df = pd.read_csv(
+    "https://raw.githubusercontent.com/great-expectations/gx_tutorials/main/data/yellow_tripdata_sample_2019-01.csv"
+)
+
+# Connect to data.
+# Create Data Source, Data Asset, Batch Definition, and Batch.
+data_source = context.data_sources.add_pandas("pandas")
+data_asset = data_source.add_dataframe_asset(name="pd dataframe asset")
+
+batch_definition = data_asset.add_batch_definition_whole_dataframe("batch definition")
+batch = batch_definition.get_batch(batch_parameters={"dataframe": df})
+
+# Create Expectation.
+expectation = gx.expectations.ExpectColumnValuesToBeBetween(
+    column="passenger_count", min_value=1, max_value=6
+)
+
+# Validate Batch using Expectation.
+validation_result = batch.validate(expectation)
+```
+
+The returned Validation Result object is a json representation of the results. There are numerous options for data sources including, importantly, databases. And there are numerous expectations too---and an ability to define custom ones.
+
+I mentioned the actions that can be triggered when a validation fails. Here's a couple and how they can be used:
+
+```python
+action_list = [
+    # This Action sends a Slack Notification if an Expectation fails.
+    SlackNotificationAction(
+        name="send_slack_notification_on_failed_expectations",
+        slack_token="${validation_notification_slack_webhook}",
+        slack_channel="${validation_notification_slack_channel}",
+        notify_on="failure",
+        show_failed_expectations=True,
+    ),
+    # This Action updates the Data Docs static website with the Validation
+    #   Results after the Checkpoint is run.
+    UpdateDataDocsAction(
+        name="update_all_data_docs",
+    ),
+]
+
+checkpoint_name = "my_checkpoint"
+checkpoint = gx.Checkpoint(
+    name=checkpoint_name,
+    validation_definitions=validation_definitions,
+    actions=action_list,
+    result_format={"result_format": "COMPLETE"},
+)
+context.checkpoints.add(checkpoint)
+```
+
+### Pointblank
+
+[Pointblank](https://posit-dev.github.io/pointblank/) is the new kid on the block, and another recent Python creation from the org previously known as RStudio, now Posit. Posit has always created really high quality R packages (including one of the same name for R) and it's wonderful to see them now focusing their attention on creating equally high quality Python packages. The syntax is somewhat reminiscent of Great Expectations, which shows you just how influential that original package has been.
+
+Here's an example of using Pointblank with a **Polars** dataframe (it also works with **pandas**):
+
+```python
+import pointblank as pb
+
+validation = (
+    pb.Validate(data=pb.load_dataset(dataset="small_table")) # Use Validate() to start
+    .col_vals_gt(columns="d", value=100)       # STEP 1      |
+    .col_vals_le(columns="c", value=5)         # STEP 2      | <-- Build up a validation plan
+    .col_exists(columns=["date", "date_time"]) # STEPS 3 & 4 |
+    .interrogate() # This will execute all validation steps and collect intel
+)
+
+validation
+
+```
+
+![Example output from Pointblank](pointblank-tabular-report.png)
+
+From the documentation:
+
+> The rows in the validation report table correspond to each of the validation steps. One of the key concepts is that validation steps can be broken down into atomic test cases (test units), where each of these test units is given either of pass/fail status based on the validation constraints. You’ll see these tallied up in the reporting table (in the UNITS, PASS, and FAIL columns).
+
+Again, a wide range of data sources are supported, including Polars, Pandas, DuckDB tables, MySQL tables, PostgreSQL tables, SQLite tables, and Parquet.
+
+It's early days for this package---it only had its first release in 2024, compared to (I think) 2017 for Great Expectations, and some functionality you'd expect isn't quite there yet, but it looks super user-friendly so far and perhaps geared a bit more to the individual institutional user.
+
+One important caveat with Pointblank is that it doesn't have the action triggers for follow-ups to failed validations. So you may validate your data, but then you either need to code in a next action yourself, or take action manually.
+
+### Pandera
+
+[Pandera](https://pandera.readthedocs.io/) also follows an API similar to that of Great Expectations! Here's an example:
+
+```python
+# data to validate
+df = pd.DataFrame({
+    "column1": [1, 4, 0, 10, 9],
+    "column2": [-1.3, -1.4, -2.9, -10.1, -20.4],
+    "column3": ["value_1", "value_2", "value_3", "value_2", "value_1"],
+})
+
+# define schema
+schema = pa.DataFrameSchema({
+    "column1": pa.Column(int, checks=pa.Check.le(10)),
+    "column2": pa.Column(float, checks=pa.Check.lt(-1.2)),
+    "column3": pa.Column(str, checks=[
+        pa.Check.str_startswith("value_"),
+        # define custom checks as functions that take a series as input and
+        # outputs a boolean or boolean Series
+        pa.Check(lambda s: s.str.split("_", expand=True).shape[1] == 2)
+    ]),
+})
+
+validated_df = schema(df)
+print(validated_df)
+```
+
+```text
+   column1  column2  column3
+0        1     -1.3  value_1
+1        4     -1.4  value_2
+2        0     -2.9  value_3
+3       10    -10.1  value_2
+4        9    -20.4  value_1
+```
+
+If the validation doesn't go through, an error is thrown (in this case it passed through.)
+
+One of the nice features of Pandera is that you can combine it not just with column-level validation questions but also with statistical hypothesis testing too. It might seem a bit niche but I can well imagine cases where this could pop up. Here's an example,
+
+```python
+import pandas as pd
+import pandera as pa
+
+from pandera import Column, DataFrameSchema, Check, Hypothesis
+
+from scipy import stats
+
+df = (
+    pd.DataFrame({
+        "height_in_feet": [6.5, 7, 6.1, 5.1, 4],
+        "sex": ["M", "M", "F", "F", "F"]
+    })
+)
+
+schema = DataFrameSchema({
+    "height_in_feet": Column(
+        float, [
+            Hypothesis.two_sample_ttest(
+                sample1="M",
+                sample2="F",
+                groupby="sex",
+                relationship="greater_than",
+                alpha=0.05,
+                equal_var=True),
+    ]),
+    "sex": Column(str)
+})
+
+try:
+    schema.validate(df)
+except pa.errors.SchemaError as exc:
+    print(exc)
+```
+
+```text
+Column 'height_in_feet' failed series or dataframe validator 0: <Check two_sample_ttest: failed two sample ttest between 'M' and 'F'>
+```
+
+Just as with the other libraries we've seen so far, a wide range of data sources are supported, including (despite the name!) Polars, geopandas, Pyspark, dark, and modin dataframes.
+
+### Pydantic
+
+[Pydantic](https://docs.pydantic.dev/) is a bit different from the previous examples we've seen as the fundamental unit to which it applies validation is not a dataframe, but a dictionary (eg from ingesting a JSON file). It's more in the business of *schema validation* than dataframe validation. So this is less useful out-of-the-box for dataframes but more flexible and can be used for non-tabular data. The clever bit is that you define your schema via a class, and then you get a lot of desirable behaviour 'for free' that comes from this. On the website, it lists the UK Home Office among its users. It's fair to say that Pydantic is production-grade too.
+
+It's easiest to illustrate how it works with an example:
+
+```python
+from datetime import datetime
+
+from pydantic import BaseModel, PositiveInt
+
+
+class User(BaseModel):
+    id: int  
+    name: str = 'John Doe'  
+    signup_ts: datetime | None  
+    tastes: dict[str, PositiveInt]  
+
+
+external_data = {
+    'id': 123,
+    'signup_ts': '2019-06-01 12:22',  
+    'tastes': {
+        'wine': 9,
+        b'cheese': 7,
+        'cabbage': '1',
+    },
+}
+
+user = User(**external_data)  
+
+print(user.id)  
+#> 123
+print(user.model_dump())  
+"""
+{
+    'id': 123,
+    'name': 'John Doe',
+    'signup_ts': datetime.datetime(2019, 6, 1, 12, 22),
+    'tastes': {'wine': 9, 'cheese': 7, 'cabbage': 1},
+}
+"""
+```
+
+If validation fails, Pydantic will raise an error with a breakdown of what was wrong.
+
+As I mentioned, a strength of Pydantic is that you can validate arbitrarily complex objects. So here, for example, is a a fruit class that has an attribute called `bazam` that is a dictionary that maps strings into lists of tuples of ints, bools, and floats.
+
+```python
+from annotated_types import Gt
+
+from pydantic import BaseModel
+
+
+class Fruit(BaseModel):
+    name: str  
+    color: Literal['red', 'green']  
+    weight: Annotated[float, Gt(0)]  
+    bazam: dict[str, list[tuple[int, bool, float]]]  
+```
+
+You'll also notice that there's a validation check for whether the weight is greater than zero `Gt(0)`.
+
+Pydantic integrates with some other Python tools such as the extremely excellent [FastAPI](https://fastapi.tiangolo.com/) for building APIs. But, unlike the other tools we've seen, it doesn't integrate with dataframe and data source tools without further work by the user.
+
+### Cerberus
+
+From the [Cerberus] docs:
+
+> Cerberus provides powerful yet simple and lightweight data validation functionality out of the box and is designed to be easily extensible, allowing for custom validation.
+
+In many ways, Cerberus has a similar feel to Pydantic though, as far as I can tell, it's a bit less fully featured and it returns True or False for validations rather than passing or throwing an error. Instead of using base classes and Python's typing functionality, it defines schemas using text-based dictionaries (though these can be extended and customised).
+
+It's easiest to illustrate via an example:
+
+```python
+schema = {'name': {'type': 'string'}}
+v = Validator(schema)
+document = {'name': 'john doe'}
+v.validate(document)
+```
+
+```text
+True
+```
+
+### jsonschema
+
+This package, [jsonschema](https://github.com/python-jsonschema/jsonschema), is similar to Cerberus covered above and is specifically focused on validating JSON. Here's an example:
+
+```python
+>>> from jsonschema import validate
+
+>>> # A sample schema, like what we'd get from json.load()
+>>> schema = {
+...     "type" : "object",
+...     "properties" : {
+...         "price" : {"type" : "number"},
+...         "name" : {"type" : "string"},
+...     },
+... }
+
+>>> # If no exception is raised by validate(), the instance is valid.
+>>> validate(instance={"name" : "Eggs", "price" : 34.99}, schema=schema)
+
+>>> validate(
+...     instance={"name" : "Eggs", "price" : "Invalid"}, schema=schema,
+... )                                   # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+    ...
+ValidationError: 'Invalid' is not of type 'number'
+```
+
+## So what should you use for data validation in the public sector?
+
+That's up to you, and will depend on your use case. For now, if you are validating a dataframe or database, and you work in a mixed team, and you're *not* going to deploy to a production system, I think that [**pandera**](https://pandera.readthedocs.io/) is a strong choice but keep an eye on [**pointblank**](https://posit-dev.github.io/pointblank/) to see where it goes. If you're working in a serious production environment and doing wholesale automation, you might find [**great expectations**](https://greatexpectations.io/) better, especially because of the built-in functionality that triggers actions. And, finally, if you're working with validating user input, from an API or form, then [**pydantic**](https://docs.pydantic.dev/) is probably the strongest choice.
