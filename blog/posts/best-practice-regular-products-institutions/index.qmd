@@ -1,6 +1,7 @@
 ---
 date: "2025-02-26"
-layout: draft
+layout: post
+draft: true
 title: "What does best practice look like for regular analytical processes in most institutions?"
 categories: [productivity, analysis, public sector]
 image: "../../../code/logos/cookiecutter_logo_package.svg"
