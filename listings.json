@@ -31,6 +31,7 @@
       "/blog/posts/til-sql-database-azure/index.html",
       "/blog/posts/til-blob-storage-azure/index.html",
       "/blog/posts/ons-api/index.html",
+      "/blog/posts/the-data-validation-landscape-in-2025/index.html",
       "/blog/posts/time-series-explosion/index.html",
       "/blog/posts/bad-it/index.html",
       "/blog/posts/self-storage-mystery/self-storage-mystery.html",
@@ -50,6 +51,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/posts/the-data-validation-landscape-in-2025/index.html",
       "/blog/posts/ultra-modern-python-cookiecutters/index.html",
       "/blog/posts/til-resuming-vm-sessions/index.html",
       "/blog/posts/converting-lecture-notes/index.html",

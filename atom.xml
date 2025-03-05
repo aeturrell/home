@@ -10,7 +10,859 @@
 <atom:link href="https://www.aeturrell.com/atom.xml" rel="self" type="application/rss+xml"/>
 <description>{{&lt; meta description-meta &gt;}}</description>
 <generator>quarto-1.6.39</generator>
-<lastBuildDate>Sun, 23 Feb 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 05 Mar 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>The data validation landscape in 2025</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>https://www.aeturrell.com/blog/posts/the-data-validation-landscape-in-2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>What’s going on in the world of data validation? For those of you who don’t know, data validation is the process of checking data quality in an automated or semi-automated way—for example, checking datatypes, checking the number of missing values, and detecting whether there are anomalous numbers. It doesn’t have to be rows in a dataframe though, it could be for validating API input or form submissions. The user provides rules for what should be flagged as an issue, for example saying that all values in a particular column should be within a certain number range. And, depending on the package, data that fail the validation either result in an outright error or in a data validation report that determines (either automatically or manually) what should happen next.</p>
+<p>Note: while most of what I say in this post will be relevant in general to data validation tools, I’ll be making a few observations of how this might be useful or not for the public sector specifically. And this is not going to be a comprehensive list—it’s just going to feature some of the more widely-used packages.</p>
+<section id="why-is-data-validation-useful" class="level2">
+<h2 class="anchored" data-anchor-id="why-is-data-validation-useful">Why is data validation useful?</h2>
+<p>In my experience, there are broadly two types of analytical work that public sector institutions undertake. One is ad hoc analysis, the other is regular production of statistics. In the latter case, data validation is extremely helpful because you want to know whether there are problems with, say, the latest data you’ve ingested <em>before</em> it goes to senior leaders or, even worse, is published externally. But even for ad hoc data analysis, if it’s on a standard dataset that is ingested, say, every month, you probably do want to have data validation checks so you’re not caught out by an anomaly that you misinterpret as a real effect.</p>
+<p>Ultimately, if you want the analysis you’re doing to be accurate, then data validation is a great way to efficiently remove some of the risks of making a mistake.</p>
+</section>
+<section id="data-validation-tooling-landscape" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="data-validation-tooling-landscape">Data validation tooling landscape</h2>
+<section id="great-expectations" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="great-expectations">Great Expectations</h3>
+<p>I think the first data validation tool I came across was <a href="https://greatexpectations.io/">Great Expectations</a>. The landscape has evolved and now there are many other tools; meanwhile Great Expectations has developed into a heavy-duty production-grade data validation tool. The website pushes you quite hard in the direction of their hosted solution, but there is an open source package underlying it all that anyone can use.<sup>1</sup> Perhaps because it has become production-grade, it now seems a little more difficult to configure and get going with than some of the other options on this list, and perhaps less well-suited to teams where not everyone has advanced data science skill (this is common in the public sector; eg teams composed of economists with one data scientist.)</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;For example, you have to click through a few menus on their website to find their original open source package as they are understandably keen to get you to use their hosted GX Cloud solution.</p></div><div id="fn2"><p><sup>2</sup>&nbsp;Hopefully one could rig up an action to send an alert on a tool that is more likely to be in use in the public sector too.</p></div></div><p>It’s well worth checking out in any case, though, as it has a number of advanced features that other packages on this list don’t have (at least not without significant further effort). For example, if validations fail, you can use nifty integrations to do things like send a message on Slack.<sup>2</sup></p>
+<p>If you do use the open source element of Great Expectations, it works a bit like this:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Import required modules from GX library.</span></span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> great_expectations <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> gx</span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb1-5"></span>
+<span id="cb1-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Create Data Context.</span></span>
+<span id="cb1-7">context <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> gx.get_context()</span>
+<span id="cb1-8"></span>
+<span id="cb1-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Import sample data into Pandas DataFrame.</span></span>
+<span id="cb1-10">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.read_csv(</span>
+<span id="cb1-11">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://raw.githubusercontent.com/great-expectations/gx_tutorials/main/data/yellow_tripdata_sample_2019-01.csv"</span></span>
+<span id="cb1-12">)</span>
+<span id="cb1-13"></span>
+<span id="cb1-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Connect to data.</span></span>
+<span id="cb1-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Create Data Source, Data Asset, Batch Definition, and Batch.</span></span>
+<span id="cb1-16">data_source <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> context.data_sources.add_pandas(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"pandas"</span>)</span>
+<span id="cb1-17">data_asset <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> data_source.add_dataframe_asset(name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"pd dataframe asset"</span>)</span>
+<span id="cb1-18"></span>
+<span id="cb1-19">batch_definition <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> data_asset.add_batch_definition_whole_dataframe(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"batch definition"</span>)</span>
+<span id="cb1-20">batch <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> batch_definition.get_batch(batch_parameters<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>{<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dataframe"</span>: df})</span>
+<span id="cb1-21"></span>
+<span id="cb1-22"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Create Expectation.</span></span>
+<span id="cb1-23">expectation <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> gx.expectations.ExpectColumnValuesToBeBetween(</span>
+<span id="cb1-24">    column<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"passenger_count"</span>, min_value<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, max_value<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span></span>
+<span id="cb1-25">)</span>
+<span id="cb1-26"></span>
+<span id="cb1-27"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Validate Batch using Expectation.</span></span>
+<span id="cb1-28">validation_result <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> batch.validate(expectation)</span></code></pre></div>
+<p>The returned Validation Result object is a json representation of the results. There are numerous options for data sources including, importantly, databases. And there are numerous expectations too—and an ability to define custom ones.</p>
+<p>I mentioned the actions that can be triggered when a validation fails. Here’s a couple and how they can be used:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">action_list <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [</span>
+<span id="cb2-2">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># This Action sends a Slack Notification if an Expectation fails.</span></span>
+<span id="cb2-3">    SlackNotificationAction(</span>
+<span id="cb2-4">        name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"send_slack_notification_on_failed_expectations"</span>,</span>
+<span id="cb2-5">        slack_token<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"$</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{validation_notification_slack_webhook}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>,</span>
+<span id="cb2-6">        slack_channel<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"$</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{validation_notification_slack_channel}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>,</span>
+<span id="cb2-7">        notify_on<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"failure"</span>,</span>
+<span id="cb2-8">        show_failed_expectations<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>,</span>
+<span id="cb2-9">    ),</span>
+<span id="cb2-10">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># This Action updates the Data Docs static website with the Validation</span></span>
+<span id="cb2-11">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#   Results after the Checkpoint is run.</span></span>
+<span id="cb2-12">    UpdateDataDocsAction(</span>
+<span id="cb2-13">        name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"update_all_data_docs"</span>,</span>
+<span id="cb2-14">    ),</span>
+<span id="cb2-15">]</span>
+<span id="cb2-16"></span>
+<span id="cb2-17">checkpoint_name <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"my_checkpoint"</span></span>
+<span id="cb2-18">checkpoint <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> gx.Checkpoint(</span>
+<span id="cb2-19">    name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>checkpoint_name,</span>
+<span id="cb2-20">    validation_definitions<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>validation_definitions,</span>
+<span id="cb2-21">    actions<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>action_list,</span>
+<span id="cb2-22">    result_format<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>{<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"result_format"</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"COMPLETE"</span>},</span>
+<span id="cb2-23">)</span>
+<span id="cb2-24">context.checkpoints.add(checkpoint)</span></code></pre></div>
+</section>
+<section id="pointblank" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="pointblank">Pointblank</h3>
+<p><a href="https://posit-dev.github.io/pointblank/">Pointblank</a> is the new kid on the block, and another recent Python creation from the org previously known as RStudio, now Posit. Posit has always created really high quality R packages (including one of the same name for R) and it’s wonderful to see them now focusing their attention on creating equally high quality Python packages. The syntax is somewhat reminiscent of Great Expectations, which shows you just how influential that original package has been.</p>
+<p>Here’s an example of using Pointblank with a <strong>Polars</strong> dataframe (it also works with <strong>pandas</strong>):</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pointblank <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pb</span>
+<span id="cb3-2"></span>
+<span id="cb3-3">validation <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (</span>
+<span id="cb3-4">    pb.Validate(data<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>pb.load_dataset(dataset<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"small_table"</span>)) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Use Validate() to start</span></span>
+<span id="cb3-5">    .col_vals_gt(columns<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"d"</span>, value<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>)       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># STEP 1      |</span></span>
+<span id="cb3-6">    .col_vals_le(columns<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"c"</span>, value<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>)         <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># STEP 2      | &lt;-- Build up a validation plan</span></span>
+<span id="cb3-7">    .col_exists(columns<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"date"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"date_time"</span>]) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># STEPS 3 &amp; 4 |</span></span>
+<span id="cb3-8">    .interrogate() <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># This will execute all validation steps and collect intel</span></span>
+<span id="cb3-9">)</span>
+<span id="cb3-10"></span>
+<span id="cb3-11">validation</span></code></pre></div>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="https://www.aeturrell.com/blog/posts/the-data-validation-landscape-in-2025/pointblank-tabular-report.png" class="img-fluid figure-img"></p>
+<figcaption class="margin-caption">Example output from Pointblank</figcaption>
+</figure>
+</div>
+<p>From the documentation:</p>
+<blockquote class="blockquote">
+<p>The rows in the validation report table correspond to each of the validation steps. One of the key concepts is that validation steps can be broken down into atomic test cases (test units), where each of these test units is given either of pass/fail status based on the validation constraints. You’ll see these tallied up in the reporting table (in the UNITS, PASS, and FAIL columns).</p>
+</blockquote>
+<p>Again, a wide range of data sources are supported, including Polars, Pandas, DuckDB tables, MySQL tables, PostgreSQL tables, SQLite tables, and Parquet.</p>
+<p>It’s early days for this package—it only had its first release in 2024, compared to (I think) 2017 for Great Expectations, and some functionality you’d expect isn’t quite there yet, but it looks super user-friendly so far and perhaps geared a bit more to the individual institutional user.</p>
+<p>One important caveat with Pointblank is that it doesn’t have the action triggers for follow-ups to failed validations. So you may validate your data, but then you either need to code in a next action yourself, or take action manually.</p>
+</section>
+<section id="pandera" class="level3">
+<h3 class="anchored" data-anchor-id="pandera">Pandera</h3>
+<p><a href="https://pandera.readthedocs.io/">Pandera</a> also follows an API similar to that of Great Expectations! Here’s an example:</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># data to validate</span></span>
+<span id="cb4-2">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.DataFrame({</span>
+<span id="cb4-3">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"column1"</span>: [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>],</span>
+<span id="cb4-4">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"column2"</span>: [<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.3</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.4</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.9</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10.1</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20.4</span>],</span>
+<span id="cb4-5">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"column3"</span>: [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"value_1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"value_2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"value_3"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"value_2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"value_1"</span>],</span>
+<span id="cb4-6">})</span>
+<span id="cb4-7"></span>
+<span id="cb4-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># define schema</span></span>
+<span id="cb4-9">schema <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pa.DataFrameSchema({</span>
+<span id="cb4-10">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"column1"</span>: pa.Column(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>, checks<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>pa.Check.le(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>)),</span>
+<span id="cb4-11">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"column2"</span>: pa.Column(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">float</span>, checks<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>pa.Check.lt(<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.2</span>)),</span>
+<span id="cb4-12">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"column3"</span>: pa.Column(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>, checks<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[</span>
+<span id="cb4-13">        pa.Check.str_startswith(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"value_"</span>),</span>
+<span id="cb4-14">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># define custom checks as functions that take a series as input and</span></span>
+<span id="cb4-15">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># outputs a boolean or boolean Series</span></span>
+<span id="cb4-16">        pa.Check(<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">lambda</span> s: s.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>.split(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"_"</span>, expand<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>).shape[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb4-17">    ]),</span>
+<span id="cb4-18">})</span>
+<span id="cb4-19"></span>
+<span id="cb4-20">validated_df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> schema(df)</span>
+<span id="cb4-21"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(validated_df)</span></code></pre></div>
+<pre class="text"><code>   column1  column2  column3
+0        1     -1.3  value_1
+1        4     -1.4  value_2
+2        0     -2.9  value_3
+3       10    -10.1  value_2
+4        9    -20.4  value_1</code></pre>
+<p>If the validation doesn’t go through, an error is thrown (in this case it passed through.)</p>
+<p>One of the nice features of Pandera is that you can combine it not just with column-level validation questions but also with statistical hypothesis testing too. It might seem a bit niche but I can well imagine cases where this could pop up. Here’s an example,</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb6-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandera <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pa</span>
+<span id="cb6-3"></span>
+<span id="cb6-4"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> pandera <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Column, DataFrameSchema, Check, Hypothesis</span>
+<span id="cb6-5"></span>
+<span id="cb6-6"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> scipy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> stats</span>
+<span id="cb6-7"></span>
+<span id="cb6-8">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (</span>
+<span id="cb6-9">    pd.DataFrame({</span>
+<span id="cb6-10">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"height_in_feet"</span>: [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6.5</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>],</span>
+<span id="cb6-11">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sex"</span>: [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"M"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"M"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"F"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"F"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"F"</span>]</span>
+<span id="cb6-12">    })</span>
+<span id="cb6-13">)</span>
+<span id="cb6-14"></span>
+<span id="cb6-15">schema <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> DataFrameSchema({</span>
+<span id="cb6-16">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"height_in_feet"</span>: Column(</span>
+<span id="cb6-17">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">float</span>, [</span>
+<span id="cb6-18">            Hypothesis.two_sample_ttest(</span>
+<span id="cb6-19">                sample1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"M"</span>,</span>
+<span id="cb6-20">                sample2<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"F"</span>,</span>
+<span id="cb6-21">                groupby<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sex"</span>,</span>
+<span id="cb6-22">                relationship<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"greater_than"</span>,</span>
+<span id="cb6-23">                alpha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>,</span>
+<span id="cb6-24">                equal_var<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>),</span>
+<span id="cb6-25">    ]),</span>
+<span id="cb6-26">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sex"</span>: Column(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>)</span>
+<span id="cb6-27">})</span>
+<span id="cb6-28"></span>
+<span id="cb6-29"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">try</span>:</span>
+<span id="cb6-30">    schema.validate(df)</span>
+<span id="cb6-31"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">except</span> pa.errors.SchemaError <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> exc:</span>
+<span id="cb6-32">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(exc)</span></code></pre></div>
+<pre class="text"><code>Column 'height_in_feet' failed series or dataframe validator 0: &lt;Check two_sample_ttest: failed two sample ttest between 'M' and 'F'&gt;</code></pre>
+<p>Just as with the other libraries we’ve seen so far, a wide range of data sources are supported, including (despite the name!) Polars, geopandas, Pyspark, dark, and modin dataframes.</p>
+</section>
+<section id="pydantic" class="level3">
+<h3 class="anchored" data-anchor-id="pydantic">Pydantic</h3>
+<p><a href="https://docs.pydantic.dev/">Pydantic</a> is a bit different from the previous examples we’ve seen as the fundamental unit to which it applies validation is not a dataframe, but a dictionary (eg from ingesting a JSON file). It’s more in the business of <em>schema validation</em> than dataframe validation. So this is less useful out-of-the-box for dataframes but more flexible and can be used for non-tabular data. The clever bit is that you define your schema via a class, and then you get a lot of desirable behaviour ‘for free’ that comes from this. On the website, it lists the UK Home Office among its users. It’s fair to say that Pydantic is production-grade too.</p>
+<p>It’s easiest to illustrate how it works with an example:</p>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> datetime <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> datetime</span>
+<span id="cb8-2"></span>
+<span id="cb8-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> pydantic <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> BaseModel, PositiveInt</span>
+<span id="cb8-4"></span>
+<span id="cb8-5"></span>
+<span id="cb8-6"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">class</span> User(BaseModel):</span>
+<span id="cb8-7">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">id</span>: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>  </span>
+<span id="cb8-8">    name: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'John Doe'</span>  </span>
+<span id="cb8-9">    signup_ts: datetime <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span>  </span>
+<span id="cb8-10">    tastes: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">dict</span>[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>, PositiveInt]  </span>
+<span id="cb8-11"></span>
+<span id="cb8-12"></span>
+<span id="cb8-13">external_data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> {</span>
+<span id="cb8-14">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'id'</span>: <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">123</span>,</span>
+<span id="cb8-15">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'signup_ts'</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'2019-06-01 12:22'</span>,  </span>
+<span id="cb8-16">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'tastes'</span>: {</span>
+<span id="cb8-17">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'wine'</span>: <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>,</span>
+<span id="cb8-18">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">b'cheese'</span>: <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>,</span>
+<span id="cb8-19">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'cabbage'</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'1'</span>,</span>
+<span id="cb8-20">    },</span>
+<span id="cb8-21">}</span>
+<span id="cb8-22"></span>
+<span id="cb8-23">user <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> User(<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span>external_data)  </span>
+<span id="cb8-24"></span>
+<span id="cb8-25"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(user.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">id</span>)  </span>
+<span id="cb8-26"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#&gt; 123</span></span>
+<span id="cb8-27"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(user.model_dump())  </span>
+<span id="cb8-28"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb8-29"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb8-30"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    'id': 123,</span></span>
+<span id="cb8-31"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    'name': 'John Doe',</span></span>
+<span id="cb8-32"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    'signup_ts': datetime.datetime(2019, 6, 1, 12, 22),</span></span>
+<span id="cb8-33"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    'tastes': {'wine': 9, 'cheese': 7, 'cabbage': 1},</span></span>
+<span id="cb8-34"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb8-35"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""</span></span></code></pre></div>
+<p>If validation fails, Pydantic will raise an error with a breakdown of what was wrong.</p>
+<p>As I mentioned, a strength of Pydantic is that you can validate arbitrarily complex objects. So here, for example, is a a fruit class that has an attribute called <code>bazam</code> that is a dictionary that maps strings into lists of tuples of ints, bools, and floats.</p>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> annotated_types <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Gt</span>
+<span id="cb9-2"></span>
+<span id="cb9-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> pydantic <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> BaseModel</span>
+<span id="cb9-4"></span>
+<span id="cb9-5"></span>
+<span id="cb9-6"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">class</span> Fruit(BaseModel):</span>
+<span id="cb9-7">    name: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>  </span>
+<span id="cb9-8">    color: Literal[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'red'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'green'</span>]  </span>
+<span id="cb9-9">    weight: Annotated[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">float</span>, Gt(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)]  </span>
+<span id="cb9-10">    bazam: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">dict</span>[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>, <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">list</span>[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">tuple</span>[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>, <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">bool</span>, <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">float</span>]]]  </span></code></pre></div>
+<p>You’ll also notice that there’s a validation check for whether the weight is greater than zero <code>Gt(0)</code>.</p>
+<p>Pydantic integrates with some other Python tools such as the extremely excellent <a href="https://fastapi.tiangolo.com/">FastAPI</a> for building APIs. But, unlike the other tools we’ve seen, it doesn’t integrate with dataframe and data source tools without further work by the user.</p>
+</section>
+<section id="cerberus" class="level3">
+<h3 class="anchored" data-anchor-id="cerberus">Cerberus</h3>
+<p>From the Cerberus docs:</p>
+<blockquote class="blockquote">
+<p>Cerberus provides powerful yet simple and lightweight data validation functionality out of the box and is designed to be easily extensible, allowing for custom validation.</p>
+</blockquote>
+<p>In many ways, Cerberus has a similar feel to Pydantic though, as far as I can tell, it’s a bit less fully featured and it returns True or False for validations rather than passing or throwing an error. Instead of using base classes and Python’s typing functionality, it defines schemas using text-based dictionaries (though these can be extended and customised).</p>
+<p>It’s easiest to illustrate via an example:</p>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">schema <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> {<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'name'</span>: {<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'type'</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'string'</span>}}</span>
+<span id="cb10-2">v <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Validator(schema)</span>
+<span id="cb10-3">document <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> {<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'name'</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'john doe'</span>}</span>
+<span id="cb10-4">v.validate(document)</span></code></pre></div>
+<pre class="text"><code>True</code></pre>
+</section>
+<section id="jsonschema" class="level3">
+<h3 class="anchored" data-anchor-id="jsonschema">jsonschema</h3>
+<p>This package, <a href="https://github.com/python-jsonschema/jsonschema">jsonschema</a>, is similar to Cerberus covered above and is specifically focused on validating JSON. Here’s an example:</p>
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> jsonschema <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> validate</span>
+<span id="cb12-2"></span>
+<span id="cb12-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># A sample schema, like what we'd get from json.load()</span></span>
+<span id="cb12-4"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> schema <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> {</span>
+<span id="cb12-5">...     <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"type"</span> : <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"object"</span>,</span>
+<span id="cb12-6">...     <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"properties"</span> : {</span>
+<span id="cb12-7">...         <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"price"</span> : {<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"type"</span> : <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"number"</span>},</span>
+<span id="cb12-8">...         <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"name"</span> : {<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"type"</span> : <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"string"</span>},</span>
+<span id="cb12-9">...     },</span>
+<span id="cb12-10">... }</span>
+<span id="cb12-11"></span>
+<span id="cb12-12"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># If no exception is raised by validate(), the instance is valid.</span></span>
+<span id="cb12-13"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> validate(instance<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>{<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"name"</span> : <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Eggs"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"price"</span> : <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">34.99</span>}, schema<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>schema)</span>
+<span id="cb12-14"></span>
+<span id="cb12-15"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> validate(</span>
+<span id="cb12-16">...     instance<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>{<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"name"</span> : <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Eggs"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"price"</span> : <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Invalid"</span>}, schema<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>schema,</span>
+<span id="cb12-17">... )                                   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># doctest: +IGNORE_EXCEPTION_DETAIL</span></span>
+<span id="cb12-18">Traceback (most recent call last):</span>
+<span id="cb12-19">    ...</span>
+<span id="cb12-20">ValidationError: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Invalid'</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">is</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> of <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">type</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'number'</span></span></code></pre></div>
+</section>
+</section>
+<section id="so-what-should-you-use-for-data-validation-in-the-public-sector" class="level2">
+<h2 class="anchored" data-anchor-id="so-what-should-you-use-for-data-validation-in-the-public-sector">So what should you use for data validation in the public sector?</h2>
+<p>That’s up to you, and will depend on your use case. For now, if you are validating a dataframe or database, and you work in a mixed team, and you’re <em>not</em> going to deploy to a production system, I think that <a href="https://pandera.readthedocs.io/"><strong>pandera</strong></a> is a strong choice but keep an eye on <a href="https://posit-dev.github.io/pointblank/"><strong>pointblank</strong></a> to see where it goes. If you’re working in a serious production environment and doing wholesale automation, you might find <a href="https://greatexpectations.io/"><strong>great expectations</strong></a> better, especially because of the built-in functionality that triggers actions. And, finally, if you’re working with validating user input, from an API or form, then <a href="https://docs.pydantic.dev/"><strong>pydantic</strong></a> is probably the strongest choice.</p>
+
+
+</section>
+
+
+ ]]></description>
+  <category>data science</category>
+  <category>data</category>
+  <category>data engineering</category>
+  <category>public sector</category>
+  <guid>https://www.aeturrell.com/blog/posts/the-data-validation-landscape-in-2025/</guid>
+  <pubDate>Wed, 05 Mar 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/the-data-validation-landscape-in-2025/pointblank-tabular-report.png" medium="image" type="image/png" height="65" width="144"/>
+</item>
 <item>
   <title>Ultra-modern Python Cookiecutters</title>
   <dc:creator>Arthur Turrell</dc:creator>
@@ -4957,53 +5809,6 @@ font-style: inherit;">""</span>)</span>
   <guid>https://www.aeturrell.com/blog/posts/the-prize-with-apis/the-prize-with-apis.html</guid>
   <pubDate>Sun, 18 Dec 2022 00:00:00 GMT</pubDate>
   <media:content url="https://www.aeturrell.com/blog/posts/the-prize-with-apis/None" medium="image"/>
-</item>
-<item>
-  <title>TIL: How to break RSS feeds</title>
-  <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/til-how-to-break-xml/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<blockquote class="blockquote">
-<p>Note: this is the first post under a new tag called TIL or “today I learned”. These are shorter format posts that lower the barrier to blogging and capture a mini piece of learning. The idea for TILs has been inspired by Simon Willison’s own <a href="https://til.simonwillison.net/">TIL posts</a>.</p>
-</blockquote>
-<p>It’s really useful to have an RSS feed associated with a blog so that people can automatically pick up new posts. A lot of blogging technology (including Quarto and Jekyll) automatically creates these feeds at a URL called <code>&lt;website name&gt;/index.xml</code>, or similar, relative to the root of your website.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Feed-icon.svg/256px-Feed-icon.svg.png" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">The RSS feed icon (Image: Wikipedia)</figcaption>
-</figure>
-</div>
-<p>But I kept finding a problem with generating these feeds: either they did not generate at all or they were corrupted and unreadable.</p>
-<p>I use a lot of latex in my blog posts. You can do this inline using dollar signs or as a display equation using double dollar signs in a separate paragraph. So</p>
-<pre class="text"><code>$$
-{\displaystyle F_{ij}=G\cdot {\frac {M_{i}M_{j}}{D_{ij}}}.}
-$$</code></pre>
-<p>becomes</p>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%7B%5Cdisplaystyle%20F_%7Bij%7D=G%5Ccdot%20%7B%5Cfrac%20%7BM_%7Bi%7DM_%7Bj%7D%7D%7BD_%7Bij%7D%7D%7D.%7D%0A"></p>
-<p>So far so good. But, when you’re putting latex in a code block—for example, when you’re demonstrating how to add an equation to a chart in <strong>matplotlib</strong> in code—the string with latex in can crash the automatic blog RSS feed generator.</p>
-<p>An example of the kind of string in a blog post that causes the problem is:</p>
-<pre class="text"><code>```python
-ax.set_xlabel(r"$e^\frac{-x^2}{2}$")
-```</code></pre>
-<p>except with the <code>"</code> characters replaced with <code>'</code> because, ironically, I can’t write this string without breaking the feed again.</p>
-<p>The solution—as you can probably guess by now—is to use <code>"</code> instead of <code>'</code> for literal strings with latex in them in code blocks.</p>
-<p>And, if you’re digesting this via an RSS feed, you’ll know it’s worked!</p>
-
-
-
- ]]></description>
-  <category>blogging</category>
-  <category>code</category>
-  <category>writing</category>
-  <category>TIL</category>
-  <guid>https://www.aeturrell.com/blog/posts/til-how-to-break-xml/</guid>
-  <pubDate>Wed, 02 Nov 2022 00:00:00 GMT</pubDate>
-  <media:content url="https://www.aeturrell.com/blog/posts/til-how-to-break-xml/None" medium="image"/>
 </item>
 </channel>
 </rss>
