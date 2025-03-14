@@ -6,8 +6,7 @@ categories: [productivity, public sector, work chat, rap]
 image: "automated_stats.webp"
 ---
 
-
-I've been thinking a lot about efficiency in the public sector recently. This post looks at ideas for increasing the efficiency of analysis and operations through automation, artificial intelligence, and, well, (meta-?) analysis. This is the second post in this series, see the [previous post](../public-sector-communication-efficiency/index.qmd) for ideas on efficiency ideas related to communication and co-ordination.
+I've been thinking a lot about efficiency in the public sector recently. This post looks at ideas for increasing the efficiency of analysis and operations through automation, good coding practices, artificial intelligence, and, well, (meta-?) analysis. This is the second post in this series, see the [previous post](../public-sector-communication-efficiency/index.qmd) for ideas on efficiency ideas related to communication and co-ordination.
 
 ## What is meant by analysis and operations?
 
@@ -125,7 +124,7 @@ person.full_name(gender=Gender.MALE)
 
 ## Reproducible analytical pipelines
 
-A reproducible analytical pipeline (RAP) is a series of steps that trigger one after the other to produce an analysis right from data ingestion all the way to the end product. To illustrate why there are big efficiency gains to be had with them, let's first look at an end-to-end process *doesn't* use RAP.
+A reproducible analytical pipeline (RAP) is a series of steps that trigger one after the other to produce an analysis right from data ingestion all the way to the end product. It's a form of *automation*. To illustrate why there are big efficiency gains to be had with them, let's first look at an end-to-end process *doesn't* use RAP.
 
 ### Getting a bad RAP
 
@@ -263,18 +262,114 @@ if __name__ == "__main__":
     )
 ```
 
-I share this to show that automation of code doesn't have to be super complicated---it's achievable in a few lines!
+I share this to show that automation of code doesn't have to be super complicated---with the cloud, it's achievable in a few lines!
 
 There's a lot in the list above. But doing all of the above not only massively reduces the risk of mistakes, it also makes it *far* easier to find mistakes when they do occur. And, the automation saves masses of time---allowing analysts to focus on the message, narrative, and bigger picture.
 
 You can find more on reproducibility and RAP [here](https://aeturrell.github.io/coding-for-economists/wrkflow-rap.html) and [here](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/), and [here](https://aeturrell.github.io/coding-for-economists/auto-research-outputs.html) in the context of research.
 
+Finally, I realise that having people with the skills to do RAP to this standard is difficult and potentially expensive in itself. The market clearly recognises the benefits too, which is why data scientists are in such high demand! For me, overall, this is a much better way of doing things and even if the input costs are potentially higher, the output quality is likely to be *significantly* higher---so I contend that you still win out on productivity overall.
+
 ## Technical communication and code documentation
 
-I already covered using [documentation obsessively in my previous efficiency post](../public-sector-communication-efficiency/index.qmd#asynchronous-working), and much of the benefits are the same as for documenting code obsessively too. Those benefits include faster onboarding, having a single source of truth, making it easy to avoid stale documentation, more auditability, less likelihood of code being used incorrectly, and, if the documentation is shared, transparency.
+I already covered the likely efficiencies that can be unlocked by using [documentation obsessively in my previous efficiency post](../public-sector-communication-efficiency/index.qmd#asynchronous-working). Many of the same benefits apply here and come from documenting code obsessively too. As a reminder, those benefits include faster onboarding, having a single source of truth, making it easy to avoid stale documentation, more auditability, less likelihood of (in this case) code being used incorrectly, and, if the documentation is shared, transparency.
 
-There are some extra actions you can take with the documentation of code to squeeze every last drop of efficiency out of these benefits.
+However, there are some extra actions you can take with the documentation of code to squeeze every last drop of efficiency out of these benefits.
+
+At a minimum, each code repository should have a markdown README file that sets out what its about and how to use it.
+
+The code itself should have sensible comments, and use informative variable, function, method, and class names. Functions, classes, and methods should have [docstrings](https://en.wikipedia.org/wiki/Docstring), comment blocks that say what the object does. I tend to use the Google-style docstring conventions, defined in [Google's Python style guide](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings), but there are other docstring conventions around. Here's an example of Google-style docstring on a function:
+
+```python
+def _create_unicode_hist(series: pd.Series) -> pd.Series:
+    """Return a histogram rendered in block unicode.
+
+    Given a pandas series of numerical values, returns a series with one
+    entry, the original series name, and a histogram made up of unicode
+    characters. However, note that the histogram is very approximate, partly
+    due to limitations in how unicode is displayed across systems.
+
+    Args:
+        series (pd.Series): Numeric column of data frame for analysis
+
+    Returns:
+        pd.Series: Index of series name and entry with unicode histogram as
+        a string, eg '▃▅█'
+    """
+```
+
+It's not just helpful for people looking at the innards of the code, it also helps if people are using functions and methods from the code in other code. If someone were to call `help(_create_unicode_hist)` then they would get the docstring back. In sophisticated development environments like Visual Studio Code, they would get a pop-up of this docstring even when just hovering their mouse over the function.
+
+For critical code, you may want to consider having code *type annotations*, aka *type hints* too. The code example above has those: in this case `series` has type `pd.Series` and the function returns `pd.Series` too (this is what `-> pd.Series` does.) Type hints are just that, hints to help people understand what types of object are supposed to be going into and out of modular parts of code like functions and methods. Because they are hints, they're included in this section on documenting code---adding type hints helps others understand what's supposed to happen.
+
+If you're really concerned about making sure the code is not used incorrectly, you can even enforce type hints, either at run time, so that if a user runs the code with the wrong data types an error is thrown, or at development time, so that the developer gets a warning that the internals of the code don't adhere to the given type hints. [typeguard](https://typeguard.readthedocs.io/) is a popular package for run time type checking, while for development time (aka static) type checkin, [Mypy](https://mypy-lang.org/) and [Microsoft's Pyright](https://microsoft.github.io/pyright/) are the biggest libraries around.
+
+But you can go further! You'll notice that the type annotations are, in effect, repeated in both the docstring and in the function signature. This means they could say different things, which would be confusing to users. Have no fear, though, because *there's a package for that* (there always is.) [Pydoclint](https://jsh9.github.io/pydoclint/) trawls through your docstrings and type annotations and tells you if they diverge.
+
+But you can go even further! Let's say you want to help people understand, practically, how to use a function, method, or class. Well, you can also add example code to docstrings. Here's the format:
+
+```python
+def skim(
+    df_in: Union[pd.DataFrame, pl.DataFrame],
+) -> None:
+    """Skim a pandas or polars dataframe and return visual summary statistics on it.
+
+    skim is an alternative to pandas.DataFrame.describe(), quickly providing
+    an overview of a data frame via a table displayed in the console. It produces a different set of summary
+    functions based on the types of columns in the dataframe. You may get
+    better results from ensuring that you set the datatypes in your dataframe
+    you want before running skim.
+
+    Note that any unknown column types, or mixed column types, will not be
+    processed.
+
+    Args:
+        df_in (Union[pd.DataFrame, pl.DataFrame]): Dataframe to skim.
+
+    Raises:
+        NotImplementedError: If the dataframe has a MultiIndex column structure.
+
+    Examples
+    --------
+    Skim a dataframe
+
+        >>> df = pd.DataFrame(
+                {
+                'col1': ['Philip', 'Turanga', 'bob'],
+                'col2': [50, 100, 70],
+                'col3': [False, True, True]
+                })
+        >>> df["col1"] = df["col1"].astype("string")
+        >>> skim(df)
+    """
+```
+
+where you can add as many examples as you like.
+
+Now this is helpful in itself because it guides users as to how to use a bit of code. But, again, what if the examples were written 2 years ago and the code has changed? *There's a package for that!* Using a package called [xdoctest](https://github.com/Erotemic/xdoctest) you can, you guessed it, test that any examples in your docstrings actually run and do what the docstring says they will do.
+
+This is all very nice, but lots of people don't want to go trawling through code. They want to read a glossy guide. The problem with guides, though, is that they're often left to go stale while the model itself changes. You may have seen situations where there's an Excel-based model and somewhere, floating around, a Word document explaining what that Excel model does. But who knows how much they are conjointly kept up to date?
+
+Fortunately, there's a way to build documentation that sits with your code, and is in lock-step with it. The technology is called [Quarto](https://quarto.org/), and it's a flexible document publishing system (where "document" includes websites and slides!) Perhaps the greatest power of Quarto is that you can put chunks of code into the source that gets compiled into a document and, in that final product, the outputs from the code will appear too (and only the outputs if you wish.) This means you can create documentation with Quarto (in the form a Word document or website) and keep the source files for that documentation in exactly the same place as your code. *Even better*, you can include examples of using the code in the documentation and you know it will be *exactly* the same code as in your software, and that it will work---because if it doesn't, the documentation simply won't build!
+
+But wait... you can go *even* further! You've spent all of this effort on lovely docstrings that tell people about how the modular parts of the code work and are meant to be used, and perhaps you even have examples in there too. What if you could automatically include all of that nice within-code documentation in your actual documentation? *There's a package for that*! The massively underrated [Quartodoc](https://machow.github.io/quartodoc) allows you to automatically pull docstrings from your code base and insert them into your documentation. It really is efficient, helpful, and a lot of fun too.
+
+For an example of this self-documenting behaviour in action, check out the website for my package [Specification Curve](https://aeturrell.github.io/specification_curve/) or for the excellent regression package [Pyfixest](https://py-econometrics.github.io/pyfixest/pyfixest.html). In both cases, the writing is interspersed with examples of running real code from the packages. For both websites, there's a reference page where parts of the code are automatically documented using Quartodoc.
+
+A lot of this is overkill for a lot of projects. But for complex analysis code on the critical path to a major publication that your institution produces? It's a huge help and likely worth it.
 
 ## Beautiful Models
+
+## Artificial Intelligence (AI)
+
+A former boss of mine, now even more heavily invested in the AI world than he was when we worked together, recently told me "don't have an AI strategy, have a business strategy that makes use of AI." It stuck with me, partly because there are so many AI strategies around, but mostly because he's right: AI is a tool and not a business plan. We don't have a keyboard strategy or an email strategy.
+
+That said, AI is also quite new and people are still thinking through how it can be used to improve efficiency. So, in this section, I offer a few ideas around using AI to improve analysis and operations. (In the [previous post in this series](../public-sector-communication-efficiency/index.qmd), which covered communication and co-ordination, there were a couple of AI uses too---for transcription, meeting summarisation and minutes, and for searching the stock of institutional knowledge.)
+
+- coding aid, complementary and eg solving issues alone
+- review and critique
+- auto analysis
+- teaching
+- part of flow, eg doing things not possible before, doing existing things better (receipts)
 
 ## Automating and organising the office
