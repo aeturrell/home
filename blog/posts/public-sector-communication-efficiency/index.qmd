@@ -1,0 +1,108 @@
+---
+date: "2025-03-14"
+layout: post
+title: "Efficiency in the public sector: communication and co-ordination"
+categories: [productivity, public sector, work chat, management]
+image: "iso_city.webp"
+---
+
+I've been thinking a lot about efficiency in the public sector recently, particularly how we can improve it. In this post, I'll focus on some ideas for improving communication and co-ordination between public sector workers.
+
+Quick disclaimer: efficiency, in time or money, is not the only important factor. People's well-being and satisfaction matter too. (It matters in itself but it's also true that grumpy staff are not going to be well-motivated.) Most of the time there isn't going to be a trade-off between efficiency and staff well-being as no-one likes wasting time but it's always worth considering what the pursuit of efficiency in time and money might be costing elsewhere.
+
+![](iso_city.webp)
+
+## Ideas for lowering communication and co-ordination costs
+
+### Publishing analysis
+
+A major source of inefficiency across the wider public sector is the co-ordination costs that result from having everyone involved in topic X try to keep in touch.[^2] Across the whole public sector, there are often too many people working on X to get into a single room at the same time. So people resort to many bilateral conversations. With only $N$ people working on X across the whole of the public sector, one individual needs to have $N-1$ conversations to keep on top of what's happening and, in total, if everyone does the same, there are $N^2$ co-ordination meetings happening. For as few as $N=30$, that means 900 meetings! I'm using an extreme case---surely *some* sub-groups of more than two people will meet, but the point stands that this is not at all efficient.
+
+[^2]: In a perfect world, you would have very clean lines of responsibility for different topics. But topics that can be so cleanly separated from any other issue are the exception, if they exist at all.
+
+An alternative is for public sector institutions to share as much as possible of their analysis across institutional lines, preferably by publishing it openly. You might think sharing it just within the public sector makes more sense but there are legal, technological, and co-ordination barriers to do this--again, you might end up having to do 100s of bilateral sharing agreements.
+
+Of course there will be analysis that cannot be shared. Some questions, and definitely some answers, are inherently sensitive or disclosive. But not as many as most people in the public sector assume (I assert), and for those that aren't, the benefits of release are substantial.
+
+By the way, by 'sharing analysis', I don't just mean sharing the end report, I mean sharing the data and code too.[^3] This gets all the benefits that will be familiar to people who know about free and open source code, and data sharing[^1]. Let me give you a specific example: over the last few years there have been a number of errors in UK official statistics, on [trade](https://www.ft.com/content/61679d49-2b87-45ef-8fa2-1b76e393aed4) and on [productivity](https://www.ft.com/content/95b425c1-7f09-3c14-b423-42da8fa30bfe), and these are just two examples from the top of my head. I have this dream that the code that is used to create national statistics could be open-sourced, improving transparency, getting more eyes on fixing any errors, and allowing countries to adopt best practices far more quickly. So the biggest benefit of all of this sharing is that you can co-opt others into improving your analysis! That's very efficient!
+
+[^1]: I'll write more about the benefits of data sharing in another post.
+
+[^3]: One organisation, GitLab, has even [open sourced](https://about.gitlab.com/blog/our-handbook-is-open-source-heres-why/) how they run their organisation.
+
+So, where possible, it makes sense to publish analysis for anyone to find. Then everyone who needs it can find it, benefit from it, and avoid duplicating it. The people who are able to find it and avoid duplicating it may well be people from your own institution in the future---I've [written before](../managing-public-sector-knowledge/managing-public-sector-knowledge.qmd) about how the public sector is not good at maintaining the stock of knowledge, but making that knowledge accessible to the most powerful search engines in the world means it is far less likely to disappear or be inefficiently duplicated.
+
+This share-what-you-can approach eliminates the need for lots of communication and co-ordination that would otherwise be costly.
+
+### Asynchronous working
+
+As well as disseminating analysis and code widely, you can reduce within-org communication costs by opting for asynchronous ways of working. Those who have worked in organisations that span time zones will be familiar with this idea. GitLab has lots of [good content on the idea of asynchronous working](https://handbook.gitlab.com/handbook/company/culture/all-remote/asynchronous/) as they are a 100% remote and international company.
+
+Here's an excerpt from their Handbook, itself a quote by [Coda Hale](https://codahale.com/):
+
+> A significant source of failure demand[^4] for meetings and status updates is the desire of organizational leaders to keep abreast of who's doing what. This situational awareness is indeed important, but trying to maintain it by calling meetings, messaging people on Slack, and catching people on the hallways is a significant systemic drag on organizational productivity.
+> 
+> A better model for staying informed of developments as the organization scales is for groups to publish status updates as part of the regular cadence of their work. Leaders can asynchronously read these updates and, should the need arise, initiate additional, synchronous conversation to ask questions, provide feedback, etc.
+> 
+> Synchronous meetings should be reserved for low-latency collaboration on complex issues; likewise, collaboration should be reserved for synchronous meetings.
+
+[^4]: Failure demand is the demand on a system or organisation that arises not from delivering work, but from failings of the system and excess co-ordination costs.
+
+The fundamental idea here is that co-ordinating to be in the same meeting at the same time is more difficult, and may create bottlenecks, that are not present when communication is asynchronous. Another aspect is that there's a "default to action" rather than a default to delay until a conversation can happen.
+
+Asynchronous communication appeals to me because of my observation that the public sector has more meetings than perhaps would be ideal---and that as the 'cost' of convening large groups of people decreased due to the availability of virtual meetings in the pandemic, we all opted to 'buy' more of them (without an accompanying change in the volume of meetings the work actually requires).
+
+As the GitLab Handbook notes, there are other benefits to asynchronous working:
+
+- it is better for people who work part time or have unusual working hours
+- it tends to push people toward greater transparency, which can help junior staff feel more involved
+- it tends to push people to write down key decisions and actions so that a log of institutional knowledge is created (useful in general, but especially great for onboarding new staff.)
+
+So how can you actually get some of the productivity benefits of asynchronicity? A big part is mindset and (again, this line courtesy of the GitLab Handbook), the easiest way to shift into an asynchronous mindset is to ask: "How would I deliver this message, present this work, or move this project forward right now if no one else on my team or organisation were awake?" Here are some more specific ideas for implementing asynchronous working:
+
+- **Default to sharing information**, eg by using the most permissive classification available.
+- **Use documentation obsessively**---for code, for decisions, for processes, and for actions. And make sure there is a process by which that documentation is prevented from becoming stale.[^7] Documenting why something didn't happen is as important as documenting why it did because it helps others understand why certain decisions were made. In practice, documenting obsessively means avoiding putting key decisions or information in emails---anything important should be in documents that are findable by default. Amazon has an interesting ban on Powerpoint decks in favour of written memos that goes in this direction; there's a [post that mentions Amazon's approach here](../managing-public-sector-knowledge/managing-public-sector-knowledge.qmd). As a concrete example, in my own teams, I have had some success managing code-based work via a [Kanban board](https://en.wikipedia.org/wiki/Kanban_board) (we use [GitHub projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects) but there are lots of alternatives available.) This provides asynchronicity, transparency, it means that team meetings aren't just a round table of updates, and (using GitHub's [GraphQL API](https://docs.github.com/en/graphql)) it also allows for automatic compilation of reports on what kinds of projects we're undertaking.
+- **Have meetings only when they are needed**. This means avoiding scheduling them regularly and holding ad hoc ones only when it would unblock progress faster than written communication. Good reasons for meetings might include:
+  - Meetings with external parties
+  - First-time meetings for team members who have not previously worked together
+  - 'One-way door' decisions (eg when stakes are high and decisions are difficult to reverse)
+  - Complex project initialisations and planning (eg defining the workplan for the next quarter, scoping a major project, etc.)
+  - Sensitive topics (e.g. discussing personal issues, career, performance, giving difficult feedback, etc.)
+  - Supporting and unblocking direct reports
+- **Meetings should have an agenda**.
+- **Empower people to make 'two-way door' decisions**. Most decisions are easy to reverse and not sensitive. In these cases, people should go ahead and make them without approval or needing to have a meeting.
+- Ensure there is a clear **single source of truth** for every important piece of information. If you have to ask someone else which of two similar pieces of information is relevant, that's not very efficient.
+- **Ensure that information is easily accessible and can be searched**. I wrote more about that last point [here](../managing-public-sector-knowledge/managing-public-sector-knowledge.qmd) but now there's a new kid on the block for helping to interrogate the combined stock of knowledge of an institution: retrieval augmented generation (RAG). With RAG, you can get the general benefits of a large language model focused on a specific set of documents that you choose. Even better, the LLM can cite the documents it is sourcing its answers from. This seems like a fantastic way to make the considerable stock of knowledge in most institutions more accessible.
+- When meetings are necessary, record them, or make a transcript, or better than both **create a concise but complete summary of meetings in which it is clear who attended and what decisions were made, and ensure that the information is available for anyone to find afterwards**. Most public sector institutions are using Microsoft Teams, and there are Teams tools that can help with this.
+
+[^7]: More on code documentation in a subsequent post.
+
+### Have someone own the trade-off
+
+This one is more about the structure of your organisation, but it's a change that saves a ton of potentially fractious communication too.
+
+It's probably best to illustrate the idea with a hypothetical example. Let's say that there is a person in an organisation who is responsible for IT, including software, hardware, and technology security (call them Bob.) And let's say there's someone else who is responsible for high quality, efficient, and impactful analysis across the same organisation (call them Alice.) Alice and Bob are far removed from each other---perhaps they only have a single manager in common who is the head of the entire institution or the permanent secretary.
+
+Now Bob is incentivised to minimise costs and maximise security, because he holds the budget for software and hardware, and if there's an IT security incident, you can bet Bob is going to be in the firing line. Alice, meanwhile, is incentivised to get things done, and likely has substantial risk appetite in order to get important things done. If there's a major crisis of some sort looming, Alice isn't going to be much pleased that her staff are unable to access key government websites because of zealous internet security settings, and if she doesn't get that critical analysis out in time, *she's* going to be in the firing line.
+
+Hopefully you can see that Alice and Bob have wildly different incentives here and their communications might, very naturally, end up being fractious. We can't blame Bob or Alice for this---they're both doing their jobs, the jobs they have been given. But at an institutional level, the structure has created a natural clash. Co-ordination and communication will be far less good than they could be because Alice is always straining at the limits of what Bob allows her to do, and Bob is always trying to reign Alice in.
+
+The solution here is to have someone who owns this productivity-security trade-off[^8]. There are a few options for making this happen:
+
+- have someone who doesn't sit so far up the organisation own the trade-off. Maybe it could be that Alice and Bob report to the same person. This helps because, if the person invested with the trade-off decision is too high up in the organisation, then that decision is never going to be top of their list---they will simply always have bigger fish to fry. Whereas if the senior person's role is explicitly to get that trade-off right, and they're close to both Bob and Alice, they're going to be well-placed to make good decisions.
+- merge Alice and Bob's jobs. Alice-Bob now owns risk tolerance on IT security, hardware and software choices, and productivity of analysis. Alice-Bob can make the trade-off directly.
+- Bob's job disappears, and Bob's staff become Alice's staff, but Alice now has more diverse teams that include technology experts as well as analysts. There's a professional network for technology people, but they are embedded in business areas. Alice owns the trade-off and can make the decision based on what her mixed teams tell her. Some US institutions use this model.
+
+[^8]: As an aside, I'm sceptical there's as much of a productivity-security trade-off as most people think. If you have too high security, people start to find risky work arounds, which isn't very secure. If you have very lax security and processes, mistakes can go unnoticed (including analytical mistakes). But there are definitely times when the needs of "getting things done" and "avoiding any risk" clash.
+
+Stepping away from the Alice and Bob hypothetical, you can imagine other places where this same dynamic plays out. The choice of where to site a new office? The choice of how to refurbish an office? How complex the HR policies are for bringing new people in? In every case, if your goal is productivity, you need someone to own the trade-off with the other factors at stake.
+
+### Project management
+
+I already mentioned Kanban boards in the [previous section](#asynchronous-working) but there's a bunch of other ideas that can help reduce communication and co-ordination costs within the nitty gritty of individual projects. One is the Amazon 'working backwards' method, which you can find more about in [this post on data science with impact](../data-science-with-impact/index.qmd#working-backwards). The same post also talks about the benefits of incremental delivery.
+
+On communication and co-ordination specifically, though, another Amazon-favoured trick is worth mentioning: "disagree and commit". The basic idea is that individuals can, and should, openly disagree with a decision that is on the table but---once the decision is definitively made---everyone should commit to implementing it. This allows people to speak up and challenge what they don't agree with, without causing a fear that they will be obstructive. And it also helps avoid what's known as the 'consensus trap', where the feeling of needing to reach consensus turns into a lack of progress. Both of these can be issues in the public sector or, indeed, any large organisation.
+
+## Conclusion
+
+It seems like there's plenty of room to improve communication and co-ordination in the public sector. I've shared a few suggestions focused on four areas: making your analysis public by default avoids costly bilateral co-ordination, gets you free help from others, and helps avoid duplication; working asynchronously avoids bottlenecks, empowers staff, and promotes transparency; thinking carefully about who owns key trade-offs can prevent a lot of inefficient back-and-forth; and battle-tested project management practices can promote delivery and action. Got better ideas? Let me know!
