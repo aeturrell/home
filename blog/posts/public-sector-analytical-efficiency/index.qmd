@@ -1,0 +1,280 @@
+---
+date: "2025-03-14"
+layout: post
+title: "Efficiency in the public sector: analysis and operations"
+categories: [productivity, public sector, work chat, rap]
+image: "automated_stats.webp"
+---
+
+
+I've been thinking a lot about efficiency in the public sector recently. This post looks at ideas for increasing the efficiency of analysis and operations through automation, artificial intelligence, and, well, (meta-?) analysis. This is the second post in this series, see the [previous post](../public-sector-communication-efficiency/index.qmd) for ideas on efficiency ideas related to communication and co-ordination.
+
+## What is meant by analysis and operations?
+
+**What does it mean to make analysis more efficient? It is to produce analysis faster, cheaper, better, or in more volume for the same inputs.** I'm thinking here of both ad hoc analysis and production analysis (eg regular statistics). Before we hit the ideas, it might help to give examples of these two types of analysis.
+
+A good example of ad hoc analysis would be if, say, a global event meant that a lot more analysis was suddenly required on trade and trade links, typically in the form of answers to one-off questions. With such ad hoc analysis, you don't know the *specific* question in advance---but you might know that, from time-to-time, questions about trade links will arise. So to improve the productivity of analytical operations in this case, you would want analysts or data scientists or economists, whoever it is, to have longitudinal data on bilateral trade flows to hand, with their permissions to access it cleared ahead of time, the data cleaned, the data stored in a sensible format, and the data accessible to suitable analytical tools. Essentially, it's about putting analysts in the best position to answer the questions in a timely way as they arise, maximising agility and minimising repeated effort for when the next question lands.
+
+An example of regular analysis would be a pipeline that ends in a publication and which involves data ingestion, data checking, processing, and publication of data alongside a report that has a fairly consistent structure. Perhaps this process involves a lot of manual steps, like handovers, emails, someone staring at a spreadsheet, and someone having to serve requests for custom cuts of the data. Improving productivity might look like automating the end-to-end pipeline and cutting out the manual steps, and, finally, serving the data up via an API so that people can take whatever cuts they want. It's again minimising effort.
+
+![If humanoid AI robots did analysis](automated_stats.webp)
+
+Turning to operations now; in every public sector institution, there are thousands of actions that are repeated every day by most staff. Something as basic as turning on a laptop or checking a calendar. **If some of the tasks that happen repeatedly can be sped up even a little, then there's a large saving to be made**. This does require *measuring* how fast those tasks are today and, to get an idea of what the return on investment (ROI) might be, it also requires one to have a counter-factual in mind of how fast they *could* be with that investment
+
+With that background out of the way, let's move on to some ideas!
+
+## Operations
+
+### More productive capital
+
+I touched on computer-task time savings in the context of better hardware in [this post on the false economy of bad IT](../bad-it/index.qmd). TL;DR it *always* makes sense to buy staff earning over the median UK salary a high-spec laptop if they lose more than 9 minutes a day due to a low- to mid-range laptop being slow or glitchy. This is relevant; the UK has relatively low capital stock, as seen in @fig-capital (chart by [Tera Allas](https://www.mckinsey.com/our-people/tera-allas)).
+
+![Capital is important for productivity!](../data-science-with-impact/capital_stock_uk.jpeg){width=100% #fig-capital}
+
+There's a whole class of repeated tasks that people do on computers that are slower than they could be because of the computer's hardware or configuration. How can the time loss be definitively tested? One option is a log of the times when someone's workflow was interrupted because the computer was turning on, or froze, or couldn't open more than one calendar at a time. Another would be to measure the time it takes to do similar tasks in a perfect reference situation, eg the same task on a high-spec laptop, and thus work out the counterfactual. Similarly, one could measure productivity[^1] with one software package relative to another to more accurately assess which is better (it seems obvious but a lot of software will be chosen for reasons that are very orthogonal to productivity, for reasons I sketch out in [this other post](../public-sector-communication-efficiency/index.qmd#have-someone-own-the-trade-off).)
+
+[^1]: I very purposefully say 'productivity' and not 'time' here because the most expensive input to the production function is usually peoples' time, not the time it takes software to run. Which is why data science only reaches for C++ and Rust, which are slower to write code in but run faster, when it's absolutely necessary.
+
+Once bottlenecks in task speed have been identified and counted, investment resources can focus on eliminating them in the order of biggest benefit.
+
+A partial alternative is to allow Bring Your Own Device (BYOD). This allows the institution's data and software to be accessed via the personal devices of staff, which firstly may be faster and secondly may be more suited, by selection, to staff. There are security issues around this, and it may not be a equitable solution---more junior staff may not be able to afford the same tech as those at the top of the organisation. Still, if it doesn't make sense to stump up for a high-spec laptop for everyone this can be a great second option. One particularly secure combination that will be relevant to many public sector institutions is Apple hardware + iOS as an operating system + Microsoft software, which allows people to use corporate account Outlook, Teams, Sharepoint, etc, etc, on iPhone and iPad (including with a keyboard, as long as it's an Apple one). My iPad has a processor that's 40% faster than my work laptop's, so BYOD is a game-changer. Of course, you can't do everything from an iPad[^2]---but you can certainly do a lot.
+
+[^2]: For all practical purposes, you can't code directly on an iPad in the way you would a laptop or desktop.
+
+### Operational efficiencies
+
+Computer tasks aren't the only place where one could find operational efficiencies. There's a whole set of efficiency gains that most organisations could find in their standard processes too. One example is around the permissions required to access data or install certain software, etc. In most public sector organisations I've observed, these have to be separately approved for each individual within a team. But another model would be to use team-level permissions---if someone joins Team A, it is assumed they will need access to a set of data used by Team A. This eliminates a lot of tedious time for managees and managers in requesting and approving, respectively, permissions. In another post in this series, [I wrote about how presuming access and openness within the organisation](../public-sector-communication-efficiency/index.qmd#asynchronous-working) could also provide a boost---in that case, no permissions are needed!
+
+That's just one example. But by analysing how staff have to spend their time to get things done, one could find many more---and again try to minimise them.
+
+## Data for analysis
+
+Most public sector organisations, probably most organisations in general, have a legacy systems problem that makes analysing data (particularly big data) painful. There are also legitimate reasons why security is often tight around the analytical tools that most public sector orgs can use (these can be even tighter when the data are sensitive.) Between these two, it can take analysts *orders of magnitude longer* to analyse data using an institutions' systems than it would the same size dataset on their own laptop or cloud account or open system.
+
+And there is strong evidence that releasing datasets into the wild has huge benefits (eg [Landsat data being released for free by the US government is estimated to generate 25 billion USD a year](https://www.usgs.gov/news/featured-story/landsats-economic-value-increases-256-billion-2023)). You can think of the economic narrative like this: data are an input into lots of potential public goods. People wouldn't pay for the data directly to make those public goods, as they don't capture enough of the benefit themselves---but make the data free, and their private capture is enough for them to put the work in and generate public goods worth way more than the total revenue obtained by directly charging for the upstream data.
+
+The form of those public goods may be especially beneficial for public sector institutions. You can think of situations where the public sector doesn't have enough resources to perform all of the analysis it would ideally require. But, with the data out there, others might do the analysis---co-opting others in to help with the overall analytical mission! Those other analysts might just be in another government department. (More on this idea of sharing as an efficiency in [the previous post in this series](../public-sector-communication-efficiency/index.qmd#publishing-analysis).)
+
+
+### Releasing real data
+
+So, what's the idea? For data that aren't proprietary or sensitive, this all suggests releasing it publicly. That means staff within the institution can use non-restricted tools to work with it, saving lots of time. It means that any public goods that are possible with it are much more likely to be created, unlocking the true value and, potentially, more relevant analysis happening than otherwise would be the case. And, especially if the [data are released via an API](../the-prize-with-apis/the-prize-with-apis.qmd)[^3], it means no more FOI requests or emails from other institutions---people can self-serve the cuts of the data that they need. The substantial time that public sector analysts spend serving Freedom of Information (FOI) and inter-departmental requests for data would simply no longer be needed for any data that are published.
+
+[^3]: It's not that hard to build an API using modern cloud tools, by the way. Check out [this post](../build-a-cloud-api/build-a-cloud-api.qmd) for an example.
+
+### Synthetic data
+
+Most data within public sector institutions are proprietary or sensitive or both. They can't be shared externally, so sharing the real data is off the table. But what if there was a way to share the data without sharing the data? Well, there is---it's called **synthetic data**.
+
+Synthetic data are artificially generated data that are made to resemble real-world data in some of their statistical properties but in a non-disclosive way. There are mathematical guarantees about how hard it is to reverse the process and get back to the original data (a bit like encryption.) And you can set how strong this encryption is, though there's a trade-off with preserving aggregate statistical properties.
+
+One way synthetic data could be beneficial is if it was released and people could still get accurate statistical aggregations from it. But I imagine that most institutions wouldn't be super comfortable with this as some statistics will be accurate but others won't be. You can imagine instead creating synthetic data with extremely strong protection and releasing that, and allowing people to develop with it. Once that analytical script is ready, and is tested on the synthetic data, staff and even externals could submit it to be run on the sensitive data (on what is probably a more expensive computational setup.) The benefit of synthetic data in the first instance is that the bottleneck around the sensitivities of the data and access to it via specialist secure platforms are completely removed. Even in the latter case, with very strong encryption, and where the statistical aggregates wouldn't map so well onto what you'd get from running on the original data, you could still remove a lot of the bottlenecks and cut out a chunk of the development that usually has to happen on the actual data. From a science point of view, there are even some attractions to working blind to the actual results in this way---it's a bit like pre-registering the analysis for a medical trial.
+
+Of course, there is no free lunch---there is some work to do for the institutional data owner in generating and releasing the synthetic data, and to do it at scale probably needs some cloud compute. And it's not the easiest concept to explain to people who are less in the data science space either, so senior colleagues may struggle to understand the risks and benefits.
+
+Help is on hand. There are well-developed packages to:
+- generate synthetic data, eg [Synthetic Data Vault](https://github.com/sdv-dev/SDV) and [Synthetic Data SDK](https://github.com/mostly-ai/mostlyai)
+- evaluate how close synthetically generated data are to the real underlying data, eg [SDmetrics](https://docs.sdv.dev/sdmetrics)
+- benchmark how quickly [synthetic data are generated](https://github.com/sdv-dev/SDGym) according to different methods
+
+I was quite involved in synthetic data at the Office for National Statistics, running a team that tried to use it in practice. They did excellent work. If you're really interested in using it in anger, you should reach out to ONS' Data Science Campus. You can find a number of posts on the topic that are by my former colleagues [here](https://datasciencecampus.ons.gov.uk/category/projects/synthetic-data-and-pets/). They also have a recent data linkage package that uses synthetic data so that two public sector institutions can link data without seeing sensitive columns; you can find that [here](https://github.com/datasciencecampus/pprl_toolkit).
+
+### Fake data
+
+Even if the risk appetite of your institution doesn't extend to synthetic data, perhaps it would extend to entirely **fake data**? If you like this is an extreme form of synthetic data where the encryption cannot practically be reversed. It only has only the same data types (eg string) and forms (eg an email address) of your original data but is otherwise completely and utterly made up. This means that it has all the benefits of synthetic data bar the similarity of statistical aggregates to the real data.
+
+There are a number of packages that can generate fake data that are extensible and with which you can create schemas that produce an entire set of fake data in the style you want. For example, [Faker](https://faker.readthedocs.io/):
+
+```python
+from faker import Faker
+fake = Faker()
+
+fake.name()
+# 'Lucy Cechtelar'
+
+fake.address()
+# '426 Jordy Lodge
+#  Cartwrightshire, SC 88120-6700'
+
+fake.text()
+# 'Sint velit eveniet. Rerum atque repellat voluptatem quia rerum. Numquam excepturi
+#  beatae sint laudantium consequatur. Magni occaecati itaque sint et sit tempore. Nesciunt
+#  amet quidem. Iusto deleniti cum autem ad quia aperiam.
+#  A consectetur quos aliquam. In iste aliquid et aut similique suscipit. Consequatur qui
+#  quaerat iste minus hic expedita. Consequuntur error magni et laboriosam. Aut aspernatur
+#  voluptatem sit aliquam. Dolores voluptatum est.
+#  Aut molestias et maxime. Fugit autem facilis quos vero. Eius quibusdam possimus est.
+#  Ea quaerat et quisquam. Deleniti sunt quam. Adipisci consequatur id in occaecati.
+#  Et sint et. Ut ducimus quod nemo ab voluptatum.'
+```
+
+And [Mimemsis](https://mimesis.name/master/) (which has a very cool logo):
+
+```python
+from mimesis import Person
+from mimesis.locales import Locale
+from mimesis.enums import Gender
+person = Person(Locale.EN)
+
+person.full_name(gender=Gender.FEMALE)
+# Output: 'Antonetta Garrison'
+
+person.full_name(gender=Gender.MALE)
+# Output: 'Jordon Hall'
+```
+
+## Reproducible analytical pipelines
+
+A reproducible analytical pipeline (RAP) is a series of steps that trigger one after the other to produce an analysis right from data ingestion all the way to the end product. To illustrate why there are big efficiency gains to be had with them, let's first look at an end-to-end process *doesn't* use RAP.
+
+### Getting a bad RAP
+
+Let's take a high-stakes analytical pipeline that has lots of potential for improvement and efficiencies---but which is extremely common in the wider public sector. Imagine a process for publishing some key economic statistics that looks like this:
+
+1. Statistical office publishes new data in an Excel file
+2. An analyst downloads the file onto a network drive
+3. Analyst checks the file by eye and copies specific cells into another Excel workbook that has the analysis
+4. Analyst drags out the equations behind the cells to incorporate the new data
+5. Values from the calculations get manually typed into a third spreadsheet, which also has a tab with sensitive data in
+6. The results then get manually copied into a Word document for a report
+7. The final calculations tab from the third spreadsheet is published externally, alongside the report
+
+Apart from being heavily manual, this process has multiple failure points:
+
+- Perhaps there's an earlier, unrevised version of the same file already on a network drive and that is used by mistake in step 3.
+- Excel messes with data---changing dates and names, and data types
+- Excel doesn't support larger datasets, so rows are missed
+- Manual copy-paste errors
+- Equations are different in different cells, and the analyst doesn't notice because equations are hidden
+- Calculations break if someone adds/removes rows
+- Cannot see if there are changes in the calculations since last time the spreadsheet was run
+- Time consuming manual checks
+- Any mistake in step 1 means redoing all steps manually again
+- High risk of the sensitive data being published alongside the other data
+
+Perhaps you think this is all a bit implausible. Sadly, it isn't! Here are some real-world examples:
+
+- On Thursday, 3rd August 2023, an enquiring British citizen made an FOI request to the Police Service of Northern Ireland (PSNI). "Could you provide the number of officers at each rank and number of staff at each grade". PSNI sent back not just the numbers of officers at each rank in the spreadsheet they returned. They had included every employee's initials, surname, and unit---even those working out of MI5's Northern Irish headquarters. Sensitive information on *10,000 people* was released by mistake, because of an extra tab in the Excel file.
+- There's the infamous case of the UK's Covid Test and Trace programme. Civil servants were tracking cases in an Excel spreadsheet that was limited to 65,000 rows, and thus missed a bunch of infections, not to mention crucial links in the spread of the disease. Excel simply ran out of numbers. Work by economists Thiemo Fetzer and Thomas Graeber has shown that this [probably led to an extra 125,000 COVID infections](https://www.medrxiv.org/content/10.1101/2020.12.10.20247080v1).
+- [Hans Peter Doskozil](https://www.ft.com/content/57acfb54-6a62-46d6-b930-87b19c2ab2d3) was mistakenly announced as the new leader of Austria's Social Democrats (SPÖ) because of a "technical error in the Excel list".
+- The home office of a large country published a spreadsheet that still had a note in it that said "Reason for arrest data is dodgy so maybe we shouldn't publish it."
+- Mathematical models written in Excel are especially vulnerable to mistakes. In a paper that was highly influential, economists Carmen Reinhart and Ken Rogoff found that economic growth slows dramatically when the size of a country's debt rises above 90% relative to GDP. But the formula in their spreadsheet column missed out some of the countries in their data. A [student found the error](https://www.ft.com/content/1c3bae3c-a6ce-11e2-95b1-00144feabdc0), and realised that removing it made the results less dramatic.
+- The Norwegian Soveign Wealth Fund's 2023 [Excel snafu](https://www.ft.com/content/db864323-5b68-402b-8aa5-5c53a309acf1) saw it miscalculate an index due to a "decimal error". The cost was 92 million dollars.
+- Back in 2012, J.P. Morgan went even further and racked up *$6 billion of losses* in part due to a "value-at-risk" model being [manually copied and pasted](https://www.ft.com/content/80bc5046-6ed2-30ef-b31a-bcbeac55d8bb) across spreadsheet cells
+
+There are many more examples: you can find a list at the website of the delightfully named [European Spreadsheet Risks Interest Group](https://eusprig.org/). Now, good reproducible analytical pipeline (RAP) practices cannot protect you from mistakes, but **RAP can substantially lower the risk of data mistakes while also allowing for automation**.
+
+### Good RAP
+
+What would good look like in this space? There are a number of technologies and practices that can help avoid mistakes and save tons of time and labour to boot. These are roughly in order of the data coming in and a pipeline being run.
+
+- Use an [API](../the-prize-with-apis/the-prize-with-apis.qmd) to programmatically access the latest version of the data
+- Keep a copy of the raw, downloaded version of the data so that you can always come back to it. Use datetime versioning to keep track of download time.
+- Use [data validation](../the-data-validation-landscape-in-2025/index.qmd) checks to ensure that the data looks how you expect it to on receipt
+- Use code to process the data, rather than Excel spreadsheets. And use code[^7] that is:
+  - under [version control](https://aeturrell.github.io/coding-for-economists/wrkflow-version-control.html), so that it is completely auditable and all changes are logged
+  - is well-formatted and linted, perhaps by a tool such as [Ruff](https://astral.sh/ruff).
+  - has [pre-commit](https://pre-commit.com/) enabled with hooks that check for data, secrets, and other sensitive information submitted by mistake, and which auto-checks quality
+  - has tests so that everyone feels assured the code is doing the right thing
+  - subject to pull requests whenever it changes, so that multiple people sign off on important code
+  - is tested, etc., using runners, eg GitHub Actions
+  - is reproducible, including the set of packages and version of the language (eg via a `pyproject.toml` file and use of a tool like [uv](https://docs.astral.sh/uv/)) and ideally for which the operating system is also reproducible too (eg via [Docker](https://www.docker.com/))
+- Use a data orchestration tool to execute the entire code processing pipeline from start to finish. Some popular orchestration tools are [Apache Airflow](https://airflow.apache.org/) (first generation) and [Dagster](https://docs.dagster.io/) and [Prefect](https://docs.prefect.io/v3/get-started/index) (both second generation). See below for an example of Prefect in action. Orchestration flows can be triggered on events, for example if a new file lands in a folder, or on a schedule. (An easier way in to execute-code-on-event for small, local problems is via packages such as [watchdog](https://pythonhosted.org/watchdog/index.html) which watches for file changes and takes actions.)
+- If there is a big overhead to using big data systems, use [DuckDB](https://duckdb.org/) for processing fairly large datasets locally (say, up to 1TB). Don't like writing SQL queries? Don't worry no-one does---but [there are packages that can help](https://ibis-project.org/).
+- Store the cleaned data or results in a database.
+- Use anomaly detection techniques, etc, on the created statistics to check that they are plausible. (With a human in the loop!)
+- [Build an API](../build-a-cloud-api/build-a-cloud-api.qmd) to disseminate the created statistics
+- Create the report using a tool which can reproduce the same charts via code each time, eg [Quarto](https://quarto.org/), which can execute code chunks and be used to produce Word documents, HTML pages, PDFs, and even websites. (I wrote a short guide [here](https://aeturrell.github.io/coding-for-economists/wrkflow-quarto.html).) Oh yeah, it does Powerpoints and Beamer presentations too.
+
+[^7]: Many of these code features are present in the [cookiecutter Python package](https://github.com/aeturrell/cookiecutter-python-package); blog on that available [here](../ultra-modern-python-cookiecutters/index.qmd).
+
+Just as an aside, here's how to orchestrate a simple data pipeline with Prefect:
+
+```python
+# Contents of flow.py
+from typing import Any
+
+import httpx
+from prefect import flow, task # Prefect flow and task decorators
+
+@task(retries=3)
+def fetch_stats(github_repo: str) -> dict[str, Any]:
+    """Task 1: Fetch the statistics for a GitHub repo"""
+
+    api_response = httpx.get(f"https://api.github.com/repos/{github_repo}")
+    api_response.raise_for_status() # Force a retry if not a 2xx status code
+    return api_response.json()
+
+
+@task
+def get_stars(repo_stats: dict[str, Any]) -> int:
+    """Task 2: Get the number of stars from GitHub repo statistics"""
+
+    return repo_stats['stargazers_count']
+
+
+@flow(log_prints=True)
+def show_stars(github_repos: list[str]):
+    """Flow: Show the number of stars that GitHub repos have"""
+
+    for repo in github_repos:
+        # Call Task 1
+        repo_stats = fetch_stats(repo)
+
+        # Call Task 2
+        stars = get_stars(repo_stats)
+
+        # Print the result
+        print(f"{repo}: {stars} stars")
+
+
+# Run the flow
+if __name__ == "__main__":
+    show_stars([
+        "PrefectHQ/prefect",
+        "pydantic/pydantic",
+        "huggingface/transformers"
+    ])
+```
+
+This flow can be executed on a schedule by running the below (assuming that you have already set up a worker pool---see the Prefect documentation for more):
+
+```python
+from prefect import flow
+
+# Source for the code to deploy (here, a GitHub repo)
+SOURCE_REPO="https://github.com/prefecthq/demos.git"
+
+if __name__ == "__main__":
+    flow.from_source(
+        source=SOURCE_REPO,
+        entrypoint="my_workflow.py:show_stars", # Specific flow to run
+    ).deploy(
+        name="my-first-deployment",
+        parameters={
+            "github_repos": [
+                "PrefectHQ/prefect",
+                "pydantic/pydantic",
+                "huggingface/transformers"
+            ]
+        },
+        work_pool_name="my-work-pool",
+        cron="0 * * * *",  # Run every hour
+    )
+```
+
+I share this to show that automation of code doesn't have to be super complicated---it's achievable in a few lines!
+
+There's a lot in the list above. But doing all of the above not only massively reduces the risk of mistakes, it also makes it *far* easier to find mistakes when they do occur. And, the automation saves masses of time---allowing analysts to focus on the message, narrative, and bigger picture.
+
+You can find more on reproducibility and RAP [here](https://aeturrell.github.io/coding-for-economists/wrkflow-rap.html) and [here](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/), and [here](https://aeturrell.github.io/coding-for-economists/auto-research-outputs.html) in the context of research.
+
+## Technical communication and code documentation
+
+I already covered using [documentation obsessively in my previous efficiency post](../public-sector-communication-efficiency/index.qmd#asynchronous-working), and much of the benefits are the same as for documenting code obsessively too. Those benefits include faster onboarding, having a single source of truth, making it easy to avoid stale documentation, more auditability, less likelihood of code being used incorrectly, and, if the documentation is shared, transparency.
+
+There are some extra actions you can take with the documentation of code to squeeze every last drop of efficiency out of these benefits.
+
+## Beautiful Models
+
+## Automating and organising the office
