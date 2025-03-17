@@ -1,6 +1,7 @@
 ---
 date: "2025-03-14"
 layout: post
+draft: true
 title: "Efficiency in the public sector: analysis and operations"
 categories: [productivity, public sector, work chat, rap]
 image: "automated_stats.webp"
@@ -41,6 +42,27 @@ A partial alternative is to allow Bring Your Own Device (BYOD). This allows the 
 [^4]: Throughout, I'll be referring to whether something or another plays well with Microsoft software. This is not because I think the public sector *should* be using Microsoft for everything, far from it, but---as I like to say---'nobody ever got fired for buying Microsoft' and the reality is that it's what most public sector institutions use. Key exceptions I'm aware of are the [Munich government](https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/document/munichs-long-history-open-source-public-administration), the [French Gendarmarie](https://en.wikipedia.org/wiki/GendBuntu), who both use custom versions of Linux as part of their own efficiency drives, high security areas of many governments, and of course computationally intensive systems.
 
 [^2]: For all practical purposes, you can't code directly on an iPad in the way you would a laptop or desktop.
+
+### Free and open source software
+
+Free and open source software (FOSS) definitely isn't always more efficient, but my rule of thumb is **if there is a widely-used and close free and open source substitute, it will be far more efficient to use that rather than proprietary software**.
+
+Let's look at a really clear example: Matlab vs Python. The latter is free and open source, does *almost* everything the former does, does vastly more other things to boot, and can be used in a wider range of places. Now there are some tasks for which Python is *not* a close substitute, and they really do need Matlab. But for most people, leveraging the massive Python ecosystem is more efficient.
+
+There are many examples where paying for proprietary software makes sense because there is no close FOSS substitute. I am a huge fan of Obsidian, the markdown-based note-taking app. One of the reasons I think it's great is that you never lose control of your data or the format it's in: all of your notes are just markdown files and the Obsidian app just gives a fancy way to edit and view that content. The Obsidian app happens to be free but it's not open source. I would similarly say there's no FOSS equivalent of the incredible integration of hardware and software that Apple has achieved with the Macbook. But, equally, there are plenty of areas where direct FOSS substitutes exist.
+
+Efficiency due to FOSS comes through a bunch of channels, in my view:
+
+- The 'F' stands for free! Productivity is output per unit of input, so free is pretty good.[^7]
+- Widely used open source software is less likely to have critical security flaws. If it did have, they would have already been exploited and fixed.
+- Again because it's open source, you actually know what it's doing!
+- Very much related to the above, and somewhat counter-intuitively, it's more private. You can see if there's a backdoor. A proprietary software vendor knows, at the very least, that you bought the software: a maintainer of a FOSS package may not even know you exist.
+- By dint of being free and widely used, there are a lot of people who use specific open source software, which means there are more ideas for how to improve it, and guides on how to use it. It's a positive network effect, basically.
+- You don't get locked in to a proprietary software provider who can subsequently ratchet up the price or drop support for a critical feature.
+- Missing a feature you'd like for your org in a specific library? If it's reasonable and within-scope, you can probably get it added by the maintainers. Or your org can simply add it for themselves.
+- There's also a diversity, equality, and inclusion benefit. Lots of students, especially those from poorer backgrounds, can't afford expensive proprietary software but can use FOSS instead (as a student, I used an earlier iteration of [LibreOffice](https://www.libreoffice.org/)). Those with more resources may have been able to use proprietary software before starting work, getting an edge; FOSS helps level the field. Similarly, if you're trying to be a leading public sector institution and inspire other institutions around the world, you'll go further if you use FOSS because it's accessible in every country.
+
+[^7]: I can hear you saying that some FOSS is harder to use. Linux being harder to use than Windows is a good example, although that one is *far* less true today given the rise of user-friendly Linux distributions like Ubuntu. But if a piece of software is *so* much harder to use, I would argue it isn't a close substitute!
 
 ### Operational efficiencies
 
@@ -171,7 +193,7 @@ What would good look like in this space? There are a number of technologies and 
 - Use an [API](../the-prize-with-apis/the-prize-with-apis.qmd) to programmatically access the latest version of the data
 - Keep a copy of the raw, downloaded version of the data so that you can always come back to it. Use datetime versioning to keep track of download time.
 - Use [data validation](../the-data-validation-landscape-in-2025/index.qmd) checks to ensure that the data looks how you expect it to on receipt
-- Use code to process the data, rather than Excel spreadsheets. And use code[^7] that is:
+- Use code to process the data, rather than Excel spreadsheets. And use code[^8] that is:
   - under [version control](https://aeturrell.github.io/coding-for-economists/wrkflow-version-control.html), so that it is completely auditable and all changes are logged
   - is well-formatted and linted, perhaps by a tool such as [Ruff](https://astral.sh/ruff).
   - has [pre-commit](https://pre-commit.com/) enabled with hooks that check for data, secrets, and other sensitive information submitted by mistake, and which auto-checks quality
@@ -186,7 +208,7 @@ What would good look like in this space? There are a number of technologies and 
 - [Build an API](../build-a-cloud-api/build-a-cloud-api.qmd) to disseminate the created statistics
 - Create the report using a tool which can reproduce the same charts via code each time, eg [Quarto](https://quarto.org/), which can execute code chunks and be used to produce Word documents, HTML pages, PDFs, and even websites. (I wrote a short guide [here](https://aeturrell.github.io/coding-for-economists/wrkflow-quarto.html).) Oh yeah, it does Powerpoints and Beamer presentations too.
 
-[^7]: Many of these code features are present in the [cookiecutter Python package](https://github.com/aeturrell/cookiecutter-python-package); blog on that available [here](../ultra-modern-python-cookiecutters/index.qmd).
+[^8]: Many of these code features are present in the [cookiecutter Python package](https://github.com/aeturrell/cookiecutter-python-package); blog on that available [here](../ultra-modern-python-cookiecutters/index.qmd).
 
 Just as an aside, here's how to orchestrate a simple data pipeline with Prefect:
 
