@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Arthur Turrell">
+<meta name="dcterms.date" content="2025-03-13">
+<meta name="description" content="Arthur Turrell is an economic data scientist.">
+
+<title>Arthur Turrell</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../..//files/logo_large.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dd08061cb7210c315e315379d94beb87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-757dae479023e90f60420cb4a75f766d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-46P0B31B3F"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="Arthur Turrell">
+<meta property="og:description" content="Arthur Turrell is an economic data scientist.">
+<meta property="og:image" content="https://www.aeturrell.com/blog/posts/public-sector-analytical-efficiency copy/automated_stats.webp">
+<meta property="og:site_name" content="Arthur Turrell">
+<meta property="og:locale" content="en_UK">
+<meta name="twitter:title" content="Arthur Turrell">
+<meta name="twitter:description" content="Arthur Turrell is an economic data scientist.">
+<meta name="twitter:image" content="https://www.aeturrell.com/blog/posts/public-sector-analytical-efficiency copy/automated_stats.webp">
+<meta name="twitter:creator" content="@arthurturrell">
+<meta name="twitter:site" content="@arthurturrell">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Arthur Turrell</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../research/index.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../media/index.html"> 
+<span class="menu-text">Media</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../thestarbuilders/thestarbuilders.html"> 
+<span class="menu-text">The Star Builders</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../teaching/index.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../code/index.html"> 
+<span class="menu-text">Code</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../uses/index.html"> 
+<span class="menu-text">Setup</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../atom.xml"> <i class="bi bi-rss" role="img" aria-label="rss">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../contact.html"> <i class="bi bi-envelope" role="img" aria-label="contact">
+</i> 
+<span class="menu-text"> </span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/arthurturrell"> <i class="bi bi-twitter" role="img" aria-label="twitter">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/arthurturrell.bsky.social"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="bi:cloud-slash" aria-label="Icon cloud-slash from bi Iconify.design set." title="Icon cloud-slash from bi Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/aeturrell"> <i class="bi bi-github" role="img" aria-label="github">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/arthur-turrell-8b789891"> <i class="bi bi-linkedin" role="img" aria-label="linkedin">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Efficiency in the public sector: communication and co-ordination</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">productivity</div>
+                <div class="quarto-category">public sector</div>
+                <div class="quarto-category">work chat</div>
+                <div class="quarto-category">management</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Arthur Turrell </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 13, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
+  <li><a href="#small-tasks-big-time-savings" id="toc-small-tasks-big-time-savings" class="nav-link" data-scroll-target="#small-tasks-big-time-savings">Small tasks, big time savings</a>
+  <ul class="collapse">
+  <li><a href="#more-productive-capital" id="toc-more-productive-capital" class="nav-link" data-scroll-target="#more-productive-capital">More productive capital</a></li>
+  <li><a href="#operational-efficiencies" id="toc-operational-efficiencies" class="nav-link" data-scroll-target="#operational-efficiencies">Operational efficiencies</a></li>
+  </ul></li>
+  <li><a href="#releasing-real-synthetic-or-fake-data" id="toc-releasing-real-synthetic-or-fake-data" class="nav-link" data-scroll-target="#releasing-real-synthetic-or-fake-data">Releasing real, synthetic, or fake data</a>
+  <ul class="collapse">
+  <li><a href="#releasing-real-data" id="toc-releasing-real-data" class="nav-link" data-scroll-target="#releasing-real-data">Releasing real data</a></li>
+  <li><a href="#synthetic-data" id="toc-synthetic-data" class="nav-link" data-scroll-target="#synthetic-data">Synthetic data</a></li>
+  <li><a href="#fake-data" id="toc-fake-data" class="nav-link" data-scroll-target="#fake-data">Fake data</a></li>
+  </ul></li>
+  <li><a href="#reproducible-analytical-pipelines" id="toc-reproducible-analytical-pipelines" class="nav-link" data-scroll-target="#reproducible-analytical-pipelines">Reproducible analytical pipelines</a>
+  <ul class="collapse">
+  <li><a href="#getting-a-bad-rap" id="toc-getting-a-bad-rap" class="nav-link" data-scroll-target="#getting-a-bad-rap">Getting a bad RAP</a></li>
+  <li><a href="#good-rap" id="toc-good-rap" class="nav-link" data-scroll-target="#good-rap">Good RAP</a></li>
+  </ul></li>
+  <li><a href="#lowering-communication-and-co-ordination-costs" id="toc-lowering-communication-and-co-ordination-costs" class="nav-link" data-scroll-target="#lowering-communication-and-co-ordination-costs">Lowering communication and co-ordination costs</a>
+  <ul class="collapse">
+  <li><a href="#publishing-analysis" id="toc-publishing-analysis" class="nav-link" data-scroll-target="#publishing-analysis">Publishing analysis</a></li>
+  <li><a href="#asynchronicity" id="toc-asynchronicity" class="nav-link" data-scroll-target="#asynchronicity">Asynchronicity</a></li>
+  <li><a href="#code-documentation" id="toc-code-documentation" class="nav-link" data-scroll-target="#code-documentation">Code documentation</a></li>
+  </ul></li>
+  <li><a href="#beautiful-models" id="toc-beautiful-models" class="nav-link" data-scroll-target="#beautiful-models">Beautiful Models</a></li>
+  <li><a href="#automating-and-organising-the-office" id="toc-automating-and-organising-the-office" class="nav-link" data-scroll-target="#automating-and-organising-the-office">Automating and organising the office</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+
+
+
+
+
+<p>I’ve been thinking a lot about efficiency in the public sector and how to improve it recently. In this post, I’ll focus on some ideas for improving communication and co-ordination between public sector workers.</p>
+<section id="background" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>What I mean by ‘improve it’ is to increase the productivity of analytical operations, whether that’s ad hoc analysis or the production of regular analysis. This post is an attempt to marshal my thoughts and collate (a somewhat chaotic set of) ideas, from the obvious to the radical.</p>
+<p>Before we hit the ideas, it might help if I give a sense of what I mean when I say the ‘productivity’ of ‘ad hoc analysis or the production of regular analysis’.</p>
+<p>A good example of ad hoc analysis would be if, say, a global event meant that a lot more analysis was suddenly required on trade and trade links, typically in the form of answers to one-off questions. With such ad hoc analysis, you don’t know the <em>specific</em> question in advance—but you might know that, from time-to-time questions about trade links will arise. So to improve productivity of analytical operations in this case, you would want analysts or data scientists or economists, whoever it is, to have longitudinal data on bilateral trade flows to hand, with their permissions to access it cleared ahead of time, the data cleaned, the data stored in a sensible format, and the data accessible to suitable analytical tools. Essentially, it’s about putting analysts in the best position to answer the questions in a timely way as they arise, minimising repeated effort for when the next question lands, and enabling the output analysis to be higher quality.</p>
+<p>For regular analysis, it’s a bit clearer—in this case you might have a pipeline that ends in the publication of analysis but which involves data ingestion, data checking, processing, and finally data sharing. Perhaps this process involves a lot of manual steps, like handovers, emails, someone staring at a spreadsheet, and someone having to serve requests for custom cuts of the data. Improving productivity might look like automating the end-to-end pipeline and cutting out the manual steps, and, finally, serving the data up via an API so that people can take whatever cuts they want.</p>
+<p>Okay, a disclaimer: efficiency, in time or money, is not the only important factor. People’s well-being and satisfaction matter too. (It matters in itself but it’s also true that grumpy staff are not going to be well-motivated.) Most of the time there isn’t going to be a trade-off between efficiency and staff well-being as no-one likes wasting time but it’s always worth considering what the pursuit of efficiency in time and money might be costing elsewhere.</p>
+<p>With that sketch of what we’re looking to improve out of the way, let’s move on to some ideas!</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="automated_stats.webp" class="img-fluid figure-img"></p>
+<figcaption class="margin-caption">If humanoid AI robots did analysis</figcaption>
+</figure>
+</div>
+</section>
+<section id="small-tasks-big-time-savings" class="level2">
+<h2 class="anchored" data-anchor-id="small-tasks-big-time-savings">Small tasks, big time savings</h2>
+<p>In every public sector institution, there are thousands of actions that are repeated every day or more by most staff. Something as basic as turning on a laptop. <strong>If some of the tasks that happen repeatedly can be sped up even a little, then there’s a large saving to be made</strong>.</p>
+<section id="more-productive-capital" class="level3">
+<h3 class="anchored" data-anchor-id="more-productive-capital">More productive capital</h3>
+<p>I touched on computer-task time savings in the context of better hardware in <a href="../../../blog/posts/bad-it/index.html">this post on the false economy of bad IT</a>. TL;DR it <em>always</em> makes sense to buy staff earning over the median UK salary a high-spec laptop if they lose more than 9 minutes a day due to a low- to mid-range laptop being slow or glitchy.</p>
+<p>There’s a whole class of repeated tasks that people do on computers that are slower than they could be because of the computer’s hardware or configuration. How can the time loss to be definitively tested? One option is a log of the times when someone’s workflow was interrupted because the computer was turning on, or froze, or couldn’t open more than one calendar at a time. Another would be to measure the time it takes to do similar tasks in a perfect reference situation, eg the same task on a high-spec laptop, and thus work out the counterfactual. Similarly, one could measure productivity with one software package relative to another to more accurately assess which is better (it seems obvious but a lot of software will be chosen for reasons that are very orthogonal to this.)</p>
+<p>Once bottlenecks in task speed have been identified and counted, investment resources can focus on eliminating them in order of benefit.</p>
+<p>A partial alternative is to allow Bring Your Own Device (BYOD). This allows the institution’s data and software to be accessed via other devices. There are security issues around this, and it may not be a equitable solution—more junior staff may not be able to afford the same tech as those at the top of the organisation. Still, if it doesn’t make sense to stump up for a high-spec laptop for everyone this can be a great second option. One particularly secure combination that will be relevant to many public sector institutions is iOS + Microsoft, which allows people to use Outlook, Teams, Sharepoint, etc, etc, on iPhone and iPad (including with Apple keyboards). My iPad has a processor that’s 40% faster than my work laptop’s, so BYOD is a game-changer. Of course, you can’t do everything from an iPad—but you can certainly do a lot.</p>
+</section>
+<section id="operational-efficiencies" class="level3">
+<h3 class="anchored" data-anchor-id="operational-efficiencies">Operational efficiencies</h3>
+<p>Computer tasks aren’t the only place where one could find operational efficiencies. There’s a whole set of efficiency gains that most organisations could find in their standard processes too. One example is around the permissions required to access data or install certain software, etc. In most public sector organisations I’ve observed, these have to be separately approved for each individual within a team. But another model would be to use team-level permissions—if someone joins Team A, it is assumed they will need access to a set of data used by Team A. This eliminates a lot of tedious time for managees and managers in requesting and approving, respectively, permissions.</p>
+<p>That’s just one example. But by analysing how staff have to spend their time to get things done, one could find many more—and again try to minimise them.</p>
+</section>
+</section>
+<section id="releasing-real-synthetic-or-fake-data" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="releasing-real-synthetic-or-fake-data">Releasing real, synthetic, or fake data</h2>
+<p>Most public sector organisations, probably most organisations in general, have a legacy systems problem that makes analysing data (particularly big data) painful. There are also legitimate reasons why security is often tight around the analytical tools that most public sector orgs can use (these can be even tighter when the data are sensitive.) Between these two, it can take analysts <em>orders of magnitude longer</em> to analyse data using an institutions’ systems than it would the same size dataset on their own laptop or cloud account or open system.</p>
+<p>And there is strong evidence that releasing datasets into the wild has huge benefits (eg <a href="https://www.usgs.gov/news/featured-story/landsats-economic-value-increases-256-billion-2023">Landsat data being released for free by the US government is estimated to generate 25 billion USD a year</a>). You can think of the economic narrative like this: data are an input into lots of potential public goods. People wouldn’t pay for the data directly to make those public goods, as they don’t capture enough of the benefit themselves—but make the data free, and their private capture is enough for them to put the work in and generate public goods worth way more than the total revenue obtained by directly charging for them.</p>
+<p>The form of those public goods may be especially beneficial for public sector institutions. You can think of situations where the public sector doesn’t have enough resources to perform all of the analysis it would ideally require. But, with the data out there, others might do the analysis. Those other analysts might just be in another government department—public sector data sharing is, infamously, not as smooth as it could be.</p>
+<p>Although Freedom of Information (FOI) requests and inter-departmental requests can be used to obtain certain cuts of data, these are expensive to service.</p>
+<section id="releasing-real-data" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="releasing-real-data">Releasing real data</h3>
+<p>So, what’s the idea? For data that aren’t proprietary or sensitive, this all suggests releasing it publicly. That means staff within the institution can use non-restricted tools to work with it, saving lots of time. It means that any public goods that are possible with it are much more likely to be created, unlocking the true value and, potentially, more relevant analysis happening than otherwise would be the case. And, especially if the <a href="../../../blog/posts/the-prize-with-apis/the-prize-with-apis.html">data are released via an API</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, it means no more FOI requests or emails from other institutions—people can self-serve the cuts of the data that they need. That means less staff time spent on requests.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;It’s not that hard to build an API using modern cloud tools, by the way. Check out <a href="../../../blog/posts/build-a-cloud-api/build-a-cloud-api.html">this post</a> for an example.</p></div></div></section>
+<section id="synthetic-data" class="level3">
+<h3 class="anchored" data-anchor-id="synthetic-data">Synthetic data</h3>
+<p>Most data within public sector institutions are proprietary or sensitive or are both. They can’t be shared externally, so sharing the real data is off the table. But what if there was a way to share the data without sharing the data? Well, there is—it’s called <strong>synthetic data</strong>.</p>
+<p>Synthetic data are artificially generated data that are made to resemble real-world data in some of their statistical properties but in a non-disclosive way. There are mathematical guarantees about how hard it is to reverse the process and get back to the original data (a bit like encryption.) And you can set how strong this encryption is, though there’s a trade-off with preserving statistical properties.</p>
+<p>One way synthetic data could be beneficial is if it was released and people could still get accurate statistical aggregations from it. But I imagine that most institutions wouldn’t be super comfortable with this as some statistics will be accurate but others won’t be. You can imagine instead creating synthetic data with extremely strong protection and releasing that, and allowing people to develop with it (either the institutions own analysts or external ones). Once that analytical script is ready, and is tested on the synthetic data, staff and even externals could submit it to be run on the sensitive data (on what is probably a more expensive computational setup.) The benefit of synthetic data in the first instance is that the bottleneck around the sensitivities of the data and access to it via specialist secure platforms are completely removed. Even in the latter case, with very strong encryption, and where the statistical aggregates wouldn’t map so well onto what you’d get from running on the original data, you could still remove a lot of the bottlenecks and cut out needing to do development on the actual data.</p>
+<p>Of course, this isn’t free—there is some work to do for the institutional data owner in generating and releasing the synthetic data.</p>
+<p>There are packages to: - generate synthetic data, eg <a href="https://github.com/sdv-dev/SDV">Synthetic Data Vault</a> and <a href="https://github.com/mostly-ai/mostlyai">Synthetic Data SDK</a> - evaluate how close synthetically generated data are to the real underlying data, eg <a href="https://docs.sdv.dev/sdmetrics">SDmetrics</a> - benchmark how quickly <a href="https://github.com/sdv-dev/SDGym">synthetic data are generated</a> according to different methods</p>
+<p>I was quite involved in synthetic data at the Office for National Statistics, running a team that tried to use it in practice. They did some excellent work. If you’re really interested in using it in anger, you should reach out to ONS’ Data Science Campus. You can find a number of posts on the topic that are by my former colleagues <a href="https://datasciencecampus.ons.gov.uk/category/projects/synthetic-data-and-pets/">here</a>. They also have a recent data linkage package that uses synthetic data so that two public sector institutions can link data without seeing sensitive columns; you can find it <a href="https://github.com/datasciencecampus/pprl_toolkit">here</a>.</p>
+</section>
+<section id="fake-data" class="level3">
+<h3 class="anchored" data-anchor-id="fake-data">Fake data</h3>
+<p>Even if the risk appetite of your institution doesn’t extend to synthetic data, perhaps it would extend to entirely <strong>fake data</strong>? If you like this is an extreme form of synthetic data where the encryption cannot practically be reversed. It only has only the same data types (eg string) and forms (eg an email address) of your original data but is otherwise completely and utterly made up.</p>
+<p>There are a number of packages that can generate fake data that are extensible and with which you can create schemas that produce an entire set of fake data in the style you want. For example, <a href="https://faker.readthedocs.io/">Faker</a>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> faker <span class="im">import</span> Faker</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>fake <span class="op">=</span> Faker()</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>fake.name()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 'Lucy Cechtelar'</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>fake.address()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># '426 Jordy Lodge</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#  Cartwrightshire, SC 88120-6700'</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>fake.text()</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 'Sint velit eveniet. Rerum atque repellat voluptatem quia rerum. Numquam excepturi</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  beatae sint laudantium consequatur. Magni occaecati itaque sint et sit tempore. Nesciunt</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#  amet quidem. Iusto deleniti cum autem ad quia aperiam.</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#  A consectetur quos aliquam. In iste aliquid et aut similique suscipit. Consequatur qui</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#  quaerat iste minus hic expedita. Consequuntur error magni et laboriosam. Aut aspernatur</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#  voluptatem sit aliquam. Dolores voluptatum est.</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#  Aut molestias et maxime. Fugit autem facilis quos vero. Eius quibusdam possimus est.</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#  Ea quaerat et quisquam. Deleniti sunt quam. Adipisci consequatur id in occaecati.</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#  Et sint et. Ut ducimus quod nemo ab voluptatum.'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And <a href="https://mimesis.name/master/">Mimemsis</a> (which has a very cool logo):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mimesis <span class="im">import</span> Person</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mimesis.locales <span class="im">import</span> Locale</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mimesis.enums <span class="im">import</span> Gender</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>person <span class="op">=</span> Person(Locale.EN)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>person.full_name(gender<span class="op">=</span>Gender.FEMALE)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Output: 'Antonetta Garrison'</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>person.full_name(gender<span class="op">=</span>Gender.MALE)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Output: 'Jordon Hall'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="reproducible-analytical-pipelines" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="reproducible-analytical-pipelines">Reproducible analytical pipelines</h2>
+<section id="getting-a-bad-rap" class="level3">
+<h3 class="anchored" data-anchor-id="getting-a-bad-rap">Getting a bad RAP</h3>
+<p>Let’s take a high-stakes analytical pipeline that has lots of potential for improvement and efficiencies—but which is extremely common in the wider public sector. Imagine a process for publishing some key economic statistics that looks like this:</p>
+<ol type="1">
+<li>Statistical office publishes new data in an Excel file</li>
+<li>An analyst downloads the file onto a network drive</li>
+<li>Analyst checks the file by eye and copies specific cells into another Excel workbook that has the analysis</li>
+<li>Analyst drags out the equations behind the cells to incorporate the new data</li>
+<li>Values from the calculations get manually typed into a third spreadsheet, which also has a tab with sensitive data in</li>
+<li>The results then get manually copied into a Word document for a report</li>
+<li>The final calculations tab from the third spreadsheet is published externally, alongside the report</li>
+</ol>
+<p>Apart from being heavily manual, this process has multiple failure points:</p>
+<ul>
+<li>Perhaps there’s an earlier, unrevised version of the same file already on a network drive and that is used by mistake in step 3.</li>
+<li>Excel messes with data—changing dates and names, and data types</li>
+<li>Excel doesn’t support larger datasets, so rows are missed</li>
+<li>Manual copy-paste errors</li>
+<li>Equations are different in different cells, and the analyst doesn’t notice because equations are hidden</li>
+<li>Calculations break if someone adds/removes rows</li>
+<li>Cannot see if there are changes in the calculations since last time the spreadsheet was run</li>
+<li>Time consuming manual checks</li>
+<li>Any mistake in step 1 means redoing all steps manually again</li>
+<li>High risk of the sensitive data being published alongside the other data</li>
+</ul>
+<p>Perhaps you think this is all a bit implausible. Sadly, it isn’t! Here are some real-world examples:</p>
+<ul>
+<li>On Thursday, 3rd August 2023, an enquiring British citizen made an FOI request to the Police Service of Northern Ireland (PSNI). “Could you provide the number of officers at each rank and number of staff at each grade”. PSNI sent back not just the numbers of officers at each rank in the spreadsheet they returned. They had included every employee’s initials, surname, and unit—even those working out of MI5’s Northern Irish headquarters. Sensitive information on <em>10,000 people</em> was released by mistake, because of an extra tab in the Excel file.</li>
+<li>There’s the infamous case of the UK’s Covid Test and Trace programme. Civil servants were tracking cases in an Excel spreadsheet that was limited to 65,000 rows, and thus missed a bunch of infections, not to mention crucial links in the spread of the disease. Excel simply ran out of numbers. Work by economists Thiemo Fetzer and Thomas Graeber has shown that this <a href="https://www.medrxiv.org/content/10.1101/2020.12.10.20247080v1">probably led to an extra 125,000 COVID infections</a>.</li>
+<li><a href="https://www.ft.com/content/57acfb54-6a62-46d6-b930-87b19c2ab2d3">Hans Peter Doskozil</a> was mistakenly announced as the new leader of Austria’s Social Democrats (SPÖ) because of a “technical error in the Excel list”.</li>
+<li>The home office of a large country published a spreadsheet that still had a note in it that said “Reason for arrest data is dodgy so maybe we shouldn’t publish it.”</li>
+<li>Mathematical models written in Excel are especially vulnerable to mistakes. In a paper that was highly influential, economists Carmen Reinhart and Ken Rogoff found that economic growth slows dramatically when the size of a country’s debt rises above 90% relative to GDP. But the formula in their spreadsheet column missed out some of the countries in their data. A <a href="https://www.ft.com/content/1c3bae3c-a6ce-11e2-95b1-00144feabdc0">student found the error</a>, and realised that removing it made the results less dramatic.</li>
+<li>The Norwegian Soveign Wealth Fund’s 2023 <a href="https://www.ft.com/content/db864323-5b68-402b-8aa5-5c53a309acf1">Excel snafu</a> saw it miscalculate an index due to a “decimal error”. The cost was 92 million dollars.</li>
+<li>Back in 2012, J.P. Morgan went even further and racked up <em>$6 billion of losses</em> in part due to a “value-at-risk” model being <a href="https://www.ft.com/content/80bc5046-6ed2-30ef-b31a-bcbeac55d8bb">manually copied and pasted</a> across spreadsheet cells</li>
+</ul>
+<p>There are many more examples (you can find a list at the website of the delightfully named <a href="https://eusprig.org/">European Spreadsheet Risks Interest Group</a>.) Now, good reproducible analytical pipeline (RAP) practices cannot protect you from mistakes, but <strong>RAP can substantially lower the risk of data mistakes while also allowing for automation</strong>.</p>
+</section>
+<section id="good-rap" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="good-rap">Good RAP</h3>
+<p>What would good look like in this space? There are a number of technologies and practices that can help avoid mistakes and save tons of time and labour to boot. These are roughly in order of the data coming in and a pipeline being run.</p>
+<ul>
+<li>Use an <a href="../../../blog/posts/the-prize-with-apis/the-prize-with-apis.html">API</a> to programmatically access the latest version of the data</li>
+<li>Keep a copy of the raw, downloaded version of the data so that you can always come back to it. Use datetime versioning to keep track of download time.</li>
+<li>Use <a href="../../../blog/posts/the-data-validation-landscape-in-2025/index.html">data validation</a> checks to ensure that the data looks how you expect it to on receipt</li>
+<li>Use code to process the data, rather than Excel spreadsheets. And use code<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> that is:
+<ul>
+<li>under <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-version-control.html">version control</a>, so that it is completely auditable and all changes are logged</li>
+<li>is well-formatted and linted, perhaps by a tool such as <a href="https://astral.sh/ruff">Ruff</a>.</li>
+<li>has <a href="https://pre-commit.com/">pre-commit</a> enabled with hooks that check for data, secrets, and other sensitive information submitted by mistake, and which auto-checks quality</li>
+<li>has tests so that everyone feels assured the code is doing the right thing</li>
+<li>subject to pull requests whenever it changes, so that multiple people sign off on important code</li>
+<li>is tested, etc., using runners, eg GitHub Actions</li>
+<li>is reproducible, including the set of packages and version of the language (eg via a <code>pyproject.toml</code> file and use of a tool like <a href="https://docs.astral.sh/uv/">uv</a>) and ideally for which the operating system is also reproducible too (eg via <a href="https://www.docker.com/">Docker</a>)</li>
+</ul></li>
+<li>Use a data orchestration tool to execute the entire code processing pipeline from start to finish. Some popular orchestration tools are <a href="https://airflow.apache.org/">Apache Airflow</a> (first generation) and <a href="https://docs.dagster.io/">Dagster</a> and <a href="https://docs.prefect.io/v3/get-started/index">Prefect</a> (both second generation). See below for an example of Prefect in action. Orchestration flows can be triggered on events, for example if a new file lands in a folder, or on a schedule. (An easier way in to execute-code-on-event for small, local problems is via packages such as <a href="https://pythonhosted.org/watchdog/index.html">watchdog</a> which watches for file changes and takes actions.)</li>
+<li>If there is a big overhead to using big data systems, use <a href="https://duckdb.org/">DuckDB</a> for processing fairly large datasets locally (say, up to 1TB). Don’t like writing SQL queries? Don’t worry no-one does—but <a href="https://ibis-project.org/">there are packages that can help</a>.</li>
+<li>Store the cleaned data or results in a database.</li>
+<li>Use anomaly detection techniques, etc, on the created statistics to check that they are plausible. (With a human in the loop!)</li>
+<li><a href="../../../blog/posts/build-a-cloud-api/build-a-cloud-api.html">Build an API</a> to disseminate the created statistics</li>
+<li>Create the report using a tool which can reproduce the same charts via code each time, eg <a href="https://quarto.org/">Quarto</a>, which can execute code chunks and be used to produce Word documents, HTML pages, PDFs, and even websites. (I wrote a short guide <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-quarto.html">here</a>.) Oh yeah, it does Powerpoints and Beamer presentations too.</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Many of these code features are present in the <a href="https://github.com/aeturrell/cookiecutter-python-package">cookiecutter Python package</a>; blog on that available <a href="../../../blog/posts/ultra-modern-python-cookiecutters/index.html">here</a>.</p></div></div><p>Just as an aside, here’s how to orchestrate a simple data pipeline with Prefect:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Contents of flow.py</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Any</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> prefect <span class="im">import</span> flow, task <span class="co"># Prefect flow and task decorators</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">@task</span>(retries<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_stats(github_repo: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>[<span class="bu">str</span>, Any]:</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Task 1: Fetch the statistics for a GitHub repo"""</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    api_response <span class="op">=</span> httpx.get(<span class="ss">f"https://api.github.com/repos/</span><span class="sc">{</span>github_repo<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    api_response.raise_for_status() <span class="co"># Force a retry if not a 2xx status code</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> api_response.json()</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="at">@task</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_stars(repo_stats: <span class="bu">dict</span>[<span class="bu">str</span>, Any]) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Task 2: Get the number of stars from GitHub repo statistics"""</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> repo_stats[<span class="st">'stargazers_count'</span>]</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="at">@flow</span>(log_prints<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show_stars(github_repos: <span class="bu">list</span>[<span class="bu">str</span>]):</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Flow: Show the number of stars that GitHub repos have"""</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> repo <span class="kw">in</span> github_repos:</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Call Task 1</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        repo_stats <span class="op">=</span> fetch_stats(repo)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Call Task 2</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        stars <span class="op">=</span> get_stars(repo_stats)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Print the result</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>repo<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>stars<span class="sc">}</span><span class="ss"> stars"</span>)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the flow</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    show_stars([</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>        <span class="st">"PrefectHQ/prefect"</span>,</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>        <span class="st">"pydantic/pydantic"</span>,</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>        <span class="st">"huggingface/transformers"</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This flow can be executed on a schedule by running the below (assuming that you have already set up a worker pool—see the documentation for more):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> prefect <span class="im">import</span> flow</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Source for the code to deploy (here, a GitHub repo)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>SOURCE_REPO<span class="op">=</span><span class="st">"https://github.com/prefecthq/demos.git"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    flow.from_source(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        source<span class="op">=</span>SOURCE_REPO,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        entrypoint<span class="op">=</span><span class="st">"my_workflow.py:show_stars"</span>, <span class="co"># Specific flow to run</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    ).deploy(</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        name<span class="op">=</span><span class="st">"my-first-deployment"</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        parameters<span class="op">=</span>{</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">"github_repos"</span>: [</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                <span class="st">"PrefectHQ/prefect"</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                <span class="st">"pydantic/pydantic"</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                <span class="st">"huggingface/transformers"</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>            ]</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        work_pool_name<span class="op">=</span><span class="st">"my-work-pool"</span>,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        cron<span class="op">=</span><span class="st">"0 * * * *"</span>,  <span class="co"># Run every hour</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>I share this to show that automation of code doesn’t have to be super complicated—it’s achievable in a few lines!</p>
+<p>There’s a lot in the list above. But doing all of the above not only massively reduces the risk of mistakes, it also makes it <em>far</em> easier to find mistakes when they do occur. And, the automation saves masses of time—allowing analysts to focus on the message, narrative, and bigger picture.</p>
+<p>You can find more on reproducibility and RAP <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-rap.html">here</a> and <a href="https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/">here</a>, and <a href="https://aeturrell.github.io/coding-for-economists/auto-research-outputs.html">here</a> in the context of research.</p>
+</section>
+</section>
+<section id="lowering-communication-and-co-ordination-costs" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="lowering-communication-and-co-ordination-costs">Lowering communication and co-ordination costs</h2>
+<p>Some of this isn’t analysis, but it’s certainly efficiency, and less time on co-ordination means more time for thinking about analysis.</p>
+<section id="publishing-analysis" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="publishing-analysis">Publishing analysis</h3>
+<p>A major source of inefficiency across the wider public sector is the co-ordination costs that result from having everyone involved in topic X try to keep in touch.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> There are often too many people working on X to get into a single room at the same time. So people resort to many bilateral conversations. With only <span class="math inline">\(N\)</span> people working on X across the whole of the public sector, one individual needs to have <span class="math inline">\(N-1\)</span> conversations to keep on top of what’s happening and, in total, if everyone does the same, there are <span class="math inline">\(N^2\)</span> co-ordination meetings happening. For as few as <span class="math inline">\(N=30\)</span>, that means 900 meetings! This is not efficient.</p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;In a perfect world, you would have very clean lines of responsibility for different topics. But topics that can be so cleanly separated from any other issue are the exception, if they exist at all.</p></div></div><p>An alternative is for public sector institutions to share as much as possible of their analysis across institutional lines, preferably by publishing it openly. You might think sharing it just within the public sector makes more sense but there are legal, technological, and co-ordination barriers to do this–again, you might end up with 100s of bilateral sharing agreements.</p>
+<p>Of course there will be analysis that cannot be shared. Some questions, and definitely some answers, are inherently sensitive or disclosive.</p>
+<p>By the way, by ‘sharing analysis’, I don’t just mean sharing the end report, I mean sharing the code too.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> This gets all the benefits that will be familiar to people who know about free and open source code. Some of the arguments for sharing data widely apply here too—you can co-opt others into improving your analysis! That’s efficient!</p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;One organisation, GitLab, has even <a href="https://about.gitlab.com/blog/our-handbook-is-open-source-heres-why/">open sourced</a> how they run their organisation.</p></div></div><p>So, where possible, it makes sense to publish analysis for anyone to find. Then everyone who needs it can find it, benefit from it, and avoid duplicating it! The people who are able to find it and avoid duplicating it may well be people from your own institution in the future—I’ve <a href="../../../blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html">written before</a> about how the public sector is not good at maintaining the stock of knowledge, but making that knowledge accessible to the most powerful search engines in the world means it is far less likely to disappear.</p>
+<p>This share-what-you-can approach eliminates the need for lots of communication and co-ordination that would otherwise be costly.</p>
+</section>
+<section id="asynchronicity" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="asynchronicity">Asynchronicity</h3>
+<p>As well as disseminating analysis and code widely, you can reduce within-org communication costs by opting for asynchronous ways of working. Those who have worked in organisations that span time zones will be familiar with this idea. GitLab has lots of <a href="https://handbook.gitlab.com/handbook/company/culture/all-remote/asynchronous/">good content on the idea of asynchronous working</a> as they are a 100% remote and international company.</p>
+<p>Here’s an excerpt from their Handbook, itself a quote by <a href="https://codahale.com/">Coda Hale</a>:</p>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p>A significant source of failure demand<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> for meetings and status updates is the desire of organizational leaders to keep abreast of who’s doing what. This situational awareness is indeed important, but trying to maintain it by calling meetings, messaging people on Slack, and catching people on the hallways is a significant systemic drag on organizational productivity.</p>
+<p>A better model for staying informed of developments as the organization scales is for groups to publish status updates as part of the regular cadence of their work. Leaders can asynchronously read these updates and, should the need arise, initiate additional, synchronous conversation to ask questions, provide feedback, etc.</p>
+<p>Synchronous meetings should be reserved for low-latency collaboration on complex issues; likewise, collaboration should be reserved for synchronous meetings.</p>
+</blockquote><div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;Failure demand is the demand on a system or organisation that arises not from delivering work, but from failings of the system and excess co-ordination costs.</p></div></div></div>
+<p>The fundamental idea here is that co-ordinating to be in the same meeting at the same time is more difficult, and may create bottlenecks, that are not present when communication is asynchronous. Another aspect is that there’s a “default to action” rather than a default to delay (until a conversation can happen.)</p>
+<p>Asynchronous communication appeals because of my observation that the public sector has more meetings than perhaps would be ideal—and that as the ‘cost’ of convening large groups of people decreased due to the availability of virtual meetings in the pandemic, we all opted to ‘buy’ more of them. As the GitLab Handbook notes, there are other benefits such as it being better for people who work part time or have unusual working hours, and the writing down of decisions that it requires automatically creates a log of institutional knowledge (which can be useful in general but especially for onboarding new staff and lowering barriers to entry for the work.)</p>
+<p>So how can you actually get some of the productivity benefits of asynchronicity? A big part is mindset and (again, courtesy of the GitLab Handbook), the easiest way to shift into an asynchronous mindset is to ask: “How would I deliver this message, present this work, or move this project forward right now if no one else on my team or organisation were awake?” Here are some more specific ideas:</p>
+<ul>
+<li>Use documentation obsessively—for code, for decisions, for processes, and for actions. And make sure there is a process by which it is updated. (More on <a href="#code-documentation">code documentation</a> below.) This means avoiding putting key decisions or information in emails—anything important should be in documents that can be handed over. For example, in my own teams code-based work is managed via a <a href="https://en.wikipedia.org/wiki/Kanban_board">Kanban board</a> (using <a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects">GitHub projects</a>.) This provides asynchronicity, transparency, it means that we don’t just cover updates in team meetings, and (using GitHub’s <a href="https://docs.github.com/en/graphql">GraphQL API</a>) it also allows for automatic compilation of reports on what kinds of projects we’re undertaking.</li>
+<li>Have meetings only when they are needed. This means avoiding scheduling them regularly and holding ad hoc ones only when it would unblock progress faster than written communication. Good reasons for meetings might include:
+<ul>
+<li>Meetings with external parties</li>
+<li>First-time meetings team members who have not previously worked together</li>
+<li>One-way door decisions (eg when stakes are high and decisions are difficult to reverse)</li>
+<li>Complex initializations and planning (eg defining the workplan for the next quarter, scoping a major project, etc.)</li>
+<li>Emotionally sensitive topics (e.g.&nbsp;discussing personal issues, career path/promotion, difficult feedback, etc.)</li>
+<li>Supporting and unblocking direct reports</li>
+</ul></li>
+<li>Any meetings that do happen should have an agenda.</li>
+<li>Default to sharing information, eg by using the most permissive classification available.</li>
+<li>Empower people to make two-way door decisions. Most decisions are easy to reverse and not sensitive. In these cases, people should go ahead and make them without approval or needing to have a meeting.</li>
+<li>Ensure there is a clear <strong>single source of truth</strong> for every important piece of information. If you have to ask someone else which of two similar pieces of information is relevant, that’s not very efficient.</li>
+<li>Ensure that information is easily accessible and can be searched.</li>
+</ul>
+<p>I wrote more about that last point <a href="../../../blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html">here</a> but now there’s a new kid on the block for helping to interrogate the combined stock of knowledge of an institution: retrieval augmented generation (RAG). With RAG, you can get the general benefits of a large language model focused on a specific set of documents that you choose. Even better, the LLM can cite the documents it is sourcing its answers from. This seems like a fantastic way to make the considerable stock of knowledge in most institutions more accessible.</p>
+</section>
+<section id="code-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="code-documentation">Code documentation</h3>
+<p>I already covered using <a href="#asynchronicity">documentation obsessively</a> and some tips on <a href="#good-rap">code for reproducible analytical pipelines</a>; now let’s get more into some tools to help you document code more efficiently and make it easier for others to use.</p>
+</section>
+</section>
+<section id="beautiful-models" class="level2">
+<h2 class="anchored" data-anchor-id="beautiful-models">Beautiful Models</h2>
+</section>
+<section id="automating-and-organising-the-office" class="level2">
+<h2 class="anchored" data-anchor-id="automating-and-organising-the-office">Automating and organising the office</h2>
+
+
+</section>
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.aeturrell\.com\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

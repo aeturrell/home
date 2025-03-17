@@ -10,7 +10,105 @@
 <atom:link href="https://www.aeturrell.com/atom.xml" rel="self" type="application/rss+xml"/>
 <description>{{&lt; meta description-meta &gt;}}</description>
 <generator>quarto-1.6.39</generator>
-<lastBuildDate>Wed, 05 Mar 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 17 Mar 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Efficiency in the public sector: communication and co-ordination</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>https://www.aeturrell.com/blog/posts/public-sector-communication-efficiency/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>I’ve been thinking a lot about efficiency in the public sector recently, particularly how we can improve it. In this post, I’ll focus on some ideas for improving communication and co-ordination between public sector workers.</p>
+<p>Quick disclaimer: efficiency, in time or money, is not the only important factor. People’s well-being and satisfaction matter too. (It matters in itself but it’s also true that grumpy staff are not going to be well-motivated.) Most of the time there isn’t going to be a trade-off between efficiency and staff well-being as no-one likes wasting time but it’s always worth considering what the pursuit of efficiency in time and money might be costing elsewhere.</p>
+<p><img src="https://www.aeturrell.com/blog/posts/public-sector-communication-efficiency/iso_city.webp" class="img-fluid"></p>
+<section id="ideas-for-lowering-communication-and-co-ordination-costs" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="ideas-for-lowering-communication-and-co-ordination-costs">Ideas for lowering communication and co-ordination costs</h2>
+<section id="publishing-analysis" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="publishing-analysis">Publishing analysis</h3>
+<p>A major source of inefficiency across the wider public sector is the co-ordination costs that result from having everyone involved in topic X try to keep in touch.<sup>1</sup> Across the whole public sector, there are often too many people working on X to get into a single room at the same time. So people resort to many bilateral conversations. With only <img src="https://latex.codecogs.com/png.latex?N"> people working on X across the whole of the public sector, one individual needs to have <img src="https://latex.codecogs.com/png.latex?N-1"> conversations to keep on top of what’s happening and, in total, if everyone does the same, there are <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7BN%5E2-N%7D%7B2%7D"> co-ordination meetings happening. For as few as <img src="https://latex.codecogs.com/png.latex?N=30">, that means 435 meetings! I’m using an extreme case—surely <em>some</em> sub-groups of more than two people will meet. But the point stands that this is not at all efficient.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;In a perfect world, you would have very clean lines of responsibility for different topics. But topics that can be so cleanly separated from any other issue are the exception, if they exist at all.</p></div></div><p>An alternative is for public sector institutions to share as much as possible of their analysis across institutional lines, preferably by publishing it openly. You might think sharing it just within the public sector makes more sense but there are legal, technological, and co-ordination barriers to do this—again, you might end up having to do 100s of bilateral sharing agreements.</p>
+<p>Of course there will be analysis that cannot be shared. Some questions, and definitely some answers, are inherently sensitive or disclosive. But not as many as most people in the public sector assume (I assert), and for those that aren’t, the benefits of release are substantial.</p>
+<p>By the way, by ‘sharing analysis’, I don’t just mean sharing the end report, I mean sharing the data and code too.<sup>2</sup> This gets all the benefits that will be familiar to people who know about free and open source code, and data sharing<sup>3</sup>. Let me give you a specific example: over the last few years there have been a number of errors in UK official statistics, on <a href="https://www.ft.com/content/61679d49-2b87-45ef-8fa2-1b76e393aed4">trade</a> and on <a href="https://www.ft.com/content/95b425c1-7f09-3c14-b423-42da8fa30bfe">productivity</a>, and these are just two examples from the top of my head. I have this dream that the code that is used to create national statistics could be open-sourced, improving transparency, getting more eyes on fixing any errors, and allowing countries to adopt the best practices of the most innovation national statistical offices far more quickly. So the biggest benefit of all of this sharing is that you can co-opt others into improving your analysis! That’s very efficient!</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;One organisation, GitLab, has even <a href="https://about.gitlab.com/blog/our-handbook-is-open-source-heres-why/">open sourced</a> how they run their organisation.</p></div><div id="fn3"><p><sup>3</sup>&nbsp;I’ll write more about the benefits of data sharing in another post.</p></div></div><p>So, where possible, I believe it makes sense to publish analysis for anyone to find. Then everyone who needs it can find it, benefit from it, and avoid duplicating it. This isn’t just a public good: the people who are able to find it and avoid duplicating it may well be people from your own institution in the future—I’ve <a href="../../../blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html">written before</a> about how the public sector is not good at maintaining the stock of knowledge, but making that knowledge accessible to the most powerful search engines in the world means it is far less likely to disappear or be inefficiently duplicated.</p>
+<p>This share-what-you-can approach eliminates the need for lots of communication and co-ordination that would otherwise be costly.</p>
+</section>
+<section id="asynchronous-working" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="asynchronous-working">Asynchronous working</h3>
+<p>As well as disseminating analysis and code widely, you can reduce within-org communication costs by opting for asynchronous ways of working. Those who have worked in organisations that span time zones will be familiar with this idea. GitLab has lots of <a href="https://handbook.gitlab.com/handbook/company/culture/all-remote/asynchronous/">good content on the idea of asynchronous working</a> as they are a 100% remote and international company.</p>
+<p>Here’s an excerpt from their Handbook, itself a quote by <a href="https://codahale.com/">Coda Hale</a>:</p>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p>A significant source of failure demand<sup>4</sup> for meetings and status updates is the desire of organizational leaders to keep abreast of who’s doing what. This situational awareness is indeed important, but trying to maintain it by calling meetings, messaging people on Slack, and catching people on the hallways is a significant systemic drag on organizational productivity.</p>
+<p>A better model for staying informed of developments as the organization scales is for groups to publish status updates as part of the regular cadence of their work. Leaders can asynchronously read these updates and, should the need arise, initiate additional, synchronous conversation to ask questions, provide feedback, etc.</p>
+<p>Synchronous meetings should be reserved for low-latency collaboration on complex issues; likewise, collaboration should be reserved for synchronous meetings.</p>
+</blockquote><div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Failure demand is the demand on a system or organisation that arises not from delivering work, but from failings of the system and excess co-ordination costs.</p></div></div></div>
+<p>The fundamental idea here is that co-ordinating to be in the same meeting at the same time is more difficult, and may create bottlenecks, that are not present when communication is asynchronous. Another aspect is that there’s a “default to action” rather than a default to delay until a conversation can happen.</p>
+<p>Asynchronous communication appeals to me because of my observation that the public sector has more meetings than perhaps would be ideal—and that as the ‘cost’ of convening large groups of people decreased due to the availability of virtual meetings in the pandemic, we all opted to ‘buy’ more of them (without an accompanying change in the volume of meetings the work actually requires).</p>
+<p>As the GitLab Handbook notes, there are other benefits to asynchronous working:</p>
+<ul>
+<li>it is better for people who work part time or have unusual working hours</li>
+<li>it tends to push people toward greater transparency, which can help junior staff feel more involved</li>
+<li>it tends to push people to write down key decisions and actions so that a log of institutional knowledge is created (useful in general, but especially great for onboarding new staff.)</li>
+</ul>
+<p>So how can you actually get some of the productivity benefits of asynchronicity? A big part is mindset and (again, this line courtesy of the GitLab Handbook), the easiest way to shift into an asynchronous mindset is to ask: “How would I deliver this message, present this work, or move this project forward right now if no one else on my team or organisation were awake?” Here are some more specific ideas for implementing asynchronous working:</p>
+<ul>
+<li><strong>Default to sharing information</strong>, eg by using the most permissive classification available.</li>
+<li><strong>Use documentation obsessively</strong>—for code, for decisions, for processes, and for actions. And make sure there is a process by which that documentation is prevented from becoming stale.<sup>5</sup> Documenting why something didn’t happen is as important as documenting why it did because it helps others understand why certain decisions were made. In practice, documenting obsessively means avoiding putting key decisions or information in emails—anything important should be in documents that are findable by default. If you’re in any kind of managerial position, you’ll know that your bandwidth can be entirely absorbed simply by your email inbox—leaving no time for deeper thought. Amazon has an interesting ban on Powerpoint decks in favour of written memos that goes in this direction; there’s a <a href="../../../blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html">post that mentions Amazon’s approach here</a>. As a concrete example, in my own teams, I have had some success managing code-based work via a <a href="https://en.wikipedia.org/wiki/Kanban_board">Kanban board</a> (we use <a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects">GitHub projects</a> but there are lots of alternatives available.) This provides asynchronicity, transparency, it means that team meetings aren’t just a round table of updates, and (using GitHub’s <a href="https://docs.github.com/en/graphql">GraphQL API</a>) it also allows for automatic compilation of reports on what kinds of projects we’re undertaking.</li>
+<li><strong>Have meetings only when they are needed</strong>. This means avoiding scheduling them regularly and holding ad hoc ones only when it would unblock progress faster than written communication. Good reasons for meetings might include:
+<ul>
+<li>Meetings with external parties</li>
+<li>First-time meetings for team members who have not previously worked together</li>
+<li>‘One-way door’ decisions (eg when stakes are high and decisions are difficult to reverse)</li>
+<li>Complex project initialisations and planning (eg defining the workplan for the next quarter, scoping a major project, etc.)</li>
+<li>Sensitive topics (e.g.&nbsp;discussing personal issues, career, performance, giving difficult feedback, etc.)</li>
+<li>Supporting and unblocking direct reports</li>
+</ul></li>
+<li><strong>Meetings should have an agenda</strong>.</li>
+<li><strong>Empower people to make ‘two-way door’ decisions</strong>. Most decisions are easy to reverse and not sensitive. In these cases, people should go ahead and make them without approval or needing to have a meeting.</li>
+<li>Ensure there is a clear <strong>single source of truth</strong> for every important piece of information. If you have to ask someone else which of two similar pieces of information is relevant, that’s not very efficient.</li>
+<li><strong>Ensure that information is easily accessible and can be searched</strong>. I wrote more about that last point <a href="../../../blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html">here</a> but now there’s a new kid on the block for helping to interrogate the combined stock of knowledge of an institution: retrieval augmented generation (RAG). With RAG, you can get the general benefits of a large language model focused on a specific set of documents that you choose. Even better, the LLM can cite the documents it is sourcing its answers from. This seems like a fantastic way to make the considerable stock of knowledge in most institutions more accessible.</li>
+<li>When meetings are necessary, record them, or make a transcript, or better than both <strong>create a concise but complete summary of meetings in which it is clear who attended and what decisions were made, and ensure that the information is available for anyone to find afterwards</strong>. Most public sector institutions are using Microsoft Teams, and there are Teams tools that can help with this.</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;More on code documentation in a subsequent post.</p></div></div></section>
+<section id="have-someone-own-the-trade-off" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="have-someone-own-the-trade-off">Have someone own the trade-off</h3>
+<p>This one is more about the structure of your organisation, but it’s a change that saves a ton of potentially fractious communication too.</p>
+<p>It’s probably best to illustrate the idea with a hypothetical example. Let’s say that there is a person in an organisation who is responsible for IT, including software, hardware, and technology security (call them Bob.) And let’s say there’s someone else who is responsible for high quality, efficient, and impactful analysis across the same organisation (call them Alice.) Alice and Bob are far removed from each other—perhaps they only have a single manager in common who is the head of the entire institution or the permanent secretary.</p>
+<p>Now Bob is incentivised to minimise costs and maximise security, because he holds the budget for software and hardware, and if there’s an IT security incident, you can bet Bob is going to be in the firing line. Alice, meanwhile, is incentivised to get things done, and likely has substantial risk appetite in order to get important things done. If there’s a major crisis of some sort looming, Alice isn’t going to be much pleased that her staff are unable to access key government websites because of zealous internet security settings, and if she doesn’t get that critical analysis out in time, <em>she’s</em> going to be in the firing line.</p>
+<p>Hopefully you can see that Alice and Bob have wildly different incentives here and their communications might, very naturally, end up being fractious. We can’t blame Bob or Alice for this—they’re both doing their jobs, the jobs they have been given. But at an institutional level, the structure has created a natural clash. Co-ordination and communication will be far less good than they could be because Alice is always straining at the limits of what Bob allows her to do, and Bob is always trying to reign Alice in.</p>
+<p>The solution here is to have someone who owns this productivity-security trade-off<sup>6</sup>. There are a few options for making this happen:</p>
+<div class="no-row-height column-margin column-container"><div id="fn6"><p><sup>6</sup>&nbsp;As an aside, I’m sceptical there’s as much of a productivity-security trade-off as most people think. If you have too high security, people start to find risky work arounds, which isn’t very secure. If you have very lax security and processes, mistakes can go unnoticed (including analytical mistakes). But there are definitely times when the needs of “getting things done” and “avoiding any risk” clash.</p></div></div><ul>
+<li>have someone who doesn’t sit so far up the organisation own the trade-off. Maybe it could be that Alice and Bob report to the same person. This helps because, if the person invested with the trade-off decision is too high up in the organisation, then that decision is never going to be top of their list—they will simply always have bigger fish to fry. Whereas if the senior person’s role is explicitly to get that trade-off right, and they’re close to both Bob and Alice, they’re going to be well-placed to make good decisions.</li>
+<li>merge Alice and Bob’s jobs. Alice-Bob now owns risk tolerance on IT security, hardware and software choices, and productivity of analysis. Alice-Bob can make the trade-off directly.</li>
+<li>Bob’s job disappears, and Bob’s staff become Alice’s staff, but Alice now has more diverse teams that include technology experts as well as analysts. There’s a professional network for technology people, but they are embedded in business areas. Alice owns the trade-off and can make the decision based on what her mixed teams tell her. Some US institutions use this model.</li>
+</ul>
+<p>Stepping away from the Alice and Bob hypothetical, you can imagine other places where this same dynamic plays out. The choice of where to site a new office? The choice of how to refurbish an office? How complex the HR policies are for bringing new people in? In every case, if your goal is productivity, you need someone to own the trade-off with the other factors at stake.</p>
+</section>
+<section id="project-management" class="level3">
+<h3 class="anchored" data-anchor-id="project-management">Project management</h3>
+<p>I already mentioned Kanban boards in the previous section but there’s a bunch of other ideas that can help reduce communication and co-ordination costs within the nitty gritty of individual projects. One is the Amazon ‘working backwards’ method, which you can find more about in <a href="../../../blog/posts/data-science-with-impact/index.html#working-backwards">this post on data science with impact</a>. The same post also talks about the benefits of incremental delivery.</p>
+<p>On communication and co-ordination specifically, though, another Amazon-favoured trick is worth mentioning: “disagree and commit”. The basic idea is that individuals can, and should, openly disagree with a decision that is on the table but—once the decision is definitively made—everyone should commit to implementing it. This allows people to speak up and challenge what they don’t agree with, without causing a fear that they will be obstructive. And it also helps avoid what’s known as the ‘consensus trap’, where the feeling of needing to reach consensus turns into a lack of progress. Both of these can be issues in the public sector or, indeed, any large organisation.</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>It seems like there’s plenty of room to improve communication and co-ordination in the public sector. I’ve shared a few suggestions focused on four areas: making your analysis public by default avoids costly bilateral co-ordination, gets you free help from others, and helps avoid duplication; working asynchronously avoids bottlenecks, empowers staff, lowers onboarding costs, and promotes transparency; thinking carefully about who owns key trade-offs can prevent a lot of inefficient back-and-forth, and ensure that everyone is pulling in the same direction; and battle-tested project management practices can promote delivery and action. Got better ideas? Let me know!</p>
+
+
+</section>
+
+
+ ]]></description>
+  <category>productivity</category>
+  <category>public sector</category>
+  <category>work chat</category>
+  <category>management</category>
+  <guid>https://www.aeturrell.com/blog/posts/public-sector-communication-efficiency/</guid>
+  <pubDate>Mon, 17 Mar 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/public-sector-communication-efficiency/iso_city.webp" medium="image" type="image/webp"/>
+</item>
 <item>
   <title>The data validation landscape in 2025</title>
   <dc:creator>Arthur Turrell</dc:creator>
@@ -5544,271 +5642,6 @@ Nagle, Frank. 2019. <span>“Open Source Software and Firm Productivity.”</spa
   <guid>https://www.aeturrell.com/blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html</guid>
   <pubDate>Fri, 13 Jan 2023 00:00:00 GMT</pubDate>
   <media:content url="https://www.aeturrell.com/blog/posts/why-you-shouldnt-code/elisa-ventur-bmJAXAz6ads-unsplash.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>In praise of APIs (application programming interfaces)</title>
-  <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/the-prize-with-apis/the-prize-with-apis.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>In this blog, I look at some of reasons why APIs are such a great way to share data.</p>
-<p>APIs make it possible for users to plug data directly into software, dashboards, websites, reports, and analysis in a consistent, machine readable format that favours automation. They are the best practice way to share data between expert users and organisations, and are an important intermediary for enabling data to reach a wider audience—giving a path to significantly increased impact for data that anyone has decided to share. Leading statistical institutes provide their data via APIs, and UK government departments increasingly <a href="https://www.api.gov.uk/#uk-government-apis">share</a> data through APIs too.</p>
-<p>In a previous post, I looked at one API in particular—the <a href="../../../blog/posts/ons-api/index.html">ONS API</a>.</p>
-<section id="what-is-an-api" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-an-api">What is an API?</h2>
-<p>APIs, or application programming interfaces, are a set of rules and protocols that enable communication between different software systems. They allow different systems to exchange data and functionality programmatically. They are programming language agnostic, and sometimes make data available in several formats.</p>
-<p>In the context of data and statistics, APIs are particularly useful because they allow organisations to access and use data from a variety of sources in a consistent and controlled manner. For example, a government department might wish to use APIs to reproducibly and reliably access data from a national statistical office.</p>
-<p>It’s easiest to show how APIs work with an example. Let’s pull down CO2 emissions per capita by country from the World Bank using the <a href="https://pandas-datareader.readthedocs.io/"><strong>pandas_datareader</strong></a> package in Python. <strong>pandas_datareader</strong> provides convenient access to a wide range of APIs including those serving up data from the <a href="https://fred.stlouisfed.org/docs/api/fred/">US Federal Reserve (FRED)</a>, the <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation">World Bank</a>, the <a href="https://data.oecd.org/api/">OECD</a>, the <a href="https://www.bankofcanada.ca/valet/docs">Bank of Canada</a>, <a href="https://ec.europa.eu/eurostat/data/web-services">Eurostat</a>, and more.</p>
-<div id="67bd21b3" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> textwrap</span>
-<span id="cb1-2"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> pandas_datareader <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> wb</span>
-<span id="cb1-3"></span>
-<span id="cb1-4">df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> wb.download(                              <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># download the data from the world bank</span></span>
-<span id="cb1-5">    indicator<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"EN.GHG.ALL.PC.CE.AR5"</span>,                <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># indicator code</span></span>
-<span id="cb1-6">    country<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"US"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"CHN"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"IND"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Z4"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Z7"</span>],  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># country codes</span></span>
-<span id="cb1-7">    start<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2019</span>,                                <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># start year</span></span>
-<span id="cb1-8">    end<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2019</span>,                                  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># end year</span></span>
-<span id="cb1-9">)</span>
-<span id="cb1-10">df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> df.reset_index()                          <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># remove country as index</span></span>
-<span id="cb1-11">df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"country"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"country"</span>].<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">apply</span>(<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">lambda</span> x: textwrap.fill(x, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>))  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># wrap long names</span></span>
-<span id="cb1-12">df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> df.sort_values(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"EN.GHG.ALL.PC.CE.AR5"</span>)          <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># re-order</span></span>
-<span id="cb1-13">df.head()</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">country</th>
-<th data-quarto-table-cell-role="th">year</th>
-<th data-quarto-table-cell-role="th">EN.GHG.ALL.PC.CE.AR5</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">3</td>
-<td>India</td>
-<td>2019</td>
-<td>2.684385</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>East Asia\n&amp; Pacific</td>
-<td>2019</td>
-<td>8.768054</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Europe &amp;\nCentral\nAsia</td>
-<td>2019</td>
-<td>9.451536</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">0</td>
-<td>China</td>
-<td>2019</td>
-<td>10.359449</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>United\nStates</td>
-<td>2019</td>
-<td>18.718205</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p>There are several features of note:</p>
-<ul>
-<li>we only pulled down the data we needed</li>
-<li>we were able to get data straight into our analytical tool (here, Python)</li>
-<li>getting the data for the period we want is as simple as changing the year</li>
-</ul>
-<p>Having downloaded the data, let’s now plot it:</p>
-<div id="84990e11" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> seaborn <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> sns</span>
-<span id="cb2-2"></span>
-<span id="cb2-3">fig, ax <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> plt.subplots()</span>
-<span id="cb2-4">sns.barplot(x<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"country"</span>, y<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"EN.GHG.ALL.PC.CE.AR5"</span>, data<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>df.reset_index(), ax<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>ax)</span>
-<span id="cb2-5">ax.set_title(<span class="vs" style="color: #20794D;
-background-color: null;
-font-style: inherit;">r"CO$_2$ (metric tons per capita)"</span>, loc<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"right"</span>)</span>
-<span id="cb2-6">plt.suptitle(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"The USA leads the world on per-capita emissions"</span>, y<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1.01</span>)</span>
-<span id="cb2-7"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">for</span> key, spine <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">in</span> ax.spines.items():</span>
-<span id="cb2-8">    spine.set_visible(<span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">False</span>)</span>
-<span id="cb2-9">ax.set_ylabel(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">""</span>)</span>
-<span id="cb2-10">ax.set_xlabel(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">""</span>)</span>
-<span id="cb2-11">ax.yaxis.tick_right()</span>
-<span id="cb2-12">plt.show()</span></code></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://www.aeturrell.com/blog/posts/the-prize-with-apis/the-prize-with-apis_files/figure-html/cell-4-output-1.svg" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>This shows how data can be pulled straight down into analytical tools, reports, forecasts, and so on; any output or analysis you can think of.</p>
-</section>
-<section id="why-are-apis-brilliant" class="level2">
-<h2 class="anchored" data-anchor-id="why-are-apis-brilliant">Why are APIs brilliant?</h2>
-<p>Programmatic access to data has a number of clear benefits:</p>
-<ul>
-<li>Data are provided in a consistent, machine readable format—this can save hours of work for each file and enables automation</li>
-<li>users can build other tools on top of APIs and APIs integrate directly into analytical tools</li>
-<li>APIs are accessible by a range of open source (and free) software</li>
-<li>APIs can provide only the data that the user needs (they enable filtering)</li>
-<li>APIs can provide a data provider with more granular information on what data have been requested than a bulk download can</li>
-<li>an organisation can provide data to itself (eg across teams) without one team having to bother another; teams within the organisation can also consume the API</li>
-<li>the date of the ingestion of data can be easily including in the metadata that the API send—this is really useful to anyone working with real-time data applications (eg nowcasting) or if a mistake is subsequently found in a series</li>
-<li>using APIs to serve data encourages the use of consistent taxonomies (eg country names) that will ultimately aid end-users by enabling them to more easily link data</li>
-<li>secure APIs allow organisations to share sensitive data in a programmatic way and, while no method of data transfer can ever be 100% secure, APIs that follow the best practices for security are thought to involve less risk than emailing files</li>
-</ul>
-<p>Directly integrating with analytical tools has a number of benefits for auditability and accountability given that analytical tools can be used with code, and code can be put under version control—which means to-the-second, to-the-line auditing of who changed what when and easy-to-reverse changes should errors be discovered.</p>
-<p>Additionally, when data are shared only as files, it’s so often as Microsoft Excel files, which can go wrong in some pretty serious ways:</p>
-<ul>
-<li>Excel is a proprietary format that is harder to use without buying software from a particular vendor</li>
-<li>Excel mixes analysis and data storage (which is bad practice)</li>
-<li>Excel changes data</li>
-<li>Excel is limited in storage size and file-types it can handle</li>
-<li>Excel is not easily auditable (code-first approaches allow for to-the-second, to-the-line audit).</li>
-</ul>
-<p>That said, you can improve the provision of data through Excel by making it machine readable or by making it consistent, perhaps making use of the excellent <a href="https://gptables.readthedocs.io/">GPTables</a> (good practice tables) package created by the UK’s Office for National Statistics (full disclosure: I didn’t work on this package, but some colleagues did).</p>
-<p>It’s also important to note that providing a downloadable file and an API is not mutually exclusive—to serve the widest range of users, it’s a good idea to provide both. But it’s important that they feed off the same underlying database in the same way and so are 100% consistent.</p>
-<p>The main downside of APIs is that they are more difficult to use for all but expert users (though this category has expanded in recent years as the world becomes more code-savvy and it now arguably includes everyone from academics to data journalists to data enthusiasts). This is why it’s important to make APIs available <em>alongside</em> other ways to access the data.</p>
-<p>To lower the barrier to using an API, there are a couple of options. They can be integrated into easier-to-use tools (like the <strong>pandas_datareader</strong> package) or they can be provided alongside an API ‘query builder’ that gives rapid feedback on whether a query is valid or not (<a href="https://overpass-turbo.eu/">open street map API’s ‘overpass turbo’ is a good example</a>).</p>
-</section>
-<section id="api-best-practice" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="api-best-practice">API Best Practice</h2>
-<p>There are a number of API standards out there, and the best one depends on the context. In the UK, there is <a href="https://www.gov.uk/guidance/gds-api-technical-and-data-standards">gov.uk guidance</a> on APIs.</p>
-<p>The approach followed for open data APIs across a <a href="https://sdmx.org/?page_id=2705">wide range of international and national statistical organisations</a><sup>1</sup> is a standard called SDMX: <a href="https://sdmx.org/?page_id=2555">Statistical Data and Metadata eXchange</a>. It’s an ISO (International Organization for Standardization) standard designed to describe statistical data and metadata, normalise their exchange, and improve their efficient sharing across statistical and similar organisations.</p>
-
-
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;The BIS (Bank for International Settlements), ECB (European Central Bank), EUROSTAT (Statistical Office of the European Union), IMF (International Monetary Fund), OECD (Organisation for Economic Co-operation and Development), UN (United Nations), and the World Bank.</p></div></div></section>
-
-
- ]]></description>
-  <category>code</category>
-  <category>data</category>
-  <guid>https://www.aeturrell.com/blog/posts/the-prize-with-apis/the-prize-with-apis.html</guid>
-  <pubDate>Sun, 18 Dec 2022 00:00:00 GMT</pubDate>
-  <media:content url="https://www.aeturrell.com/blog/posts/the-prize-with-apis/None" medium="image"/>
 </item>
 </channel>
 </rss>
