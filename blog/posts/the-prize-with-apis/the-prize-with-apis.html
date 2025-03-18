@@ -280,7 +280,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <p>APIs, or application programming interfaces, are a set of rules and protocols that enable communication between different software systems. They allow different systems to exchange data and functionality programmatically. They are programming language agnostic, and sometimes make data available in several formats.</p>
 <p>In the context of data and statistics, APIs are particularly useful because they allow organisations to access and use data from a variety of sources in a consistent and controlled manner. For example, a government department might wish to use APIs to reproducibly and reliably access data from a national statistical office.</p>
 <p>It’s easiest to show how APIs work with an example. Let’s pull down CO2 emissions per capita by country from the World Bank using the <a href="https://pandas-datareader.readthedocs.io/"><strong>pandas_datareader</strong></a> package in Python. <strong>pandas_datareader</strong> provides convenient access to a wide range of APIs including those serving up data from the <a href="https://fred.stlouisfed.org/docs/api/fred/">US Federal Reserve (FRED)</a>, the <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation">World Bank</a>, the <a href="https://data.oecd.org/api/">OECD</a>, the <a href="https://www.bankofcanada.ca/valet/docs">Bank of Canada</a>, <a href="https://ec.europa.eu/eurostat/data/web-services">Eurostat</a>, and more.</p>
-<div id="67bd21b3" class="cell" data-execution_count="2">
+<div id="af6707f2" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> textwrap</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas_datareader <span class="im">import</span> wb</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -312,31 +312,31 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <td data-quarto-table-cell-role="th">3</td>
 <td>India</td>
 <td>2019</td>
-<td>2.684385</td>
+<td>2.622268</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>East Asia\n&amp; Pacific</td>
 <td>2019</td>
-<td>8.768054</td>
+<td>8.575187</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>Europe &amp;\nCentral\nAsia</td>
 <td>2019</td>
-<td>9.451536</td>
+<td>9.249031</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">0</td>
 <td>China</td>
 <td>2019</td>
-<td>10.359449</td>
+<td>10.140708</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>United\nStates</td>
 <td>2019</td>
-<td>18.718205</td>
+<td>18.921383</td>
 </tr>
 </tbody>
 </table>
@@ -351,7 +351,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <li>getting the data for the period we want is as simple as changing the year</li>
 </ul>
 <p>Having downloaded the data, let’s now plot it:</p>
-<div id="84990e11" class="cell" data-execution_count="3">
+<div id="dd72a571" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>

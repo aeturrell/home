@@ -10,7 +10,806 @@
 <atom:link href="https://www.aeturrell.com/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>{{&lt; meta description-meta &gt;}}</description>
 <generator>quarto-1.6.39</generator>
-<lastBuildDate>Mon, 17 Mar 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 18 Mar 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Efficiency in the public sector: analysis and operations</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>https://www.aeturrell.com/blog/posts/public-sector-analytical-efficiency/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>I’ve been thinking a lot about efficiency in the public sector recently. This post looks at ideas for increasing the efficiency of analysis and operations through automation, good coding practices, artificial intelligence, and, well, (meta-?) analysis. This is the second post in this series; see the <a href="../../../blog/posts/public-sector-communication-efficiency/index.html">previous post</a> for ideas on efficiency related to communication and co-ordination.</p>
+<section id="what-is-meant-by-analysis-and-operations" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="what-is-meant-by-analysis-and-operations">What is meant by analysis and operations?</h2>
+<p><strong>What does it mean to make analysis more efficient? It is to produce analysis faster, cheaper, better, or in higher volume.</strong> Automation is key to doing this. And I’m thinking here of both ad hoc analysis and production analysis (eg regularly published statistics). Before we hit the ideas, it might help to give examples of these two types of analysis.</p>
+<p>A good example of ad hoc analysis would be if, say, a global event meant that a lot more analysis was suddenly required on trade and trade links, typically in the form of answers to one-off questions. With such ad hoc analysis, you don’t know the <em>specific</em> question in advance—but you might know that, from time-to-time, questions about trade links will arise. So to improve the productivity of analytical operations in this case, you would want analysts or data scientists or economists, whoever it is, to have longitudinal data on bilateral trade flows to hand, with their permissions to access it cleared ahead of time, the data cleaned, the data stored in a sensible format, and the data accessible to suitable analytical tools. Essentially, it’s about putting analysts in the best position to answer the questions in a timely way as they arise, maximising agility and minimising repeated effort for when the next question lands.</p>
+<p>An example of regular analysis would be a pipeline that ends in a publication and which involves data ingestion, data checking, processing, and publication of data alongside a report that has a fairly consistent structure. Perhaps this process involves a lot of manual steps, like handovers, emails, someone staring at a spreadsheet, and someone having to serve requests for custom cuts of the data. Improving productivity might look like automating the end-to-end pipeline, cutting out the manual steps, and, finally, serving the data up via an API so that people can take whatever cuts they want. It’s again minimising effort.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="https://www.aeturrell.com/blog/posts/public-sector-analytical-efficiency/automated_stats.webp" class="img-fluid figure-img"></p>
+<figcaption class="margin-caption">Automation can take many forms</figcaption>
+</figure>
+</div>
+<p>Turning to operations now; in every public sector institution, there are thousands of actions that are repeated every day by most staff. Something as basic as turning on a laptop or checking a calendar. <strong>If some of the tasks that happen repeatedly can be sped up even a little, then there’s a large saving to be made</strong>. This does require <em>measuring</em> how fast those tasks are today and, to get an idea of what the return on investment (ROI) might be, it also requires one to have a counter-factual in mind of how fast they <em>could</em> be with that investment.</p>
+<p>With that background out of the way, let’s move on to some ideas!</p>
+</section>
+<section id="operations" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="operations">Operations</h2>
+<section id="more-productive-capital" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="more-productive-capital">More productive capital</h3>
+<p>I touched on computer-task time savings in the context of better hardware in <a href="../../../blog/posts/bad-it/index.html">this post on the false economy of bad IT</a>. TL;DR it <em>always</em> makes sense to buy staff earning over the median UK salary a high-spec laptop if they lose more than 9 minutes a day due to a low- to mid-range laptop being slow or glitchy. As an aside, the UK has relatively low capital stock, as seen in Figure&nbsp;1 (chart by <a href="https://www.mckinsey.com/our-people/tera-allas">Tera Allas</a>).</p>
+<div id="fig-capital" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-capital-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://www.aeturrell.com/blog/posts/data-science-with-impact/capital_stock_uk.jpeg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-capital-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Capital is important for productivity, who would have guessed?
+</figcaption>
+</figure>
+</div>
+<p>There’s a whole class of repeated tasks that people do on computers that are slower than they could be because of the computer’s hardware or configuration. How can the productivity (loss) be definitively tested? One option is a log of the times when someone’s workflow was interrupted because, say, the computer was turning on, or froze, or was opening an application. Another would be to measure the time it takes to do similar tasks in a perfect reference situation, eg the same task on a high-spec laptop, and use the time that took as the counterfactual. Similarly, one could measure productivity<sup>1</sup> with one software package relative to another to more accurately assess which is better (a lot of software will be chosen for reasons that are orthogonal to productivity, for reasons I sketch out in <a href="../../../blog/posts/public-sector-communication-efficiency/index.html#have-someone-own-the-trade-off">this other post</a>.)</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;I very purposefully say ‘productivity’ and not just ‘time’ here because the most expensive input to the production function is usually peoples’ time, not the time it takes software to run. Which is why data science only reaches for C++ and Rust, which are slower to write code in but run faster, when it’s absolutely necessary.</p></div></div><p>Now you might say, “ah, but you haven’t done a fair test—that low- to mid-range institutional laptop has lots of important extra security on it that the high-end reference laptop doesn’t.” You’re right, ideally one would do a like for like comparison where you would only change one feature at a time. Pragmatically, though, I would see it as a feature, not a bug—use it as a way to see the overall trade-off that’s being made between security + cost vs productivity.</p>
+<p>Regardless of how you do it, once bottlenecks in productive workflows have been identified and assessed, investment resources can focus on improving them in the order of biggest benefit.</p>
+<p>A partial alternative to going high-spec is to allow Bring Your Own Device (BYOD). This allows the institution’s data and software to be accessed via the personal devices of staff, which may be faster and may be more suited to staff (by selection). There are security issues around this, and it may not be a equitable solution—more junior staff may not be able to afford the same tech as those at the top of the organisation. Still, if it doesn’t make sense to stump up for a high-spec laptop for everyone this can be a great second option. One particularly secure combination that will be relevant to many public sector institutions is Apple hardware + iOS as an operating system + Microsoft<sup>2</sup> software, which allows people to use corporate account Outlook, Teams, Sharepoint, etc, etc, on iPhone and iPad (including with a keyboard, as long as it’s an Apple one). My iPad has a processor that’s 40% faster than my work laptop’s, so BYOD is a game-changer. Of course, you can’t do everything from an iPad<sup>3</sup>—but you can certainly do a lot.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Throughout, I’ll be referring to whether something or another plays well with Microsoft software. This is not because I think the public sector <em>should</em> be using Microsoft for everything, far from it, but—as I like to say—‘nobody ever got fired for buying Microsoft’, and the reality is that it’s what most public sector institutions use. Key exceptions I’m aware of are the <a href="https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/document/munichs-long-history-open-source-public-administration">Munich government</a>, the <a href="https://en.wikipedia.org/wiki/GendBuntu">French Gendarmarie</a>, who both use custom versions of Linux as part of their own efficiency drives, high security areas of many governments, some national laboratories, and of course computationally intensive systems.</p></div><div id="fn3"><p><sup>3</sup>&nbsp;For all practical purposes, you can’t code directly on an iPad in the way you would a laptop or desktop. Yet.</p></div></div></section>
+<section id="free-and-open-source-software" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="free-and-open-source-software">Free and open source software</h3>
+<p>Free and open source software (FOSS) definitely isn’t always more efficient, but my rule of thumb is <strong>if there is a widely-used and close free and open source substitute, it will be far more efficient to use that rather than proprietary software</strong>.</p>
+<p>Let’s look at a really clear example: Matlab vs Python. The latter is free and open source, does <em>almost</em> everything the former does, does vastly more other things to boot, and can be used in a wider range of places. Now there are some tasks for which Python is <em>not</em> a close substitute, and they really do need Matlab. But for most people, leveraging the massive Python ecosystem is more efficient.</p>
+<p>There are many examples where paying for proprietary software makes sense because there is no close FOSS substitute. I am a fan of Obsidian, the markdown-based note-taking app. One of the reasons I think it’s great is that you never lose control of your data or the format it’s in: all of your notes are just markdown files and the Obsidian app just gives a fancy way to edit and view that content. The Obsidian app happens to be free but it’s not open source. I would similarly say there’s no FOSS equivalent of the incredible integration of hardware and software that Apple has achieved with the Macbook. But, equally, there are plenty of areas where direct FOSS substitutes do exist.</p>
+<p>In my view, the high efficiency of widely-used FOSS comes through a bunch of channels:</p>
+<ul>
+<li>The ‘F’ stands for free! Productivity is output per unit of input, so free is pretty good.<sup>4</sup></li>
+<li>Widely-used open source software is less likely to have critical security flaws.<sup>5</sup></li>
+<li>Again because it’s open source, you actually know what it’s doing!</li>
+<li>Very much related to the above, and somewhat counter-intuitively, it’s more private. You can see for yourself if there’s a backdoor. A proprietary software vendor knows, at the very least, that you bought the software: a maintainer of a FOSS package may not even know you exist.</li>
+<li>By dint of being free and widely used, there are many ideas for how to improve it, and guides on how to use it.</li>
+<li>You don’t get locked in to a proprietary software provider who can subsequently ratchet up the price or drop support for a critical feature.</li>
+<li>Missing a feature you’d like for your org in a specific library? If it’s reasonable and within-scope, you can probably get it added by the maintainers. Or your org can simply add it for themselves. <a href="https://www.bloomberg.com/company/values/tech-at-bloomberg/python/">Bloomberg</a> is a good example of a company who has gone heavily down this route.</li>
+<li>There’s also a diversity, equality, and inclusion benefit. Lots of students, especially those from poorer backgrounds, can’t afford expensive proprietary software but can use FOSS instead (as a student, I used a version of <a href="https://www.libreoffice.org/">LibreOffice</a>). Those with more resources may have been able to use proprietary software before they start work, which gives them an edge when they land their first job; FOSS helps level the field. Similarly, if you’re trying to be a leading public sector institution and inspire other institutions around the world, you’ll go further if you use FOSS because it’s accessible in every country.</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;I can hear you saying that some FOSS is harder to use. Linux being harder to use than Windows is a good example, although that one is <em>far</em> less true today given the rise of user-friendly Linux distributions like Ubuntu. But if a piece of software is <em>so</em> much harder to use, I would argue it isn’t a close substitute!</p></div><div id="fn5"><p><sup>5</sup>&nbsp;If it did have security issues, they probably—but not certainly—would have already been exploited and fixed <em>because</em> it’s open. Call it the weak open source security efficiency hypothesis.</p></div></div></section>
+<section id="operational-efficiencies" class="level3">
+<h3 class="anchored" data-anchor-id="operational-efficiencies">Operational efficiencies</h3>
+<p>AKA process efficiency. Computer tasks aren’t the only area where one could find operational efficiencies. There’s a whole set of efficiency gains that most organisations could find in their standard processes too. One example is around the permissions required to access data or install certain software, etc. In most public sector organisations I’ve observed, these have to be separately approved for each individual within a team. But another model would be to use team-level permissions—if someone joins Team A, it is assumed they will need access to a set of data used by Team A. This eliminates a lot of tedious time for managees and managers in requesting and approving, respectively, permissions. In another post in this series, <a href="../../../blog/posts/public-sector-communication-efficiency/index.html#asynchronous-working">I wrote about how presuming access and openness within the organisation</a> could also provide a boost—in that case, no permissions are needed!</p>
+<p>That’s just one example. But by analysing how staff have to spend their time to get things done, one could find many more—and again try to minimise them.</p>
+</section>
+</section>
+<section id="data-for-analysis" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="data-for-analysis">Data for analysis</h2>
+<p>Most public sector organisations, probably most organisations in general, have a legacy systems problem that makes analysing data (particularly big data) painful. There are also legitimate reasons why security is often tight around the analytical tools that most public sector orgs can use. Between these two, it can take analysts <em>orders of magnitude longer</em> to analyse data using an institutions’ systems than it would the same size dataset on their own laptop or cloud account or open system. Analysis would go faster and be able to do more if these datasets were available outside the security fence.</p>
+<p>Additionally, there is strong evidence that releasing datasets into the wild has huge benefits (eg <a href="https://www.usgs.gov/news/featured-story/landsats-economic-value-increases-256-billion-2023">Landsat data being released for free by the US government was estimated to have generated 25 billion USD in 2023</a>). You can think of the economic narrative like this: data are an input into lots of potential public goods. People wouldn’t pay for the data directly to make those public goods, as they don’t capture enough of the benefit themselves—but make the data free, and their private capture is enough for them to put the work in and generate public goods worth way more than the total revenue obtained by directly charging for the upstream data.</p>
+<p>The form of those public goods may be especially beneficial for public sector institutions. You can think of situations where the public sector doesn’t have enough resources to perform all of the analysis it would ideally have. But, with the data out there, others might do the analysis—co-opting others to help with the overall analytical mission! Those other analysts might just be in another government department. (More on this idea of sharing as an efficiency in <a href="../../../blog/posts/public-sector-communication-efficiency/index.html#publishing-analysis">the previous post in this series</a>.)</p>
+<section id="releasing-real-data" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="releasing-real-data">Releasing real data</h3>
+<p>The first and most simple response to these pressures and productivity-sapping systems is to simply publish the data publicly, at least for data that aren’t proprietary or sensitive. And perhaps we can all be a bit more radical about what is and is not sensitive. An obvious example is firm-level data: UK legislation currently prohibits the Office for National Statistics from publishing information on individual firms, even though Companies House, another part of the UK state, <em>does</em> publish information on individual firms’ balance sheets.</p>
+<p>Having important data be available publicly means staff within an institution can use non-restricted tools to work with it, which would be a massive boost to productivity. It means that any public goods that are possible with it are much more likely to be created, unlocking the true value and, potentially, it means that more relevant analysis would be happening with it than otherwise would be the case. And, especially if the <a href="../../../blog/posts/the-prize-with-apis/the-prize-with-apis.html">data are released via an API</a><sup>6</sup>, it means no more FOI requests or emails from other institutions—people can self-serve the cuts of the data that they need. The substantial time that public sector analysts spend serving Freedom of Information (FOI) and inter-departmental requests for data would simply no longer be needed for any data that are published.</p>
+<div class="no-row-height column-margin column-container"><div id="fn6"><p><sup>6</sup>&nbsp;It’s not that hard to build an API using modern cloud tools, by the way. Check out <a href="../../../blog/posts/build-a-cloud-api/build-a-cloud-api.html">this post</a> for an example.</p></div></div></section>
+<section id="synthetic-data" class="level3">
+<h3 class="anchored" data-anchor-id="synthetic-data">Synthetic data</h3>
+<p>However, most datasets that are used within public sector institutions are proprietary or sensitive or both. They simply can’t be shared externally. But what if there was a way to share the data without sharing the data? Well, there is—it’s called <strong>synthetic data</strong>.</p>
+<p>Synthetic data are artificially generated data that are made to resemble real-world data in some of their statistical properties but in a non-disclosive way. It has been used by the US Census Bureau. There are mathematical guarantees about how hard it is to reverse the process and get back to the original data (a bit like encryption.) And you can set how strong this encryption is, though there’s a trade-off with preserving aggregate statistical properties.</p>
+<p>One way synthetic data could be beneficial is if it was released and people could still get accurate statistical aggregations from it. But I imagine that most institutions wouldn’t be super comfortable with this as some statistics will be accurate but others won’t be. You can imagine instead creating synthetic data with extremely strong protection and releasing that, and allowing people to develop with it. Once an analytical script developed on the synthetic data is ready, staff and even externals could submit it to be run on the sensitive data (on what is probably a more expensive computational setup.) The benefit of synthetic data is that the bottleneck around the sensitivities of the data and access to it via specialist secure platforms are removed for most of the development process (except the last stage.) From a science point of view, there are even some attractions to working blind to the actual results in this way—it’s a bit like pre-registering the analysis for a medical trial.</p>
+<p>Of course, there is no free lunch—there is some work to do for the institutional data owner in generating and releasing the synthetic data, and to do it at scale probably needs cloud computing. And it’s not the easiest concept to explain to people who are less in the data science space either, so senior colleagues may struggle to understand the risks and benefits.</p>
+<p>There are well-developed packages to work with synthetic data, for example to:</p>
+<ul>
+<li>generate synthetic data, eg <a href="https://github.com/sdv-dev/SDV">Synthetic Data Vault</a> and <a href="https://github.com/mostly-ai/mostlyai">Synthetic Data SDK</a></li>
+<li>evaluate how close synthetically generated data are to the real underlying data, eg <a href="https://docs.sdv.dev/sdmetrics">SDmetrics</a></li>
+<li>benchmark how quickly <a href="https://github.com/sdv-dev/SDGym">synthetic data are generated</a> according to different methods</li>
+</ul>
+<p>I was quite involved in synthetic data at the Office for National Statistics, running a team that tried to use it in practice. They did excellent work. If you’re really interested in using it in anger, you should reach out to ONS’ Data Science Campus. You can find a number of posts on the topic that are by my former colleagues <a href="https://datasciencecampus.ons.gov.uk/category/projects/synthetic-data-and-pets/">here</a>. They also have a recent data linkage package that uses synthetic data so that two public sector institutions can link data without seeing sensitive columns; you can find that <a href="https://github.com/datasciencecampus/pprl_toolkit">here</a>.</p>
+</section>
+<section id="fake-data" class="level3">
+<h3 class="anchored" data-anchor-id="fake-data">Fake data</h3>
+<p>Even if the risk appetite of your institution doesn’t extend to synthetic data, perhaps it would extend to entirely <strong>fake data</strong>? If you like this is an extreme form of synthetic data where the encryption cannot be reversed (as opposed to ‘cannot practically be reversed’ with synthetic data). Fake data have only the same data types (eg string) and forms (eg an email address) of original data but are otherwise completely and utterly made up. This means that fake data have all the benefits of synthetic data bar statistical aggregates being approximately similar to those that would have derived from the real data.</p>
+<p>There are a number of packages that can generate fake data that are extensible and with which you can create schemas that produce an entire set of fake data in the style you want. For example, <a href="https://faker.readthedocs.io/">Faker</a>:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> faker <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Faker</span>
+<span id="cb1-2">fake <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Faker()</span>
+<span id="cb1-3"></span>
+<span id="cb1-4">fake.name()</span>
+<span id="cb1-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 'Lucy Cechtelar'</span></span>
+<span id="cb1-6"></span>
+<span id="cb1-7">fake.address()</span>
+<span id="cb1-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># '426 Jordy Lodge</span></span>
+<span id="cb1-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#  Cartwrightshire, SC 88120-6700'</span></span>
+<span id="cb1-10"></span>
+<span id="cb1-11">fake.text()</span>
+<span id="cb1-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 'Sint velit eveniet. Rerum atque repellat voluptatem quia rerum. Numquam excepturi</span></span>
+<span id="cb1-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#  beatae sint laudantium consequatur. Magni occaecati itaque sint et sit tempore. Nesciunt</span></span>
+<span id="cb1-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#  amet quidem. Iusto deleniti cum autem ad quia aperiam.</span></span>
+<span id="cb1-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#  A consectetur quos aliquam. In iste aliquid et aut similique suscipit. Consequatur qui</span></span>
+<span id="cb1-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#  quaerat iste minus hic expedita. Consequuntur error magni et laboriosam. Aut aspernatur</span></span>
+<span id="cb1-17"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#  voluptatem sit aliquam. Dolores voluptatum est.</span></span>
+<span id="cb1-18"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#  Aut molestias et maxime. Fugit autem facilis quos vero. Eius quibusdam possimus est.</span></span>
+<span id="cb1-19"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#  Ea quaerat et quisquam. Deleniti sunt quam. Adipisci consequatur id in occaecati.</span></span>
+<span id="cb1-20"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#  Et sint et. Ut ducimus quod nemo ab voluptatum.'</span></span></code></pre></div>
+<p>And <a href="https://mimesis.name/master/">Mimemsis</a>:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> mimesis <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Person</span>
+<span id="cb2-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> mimesis.locales <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Locale</span>
+<span id="cb2-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> mimesis.enums <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Gender</span>
+<span id="cb2-4">person <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Person(Locale.EN)</span>
+<span id="cb2-5"></span>
+<span id="cb2-6">person.full_name(gender<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>Gender.FEMALE)</span>
+<span id="cb2-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Output: 'Antonetta Garrison'</span></span>
+<span id="cb2-8"></span>
+<span id="cb2-9">person.full_name(gender<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>Gender.MALE)</span>
+<span id="cb2-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Output: 'Jordon Hall'</span></span></code></pre></div>
+</section>
+</section>
+<section id="reproducible-analytical-pipelines" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="reproducible-analytical-pipelines">Reproducible analytical pipelines</h2>
+<p>A reproducible analytical pipeline (RAP) is a series of steps that trigger one after the other to produce an analysis from data ingestion all the way to the end product. It’s a form of <em>automation</em>. To illustrate why there are big efficiency gains to be had with them, let’s first look at an end-to-end process that <em>doesn’t</em> use RAP.</p>
+<section id="getting-a-bad-rap" class="level3">
+<h3 class="anchored" data-anchor-id="getting-a-bad-rap">Getting a bad RAP</h3>
+<p>Let’s take a high-stakes analytical pipeline that has lots of potential for improvement and efficiencies—but which is extremely common in the wider public sector. Imagine a process for publishing some key economic statistics that looks like this:</p>
+<ol type="1">
+<li>Statistical office publishes new data in an Excel file</li>
+<li>An analyst downloads the file onto a network drive</li>
+<li>Analyst checks the file by eye and copies specific cells into another Excel workbook that has the analysis</li>
+<li>Analyst drags out the equations behind the cells to incorporate the new data</li>
+<li>Values from the calculations get manually typed into a third spreadsheet, which also has a tab with sensitive data in</li>
+<li>The results then get manually copied into a Word document for a report</li>
+<li>The final calculations tab from the third spreadsheet is published externally, alongside the report</li>
+</ol>
+<p>Apart from being heavily manual, this process has multiple failure points:</p>
+<ul>
+<li>Perhaps there’s an earlier, unrevised version of the same file already on a network drive and that is used by mistake in step 3.</li>
+<li>Excel messes with data—it <a href="https://www.theverge.com/2020/8/6/21355674/human-genes-rename-microsoft-excel-misreading-dates">changes dates and names, and data types</a></li>
+<li>Excel doesn’t support larger datasets, so rows are missed</li>
+<li>Manual copy-paste errors</li>
+<li>Equations are different in different cells, and the analyst doesn’t notice because equations are hidden</li>
+<li>Calculations break if someone adds/removes rows</li>
+<li>Cannot see if there are changes in the calculations since last time the spreadsheet was run</li>
+<li>Time consuming manual checks</li>
+<li>Any mistake in step 1 means redoing all steps manually again</li>
+<li>High risk of the sensitive data being published alongside the other data</li>
+</ul>
+<p>Perhaps you think this is all a bit implausible. Sadly, it isn’t! Here are some real-world examples of where Excel-based pipelines have gone wrong:</p>
+<ul>
+<li>On Thursday, 3rd August 2023, an FOI request was made to the Police Service of Northern Ireland (PSNI). It asked for the “number of officers at each rank and number of staff at each grade”. PSNI sent back not just the numbers of officers at each rank in the spreadsheet they returned but every employee’s initials, surname, and unit—even those working out of MI5’s Northern Irish headquarters. Sensitive information on <em>10,000 people</em> was released by mistake, because of an extra tab in the Excel file.</li>
+<li>There’s the infamous case of the UK’s Covid Test and Trace programme. Civil servants were tracking cases in an Excel spreadsheet that was limited to 65,000 rows, and thus missed a bunch of infections, not to mention crucial links in the spread of the disease. Excel simply ran out of numbers. Work by economists Thiemo Fetzer and Thomas Graeber has shown that this <a href="https://www.medrxiv.org/content/10.1101/2020.12.10.20247080v1">probably led to an extra 125,000 COVID infections</a>.</li>
+<li><a href="https://www.ft.com/content/57acfb54-6a62-46d6-b930-87b19c2ab2d3">Hans Peter Doskozil</a> was mistakenly announced as the new leader of Austria’s Social Democrats (SPÖ) because of a “technical error in the Excel list”.</li>
+<li>One government department published a spreadsheet that still had a note in it that said “Reason for arrest data is dodgy so maybe we shouldn’t publish it.”</li>
+<li>Mathematical models written in Excel are especially vulnerable to mistakes. In a paper that was highly influential, economists Carmen Reinhart and Ken Rogoff found that economic growth slows dramatically when the size of a country’s debt rises above 90% relative to GDP. But the formula in their spreadsheet column missed out some of the countries in their data. A <a href="https://www.ft.com/content/1c3bae3c-a6ce-11e2-95b1-00144feabdc0">student found the error</a>, and realised that removing it made the results less dramatic.</li>
+<li>The Norwegian Soveign Wealth Fund’s 2023 <a href="https://www.ft.com/content/db864323-5b68-402b-8aa5-5c53a309acf1">Excel snafu</a> saw it miscalculate an index due to a “decimal error”. The mistake cost 92 million dollars.</li>
+<li>Back in 2012, J.P. Morgan went even further and racked up <em>$6 billion of losses</em> in part due to a “value-at-risk” model being <a href="https://www.ft.com/content/80bc5046-6ed2-30ef-b31a-bcbeac55d8bb">manually copied and pasted</a> across spreadsheet cells.</li>
+</ul>
+<p>There are many more examples: you can find a list at the delightfully named <a href="https://eusprig.org/">European Spreadsheet Risks Interest Group</a>. Now, good reproducible analytical pipeline (RAP) practices cannot protect you from mistakes, but <strong>reproducible analytical pipelines can substantially lower the risk of errors while also saving time via automation</strong>.</p>
+</section>
+<section id="good-rap" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="good-rap">Good RAP</h3>
+<p>What does a good RAP look like? There are a number of technologies and practices that can help create a RAP that avoids mistakes and saves tons of time and labour to boot. Some of these RAP technologies and practices are listed below in, roughly, the order in which they would be used in a data pipeline.</p>
+<ul>
+<li>Use an <a href="../../../blog/posts/the-prize-with-apis/the-prize-with-apis.html">API</a> to programmatically access the latest version of the data</li>
+<li>Keep a copy of the raw, downloaded version of the data so that you can always come back to it. Use datetime versioning to keep track of download time.</li>
+<li>Use <a href="../../../blog/posts/the-data-validation-landscape-in-2025/index.html">data validation</a> checks to ensure that the data looks how you expect it to on receipt</li>
+<li>Use code to process the data, rather than Excel spreadsheets. And use code<sup>7</sup> that is:
+<ul>
+<li>under <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-version-control.html">version control</a>, so that it is completely auditable and all changes are logged</li>
+<li>is well-formatted and linted, perhaps by a tool such as <a href="https://astral.sh/ruff">Ruff</a>.</li>
+<li>has <a href="https://pre-commit.com/">pre-commit</a> enabled with hooks that check for data, secrets, and other sensitive information submitted by mistake, and which auto-checks quality</li>
+<li>has tests so that everyone feels assured the code is doing the right thing</li>
+<li>subject to pull requests whenever it changes, so that multiple people sign off on important code</li>
+<li>is tested, etc., using runners, eg GitHub Actions</li>
+<li>is reproducible, including the set of packages and version of the language (eg via a <code>pyproject.toml</code> file and use of a tool like <a href="https://docs.astral.sh/uv/">uv</a>) and ideally for which the operating system is also reproducible too (eg via <a href="https://www.docker.com/">Docker</a>)</li>
+</ul></li>
+<li>Use a data orchestration tool to execute the entire code processing pipeline from start to finish. Some popular orchestration tools are <a href="https://airflow.apache.org/">Apache Airflow</a> (first generation) and <a href="https://docs.dagster.io/">Dagster</a> and <a href="https://docs.prefect.io/v3/get-started/index">Prefect</a> (both second generation). See below for an example of Prefect in action. Orchestration flows can be triggered on events, for example if a new file lands in a folder, or on a schedule. (An easier way in to execute-code-on-event for small, local problems is via packages such as <a href="https://pythonhosted.org/watchdog/index.html">watchdog</a> which watches for file changes and takes actions.)</li>
+<li>If there is a big overhead to using big data systems, use <a href="https://duckdb.org/">DuckDB</a> for processing fairly large datasets locally (say, up to 1TB). Don’t like writing SQL queries? Don’t worry no-one does—but <a href="https://ibis-project.org/">there are packages that can help</a>.</li>
+<li>Store the cleaned data or results in a database.</li>
+<li>Use anomaly detection techniques, etc, on the created statistics to check that they are plausible. (With a human in the loop!)</li>
+<li><a href="../../../blog/posts/build-a-cloud-api/build-a-cloud-api.html">Build an API</a> to disseminate the created statistics</li>
+<li>Create the report using a tool which can reproduce the same charts via code each time, eg <a href="https://quarto.org/">Quarto</a>, which can execute code chunks and be used to produce Word documents, HTML pages, PDFs, and even websites. (I wrote a short guide <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-quarto.html">here</a>.) Oh yeah, it does Powerpoints and Beamer presentations too.</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;Many of these code features are present in the <a href="https://github.com/aeturrell/cookiecutter-python-package">cookiecutter Python package</a>; blog on that available <a href="../../../blog/posts/ultra-modern-python-cookiecutters/index.html">here</a>.</p></div></div><p>Just as an aside, here’s how to orchestrate a simple data pipeline that runs every hour with Prefect:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Contents of flow.py</span></span>
+<span id="cb3-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> typing <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Any</span>
+<span id="cb3-3"></span>
+<span id="cb3-4"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> httpx</span>
+<span id="cb3-5"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> prefect <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> flow, task <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Prefect flow and task decorators</span></span>
+<span id="cb3-6"></span>
+<span id="cb3-7"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">@task</span>(retries<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb3-8"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> fetch_stats(github_repo: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">dict</span>[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>, Any]:</span>
+<span id="cb3-9">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""Task 1: Fetch the statistics for a GitHub repo"""</span></span>
+<span id="cb3-10"></span>
+<span id="cb3-11">    api_response <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> httpx.get(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"https://api.github.com/repos/</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>github_repo<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb3-12">    api_response.raise_for_status() <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Force a retry if not a 2xx status code</span></span>
+<span id="cb3-13">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> api_response.json()</span>
+<span id="cb3-14"></span>
+<span id="cb3-15"></span>
+<span id="cb3-16"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">@task</span></span>
+<span id="cb3-17"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> get_stars(repo_stats: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">dict</span>[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>, Any]) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>:</span>
+<span id="cb3-18">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""Task 2: Get the number of stars from GitHub repo statistics"""</span></span>
+<span id="cb3-19"></span>
+<span id="cb3-20">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> repo_stats[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'stargazers_count'</span>]</span>
+<span id="cb3-21"></span>
+<span id="cb3-22"></span>
+<span id="cb3-23"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">@flow</span>(log_prints<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>)</span>
+<span id="cb3-24"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> show_stars(github_repos: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">list</span>[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>]):</span>
+<span id="cb3-25">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""Flow: Show the number of stars that GitHub repos have"""</span></span>
+<span id="cb3-26"></span>
+<span id="cb3-27">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> repo <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> github_repos:</span>
+<span id="cb3-28">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Call Task 1</span></span>
+<span id="cb3-29">        repo_stats <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> fetch_stats(repo)</span>
+<span id="cb3-30"></span>
+<span id="cb3-31">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Call Task 2</span></span>
+<span id="cb3-32">        stars <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> get_stars(repo_stats)</span>
+<span id="cb3-33"></span>
+<span id="cb3-34">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Print the result</span></span>
+<span id="cb3-35">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>repo<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>stars<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> stars"</span>)</span>
+<span id="cb3-36"></span>
+<span id="cb3-37"></span>
+<span id="cb3-38"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Run the flow</span></span>
+<span id="cb3-39"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">__name__</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"__main__"</span>:</span>
+<span id="cb3-40">    show_stars([</span>
+<span id="cb3-41">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PrefectHQ/prefect"</span>,</span>
+<span id="cb3-42">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"pydantic/pydantic"</span>,</span>
+<span id="cb3-43">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"huggingface/transformers"</span></span>
+<span id="cb3-44">    ])</span></code></pre></div>
+<p>This flow can be executed on a schedule by running the below (assuming that you have already set up a worker pool—see the Prefect documentation for more):</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> prefect <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> flow</span>
+<span id="cb4-2"></span>
+<span id="cb4-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Source for the code to deploy (here, a GitHub repo)</span></span>
+<span id="cb4-4">SOURCE_REPO<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://github.com/prefecthq/demos.git"</span></span>
+<span id="cb4-5"></span>
+<span id="cb4-6"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">__name__</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"__main__"</span>:</span>
+<span id="cb4-7">    flow.from_source(</span>
+<span id="cb4-8">        source<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>SOURCE_REPO,</span>
+<span id="cb4-9">        entrypoint<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"my_workflow.py:show_stars"</span>, <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Specific flow to run</span></span>
+<span id="cb4-10">    ).deploy(</span>
+<span id="cb4-11">        name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"my-first-deployment"</span>,</span>
+<span id="cb4-12">        parameters<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>{</span>
+<span id="cb4-13">            <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"github_repos"</span>: [</span>
+<span id="cb4-14">                <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PrefectHQ/prefect"</span>,</span>
+<span id="cb4-15">                <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"pydantic/pydantic"</span>,</span>
+<span id="cb4-16">                <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"huggingface/transformers"</span></span>
+<span id="cb4-17">            ]</span>
+<span id="cb4-18">        },</span>
+<span id="cb4-19">        work_pool_name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"my-work-pool"</span>,</span>
+<span id="cb4-20">        cron<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"0 * * * *"</span>,  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Run every hour</span></span>
+<span id="cb4-21">    )</span></code></pre></div>
+<p>I share this to show that automation of code doesn’t have to be super complicated—with the cloud, it’s achievable in a few lines!</p>
+<p>There’s a lot in the list above. But doing all of the above not only massively reduces the risk of mistakes, it also makes it <em>far</em> easier to find mistakes when they do occur. And, the automation saves masses of time—allowing analysts to focus where they can add the most value.</p>
+<p>You can find more on reproducibility and RAP <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-rap.html">here</a> and <a href="https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/">here</a>, and <a href="https://aeturrell.github.io/coding-for-economists/auto-research-outputs.html">here</a> in the context of research.</p>
+<p>Finally, I realise that having people with the skills to do RAP to this standard is difficult and potentially expensive in itself. The market clearly recognises the benefits too, which is why data scientists are in such high demand! For me, overall, this is a much better way of doing things and even if the input costs are potentially higher, the output quality is likely to be <em>significantly</em> higher—so I contend that you still win out on productivity overall.</p>
+</section>
+</section>
+<section id="technical-communication-and-code-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="technical-communication-and-code-documentation">Technical communication and code documentation</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section is significantly more technical than the others and some readers may want to skip it and go straight to Model Behaviour.</p>
+</div>
+</div>
+<p>I already covered the efficiencies that could be unlocked by <a href="../../../blog/posts/public-sector-communication-efficiency/index.html#asynchronous-working">obsessively using documentation</a> in a previous post on efficiency. Many of the same benefits apply from documenting code obsessively too. As a reminder, those benefits include faster onboarding, having a single source of truth, making it easy to avoid stale documentation, more auditability, less likelihood of (in this case) code being used incorrectly, and, if the documentation is shared, transparency.</p>
+<p>However, there are some extra actions you can take with the documentation of code to squeeze every last drop of efficiency out of these benefits.</p>
+<p>At a minimum, each code repository should have a markdown README file that sets out what it is about and how to use it.</p>
+<p>The code itself should have sensible comments, and use informative variable, function, method, and class names. Functions, classes, and methods should have <a href="https://en.wikipedia.org/wiki/Docstring">docstrings</a> (comment blocks that say what the object does.) I tend to use the Google-style docstring conventions, defined in <a href="https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings">Google’s Python style guide</a>, but there are other docstring conventions around. Here’s an example of Google-style docstring on a function:</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> _create_unicode_hist(series: pd.Series) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> pd.Series:</span>
+<span id="cb5-2">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""Return a histogram rendered in block unicode.</span></span>
+<span id="cb5-3"></span>
+<span id="cb5-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Given a pandas series of numerical values, returns a series with one</span></span>
+<span id="cb5-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    entry, the original series name, and a histogram made up of unicode</span></span>
+<span id="cb5-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    characters. However, note that the histogram is very approximate, partly</span></span>
+<span id="cb5-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    due to limitations in how unicode is displayed across systems.</span></span>
+<span id="cb5-8"></span>
+<span id="cb5-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Args:</span></span>
+<span id="cb5-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        series (pd.Series): Numeric column of data frame for analysis</span></span>
+<span id="cb5-11"></span>
+<span id="cb5-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Returns:</span></span>
+<span id="cb5-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        pd.Series: Index of series name and entry with unicode histogram as</span></span>
+<span id="cb5-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        a string, eg '▃▅█'</span></span>
+<span id="cb5-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    """</span></span></code></pre></div>
+<p>It’s not just helpful for people looking at the innards of the code, it also helps if people are using functions and methods from the code in other code. If someone were to call <code>help(_create_unicode_hist)</code> then they would get the docstring back. In sophisticated development environments like Visual Studio Code, they would get a pop-up of this docstring even when just hovering their mouse over the function.</p>
+<p>For critical code, you may want to consider having code <em>type annotations</em>, aka <em>type hints</em> too. The code example above has those: in this case <code>series</code> has type <code>pd.Series</code> and the function returns <code>pd.Series</code> too (this is what <code>-&gt; pd.Series</code> does.) Type hints are just that, hints to help people understand what types of object are supposed to be going into and out of modular parts of code like functions and methods. Because they are hints, they’re included in this section on documenting code—adding type hints helps others understand what’s supposed to happen.</p>
+<p>If you’re really concerned about making sure the code is not used incorrectly, you can even enforce type hints, either at run time, so that if a user runs the code with the wrong data types an error is thrown, or at development time, so that the developer gets a warning that the internals of the code don’t adhere to the given type hints. <a href="https://typeguard.readthedocs.io/">typeguard</a> is a popular package for run-time type checking, while for development time (aka static) type checking, <a href="https://mypy-lang.org/">Mypy</a> and <a href="https://microsoft.github.io/pyright/">Microsoft’s Pyright</a> are the biggest libraries around.</p>
+<p>But you can go further! You’ll notice that the type annotations are, in effect, repeated in both the docstring and in the function signature. This means they could say different things, which would be confusing to users. Have no fear, though, because <em>there’s a package for that</em> (there always is): <a href="https://jsh9.github.io/pydoclint/">Pydoclint</a> trawls through your docstrings and type annotations and tells you if they diverge.</p>
+<p>But you can go even further! Let’s say you want to help people understand, practically, how to use a function, method, or class. Well, you can also add example code to docstrings. Here’s the format:</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> skim(</span>
+<span id="cb6-2">    df_in: Union[pd.DataFrame, pl.DataFrame],</span>
+<span id="cb6-3">) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span>:</span>
+<span id="cb6-4">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""Skim a pandas or polars dataframe and return visual summary statistics on it.</span></span>
+<span id="cb6-5"></span>
+<span id="cb6-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    skim is an alternative to pandas.DataFrame.describe(), quickly providing</span></span>
+<span id="cb6-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    an overview of a data frame via a table displayed in the console. It produces a different set of summary</span></span>
+<span id="cb6-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    functions based on the types of columns in the dataframe. You may get</span></span>
+<span id="cb6-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    better results from ensuring that you set the datatypes in your dataframe</span></span>
+<span id="cb6-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    you want before running skim.</span></span>
+<span id="cb6-11"></span>
+<span id="cb6-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Note that any unknown column types, or mixed column types, will not be</span></span>
+<span id="cb6-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    processed.</span></span>
+<span id="cb6-14"></span>
+<span id="cb6-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Args:</span></span>
+<span id="cb6-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        df_in (Union[pd.DataFrame, pl.DataFrame]): Dataframe to skim.</span></span>
+<span id="cb6-17"></span>
+<span id="cb6-18"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Raises:</span></span>
+<span id="cb6-19"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        NotImplementedError: If the dataframe has a MultiIndex column structure.</span></span>
+<span id="cb6-20"></span>
+<span id="cb6-21"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Examples</span></span>
+<span id="cb6-22"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    --------</span></span>
+<span id="cb6-23"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Skim a dataframe</span></span>
+<span id="cb6-24"></span>
+<span id="cb6-25"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        &gt;&gt;&gt; df = pd.DataFrame(</span></span>
+<span id="cb6-26"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">                {</span></span>
+<span id="cb6-27"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">                'col1': ['Philip', 'Turanga', 'bob'],</span></span>
+<span id="cb6-28"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">                'col2': [50, 100, 70],</span></span>
+<span id="cb6-29"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">                'col3': [False, True, True]</span></span>
+<span id="cb6-30"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">                })</span></span>
+<span id="cb6-31"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        &gt;&gt;&gt; df["col1"] = df["col1"].astype("string")</span></span>
+<span id="cb6-32"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        &gt;&gt;&gt; skim(df)</span></span>
+<span id="cb6-33"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    """</span></span></code></pre></div>
+<p>where you can add as many examples as you like.</p>
+<p>Now this is helpful in itself because it guides users as to how to use a bit of code. But, again, what if the examples were written 2 years ago and the code has changed? <em>There’s a package for that!</em> Using a package called <a href="https://github.com/Erotemic/xdoctest">xdoctest</a> you can, you guessed it, test that any examples in your docstrings actually run and do what the docstring says they will do.</p>
+<p>This is all very nice, but lots of people don’t want to go trawling through code. They want to read a glossy guide. The problem with guides, though, is that they’re often left to go stale while the code itself changes. You may have seen situations where there’s an Excel-based model and somewhere, floating around, a Word document explaining what that Excel model does. But who knows how much they are conjointly kept up to date?</p>
+<p>Fortunately, there’s a way to build documentation that sits with your code, and is in lock-step with it. The technology is called <a href="https://quarto.org/">Quarto</a>, and it’s a flexible document publishing system (where “document” includes websites and slides!) Perhaps the greatest power of Quarto is that you can put chunks of code into the source that gets compiled into a document and, in that final product, the outputs from the code will appear too (and only the outputs if you wish.) This means you can create documentation with Quarto (in the form a Word document or website) and keep the source files for that documentation in exactly the same place as your code. <em>Even better</em>, you can include examples of using the code in the documentation and you know it will be <em>exactly</em> the same code as in your software, and that it will work—because if it doesn’t, the documentation simply won’t build!</p>
+<p>But wait… you can go <em>even</em> further! You’ve spent all of this effort on lovely docstrings that tell people about how the modular parts of the code work and are meant to be used, and perhaps you even have examples in there too. What if you could automatically include all of that nice within-code documentation in your actual documentation? <em>There’s a package for that</em>! The massively underrated <a href="https://machow.github.io/quartodoc">Quartodoc</a> allows you to automatically pull docstrings from your code base and insert them into your documentation. It really is efficient, helpful, and a lot of fun too.</p>
+<p>For an example of this self-documenting behaviour in action, check out the website for my package <a href="https://aeturrell.github.io/specification_curve/">Specification Curve</a> or for econometrics regression package <a href="https://py-econometrics.github.io/pyfixest/pyfixest.html">Pyfixest</a>. In both cases, the writing is interspersed with examples of running real code from the packages. For both websites, there’s a reference page where parts of the code are automatically documented using Quartodoc.</p>
+<p>A lot of this is overkill for a lot of projects. But for complex analysis code on the critical path to a major publication that your institution produces? It’s a huge help and likely worth it.</p>
+</section>
+<section id="model-behaviour" class="level2">
+<h2 class="anchored" data-anchor-id="model-behaviour">Model Behaviour</h2>
+<p>When it comes to models, there are a lot of bad practices around. For me, the most worrying is that <em>most models are not versioned</em>. This means that if a decision was taken, or an analysis performed, with a model at time <img src="https://latex.codecogs.com/png.latex?T=t"> and it’s now time <img src="https://latex.codecogs.com/png.latex?T%3Et"> and the model is different, you’ve very little chance of getting back to the original model. Yes, this is true even if you’re using version control. That’s because a model is composed of three things: the code, the data, and (often) the random numbers used. You should version control code, and ideally you’d set the seed of your random numbers in that code too. But few people version data, so even if you have code and random numbers under control, you’ll need to version models.</p>
+<p>Why does this matter for efficiency? Not knowing why some part of your analysis is why it is, and having to dig back through and do detective work, is very time-consuming when it is needed. And it happens fairly often with models. A classic example would be if you were asked to do a retrospective forecast evaluation—how did the model you used two years ago perform? Has performance degraded since then? Additionally, you can test whether changes you’ve made to the model’s algorithm are actually improving its performance. So <strong>investing in model versioning can reduce time costs further down the line</strong>.</p>
+<p>A second part of model efficiency is continuous integration and continuous deployment. Enough has been written elsewhere about what these are that I’ll give the briefest summary of what they mean in this context. Continuous integration for models could involve automatically evaluating performance, or other metrics, when a new model is created. Continuous deployment would mean that when a new version of a model is ready, it automatically gets served up as an API.</p>
+<p>The latter idea, that models get served up as an API, is really important for efficiency. Today, if I’m in department X and I want to use a model in department Y to get predictions, I have to email someone in department Y, get them the permissions for the data that will form the input and then the data itself, and persuade them to take time out of whatever else they were doing to run it! If the model is deployed, I skip all that, and can work asynchronously—I simply use my data to ping the API and get the prediction straight back into my analytical tool. There’s more about asynchronous working and its efficiency benefits <a href="../../../blog/posts/public-sector-communication-efficiency/index.html#asynchronous-working">here</a>.</p>
+<p>There is a way to get most of these benefits pretty easily on the cloud using a <em>model registry</em>: a repository for privately storing models and their versions (from which those models can also be deployed.) I wrote at length about model registries <a href="../../../blog/posts/why-have-a-model-registry/index.html">here</a> and, rather than repeat myself here, I’ll defer the reader to that post for more information.</p>
+</section>
+<section id="artificial-intelligence-ai" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="artificial-intelligence-ai">Artificial Intelligence (AI)</h2>
+<p>A former boss of mine, now even more heavily invested in the AI world than he was when we worked together, recently told me “don’t have an AI strategy, have a business strategy that makes use of AI.” It stuck with me, partly because there are so many AI strategies around, but mostly because he’s right: AI is a tool and not a business plan. We don’t have a keyboard strategy or an email strategy.<sup>8</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn8"><p><sup>8</sup>&nbsp;Though now I think about it, perhaps there’d be some merit to the latter?</p></div></div><p>That said, AI is also quite new and people are still thinking through how it can be used to improve efficiency. So, in this section, I offer a few ideas around using AI to improve analysis and operations. (In the <a href="../../../blog/posts/public-sector-communication-efficiency/index.html">previous post in this series</a>, which covered communication and co-ordination, some AI uses also featured—for transcription, meeting summarisation and minutes, and for searching the stock of institutional knowledge.)</p>
+<p>A huge one is as a coding aid. GitHub Copilot is the leader, and large-institution-friendly in the sense that it’s all owned by Microsoft. I’ve been hugely impressed by, for example, Claude 3.7 Sonnet, as a back-end model. Whether you’re a new developer and need a chat with an artificial coding expert, or an experienced developer who knows what they need and can prompt the AI in the right way, coding aids are a huge benefit—though they are not trivial to use and there is a learning curve. It’s also very possible that, in the near future, AI models will be able to look at issues and raise pull requests without intervention. Coding aids are also helpful in a world where data science talent is scarce. The prolific Simon Willison has written about <a href="https://simonwillison.net/2025/Mar/11/using-llms-for-code/">how he uses LLMs to help him write code</a>, and there are likely few guides as out there today as good as his.</p>
+<p>Another area where AI is particularly helpful with efficiency is review and critique. As a manager, you do often end up saying the same kinds of things over and over again—whether that’s about a note, or code, or a presentation. What if I as a manager had a set of prompts that could precede content by staff in a large language model (LLM) query and which gave them a helpful first cut of what I would have said anyway? That means our time together as two humans reviewing the work can be focused on the less obvious, more subtle, and frankly more interesting questions and issues. A simpler way to do this is for the managee to just ask for a general review. If you do research, LLMs also do a reasonably good job of acting as practice reviewers.</p>
+<p>One area of LLMs that is likely to grow is auto-analysis. Instead of me as an analyst having to come up with, say, SQL queries to explore the data, I just say to the LLM, start exploring these data and tell me about anything useful. It doesn’t have to be analysis, it could be coding some software up too. Quite a few models now have code execution capabilities, and consumer-facing products in this space will only grow over time. This is going to democratise who can do analysis, which is a good thing, and will be especially helpful for senior leaders who want to make quick queries.</p>
+<p>I’m fairly sure I don’t believe it<sup>9</sup>, but the <a href="https://www.theintrinsicperspective.com/p/why-we-stopped-making-einsteins">theory that geniuses stopped appearing because we stopped educating a handful of people with uber-elite tutors</a> (aka aristocratic tutoring) has always stuck with me. However, you don’t have to believe in the hard form of this thesis to think that having an extremely good tutor who is available 24/7 would be helpful for learning. Well, let’s now imagine that everyone in the public sector can have access to the most knowledgeable (if not always the smartest) tutor on the planet! The possibilities for (self-)teaching using LLMs are strong. I’ve found that I can simply say, “write some questions to test me on X”, or “prepare a lesson on Y”, and get something very sensible.</p>
+<div class="no-row-height column-margin column-container"><div id="fn9"><p><sup>9</sup>&nbsp;Many <a href="https://www.astralcodexten.com/p/contra-hoel-on-aristocratic-tutoring">others aren’t convinced either</a>.</p></div></div><p>My final category of ways that AI can immediately help with public sector efficiency is perhaps the most obvious one: improving analysis directly. I wrote a lot about the ways that data science more broadly can help with efficiency in my <a href="../../../blog/posts/data-science-with-impact/index.html">post on data science with impact</a>, so I’ll refer you to that to find out more what the possibilities are in this space. I also have a recent paper and book chapter out on this very question too, called <a href="../../../research/chapters/turrell-2025/index.html">“Cutting through Complexity: How Data Science Can Help Policymakers Understand the World”</a>, which is chock full of examples.</p>
+</section>
+<section id="automating-and-organising-the-office" class="level2">
+<h2 class="anchored" data-anchor-id="automating-and-organising-the-office">Automating and organising the office</h2>
+<section id="automation-with-code" class="level3">
+<h3 class="anchored" data-anchor-id="automation-with-code">Automation with code</h3>
+<p>On this blog, we like code, because it’s transparent, usually it’s FOSS, it’s auditable, and it’s reproducible. So, where possible, it’s best practice to automate with code. What kind of office tasks can be done with code?</p>
+<p>In the private sector, tools like Slack—with their very powerful code integrations—seem to be more dominant. However, a lot of public sector organisations use Microsoft and its suite of office tools. These are, happily, scriptable with code. In particular, Microsoft has tools that aid with automating the use of its office software, including:</p>
+<ul>
+<li><a href="https://github.com/AzureAD/microsoft-authentication-library-for-python">Microsoft Authentication Library</a>, for authentication with Microsoft Azure Active Directory accounts (AAD) and Microsoft Accounts (MSA) using industry standard OAuth2 and OpenID Connect. Basically, this logs you in to Microsoft services when using code.</li>
+<li><a href="https://learn.microsoft.com/en-us/graph/overview">Microsoft Graph API</a>, for interacting with cloud-based Microsoft software products (eg Outlook.) Although it’s an API, there is an associated front-end Python package too, called <a href="https://github.com/microsoftgraph/msgraph-sdk-python#readme">Microsoft Graph SDK</a>. There’s also an <a href="https://developer.microsoft.com/en-us/graph/graph-explorer">interactive Graph Explorer tool</a>.</li>
+</ul>
+<p>Third-parties have built other, simpler-to-use packages on top of these. A notable example is the <a href="https://github.com/vgrem/Office365-REST-Python-Client">Office365-REST-Python-Client</a>. That page has lots of examples but, just to give you a flavour, here’s how to send an email in code:</p>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> office365.graph_client <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> GraphClient</span>
+<span id="cb7-2"></span>
+<span id="cb7-3">client <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> GraphClient(acquire_token_func)</span>
+<span id="cb7-4"></span>
+<span id="cb7-5">client.me.send_mail(</span>
+<span id="cb7-6">    subject<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Meet for lunch?"</span>,</span>
+<span id="cb7-7">    body<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"The cafeteria is open."</span>,</span>
+<span id="cb7-8">    to_recipients<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hungryfriend@microsoft.com"</span>]</span>
+<span id="cb7-9">).execute_query()</span></code></pre></div>
+<p>There’s support for doing operations with Outlook, Teams, OneDrive, Sharepoint, OneNote, and Planner (a task manager).</p>
+<p>Perhaps a couple of examples would give you a sense of how this can be useful.</p>
+<p>Imagine you have a RAP that produces a report, as discussed above. Great, you have a report, now what? Now you can use code to do that last step and email it out to stakeholders or put it in a Sharepoint folder.</p>
+<p>Another example: like me, you work with your team on a Kanban board where code tasks are assigned to people. You could have a GitHub action set up so that each time a name is assigned to a card/issue on that Kanban, a task is also sent to that person’s Planner app.</p>
+<p>One more example: people are always emailing documents to read. As noted in the previous post though, email is a bad way to communicate source information. Instead, you can have a code setup to watch a Sharepoint folder for any new documents dropped into it. When a new document arrives, the people who need to read the document get a notification that it’s there waiting for their review.</p>
+<p>If you’re on Google Docs, there’s an <a href="https://developers.google.com/docs/api/reference/rest">API for that too</a>. And there are plenty of other office efficiency code tools not from the big tech firms. Here’s a fairly random selection:</p>
+<ul>
+<li>how about good quality, person-labelled transcripts of meetings? See this post on <a href="https://den.dev/blog/how-i-automated-podcast-transcription-with-local-ai/">how someone automated their podcast transcription process with local AI</a> (complete with diarization).</li>
+<li>rooting out any <a href="https://github.com/butuzov/deadlinks">deadlinks</a></li>
+<li>creating <a href="https://github.com/lincolnloop/python-qrcode">QR codes</a></li>
+<li><a href="https://github.com/tebelorg/RPA-Python">Automation of generic interactions with your computer</a> (aka robotic process automation)</li>
+<li>renaming, sorting, deleting, or moving hundreds of files at once (using tools like <a href="https://realpython.com/python-pathlib/">pathlib</a>, <a href="https://github.com/gorakhargosh/watchdog">watchdog</a>, and <a href="https://docs.python.org/3/library/shutil.html">shutil</a>)</li>
+<li>Web-scraping, of course</li>
+<li><a href="https://schedule.readthedocs.io/en/stable/">Scheduling tasks</a> to happen while your computer is running</li>
+</ul>
+<p>A quick example of the latter, scheduling, is:</p>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> schedule</span>
+<span id="cb8-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> time</span>
+<span id="cb8-3"></span>
+<span id="cb8-4"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> morning_task():</span>
+<span id="cb8-5">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Good morning! Running your daily automation task..."</span>)</span>
+<span id="cb8-6"></span>
+<span id="cb8-7">schedule.every().day.at(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"08:00"</span>).do(morning_task)</span>
+<span id="cb8-8"></span>
+<span id="cb8-9"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">while</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>:</span>
+<span id="cb8-10">    schedule.run_pending()</span>
+<span id="cb8-11">    time.sleep(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span>)</span></code></pre></div>
+<p>There are really incredible possibilities in this space.</p>
+</section>
+<section id="low-or-no-code-automation" class="level3">
+<h3 class="anchored" data-anchor-id="low-or-no-code-automation">Low or no code automation</h3>
+<p>There’s a huge barrier to automating with code, which is that most people in most organisations can’t code. Overall, for the reasons listed, code-based automation is to be preferred. However, we should not let the perfect be the enemy of the good and <strong>proprietary low or no code tools can democratise the ability to automate tasks</strong>. The most relevant example of such a tool in the public sector is Microsoft’s <a href="https://www.microsoft.com/en-gb/power-platform/products/power-automate">Power Automate</a>, which is described as “A comprehensive, end-to-end cloud automation platform powered by low code and AI.”</p>
+<p>Power Automate is not free, but if your institution uses Microsoft then there’s a chance that you have access to it as part of a bundle. Power Automate’s stand out feature is that you can create automated flows simply by pointing and clicking (and sometimes filling in a few details.) For the automations it covers, it’s extremely convenient. Some examples of what can be automated include:</p>
+<ul>
+<li>Sending a customised email when a new file is added to a folder on Sharepoint</li>
+<li>Scheduling a recurring message in a Teams chat</li>
+<li>Saving an email to OneNote</li>
+</ul>
+<p>There are also ‘connectors’ that provide integrations with popular other services and software, including GitHub, Gmail, Slack, etc.</p>
+<p>If you have the relevant Microsoft subscription, you can find example templates and connectors <a href="https://www.microsoft.com/en-us/power-platform/templates">here</a>.</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In this post, I’ve explored a range of ideas to boost efficiency in public sector analysis and operations. Investing in better technology, embracing open-source software, data sharing, and automating analytical processes has the potential to yield significant productivity improvements. The same goes for implementing reproducible analytical pipelines, maintaining comprehensive technical documentation, versioning models, strategically integrating AI tools, and automating routine office tasks.</p>
+<p>These practices are likely to boost productivity by being, in some cases, cheaper. But the likely biggest contribution to productivity is in reducing errors, saving time, enabling more analysis, and increasing agility.</p>
+
+
+</section>
+
+
+ ]]></description>
+  <category>productivity</category>
+  <category>public sector</category>
+  <category>work chat</category>
+  <category>rap</category>
+  <guid>https://www.aeturrell.com/blog/posts/public-sector-analytical-efficiency/</guid>
+  <pubDate>Tue, 18 Mar 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/public-sector-analytical-efficiency/automated_stats.webp" medium="image" type="image/webp"/>
+</item>
 <item>
   <title>Efficiency in the public sector: communication and co-ordination</title>
   <dc:creator>Arthur Turrell</dc:creator>
@@ -1264,20 +2063,20 @@ font-style: inherit;">"w"</span>).write(response.text)</span></code></pre></div>
 <p>This is the input file. Yes, I took a bad photograph. In some ways, that’s quite helpful, as it gives a sense of how these models do in a difficult situation. If you were doing this at scale, you’d probably want to find a consistent way of taking high quality photographs, however.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/converting-lecture-notes/test_lecture_note.webp" class="img-fluid figure-img"></p>
+<p><img src="https://www.aeturrell.com/blog/posts/converting-lecture-notes/test_lecture_note.webp" class="img-fluid figure-img" style="width:80.0%"></p>
 <figcaption class="margin-caption">Example input of handwritten lecture note</figcaption>
 </figure>
 </div>
 <p>And here are the outputs:</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/converting-lecture-notes/lecture_output_gpt4o.webp" class="img-fluid figure-img"></p>
+<p><img src="https://www.aeturrell.com/blog/posts/converting-lecture-notes/lecture_output_gpt4o.webp" class="img-fluid figure-img" style="width:80.0%"></p>
 <figcaption class="margin-caption">Output capture from GPT-4o</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/converting-lecture-notes/lecture_output_gemini.webp" class="img-fluid figure-img"></p>
+<p><img src="https://www.aeturrell.com/blog/posts/converting-lecture-notes/lecture_output_gemini.webp" class="img-fluid figure-img" style="width:80.0%"></p>
 <figcaption class="margin-caption">Output capture from gemini-exp-1206</figcaption>
 </figure>
 </div>
@@ -2695,7 +3494,7 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
 <section id="a-simple-model-in-code-as-an-example" class="level3">
 <h3 class="anchored" data-anchor-id="a-simple-model-in-code-as-an-example">A simple model in code as an example</h3>
 <p>The simplest model you can think of is something like the below, where we feed some data on the miles per gallon of cars into a regression.</p>
-<div id="72a1c4e8" class="cell" data-execution_count="1">
+<div id="46843257" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
@@ -2842,7 +3641,7 @@ font-style: inherit;">float</span>},</span>
 </div>
 </div>
 <p>Now we can fit a linear model, <code>lin_model</code>.</p>
-<div id="96b111a2" class="cell" data-execution_count="2">
+<div id="57cf7651" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> statsmodels.api <span class="im" style="color: #00769E;
@@ -2865,7 +3664,7 @@ font-style: inherit;">=</span>mpg).fit()</span></code></pre></div>
 <p>This has a predict method, accessed via <code>lin_model.predict()</code>.</p>
 <p>Okay, <em>here’s the important bit</em>: to save this model locally on your computer (ready to upload to a model registru), it would be <code>lin_model.save("lin_reg_model.pkl")</code>.</p>
 <p>For this particular package, <strong>statsmodels</strong>, you can see a summary of the underlying model using <code>.summary()</code></p>
-<div id="a72c7761" class="cell" data-execution_count="3">
+<div id="6f85d2b8" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">lin_model.summary()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
@@ -2891,13 +3690,13 @@ font-style: inherit;">=</span>mpg).fit()</span></code></pre></div>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Date:</td>
-<td>Tue, 10 Dec 2024</td>
+<td>Tue, 18 Mar 2025</td>
 <td data-quarto-table-cell-role="th">Prob (F-statistic):</td>
 <td>4.87e-11</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Time:</td>
-<td>12:21:31</td>
+<td>10:43:18</td>
 <td data-quarto-table-cell-role="th">Log-Likelihood:</td>
 <td>-71.235</td>
 </tr>
@@ -5573,75 +6372,6 @@ font-style: inherit;">41000</span>]</span>
   <guid>https://www.aeturrell.com/blog/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html</guid>
   <pubDate>Wed, 08 Feb 2023 00:00:00 GMT</pubDate>
   <media:content url="https://www.aeturrell.com/blog/posts/managing-public-sector-knowledge/None" medium="image"/>
-</item>
-<item>
-  <title>Why you shouldn’t code on your work laptop</title>
-  <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>“Nobody ever got fired for buying Microsoft” goes an old saying. Actually, it was probably first said in the 1980s in reference to IBM <span class="citation" data-cites="1983school">(<em>School Microcomputing Bulletin</em> 1983)</span>, but the meaning remains the same: as the Chief Technology Officer, or similar, you’re not going to get in trouble for buying the boring old thing that everyone else is buying. (But you <em>might</em> get in trouble if you bought something that many of your staff <em>weren’t</em> comfortable with.) The attraction to what is considered safe, known, and widely-used is especially strong for large public institutions because they tend to be risk averse, subject to intense scrutiny, and responsible for statutatory processes that simply <em>cannot</em> go wrong.</p>
-<section id="enterprise-it-can-sacrifice-productivity-for-safety" class="level2">
-<h2 class="anchored" data-anchor-id="enterprise-it-can-sacrifice-productivity-for-safety">Enterprise IT can sacrifice productivity for safety</h2>
-<p>There’s a trade-off though; when it comes to software and hardware, what is widely used and known may not be at the cutting-edge and, if it’s made endlessly safe, it can actively stifle innovation. To create, at least, a sense of safety, the “nobody ever got fired for buying …” type of software tends to be locked down. In the case of Microsoft’s popular operating system, Windows, which is endemic in large organisations, you may not even be able to change the screen saver: large, otherwise proud organisations humbly display whatever screensaver Microsoft has deemed appropriate rather than anything to do with the firm. Of course, screensavers don’t matter much: it’s when you want to automate the start-up of the computer, or edit a particular type of file, or create a reproducible analytical pipeline, that the locked-down nature of enterprise IT starts to preserve safety at the cost of producitivity. It isn’t just control either; the quality of laptop needed by different employees will vary enormously, but enterprise IT will often see everyone landed with the same kit.</p>
-<p>Why is this such a problem in large organisations? You can’t imagine a tech start-up stopping its staff from installing whatever is needed to get the job done. The assumption that CTOs have made is that giving <em>all</em> users the power to change their screensaver or execute scripts will mean someone will eventually harm the organisation (for example, through unintentionally deleting someone else’s data or releasing something publicly that should have been private). Or perhaps it’s just that enterprise IT doesn’t give the fine-grained control needed to empower staff to be productive—perhaps it’s that the systems that CTOs of large organisations can buy are either locked down, or they are not; there’s no customisability. In any case, the fact that large organisations harbour a very large and heterogeneous set of IT users is behind the need for policies and processes that stop people installing the software they need or changing settings to get things done. One size fits all, and the system is crafted around minimising risk rather than maximising productivity. What makes the trade-off much harder is that safety breaches and computing accidents are very countable and discoverable, but lost productivity from innovations that didn’t happen are not.</p>
-<p>The locked down nature of enterprise IT presents a real challenge for anyone trying to make their organisation more efficient using data science (or any other innovation for that matter). Want to deploy a dashboard? Hard. Want to deploy a machine learning model? Very hard. Want to ensure everyone has the same code environment for a training course? Tricky, especially if you’ve got people who have different ‘home’ IT because they’re drawn from different units from across the enterprise, each with their own variant of the IT. Even downloading the software to build a machine learning model is nigh on impossible in a locked-down Windows ecosystem: installing Python is often blocked or requires a call to a service desk; installing packages is often blocked and, even when a package delivery solution is in place, it may not work as intended; some packages are frequently blocked from running because they require on-the-fly compilation (<a href="https://www.pymc.io">PyMC</a>, for example); and then many frameworks do not work on Windows itself. (Windows Subsystem for Linux is not a silver bullet for these problems.) Even the basic automation of scripts and so on is more tricky on Windows, assuming that you are able to run scripts. As the final cherry on the cake, Microsoft Outlook blocks <code>.py</code> files as they might be harmful (though please put your code under version control rather than emailing it around).</p>
-<p>You might think I’m picking on Microsoft here. I am. Because, even though they make some fantastic software (Visual Studio Code is genuinely incredible), they are so dominant in the marketplace. A typical day at a large firm will often involve logging on to a Microsoft Windows computer, opening up Microsoft Outlook to read emails, having calls on Microsoft Teams, surfing the internet via Microsoft Edge, writing a note on Microsoft Word, creating a slide deck on Microsoft Powerpoint, taking notes on Microsoft OneNote, entering a discussion on Microsoft’s Yammer network, and sharing files on the dreaded Microsoft Sharepoint. I simply do not believe that Microsoft produces the best tools for email, calendar, operating system, word processing, data analysis, file sharing, internet browsing, presentations, community discussion, <em>and</em> video conferencing. (Do you think there might be a competition problem here?) I’ll allow that OneNote is pretty good though.</p>
-<p>You might also think that enterprise IT solutions mean that everything that works on one computer will work on another. You’d be wrong! Updates are applied at different times for different people, hardware is rolled out gradually rather than all at once, and people can still change their own systems through choosing to install extras from a provided ‘Software Centre’. So, for all that enterprise IT is controlled, it still suffers from the “it works on my computer” problem.</p>
-</section>
-<section id="from-problems-to-solutions" class="level2">
-<h2 class="anchored" data-anchor-id="from-problems-to-solutions">From problems to solutions</h2>
-<p>There are a lot of issues to sort here, and something as drastic as competition policy may be needed to unleash productivity from better software for most firms. But I do think there is a potential solution for data scientists and people working on automation, and one that the CTO and CDO can happily support.</p>
-<p>The problem we’re really trying to solve for data scientists who want to improve their organisation is: how can we run the latest, greatest packages on the same infrastructure without dealing with locked-down IT? And while also retaining as much of the safety that large organisations hanker for? Switching everyone to Linux might help, sure; it could save some money as the operating system is free (though human support isn’t), and there’s evidence that some firms using (free versions of) Linux are more productive <span class="citation" data-cites="nagle2019open">(Nagle 2019)</span>. But this would require organisation-level change and mass upskilling, and is unlikely to happen due to proprietary software lock-in. Fortunately, there’s a simpler way.</p>
-<p>My proposal is that we should simply stop coding on work laptops. Just stop. It is simply too difficult to get enterprise IT Windows laptops that are locked down to do everything we really need to improve an organisation while still satisfying the security constraints.</p>
-</section>
-<section id="where-can-i-code" class="level2">
-<h2 class="anchored" data-anchor-id="where-can-i-code">Where <em>can</em> I code?</h2>
-<p>So, if I’m saying do not code on your work Windows laptop, where <em>should</em> you code? The answer, in short, is the cloud. At its best, this provides an isolated, reproducible, environment. It completely solves the “it doesn’t work on my computer” problem. It solves the operating system problem too, because cloud computing can be on any operating system—including ones that are specified in code (“infrastructure as code”). It better integrates with (and even encourages) version control and Continuous Integration and Continuous Deployment (CI/CD). Best of all, these isolated environments aren’t subject to the vagaries of enterprise IT because they are separate, and accessed (typically) only through a browser window.</p>
-<p>I want to be clear: this does not mean that doing your coding via cloud computing is unsafe. It’s almost certainly safer, and in many ways: whatever you are doing on the cloud should not go anywhere near your email application. If your IT department has cloud expertise, they can do things that will greatly reduce the risk of any kind of cloud-based data leak. Best practice for sensitive data is considered to be holding them in a secure cloud environment anyway. And, with asset-level control, you can grant access only to the users who need it—quite a contrast to having a writeable file on a network drive (yes, this still happens in 2023). Of course, someone actively trying to do harm still can, but this is true on any system.</p>
-<p>There are a number of services now out there that provide these reproducible coding environments at low or even no cost, depending on the number of hours used per month. The big players are Google Cloud Compute, Amazon Web Services, and Microsoft Azure. These require a bit more expertise to set up, and typically have to be used with buy-in and help from architecture experts. But there are increasingly off the shelf reproducible code environments that you can use for all but very sensitive and or confidential data. These include:</p>
-<ul>
-<li><a href="https://github.com/features/codespaces">Github Codespaces</a>, which has a free tier, uses Visual Studio Code by default, and can be accessed in browser or via Visual Studio Code desktop. It works at the level of a GitHub repo so has particularly good integration with version control.</li>
-<li><a href="https://www.gitpod.io/">Gitpod</a>, which has a free tier, uses Visual Studio Code by default, and can be accessed in browser or via Visual Studio Code desktop.</li>
-<li><a href="https://cloud.google.com/workstations">Google Cloud Workstations</a>, which takes more set up and uses Code-OSS (the open source version of Visual Studio Code).</li>
-</ul>
-<p>Github Codespaces is probably the easiest service to access if your IT department has no real expertise in cloud computing. It only requires that each person has a GitHub account, that your IT department has unblocked Github’s website, and that you have some billing in place if you go over the free tier hours. Of course, Github is actually owned by Microsoft, and your firm is probably already buying Microsoft (“Nobody ever got fired for buying Microsoft”!) so all you need to do is to convince IT to pay for an extra service from a firm they already have a relationship with. (If you’re lucky, your IT department will already know a lot about cloud computing and have arranged empowered access to it for you—but a large number of firms are unlikely to be able to provide this.)</p>
-<p>Now, you will still need to think carefully about where any data you are using will live and how you get it into your codespace (or similar). But having a (secure) connection to some sort of cloud storage bucket is a good default if there isn’t an API around that you can consume directly.</p>
-</section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>In short, if you’re looking to get a reproducible, working code environment that is consistent across users and you have an IT department that doesn’t have much expertise in coding or cloud computing, my recommendation is that you:</p>
-<ul>
-<li>do not try and get your IT dept to put analytical programming languages on work laptops;</li>
-<li>instead, get them to unblock GitHub and have any users create an account on it (with billing if necessary);</li>
-<li>use GitHub for version control; and</li>
-<li>use <a href="https://github.com/features/codespaces">Github Codespaces</a> for your coding environment (with optional docker containers for reproducible environments)</li>
-</ul>
-
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-<div id="ref-nagle2019open" class="csl-entry">
-Nagle, Frank. 2019. <span>“Open Source Software and Firm Productivity.”</span> <em>Management Science</em> 65 (3): 1191–1215.
-</div>
-<div id="ref-1983school" class="csl-entry">
-<em>School Microcomputing Bulletin</em>. 1983. v. 2-5. Learning Publications. <a href="https://books.google.co.uk/books?id=hVdRAAAAYAAJ">https://books.google.co.uk/books?id=hVdRAAAAYAAJ</a>.
-</div>
-</div></section></div> ]]></description>
-  <category>code</category>
-  <category>open-source</category>
-  <category>cloud</category>
-  <category>data science</category>
-  <category>work chat</category>
-  <guid>https://www.aeturrell.com/blog/posts/why-you-shouldnt-code/why-you-shouldnt-code.html</guid>
-  <pubDate>Fri, 13 Jan 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://www.aeturrell.com/blog/posts/why-you-shouldnt-code/elisa-ventur-bmJAXAz6ads-unsplash.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

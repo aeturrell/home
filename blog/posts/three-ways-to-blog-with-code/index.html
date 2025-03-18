@@ -297,7 +297,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <section id="test-blog-post" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="test-blog-post">Test blog post</h3>
 <p>This is a <em>very</em> approximate recreation of XKCD comic number 2419, <a href="https://xkcd.com/2419/">Hug Count</a>.</p>
-<div id="af17cef2" class="cell" data-execution_count="1">
+<div id="29b87251" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -349,12 +349,12 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Now we need to adjust the last entry downwards to reflect the unfortunate lack of hugs since coronavirus:</p>
-<div id="5b3ec260" class="cell" data-execution_count="2">
+<div id="5b3bfe9d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="dv">2020</span>:<span class="dv">2022</span>, <span class="st">'Hugs'</span>] <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s print the last number in-line: <code>3</code>.</p>
 <p>Finally, let’s create the image.</p>
-<div id="f698a011" class="cell page-columns page-full" data-execution_count="3">
+<div id="17d3d1ae" class="cell page-columns page-full" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib_inline.backend_inline</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>matplotlib_inline.backend_inline.set_matplotlib_formats(<span class="st">"svg"</span>)</span>

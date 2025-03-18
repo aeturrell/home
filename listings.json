@@ -6,6 +6,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/posts/public-sector-analytical-efficiency/index.html",
       "/blog/posts/public-sector-communication-efficiency/index.html",
       "/blog/posts/the-data-validation-landscape-in-2025/index.html",
       "/blog/posts/ultra-modern-python-cookiecutters/index.html",
@@ -62,6 +63,7 @@
       "/blog/posts/running-many-regressions-alongside-pandas/index.html",
       "/blog/posts/econometrics-in-python-parti-ml/index.html",
       "/blog/posts/estimation-heterogeneous-treatment-random-forests/index.html",
+      "/blog/posts/public-sector-analytical-efficiency/index.html",
       "/blog/posts/public-sector-communication-efficiency/index.html",
       "/blog/posts/get-organised/index.html",
       "/blog/posts/the-prize-with-apis/the-prize-with-apis.html",
