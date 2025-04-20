@@ -34,6 +34,18 @@
   - name: PyPI
     url: https://pypi.org/project/panoptipy
 
+- title: smartrappy
+  description: "A package forsSmart reproducible analytical pipeline inspection and inference. It scans a Python project and infers the directed acyclic graph (DAG) of the code and data dependencies, including the last time any data were refreshed and whether the data exist at all on disk. It then visualisaes the DAG."
+  university: Developing
+  language: Python
+  url: https://aeturrell.github.io/smartrappy
+  logo: logos/smartrappy.svg
+  semester:
+  - name: GitHub
+    url: https://github.com/aeturrell/smartrappy
+  - name: PyPI
+    url: https://pypi.org/project/smartrappy
+
 - title: cookiecutter-python-package
   description: "Used with the cookiecutter package, this template can generate the structure of a modern Python package with lots of extras for quality and convenience."
   university: Mature
