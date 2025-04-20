@@ -12,7 +12,7 @@
 
 - title: Specification Curve
   description: 'Specification Curve is a Python package that performs specification curve analysis; it helps with the problem of the “garden of forking paths” (many defensible choices) when doing analysis by running many regressions and summarising the effects in an easy to digest chart.'
-  university: Developing
+  university: Mature
   language: Python
   url: https://aeturrell.github.io/specification_curve
   logo: logos/spec_curve_logo.svg
@@ -21,6 +21,28 @@
     url: https://github.com/aeturrell/specification_curve
   - name: PyPI
     url: https://pypi.org/project/specification-curve/
+
+- title: panoptipy
+  description: "A package for static code quality assessment of Python codebases. It scans local codebases or remote GitHub repositories and generates a report summarising various code quality metrics."
+  university: Developing
+  language: Python
+  url: https://aeturrell.github.io/panoptipy
+  logo: logos/panoptipy.svg
+  semester:
+  - name: GitHub
+    url: https://github.com/aeturrell/panoptipy
+  - name: PyPI
+    url: https://pypi.org/project/panoptipy
+
+- title: cookiecutter-python-package
+  description: "Used with the cookiecutter package, this template can generate the structure of a modern Python package with lots of extras for quality and convenience."
+  university: Mature
+  language: Python/Markdown/Quarto
+  url: https://github.com/aeturrell/cookiecutter-python-package
+  logo: logos/cookiecutter_logo_package.svg
+  semester:
+  - name: GitHub
+    url: https://github.com/aeturrell/cookiecutter-python-package
 
 - title: cookiecutter-research-project
   description: "Used with the cookiecutter package, this template can generate the structure of a research project complete with paper, slides, and reproducible code."
@@ -31,16 +53,6 @@
   semester:
   - name: GitHub
     url: https://github.com/aeturrell/cookiecutter-research-project
-
-- title: cookiecutter-python-package
-  description: "Used with the cookiecutter package, this template can generate the structure of a modern Python package with lots of extras for quality and convenience."
-  university: Developing
-  language: Python/Markdown/Quarto
-  url: https://github.com/aeturrell/cookiecutter-python-package
-  logo: logos/cookiecutter_logo_package.svg
-  semester:
-  - name: GitHub
-    url: https://github.com/aeturrell/cookiecutter-python-package
 
 - title: Occupationcoder
   description: "Given a job title and job description, provides an algorithm to assign a UK standard occupational classification (SOC) code to the job."

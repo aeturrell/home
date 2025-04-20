@@ -1,0 +1,30 @@
+<svg width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <linearGradient id="brassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0e68c; stop-opacity:1" /> <stop offset="50%" style="stop-color:#daa520; stop-opacity:1" /> <stop offset="100%" style="stop-color:#b8860b; stop-opacity:1" /> </linearGradient>
+
+    <linearGradient id="woodGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#583a25; stop-opacity:1" /> <stop offset="50%" style="stop-color:#8B4513; stop-opacity:1" /> <stop offset="100%" style="stop-color:#583a25; stop-opacity:1" /> </linearGradient>
+
+    <radialGradient id="lensGradient" cx="0.3" cy="0.3" r="0.7">
+      <stop offset="0%" style="stop-color:white; stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:white; stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <g transform="translate(100, 100)"> <rect x="-15" y="80" width="30" height="150" rx="10" ry="20" fill="url(#woodGradient)" stroke="#4a2e1e" stroke-width="1.5"/>
+    <rect x="-20" y="70" width="40" height="15" rx="3" ry="3" fill="url(#brassGradient)" stroke="#8c732e" stroke-width="1"/>
+    <ellipse cx="0" cy="230" rx="18" ry="8" fill="url(#brassGradient)" stroke="#8c732e" stroke-width="1"/>
+
+    <circle cx="0" cy="0" r="65" fill="none" stroke="url(#brassGradient)" stroke-width="12"/>
+    <circle cx="0" cy="0" r="53" fill="none" stroke="#8c732e" stroke-width="2"/>
+
+    <circle cx="0" cy="0" r="55" fill="#e0f2f7" fill-opacity="0.5" /> <circle cx="0" cy="0" r="55" fill="url(#lensGradient)" />
+
+    <path d="M -65,0 A 65,65 0 0 1 65,0" fill="none" stroke="#8c732e" stroke-width="1" stroke-dasharray="5, 5"/>
+    <path d="M -65,0 A 65,65 0 0 0 65,0" fill="none" stroke="#8c732e" stroke-width="1" stroke-dasharray="5, 5"/>
+
+  </g>
+
+</svg>
