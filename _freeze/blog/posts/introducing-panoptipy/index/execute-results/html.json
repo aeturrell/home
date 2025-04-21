@@ -1,0 +1,12 @@
+{
+  "hash": "945ad57a9b984382b662ce6d84781911",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ndate: \"2025-04-21\"\nlayout: post\ntitle: \"Introducing panoptipy\"\ncategories: [python, data science, code]\nimage: \"../../../code/logos/panoptipy.svg\"\n---\n\n\n\n\nIf you're responsible for data scientists or developers, it's incredibly useful to have a quick way to get a sense of what kind of state your code bases are in. I've created [**panoptipy**](https://aeturrell.github.io/panoptipy/) to help with just this.\n\n[**pre-commit**](https://pre-commit.com/) is another tool that can do lots of code quality checks. However, as I explain in the **panoptipy** [docs](https://aeturrell.github.io/panoptipy/), **pre-commit** is designed to be used by developers to check their own code before they commit it or in Continuous Integration (CI) / Continous Deployment (CD) pipelines. **pantoptipy** aims to hit my need for summarising the quality of lots of code repos at once, and for passing those results in various formats.\n\n## Basic use\n\nYou can use panoptipy as a stand-alone tool via [Astral’s uv](https://docs.astral.sh/uv/) package:\n\n\n\n\n```{bash}\nuvx panoptipy scan .\n```\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
