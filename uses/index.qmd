@@ -33,11 +33,9 @@ This page contains a list of the tools I'm using for research or at home. Most o
 - *Development environment*. I use [Visual Studio Code](https://code.visualstudio.com/) for almost all code, including Python and R. (I wrote a post about how to set it up for R [here](../blog/posts/setting-up-r-in-vscode/index.md).) Some of the extensions I use are autoDocstring, colorize, Excel Viewer, git blame, git graph, git history, gitlens, indent-rainbow, and Jupyter. I also use Docker for development, including the excellent Visual Studio Code docker extensions.
 - *Cloud compute*. When I need cloud capabilities, it depends. For anything light-ish that I just want to try in an isolated environment, I might just spin up a ready-built cloud environment using [Github Codespaces](https://github.com/features/codespaces) but for more serious projects I usually go for [Google Cloud](https://cloud.google.com/), connecting via Visual Studio Code remote (instructions in [this post](../blog/posts/visual-studio-code-in-the-cloud/index.md).) I'm excited about how [Google Cloud Workstations](https://cloud.google.com/workstations) might make this all a bit easier for the wider analytical community.
 - *Package manager*. To install things sensibly on a Mac, I use [Homebrew](https://brew.sh/). To make the terminal experience a bit nicer, I use [ohmyzsh](https://ohmyz.sh/) along with command line utilities [lsd](https://github.com/lsd-rs/lsd) as a replacement for `ls` and [wget](https://www.gnu.org/software/wget/) for downloads.
-- *Programming language*. My default is Python, for a whole host of reasons, with, of course, some SQL. I am a huge convert to [uv](https://docs.astral.sh/uv/) and now use it to build packages and manage research project packages. For more complex projects that require dependencies that are not pure Python (eg the PyMC package) I use the [Miniconda](https://docs.anaconda.com/miniconda/) distribution of Python with its fast extension [Mamba](https://github.com/mamba-org/mamba)[^1].
+- *Programming language*. My default is Python, for a whole host of reasons, with, of course, some SQL. I am a huge convert to [uv](https://docs.astral.sh/uv/) and now use it to build packages and manage research project packages. With more complex projects that require dependencies that are not pure Python (eg the PyMC package), I use the [Miniconda](https://docs.anaconda.com/miniconda/) distribution of Python with its fast extension [Mamba](https://github.com/mamba-org/mamba).
 - *Hardware*. I use a 2021 MacBook Pro with the M1 Max chip, which is inexplicably powerful.
 - *Research project template*. Thanks for asking! I just created a cookiecutter template for research projects—you can find it over at [cookiecutter research project](https://github.com/aeturrell/cookiecutter-research-project).
-
-[^1]: I only use the 'conda-forge' channel.
 
 ## Communication
 
@@ -52,3 +50,13 @@ This page contains a list of the tools I'm using for research or at home. Most o
 - For graphics, I normally go for [matplotlib](https://matplotlib.org/), which is so much more powerful than most people realise. All of the graphics in my book [The Star Builders](../thestarbuilders/thestarbuilders.qmd) were created using matplotlib. If I need a manual programme for graphics, I normally use [Inkscape](https://inkscape.org/), which is much better on Mac than it once was.
 - I keep track of tasks with the excellent [Things](https://culturedcode.com/things/) (Mac).
 - For timing how long I spend on different tasks or projects, I use a combination of [Timery](https://timeryapp.com/) on top of [Toggl](https://toggl.com/).
+- I use some command line tools too, such as:
+    - [lsd](https://github.com/lsd-rs/lsd) as a replacement for ls, ie to list files on the command line
+    - [graphviz](https://graphviz.org/), useful for creating network diagrams (it acts as the backend for some Python and R packages)
+    - [ffmpeg](https://ffmpeg.org/)for converting audio and video
+    - [imagemagick](https://imagemagick.org/), for working with image files
+    - [f2](https://github.com/ayoisaiah/f2) for bulk renaming files
+    - [Ghostty](https://ghostty.org/)—technically a terminal emulator rather than a command line tool!
+    - [ripgrep](https://github.com/BurntSushi/ripgrep), for recursively searching directories for a regex pattern
+    - [llm](https://github.com/simonw/llm) to access large language models (local or managed) from the command-line
+- For fonts, [Nerd Fonts](https://www.nerdfonts.com/) is good, as are the [GitHub ones](https://github.com/githubnext/monaspace). For a much wider selection, there's always [Google Fonts](https://fonts.google.com/).
