@@ -15,7 +15,7 @@ I'm a [Royal Statistical Society William Guy Lecturer](https://rss.org.uk/policy
 
 **If we were to start from scratch, what would a statistical institute designed for the world of today—and tomorrow—look like?** How would you rebuild for the era of AI and data science and cloud, take on board the best practices in management, and ensure the right talent was in place to deliver for the nation?
 
-This blog post is my personal attempt at answering these questions and giving a rough blueprint for a different model for producing statistics.
+This blog post is my attempt at answering these questions and giving a rough blueprint for a different model for producing statistics. Please note that these are very much my personal views.
 
 ## Introduction
 
