@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Arthur Turrell">
+<meta name="dcterms.date" content="2025-07-06">
+<meta name="description" content="Arthur Turrell is an economic data scientist.">
+
+<title>Arthur Turrell</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../..//files/logo_large.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dd08061cb7210c315e315379d94beb87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-757dae479023e90f60420cb4a75f766d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-46P0B31B3F"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
+</script>
+
+
+<meta property="og:title" content="Arthur Turrell">
+<meta property="og:description" content="Arthur Turrell is an economic data scientist.">
+<meta property="og:image" content="https://www.aeturrell.com/blog/posts/future-of-statistics/survey_pipeline_dag.svg">
+<meta property="og:site_name" content="Arthur Turrell">
+<meta property="og:locale" content="en_UK">
+<meta name="twitter:title" content="Arthur Turrell">
+<meta name="twitter:description" content="Arthur Turrell is an economic data scientist.">
+<meta name="twitter:image" content="https://www.aeturrell.com/blog/posts/future-of-statistics/survey_pipeline_dag.svg">
+<meta name="twitter:creator" content="@arthurturrell">
+<meta name="twitter:site" content="@arthurturrell">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Arthur Turrell</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../research/index.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../media/index.html"> 
+<span class="menu-text">Media</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../thestarbuilders/thestarbuilders.html"> 
+<span class="menu-text">The Star Builders</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../teaching/index.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../code/index.html"> 
+<span class="menu-text">Code</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../uses/index.html"> 
+<span class="menu-text">Setup</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../atom.xml"> <i class="bi bi-rss" role="img" aria-label="rss">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../contact.html"> <i class="bi bi-envelope" role="img" aria-label="contact">
+</i> 
+<span class="menu-text"> </span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/arthurturrell"> <i class="bi bi-twitter" role="img" aria-label="twitter">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/arthurturrell.bsky.social"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="bi:cloud-slash" aria-label="Icon cloud-slash from bi Iconify.design set." title="Icon cloud-slash from bi Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/aeturrell"> <i class="bi bi-github" role="img" aria-label="github">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/arthur-turrell-8b789891"> <i class="bi bi-linkedin" role="img" aria-label="linkedin">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">A re-imagining of how to produce statistics</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">statistics</div>
+                <div class="quarto-category">productivity</div>
+                <div class="quarto-category">public sector</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Arthur Turrell </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 6, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#imagining-better" id="toc-imagining-better" class="nav-link" data-scroll-target="#imagining-better">Imagining better</a></li>
+  </ul></li>
+  <li><a href="#technology-and-capital" id="toc-technology-and-capital" class="nav-link" data-scroll-target="#technology-and-capital">Technology and capital</a>
+  <ul class="collapse">
+  <li><a href="#use-of-ai" id="toc-use-of-ai" class="nav-link" data-scroll-target="#use-of-ai">Use of AI</a></li>
+  <li><a href="#computing-and-data-infrastructure" id="toc-computing-and-data-infrastructure" class="nav-link" data-scroll-target="#computing-and-data-infrastructure">Computing and data infrastructure</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#sec-pipelines" id="toc-sec-pipelines" class="nav-link" data-scroll-target="#sec-pipelines">Automated data pipelines based on code and focused on quality</a></li>
+  </ul></li>
+  <li><a href="#labour" id="toc-labour" class="nav-link" data-scroll-target="#labour">Skills and labour</a></li>
+  <li><a href="#management-practices-culture-and-organisation" id="toc-management-practices-culture-and-organisation" class="nav-link" data-scroll-target="#management-practices-culture-and-organisation">Management practices, culture, and organisation</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+
+
+
+
+
+<p>National statistics matter: they have a direct bearing on everything from government targets, to funding formulae, to the focus of the media, to the UK’s debt. But there have been many high-profile errors in the nation’s numbers recently, and that’s a cause for concern. Furthermore, the recent <a href="https://www.gov.uk/government/publications/independent-review-of-the-performance-and-culture-of-the-office-for-national-statistics/independent-review-by-sir-robert-devereux-kcb-june-2025">Devereux</a> and <a href="https://www.ft.com/content/a342f058-1b20-4706-8b62-d408bbf88c22">Public Administration and Constitutional Affairs Committee</a> (PACAC) reviews have found deep, systemic flaws in the UK’s current approach.</p>
+<p>I’m a <a href="https://rss.org.uk/policy-campaigns/policy-groups/education-policy-advisory-group/rss-william-guy-lecturers/upcoming-william-guy-lecturers-2025-26/">Royal Statistical Society William Guy Lecturer</a> for 2025-2026, and my topic is “Economic statistics and stupidly smart AI.” With my William Guy Lectureship hat on, I’ve been thinking a lot about how innovation could help with the production of statistics.</p>
+<p><strong>If we were to start from scratch, what would a statistical institute designed for the world of today—and tomorrow—look like?</strong> How would you rebuild for the era of AI and data science and cloud, take on board the best practices in management, and ensure the right talent was in place to deliver for the nation?</p>
+<p>This blog post is my attempt at answering these questions and giving a rough blueprint for a different model for producing statistics. Please note that these are very much my personal views.</p>
+<section id="introduction" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="background" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="background">Background</h3>
+<p>National statistics are critical infrastructure—essential for decisions that will determine the success of the country. However, the current means of their production has been under pressure. To name a few, there have been recent high-profile errors in <a href="https://www.ft.com/content/61679d49-2b87-45ef-8fa2-1b76e393aed4">trade</a>, <a href="https://www.ons.gov.uk/economy/economicoutputandproductivity/productivitymeasures/datasets/internationalcomparisonsofproductivityfirstestimates">productivity</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, <a href="https://www.ft.com/content/a33e505a-b504-46a9-ba08-e1efd8831a69">GDP</a>, <a href="https://www.ons.gov.uk/news/statementsandletters/errorsidentifiedinonsonlinetimeusesurveyotusdata">time use</a>, <a href="https://www.ons.gov.uk/economy/governmentpublicsectorandtaxes/researchanddevelopmentexpenditure/articles/comparisonofonsbusinessenterpriseresearchanddevelopmentstatisticswithhmrcresearchanddevelopmenttaxcreditstatistics/2022-09-29">innovation</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, <a href="https://www.ft.com/content/41a07d42-2518-4ec9-9220-943268c93bb5">migration</a>, <a href="https://osr.statisticsauthority.gov.uk/publication/review-of-statistics-on-gender-identity-based-on-data-collected-as-part-of-the-2021-england-and-wales-census-final-report/">census</a>, <a href="https://www.ft.com/content/197bb24b-01fd-44b1-9ac7-f70ccf987825">health</a> and <a href="https://www.ft.com/content/7d3de81f-b845-490b-804f-af0aa4f76fe3">labour market figures</a>.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;The materials accompanying the <a href="https://www.ons.gov.uk/economy/economicoutputandproductivity/productivitymeasures/datasets/internationalcomparisonsofproductivityfirstestimates">productivity revision</a> said “the previous version suggested that the UK’s average output per hour worked growth rate was 5.0% during the coronavirus (COVID-19) period of 2020 and 2021. The corrected version shows that the UK’s average output per hour growth rate was -0.3% over this period…. the previous version suggested that the UK output per hour worked in 2021 (excluding Japan) had the fastest growth of the G7 countries. This has now been corrected to the second slowest. The previous version also suggested that in 2020 the UK had a fall of 12%, which is now corrected to a 1.2% increase.”</p></div><div id="fn2"><p><sup>2</sup>&nbsp;“…the value of expenditure on R&amp;D performed by UK businesses according to ONS’ BERD survey were £15.0 billion, £15.6 billion, and £16.1 billion higher in 2018, 2019 and 2020 respectively than previously estimated.”</p></div></div><p>The media has noticed—here are some recent headlines:</p>
+<ul>
+<li><a href="https://www.telegraph.co.uk/news/2025/05/21/office-for-national-statistics-can-no-longer-be-trusted/">Why the UK’s official statistics can no longer be trusted</a>, Daily Telegraph, 2025/05/21.</li>
+<li><a href="https://www.ft.com/content/f2ef0740-6420-400f-8a78-abc02936aaa9">Faulty data leaves Britain in the dark: The quality of ONS governance and critical statistics needs fixing</a>, Financial Times, 2025/04/05.</li>
+<li><a href="https://www.theguardian.com/uk-news/2025/mar/21/troubled-uk-statistics-agency-warns-of-errors-in-its-growth-figures">Troubled UK statistics agency warns of errors in its growth figures</a>, The Guardian, 2025/03/21.</li>
+<li><a href="https://www.instituteforgovernment.org.uk/comment/office-national-statistics-fix-data-problems">The Office for National Statistics must change to fix its data problems</a>, Institute for Government, 2025/03/12.</li>
+</ul>
+<p>It is not all bleak: there have been incredible developments in UK statistics in recent years. The Covid Infection Survey was a triumph. Though it’s early days, <a href="https://datasciencecampus.ons.gov.uk/estimating-geographical-retail-markets-from-card-spending-data/">card data shows promise</a>. The use of scanner data for inflation is perhaps the strongest contemporary example.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Scanner data are created as consumers purchase goods at a supermarket checkout (or online), and they give the product name, volume, and price paid. This is a giant leap compared to field agents travelling around supermarkets with clipboards, who were able to only record the price, and then only for a much smaller number of products. Scanner data make consumer price inflation (CPI) more accurate, give more information on price changes across the economy, and allow more analysis of what products are driving price rises. The adoption of scanner data was an extremely significant step forward for how inflation is measured in the UK.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Though the UK <a href="https://www.insee.fr/en/information/5014725?sommaire=5014796">wasn’t the first</a>: others who have adopted scanner data include the Netherlands (2002), Norway (2005), Switzerland (2008), Sweden (2012), Belgium (2015), Denmark (2016), Iceland (2016), Luxembourg and Italy (2018).</p></div><div id="fn4"><p><sup>4</sup>&nbsp;This particular example shows that, with the right conditions, substantial improvements in statistics are possible.</p></div></div><p>It’s also fair to say that there have been headwinds in producing good statistics too: one enormous challenge stems from the long-running issue of declining response rates that has afflicted most national statistical agencies <span class="citation" data-cites="stedman_end_2019">(<a href="#ref-stedman_end_2019" role="doc-biblioref">Stedman et al. 2019</a>)</span>.</p>
+<p>However, many other issues have come from copy-and-paste errors or the use of spreadsheets, and could have been avoided. The two reviews from 2025, Devereux and PACAC, follow many others<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> and one recurring theme is that the problems with UK statistics go beyond declining response rates.</p>
+<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;Turnbull-King 1999, Allsopp 2004, Smith 2006, Smith 2014, Johnson 2015, Bean 2016, and Lievesley 2024.</p></div></div><p>So I thought it would be fun to imagine what a greenfield design for producing the best quality statistics possible would look like.</p>
+</section>
+<section id="imagining-better" class="level3">
+<h3 class="anchored" data-anchor-id="imagining-better">Imagining better</h3>
+<p>Why is a better way of doing statistics easy to imagine? We just have much better tools across technology and organisational science to bring to bear on the production of quantitative outputs than we have ever had before, and they should give us huge optimism that there’s a different path here.</p>
+<p>Data science, big data, AI, cloud services, better algorithms, faster hardware, innovations in the management of technical and data-heavy organisations; all could fundamentally change and improve how statistics are produced and delivered <span class="citation" data-cites="turrell2025cuttingcomplexitydatascience">(<a href="#ref-turrell2025cuttingcomplexitydatascience" role="doc-biblioref">Turrell 2025</a>)</span>. Studies have suggested that in regular organisations, the use of data science and big data can improve productivity by as much as 7% <span class="citation" data-cites="brynjolfsson_strength_2011 muller_effect_2018">(<a href="#ref-brynjolfsson_strength_2011" role="doc-biblioref">Brynjolfsson, Hitt, and Kim 2011</a>; <a href="#ref-muller_effect_2018" role="doc-biblioref">Müller, Fay, and vom Brocke 2018</a>)</span>. That number should surely be higher for tasks that are solely about the collection, processing, and publication of data.</p>
+<p>Also, the management of data-first organisations has been the subject of a great deal of improvement and innovation—with firms like <a href="https://www.amazon.co.uk/Working-Backwards-Insights-Stories-Secrets/dp/1529033829">Amazon</a>, Google, <a href="https://handbook.gitlab.com/handbook/company/culture/all-remote/asynchronous/">GitLab</a>, and more developing ways of working that are suited to the kinds of tasks that statistical production also requires: everything from asynchronous working, to a small and highly skilled workforce, to technical career paths, to “single-threaded” leadership. The management and organisational strategies that have been developed in these frontier firms are part of the reason for their success, and there is every reason to think that other data-centred organisations would benefit from trying them.</p>
+<p>Let’s now look at some concrete ideas for what to do differently across technology and capital, people and skills, and management.</p>
+</section>
+</section>
+<section id="technology-and-capital" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="technology-and-capital">Technology and capital</h2>
+<p>Prof Bart van Ark, managing director of the Productivity Institute, asseses that around one-third of the UK’s productivity ‘puzzle’ is a result of low capital per worker. The UK’s capital per hour worked lags behind Italy and the Czech Republic <span class="citation" data-cites="allas_uks_2025">(<a href="#ref-allas_uks_2025" role="doc-biblioref">Allas and Zenghelis 2025</a>)</span>. If you were redesigning the production of statistics from scratch, you’d want to ensure that top quality technology and capital were in place.</p>
+<section id="use-of-ai" class="level3">
+<h3 class="anchored" data-anchor-id="use-of-ai">Use of AI</h3>
+<p>AI is just a tool, so I almost didn’t honour it with its own section. However, it’s where some of the most exciting developments could emerge. Here are a few ways it could help:</p>
+<ul>
+<li>detecting mistakes in survey responses. Machine learning and large language models could significantly increase the rate at which this kind of data error is caught.</li>
+<li>flagging outliers. (Similarly to above.)</li>
+<li>interview transcription—even when the language is not English!</li>
+<li>translation to official taxonomies from free text fields <span class="citation" data-cites="turrell20226 soria2025empirical">(<a href="#ref-turrell20226" role="doc-biblioref">Turrell et al. 2022</a>; <a href="#ref-soria2025empirical" role="doc-biblioref">Soria 2025</a>)</span>. This is currently a burdensome process with much manual labour, but large language models can be targeted to, as an example, turn respondents’ written job description into official Standard Occupational Classification categories.</li>
+<li>imputation of missing responses in early estimates. Machine learning excels at matrix completion, and that would be more sophisticated than what is commonly used today (eg ratio implementation.)</li>
+<li><em>conducting</em> survey interviews. Yep, you read that right! See <span class="citation" data-cites="geiecke2024conversations">Geiecke and Jaravel (<a href="#ref-geiecke2024conversations" role="doc-biblioref">2024</a>)</span>.</li>
+<li>computer vision can extract data from satellite imagery for, say, building starts: Statistics Canada and the US’ Census Bureau are both compiling more accurate, more timely statistics using satellite data <span class="citation" data-cites="erman_use_2022">(<a href="#ref-erman_use_2022" role="doc-biblioref">Erman et al. 2022</a>)</span></li>
+<li>similarly, computer vision can be applied to street scenes to assess the cleanliness and desirability of high streets</li>
+<li>accessibility enhancement: AI can automatically generate alternative text for visual content, create audio descriptions, and translate content into multiple languages.</li>
+<li>natural language processing can assess news articles for the softer indicators of sentimentn that often lead harder indicators <span class="citation" data-cites="kalamara2022making">(<a href="#ref-kalamara2022making" role="doc-biblioref">Kalamara et al. 2022</a>)</span></li>
+<li>making statistics more accessible to the general public. Large language model-based <a href="https://www.llamaindex.ai/">retrieval augmented generation</a> is able to answer users’ questions based only on certified information, and can link back to its sources. This would allow for a fundamental shift in how people discover and consume statistics. It would also potentially reduce the number of ad hoc requests. My former colleague Andy Banks led <a href="https://datasciencecampus.ons.gov.uk/using-large-language-models-llms-to-improve-website-search-experience-with-statschat/">a project demonstrating the principle</a> already.</li>
+<li>help with coding via tools such as GitHub Copilot, Claude Code, and Gemini CLI.</li>
+<li>drafting articles that are simply summaries of data updates.</li>
+</ul>
+</section>
+<section id="computing-and-data-infrastructure" class="level3">
+<h3 class="anchored" data-anchor-id="computing-and-data-infrastructure">Computing and data infrastructure</h3>
+<p>Hardware based on Unix, which is well-suited to data and code, would be available to staff for local development. High performing hardware saves labour, so is cost effective, but it’s also necessary to run large language models and other AI locally—allowing you to quickly try out ideas. Recognising that people’s time is usually the biggest cost in an organisation, top-end laptops would be a no-brainer.</p>
+<p>The new automated pipelines would be based on secure cloud services, capitalising on the falling cost, increasing functionality, and scalability of the cloud. These products have <a href="https://aws.amazon.com/managed-workflows-for-apache-airflow/sla/">typical service level agreements</a> of 99.9% uptime. As far as possible, the cloud infrastructure used would be service provider agnostic to prevent vendor lock-in and to keep costs competitive. The architecture and services used would follow the “infrastructure-as-code” principle, which means that it can be programmatically deployed, and easily re-deployed, including—at least in principle—via a different vendor. <a href="https://developer.hashicorp.com/terraform">Terraform</a> and related technologies will be used for this.</p>
+<p>The data architecture used would be be a ‘data lakehouse’. This combines the ability to work with unstructured data and structured data in databases with a data catalogue and other metadata, including version histories, all of which is useful and goes beyond a simple database. Some options are <a href="https://aws.amazon.com/sagemaker/lakehouse/">Amazon Sagemaker Lakehouse</a>, <a href="https://cloud.google.com/blog/products/data-analytics/extending-the-google-data-cloud-lakehouse-architecture">Google’s open lakehouse</a>, and <a href="https://www.databricks.com/product/data-lakehouse">Databricks Lakehouse</a>. For local development and prototyping, it’s possible to use <a href="https://ducklake.select/">DuckLake</a>.</p>
+</section>
+<section id="code" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="code">Code</h3>
+<p>The computer code used would of course be under version control, and subject to ongoing quality checks, some automatic (eg unit and integration tests.) Tools like <a href="https://sqlfluff.com/">SQLFluff</a> and <a href="https://docs.astral.sh/ruff/">Ruff</a> can flag and even auto-correct some problems in database queries and code respectively, while other tools such as <a href="https://pre-commit.com/">pre-commit</a> and <a href="https://aeturrell.github.io/panoptipy/">panoptipy</a><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> provide ways to flag <em>potential</em> issues to both developers and managers. Of course, this code would be under version control. There’s even a maximalist approach where the code to produce statistics is open source too, so that problems can be found more quickly by more eyeballs.</p>
+<div class="no-row-height column-margin column-container"><div id="fn6"><p><sup>6</sup>&nbsp;Full disclosure: I wrote this package! It’s still in beta, but you can get the gist already.</p></div></div><p>The code would mainly be Python and SQL, for many reasons.</p>
+<p>Python’s dominance in data science reflects several compelling advantages that make it the natural choice for modern analytical work. The language benefits from <a href="https://www.tiobe.com/tiobe-index/">vast popularity</a> across <a href="https://pypl.github.io/PYPL.html">multiple measures</a>, creating substantial positive network externalities, eg rapid bug discovery, the ability of large language models to write it well, and the sheer volume of available free and open source packages that are on <a href="https://pypi.org/">PyPI</a>. Major conferences like NeurIPS and ICML predominantly feature Python-based research, as do <a href="https://mlcontests.com/state-of-machine-learning-competitions-2024">machine learning competitions</a>.</p>
+<p>Python is widely taught and used. It’s <a href="https://www.bcs.org/policy-and-influence/education/bcs-landscape-review-computing-qualifications-in-the-uk/england-computer-science-gcse-as-and-a-levels/">taught in some UK and US high schools</a>, both state and <a href="https://www.isc.co.uk/media-enquiries/isc-blogs/python-becomes-a-modern-language-for-putney-high-school-s-next-generation-of-digital-nomads/">private</a>, meaning that the future pipeline of talent is assured. In the professional sphere, <a href="https://www.kdnuggets.com/2019/05/poll-top-data-science-machine-learning-platforms.html">data scientists in the private sector predominantly work in Python and SQL</a>, with this share growing over time. Beyond the academy, firms that sponsor and support Python include <a href="https://www.python.org/psf/sponsors/">Microsoft, Google, Meta, and Bloomberg</a>. Even <a href="https://www.infoworld.com/article/3668252/rstudio-changes-name-to-posit-expands-focus-to-include-python-and-vs-code.html">RStudio’s rebranding to ‘Posit’</a> reflects a strategic pivot toward Python support.</p>
+<p>Cloud infrastructure considerations are increasingly crucial: services like <a href="https://cloud.google.com/run">Google Cloud Run</a> and <a href="https://learn.microsoft.com/en-GB/azure/azure-functions/supported-languages?tabs=isolated-process%2Cv4&amp;pivots=programming-language-csharp">Azure Functions</a> support Python natively.</p>
+<p>Just as Python is dominant in the space of analytical code, SQL dominates in database languages. SQL complements Python perfectly, offering flexibility, simplicity compared to distributed databases, wide adoption, and impressive scalability (as demonstrated by Google BigQuery’s massive-scale SQL operations).</p>
+<p>Using Python and SQL means being able to piggy-back on the wider innovations in these languages, and being able to attract staff for whom statistical production may not be their only ever job.</p>
+</section>
+<section id="sec-pipelines" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="sec-pipelines">Automated data pipelines based on code and focused on quality</h3>
+<p>Data pipelines—from ingestion to prepared outputs—would be automated, with both automated and human checks throughout.</p>
+<p>This would begin with data acquisition. Insofar as is possible, data could be programmatically read in from <a href="https://aeturrell.com/blog/posts/the-prize-with-apis/the-prize-with-apis.html">application programming interfaces</a> (APIs) rather than sourced manually. This may not always be possible depending on the data source. But if the data are coming from, say, a survey, the information can still be acquired initially through digital means and validated at the very first stage. Surveys that are panels could be pre-populated with known answers to try and limit the fall off in responses due to “survey fatique.”</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="survey_pipeline_dag.svg" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="margin-caption">A schematic of the directed acyclic graph that a data orchestration tool would run.</figcaption>
+</figure>
+</div>
+<p>The progression of data through a pipeline would be run by the data orchestration tools that are fairly common in production grade data science applications. Data orchestration tools schedule, monitor, and catch errors or issues in the processing of data by computer code. Orchestration flows can be triggered on on a schedule or according to an event, for example if a new file lands in a folder. They ensure that data are transformed, cleaned, and delivered efficiently and accurately. Orchestration tools can handle large volumes of data, support various data formats and programming languages, and can make it easier for organisations to monitor their entire estate of processes. Some popular data orchestration tools include <a href="https://airflow.apache.org/">Apache Airflow</a> (first generation) and <a href="https://docs.dagster.io/">Dagster</a> and <a href="https://docs.prefect.io/v3/get-started/index">Prefect</a> (both second generation, with more advanced features). All of these are free and open source. For hosting of orchestration pipelines, <a href="https://cloud.google.com/composer/docs/composer-3/composer-overview">Google Cloud Composer</a> and <a href="https://aws.amazon.com/managed-workflows-for-apache-airflow/">Amazon Managed Workflows for Airflow</a> are both managed Airflow instances that can be configured using a dedicated API or using <a href="https://developer.hashicorp.com/terraform">Terraform</a>.</p>
+<p>As data are passed around the workflows, they can be subject to checks that will raise a red flag should a problem be detected. “Type checking” would flag any issues with the format of the data. This can be achieved with data validation tools such as <a href="https://greatexpectations.io/">Great Expectations</a>, <a href="https://pandera.readthedocs.io/">Pandera</a>, and (for unstructured data) <a href="https://docs.pydantic.dev/">Pydantic</a>. Data validation and plausibility checks could look to see whether the data are consistent with historical and other contextual information too—this helps ensure that implausible values are caught early, including at the aggregate level.</p>
+<p>Once data and pipelines are in the cloud and automated, it becomes possible to do data lineage tracking. This would allow one to understand how data change from landing, through processing and transformation, and to reports, applications, and statistics. Such lineage tracking can trace an error’s origin, highlight inconsistencies across processes, and show what the downstream consequences of an error might be at the start of a pipeline. Data lineage tracking also enables sensitivity analysis, so that producers can ask questions like, “What would the statistic look like if this or that data point were incorrect?” This gives a sense of whether the overall numbers are driven by one or two responses that, if incorrect, could make the final numbers misleading.</p>
+<p>Any changes to critical production-of-stats code would be subject to review, and to tests that would show how the output statistic would change subject to the code change.</p>
+<p>At the end of the pipeline, the single source of truth on the final output would be an API, and data available in the traditional way (ie where it could be downloaded manually from a webpage) would be built on top of that API—ensuring that these sources were consistent and that the statistics could be accessed programmatically by others. APIs are the bedrock of online services and are already provided by a wide range of public sector organisations such as <a href="https://api.tfl.gov.uk/">Transport for London</a> (TfL), the Federal Reserve Bank of St Louis’ statistical service <a href="https://fred.stlouisfed.org/">FRED</a>, the <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889386-developer-information-overview">World Bank</a>, and the <a href="https://www.oecd.org/en/data/insights/data-explainers/2024/09/api.html">OECD</a>. They are powerful because they allow for integration of downstream services: analysts using the statistics could write their own automated pipelines that directly consume relevant data feeds and businesses could use the data in services they provide (much as CityMapper does with the TfL API.)</p>
+<p>Internally, dashboards of KPIs of the quality of statistics and code, and the numbers of manual and programmatic downloads of statistics, and other relevant pipeline data would be produced and displayed as part of the process—more on that in the management section!</p>
+</section>
+</section>
+<section id="labour" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="labour">Skills and labour</h2>
+<p>Recognising how technology is <a href="https://www.ft.com/content/8e730692-fd9c-45b1-84dc-7ea16429c5c6">changing the demands on workforces</a>, and the high costs of co-ordination of lots of people, you’d probably want to go for a leaner, more highly skilled and better paid workforce than has hitherto been the case. Fewer, more expert staff can be more agile and make risk-reward trade-offs more succesfully.</p>
+<p>Fundamentally, the production of statistics is a technocratic endeavour, and you would want a workforce that reflects this: you’d want them to be highly skilled in relevant technical subject areas; for example, data science, statistics, and economics. The level of knowledge that you would want to see staff demonstrate in these areas would be high—so high that, like those similarly technocratic institutions, central banks, you would want to have a dedicated career offering for people with PhDs in relevant topics and you would make space for them to do research on how to make the statistics better.</p>
+<p>To ensure that the workforce did meet these criteria, and to reflect that the use of code, data, and AI would be foundational to the tasks, you might want to require technical staff (most staff) to pass a coding test in Python and SQL.</p>
+<p>Inevitably, going for a highly skilled workforce would mean needing to offer high salaries too—though pay would not need to be as high as in the private sector because access to the best data in the country would be a strong draw for economists, data scientists, and statisticians alike, and public service is a great motivator for many. To ensure that the overall budget remained sensible, one would have to have a smaller workforce however.</p>
+<p>Getting the right skills is the most important part of any endeavour, and where you site your statistical production should reflect this: it’s got to be where the people you want to work with are. Ideally, you would use a cost-benefit analysis of different locations and look at whether they could supply suitable labour at reasonable cost. A place with a thick labour market for highly educated graduates and post-graduates, but not too high a cost of living, is most likely to deliver this.</p>
+<p>Once highly skilled labour is acquired, it would need to be cultivated and retained. Ongoing investment in human capital is all the more necessary in a world where AI means work is changing rapidly. Beyond that, there would need to be a compelling career offering for those who can bring value not just via managerial and organisational skills, but also via technical knowledge, ability to innovate, and professional leadership. Therefore, it would be essential to have technical career paths on offer. Technical career paths are common in frontier technology firms that require somewhat similar skills: Google has a complete parallel technical career ladder for roles up to and including Senior Vice President; Amazon, Meta, AirBnB, Uber, Apple, and Microsoft have similar pathways. This approach is not unprecedented in the public sector.</p>
+<p>One advantage of having research skills would be to invigorate innovation. One (extremely imperfect) metric of innovation in statistics is how many research papers are published by national statistical organisations. As you can see in <a href="#fig-research" class="quarto-xref">Figure&nbsp;1</a>, world-leading institutes like Statistics Netherlands and Statistics Canada fare well on this measure.</p>
+<div id="fig-research" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-research-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="mean_papers_per_year.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-research-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: A crude measure of innovation for selected institutions. INSEE is the French statistical agency. The Federal Reserve Bank of St Louis publishes a wide range of statistics through its <a href="https://fred.stlouisfed.org/">Federal Reserve Economic Statistics website</a>. Data from SCOPUS.
+</figcaption>
+</figure>
+</div>
+<p>It is not just highly skilled technical workers that will be required: management and leadership must also be highly skilled in their crafts. It almost goes without saying that poor leadership and bad management practices can undermine any endeavour, no matter how good the rest of the people working on it may be. Therefore, as well as seeking highly skilled technical staff, it is important that senior leadership have vision, the pragmatism to deliver, and the ability to implement the best practices in management. <a href="https://www.productivity.ac.uk/news/do-managers-matter/">Firms with better management practices have higher labour productivity</a>; why should we expect the production of statistics to be any different? And the benefits are significant: moving from the median to the 75th percentile of the distribution of management practices scores increases productivity by 11%. On the topic of management practices…</p>
+</section>
+<section id="management-practices-culture-and-organisation" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="management-practices-culture-and-organisation">Management practices, culture, and organisation</h2>
+<p>The best practices for culture, organisation, and management would need to be used to deliver the best possible statistics. Drawing from sources like <a href="https://www.productivity.ac.uk/news/do-managers-matter/">Do managers matter?</a> and the techniques implemented at Amazon and others, the following innovations would be used:</p>
+<ul>
+<li><p>A culture of continuous improvement <em>within</em> existing teams. No hiving off improvement work to be done in a different department or team—innovation is everyone’s job! Those improvements can be encouraged, monitored, and celebrated through KPIs…</p></li>
+<li><p>The use of Key Performance Indicators (KPIs) for tracking progress and for making key management decisions (eg around prioritisation.) These should be available through the whole organisation, and will help hold people to account for the statistics they are producing.</p></li>
+<li><p>Small, highly autonomous teams<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> responsible for elements within the vertically integrated product-structure. Small teams operating with high autonomy within guardrails can help tackle co-ordination costs, remove the need for wide consensus (which leads to inaction), and prevents the diffusion of accountability. It is also much more empowering, which is strongly linked to job satisfaction.</p></li>
+<li><p>The use of targets that are stretching, tracked, and reviewed.</p></li>
+<li><p>Strict, rapid, and effective performance management.</p></li>
+<li><p>An organisational structure that reflects products and outputs rather than functional areas. This means that an entire production pipeline, from survey to final published statistics, will be owned by one area that can be held accountable for it. This is a contrast to having surveys in one department, technology in another, HR another, and statistics processing another. Functional models struggle to ensure aligned incentives. For example, if you have someone responsible for IT they are typically incentivised to minimise how much is spent on technology and to de-risk that technology as much as possible. However, another person who is responsible for processing statistics has quite different incentives: they want analysis to be done quickly (so prefer more expensive IT) and they are willing to take on some risk to get the job done. It can be hard for an organisation to solve this trade-off effectively, especially if these two people have reporting lines that only meet in the head of the organisation, who will have many other concerns on their plate. Instead, a product-oriented structure sees much of technology, HR, etc., embedded right next to the coal face.</p></li>
+<li><p>Similarly, “single-threaded” leadership, which means a single person is ultimately responsible for getting a product out. This leader is incentivised to make the optimal trade-off on risk and spend versus delivery. There is clear accountability in this model. Single-threaded means that leaders have end-to-end accountability for outcomes, decision bottlenecks are removed, and everyone under that leader is aligned on the goal.</p></li>
+<li><p>Kanban boards for management of work tasks, wherein everyone in the team knows what is happening, and a large number of routine updates are no longer necessary</p></li>
+<li><p>Asynchronous working patterns, such as status updates being automatic rather than through meetings (as above.) Synchronous meetings would be reserved for bilaterals and low-latency collaboration on complex issues. Documentation would be used obsessively for code, processes, decisions, and actions (this also lowers initial onboarding costs.) In particular, the documentation and code that processes data in a part of the pipeline will sit together and automated checks will ensure that they do not diverge (a common practice in high end software development.)</p></li>
+<li><p>Proposals to be discussed by committees in prose, not PowerPoint, in the form of notes with a page limit. Meetings would start with “silent time” so that everyone gets on the same page (literally) and can have a constructive discussion.</p></li>
+<li><p>Decisions counter-signed by all, and the reason for the decision documented.</p></li>
+<li><p><a href="https://www.aboutamazon.com/news/workplace/an-insider-look-at-amazons-culture-and-processes">“working backwards”</a> for new products</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Disagree_and_commit">“disagree and commit”</a>, to avoid consensus bias</p></li>
+<li><p>a single source of truth for all information</p></li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;Usually defined as those that can be fed with two pizzas.</p></div></div></section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Our current statistical infrastructure is creaking dangerously. Could this crisis present an opportunity? We now have the tools—AI, cloud computing, modern data science, and battle-tested management practices from the world’s most successful tech companies—to build anew.</p>
+<p>Starting from scratch would mean <strong>putting technology first</strong>: automated pipelines running on secure cloud infrastructure, with AI catching errors that humans might miss, and APIs making statistics as accessible as checking the weather on your phone. It would mean <strong>talent over scale</strong>: a smaller, highly skilled workforce of data scientists, statisticians, and economists who can programme this technology to produce the best stats possible. And it would mean <strong>innovation in management</strong>: product-focused teams with single-threaded leadership, clear KPIs, and the management practices that have made Amazon successful but applied to the considerably more important task of measuring the economy and more.</p>
+<p>Here’s what should keep us all awake at night: we could be making billion-pound decisions based on statistics produced with clipboard-and-Excel methods while the tools to do this properly are sitting right there, proven and ready to deploy. The question isn’t whether we <em>can</em> rebuild our statistical infrastructure for the modern age—the question is whether we will—and whether it can happen before the next crisis in the nation’s numbers hits the headlines.</p>
+<p>The blueprint exists. The technology works. The management practices are proven. And we <em>need</em> statistics fit for the choices that will shape Britain’s future: because a decision based on the wrong data is like a house built on sand.</p>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-allas_uks_2025" class="csl-entry" role="listitem">
+Allas, Tera, and Dimitri Zenghelis. 2025. <span>“The <span>UK</span>’s Capital Gap: A Short-Fall in the Trillions of Pounds That Will Take Decades to Bridge.”</span> <em>The Productivity Institute</em>, no. 55 (May).
+</div>
+<div id="ref-brynjolfsson_strength_2011" class="csl-entry" role="listitem">
+Brynjolfsson, Erik, Lorin M. Hitt, and Heekyung Hellen Kim. 2011. <span>“Strength in <span>Numbers</span>: <span>How Does Data-Driven Decisionmaking Affect Firm Performance</span>?”</span> SSRN. Rochester, NY. <a href="https://doi.org/10.2139/ssrn.1819486">https://doi.org/10.2139/ssrn.1819486</a>.
+</div>
+<div id="ref-erman_use_2022" class="csl-entry" role="listitem">
+Erman, Sevgui, Eric Rancourt, Yanick Beaucage, and Andre Loranger. 2022. <span>“The <span>Use</span> of <span>Data Science</span> in a <span>National Statistical Office</span>.”</span> <em>Harvard Data Science Review</em> 4 (4). <a href="https://doi.org/10.1162/99608f92.13e1d60e">https://doi.org/10.1162/99608f92.13e1d60e</a>.
+</div>
+<div id="ref-geiecke2024conversations" class="csl-entry" role="listitem">
+Geiecke, Friedrich, and Xavier Jaravel. 2024. <span>“Conversations at Scale: Robust Ai-Led Interviews with a Simple Open-Source Platform.”</span> <em>Available at SSRN 4974382</em>.
+</div>
+<div id="ref-kalamara2022making" class="csl-entry" role="listitem">
+Kalamara, Eleni, Arthur Turrell, Chris Redl, George Kapetanios, and Sujit Kapadia. 2022. <span>“Making Text Count: Economic Forecasting Using Newspaper Text.”</span> <em>Journal of Applied Econometrics</em> 37 (5): 896–919.
+</div>
+<div id="ref-muller_effect_2018" class="csl-entry" role="listitem">
+Müller, Oliver, Maria Fay, and Jan vom Brocke. 2018. <span>“The <span>Effect</span> of <span>Big Data</span> and <span>Analytics</span> on <span>Firm Performance</span>: <span>An Econometric Analysis Considering Industry Characteristics</span>.”</span> <em>Journal of Management Information Systems</em> 35 (2): 488–509. <a href="https://doi.org/10.1080/07421222.2018.1451955">https://doi.org/10.1080/07421222.2018.1451955</a>.
+</div>
+<div id="ref-soria2025empirical" class="csl-entry" role="listitem">
+Soria, Chris. 2025. <span>“An Empirical Investigation into the Utility of Large Language Models in Open-Ended Survey Data Categorization.”</span> <a href="https://doi.org/10.31235/osf.io/wv6tk_v2">https://doi.org/10.31235/osf.io/wv6tk_v2</a>.
+</div>
+<div id="ref-stedman_end_2019" class="csl-entry" role="listitem">
+Stedman, Richard C., Nancy A. Connelly, Thomas A. Heberlein, Daniel J. Decker, and Shorna B. Allred. 2019. <span>“The <span>End</span> of the (<span>Research</span>) <span>World As We Know It</span>? <span>Understanding</span> and <span>Coping With Declining Response Rates</span> to <span>Mail Surveys</span>.”</span> <em>Society &amp; Natural Resources</em> 32 (10): 1139–54. <a href="https://doi.org/10.1080/08941920.2019.1587127">https://doi.org/10.1080/08941920.2019.1587127</a>.
+</div>
+<div id="ref-turrell2025cuttingcomplexitydatascience" class="csl-entry" role="listitem">
+Turrell, Arthur. 2025. <span>“Cutting Through Complexity: How Data Science Can Help Policymakers Understand the World.”</span> <a href="https://arxiv.org/abs/2502.03010">https://arxiv.org/abs/2502.03010</a>.
+</div>
+<div id="ref-turrell20226" class="csl-entry" role="listitem">
+Turrell, Arthur, Bradley Speigner, Jyldyz Djumalieva, David Copple, and James Thurgood. 2022. <span>“6. Transforming Naturally Occurring Text Data into Economic Statistics.”</span> In <em>Big Data for Twenty-First-Century Economic Statistics</em>, 173–208. University of Chicago Press.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.aeturrell\.com\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

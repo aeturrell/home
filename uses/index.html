@@ -104,7 +104,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <meta name="twitter:image-width" content="1594">
 </head>
 
-<body class="floating nav-fixed slimcontent">
+<body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -233,7 +233,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
@@ -254,18 +254,18 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <li><p><em>Reading papers</em>. I store all of my papers in <a href="https://www.zotero.org/">Zotero</a>, which is an open source endeavour. You can support them by paying for their storage. They have a good iPad app too.</p></li>
 </ul>
 </section>
-<section id="coding-and-analysis" class="level2 page-columns page-full">
+<section id="coding-and-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="coding-and-analysis">Coding and analysis</h2>
 <ul>
 <li><em>Version control</em>. I use git (of course!) and <a href="https://github.com/">GitHub</a>. Occasionally co-authors ask to use Dropbox.</li>
 <li><em>Development environment</em>. I use <a href="https://code.visualstudio.com/">Visual Studio Code</a> for almost all code, including Python and R. (I wrote a post about how to set it up for R <a href="../blog/posts/setting-up-r-in-vscode/index.html">here</a>.) Some of the extensions I use are autoDocstring, colorize, Excel Viewer, git blame, git graph, git history, gitlens, indent-rainbow, and Jupyter. I also use Docker for development, including the excellent Visual Studio Code docker extensions.</li>
 <li><em>Cloud compute</em>. When I need cloud capabilities, it depends. For anything light-ish that I just want to try in an isolated environment, I might just spin up a ready-built cloud environment using <a href="https://github.com/features/codespaces">Github Codespaces</a> but for more serious projects I usually go for <a href="https://cloud.google.com/">Google Cloud</a>, connecting via Visual Studio Code remote (instructions in <a href="../blog/posts/visual-studio-code-in-the-cloud/index.html">this post</a>.) I’m excited about how <a href="https://cloud.google.com/workstations">Google Cloud Workstations</a> might make this all a bit easier for the wider analytical community.</li>
 <li><em>Package manager</em>. To install things sensibly on a Mac, I use <a href="https://brew.sh/">Homebrew</a>. To make the terminal experience a bit nicer, I use <a href="https://ohmyz.sh/">ohmyzsh</a> along with command line utilities <a href="https://github.com/lsd-rs/lsd">lsd</a> as a replacement for <code>ls</code> and <a href="https://www.gnu.org/software/wget/">wget</a> for downloads.</li>
-<li><em>Programming language</em>. My default is Python, for a whole host of reasons, with, of course, some SQL. I am a huge convert to <a href="https://docs.astral.sh/uv/">uv</a> and now use it to build packages and manage research project packages. For more complex projects that require dependencies that are not pure Python (eg the PyMC package) I use the <a href="https://docs.anaconda.com/miniconda/">Miniconda</a> distribution of Python with its fast extension <a href="https://github.com/mamba-org/mamba">Mamba</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</li>
+<li><em>Programming language</em>. My default is Python, for a whole host of reasons, with, of course, some SQL. I am a huge convert to <a href="https://docs.astral.sh/uv/">uv</a> and now use it to build packages and manage research project packages. With more complex projects that require dependencies that are not pure Python (eg the PyMC package), I use the <a href="https://docs.anaconda.com/miniconda/">Miniconda</a> distribution of Python with its fast extension <a href="https://github.com/mamba-org/mamba">Mamba</a>.</li>
 <li><em>Hardware</em>. I use a 2021 MacBook Pro with the M1 Max chip, which is inexplicably powerful.</li>
 <li><em>Research project template</em>. Thanks for asking! I just created a cookiecutter template for research projects—you can find it over at <a href="https://github.com/aeturrell/cookiecutter-research-project">cookiecutter research project</a>.</li>
 </ul>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;I only use the ‘conda-forge’ channel.</p></div></div></section>
+</section>
 <section id="communication" class="level2">
 <h2 class="anchored" data-anchor-id="communication">Communication</h2>
 <ul>
@@ -282,11 +282,22 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <li>For graphics, I normally go for <a href="https://matplotlib.org/">matplotlib</a>, which is so much more powerful than most people realise. All of the graphics in my book <a href="../thestarbuilders/thestarbuilders.html">The Star Builders</a> were created using matplotlib. If I need a manual programme for graphics, I normally use <a href="https://inkscape.org/">Inkscape</a>, which is much better on Mac than it once was.</li>
 <li>I keep track of tasks with the excellent <a href="https://culturedcode.com/things/">Things</a> (Mac).</li>
 <li>For timing how long I spend on different tasks or projects, I use a combination of <a href="https://timeryapp.com/">Timery</a> on top of <a href="https://toggl.com/">Toggl</a>.</li>
+<li>I use some command line tools too, such as:
+<ul>
+<li><a href="https://github.com/lsd-rs/lsd">lsd</a> as a replacement for ls, ie to list files on the command line</li>
+<li><a href="https://graphviz.org/">graphviz</a>, useful for creating network diagrams (it acts as the backend for some Python and R packages)</li>
+<li><a href="https://ffmpeg.org/">ffmpeg</a>for converting audio and video</li>
+<li><a href="https://imagemagick.org/">imagemagick</a>, for working with image files</li>
+<li><a href="https://github.com/ayoisaiah/f2">f2</a> for bulk renaming files</li>
+<li><a href="https://ghostty.org/">Ghostty</a>—technically a terminal emulator rather than a command line tool!</li>
+<li><a href="https://github.com/BurntSushi/ripgrep">ripgrep</a>, for recursively searching directories for a regex pattern</li>
+<li><a href="https://github.com/simonw/llm">llm</a> to access large language models (local or managed) from the command-line</li>
+</ul></li>
+<li>For fonts, <a href="https://www.nerdfonts.com/">Nerd Fonts</a> is good, as are the <a href="https://github.com/githubnext/monaspace">GitHub ones</a>. For a much wider selection, there’s always <a href="https://fonts.google.com/">Google Fonts</a>.</li>
 </ul>
 
 
 </section>
-
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
