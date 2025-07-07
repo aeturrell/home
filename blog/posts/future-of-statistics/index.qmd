@@ -1,7 +1,7 @@
 ---
 date: "2025-07-06"
 layout: post
-title: "A re-imagining of how we produce statistics"
+title: "A re-imagining of how to produce statistics"
 categories: [statistics, productivity, public sector]
 image: survey_pipeline_dag.svg
 execute:
@@ -36,21 +36,21 @@ The media has noticed—here are some recent headlines:
 
 It is not all bleak: there have been incredible developments in UK statistics in recent years. The Covid Infection Survey was a triumph. Though it's early days, [card data shows promise](https://datasciencecampus.ons.gov.uk/estimating-geographical-retail-markets-from-card-spending-data/). The use of scanner data for inflation is perhaps the strongest contemporary example.[^g] Scanner data are created as consumers purchase goods at a supermarket checkout (or online), and they give the product name, volume, and price paid. This is a giant leap compared to field agents travelling around supermarkets with clipboards, who were able to only record the price, and then only for a much smaller number of products. Scanner data make consumer price inflation (CPI) more accurate, give more information on price changes across the economy, and allow more analysis of what products are driving price rises. The adoption of scanner data was an extremely significant step forward for how inflation is measured in the UK.[^f]
 
-[^g]: Though many other nations [got there first](https://www.insee.fr/en/information/5014725?sommaire=5014796): eg the Netherlands (2002), Norway (2005), Switzerland (2008), Sweden (2012), Belgium (2015), Denmark (2016), Iceland (2016), Luxembourg and Italy (2018).
+[^g]: Though the UK [wasn't the first](https://www.insee.fr/en/information/5014725?sommaire=5014796): others who have adopted scanner data include the Netherlands (2002), Norway (2005), Switzerland (2008), Sweden (2012), Belgium (2015), Denmark (2016), Iceland (2016), Luxembourg and Italy (2018).
 
-[^f]: This particular example shows that, with the right conditions, substantial improvements in statistics are possible. In this case, teams were empowered to make changes, to acquire new and relevant data, and also had more permissive than normal use of cloud computing. Flexible use of cloud computing was absolutely essential as there is information on over a billion products per month arriving into the system.
+[^f]: This particular example shows that, with the right conditions, substantial improvements in statistics are possible.
 
 It's also fair to say that there have been headwinds in producing good statistics too: one enormous challenge stems from the long-running issue of declining response rates that has afflicted most national statistical agencies [@stedman_end_2019].
 
-However, many other issues have come from simple spreadsheet and copy-and-paste errors, and could have been avoided. Those reviews, Devereux and PACAC, follow many others[^1] and there overarching theme is that the problems with UK statistics go beyond declining response rates.
+However, many other issues have come from copy-and-paste errors or the use of spreadsheets, and could have been avoided. The two reviews from 2025, Devereux and PACAC, follow many others[^1] and one recurring theme is that the problems with UK statistics go beyond declining response rates.
 
-So I thought it would be fun to imagine what a statistical institute designed from scratch to produce the best quality product possible would look like.
+So I thought it would be fun to imagine what a greenfield design for producing the best quality statistics possible would look like.
 
 [^1]: Turnbull-King 1999, Allsopp 2004, Smith 2006, Smith 2014, Johnson 2015, Bean 2016, and Lievesley 2024.
 
 ### Imagining better
 
-Why is a better way of doing statistics easy to imagine? Apart from the avoidable errors that those reviews pointed to, we just have much better tools across technology and organisational science to bring to bear on the production of quantitative outputs than we have ever had before, and they should give us huge optimism.
+Why is a better way of doing statistics easy to imagine? We just have much better tools across technology and organisational science to bring to bear on the production of quantitative outputs than we have ever had before, and they should give us huge optimism that there's a different path here.
 
 Data science, big data, AI, cloud services, better algorithms, faster hardware, innovations in the management of technical and data-heavy organisations; all could fundamentally change and improve how statistics are produced and delivered [@turrell2025cuttingcomplexitydatascience]. Studies have suggested that in regular organisations, the use of data science and big data can improve productivity by as much as 7% [@brynjolfsson_strength_2011;@muller_effect_2018]. That number should surely be higher for tasks that are solely about the collection, processing, and publication of data.
 
@@ -75,7 +75,7 @@ AI is just a tool, so I almost didn't honour it with its own section. However, i
 - computer vision can extract data from satellite imagery for, say, building starts: Statistics Canada and the US' Census Bureau are both compiling more accurate, more timely statistics using satellite data [@erman_use_2022]
 - similarly, computer vision can be applied to street scenes to assess the cleanliness and desirability of high streets
 - accessibility enhancement: AI can automatically generate alternative text for visual content, create audio descriptions, and translate content into multiple languages.
-- natural language processing can assess news articles for soft indicators of sentiment (that often lead harder indicators) [@kalamara2022making]
+- natural language processing can assess news articles for the softer indicators of sentimentn that often lead harder indicators [@kalamara2022making]
 - making statistics more accessible to the general public. Large language model-based [retrieval augmented generation](https://www.llamaindex.ai/) is able to answer users' questions based only on certified information, and can link back to its sources. This would allow for a fundamental shift in how people discover and consume statistics. It would also potentially reduce the number of ad hoc requests. My former colleague Andy Banks led [a project demonstrating the principle](https://datasciencecampus.ons.gov.uk/using-large-language-models-llms-to-improve-website-search-experience-with-statschat/) already. 
 - help with coding via tools such as GitHub Copilot, Claude Code, and Gemini CLI.
 - drafting articles that are simply summaries of data updates.
@@ -90,11 +90,11 @@ The data architecture used would be be a 'data lakehouse'. This combines the abi
 
 ### Code
 
-The computer code used would of course be under version control, and subject to ongoing quality checks, some automatic (eg unit and integration tests.) Tools like [SQLFluff](https://sqlfluff.com/) and [Ruff](https://docs.astral.sh/ruff/) can flag and even auto-correct some problems in database queries and code respectively, while other tools such as [pre-commit](https://pre-commit.com/) and [panoptipy](https://github.com/aeturrell/panoptipy)[^e] provide ways to flag *potential* issues to both developers and managers. Of course, this code would be under version control. There's even a maximalist approach where the code to produce statistics is open source too, so that problems can be found more quickly by more eyeballs.
+The computer code used would of course be under version control, and subject to ongoing quality checks, some automatic (eg unit and integration tests.) Tools like [SQLFluff](https://sqlfluff.com/) and [Ruff](https://docs.astral.sh/ruff/) can flag and even auto-correct some problems in database queries and code respectively, while other tools such as [pre-commit](https://pre-commit.com/) and [panoptipy](https://aeturrell.github.io/panoptipy/)[^e] provide ways to flag *potential* issues to both developers and managers. Of course, this code would be under version control. There's even a maximalist approach where the code to produce statistics is open source too, so that problems can be found more quickly by more eyeballs.
 
-[^e]: Full disclosure: I wrote this package!
+[^e]: Full disclosure: I wrote this package! It's still in beta, but you can get the gist already.
 
-The code would mainly be Python and SQL, for a whole host of reasons.
+The code would mainly be Python and SQL, for many reasons.
 
 Python's dominance in data science reflects several compelling advantages that make it the natural choice for modern analytical work. The language benefits from [vast popularity](https://www.tiobe.com/tiobe-index/) across [multiple measures](https://pypl.github.io/PYPL.html), creating substantial positive network externalities, eg rapid bug discovery, the ability of large language models to write it well, and the sheer volume of available free and open source packages that are on [PyPI](https://pypi.org/). Major conferences like NeurIPS and ICML predominantly feature Python-based research, as do [machine learning competitions](https://mlcontests.com/state-of-machine-learning-competitions-2024).
 
@@ -172,7 +172,7 @@ The best practices for culture, organisation, and management would need to be us
 
 Our current statistical infrastructure is creaking dangerously. Could this crisis present an opportunity? We now have the tools—AI, cloud computing, modern data science, and battle-tested management practices from the world's most successful tech companies—to build anew.
 
-Starting from scratch would mean **putting technology first**: automated pipelines running on secure cloud infrastructure, with AI catching errors that humans might miss, and APIs making statistics as accessible as checking the weather on your phone. It would mean **talent over scale**: a smaller, highly skilled workforce of data scientists, statisticians, and economists who can programme this technology to produce the best stats possible. And it would mean **innovation in management**: product-focused teams with single-threaded leadership, clear KPIs, and the management practices that have made Amazon successful, applied to the considerably more important task of measuring the economy.
+Starting from scratch would mean **putting technology first**: automated pipelines running on secure cloud infrastructure, with AI catching errors that humans might miss, and APIs making statistics as accessible as checking the weather on your phone. It would mean **talent over scale**: a smaller, highly skilled workforce of data scientists, statisticians, and economists who can programme this technology to produce the best stats possible. And it would mean **innovation in management**: product-focused teams with single-threaded leadership, clear KPIs, and the management practices that have made Amazon successful but applied to the considerably more important task of measuring the economy and more.
 
 Here's what should keep us all awake at night: we could be making billion-pound decisions based on statistics produced with clipboard-and-Excel methods while the tools to do this properly are sitting right there, proven and ready to deploy. The question isn't whether we *can* rebuild our statistical infrastructure for the modern age—the question is whether we will—and whether it can happen before the next crisis in the nation's numbers hits the headlines.
 
