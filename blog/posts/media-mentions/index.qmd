@@ -1,0 +1,53 @@
+---
+date: "2025-08-29"
+layout: post
+title: "Media mentions of opposition politicians in the UK"
+categories: [politics, text analysis, visualisation]
+image: mentions_chart_22de8.svg
+execute:
+  echo: false
+jupyter: python3
+toc: false
+---
+
+You hear a lot of people claiming that Nigel Farage gets an undue amount of coverage given the number of MPs in his Reform UK party.
+
+I wondered if that was true, so I ran a query against [GDELT](https://www.gdeltproject.org/) (Global Database of Events, Language and Tone). GDELT monitors mentions of specific people across broadcast, print, and web news.
+
+And.... it is!
+
+![](mentions_chart_22de8.svg)
+
+You often hear this criticism levelled specifically at the BBC, so I did a cut just for that. And it's true there too.
+
+![](mentions_chart_d7b1c.svg)
+
+## Technical Appendix
+
+I used BigQuery and the GDELT gkg_partitioned database to get the data. The SQL query is below. The lines are smoothed with **statsmodels**' `lowess` function (Locally Weighted Scatterplot Smoothing).
+
+The SQL query is below.
+
+```sql
+SELECT 
+  EXTRACT(YEAR FROM PARSE_DATETIME('%Y%m%d%H%M%S', CAST(DATE AS STRING))) as Year,
+  EXTRACT(MONTH FROM PARSE_DATETIME('%Y%m%d%H%M%S', CAST(DATE AS STRING))) as Month,
+  REGEXP_EXTRACT(DocumentIdentifier, r'^(https?://[^/]+)') as Truncated_URL,
+  CASE 
+    WHEN REGEXP_CONTAINS(Persons, r'(?i)nigel.farage') THEN 'Nigel Farage'
+    WHEN REGEXP_CONTAINS(Persons, r'(?i)ed.davey') THEN 'Ed Davey'
+    WHEN REGEXP_CONTAINS(Persons, r'(?i)kemi.badenoch') THEN 'Kemi Badenoch'
+  END as Person_Mentioned,
+  COUNT(*) as Mentions
+FROM `gdelt-bq.gdeltv2.gkg_partitioned`
+WHERE 
+  DATE >= 20240101000000  -- Adjust date range as needed
+  AND DocumentIdentifier IS NOT NULL
+  AND (
+    REGEXP_CONTAINS(Persons, r'(?i)nigel.farage') OR
+    REGEXP_CONTAINS(Persons, r'(?i)ed.davey') OR
+    REGEXP_CONTAINS(Persons, r'(?i)kemi.badenoch')
+  )
+GROUP BY Year, Month, Truncated_URL, Person_Mentioned
+ORDER BY Year DESC, Month DESC, Mentions DESC, Truncated_URL
+```

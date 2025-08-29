@@ -1,0 +1,12 @@
+{
+  "hash": "5bef60bf4b498cc1fdd8eda92f8d6ca7",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ndate: \"2025-08-29\"\nlayout: post\ntitle: \"Media mentions of opposition politicians in the UK\"\ncategories: [politics, text analysis, visualisation]\nimage: mentions_chart_22de8.svg\nexecute:\n  echo: false\njupyter: python3\ntoc: false\n---\n\n\nYou hear a lot of people claiming that Nigel Farage gets an undue amount of coverage given the number of MPs in his Reform UK party.\n\nI wondered if that was true, so I ran a query against [GDELT](https://www.gdeltproject.org/) (Global Database of Events, Language and Tone). GDELT monitors mentions of specific people across broadcast, print, and web news.\n\nAnd.... it is!\n\n![](mentions_chart_22de8.svg)\n\nYou often hear this criticism levelled specifically at the BBC, so I did a cut just for that. And it's true there too.\n\n![](mentions_chart_d7b1c.svg)\n\n## Technical Appendix\n\nI used BigQuery and the GDELT gkg_partitioned database to get the data. The SQL query is below. The lines are smoothed with **statsmodels**' `lowess` function (Locally Weighted Scatterplot Smoothing).\n\nThe SQL query is below.\n\n```sql\nSELECT \n  EXTRACT(YEAR FROM PARSE_DATETIME('%Y%m%d%H%M%S', CAST(DATE AS STRING))) as Year,\n  EXTRACT(MONTH FROM PARSE_DATETIME('%Y%m%d%H%M%S', CAST(DATE AS STRING))) as Month,\n  REGEXP_EXTRACT(DocumentIdentifier, r'^(https?://[^/]+)') as Truncated_URL,\n  CASE \n    WHEN REGEXP_CONTAINS(Persons, r'(?i)nigel.farage') THEN 'Nigel Farage'\n    WHEN REGEXP_CONTAINS(Persons, r'(?i)ed.davey') THEN 'Ed Davey'\n    WHEN REGEXP_CONTAINS(Persons, r'(?i)kemi.badenoch') THEN 'Kemi Badenoch'\n  END as Person_Mentioned,\n  COUNT(*) as Mentions\nFROM `gdelt-bq.gdeltv2.gkg_partitioned`\nWHERE \n  DATE >= 20240101000000  -- Adjust date range as needed\n  AND DocumentIdentifier IS NOT NULL\n  AND (\n    REGEXP_CONTAINS(Persons, r'(?i)nigel.farage') OR\n    REGEXP_CONTAINS(Persons, r'(?i)ed.davey') OR\n    REGEXP_CONTAINS(Persons, r'(?i)kemi.badenoch')\n  )\nGROUP BY Year, Month, Truncated_URL, Person_Mentioned\nORDER BY Year DESC, Month DESC, Mentions DESC, Truncated_URL\n```\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
