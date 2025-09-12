@@ -1,12 +1,13 @@
 ---
 date: "2018-07-11"
 layout: post
-title: Why the latest, most exciting thing in machine learning is... game theory
-categories: [research, machine-learning]
+title: "Why the latest, most exciting thing in machine learning is... game theory"
+categories: [research, machine learning]
+description: "What Shapely values could offer machine learning"
 ---
 
 
-*And when I say latest, this particular method was invented in 1953.*
+And when I say latest, this particular method was invented in 1953!
 
 Machine learning has interpretability issues. New EU legislation, the General Data Protection Regulation, includes a [line](https://www.privacy-regulation.eu/en/r71.htm) about "the right ... to obtain an explanation of the decision reached", including by an algorithm.
 
