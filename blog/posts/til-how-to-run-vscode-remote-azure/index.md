@@ -3,7 +3,6 @@ date: "2024-03-08"
 layout: post
 title: "TIL: how to connect Visual Studio Code to Azure Virtual Machines"
 categories: [code, research, cloud, python, rstats]
-image: None
 ---
 
 In a previous blog post, I looked at [how to connect desktop-based Visual Studio Code to a Google Cloud Virtual machine](../visual-studio-code-in-the-cloud/index.md); today, it's how to do the same using a virtual machine running on Microsoft's Azure platform.

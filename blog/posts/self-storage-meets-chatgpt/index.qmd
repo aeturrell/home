@@ -3,7 +3,6 @@ date: "2023-06-30"
 layout: post
 title: "The self-storage problem meets chatGPT"
 categories: [code, data, analysis, llm]
-image: None
 ---
 
 In a previous post, I looked at four ways we might be able to establish the way that the number of *self-storage facilities* is trending over time. You can read that post using [this link](../self-storage-mystery/self-storage-mystery.qmd). Today, we're going one step further with one of the options—scraping the websites of the main self-storage firms—and we're going to do it with ChatGPT, the large language model from OpenAI. I mentioned in the previous blog post that

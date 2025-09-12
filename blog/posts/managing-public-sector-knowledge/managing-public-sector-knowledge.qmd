@@ -3,7 +3,6 @@ date: "2023-02-08"
 layout: post
 title: "The public sector could be better at managing knowledge 'data': what can we do?"
 categories: [economics, productivity, public sector]
-image: None
 ---
 
 Who thinks the public sector is good enough at managing its stock of knowledge; the ideas, strategies, processes, and decisions that go into the efficient provision of public goods and services? Not many, I'd wager. Which is odd, given the reputation for bureaucracy! In this post, I look at how good knowledge management could make public sector organisations more efficient and how that change might be effected--at least in the case of knowledge that is digitally recorded (aka knowledge data).
