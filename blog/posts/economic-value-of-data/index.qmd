@@ -8,6 +8,7 @@ execute:
 jupyter: python3
 toc: false
 references: ../files/reference.bib
+images: "../../transparent.png"
 ---
 
 How much economic growth can you generate from making a private dataset open? Let's create a simple model.

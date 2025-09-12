@@ -3,9 +3,9 @@ date: "2018-07-11"
 layout: post
 title: "Why the latest, most exciting thing in machine learning is... game theory"
 categories: [research, machine learning]
-description: "What Shapely values could offer machine learning"
+description: "What Shapley values could offer machine learning"
+image: "../../transparent.png"
 ---
-
 
 And when I say latest, this particular method was invented in 1953!
 

@@ -4,7 +4,7 @@ layout: post
 title: Three ways to blog with code
 categories: [code, blogging]
 jupyter: python3
-image: None
+image: "../../transparent.png"
 ---
 
 Typically, what I want to do when I create a blog post is to combine text, code, and code output, and then push it to the github repo that hosts my website. But what are the options, and which of them is the best (at least for my purposes)?

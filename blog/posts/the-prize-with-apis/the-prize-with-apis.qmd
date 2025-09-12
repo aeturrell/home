@@ -9,7 +9,7 @@ date: "2022-12-18"
 layout: post
 title: "In praise of APIs (application programming interfaces)"
 categories: [code, data]
-image: None
+image: "../../transparent.png"
 ---
 
 ```{python}

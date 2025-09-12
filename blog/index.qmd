@@ -7,9 +7,10 @@ listing:
   categories: true
   sort-ui: true
   filter-ui: true
-  fields: [date, title, reading-time, description, categories, image]
+  fields: [date, title, description, categories, image]
   feed: true
   date-format: "DD MMM YY"
+  image-placeholder: "transparent.png"
 page-layout: full
 title-block-banner: true
 ---
