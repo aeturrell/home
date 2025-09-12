@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Arthur Turrell">
-<meta name="dcterms.date" content="2022-12-18">
+<meta name="dcterms.date" content="2025-09-11">
 <meta name="description" content="Arthur Turrell is an economic data scientist.">
 
 <title>Arthur Turrell</title>
@@ -23,44 +23,30 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
 }
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-</style>
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
@@ -113,29 +99,55 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Arthur Turrell">
 <meta property="og:description" content="Arthur Turrell is an economic data scientist.">
-<meta property="og:image" content="https://www.aeturrell.com/blog/transparent.png">
+<meta property="og:image" content="https://www.aeturrell.com//files/logo_large.png">
 <meta property="og:site_name" content="Arthur Turrell">
 <meta property="og:locale" content="en_UK">
-<meta property="og:image:height" content="1">
-<meta property="og:image:width" content="1">
+<meta property="og:image:height" content="1594">
+<meta property="og:image:width" content="1594">
 <meta name="twitter:title" content="Arthur Turrell">
 <meta name="twitter:description" content="Arthur Turrell is an economic data scientist.">
-<meta name="twitter:image" content="https://www.aeturrell.com/blog/transparent.png">
+<meta name="twitter:image" content="https://www.aeturrell.com//files/logo_large.png">
 <meta name="twitter:creator" content="@arthurturrell">
 <meta name="twitter:site" content="@arthurturrell">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image-height" content="1">
-<meta name="twitter:image-width" content="1">
+<meta name="twitter:image-height" content="1594">
+<meta name="twitter:image-width" content="1594">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -226,10 +238,11 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">In praise of APIs (application programming interfaces)</h1>
+      <h1 class="title">Thinking about the economic value of open data</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">code</div>
                 <div class="quarto-category">data</div>
+                <div class="quarto-category">economics</div>
+                <div class="quarto-category">public sector</div>
               </div>
                   </div>
   </div>
@@ -247,7 +260,7 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 18, 2022</p>
+        <p class="date">September 11, 2025</p>
       </div>
     </div>
     
@@ -258,164 +271,74 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#what-is-an-api" id="toc-what-is-an-api" class="nav-link active" data-scroll-target="#what-is-an-api">What is an API?</a></li>
-  <li><a href="#why-are-apis-brilliant" id="toc-why-are-apis-brilliant" class="nav-link" data-scroll-target="#why-are-apis-brilliant">Why are APIs brilliant?</a></li>
-  <li><a href="#api-best-practice" id="toc-api-best-practice" class="nav-link" data-scroll-target="#api-best-practice">API Best Practice</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
-<p>In this blog, I look at some of reasons why APIs are such a great way to share data.</p>
-<p>APIs make it possible for users to plug data directly into software, dashboards, websites, reports, and analysis in a consistent, machine readable format that favours automation. They are the best practice way to share data between expert users and organisations, and are an important intermediary for enabling data to reach a wider audience—giving a path to significantly increased impact for data that anyone has decided to share. Leading statistical institutes provide their data via APIs, and UK government departments increasingly <a href="https://www.api.gov.uk/#uk-government-apis">share</a> data through APIs too.</p>
-<p>In a previous post, I looked at one API in particular—the <a href="../../../blog/posts/ons-api/index.html">ONS API</a>.</p>
-<section id="what-is-an-api" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-an-api">What is an API?</h2>
-<p>APIs, or application programming interfaces, are a set of rules and protocols that enable communication between different software systems. They allow different systems to exchange data and functionality programmatically. They are programming language agnostic, and sometimes make data available in several formats.</p>
-<p>In the context of data and statistics, APIs are particularly useful because they allow organisations to access and use data from a variety of sources in a consistent and controlled manner. For example, a government department might wish to use APIs to reproducibly and reliably access data from a national statistical office.</p>
-<p>It’s easiest to show how APIs work with an example. Let’s pull down CO2 emissions per capita by country from the World Bank using the <a href="https://pandas-datareader.readthedocs.io/"><strong>pandas_datareader</strong></a> package in Python. <strong>pandas_datareader</strong> provides convenient access to a wide range of APIs including those serving up data from the <a href="https://fred.stlouisfed.org/docs/api/fred/">US Federal Reserve (FRED)</a>, the <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation">World Bank</a>, the <a href="https://data.oecd.org/api/">OECD</a>, the <a href="https://www.bankofcanada.ca/valet/docs">Bank of Canada</a>, <a href="https://ec.europa.eu/eurostat/data/web-services">Eurostat</a>, and more.</p>
-<div id="af6707f2" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> textwrap</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas_datareader <span class="im">import</span> wb</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> wb.download(                              <span class="co"># download the data from the world bank</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    indicator<span class="op">=</span><span class="st">"EN.GHG.ALL.PC.CE.AR5"</span>,                <span class="co"># indicator code</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    country<span class="op">=</span>[<span class="st">"US"</span>, <span class="st">"CHN"</span>, <span class="st">"IND"</span>, <span class="st">"Z4"</span>, <span class="st">"Z7"</span>],  <span class="co"># country codes</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    start<span class="op">=</span><span class="dv">2019</span>,                                <span class="co"># start year</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    end<span class="op">=</span><span class="dv">2019</span>,                                  <span class="co"># end year</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.reset_index()                          <span class="co"># remove country as index</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"country"</span>] <span class="op">=</span> df[<span class="st">"country"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: textwrap.fill(x, <span class="dv">10</span>))  <span class="co"># wrap long names</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.sort_values(<span class="st">"EN.GHG.ALL.PC.CE.AR5"</span>)          <span class="co"># re-order</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">country</th>
-<th data-quarto-table-cell-role="th">year</th>
-<th data-quarto-table-cell-role="th">EN.GHG.ALL.PC.CE.AR5</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">3</td>
-<td>India</td>
-<td>2019</td>
-<td>2.622268</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>East Asia\n&amp; Pacific</td>
-<td>2019</td>
-<td>8.575187</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Europe &amp;\nCentral\nAsia</td>
-<td>2019</td>
-<td>9.249031</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">0</td>
-<td>China</td>
-<td>2019</td>
-<td>10.140708</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>United\nStates</td>
-<td>2019</td>
-<td>18.921383</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p>There are several features of note:</p>
-<ul>
-<li>we only pulled down the data we needed</li>
-<li>we were able to get data straight into our analytical tool (here, Python)</li>
-<li>getting the data for the period we want is as simple as changing the year</li>
-</ul>
-<p>Having downloaded the data, let’s now plot it:</p>
-<div id="dd72a571" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">"country"</span>, y<span class="op">=</span><span class="st">"EN.GHG.ALL.PC.CE.AR5"</span>, data<span class="op">=</span>df.reset_index(), ax<span class="op">=</span>ax)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="vs">r"CO$_2$ (metric tons per capita)"</span>, loc<span class="op">=</span><span class="st">"right"</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"The USA leads the world on per-capita emissions"</span>, y<span class="op">=</span><span class="fl">1.01</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key, spine <span class="kw">in</span> ax.spines.items():</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    spine.set_visible(<span class="va">False</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">""</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">""</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>ax.yaxis.tick_right()</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="the-prize-with-apis_files/figure-html/cell-4-output-1.svg" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>This shows how data can be pulled straight down into analytical tools, reports, forecasts, and so on; any output or analysis you can think of.</p>
+<p>How much economic growth can you generate from making a private dataset open? Let’s create a simple model.</p>
+<p>Assume firms have total factor productivity <span class="math inline">\(A\)</span>, with baseline <span class="math inline">\(A_0\)</span>. When a firm has access to new data relevant to its production, it moves to TFP <span class="math inline">\(A_d&gt;A_0\)</span> with</p>
+<p><span class="math display">\[
+A_{\text{data}} \equiv A_d = A_0(1+\gamma),\qquad \gamma&gt;0
+\]</span></p>
+<p><span class="math inline">\(\gamma\)</span> is the proportional TFP boost from using the data, <span class="math inline">\(d\)</span>. A fraction <span class="math inline">\(f\in(0,1)\)</span> of firms can use <span class="math inline">\(d\)</span> (<span class="math inline">\(f\ll1\)</span> for any given data release). The other <span class="math inline">\(1-f\)</span> firms do not directly use the data. However, there are some spillover benefits to them, which have strength <span class="math inline">\(\varphi\in[0,1]\)</span>. The non-data firms’ TFP becomes</p>
+<p><span class="math display">\[
+A_{\text{other}} = A_0\big(1 + \varphi\cdot f\cdot\gamma\big).
+\]</span></p>
+<p>Aggregate TFP <span class="math inline">\(A_{\mathrm{agg}}\)</span> is the weighted average of firm TFPs:</p>
+<p><span class="math display">\[
+\begin{aligned}
+A_{\mathrm{agg}}
+&amp;= f\cdot A_{\text{data}} \;+\; (1-f)\cdot A_{\text{other}} \\
+&amp;= f A_0(1+\gamma) \;+\; (1-f) A_0\big(1+\varphi f\gamma\big)\\
+&amp;= A_0\Big[1 \;+\; f\gamma \;+\; (1-f)\varphi f\gamma\Big]\\
+&amp;= A_0\Big[1 \;+\; f\gamma\big(1+\varphi(1-f)\big)\Big].
+\end{aligned}
+\]</span></p>
+<p>If <span class="math inline">\(f\)</span> is small, then you have</p>
+<p><span class="math display">\[
+A_{\mathrm{agg}}\approx A_0\big[1 + f\gamma(1+\varphi)\big].
+\]</span></p>
+<section id="what-is-the-one-off-growth-effect-of-releasing-data" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-the-one-off-growth-effect-of-releasing-data">What is the (one-off) growth effect of releasing data?</h2>
+<p>Assume capital is fixed in the short run (so output changes proportionally to TFP). Then the immediate jump in aggregate output is</p>
+<p><span class="math display">\[
+g \equiv \frac{\Delta Y}{Y} \approx \frac{\Delta A_{\mathrm{agg}}}{A_0}
+= f\gamma\big(1+\varphi(1-f)\big)\approx f\gamma(1+\varphi).
+\]</span></p>
+<p>What’s going on here? A small fraction <span class="math inline">\(f\)</span> of firms each get a boost <span class="math inline">\(\gamma\)</span>; spillovers <span class="math inline">\(\varphi\)</span> multiply that effect on the rest of the economy.</p>
+<p>Let’s see how this would look for some plausible numbers. Let’s say a dataset was made public that affects 10,000 firms. For reference, <a href="https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation/adhocs/2447estateagentsbysizeandregion">there are around 25,000 estate agents</a> in the UK. You could imagine a dataset relevant to addresses being made open and some number of those estate agents benefitting from it. The UK has 2.72 million businesses, so we’re looking at <span class="math inline">\(f \approx 0.37\%\)</span>. Let’s say the data makes those firms 1% more productive in TFP terms, so <span class="math inline">\(\gamma = 1\%\)</span>.</p>
+<p>And what of spillovers? Not so clear but for research and development investments, it seems like spillovers are around 2.5 times the private increase (see <a href="https://www.frontier-economics.com/media/015adtpq/rate-of-return.pdf">this Frontier Economics</a> article). So let’s run with <span class="math inline">\(\varphi = 2.5\)</span>.</p>
+<p>Plugging those numbers in, you could see a whole economy one-off growth benefit of</p>
+<p><span class="math display">\[
+g = f\gamma\big(1+\varphi(1-f)\big) = 0.37\%\cdot 1\%\cdot (1 + 2.5(1-0.37\%)) \approx 0.01 \%
+\]</span></p>
+<p>Recent UK GDP growth year-on-year has been in the 1% to 2% range, so while 0.01 pp extra is small, it’s not nothing. 2024 UK GDP was 2,851 billion GBP, so we’re talking about 285 million pounds. Worth having!</p>
 </section>
-<section id="why-are-apis-brilliant" class="level2">
-<h2 class="anchored" data-anchor-id="why-are-apis-brilliant">Why are APIs brilliant?</h2>
-<p>Programmatic access to data has a number of clear benefits:</p>
-<ul>
-<li>Data are provided in a consistent, machine readable format—this can save hours of work for each file and enables automation</li>
-<li>users can build other tools on top of APIs and APIs integrate directly into analytical tools</li>
-<li>APIs are accessible by a range of open source (and free) software</li>
-<li>APIs can provide only the data that the user needs (they enable filtering)</li>
-<li>APIs can provide a data provider with more granular information on what data have been requested than a bulk download can</li>
-<li>an organisation can provide data to itself (eg across teams) without one team having to bother another; teams within the organisation can also consume the API</li>
-<li>the date of the ingestion of data can be easily including in the metadata that the API send—this is really useful to anyone working with real-time data applications (eg nowcasting) or if a mistake is subsequently found in a series</li>
-<li>using APIs to serve data encourages the use of consistent taxonomies (eg country names) that will ultimately aid end-users by enabling them to more easily link data</li>
-<li>secure APIs allow organisations to share sensitive data in a programmatic way and, while no method of data transfer can ever be 100% secure, APIs that follow the best practices for security are thought to involve less risk than emailing files</li>
-</ul>
-<p>Directly integrating with analytical tools has a number of benefits for auditability and accountability given that analytical tools can be used with code, and code can be put under version control—which means to-the-second, to-the-line auditing of who changed what when and easy-to-reverse changes should errors be discovered.</p>
-<p>Additionally, when data are shared only as files, it’s so often as Microsoft Excel files, which can go wrong in some pretty serious ways:</p>
-<ul>
-<li>Excel is a proprietary format that is harder to use without buying software from a particular vendor</li>
-<li>Excel mixes analysis and data storage (which is bad practice)</li>
-<li>Excel changes data</li>
-<li>Excel is limited in storage size and file-types it can handle</li>
-<li>Excel is not easily auditable (code-first approaches allow for to-the-second, to-the-line audit).</li>
-</ul>
-<p>That said, you can improve the provision of data through Excel by making it machine readable or by making it consistent, perhaps making use of the excellent <a href="https://gptables.readthedocs.io/">GPTables</a> (good practice tables) package created by the UK’s Office for National Statistics (full disclosure: I didn’t work on this package, but some colleagues did).</p>
-<p>It’s also important to note that providing a downloadable file and an API is not mutually exclusive—to serve the widest range of users, it’s a good idea to provide both. But it’s important that they feed off the same underlying database in the same way and so are 100% consistent.</p>
-<p>The main downside of APIs is that they are more difficult to use for all but expert users (though this category has expanded in recent years as the world becomes more code-savvy and it now arguably includes everyone from academics to data journalists to data enthusiasts). This is why it’s important to make APIs available <em>alongside</em> other ways to access the data.</p>
-<p>To lower the barrier to using an API, there are a couple of options. They can be integrated into easier-to-use tools (like the <strong>pandas_datareader</strong> package) or they can be provided alongside an API ‘query builder’ that gives rapid feedback on whether a query is valid or not (<a href="https://overpass-turbo.eu/">open street map API’s ‘overpass turbo’ is a good example</a>).</p>
+<section id="what-does-this-framework-tell-us-about-a-real-case" class="level2">
+<h2 class="anchored" data-anchor-id="what-does-this-framework-tell-us-about-a-real-case">What does this framework tell us about a real case?</h2>
+<p>There’s a lovely paper by <span class="citation" data-cites="loomis_valuing_2015a">Loomis et al. (<a href="#ref-loomis_valuing_2015a" role="doc-biblioref">2015</a>)</span> that uses contingent valuation to work out that the value of opening up the US’ Landsat satellite imagery. The authors find that the value of opening up the data is 1.8 billion USD. Using this and other numbers from the paper, and our equation, we can back out the productivity boost.</p>
+<p>Based on the valuation, the one-time economic benefit is equivalent to 0.012% of US GDP,</p>
+<p><span class="math display">\[\frac{\$1.8 \text{ billion}}{ \$15.094 \text{ trillion}} \times 100 \approx 0.012\%\]</span></p>
+<p>This is pretty close to the made-up numbers. For the Landsat case study, there were 13,473 users, so let’s use that for <span class="math inline">\(f\)</span> with the US’s 32 million firms. Then</p>
+<p><span class="math display">\[
+f\gamma(1+\varphi) = \frac{13473}{32\times10^6} \gamma (1+2.5) = 0.012\% \longrightarrow \gamma \approx 8.1\%
+\]</span></p>
+<p>This makes sense: compared to the made-up example, the fraction of firms directly affected is substantially smaller at 0.04% but the growth is similar—so the productivity must be proportionately higher.</p>
+<p>Of course, this is all just back-of-the-envelope, tons of caveats apply, and there are downsides to releasing (some) data. But, to an order of magnitude, open data can have a positive effect on growth.</p>
+
+
+
 </section>
-<section id="api-best-practice" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="api-best-practice">API Best Practice</h2>
-<p>There are a number of API standards out there, and the best one depends on the context. In the UK, there is <a href="https://www.gov.uk/guidance/gds-api-technical-and-data-standards">gov.uk guidance</a> on APIs.</p>
-<p>The approach followed for open data APIs across a <a href="https://sdmx.org/?page_id=2705">wide range of international and national statistical organisations</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> is a standard called SDMX: <a href="https://sdmx.org/?page_id=2555">Statistical Data and Metadata eXchange</a>. It’s an ISO (International Organization for Standardization) standard designed to describe statistical data and metadata, normalise their exchange, and improve their efficient sharing across statistical and similar organisations.</p>
 
-
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;The BIS (Bank for International Settlements), ECB (European Central Bank), EUROSTAT (Statistical Office of the European Union), IMF (International Monetary Fund), OECD (Organisation for Economic Co-operation and Development), UN (United Nations), and the World Bank.</p></div></div></section>
-
-
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-loomis_valuing_2015a" class="csl-entry" role="listitem">
+Loomis, John, Steve Koontz, Holly Miller, and Leslie Richardson. 2015. <span>“Valuing <span>Geospatial Information</span>: <span>Using</span> the <span>Contingent Valuation Method</span> to <span>Estimate</span> the <span>Economic Benefits</span> of <span>Landsat Satellite Imagery</span>.”</span> <em>Photogrammetric Engineering &amp; Remote Sensing</em> 81 (8): 647–56. <a href="https://doi.org/10.14358/PERS.81.8.647">https://doi.org/10.14358/PERS.81.8.647</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

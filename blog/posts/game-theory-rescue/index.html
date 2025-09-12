@@ -112,15 +112,19 @@ window.Quarto = {
 
 <meta property="og:title" content="Arthur Turrell">
 <meta property="og:description" content="Arthur Turrell is an economic data scientist.">
-<meta property="og:image" content="https://www.aeturrell.com/blog/posts/game-theory-rescue/None">
+<meta property="og:image" content="https://www.aeturrell.com/blog/transparent.png">
 <meta property="og:site_name" content="Arthur Turrell">
 <meta property="og:locale" content="en_UK">
+<meta property="og:image:height" content="1">
+<meta property="og:image:width" content="1">
 <meta name="twitter:title" content="Arthur Turrell">
 <meta name="twitter:description" content="Arthur Turrell is an economic data scientist.">
-<meta name="twitter:image" content="https://www.aeturrell.com/blog/posts/game-theory-rescue/None">
+<meta name="twitter:image" content="https://www.aeturrell.com/blog/transparent.png">
 <meta name="twitter:creator" content="@arthurturrell">
 <meta name="twitter:site" content="@arthurturrell">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="1">
+<meta name="twitter:image-width" content="1">
 </head>
 
 <body class="nav-fixed">
@@ -215,9 +219,14 @@ window.Quarto = {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Why the latest, most exciting thing in machine learning is… game theory</h1>
-                                <div class="quarto-categories">
+                  <div>
+        <div class="description">
+          What Shapley values could offer machine learning
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">research</div>
-                <div class="quarto-category">machine-learning</div>
+                <div class="quarto-category">machine learning</div>
               </div>
                   </div>
   </div>
@@ -263,7 +272,7 @@ window.Quarto = {
 
 
 
-<p><em>And when I say latest, this particular method was invented in 1953.</em></p>
+<p>And when I say latest, this particular method was invented in 1953!</p>
 <p>Machine learning has interpretability issues. New EU legislation, the General Data Protection Regulation, includes a <a href="https://www.privacy-regulation.eu/en/r71.htm">line</a> about “the right … to obtain an explanation of the decision reached”, including by an algorithm.</p>
 <p>Of course, there are many other good reasons to want the decisions of algorithms to be understandable and explainable. Interrogating why an algorithm makes the choices it does can highlight whether <a href="https://medium.com/@jrzech/what-are-radiological-deep-learning-models-actually-learning-f97a546c5b98">it’s working as intended</a>, and, in some situations - such as public policy - transparency and interpretability may be essential ingredients of decision making.</p>
 <p>But non-linear models are just not that easy to decompose into their fundamental components, they are - to an extent - a ‘black box’. Ideally, we would be able to find the contribution of each input feature to the final prediction. In linear models, this is trivially achieved by the combination of the level of a feature and its regression coefficient. That is, for a linear model <span class="math inline">\(f\)</span> with features <span class="math inline">\(x_{i\nu}\)</span>, <span class="math inline">\(\nu \in \{1,p\}\)</span> at a point <span class="math inline">\(i\)</span> such that</p>
