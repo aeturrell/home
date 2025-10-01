@@ -1,0 +1,251 @@
+---
+date: "2025-10-01"
+layout: post
+title: "TIL: merging PDFs"
+categories: [TIL, economics, vibe coding]
+execute:
+  echo: false
+jupyter: python3
+toc: false
+references: ../files/reference.bib
+images: "../../transparent.png"
+---
+
+I got the following email:
+
+> I was wondering if it is possible to get your excellent book "coding for economists" as a single PDF? I'm trying to improve my coding skills, and move away from just working in Stata, but I would very much prefer to read the book on my ReMarkable reader rather than on Github?
+
+> Many thanks for putting in the effort to make such a great text available for the public.
+
+Well it's always nice to get emails appreciative of your work. But I have no PDF version of the book!
+
+I had a quick look, however, and remembered that [each page of the book](https://aeturrell.github.io/coding-for-economists/intro.html) has a "print to PDF" button. If I could do that on each page, and merge the PDFs, then I could help out the email correspondent.
+
+Thanks to Claude Sonnet 4.5, I vibe coded the following self-contained script that *worked perfectly*. It created a fairly hefty (60MB+) PDF with every page of the book in to read offline and at leisure. What's more, this approach could work on any series of webpages as it's just using the "print to PDF" option.
+
+To use it in this instance it was (assuming you have [uv](https://docs.astral.sh/uv/) installed),
+
+```bash
+uv tool run playwright install chromium
+uv run download_and_merge_pdfs.py
+```
+
+```python
+#!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#   "requests",
+#   "beautifulsoup4",
+#   "PyPDF2",
+#   "playwright",
+# ]
+# ///
+
+"""
+Script to download PDFs from each page of an online book and combine them.
+Since the site uses window.print() instead of pre-generated PDFs, we use Playwright to render each page and print to PDF.
+
+First time setup (installs Chromium):
+    uv tool run playwright install chromium
+
+Usage with uv:
+    uv run download_and_merge_pdfs.py
+
+
+"""
+
+import os
+import time
+import requests
+from bs4 import BeautifulSoup
+from PyPDF2 import PdfMerger
+from urllib.parse import urljoin, urlparse
+from playwright.sync_api import sync_playwright
+
+# Configuration
+BASE_URL = "https://aeturrell.github.io/coding-for-economists/"
+START_PAGE = "intro.html"
+OUTPUT_FILE = "coding_for_economists_complete.pdf"
+TEMP_DIR = "temp_pdfs"
+
+def create_temp_dir():
+    """Create temporary directory for PDFs"""
+    if not os.path.exists(TEMP_DIR):
+        os.makedirs(TEMP_DIR)
+
+def get_page_links(start_url):
+    """Extract all chapter/page links from the sidebar navigation"""
+    print(f"Fetching page structure from {start_url}...")
+    response = requests.get(start_url)
+    response.raise_for_status()
+    soup = BeautifulSoup(response.content, 'html.parser')
+    
+    links = []
+    
+    # Look for the sidebar navigation in Jupyter Book
+    nav = soup.select_one('nav#bd-docs-nav, nav.bd-links, div.bd-sidebar')
+    
+    if nav:
+        # Find all links in the navigation
+        for link in nav.find_all('a', href=True):
+            href = link['href']
+            # Filter for HTML pages, exclude anchors and external links
+            if href.endswith('.html') and not href.startswith('http') and not href.startswith('#'):
+                full_url = urljoin(BASE_URL, href)
+                if full_url not in links:
+                    links.append(full_url)
+                    print(f"  Found: {href}")
+    
+    # If we didn't find links in nav, try to find them anywhere on the page
+    if not links:
+        print("Nav structure not found, trying alternative method...")
+        for link in soup.find_all('a', href=True):
+            href = link['href']
+            if href.endswith('.html') and not href.startswith('http') and not href.startswith('#'):
+                full_url = urljoin(BASE_URL, href)
+                if full_url not in links and BASE_URL in full_url:
+                    links.append(full_url)
+                    print(f"  Found: {href}")
+    
+    return links
+
+def page_to_pdf_playwright(page_url, output_path):
+    """Use Playwright to render page and save as PDF"""
+    print(f"    Converting to PDF with Playwright...")
+    
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page()
+        
+        # Navigate to the page
+        page.goto(page_url, wait_until='networkidle')
+        
+        # Wait a bit for any dynamic content
+        page.wait_for_timeout(1000)
+        
+        # Print to PDF with good settings
+        page.pdf(
+            path=output_path,
+            format='A4',
+            margin={
+                'top': '20mm',
+                'right': '20mm',
+                'bottom': '20mm',
+                'left': '20mm'
+            },
+            print_background=True
+        )
+        
+        browser.close()
+    
+    return output_path
+
+def merge_pdfs(pdf_files, output_file):
+    """Merge multiple PDFs into one"""
+    print(f"\nMerging {len(pdf_files)} PDFs into {output_file}...")
+    merger = PdfMerger()
+    
+    for pdf_file in pdf_files:
+        print(f"  Adding: {os.path.basename(pdf_file)}")
+        merger.append(pdf_file)
+    
+    merger.write(output_file)
+    merger.close()
+    print(f"Successfully created {output_file}")
+
+def cleanup_temp_files(pdf_files):
+    """Remove temporary PDF files"""
+    print("\nCleaning up temporary files...")
+    for pdf_file in pdf_files:
+        try:
+            os.remove(pdf_file)
+        except Exception as e:
+            print(f"  Warning: Could not remove {pdf_file}: {e}")
+    
+    try:
+        os.rmdir(TEMP_DIR)
+    except Exception as e:
+        print(f"  Warning: Could not remove {TEMP_DIR}: {e}")
+
+def main():
+    create_temp_dir()
+    
+    # Get all page links from the table of contents
+    start_url = urljoin(BASE_URL, START_PAGE)
+    page_links = get_page_links(start_url)
+    
+    if not page_links:
+        print("Could not find page links. Using just the intro page...")
+        page_links = [start_url]
+    
+    # TEST MODE: Only do first 3 pages
+    # print(f"\n{'='*60}")
+    # print(f"TEST MODE: Processing first 3 pages only")
+    # print(f"{'='*60}")
+    # page_links = page_links[:3]
+    
+    print(f"\nWill process {len(page_links)} pages")
+    
+    # Convert each page to PDF
+    downloaded_pdfs = []
+    for i, page_url in enumerate(page_links, 1):
+        print(f"\n[{i}/{len(page_links)}] Processing: {page_url}")
+        
+        # Create a safe filename from the page URL
+        page_name = os.path.basename(urlparse(page_url).path)
+        page_name = os.path.splitext(page_name)[0]
+        filename = f"{i:03d}_{page_name}.pdf"
+        output_path = os.path.join(TEMP_DIR, filename)
+        
+        try:
+            page_to_pdf_playwright(page_url, output_path)
+            downloaded_pdfs.append(output_path)
+            print(f"    ✓ Saved: {filename}")
+        except Exception as e:
+            print(f"    ✗ Error converting page: {e}")
+        
+        # Be nice to the server
+        time.sleep(1)
+    
+    # Merge all PDFs
+    if downloaded_pdfs:
+        # Show info about downloaded files
+        print(f"\n{'='*60}")
+        print(f"Downloaded Files:")
+        print(f"{'='*60}")
+        total_size = 0
+        for pdf in downloaded_pdfs:
+            size = os.path.getsize(pdf) / 1024  # KB
+            total_size += size
+            print(f"  {os.path.basename(pdf)}: {size:.1f} KB")
+        print(f"  Total: {total_size:.1f} KB")
+        
+        merge_pdfs(downloaded_pdfs, OUTPUT_FILE)
+        
+        cleanup_input = input("\nDelete temporary PDF files? (y/n): ")
+        if cleanup_input.lower() == 'y':
+            cleanup_temp_files(downloaded_pdfs)
+        else:
+            print(f"Temporary files kept in: {TEMP_DIR}/")
+        
+        final_size = os.path.getsize(OUTPUT_FILE) / 1024
+        print(f"\n{'='*60}")
+        print(f"✓ Complete!")
+        print(f"{'='*60}")
+        print(f"Combined PDF: {OUTPUT_FILE} ({final_size:.1f} KB)")
+        print(f"\nTo process all pages, edit the script and remove the [:3] slice")
+    else:
+        print("\n✗ No PDFs were created.")
+
+if __name__ == "__main__":
+    # Check if playwright is installed
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        print("Error: Playwright not found.")
+        print("Install with: uv run playwright install chromium")
+        exit(1)
+    
+    main()
+```
