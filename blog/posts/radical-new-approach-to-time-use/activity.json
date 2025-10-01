@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "activity": {
+      "type": "string",
+      "description": "The activity being performed in the image.",
+      "enum": [
+        "running",
+        "writing",
+        "washing dishes"
+      ]
+    }
+  },
+  "required": ["activity"]
+}
