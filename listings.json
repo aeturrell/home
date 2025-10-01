@@ -9,6 +9,7 @@
       "/blog/posts/10-lesser-known-python-packages/index.html",
       "/blog/posts/better-narrative-on-narratives/index.html",
       "/blog/posts/future-of-statistics/index.html",
+      "/blog/posts/radical-new-approach-to-time-use/index.html",
       "/blog/index.html",
       "/blog/posts/build-a-cloud-api/build-a-cloud-api.html",
       "/blog/posts/converting-lecture-notes/index.html",
@@ -34,6 +35,7 @@
       "/blog/posts/virtual-desktop-from-virtual-machine/virtual-desktop-from-virtual-machine.html",
       "/blog/posts/til-sql-database-azure/index.html",
       "/blog/posts/til-blob-storage-azure/index.html",
+      "/blog/posts/til-merging-pdfs/index.html",
       "/blog/posts/ons-api/index.html",
       "/blog/posts/the-data-validation-landscape-in-2025/index.html",
       "/blog/posts/time-series-explosion/index.html",
@@ -57,6 +59,8 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/posts/radical-new-approach-to-time-use/index.html",
+      "/blog/posts/til-merging-pdfs/index.html",
       "/blog/posts/economic-value-of-data/index.html",
       "/blog/posts/media-mentions/index.html",
       "/blog/posts/future-of-statistics/index.html",
