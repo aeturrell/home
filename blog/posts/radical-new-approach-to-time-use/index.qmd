@@ -172,7 +172,7 @@ I don't think it's at all unlikely that we'll have this kind of ability running 
 
 ## Conclusion
 
-As I've [written before](../future-of-statistics/index.qmd/#use-of-ai), AI gives us opportunities to produce statistics in new and more insightful ways. Here's hoping that time use statistics gets this kind of attention in the near future.
+As I've [written before](../future-of-statistics/#use-of-ai), AI gives us opportunities to produce statistics in new and more insightful ways. Here's hoping that time use statistics gets this kind of attention in the near future.
 
 [^1]: Aren't all creatures mortal? Perhaps not. [Some jellyfish have](https://en.wikipedia.org/wiki/Turritopsis_dohrnii) the ability to revert to an earlier life-cycle stage and start again.
 

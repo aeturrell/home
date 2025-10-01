@@ -57,3 +57,5 @@ bower_components
 .vscode/settings.json
 
 /.quarto/
+
+**/*.quarto_ipynb
