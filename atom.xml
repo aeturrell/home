@@ -255,6 +255,39 @@ font-style: inherit;">-a</span> mystery_activity.png</span></code></pre></div></
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p>As I’ve <a href="../future-of-statistics/#use-of-ai">written before</a>, AI gives us opportunities to produce statistics in new and more insightful ways. Here’s hoping that time use statistics gets this kind of attention in the near future.</p>
+</section>
+<section id="update-2025-10-17" class="level2">
+<h2 class="anchored" data-anchor-id="update-2025-10-17">Update 2025-10-17</h2>
+<p>This post got a lot of engagement. Part of the discussions I’ve had subsequently have been about whether <em>local</em> models would be up to the job of doing the categorisation. After all, as of right now, Claude Sonnet 4.5 is one of the top models out there.</p>
+<p>Well, the answer is that an under-7GB model running locally on a MacBook can do this job just as well! Using the very convenient MLX version of Qwen3-VL-4B-Instruct-8Bit (details on the <a href="https://github.com/Blaizzy/mlx-vlm">MLX VL package here</a>, and info on <a href="https://huggingface.co/mlx-community/Qwen3-VL-4B-Instruct-8bit">the model is here</a>), this is the command:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">mlx_vlm.generate</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--model</span> mlx-community/Qwen3-VL-4B-Instruct-8bit <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--max-tokens</span> 100 <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--prompt</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'output as JSON matching the following schema, returning only the activity field $(cat activity.json)'</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--image</span> mystery_activity.png</span></code></pre></div></div>
+<pre class="text"><code>==========
+Files: ['mystery_activity.png'] 
+
+Prompt: &lt;|im_start|&gt;user
+&lt;|vision_start|&gt;&lt;|image_pad|&gt;&lt;|vision_end|&gt;output as JSON matching the following schema, returning only the activity field $(cat activity.json)&lt;|im_end|&gt;
+&lt;|im_start|&gt;assistant
+
+{
+  "activity": "washing dishes"
+}
+==========
+Prompt: 288 tokens, 280.687 tokens-per-sec
+Generation: 11 tokens, 54.537 tokens-per-sec
+Peak memory: 6.248 GB</code></pre>
+<p>While a MacBook is not a mobile phone or a bespoke wearable, it’s a step along the way. Impressive stuff!</p>
 
 
 

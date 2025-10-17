@@ -721,6 +721,13 @@
     "text": "Conclusion\nAs I’ve written before, AI gives us opportunities to produce statistics in new and more insightful ways. Here’s hoping that time use statistics gets this kind of attention in the near future."
   },
   {
+    "objectID": "blog/posts/radical-new-approach-to-time-use/index.html#update-2025-10-17",
+    "href": "blog/posts/radical-new-approach-to-time-use/index.html#update-2025-10-17",
+    "title": "An idea for a radically new approach to time use statistics",
+    "section": "Update 2025-10-17",
+    "text": "Update 2025-10-17\nThis post got a lot of engagement. Part of the discussions I’ve had subsequently have been about whether local models would be up to the job of doing the categorisation. After all, as of right now, Claude Sonnet 4.5 is one of the top models out there.\nWell, the answer is that an under-7GB model running locally on a MacBook can do this job just as well! Using the very convenient MLX version of Qwen3-VL-4B-Instruct-8Bit (details on the MLX VL package here, and info on the model is here), this is the command:\nmlx_vlm.generate --model mlx-community/Qwen3-VL-4B-Instruct-8bit --max-tokens 100 --prompt 'output as JSON matching the following schema, returning only the activity field $(cat activity.json)' --image mystery_activity.png\n==========\nFiles: ['mystery_activity.png'] \n\nPrompt: &lt;|im_start|&gt;user\n&lt;|vision_start|&gt;&lt;|image_pad|&gt;&lt;|vision_end|&gt;output as JSON matching the following schema, returning only the activity field $(cat activity.json)&lt;|im_end|&gt;\n&lt;|im_start|&gt;assistant\n\n{\n  \"activity\": \"washing dishes\"\n}\n==========\nPrompt: 288 tokens, 280.687 tokens-per-sec\nGeneration: 11 tokens, 54.537 tokens-per-sec\nPeak memory: 6.248 GB\nWhile a MacBook is not a mobile phone or a bespoke wearable, it’s a step along the way. Impressive stuff!"
+  },
+  {
     "objectID": "blog/posts/public-sector-analytical-efficiency/index.html",
     "href": "blog/posts/public-sector-analytical-efficiency/index.html",
     "title": "Efficiency in the public sector: analysis and operations",
