@@ -10,7 +10,52 @@
 <atom:link href="https://www.aeturrell.com/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>{{&lt; meta description-meta &gt;}}</description>
 <generator>quarto-1.8.24</generator>
-<lastBuildDate>Wed, 01 Oct 2025 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 22 Oct 2025 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>One trick to stop ticket touts</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>https://www.aeturrell.com/blog/posts/one-trick-to-stop-ticket-touts/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>What can be done to stop the ticket resellers?<sup>1</sup> Artists don’t want to charge the maximum they can, perhaps because they want all of their fans to have a chance to attend their gigs, or perhaps because they want to establish a long-term relationship with the fans and feel eye-watering prices would turn some away. But as a consequence, when concert tickets go on sale, resellers—using sophisticated bots—scoop up all the tickets at the low price that the artist intended for fans. Let <img src="https://latex.codecogs.com/png.latex?p"> be the low price the artist intends to charge.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Reselling is not fundamentally bad. Markets are good! Getting the thing to the person who wants it is good! But if you’re an artist who wants ‘true’ fans to come to your concert for less than the market rate, then you want to disincentivise the resellers.</p></div></div><p>In economics terms, the artists are charging below the equilibrium price, ie the one that the fans are willing to bear (even if they would prefer not to!) The artists would like the fans to capture this benefit. But the resellers <em>do</em> charge the equilibrium price, which is <img src="https://latex.codecogs.com/png.latex?p'%3Ep">, and can pocket <img src="https://latex.codecogs.com/png.latex?p'-p"> for every ticket sold (minus the cost of their labour.) By the way, <img src="https://latex.codecogs.com/png.latex?p'/p"> can be substantial: a paper by <span class="citation" data-cites="connolly2018secondary">Connolly and Krueger (2018)</span> found that the mean resale mark-up was 36% but a few 100 percent for superstar artists.</p>
+<p>You can make laws to ban reselling but it isn’t easy to enforce them. Might economics have an answer?</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="https://www.aeturrell.com/blog/posts/one-trick-to-stop-ticket-touts/gig_demand_supply.svg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="margin-caption">The economics of gig tickets. The artist wants to charge their loyal fans below the equilibrium price</figcaption>
+</figure>
+</div>
+<section id="using-economics-to-stop-the-resellers" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="using-economics-to-stop-the-resellers">Using economics to stop the resellers</h2>
+<p>Artists charge the full, market price for tickets, <img src="https://latex.codecogs.com/png.latex?p'">. But. They then give a rebate at the venue, on the night, of <img src="https://latex.codecogs.com/png.latex?p'-p"> to each person with a ticket. This could be cash or (more safely) money back on a card. This means that the fan has paid <img src="https://latex.codecogs.com/png.latex?p">, and the artist + venue still collect <img src="https://latex.codecogs.com/png.latex?p">.</p>
+<p>Resellers get nothing. Here’s why: you’re a reseller, and you buy the ticket at <img src="https://latex.codecogs.com/png.latex?p'">. The only thing you can do is resell it at <img src="https://latex.codecogs.com/png.latex?p'">. But you bought it for that! So your profit is zero.</p>
+<p>Now you might worry that resellers buy the tickets anyway, and turn up to the venue to collect their rebate. In this case, they have paid <img src="https://latex.codecogs.com/png.latex?p'"> and get a rebate of <img src="https://latex.codecogs.com/png.latex?p'-p">. So they are down <img src="https://latex.codecogs.com/png.latex?p"> per ticket. The fan doesn’t mind being down <img src="https://latex.codecogs.com/png.latex?p"> per ticket, because the fan only buys one and gets to see the concern of their favoured artist. The ticket reseller, however, probably doesn’t value seeing the artist at <img src="https://latex.codecogs.com/png.latex?p"> for more than a few artists, and certainly doesn’t want more than one ticket. And, for the sake of argument, let’s say the value to them of actually attending any gig is on average zero, then their profit in this case is <img src="https://latex.codecogs.com/png.latex?-p">! They actually lost money by going to the gig themselves and getting the rebate.<sup>2</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Even if you sent a gang of people to go and collect the rebates at low labour cost, you’re still down on every ticket.</p></div></div><p>The reason this works is that you need to go to the gig to get the surplus, and the only people who get value from going to the gig are—by definition—fans.</p>
+<p>Even better, there’s no need for the government to regulate. The people involved in this market are incentivised to behave themselves. That is far cheaper and more effective than trying to police the market.</p>
+<p>There are some limitations of this approach. It might cost the venue more to do the rebates. But they could take this out of the surplus. Let’s say it costs them <img src="https://latex.codecogs.com/png.latex?c"> per ticket to do the rebate. Fans still get <img src="https://latex.codecogs.com/png.latex?p'-p-c"> in surplus! Resellers still get zero. So it’s much closer to what the artist and venue intended.</p>
+<p>The real downside of this approach is that fans must have savings enough to purchase an expensive ticket <em>up-front</em>. <span class="citation" data-cites="connolly2018secondary">Connolly and Krueger (2018)</span> found that a Bruce Springsteen ticket was resold at 240% of base price, making a £100 (<img src="https://latex.codecogs.com/png.latex?p">) ticket cost £240 (<img src="https://latex.codecogs.com/png.latex?p'">). So how do you deal with this problem? Well, the counterfactual without the economic trick is that the resellers are still operating and have used sophisticated methods to enable them to resell at <img src="https://latex.codecogs.com/png.latex?p'">. So our fan who can’t up-front a lot of cash has the same initial problem… but without the promise of a rebate at the end!</p>
+<p>So there you go, one trick to stop ticket touts… using the power of economic incentives.</p>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-connolly2018secondary" class="csl-entry">
+Connolly, Marie, and Alan B Krueger. 2018. <span>“The Secondary Market for Concert Tickets: Theory and Evidence.”</span> <em>Internat. J. Music Bus. Res</em> 7 (2): 6–51.
+</div>
+</div></section></div> ]]></description>
+  <category>economics</category>
+  <category>ideas</category>
+  <guid>https://www.aeturrell.com/blog/posts/one-trick-to-stop-ticket-touts/</guid>
+  <pubDate>Wed, 22 Oct 2025 23:00:00 GMT</pubDate>
+</item>
 <item>
   <title>An idea for a radically new approach to time use statistics</title>
   <dc:creator>Arthur Turrell</dc:creator>
@@ -6074,355 +6119,6 @@ signature:
   <guid>https://www.aeturrell.com/blog/posts/why-have-a-model-registry/</guid>
   <pubDate>Thu, 12 Oct 2023 23:00:00 GMT</pubDate>
   <media:content url="https://www.aeturrell.com/blog/posts/why-have-a-model-registry/model_reg_img.png" medium="image" type="image/png" height="55" width="144"/>
-</item>
-<item>
-  <title>Building an API in the cloud in fewer than 200 lines of code</title>
-  <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/build-a-cloud-api/build-a-cloud-api.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Cloud tools and Python packages have become so powerful that you can build a (scalable) cloud-based API in fewer than 200 lines of code. In this blog post, you’ll see how to use Google Cloud, Terraform, and FastAPI to deploy a queryable data API on the cloud.</p>
-<p>The repository associated with this project <a href="https://github.com/aeturrell/deploy-api">can be found here</a> should you wish to try this for yourself.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/build-a-cloud-api/run_using_data.png" class="img-fluid figure-img" style="width:30.0%" alt="Image showing JSON returned by API."></p>
-<figcaption class="margin-caption">An example of the API created in this blog post returning data.</figcaption>
-</figure>
-</div>
-<section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background</h2>
-<p>The basic idea here is: create an image of a computer that serves up an API, stick it on a scalable cloud function, and let it rip so that anyone can query it.</p>
-<p>Why might you want to deploy an API? I <a href="../../../blog/posts/the-prize-with-apis/the-prize-with-apis.html">covered this in a previous blog post</a> and the short answer is that they’re awesome at servicing data or prediction requests in an efficient way.</p>
-<p>First, some caveats. I’m only counting lines of code for the API and the cloud infrastructure, not for the extraction and transform of the data we’ll be serving up. ie, this doesn’t count the code that creates the data, which is in the <code>etl</code> folder. This seems fair: I happened to pick a dataset that needed a bit of “E” and “T” love before being usable, but I could have started with any old dataset. Second: if you’re going to follow this and create your own scalable cloud API, you will need a Google Cloud account with the billing setup (or some free credits). Finally, be very careful not to share your cloud keys or your real terraform variable names if you are following this tutorial on a public repo. I’ve added the relevant files to the <code>.gitignore</code> file for those cloning the repo but you should be as cautious as ever when dealing with secrets that should not be shared publicly.</p>
-<p>Okay, let’s look at the technologies we’re going to use.</p>
-<section id="google-cloud-platform" class="level3">
-<h3 class="anchored" data-anchor-id="google-cloud-platform">Google Cloud Platform</h3>
-<p>Google Cloud Platform (GCP) provides a whole suite of cloud services, and is one of the major providers. It seems to have been made for data scientists, and has a great command line interface. The specific GCP components we’ll be using are:</p>
-<ul>
-<li>an image registry, to store the image of a computer than can serve up data via an API</li>
-<li>Google Cloud Run, which actually serves up the computer image</li>
-</ul>
-<p>It’s worth nothing that Cloud Run is serverless, which means you don’t have to fiddle with back-end resources to run applications. It can scale up or down as needed. Essentially, Google are handling the back-end stuff so you don’t have to. Like any tech, it has its limitations, but it’s a great choice for a simple, pain-free API deployment based on a container.</p>
-</section>
-<section id="terraform" class="level3">
-<h3 class="anchored" data-anchor-id="terraform">Terraform</h3>
-<p>As cloud platforms have proliferated, there’s a danger of getting back to point-and-click interfaces, problems with reproducibility, vendor lock-in, and other things we try to avoid as data scientists. Terraform is a tool that helps you do “infrastructure as code”, ie to build, change, and version control cloud resources safely and efficiently. One of the advantages is, once you have specified it once, you can re-use a Terraform plan to create the same infrastructure again down the line.</p>
-</section>
-<section id="python-and-fastapi" class="level3">
-<h3 class="anchored" data-anchor-id="python-and-fastapi">Python and FastAPI</h3>
-<p>FastAPI is a Python package for building APIs that has a whole range of benefits:</p>
-<ul>
-<li>Very high performance.</li>
-<li>Fast to code with fewer bugs, as picks up type hints and makes use of decorators.</li>
-<li>Full code completion support.</li>
-<li>Automatically creates interactive documentation.</li>
-<li>Based on (and fully compatible with) the open standards for APIs: OpenAPI (previously known as Swagger) and JSON Schema.</li>
-</ul>
-<p>Let’s see an example of some of this good stuff. First, the API endpoint is incredibly simple to create. Say we have a dataframe, <code>df</code>, which has the data we’d like to serve in. To turn a Python function that serves up data according to particular cuts into an API we need only add a decorator, an <code>async</code> statement, and add type hints. Here’s a simplified version of the example that gets built through the rest of this blog post:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">@app.get</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"/year/</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{year}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">/geo_code/</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{geo_code}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span>)</span>
-<span id="cb1-2"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">async</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">def</span> read_item(year: <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">int</span>, geo_code: <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">str</span>):</span>
-<span id="cb1-3">    json_data <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> df.loc[</span>
-<span id="cb1-4">        (df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"year"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> year) <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&amp;</span> (df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"geo_code"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> geo_code), <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"deaths"</span></span>
-<span id="cb1-5">    ].to_dict()</span>
-<span id="cb1-6">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">return</span> {<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"year"</span>: year, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"geo_code"</span>: geo_code, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"data"</span>: json_data}</span></code></pre></div></div>
-<p>This simple declaration buys us a lot. If you hit the API endpoint from this repo with this query: <code>/year/notanumber/geo_code/E08000007</code>, ie a valid geographic code but year is not an integer, then <strong><a href="https://docs.pydantic.dev/latest/">pydantic</a></strong> data validation checks are automatically run and return the following error message to the user:</p>
-<pre class="text"><code>{
-  "detail": [
-    {
-      "type": "int_parsing",
-      "loc": [
-        "path",
-        "year"
-      ],
-      "msg": "Input should be a valid integer, unable to parse string as an integer",
-      "input": "notanumber",
-      "url": "https://errors.pydantic.dev/2.4/v/int_parsing"
-    }
-  ]
-}</code></pre>
-<p>The API knows you didn’t pass a valid integer! The <code>year: int</code> part of the function declaration determines that any input to the year segment of the API must be an integer.</p>
-<p>Okay, with a bit of context out of the way, let’s now walkthrough building an API. All of <a href="https://github.com/aeturrell/deploy-api">the code is available here</a>.</p>
-</section>
-</section>
-<section id="initial-setup" class="level2">
-<h2 class="anchored" data-anchor-id="initial-setup">Initial Setup</h2>
-<section id="code-installs" class="level3">
-<h3 class="anchored" data-anchor-id="code-installs">Code Installs</h3>
-<p>Download and install <a href="https://developer.hashicorp.com/terraform/downloads"><strong>terraform</strong></a>. Do the same for <a href="https://python-poetry.org/"><strong>poetry</strong></a> and ensure you have a Python installation (this tutorial uses Python 3.10 and that version is baked into the <code>pyproject.toml</code> file that <strong>poetry</strong> uses—<a href="https://github.com/aeturrell/deploy-api/blob/main/pyproject.toml">link here</a>).</p>
-</section>
-<section id="create-a-google-project" class="level3">
-<h3 class="anchored" data-anchor-id="create-a-google-project">Create a Google Project</h3>
-<p>Get a <a href="https://console.cloud.google.com/">Google Cloud Account</a>.</p>
-<p>Ensure you have the <a href="https://cloud.google.com/sdk/docs/install-sdk">Google CLI installed</a> and authenticated: once you have downloaded and installed it, run <code>gcloud init</code> to set it up. Then run <code>gcloud auth login</code> to ensure you are logged into your account. With these steps done, you can make changes to your Google Cloud account from the command line.</p>
-<p>We’re now going to create a project on the command line.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">gcloud</span> projects create YOUR-PROJECT-ID</span></code></pre></div></div>
-<p>You may wish to add some numbers to the end of the project name to ensure it is unique, as most obvious names are already taken (and, if a name is taken, project creation will fail). (Note that you will need to set the same project ID in your <code>terraform.tfvars</code> file, which we’ll come to later.)</p>
-<p>Next up, switch the Google Cloud CLI to use this specific project:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">gcloud</span> config set project YOUR-PROJECT-ID</span></code></pre></div></div>
-<p>Now we have to go to the <a href="https://console.cloud.google.com/">Google Cloud Console</a>. Navigate to the relevant project, and then create a new Service Account under IAM. The current <a href="https://console.cloud.google.com/iam-admin/serviceaccounts">URL is here</a>. A service account can be used to manage access to Google Cloud services.</p>
-<p>In the new service account, click on Actions then Manage keys. Create a new key and download it as a JSON file—do not put it under version control! If you’re following this tutorial by cloning the <a href="https://github.com/aeturrell/deploy-api">associated repo</a>, you can put it in the <code>secrets</code> subdirectory with the name <code>google_key.json</code> because the contents of the <code>secrets</code> folder are not under version control—but always, always double check.</p>
-<p>If you haven’t already, you’ll also need to set up billing, which can be found under Billing in the left-hand side navigation pane. For me, the cost of setting this up was less than 1 pence.</p>
-</section>
-<section id="terraforming-google-cloud-components" class="level3">
-<h3 class="anchored" data-anchor-id="terraforming-google-cloud-components">Terraforming Google Cloud Components</h3>
-<p>Terraform is a cross-cloud way of specifying resources. We’re going to use it enable a couple of cloud APIs and name an Artifact Registry. (This registry is eventually where we will push a docker image of our app.)</p>
-<p><code>main.tf</code> is the main terraform file (<a href="https://github.com/aeturrell/deploy-api/blob/main/main.tf">link here</a>). It lists the API services that we’ll use from Google, gives them names, and also enables them too. There are a few distinct blocks:</p>
-<ol type="1">
-<li>terraform metadata</li>
-<li>provider region and project information</li>
-<li>a block representing the container registry API</li>
-<li>(last two blocks) code that enables the registry and cloud run APIs</li>
-</ol>
-<p>One of the slightly confusing things about terraform is that it works out what order to apply these changes in itself, so we don’t have to worry about the fact that the blocks enabling APIs come after the blocks creating new resources under specific APIs.</p>
-<p><code>.terraform.version</code> contains the version of terraform you’re using (run <code>terraform --version</code> to check).</p>
-<p><code>variables.tf</code> provides meta-data on the variables needed in your project (<a href="https://github.com/aeturrell/deploy-api/blob/main/variables.tf">link here</a>).</p>
-<p>In an extra file, that is not included in this repo and which shouldn’t be public, called <code>terraform.tfvars</code>, put the actual names of your Google Cloud Project variables. The contents will look like this:</p>
-<pre class="text"><code>#  GCP settings
-project_id = "YOUR PROJECT ID"
-region = "YOUR REGION"
-
-#  Artifact registry
-registry_id = "YOUR ARTIFACT REGISTRY NAME"</code></pre>
-<p>There should be an entry in this file for every variable in the <code>variables.tf</code> file.</p>
-<p>Now run <code>terraform init</code>. If successful, you should see a message saying “Terraform has been successfully initialized!”.</p>
-<p>Next, run <code>terraform plan</code>, which will think through what you’ve asked for in <code>main.tf</code>.</p>
-<p>Finally, to create the GCP resources, it’s <code>terraform apply</code>. If successful, you will see a message saying: “Apply complete! Resources: 3 added, 0 changed, 0 destroyed.”</p>
-<p>An alternative to using the last block of <code>main.tf</code> to enable the APIs is to use the Google Cloud CLI.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">gcloud</span> services enable artifactregistry.googleapis.com</span>
-<span id="cb6-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">gcloud</span> services enable run.googleapis.com</span></code></pre></div></div>
-<p>You can check what services you have enabled with <code>gcloud services list --enabled</code>. If you’re doing a huge project and want to filter, you can of course <code>grep</code> your way to the info you’re interested in, eg <code>gcloud services list --enabled | grep run</code> to check whether <code>run.googleapis.com</code> is on the list.</p>
-</section>
-</section>
-<section id="python-and-the-api" class="level2">
-<h2 class="anchored" data-anchor-id="python-and-the-api">Python and the API</h2>
-<section id="setup" class="level3">
-<h3 class="anchored" data-anchor-id="setup">Setup</h3>
-<p>Run <code>poetry config virtualenvs.in-project true</code> to make virtual environments be installed in the local project folder.</p>
-<p>Run <code>poetry install</code> to install the Python env. If this has worked, you’ll see a <code>.venv</code> folder appear and, if you’re using it, Visual Studio Code might ask if you want to use the newly created environment for executing Python code. (Note that <code>poetry config virtualenvs.in-project true</code> doesn’t always play nicely with conda; there’s an <a href="https://github.com/python-poetry/poetry/issues/4055">open Poetry issue about this</a> but it <em>did</em> seem to work when in the <code>base</code> environment of conda.)</p>
-<p>To try and help achieve high code quality, this repository uses <code>pre-commit</code>. You can run this using <code>poetry run pre-commit run --all-files</code>. As this is not essential, and the associated specification of packages isn’t really code, I didn’t include the file that specifies the pre-commit checks, <code>.pre-commit-config.yaml</code>, in the count of the number of lines of code.</p>
-</section>
-<section id="prepping-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="prepping-the-data">Prepping the data</h3>
-<p>You can choose any small dataset you like here. In this case, because it’s more fun, I stitched together some data on deaths that was scattered across Excel files in a weird format for the API to serve up. You can <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/monthlyfiguresondeathsregisteredbyareaofusualresidence">find the original data files here</a>. For larger datasets, you’d want to do a “load” (the “L” in “ETL”) step too, and have the data live in a GCP database that gets queried by the API.</p>
-<p>NB: the data are not included in the repo, you’ll need to run the Python scripts yourself!</p>
-<p>There are a few Python scripts in a folder called <code>etl</code>. These perform the following functions:</p>
-<ul>
-<li><code>etl/extract.py</code> — downloads deaths data by geography from this ONS page, which has Excel files for each year. The script downloads them all. <a href="https://github.com/aeturrell/deploy-api/blob/main/etl/extract.py">Link</a>.</li>
-<li><code>etl/transform.py</code> - this takes downloaded files, opens them, finds the relevant sheets, cleans them, and stacks them in a tidy format in a parquet file. <a href="https://github.com/aeturrell/deploy-api/blob/main/etl/transform.py">Link</a>. Challenges are:
-<ul>
-<li>Worksheet names change over time</li>
-<li>File formats change (the file extension)</li>
-<li>New data may be added in a new file, if the new data refer to January, or added into an existing file, if the month they refer to is not January</li>
-</ul></li>
-<li><code>etl/main.py</code> — this is a script that calls the extract and transform scripts in order to create the final dataset, <code>scratch/deaths_data.parquet</code>. <a href="https://github.com/aeturrell/deploy-api/blob/main/etl/main.py">Link</a>.</li>
-</ul>
-<p>To create the data we’ll be serving up later, it’s</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">poetry</span> run python etl/main.py</span></code></pre></div></div>
-</section>
-<section id="launching-the-api-locally-optional" class="level3">
-<h3 class="anchored" data-anchor-id="launching-the-api-locally-optional">Launching the API locally (optional)</h3>
-<p>To use FastAPI locally to serve up your API and check it works, you’ll need to have installed the Python environment (via <strong>poetry</strong>)</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">poetry</span> run uvicorn app.api:app <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--reload</span></span></code></pre></div></div>
-<p>where app is the folder, <code>api.py</code> is the script, and app is the FastAPI application defined in <code>api.py</code>. This serves up an API in the form: <code>/year/{YEAR-OF-INTEREST}/geo_code/{GEO-CODE-OF-INTEREST}</code>. For example, if FastAPI is running on <a href="http://0.0.0.0:8080">http://0.0.0.0:8080</a>, then <a href="http://0.0.0.0:8080/year/2021/geo_code/E08000007">http://0.0.0.0:8080/year/2021/geo_code/E08000007</a> would serve up the 2021 deaths data for Stockport (which has UK local authority geographic code E08000007). You can also try <a href="http://0.0.0.0:8080/docs">http://0.0.0.0:8080/docs</a> to see how you get automatic interactive docs for free with FastAPI!</p>
-</section>
-</section>
-<section id="deploying-the-api-to-the-cloud" class="level2">
-<h2 class="anchored" data-anchor-id="deploying-the-api-to-the-cloud">Deploying the API to the cloud</h2>
-<p>We already enabled the Cloud Run API using terraform. The plan now is: build a docker container with everything needed to serve up the API in, build the docker file into an image, upload the image to the artifact registry we created on Google Cloud, and then serve the API on Google Cloud Run. First, we need to ensure our env is reproducible in a docker file.</p>
-<section id="building-the-docker-image" class="level3">
-<h3 class="anchored" data-anchor-id="building-the-docker-image">Building the docker image</h3>
-<p>You can make <strong>poetry</strong> (which this project uses) work in docker files but it can go wrong, so it’s easier to run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">poetry</span> export <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-f</span> requirements.txt <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--output</span> requirements.txt</span></code></pre></div></div>
-<p>And have the docker file use the <code>requirements.txt</code>. Note that, because of this method of prepping the docker file, <code>requirements.txt</code> has been added to the <code>.gitignore</code> file. This follows the single source of truth rule: if we keep <code>requirements.txt</code> and <code>pyproject.toml</code> under version control simultaneously, it creates confusion as to which defines the environment. In this approach, it’s clear: <code>pyproject.toml</code> sets out the Python dependencies and <code>requirements.txt</code> is downstream of that.</p>
-<p>Note that the dockerfile is just 16 lines of code and only includes the absolute bare minimum required to run the API.</p>
-<p>Also note that the name <code>deaths_data.parquet</code> is hard-coded in the dockerfile. There’s probably a way to get it to pull the name of the data file from the <code>config.toml</code> file where it’s defined, but let’s keep things simple.</p>
-</section>
-<section id="testing-the-containerised-api-locally-optional" class="level3">
-<h3 class="anchored" data-anchor-id="testing-the-containerised-api-locally-optional">Testing the containerised API locally (optional)</h3>
-<p>You can check that your Dockerfile works locally first if you wish. To do this, run</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">docker</span> build <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--pull</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--rm</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-f</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Dockerfile"</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-t</span> deploy-api:latest <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"."</span></span></code></pre></div></div>
-<p>to build it and then</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">docker</span> run <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--rm</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-it</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-p</span> 8080:8080/tcp deploy-api:latest</span></code></pre></div></div>
-<p>to run it. You should get a message in the terminal that includes a HTTP address that you can go to (this isn’t really on the internet… it’s coming from inside the house!). Click on that and you should see your API load up. For example, if it’s on <a href="http://0.0.0.0:8080">http://0.0.0.0:8080</a> head to <a href="http://0.0.0.0:8080/docs">http://0.0.0.0:8080/docs</a> to check that the docs have loaded and try out the API.</p>
-</section>
-<section id="building-the-docker-image-for-google-cloud-run" class="level3">
-<h3 class="anchored" data-anchor-id="building-the-docker-image-for-google-cloud-run">Building the docker image for Google Cloud Run</h3>
-<p>Now we run into a complication. I’m using a Mac, which is on arm64 architecture, aka Apple Silicon. Most cloud services are Linux-based, which typically use amd64 chips. Naively building an image locally, and pushing it to Google Cloud, would result in an image that won’t actually run on Google’s architecture. So we need to use a multi-platform build, or just build to target a specific architecture. (Docker is supposed to solve this kind of problem, and it does, with a bit more effort.)</p>
-<p>You need to use</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">docker</span> buildx create <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--name</span> mybuilder <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--bootstrap</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--use</span></span></code></pre></div></div>
-<p>to create a builder to take on image construction. Then, the magic command to build the image and push it to your google repo is:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">docker</span> buildx build <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--file</span> Dockerfile <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb13-2">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--platform</span> linux/amd64 <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb13-3">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--builder</span> mybuilder <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb13-4">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--progress</span> plain <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb13-5">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--build-arg</span> DOCKER_REPO=REGION-docker.pkg.dev/PROJECT-ID/REPOSITORY-NAME/ <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb13-6">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--pull</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--push</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb13-7">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--tag</span> REGION-docker.pkg.dev/PROJECT-ID/REPOSITORY-NAME/deploy-api:latest .</span></code></pre></div></div>
-<p>where REPOSITORY-NAME is the name of the <code>registry_id</code> variable in <code>terraform.tfvars</code>. Note the “platform” argument.</p>
-</section>
-<section id="deploy" class="level3">
-<h3 class="anchored" data-anchor-id="deploy">Deploy</h3>
-<p>Now deploy the app with</p>
-<p><code>gcloud run deploy app --image REGION-docker.pkg.dev/PROJECT-ID/REPOSITORY-NAME/deploy-api:latest --region REGION --platform managed --allow-unauthenticated</code></p>
-<p>All being well, you should get a message saying</p>
-<pre class="text"><code>Deploying container to Cloud Run service [app] in project [PROJECT-ID] region [REGION]
-✓ Deploying new service... Done.
-  ✓ Creating Revision...
-  ✓ Routing traffic...
-  ✓ Setting IAM Policy...
-Done.</code></pre>
-</section>
-</section>
-<section id="heres-one-i-built-earlier" class="level2">
-<h2 class="anchored" data-anchor-id="heres-one-i-built-earlier">Here’s one I built earlier!</h2>
-<p>You can see a running version of the app from the repo here: <a href="https://app-qdvgjvqwza-nw.a.run.app">https://app-qdvgjvqwza-nw.a.run.app</a>. You can find <a href="https://app-qdvgjvqwza-nw.a.run.app/docs">the docs here</a>. And <a href="https://app-qdvgjvqwza-nw.a.run.app/year/2021/geo_code/E08000007">here’s an example that returns data</a>. Note that one constraint of Cloud Run is that it takes a moment to start if no-one has used the link for a while.</p>
-</section>
-<section id="final-thoughts" class="level2">
-<h2 class="anchored" data-anchor-id="final-thoughts">Final Thoughts</h2>
-<p>It’s worth noting that, if all your API is doing is serving up tabular data, there is an easier way to to this (even though building an API with FastAPI is so easy). You can use the excellent <a href="https://datasette.io/">datasette</a>. You can see a worked example of using it to <a href="https://github.com/aeturrell/datasette_particulate_matter">serve up some data here</a>. It seems like FastAPI would be much more useful with more unusually structured data, when you need to interact with data by writing as well as reading, or when you need Cloud Run to do other activities too (like pull from a Google database).</p>
-<p>The commoditisation of cloud services, and the great developments in Python as a language, have made it far, far easier to create high quality APIs. Although there are a few components to get your head around here, it’s amazing how quickly you can create a working API—and how few lines of code are required.</p>
-
-
-</section>
-
- ]]></description>
-  <category>code</category>
-  <category>open-source</category>
-  <category>cloud</category>
-  <category>data science</category>
-  <category>python</category>
-  <guid>https://www.aeturrell.com/blog/posts/build-a-cloud-api/build-a-cloud-api.html</guid>
-  <pubDate>Wed, 27 Sep 2023 23:00:00 GMT</pubDate>
-  <media:content url="https://www.aeturrell.com/blog/posts/build-a-cloud-api/run_using_data.png" medium="image" type="image/png" height="213" width="144"/>
 </item>
 </channel>
 </rss>
