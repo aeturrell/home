@@ -1,0 +1,44 @@
+---
+date: "2025-10-23"
+layout: post
+title: "One trick to stop ticket touts"
+categories: [economics, ideas]
+execute:
+  echo: false
+jupyter: python3
+toc: false
+references: ../files/reference.bib
+images: "gig_demand_supply.svg"
+---
+
+What can be done to stop the ticket resellers?[^1] Artists don't want to charge the maximum they can, perhaps because they want all of their fans to have a chance to attend their gigs, or perhaps because they want to establish a long-term relationship with the fans and feel eye-watering prices would turn some away. But as a consequence, when concert tickets go on sale, resellers—using sophisticated bots—scoop up all the tickets at the low price that the artist intended for fans. Let $p$ be the low price the artist intends to charge.
+
+In economics terms, the artists are charging below the equilibrium price, ie the one that the fans are willing to bear (even if they would prefer not to!) The artists would like the fans to capture this benefit. But the resellers *do* charge the equilibrium price, which is $p'>p$, and can pocket $p'-p$ for every ticket sold (minus the cost of their labour.) By the way, $p'/p$ can be substantial: a paper by @connolly2018secondary found that the mean resale mark-up was 36% but a few 100 percent for superstar artists.
+
+
+You can make laws to ban reselling but it isn't easy to enforce them. Might economics have an answer?
+
+[^1]: Reselling is not fundamentally bad. Markets are good! Getting the thing to the person who wants it is good! But if you're an artist who wants 'true' fans to come to your concert for less than the market rate, then you want to disincentivise the resellers.
+
+
+![The economics of gig tickets. The artist wants to charge their loyal fans below the equilibrium price](gig_demand_supply.svg){width=100%}
+
+## Using economics to stop the resellers
+
+Artists charge the full, market price for tickets, $p'$. But. They then give a rebate at the venue, on the night, of $p'-p$ to each person with a ticket. This could be cash or (more safely) money back on a card. This means that the fan has paid $p$, and the artist + venue still collect $p$.
+
+Resellers get nothing. Here's why: you're a reseller, and you buy the ticket at $p'$. The only thing you can do is resell it at $p'$. But you bought it for that! So your profit is zero.
+
+Now you might worry that resellers buy the tickets anyway, and turn up to the venue to collect their rebate. In this case, they have paid $p'$ and get a rebate of $p'-p$. So they are down $p$ per ticket. The fan doesn't mind being down $p$ per ticket, because the fan only buys one and gets to see the concern of their favoured artist. The ticket reseller, however, probably doesn't value seeing the artist at $p$ for more than a few artists, and certainly doesn't want more than one ticket. And, for the sake of argument, let's say the value to them of actually attending any gig is on average zero, then their profit in this case is $-p$! They actually lost money by going to the gig themselves and getting the rebate.[^2]
+
+[^2]: Even if you sent a gang of people to go and collect the rebates at low labour cost, you're still down on every ticket.
+
+The reason this works is that you need to go to the gig to get the surplus, and the only people who get value from going to the gig are—by definition—fans.
+
+Even better, there's no need for the government to regulate. The people involved in this market are incentivised to behave themselves. That is far cheaper and more effective than trying to police the market.
+
+There are some limitations of this approach. It might cost the venue more to do the rebates. But they could take this out of the surplus. Let's say it costs them $c$ per ticket to do the rebate. Fans still get $p'-p-c$ in surplus! Resellers still get zero. So it's much closer to what the artist and venue intended.
+
+The real downside of this approach is that fans must have savings enough to purchase an expensive ticket *up-front*. @connolly2018secondary found that a Bruce Springsteen ticket was resold at 240% of base price, making a £100 ($p$) ticket cost £240 ($p'$). So how do you deal with this problem? Well, the counterfactual without the economic trick is that the resellers are still operating and have used sophisticated methods to enable them to resell at $p'$. So our fan who can't up-front a lot of cash has the same initial problem... but without the promise of a rebate at the end!
+
+So there you go, one trick to stop ticket touts... using the power of economic incentives.
