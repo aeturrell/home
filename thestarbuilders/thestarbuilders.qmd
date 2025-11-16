@@ -41,16 +41,28 @@ UK cover
 US cover
 :::
 
+::: {.g-col-6}
+```{=html}
+<img src="japanese_edition.webp", style="width:50%;align:center;" class="bounce-in-right" data-wow-delay=".1s"  hspace="30">
+```
+Japanese cover
+:::
+
+::: {.g-col-6}
+```{=html}
+<img src="hungarian_edition.webp", style="width:50%;align:center;" class="bounce-in-left" data-wow-delay=".1s"  hspace="30">
+```
+Hungarian cover
+:::
+
 :::
 
 
-Arthur's first book is *The Star Builders* (August 2021). In it, he tells the remarkable stories of the scientists who have dedicated their lives to achieving a seemingly impossible feat: building a star on Earth.
+Arthur's first book is *The Star Builders* (August 2021.) In it, he tells the remarkable stories of the scientists who have dedicated their lives to achieving a seemingly impossible feat: building a star on Earth.
 
-These engineers, physicists, and mathematicians aim to recreate the source of the Sun's energy, nuclear fusion, in a controlled way, within a reactor. They have to contend with mysterious types of matter, giant lasers, secretive start-ups, and the most powerful forces in the Universe. Building a star on our home planet may sound like a risky enterprise, but these scientists think that — far from being fraught with danger — building a star could just save the planet by providing carbon free power for millions, or even billions, of years. 
+These engineers, physicists, and mathematicians aim to recreate the source of the Sun's energy, nuclear fusion, in a controlled way, within a reactor. They have to contend with mysterious types of matter, giant lasers, secretive start-ups, and the most powerful forces in the Universe. Building a star on our home planet may sound like a risky enterprise, but these scientists think that — far from being fraught with danger — building a star could just save the planet by providing carbon free power for millions, or even billions, of years.
 
-*The Star Builders* is published by [Weidenfeld & Nicolson](https://www.weidenfeldandnicolson.co.uk/titles/arthur-turrell/the-star-builders/9781474611589/) in the Commonwealth (including the UK), by LEDA in the Czech Republic, and by [Scribner](https://www.simonandschuster.com/books/The-Star-Builders/Arthur-Turrell/9781982130664) in the United States.
-
-**New:** The Star Builders is now available in [Hungarian](https://www.libri.hu/konyv/arthur_turrell.csillagepitok.html), under the title "Csillagépítők", and will shortly be out in Japanese under the title "Yume no enerugī: Kakuyūgō no saishū kaitō".
+*The Star Builders* is published by [Weidenfeld & Nicolson](https://www.weidenfeldandnicolson.co.uk/titles/arthur-turrell/the-star-builders/9781474611589/) in the Commonwealth (including the UK), by LEDA in the Czech Republic, and by [Scribner](https://www.simonandschuster.com/books/The-Star-Builders/Arthur-Turrell/9781982130664) in the United States. More recently, editions have been published in [Hungarian](https://www.libri.hu/konyv/arthur_turrell.csillagepitok.html) under the title "Csillagépítők", and in Japan under the title "Yume no enerugī: Kakuyūgō no saishū kaitō".
 
 Here are some of the bookstores where you can order copies (but remember to ask at your local bookstore too!)
 
@@ -59,13 +71,13 @@ Here are some of the bookstores where you can order copies (but remember to ask 
 ::: {.g-col-6}
 **UK**
 
-[Bookshop.org UK](https://uk.bookshop.org/books/the-star-builders-nuclear-fusion-and-the-race-to-power-the-planet/9781474611589)  
-[Foyles](https://www.foyles.co.uk/witem/natural-world-the-environment/the-star-builders-nuclear-fusion-and-th,arthur-turrell-9781474611589)  
-[Hive](https://www.hive.co.uk/Product/Arthur-Turrell/The-Star-Builders--Nuclear-Fusion-and-the-Race-to-Power-the-Planet/25678568)  
-[Waterstones](https://www.waterstones.com/book/the-star-builders/arthur-turrell/9781474611589)  
-[Amazon UK](https://www.amazon.co.uk/Star-Builders-Nuclear-Fusion-Planet/dp/1474611583)  
+[Bookshop.org UK](https://uk.bookshop.org/books/the-star-builders-nuclear-fusion-and-the-race-to-power-the-planet/9781474611589)
+[Foyles](https://www.foyles.co.uk/witem/natural-world-the-environment/the-star-builders-nuclear-fusion-and-th,arthur-turrell-9781474611589)
+[Hive](https://www.hive.co.uk/Product/Arthur-Turrell/The-Star-Builders--Nuclear-Fusion-and-the-Race-to-Power-the-Planet/25678568)
+[Waterstones](https://www.waterstones.com/book/the-star-builders/arthur-turrell/9781474611589)
+[Amazon UK](https://www.amazon.co.uk/Star-Builders-Nuclear-Fusion-Planet/dp/1474611583)
 [Blackwells](https://blackwells.co.uk/bookshop/product/The-Star-Builders-by-Arthur-Turrell-author/9781474611589)  
-[WHSmith](https://www.whsmith.co.uk/products/the-star-builders-nuclear-fusion-and-the-race-to-power-the-planet/arthur-turrell/hardback/9781474611589.html)  
+[WHSmith](https://www.whsmith.co.uk/products/the-star-builders-nuclear-fusion-and-the-race-to-power-the-planet/arthur-turrell/hardback/9781474611589.html)
 :::
 
 ::: {.g-col-6}
