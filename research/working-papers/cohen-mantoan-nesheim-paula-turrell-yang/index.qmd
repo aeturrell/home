@@ -1,0 +1,73 @@
+---
+title: "Nowcasting using regression on signatures"
+date: 2025-12-17
+author:
+  - name: Samuel N. Cohen
+    url: https://people.maths.ox.ac.uk/cohens/
+    orcid: 0000-0003-0539-6414
+    affiliation: University of Oxford
+  - name: Giulia Mantoan
+    affiliation: Bank of England
+    url: https://mantoangiulia.netlify.app/
+  - name: Lars Nesheim
+    url: https://profiles.ucl.ac.uk/1568-lars-nesheim
+    orcid: 0000-0001-5998-2158
+    affiliation: University College London
+  - name: "Áureo de Paula"
+    url: https://profiles.ucl.ac.uk/32107-aureo-de-paula
+    orcid: 0000-0003-3611-3448
+    affiliation: University College London
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: "{{< meta orcid-meta >}}"
+    affiliation: "{{< meta affiliation-meta >}}"
+  - name: Lingyi Yang
+    affiliation: University of Oxford
+    url: https://www.maths.ox.ac.uk/people/lingyi.yang
+    orcid: 0000-0003-4558-206X
+categories:
+  - nowcasting
+  - macroeconomics
+  - signatures
+  - modelling
+pub-info:
+  reference: >-
+    Cohen, Samuel N., Giulia Mantoan, Lars Nesheim, Áureo de Paula, Arthur Turrell, and Lingyi Yang. <i>Nowcasting using regression on signatures</i> arXiv preprint arXiv:2305.10256v2 (2025).
+  links:
+    - name: Working paper (PDF)
+      url: https://arxiv.org/pdf/2305.10256v2
+      local: false
+      icon: fa-solid fa-file-pdf
+  # extra: >-
+  #   Presented at a workshop on “The Implications of COVID-19 for Civic Spaces: Assessing Data, Patterns and Trends,” Leibniz-Institut Hessische Stiftung Friedens- und Konfliktforschung (HSFK), online, March 2021
+# pub-status: 
+#   status: Writing
+#   class: warning
+#   icon: fa-solid fa-pencil
+#   status: Under review
+#   class: success
+#   icon: fas fa-glasses
+image: lfs_period_168.webp
+alt: "Nowcasting UK unemployment"
+---
+
+## Important links
+
+- [Working paper landing page](https://arxiv.org/abs/2305.10256v2)
+
+## Abstract
+
+We introduce a new method of nowcasting using regression on path signatures. Path signatures capture the geometric properties of sequential data. Because signatures embed observations in continuous time, they naturally handle mixed frequencies and missing data. We prove theoretically, and with simulations, that regression on signatures subsumes the linear Kalman filter and retains desirable consistency properties. Nowcasting with signatures is more robust to disruptions in data series than previous methods, making it useful in stressed times (for example, during COVID-19). This approach is performant in nowcasting US GDP growth, and in nowcasting UK unemployment.
+
+## BibTeX citation
+
+```bibtex
+@misc{arxiv:2305.10256,
+  author = {Cohen, Samuel N and Mantoan, Giulia and Nesheim, Lars and de Paula, Áureo and Turrell, Arthur and Yang, Lingyi},
+  title={Nowcasting with signature methods},
+  doi = {10.48550/arXiv.2305.10256},
+  url = {https://arxiv.org/abs/2305.10256v2},
+  publisher = {arXiv},
+  year = {2025}
+}
+```
