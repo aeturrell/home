@@ -9,9 +9,10 @@ author:
 categories:
     - data science
     - public policy
+    - complexity science
 pub-info:
   reference: >-
-    Turrell, Arthur. "Cutting through Complexity: How Data Science Can Help Policymakers Understand the World." In <i>The Economy as a Complex Evolving System, Part IV</i>. Sante Fe Institute, 2025. doi: <a href="https://doi.org/10.48550/arXiv.2502.03010"><code>10.48550/arXiv.2502.03010</code></a>
+    Turrell, Arthur. "Cutting through Complexity: How Data Science Can Help Policymakers Understand the World." In <i>The Economy as a Complex Evolving System, Part IV</i>. Sante Fe Institute, 2025. doi: <a href="https://doi.org/10.37911/9781947864665.11"><code>https://doi.org/10.37911/9781947864665.11</code></a>
   links:
     - name: Preprint (arXiv)
       url: https://doi.org/10.48550/arXiv.2502.03010
@@ -20,7 +21,10 @@ pub-info:
     - name: Add to Zotero
       url: https://www.zotero.org/save?type=doi&q=10.48550/arXiv.2502.03010
       icon: ai ai-zotero
-doi: 10.48550/arXiv.2502.03010
+    - name: Book
+      url: https://doi.org/10.37911/9781947864665.11
+      icon: fa-solid fa-book
+doi: 10.37911/9781947864665.11
 image: travel_area_web.webp
 alt: "Travel time from St. Helens, UK"
 # haiku:
@@ -32,6 +36,7 @@ alt: "Travel time from St. Helens, UK"
 ## Important links
 
 - [arXiv preprint](https://doi.org/10.48550/arXiv.2502.03010)
+- [Book](https://www.sfipress.org/books/eecs-iv)
 
 ## Abstract
 
@@ -48,7 +53,7 @@ Economies are fundamentally complex and becoming more so, but the new discipline
   title={Cutting through Complexity: How Data Science Can Help Policymakers Understand the World},
   author={Turrell, Arthur},
   booktitle={The Economy as a Complex Evolving System, Part IV},
-  pages={},
+  pages={342--370},
   year={2025},
   publisher={Sante Fe Institute}
 }
