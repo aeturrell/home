@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Arthur Turrell">
+<meta name="dcterms.date" content="2026-02-26">
 <meta name="description" content="Arthur Turrell is an economic data scientist.">
 
 <title>Arthur Turrell</title>
@@ -78,10 +79,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap-f536f8792866bb1ec1f57fbef58f0a7c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -119,28 +116,22 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 </script>
-<style>
-
-      .quarto-title-block .quarto-title-banner {
-        background: #CF4446;
-      }
-</style>
 
 
 <meta property="og:title" content="Arthur Turrell">
 <meta property="og:description" content="Arthur Turrell is an economic data scientist.">
-<meta property="og:image" content="https://www.aeturrell.com/research/chapters/turrell-2025/travel_area_web.webp">
+<meta property="og:image" content="https://www.aeturrell.com/blog/posts/vision-ai-for-odometer-reading/odometer_original.jpg">
 <meta property="og:site_name" content="Arthur Turrell">
 <meta property="og:locale" content="en_UK">
 <meta name="twitter:title" content="Arthur Turrell">
 <meta name="twitter:description" content="Arthur Turrell is an economic data scientist.">
-<meta name="twitter:image" content="https://www.aeturrell.com/research/chapters/turrell-2025/travel_area_web.webp">
+<meta name="twitter:image" content="https://www.aeturrell.com/blog/posts/vision-ai-for-odometer-reading/odometer_original.jpg">
 <meta name="twitter:creator" content="@arthurturrell">
 <meta name="twitter:site" content="@arthurturrell">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="floating nav-fixed quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -230,130 +221,146 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block research default toc-left page-columns page-full">
-    <div class="quarto-title-banner page-columns page-full">
-                <div class="back-nav"><a href="../../../research/">← Back to research</a></div>
-                <div class="quarto-title column-body">
-            <h1 class="title">Cutting through Complexity: How Data Science Can Help Policymakers Understand the World</h1>
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Guest post: Experimenting with Vision AI to recognise digits on an odometer reading from a photo</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">AI</div>
+                <div class="quarto-category">vision</div>
+                <div class="quarto-category">data science</div>
+                <div class="quarto-category">machine learning</div>
+                <div class="quarto-category">guest post</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
 
-            
-            
-            
-                                    <div class="quarto-categories">
-                                <div class="quarto-category">data science</div>
-                                <div class="quarto-category">public policy</div>
-                                <div class="quarto-category">complexity science</div>
-                            </div>
-                                </div>
-    </div>
-    
-        <div class="project-details">
-        <div class="publication-content">
-            <p>Turrell, Arthur. “Cutting through Complexity: How Data Science Can Help Policymakers Understand the World.” In <i>The Economy as a Complex Evolving System, Part IV</i>. Sante Fe Institute, 2025. doi: <a href="https://doi.org/10.37911/9781947864665.11"><code>https://doi.org/10.37911/9781947864665.11</code></a></p>
-        </div>
-                <ul class="project-links">
-                        <li class="project-link">
-                <a href="https://doi.org/10.48550/arXiv.2502.03010"><i class="fa-solid fa-scroll"></i> Preprint (arXiv)</a>
-            </li>
-                        <li class="project-link">
-                <a href="https://www.zotero.org/save?type=doi&amp;q=10.48550/arXiv.2502.03010"><i class="ai ai-zotero"></i> Add to Zotero</a>
-            </li>
-                        <li class="project-link">
-                <a href="https://doi.org/10.37911/9781947864665.11"><i class="fa-solid fa-book"></i> Book</a>
-            </li>
-                    </ul>
-            </div>
-    <div class="thumbnail">
-        <img src="travel_area_web.webp" alt="Travel time from St.&nbsp;Helens, UK" style="width: auto; height: auto; max-width: none;">
-    </div>
-    
-    <div class="quarto-title-meta-author">
+      <div>
       <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-heading">Affiliation</div>
-      
-        <div class="quarto-title-meta-contents">
-        <p class="author"><a href="http://www.aeturrell.com">Arthur Turrell</a> <a href="https://orcid.org/0000-0002-2525-0773" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-      </div>
       <div class="quarto-title-meta-contents">
-            <p class="affiliation">
-                Bank of England
-              </p>
-          </div>
-      </div>
-
-    <div class="quarto-title-meta">
-
-          
-        <div>
-        <div class="quarto-title-meta-heading">Published</div>
-        <div class="quarto-title-meta-contents">
-          <p class="date">February 2025</p>
-        </div>
-      </div>
+               <p>Arthur Turrell </p>
+            </div>
+    </div>
       
-        
-        <div>
-        <div class="quarto-title-meta-heading">Doi</div>
-        <div class="quarto-title-meta-contents">
-          <p class="doi">
-            <a href="https://doi.org/10.37911/9781947864665.11">10.37911/9781947864665.11</a>
-          </p>
-        </div>
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 26, 2026</p>
       </div>
-      </div>
+    </div>
+    
       
-
-    </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#important-links" id="toc-important-links" class="nav-link active" data-scroll-target="#important-links">Important links</a></li>
-  <li><a href="#abstract" id="toc-abstract" class="nav-link" data-scroll-target="#abstract">Abstract</a></li>
-  <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation">Citation</a></li>
-  </ul>
-</nav>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
-
-<!-- Title block on individual research pages -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
 
 
 
-<section id="important-links" class="level2">
-<h2 class="anchored" data-anchor-id="important-links">Important links</h2>
-<ul>
-<li><a href="https://doi.org/10.48550/arXiv.2502.03010">arXiv preprint</a></li>
-<li><a href="https://www.sfipress.org/books/eecs-iv">Book</a></li>
-</ul>
-</section>
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>Economies are fundamentally complex and becoming more so, but the new discipline of data science—which combines programming, statistics, and domain knowledge—can help cut through that complexity, potentially with productivity benefits to boot. This chapter looks at examples of where innovations from data science are cutting through the complexities faced by policymakers in measurement, allocating resources, monitoring the natural world, making predictions, and more. These examples show the promise and potential of data science to aid policymakers, and point to where actions may be taken that would support further progress in this space.</p>
-</section>
-<section id="citation" class="level2">
-<h2 class="anchored" data-anchor-id="citation">Citation</h2>
-<p class="buttons" style="text-align:center;">
-<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&amp;q=10.48550/arXiv.2502.03010"><i class="ai  ai-zotero" title="" style="color:"></i> Add to Zotero <i class="fa-solid fa-square-arrow-up-right" aria-label="square-arrow-up-right"></i></a>
-</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@incollection</span>{<span class="ot">turrell2025cutting</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>={Cutting through Complexity: How Data Science Can Help Policymakers Understand the World},</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>={Turrell, Arthur},</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>={The Economy as a Complex Evolving System, Part IV},</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>={342--370},</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>={2025},</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>={Sante Fe Institute}</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
-</section>
+<p><em>Today, I’m excited to feature a guest post from <strong>Dr Katie Russell</strong>, another No10 Innovation Fellow. You can find more information about Katie and her work over at her <a href="https://www.linkedin.com/in/katie-russell-60249b22/?originalSubdomain=uk">LinkedIn page</a>.</em></p>
+<p>OCR has been possible since the 1910s. Generative AI brings that capability - and much more - to a chat-like interface to any users with an internet connection, which is inspiring further innovation. Using this technology to assist with meter reading is already at production scale in some energy companies and water companies, e.g.&nbsp;<a href="https://www.goodenergy.co.uk/support/how-to-verify-your-meter/">Good Energy</a>, <a href="https://www.utilityswopshop.co.uk/upload-meter-readings/">Utility SwapShop</a>, <a href="https://anyline.com/news/ocr-meter-to-cash-process#:~:text=How%20OCR%20can%20look%20in,water%20consumption%20for%20conservation%20purposes.">Northumbrian Water</a>.</p>
+<p>This article shows how to test this technology on odometer readings from a car’s display, exploring whether lightweight local models are good enough.</p>
+<p>Possible use cases would be assisting a mechanic at MOT time, or end users needing an odometer reading when handling insurance, tax or leasing arrangements.</p>
+<p>You can test the capability yourself by taking an image of a utility meter or your car’s odometer. Paste it into your favourite (workplace approved, if on workplace IT) consumer AI tool, e.g.&nbsp;Gemini, ChatGPT or other, and ask it ‘what is the meter reading?’</p>
+<p>It would be trivial to extend this further, building a demo interface, provide a meter reading, input an optimised prompt, call one of these foundation models and input the clean response directly into a form where mileage estimates were required, say.</p>
+<p>However, do we need the full capability of a foundation model with multi‑billion‑parameter weights and cloud‑scale inference infrastructure? Inspired by <a href="../../../blog/posts/radical-new-approach-to-time-use/index.html">A Radical New Approach to Time Use</a>, let’s test a local lightweight model, from the <a href="https://huggingface.co/Qwen">Qwen</a> family created by Alibaba Cloud, but with <a href="https://github.com/Blaizzy/mlx-vlm">MLX</a> tooling to run on my Macbook’s Apple silicon chips rather than the industry server standard NVIDIA CUDA chips. I needed python, torch and xz installed first.</p>
+<p>Arthur must have a more powerful Mac than me, as I found Qwen3-VL-4B-Instruct-8Bit hit metal limits, but the smaller <a href="https://huggingface.co/Qwen/Qwen3-VL-2B-Instruct">Qwen3-VL-2B-Instruct-4Bit</a> is deemed to have 98% the performance of the full mode, and worked. I ruled out the older Qwen2-VL-2B-Instruct-4Bit model early in testing as it truncated reads which leads to 10x or 100x under reporting.</p>
+<div id="fig-odo" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-odo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="odometer_one.png" id="fig-odo" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig quarto-uncaptioned margin-caption" id="fig-odo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+<p>See the prompt evolution and difference in models for the this image (<a href="#fig-odo" class="quarto-xref">Figure&nbsp;1</a>):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 32%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Prompt</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Qwen2</td>
+<td>Read the odometer</td>
+<td>The image shows the dashboard of a motorcycle, displaying the speedometer and tachometer. The speedometer needle is pointing to a speed of 506, and the tachometer needle is pointing to a tachometer reading of 0.</td>
+</tr>
+<tr class="even">
+<td>Qwen2</td>
+<td>Read the odometer, look for a number in km or miles and confirm the units</td>
+<td>The odometer on the motorcycle shows a number of 506, which is a distance in kilometers.</td>
+</tr>
+<tr class="odd">
+<td>Qwen2</td>
+<td>Read the odometer, look for a number in km or miles and confirm the units. make sure you read all the digits</td>
+<td>The odometer on the motorcycle shows a number of 506,5 km. The units are kilometers.</td>
+</tr>
+<tr class="even">
+<td>Qwen3</td>
+<td>Read the odometer, look for a number in km or miles and confirm the units. make sure you read all the digits</td>
+<td>Based on the image provided, the odometer is displaying the number 50670. The units for the odometer are indicated on the display as “km”, which stands for kilometers. Therefore, the odometer reading is 50,670 kilometers.</td>
+</tr>
+</tbody>
+</table>
+<p>Images with no odometer reading are also correctly classified, with an example response:</p>
+<blockquote class="blockquote">
+<p>Based on the image provided, there is no odometer visible. The image is a simple black and white icon of a car. There are no numbers, units of measurement (like km or miles), or any other text that would indicate a distance or odometer reading. Therefore, it is not possible to confirm the units or the number of the odometer.</p>
+</blockquote>
+<p>I’ve tested fewer than 10 images, as got stuck trying to optimise for this blurry image (<a href="#fig-odooriginal" class="quarto-xref">Figure&nbsp;2</a>):</p>
+<div id="fig-odooriginal" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-odooriginal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="odometer_original.jpg" id="fig-odooriginal" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig quarto-uncaptioned margin-caption" id="fig-odooriginal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
+</figure>
+</div>
+<p>The 8 is misread as a 6 despite careful, and optimised, prompting, e.g.&nbsp;Locate the digital display of the odometer reading. First, describe the shape of the digits you see. Then, read the digits one by one from left to right. Finally, state the full odometer reading and the units.</p>
+<p>My next step was to sharpen the image with imagemagick and then run the model against that:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">magick</span> ~/Downloads/mlxtest5.jpg <span class="at">-brightness-contrast</span> 10x40 <span class="at">-sharpen</span> 0x2.0 /tmp/temp_contrast.jpg <span class="kw">&amp;&amp;</span> <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mlx_vlm.generate</span> <span class="at">--model</span> mlx-community/Qwen3-VL-2B-Instruct-4bit <span class="at">--max-tokens</span> 100 <span class="at">--prompt</span> <span class="st">"Locate the digital display of the odometer reading. First, describe the shape of the digits you see. Then, read the digits one by one from left to right. Finally, state the full odometer reading and the unit"</span> <span class="at">--image</span> /tmp/temp_contrast.jpg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="fig-odosharp" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-odosharp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="odometer_sharp.png" id="fig-odosharp" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig quarto-uncaptioned margin-caption" id="fig-odosharp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3
+</figcaption>
+</figure>
+</div>
+<p>Unfortunately the 8 is still misread as a 6 (<a href="#fig-odosharp" class="quarto-xref">Figure&nbsp;3</a>).</p>
+<p>Note: if you prefer a Chat UI to cli, you can launch one, it’s still running locally:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mlx_vlm.chat_ui</span> <span class="at">--model</span> mlx-community/Qwen3-VL-2B-Instruct-4bit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><img src="odometer_chat.png" class="img-fluid"></p>
+<p>I’ll stop there for now, as this was just a couple of hours of experimentation, but it highlights an interesting transition in how we handle ‘physical’ data. I suspect there are specialised models out there even better at reading 7-segment digital displays than the general purpose Qwen family, but the fact that a ‘lightweight’ model can get this close on a standard laptop is awesome for accessibility.</p>
+<p>In a world of increasingly smart meters and connected vehicles, we expect mileage, energy and other telemetry will flow seamlessly via APIs directly to insurers, suppliers and mechanics (say). But for now Vision AI is a potentially useful bridge, especially if small and local models can do the job.</p>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

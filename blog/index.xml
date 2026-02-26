@@ -10,7 +10,147 @@
 <atom:link href="https://www.aeturrell.com/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>{{&lt; meta description-meta &gt;}}</description>
 <generator>quarto-1.8.24</generator>
-<lastBuildDate>Wed, 22 Oct 2025 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 26 Feb 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Guest post: Experimenting with Vision AI to recognise digits on an odometer reading from a photo</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>https://www.aeturrell.com/blog/posts/vision-ai-for-odometer-reading/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p><em>Today, I’m excited to feature a guest post from <strong>Dr Katie Russell</strong>, another No10 Innovation Fellow. You can find more information about Katie and her work over at her <a href="https://www.linkedin.com/in/katie-russell-60249b22/?originalSubdomain=uk">LinkedIn page</a>.</em></p>
+<p>OCR has been possible since the 1910s. Generative AI brings that capability - and much more - to a chat-like interface to any users with an internet connection, which is inspiring further innovation. Using this technology to assist with meter reading is already at production scale in some energy companies and water companies, e.g.&nbsp;<a href="https://www.goodenergy.co.uk/support/how-to-verify-your-meter/">Good Energy</a>, <a href="https://www.utilityswopshop.co.uk/upload-meter-readings/">Utility SwapShop</a>, <a href="https://anyline.com/news/ocr-meter-to-cash-process#:~:text=How%20OCR%20can%20look%20in,water%20consumption%20for%20conservation%20purposes.">Northumbrian Water</a>.</p>
+<p>This article shows how to test this technology on odometer readings from a car’s display, exploring whether lightweight local models are good enough.</p>
+<p>Possible use cases would be assisting a mechanic at MOT time, or end users needing an odometer reading when handling insurance, tax or leasing arrangements.</p>
+<p>You can test the capability yourself by taking an image of a utility meter or your car’s odometer. Paste it into your favourite (workplace approved, if on workplace IT) consumer AI tool, e.g.&nbsp;Gemini, ChatGPT or other, and ask it ‘what is the meter reading?’</p>
+<p>It would be trivial to extend this further, building a demo interface, provide a meter reading, input an optimised prompt, call one of these foundation models and input the clean response directly into a form where mileage estimates were required, say.</p>
+<p>However, do we need the full capability of a foundation model with multi‑billion‑parameter weights and cloud‑scale inference infrastructure? Inspired by <a href="../../../blog/posts/radical-new-approach-to-time-use/index.html">A Radical New Approach to Time Use</a>, let’s test a local lightweight model, from the <a href="https://huggingface.co/Qwen">Qwen</a> family created by Alibaba Cloud, but with <a href="https://github.com/Blaizzy/mlx-vlm">MLX</a> tooling to run on my Macbook’s Apple silicon chips rather than the industry server standard NVIDIA CUDA chips. I needed python, torch and xz installed first.</p>
+<p>Arthur must have a more powerful Mac than me, as I found Qwen3-VL-4B-Instruct-8Bit hit metal limits, but the smaller <a href="https://huggingface.co/Qwen/Qwen3-VL-2B-Instruct">Qwen3-VL-2B-Instruct-4Bit</a> is deemed to have 98% the performance of the full mode, and worked. I ruled out the older Qwen2-VL-2B-Instruct-4Bit model early in testing as it truncated reads which leads to 10x or 100x under reporting.</p>
+<div id="fig-odo" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-odo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://www.aeturrell.com/blog/posts/vision-ai-for-odometer-reading/odometer_one.png" id="fig-odo" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig quarto-uncaptioned margin-caption" id="fig-odo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+<p>See the prompt evolution and difference in models for the this image (Figure&nbsp;1):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 32%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Prompt</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Qwen2</td>
+<td>Read the odometer</td>
+<td>The image shows the dashboard of a motorcycle, displaying the speedometer and tachometer. The speedometer needle is pointing to a speed of 506, and the tachometer needle is pointing to a tachometer reading of 0.</td>
+</tr>
+<tr class="even">
+<td>Qwen2</td>
+<td>Read the odometer, look for a number in km or miles and confirm the units</td>
+<td>The odometer on the motorcycle shows a number of 506, which is a distance in kilometers.</td>
+</tr>
+<tr class="odd">
+<td>Qwen2</td>
+<td>Read the odometer, look for a number in km or miles and confirm the units. make sure you read all the digits</td>
+<td>The odometer on the motorcycle shows a number of 506,5 km. The units are kilometers.</td>
+</tr>
+<tr class="even">
+<td>Qwen3</td>
+<td>Read the odometer, look for a number in km or miles and confirm the units. make sure you read all the digits</td>
+<td>Based on the image provided, the odometer is displaying the number 50670. The units for the odometer are indicated on the display as “km”, which stands for kilometers. Therefore, the odometer reading is 50,670 kilometers.</td>
+</tr>
+</tbody>
+</table>
+<p>Images with no odometer reading are also correctly classified, with an example response:</p>
+<blockquote class="blockquote">
+<p>Based on the image provided, there is no odometer visible. The image is a simple black and white icon of a car. There are no numbers, units of measurement (like km or miles), or any other text that would indicate a distance or odometer reading. Therefore, it is not possible to confirm the units or the number of the odometer.</p>
+</blockquote>
+<p>I’ve tested fewer than 10 images, as got stuck trying to optimise for this blurry image (Figure&nbsp;2):</p>
+<div id="fig-odooriginal" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-odooriginal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://www.aeturrell.com/blog/posts/vision-ai-for-odometer-reading/odometer_original.jpg" id="fig-odooriginal" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig quarto-uncaptioned margin-caption" id="fig-odooriginal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
+</figure>
+</div>
+<p>The 8 is misread as a 6 despite careful, and optimised, prompting, e.g.&nbsp;Locate the digital display of the odometer reading. First, describe the shape of the digits you see. Then, read the digits one by one from left to right. Finally, state the full odometer reading and the units.</p>
+<p>My next step was to sharpen the image with imagemagick and then run the model against that:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">magick</span> ~/Downloads/mlxtest5.jpg <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-brightness-contrast</span> 10x40 <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-sharpen</span> 0x2.0 /tmp/temp_contrast.jpg <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">&amp;&amp;</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb1-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">mlx_vlm.generate</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--model</span> mlx-community/Qwen3-VL-2B-Instruct-4bit <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--max-tokens</span> 100 <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--prompt</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Locate the digital display of the odometer reading. First, describe the shape of the digits you see. Then, read the digits one by one from left to right. Finally, state the full odometer reading and the unit"</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--image</span> /tmp/temp_contrast.jpg</span></code></pre></div></div>
+<div id="fig-odosharp" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-odosharp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://www.aeturrell.com/blog/posts/vision-ai-for-odometer-reading/odometer_sharp.png" id="fig-odosharp" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig quarto-uncaptioned margin-caption" id="fig-odosharp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3
+</figcaption>
+</figure>
+</div>
+<p>Unfortunately the 8 is still misread as a 6 (Figure&nbsp;3).</p>
+<p>Note: if you prefer a Chat UI to cli, you can launch one, it’s still running locally:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">mlx_vlm.chat_ui</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--model</span> mlx-community/Qwen3-VL-2B-Instruct-4bit</span></code></pre></div></div>
+<p><img src="https://www.aeturrell.com/blog/posts/vision-ai-for-odometer-reading/odometer_chat.png" class="img-fluid"></p>
+<p>I’ll stop there for now, as this was just a couple of hours of experimentation, but it highlights an interesting transition in how we handle ‘physical’ data. I suspect there are specialised models out there even better at reading 7-segment digital displays than the general purpose Qwen family, but the fact that a ‘lightweight’ model can get this close on a standard laptop is awesome for accessibility.</p>
+<p>In a world of increasingly smart meters and connected vehicles, we expect mileage, energy and other telemetry will flow seamlessly via APIs directly to insurers, suppliers and mechanics (say). But for now Vision AI is a potentially useful bridge, especially if small and local models can do the job.</p>
+
+
+
+ ]]></description>
+  <category>AI</category>
+  <category>vision</category>
+  <category>data science</category>
+  <category>machine learning</category>
+  <category>guest post</category>
+  <guid>https://www.aeturrell.com/blog/posts/vision-ai-for-odometer-reading/</guid>
+  <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/vision-ai-for-odometer-reading/odometer_original.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>One trick to stop ticket touts</title>
   <dc:creator>Arthur Turrell</dc:creator>
@@ -5621,504 +5761,6 @@ font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.
   <guid>https://www.aeturrell.com/blog/posts/data-science-with-impact/</guid>
   <pubDate>Mon, 13 Nov 2023 00:00:00 GMT</pubDate>
   <media:content url="https://www.aeturrell.com/blog/posts/data-science-with-impact/npv_cover.png" medium="image" type="image/png" height="40" width="144"/>
-</item>
-<item>
-  <title>Why have a model registry?</title>
-  <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/why-have-a-model-registry/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Many large institutions, including in the public sector, have a set of forecasts, predictions, or estimated statistical relationships (perhaps from a linear regression), that are key to their operations. In this post, I’ll run through how these institutions might benefit from a <em>model registry</em> of the kind that more digitally-savvy frontier firms are already using. And why, without one, an institution might be running <em>model risk</em> without even realising it.</p>
-<p>If you’re not familiar with the idea of a <em>model registry</em>, it’s a service offered by all three major cloud providers (<a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry.html">Amazon Web Services</a>, <a href="https://cloud.google.com/vertex-ai/docs/model-registry/introduction">Google Cloud Platform</a>, and <a href="https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-models">Microsoft Azure Platform</a>) that allows you to lodge models in a (private) repository online. You can also custom build your own model registry (and much more) using the wonderful open source package <a href="https://mlflow.org/docs/latest">MLflow</a>.</p>
-<section id="what-even-is-a-model" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="what-even-is-a-model">What even is a model?</h2>
-<p>The word “model” is doing a lot of work here: it means a digital artefact that is (usually) trained on some data and which either contains coefficient estimates or can make predictions or both. A linear regression is an example of a model. In the data science world, it would usually mean a trained machine learning model that can make new predictions given new inputs. Perhaps the most commonly used file format for models is pickle, with extension <code>.pkl</code>.<sup>1</sup></p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Of course, I’m not naïve, I know people are out there building models in Excel. What I really mean is “the file format most commonly used by data professionals for models is pickle”. Today, almost undoubtedly, <code>.xlsx</code> is the most common file format for models but we’ll see why that’s not satisfactory.</p></div></div><p>Want to see an example of a simple model in code, and the command to save it to disk? Scroll down or click here.</p>
-</section>
-<section id="what-is-a-model-registry-and-why-do-i-need-it" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="what-is-a-model-registry-and-why-do-i-need-it">What is a <em>model registry</em> and why do I need it?</h2>
-<p>If you’ve never come across one before, you can think of a model registry as a way to store, monitor, and log models and their properties. The pithiest description is that model registries do for models what GitHub and version control do for code. This metaphor goes quite far, as model registries also support a kind of <a href="https://wandb.ai/hamelsmu/model-registry/reports/What-is-CI-CD-for-Machine-Learning---VmlldzozNzk2NDg2">continuous integration</a> where performance metrics can be generated automatically on model upload.</p>
-<p>You can easily imagine a situation where this could be helpful. Let’s say you’re working with a model that you’ve trained locally on your computer. Let’s also say that this model is critical to some decision, analysis, or operation that is happening in your institution. You might need to be able to collaborate with others on it: perhaps they will update it, perhaps they need to use it to make a prediction, or perhaps they just need to know that it exists because your institution is serious about keeping track of the critical models that are in use. One way of working is that the person who built the model does all of this, but then you’re squeezing everything through a key person if you do that—it could easily lead to problems. So, okay, you could share the model via a network drive or send it over email, but there are a bunch of problems with this too. Unless you’re sending it to everyone in the institution, email is pretty ineffective, and everyone is bad at manually doing version control through naming on a network drive. Plus, you have to find a way to make consistent model meta-data (eg on the pros and cons of that modelling approach) stay with the model file: good luck with that on a shared network drive!</p>
-<p>Model registries solve the problem of securely storing, monitoring, tracking, and sharing models between people. The schematic below, from <a href="https://levelup.gitconnected.com/everything-you-need-to-know-about-model-registry-f7b978e84a1">this blog post</a>, gives a sense of what their components are. Note that “endpoints” are places where the model gets deployed such that it can make predictions. This could be an API, but another endpoint could simply be users downloading them and running them locally.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/why-have-a-model-registry/model_reg_img.png" class="img-fluid figure-img" style="width:100.0%" alt="Schematic of a model registry."></p>
-<figcaption class="margin-caption">Schematic of a model registry.</figcaption>
-</figure>
-</div>
-<p>Reasons you might want to use a model registry include:</p>
-<ul>
-<li>you want to have a central set of approved models that are logged. No more tracking models separately and inconsistently, via, say a spreadsheet—in a model registry, the log of models <em>is</em> the set of models.</li>
-<li>you want to have meta-data about the model that is entwined with the model. Some basic meta-data, like the format of inputs and outputs, and even on performance, is usually included. This can be extended with information on a model’s limitations, strengths, and performance via something called a <a href="https://huggingface.co/docs/hub/model-cards">model card</a>. For example, you can <a href="https://aws.amazon.com/blogs/machine-learning/integrate-amazon-sagemaker-model-cards-with-the-model-registry/">link model cards with models in the Amazon SageMaker model registry</a>. You can <a href="https://modelcards.withgoogle.com/object-detection#overview">see an example model card for one of Google’s models here</a>. Model cards are a bit new but there is progress toward a consistent schema <a href="https://github.com/tensorflow/model-card-toolkit">in this toolkit</a>, which has an example based on classifying incomes in the census.</li>
-<li>you want to be able to reproduce model results. Version controlling models in a registry buys you this.</li>
-<li>you want to be able to know what you would have predicted in the past. For models, reproducibility across time can be essential to an institution: it’s not too much of a stretch to imagine there’s an enquiry or review where it is necessary to reproduce the exact model output that you had from a particular date.</li>
-<li>you want to track the performance of a model over time. This is another advantage of versioning, and makes a task like assessing the quality of forecasts over time go from being a rum game of chasing down people, emails, and files to being as simple as running a short script.</li>
-<li>you want others to be able to use your models. If there’s another team who rely on running your models, they no longer have to email you to ask—they just grab the latest version from the registry, and run it themselves. (Alternatively, the model <a href="../../../blog/posts/build-a-cloud-api/build-a-cloud-api.html">can be deployed to an API</a> where anyone in the institution can ping it for a prediction.)</li>
-<li>you want to control access to the model. Sometimes, institutions need to provide different levels of access to different models, and model registries make this very possible, and at as granular a level as you like.</li>
-<li>you want to make your models discoverable. This is a killer application. Models on network drives are not very discoverable, and their meta-data even less so. Model registries are designed to help people find the model they need.</li>
-<li>you want to know how many people are using models, or do other auditing. Model registries are typically hosted, and the hosting service counts what is happening.</li>
-<li>you want to automate reports about the number of models, their performance, how often they are used or updated, and so on. Once code is involved, everything becomes automatable!</li>
-<li>you want to host models for free! Yes, just storing models in a registry is free for most cloud providers. (Other actions, such as deploying models to endpoints, do cost though.)</li>
-<li>you want to make sure that you’re all using the same model. When you load a model from a registry, you pull it <em>directly</em> from the cloud repository—so there’s no chance of you accidentally changing a version that you’ve downloaded to your own machine and running something that’s inconsistent with the online version.</li>
-</ul>
-<p><em>Not</em> having some of these features comes with significant <em>model risk</em>. By model risk, I mean risks relating to models such as not knowing which model or model version was used in a particular decision or at a particular time, losing track of key models, people having access to sensitive models that they shouldn’t, not realising that a model’s performance has significantly degraded, and being unable to reproduce results that were used in critical decision making.</p>
-<p>I said I would come back to models in Excel. In principle, you might (?) be able to store Excel models in a model registry and get some of these benefits (some, but definitely not all: you can’t deploy Excel to an API endpoint, for example, or use it with continuous integration). But Excel comes with so many other issues, I really don’t think you should. Some of the big ones are that they bundle code and data and model together, so you lose all the (not addressed in this post) benefits of version control, you lose control of data (very explicitly—<a href="https://www.nature.com/articles/d41586-021-02211-4">Excel changes your data</a>), and the code is repeated across cells, which makes some errors more likely.<sup>2</sup> The bottom line is that if the model is doing anything important, it shouldn’t be in a spreadsheet.</p>
-<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;The classic examples are not pulling a formula down to cover all rows or columns and hard-pasting numbers over formula cells.</p></div></div></section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>If your institution relies on models in any way that’s even vaguely critical, it’s hard to see why you wouldn’t want most of the functionality of a model registry or the attendant reduction in risks it can provide. Additionally, this is pretty cheap (or even free), and, because cloud services are scriptable, very automatable, so it’s plausible that the extra functionality comes along with a <em>boost</em> in productivity. Model behaviour indeed!</p>
-</section>
-<section id="technical-appendix" class="level2">
-<h2 class="anchored" data-anchor-id="technical-appendix">Technical Appendix</h2>
-<section id="a-simple-model-in-code-as-an-example" class="level3">
-<h3 class="anchored" data-anchor-id="a-simple-model-in-code-as-an-example">A simple model in code as an example</h3>
-<p>The simplest model you can think of is something like the below, where we feed some data on the miles per gallon of cars into a regression.</p>
-<div id="46843257" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> pd</span>
-<span id="cb1-2"></span>
-<span id="cb1-3">mpg <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.read_csv(</span>
-<span id="cb1-4">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"https://vincentarelbundock.github.io/Rdatasets/csv/datasets/mtcars.csv"</span>,</span>
-<span id="cb1-5">    dtype<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>{<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"model"</span>: <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">str</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"mpg"</span>: <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">float</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"hp"</span>: <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">float</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"disp"</span>: <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">float</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"cyl"</span>: <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"category"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"wt"</span>: <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">float</span>},</span>
-<span id="cb1-6">)</span>
-<span id="cb1-7">mpg.head()</span></code></pre></div></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">rownames</th>
-<th data-quarto-table-cell-role="th">mpg</th>
-<th data-quarto-table-cell-role="th">cyl</th>
-<th data-quarto-table-cell-role="th">disp</th>
-<th data-quarto-table-cell-role="th">hp</th>
-<th data-quarto-table-cell-role="th">drat</th>
-<th data-quarto-table-cell-role="th">wt</th>
-<th data-quarto-table-cell-role="th">qsec</th>
-<th data-quarto-table-cell-role="th">vs</th>
-<th data-quarto-table-cell-role="th">am</th>
-<th data-quarto-table-cell-role="th">gear</th>
-<th data-quarto-table-cell-role="th">carb</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>Mazda RX4</td>
-<td>21.0</td>
-<td>6</td>
-<td>160.0</td>
-<td>110.0</td>
-<td>3.90</td>
-<td>2.620</td>
-<td>16.46</td>
-<td>0</td>
-<td>1</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>Mazda RX4 Wag</td>
-<td>21.0</td>
-<td>6</td>
-<td>160.0</td>
-<td>110.0</td>
-<td>3.90</td>
-<td>2.875</td>
-<td>17.02</td>
-<td>0</td>
-<td>1</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>Datsun 710</td>
-<td>22.8</td>
-<td>4</td>
-<td>108.0</td>
-<td>93.0</td>
-<td>3.85</td>
-<td>2.320</td>
-<td>18.61</td>
-<td>1</td>
-<td>1</td>
-<td>4</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
-<td>Hornet 4 Drive</td>
-<td>21.4</td>
-<td>6</td>
-<td>258.0</td>
-<td>110.0</td>
-<td>3.08</td>
-<td>3.215</td>
-<td>19.44</td>
-<td>1</td>
-<td>0</td>
-<td>3</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>Hornet Sportabout</td>
-<td>18.7</td>
-<td>8</td>
-<td>360.0</td>
-<td>175.0</td>
-<td>3.15</td>
-<td>3.440</td>
-<td>17.02</td>
-<td>0</td>
-<td>0</td>
-<td>3</td>
-<td>2</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p>Now we can fit a linear model, <code>lin_model</code>.</p>
-<div id="57cf7651" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> statsmodels.api <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> sm</span>
-<span id="cb2-2"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> statsmodels.formula.api <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> smf</span>
-<span id="cb2-3"></span>
-<span id="cb2-4">lin_model <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> smf.ols(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"mpg ~ hp + C(cyl) + wt -1"</span>, data<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>mpg).fit()</span></code></pre></div></div>
-</div>
-<p>This has a predict method, accessed via <code>lin_model.predict()</code>.</p>
-<p>Okay, <em>here’s the important bit</em>: to save this model locally on your computer (ready to upload to a model registru), it would be <code>lin_model.save("lin_reg_model.pkl")</code>.</p>
-<p>For this particular package, <strong>statsmodels</strong>, you can see a summary of the underlying model using <code>.summary()</code></p>
-<div id="6f85d2b8" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">lin_model.summary()</span></code></pre></div></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<table class="simpletable caption-top table table-sm table-striped small">
-<caption>OLS Regression Results</caption>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">Dep. Variable:</th>
-<td>mpg</td>
-<th data-quarto-table-cell-role="th">R-squared:</th>
-<td>0.857</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">Model:</th>
-<td>OLS</td>
-<th data-quarto-table-cell-role="th">Adj. R-squared:</th>
-<td>0.836</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">Method:</th>
-<td>Least Squares</td>
-<th data-quarto-table-cell-role="th">F-statistic:</th>
-<td>40.53</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">Date:</th>
-<td>Tue, 18 Mar 2025</td>
-<th data-quarto-table-cell-role="th">Prob (F-statistic):</th>
-<td>4.87e-11</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">Time:</th>
-<td>10:43:18</td>
-<th data-quarto-table-cell-role="th">Log-Likelihood:</th>
-<td>-71.235</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">No. Observations:</th>
-<td>32</td>
-<th data-quarto-table-cell-role="th">AIC:</th>
-<td>152.5</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">Df Residuals:</th>
-<td>27</td>
-<th data-quarto-table-cell-role="th">BIC:</th>
-<td>159.8</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">Df Model:</th>
-<td>4</td>
-<th data-quarto-table-cell-role="th"></th>
-<td></td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">Covariance Type:</th>
-<td>nonrobust</td>
-<th data-quarto-table-cell-role="th"></th>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-
-<table class="simpletable caption-top table table-sm table-striped small">
-<tbody>
-<tr class="odd">
-<td></td>
-<th data-quarto-table-cell-role="th">coef</th>
-<th data-quarto-table-cell-role="th">std err</th>
-<th data-quarto-table-cell-role="th">t</th>
-<th data-quarto-table-cell-role="th">P&gt;|t|</th>
-<th data-quarto-table-cell-role="th">[0.025</th>
-<th data-quarto-table-cell-role="th">0.975]</th>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">C(cyl)[4]</th>
-<td>35.8460</td>
-<td>2.041</td>
-<td>17.563</td>
-<td>0.000</td>
-<td>31.658</td>
-<td>40.034</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">C(cyl)[6]</th>
-<td>32.4870</td>
-<td>2.811</td>
-<td>11.555</td>
-<td>0.000</td>
-<td>26.718</td>
-<td>38.256</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">C(cyl)[8]</th>
-<td>32.6601</td>
-<td>3.835</td>
-<td>8.516</td>
-<td>0.000</td>
-<td>24.791</td>
-<td>40.530</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">hp</th>
-<td>-0.0231</td>
-<td>0.012</td>
-<td>-1.934</td>
-<td>0.064</td>
-<td>-0.048</td>
-<td>0.001</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">wt</th>
-<td>-3.1814</td>
-<td>0.720</td>
-<td>-4.421</td>
-<td>0.000</td>
-<td>-4.658</td>
-<td>-1.705</td>
-</tr>
-</tbody>
-</table>
-
-
-<table class="simpletable caption-top table table-sm table-striped small">
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">Omnibus:</th>
-<td>2.972</td>
-<th data-quarto-table-cell-role="th">Durbin-Watson:</th>
-<td>1.790</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">Prob(Omnibus):</th>
-<td>0.226</td>
-<th data-quarto-table-cell-role="th">Jarque-Bera (JB):</th>
-<td>1.864</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">Skew:</th>
-<td>0.569</td>
-<th data-quarto-table-cell-role="th">Prob(JB):</th>
-<td>0.394</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">Kurtosis:</th>
-<td>3.320</td>
-<th data-quarto-table-cell-role="th">Cond. No.</th>
-<td>1.90e+03</td>
-</tr>
-</tbody>
-</table>
-<br><br>Notes:<br>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br>[2] The condition number is large, 1.9e+03. This might indicate that there are<br>strong multicollinearity or other numerical problems.
-</div>
-</div>
-</section>
-<section id="creating-and-working-with-a-model-registry" class="level3">
-<h3 class="anchored" data-anchor-id="creating-and-working-with-a-model-registry">Creating and working with a model registry</h3>
-<p>It’s simpler than you might think to get started with a model registry; you can find the instructions for <a href="https://cloud.google.com/vertex-ai/docs/start/cloud-environment">Google Cloud’s Vertex AI model registry here</a>, for <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry.html">Amazon’s SageMaker registry here</a>, for <a href="https://learn.microsoft.com/en-us/azure/machine-learning/concept-machine-learning-registries-mlops?view=azureml-api-2">Microsoft’s Azure Machine Learning here</a>, and for the <a href="https://mlflow.org/docs/latest/model-registry.html#">MLflow model registry here</a>.</p>
-<p>Once you’ve created a model registry, you can upload a model in a number of ways. Most providers give you at least three ways:</p>
-<ul>
-<li>through a user interface, manually</li>
-<li>via a command line interface</li>
-<li>via a Python package</li>
-</ul>
-<p>For example, once you’ve done the initial settings, <a href="https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-models?view=azureml-api-2&amp;tabs=python%2Cuse-local#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk">uploading a model to Azure’s model registry</a> is achieved using their Python package via</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> azure.ai.ml.entities <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> Model</span>
-<span id="cb4-2"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> azure.ai.ml.constants <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> AssetTypes</span>
-<span id="cb4-3"></span>
-<span id="cb4-4">file_model <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> Model(</span>
-<span id="cb4-5">    path<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"model.pkl"</span>,</span>
-<span id="cb4-6">    <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">type</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>AssetTypes.CUSTOM_MODEL,</span>
-<span id="cb4-7">    name<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"local-file-example"</span>,</span>
-<span id="cb4-8">    description<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Model created from local file."</span>,</span>
-<span id="cb4-9">)</span>
-<span id="cb4-10">ml_client.models.create_or_update(file_model)</span></code></pre></div></div>
-<p>Although you can search for models in the user interface (see below for an example from Google), you can also search all models programmatically too. For example, in Azure, this is as simple as <code>client.search_registered_models(order_by=["name ASC"])</code>.</p>
-<p>Loading models from the registry into your local workspace is similarly simple using, say, MLflow on Azure: <code>model = mlflow.pyfunc.load_model(f"models:/{model_name}/Staging")</code>. You can also deploy models online to an endpoint and query that too, and this is how the cloud providers typically assume you will use registered models.</p>
-<section id="model-cards" class="level4">
-<h4 class="anchored" data-anchor-id="model-cards">Model cards</h4>
-<p>It’s fair to say that Amazon is ahead on model cards, with Google not having introduced them on their cloud service yet and Microsoft offering something that’s slightly different. You can <a href="https://aws.amazon.com/blogs/machine-learning/integrate-amazon-sagemaker-model-cards-with-the-model-registry/">find out how to link models on Amazon with model cards here for AWS</a>, and, as you’d expect, there’s a way to <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-create.html">programmatically upload this info using Python</a>.</p>
-</section>
-</section>
-</section>
-<section id="an-example-of-a-model-registry" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="an-example-of-a-model-registry">An example of a model registry</h2>
-<p>The image below shows a view of a model registry in Google’s model registry, Vertex AI.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/why-have-a-model-registry/list_view_google_mr.jpg" class="img-fluid figure-img" style="width:100.0%" alt="A Google model registry with some models in."></p>
-<figcaption class="margin-caption">Screenshot showing the model registry page on Vertex AI.</figcaption>
-</figure>
-</div>
-<p>You can see high level information such as the name, number of versions, default version, deployment status, and type. If you click through to one of those models, you get a more detailed view.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/why-have-a-model-registry/single_model_view_google_mr.jpg" class="img-fluid figure-img" style="width:100.0%" alt="A single model's page in a Google model registry."></p>
-<figcaption class="margin-caption">Screenshot showing a single model’s page in a Google model registry.</figcaption>
-</figure>
-</div>
-<p>This view shows the labels applied to each version of a specific model, and more. One of the great features of a model registry is that performance can be automatically assessed (“continous integration”).</p>
-<p>The image below shows an example of some metrics of this that live <em>within</em> the model registry:</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/why-have-a-model-registry/performance_view_google_mr.jpg" class="img-fluid figure-img" style="width:100.0%" alt="A single model's performance metrics in Google model registry."></p>
-<figcaption class="margin-caption">Screenshot showing a single model’s performance metrics in Google model registry.</figcaption>
-</figure>
-</div>
-<section id="metadata" class="level3">
-<h3 class="anchored" data-anchor-id="metadata">Metadata</h3>
-<p>Just as an example, here are some meta-data that might be associated with a model</p>
-<pre class="text"><code>artifact_path: classifier
-flavors:
-  fastai:
-    data: model.fastai
-    fastai_version: 2.4.1
-  python_function:
-    data: model.fastai
-    env: conda.yaml
-    loader_module: mlflow.fastai
-    python_version: 3.8.12
-model_uuid: e694c68eba484299976b06ab9058f636
-run_id: e13da8ac-b1e6-45d4-a9b2-6a0a5cfac537
-signature:
-  inputs: '[{"type": "tensor",
-             "tensor-spec": 
-                 {"dtype": "uint8", "shape": [-1, 300, 300, 3]}
-           }]'
-  outputs: '[{"type": "tensor", 
-              "tensor-spec": 
-                 {"dtype": "float32", "shape": [-1,2]}
-            }]'</code></pre>
-
-
-</section>
-</section>
-
-
- ]]></description>
-  <category>code</category>
-  <category>open-source</category>
-  <category>cloud</category>
-  <category>data science</category>
-  <guid>https://www.aeturrell.com/blog/posts/why-have-a-model-registry/</guid>
-  <pubDate>Thu, 12 Oct 2023 23:00:00 GMT</pubDate>
-  <media:content url="https://www.aeturrell.com/blog/posts/why-have-a-model-registry/model_reg_img.png" medium="image" type="image/png" height="55" width="144"/>
 </item>
 </channel>
 </rss>
