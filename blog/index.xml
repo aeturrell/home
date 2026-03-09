@@ -10,7 +10,73 @@
 <atom:link href="https://www.aeturrell.com/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>{{&lt; meta description-meta &gt;}}</description>
 <generator>quarto-1.8.24</generator>
-<lastBuildDate>Sat, 07 Mar 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 09 Mar 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>The era of local agents is here</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>https://www.aeturrell.com/blog/posts/era_local_agentic_llms/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Local models—that is, large language models you can run on your own computer—have been okay for chat for a while even if they’re typically some way behind the frontier. I can’t now remember when or how I first got a small large language model running locally, but it was probably via Simon Willison’s <a href="https://github.com/simonw/llm">llm</a> with <a href="https://huggingface.co/mlx-community/Mistral-Small-24B-Instruct-2501-4bit">Mistral-Small-24B-Instruct-2501-4bit</a>, which was released in January 2025. Mistral-Small-24B-Instruct-2501-4bit uses 12.35GB, so it could even run on a machine with 16GB of RAM!</p>
+<p>NB: model weights in this post come via the <a href="https://github.com/alvarobartt/hf-mem"><code>hf-mem</code> command line tool</a>, which is really good for quickly checking how much space a particular model needs. To check that Mistral model, I ran <code>hf-mem --model-id mlx-community/Mistral-Small-24B-Instruct-2501-4bit</code>.</p>
+<p>Subsequent models really upped the game in terms of performance. Looking through my model history, I can see I also tried the fairly large Llama3.3 model, at 37GB, and the more recent, and pretty-good-actually, gpt-oss-20b-MXFP4-Q8, which weighs in at just 11GB. This low RAM requirement means you can still comfortably run other applications while using it.</p>
+<p>By the way, small vision models that can run locally have been phenomenal for a while: see my <a href="../../../blog/posts/radical-new-approach-to-time-use/index.html">previous post on this</a> and the <a href="../../../blog/posts/vision-ai-for-odometer-reading/index.html">one by guest poster Katie Russell</a>.</p>
+<p>But it’s been clear for a while that the real value of LLMs, especially for coding, is more agentic behaviours. People have <a href="https://simonwillison.net/tags/agent-definitions/">different definitions</a> of what qualifies as agentic behaviour, but I like LLMs using tools (eg Python interpreter, curl, file reads) iteratively to achieve a goal. Hugging Face has a nice little course on <a href="https://huggingface.co/learn/agents-course/en/unit1/introduction">this</a>.</p>
+<p>Agentic models are just so much more useful because they can be intelligent about how they use their context window, they can bring in true information (rather than guessing) when needed, and they can run checks for you. It feels much more like you’re setting an assistant a task, letting them get on with it, and occasionally approving their work. I even wonder if it might make help some managers be clearer as the feedback loop between good instructions and good outputs is so tight.</p>
+<p>Claude Code has become <em>the</em> indispensable tool for agentic coding specifically, and it does impressively well on other tasks too. I’ve had it rewrite some 35-year-old Fortran in Rust, build a Python front-end to a Java library, and “vibe-code” entire websites (backend and frontend) from scratch. As many others have noted, the inflection point was around November 2025: that is when being a coder transitioned from “writing code with an LLM aid” to “overseeing code written by an LLM.” I’m personally still finding my way through this transition and how to best work in the world.</p>
+<p>But what about running <em>agentic</em> models <em>locally</em>?</p>
+<p>Of course, there’s been much excitement about OpenClaw, best expressed by <a href="https://x.com/karpathy/status/2024987174077432126">Andrej Karpathy</a>:</p>
+<blockquote class="blockquote">
+<p>Bought a new Mac mini to properly tinker with claws over the weekend. The apple store person told me they are selling like hotcakes and everyone is confused :)</p>
+</blockquote>
+<p>But I’m not sure how many people are <em>actually</em> buying a Mac Mini (£2k for a 64GB version at the time of writing) and then serving up OpenClaw on it over tailscale. Plus OpenClaw is a live dangerously approach. Bing which, in case you had forgotten, is Microsoft’s search engine, has been redirecting anyone who has searched for “OpenClaw Windows” <a href="https://www.theregister.com/2026/03/04/fake_openclaw_installers_malware/">to a virus</a>. That’s before you’ve even installed the real OpenClaw! And there are plenty of <a href="https://smarterarticles.co.uk/the-openclaw-warning-from-viral-sensation-to-security-nightmare">horror stories</a> about security issues. Between the costs and the risks, which need real know-how to work with, this option is not practical for the majority of people using LLMs.</p>
+<p>So agentic local models have been off the table for most of us. I haven’t found any local models that can reliably do agentic tool use. Until now.</p>
+<p>What has changed is the release of <a href="https://ollama.com/library/qwen3.5:35b">Qwen3.5:35B</a> with “Q4_K_M” quantisation. I know little about quantisation, but it seems like this is an intelligent approach to using 4-bit quantisation that manages to keep most of the performance while cutting out as much as 70% of the RAM requirement. So instead of this being a 67GB model, as with the <a href="https://huggingface.co/Qwen/Qwen3.5-35B-A3B">original on Hugging Face</a>, it’s <strong>only a 24GB model</strong>, and so comfortably fits on a 64GB machine.</p>
+<p>Why would you want to run an agentic model fully locally? If you’re anything like me, you may have simply exhausted your subscription tokens and wish to carry on working. Or perhaps you have no WiFi and no phone signal (hello travelling in parts of South West London—you know where you are) and want to get some stuff done. Another motivator is privacy: the recent <a href="https://www.bbc.co.uk/news/articles/c8jxevd8mdyo">leak of users’ confidential emails to Microsoft Copilot</a> show how even enterprise-level security systems can go awry. It’s also just unbelievably cool to turn your own computer into a fully fledged, tool-wielding assistant.</p>
+<p>You’re still not going to be blown away by the speed of these mid-tier, &lt;64GB models. In terms of getting through a simple problem, like investigating a test failure or updating docs, they’re simply not as fast as the latest Claude models. But they do have pretty incredible performance nonetheless and, for me, they have now crossed the point where they are <em>fast enough</em> and <em>good enough</em> to be used for serious development.</p>
+<section id="getting-started-on-your-own-computer" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started-on-your-own-computer">Getting started on your own computer</h2>
+<p>You’ll need at least 32GB of RAM, and probably 64GB. As far as I know, the steps work cross-platform though the exact commands will vary (the below commands are for MacOS.)</p>
+<p><a href="https://ollama.com/download">Download Ollama</a>, which is an open model serving and management tool. On the command line, run</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">curl</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-fsSL</span> https://ollama.com/install.sh <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sh</span></span></code></pre></div></div>
+<p>Download the <a href="https://developers.openai.com/codex/cli/">OpenAI Codex CLI</a>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">brew</span> install codex</span></code></pre></div></div>
+<p>You can also use Claude Code CLI but I found Codex worked slightly better with open models (I have no firm evidence for this, it’s just based on experience.)</p>
+<p>Next, run Ollama in your terminal and use it to download Qwen3.5:35B</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ollama</span> run qwen3.5:35b</span></code></pre></div></div>
+<p>This will start an automatic download of the full model then launch a chat when it’s finished. Quit that, then run <code>ollama</code> on your command line. You’ll be given a bunch of options for CLIs. Use the down arrows to get to “Launch Codex” then use the right arrow to switch models. Select <code>qwen3.5:35B</code> and you will see Codex CLI launch with your local model!</p>
+<p><img src="https://www.aeturrell.com/blog/posts/era_local_agentic_llms/run_ollama.svg" class="img-fluid"></p>
+<p>Now, when you issue a task, you’ll find that the LLM starts using tools to complete that task. All running in your own laptop. Incredible!</p>
+
+
+</section>
+
+ ]]></description>
+  <category>data science</category>
+  <category>AI</category>
+  <category>llm</category>
+  <category>open-source</category>
+  <guid>https://www.aeturrell.com/blog/posts/era_local_agentic_llms/</guid>
+  <pubDate>Mon, 09 Mar 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/era_local_agentic_llms/run_ollama.svg" medium="image" type="image/svg+xml"/>
+</item>
 <item>
   <title>The Economy As A Complex Evolving System</title>
   <dc:creator>Arthur Turrell</dc:creator>
@@ -5508,67 +5574,6 @@ font-style: inherit;">-i</span> ~/.ssh/id_rsa.pem VM-USERNAME@VM-IP-ADDRESS</spa
   <guid>https://www.aeturrell.com/blog/posts/til-how-to-run-vscode-remote-azure/</guid>
   <pubDate>Fri, 08 Mar 2024 00:00:00 GMT</pubDate>
   <media:content url="https://www.aeturrell.com/blog/transparent.png" medium="image" type="image/png" height="1" width="1"/>
-</item>
-<item>
-  <title>TIL: how to create a virtual desktop from a cloud virtual machine</title>
-  <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/virtual-desktop-from-virtual-machine/virtual-desktop-from-virtual-machine.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Researchers frequently want to be able to access a second computer that works like a normal computer (think a virtual desktop rather than a virtual machine + command line) just to offload some computation. This post shows how.</p>
-<p>The basic idea here is you don’t want to gum up your own laptop with lots of lengthy computations<sup>1</sup> but you don’t feel confident just using a virtual machine via the command line, or using <a href="../../../blog/posts/visual-studio-code-in-the-cloud/index.html">visual studio code remotely</a>, but you want a virtual desktop that feels a bit similar to using a laptop (only in a browser window). We’ll be using Google’s handy remote desktop service for this.</p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;And you’ve already optimised in the obvious ways.</p></div></div><section id="recipe" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="recipe">Recipe</h2>
-<p>For this, you’ll need a Google Cloud (GCP) account and project with the compute engine API enabled.</p>
-<ol type="1">
-<li><p>Head to create instances in GCP</p></li>
-<li><p>Hit create instance</p></li>
-<li><p>Use your normal settings except for under “Boot disk” choose Ubuntu (a good idea to use the latest non-minimal version, I used 23.10)</p></li>
-<li><p>Create the virtual machine and use Google’s handy “SSH” button to enter it on the command line</p></li>
-<li><p>Run the following on the virtual machine to download the Google remote desktop package and install it</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">wget</span> https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb</span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sudo</span> apt-get install <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--assume-yes</span> ./chrome-remote-desktop_current_amd64.deb</span></code></pre></div></div></li>
-<li><p><code>sudo apt install slim</code>, which is a display manager</p></li>
-<li><p><code>sudo apt install ubuntu-desktop</code> to get an ubuntu desktop installed (we’re still on the virtual machine here)</p></li>
-<li><p>Once done, use <code>sudo reboot</code>. You’ll be kicked off the VM but you can just reconnect as soon as it’s rebooted.</p></li>
-<li><p>Once back on your rebooted virtual machine, hit <code>sudo service slim start</code>.</p></li>
-<li><p>Back on your local computer, go to the Chrome Remote Desktop command line setup page: <a href="https://remotedesktop.google.com/headless">https://remotedesktop.google.com/headless</a></p></li>
-<li><p>On the Set up another computer page, click Begin then click Next. You already installed the Chrome Remote Desktop on the remote computer.</p></li>
-<li><p>Click Authorize</p></li>
-<li><p>This gives you some code to run on your VM instance that will allow you to connect to it remotely. Copy the command for Debian Linux and run in on the command line of the VM.</p></li>
-<li><p>When you are asked for one, enter a 6-digit PIN that you have devised. This PIN will be used when you log into the VM instance from the remote desktop browser page.</p></li>
-<li><p>Head to that browser page (<a href="https://remotedesktop.google.com/headless">this link</a>) and you should be asked for your pin.</p></li>
-<li><p>You should see a fully working Ubuntu desktop through your browser window!</p></li>
-</ol>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/virtual-desktop-from-virtual-machine/screenshot_ubuntu.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="margin-caption">Screenshot of the desktop changer and app selection functions of Ubuntu desktop accessed through Google’s remote desktop facility</figcaption>
-</figure>
-</div>
-<p>Remember: you will be charged for the time that your instance is running. This is usually inexpensive but you do want to turn off the virtual machine when you’re not actively using it. You can do this on the instances page with the “stop” button. And, as ever, to tear down the virtual machine completely (and lose anything on it), go to the instances page on GCP and use the delete option.</p>
-
-
-</section>
-
-
- ]]></description>
-  <category>code</category>
-  <category>data science</category>
-  <category>research</category>
-  <guid>https://www.aeturrell.com/blog/posts/virtual-desktop-from-virtual-machine/virtual-desktop-from-virtual-machine.html</guid>
-  <pubDate>Mon, 04 Dec 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://www.aeturrell.com/blog/posts/virtual-desktop-from-virtual-machine/screenshot_ubuntu.png" medium="image" type="image/png" height="141" width="144"/>
 </item>
 </channel>
 </rss>
