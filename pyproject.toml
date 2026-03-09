@@ -12,6 +12,7 @@ dependencies = [
     "matplotlib>=3.9.3",
     "statsmodels>=0.14.4",
     "graphviz>=0.21",
+    "hf-mem>=0.4.4",
 ]
 
 [tool.ruff]

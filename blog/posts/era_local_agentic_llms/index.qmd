@@ -1,0 +1,69 @@
+---
+date: "2026-03-09"
+layout: post
+title: "The era of local agents is here"
+categories: [data science, AI, llm, open-source]
+toc: false
+image: "run_ollama.svg"
+jupyter: python3
+---
+
+Local models—that is, large language models you can run on your own computer—have been okay for chat for a while even if they're typically some way behind the frontier. I can't now remember when or how I first got a small large language model running locally, but it was probably via Simon Willison's [llm](https://github.com/simonw/llm) with [Mistral-Small-24B-Instruct-2501-4bit](https://huggingface.co/mlx-community/Mistral-Small-24B-Instruct-2501-4bit), which was released in January 2025. Mistral-Small-24B-Instruct-2501-4bit uses 12.35GB, so it could even run on a machine with 16GB of RAM!
+
+NB: model weights in this post come via the [`hf-mem` command line tool](https://github.com/alvarobartt/hf-mem), which is really good for quickly checking how much space a particular model needs. To check that Mistral model, I ran `hf-mem --model-id mlx-community/Mistral-Small-24B-Instruct-2501-4bit`.
+
+Subsequent models really upped the game in terms of performance. Looking through my model history, I can see I also tried the fairly large Llama3.3 model, at 37GB, and the more recent, and pretty-good-actually, gpt-oss-20b-MXFP4-Q8, which weighs in at just 11GB. This low RAM requirement means you can still comfortably run other applications while using it.
+
+By the way, small vision models that can run locally have been phenomenal for a while: see my [previous post on this](../radical-new-approach-to-time-use/index.qmd) and the [one by guest poster Katie Russell](../vision-ai-for-odometer-reading/index.qmd).
+
+But it's been clear for a while that the real value of LLMs, especially for coding, is more agentic behaviours. People have [different definitions](https://simonwillison.net/tags/agent-definitions/) of what qualifies as agentic behaviour, but I like LLMs using tools (eg Python interpreter, curl, file reads) iteratively to achieve a goal. Hugging Face has a nice little course on [this](https://huggingface.co/learn/agents-course/en/unit1/introduction).
+
+Agentic models are just so much more useful because they can be intelligent about how they use their context window, they can bring in true information (rather than guessing) when needed, and they can run checks for you. It feels much more like you're setting an assistant a task, letting them get on with it, and occasionally approving their work. I even wonder if it might make help some managers be clearer as the feedback loop between good instructions and good outputs is so tight.
+
+Claude Code has become *the* indispensable tool for agentic coding specifically, and it does impressively well on other tasks too. I've had it rewrite some 35-year-old Fortran in Rust, build a Python front-end to a Java library, and "vibe-code" entire websites (backend and frontend) from scratch. As many others have noted, the inflection point was around November 2025: that is when being a coder transitioned from "writing code with an LLM aid" to "overseeing code written by an LLM." I'm personally still finding my way through this transition and how to best work in the world.
+
+But what about running *agentic* models *locally*?
+
+Of course, there's been much excitement about OpenClaw, best expressed by [Andrej Karpathy](https://x.com/karpathy/status/2024987174077432126):
+
+> Bought a new Mac mini to properly tinker with claws over the weekend. The apple store person told me they are selling like hotcakes and everyone is confused :)
+
+But I'm not sure how many people are *actually* buying a Mac Mini (£2k for a 64GB version at the time of writing) and then serving up OpenClaw on it over tailscale. Plus OpenClaw is a live dangerously approach. Bing which, in case you had forgotten, is Microsoft's search engine, has been redirecting anyone who has searched for "OpenClaw Windows" [to a virus](https://www.theregister.com/2026/03/04/fake_openclaw_installers_malware/). That's before you've even installed the real OpenClaw! And there are plenty of [horror stories](https://smarterarticles.co.uk/the-openclaw-warning-from-viral-sensation-to-security-nightmare) about security issues. Between the costs and the risks, which need real know-how to work with, this option is not practical for the majority of people using LLMs.
+
+So agentic local models have been off the table for most of us. I haven't found any local models that can reliably do agentic tool use. Until now.
+
+What has changed is the release of [Qwen3.5:35B](https://ollama.com/library/qwen3.5:35b) with "Q4_K_M" quantisation. I know little about quantisation, but it seems like this is an intelligent approach to using 4-bit quantisation that manages to keep most of the performance while cutting out as much as 70% of the RAM requirement. So instead of this being a 67GB model, as with the [original on Hugging Face](https://huggingface.co/Qwen/Qwen3.5-35B-A3B), it's **only a 24GB model**, and so comfortably fits on a 64GB machine.
+
+Why would you want to run an agentic model fully locally? If you're anything like me, you may have simply exhausted your subscription tokens and wish to carry on working. Or perhaps you have no WiFi and no phone signal (hello travelling in parts of South West London—you know where you are) and want to get some stuff done. Another motivator is privacy: the recent [leak of users' confidential emails to Microsoft Copilot](https://www.bbc.co.uk/news/articles/c8jxevd8mdyo) show how even enterprise-level security systems can go awry. It's also just unbelievably cool to turn your own computer into a fully fledged, tool-wielding assistant.
+
+You're still not going to be blown away by the speed of these mid-tier, <64GB models. In terms of getting through a simple problem, like investigating a test failure or updating docs, they're simply not as fast as the latest Claude models. But they do have pretty incredible performance nonetheless and, for me, they have now crossed the point where they are *fast enough* and *good enough* to be used for serious development.
+
+## Getting started on your own computer
+
+You'll need at least 32GB of RAM, and probably 64GB. As far as I know, the steps work cross-platform though the exact commands will vary (the below commands are for MacOS.)
+
+[Download Ollama](https://ollama.com/download), which is an open model serving and management tool. On the command line, run
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+Download the [OpenAI Codex CLI](https://developers.openai.com/codex/cli/).
+
+```bash
+brew install codex
+```
+
+You can also use Claude Code CLI but I found Codex worked slightly better with open models (I have no firm evidence for this, it's just based on experience.)
+
+Next, run Ollama in your terminal and use it to download Qwen3.5:35B
+
+```bash
+ollama run qwen3.5:35b
+```
+
+This will start an automatic download of the full model then launch a chat when it's finished. Quit that, then run `ollama` on your command line. You'll be given a bunch of options for CLIs. Use the down arrows to get to "Launch Codex" then use the right arrow to switch models. Select `qwen3.5:35B` and you will see Codex CLI launch with your local model!
+
+![](run_ollama.svg)
+
+Now, when you issue a task, you'll find that the LLM starts using tools to complete that task. All running in your own laptop. Incredible!
