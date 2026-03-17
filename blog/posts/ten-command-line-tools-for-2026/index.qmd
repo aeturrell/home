@@ -104,7 +104,7 @@ uvx <package>
 
 The rest of this post is going to show you some cool command line tools that you can install with `uv tool install`.
 
-## 2. **hf-mem**
+## 2. **hf-mem** {#sec-hfmem}
 
 If you didn't read the previous section, you can install this package once, then use everywhere, with 
 
@@ -145,8 +145,79 @@ Macroeconomic models seek to explain the behaviour of economic variables such as
 
 Yep, in this case, we didn't even need to download the PDF! **docling** does a good job of navigating the arxiv two-column structure. The equations haven't come down in latex format, but in symbols, but I reckon an LLM could still make sense of this. For the speed and flexibility of inputs/outputs, this is my favourite to-plain-text tool.
 
-## 4. **sqlit-tui**
+## 4. **skimpy**
+
+*Full disclosure: I created this package*
+
+[**skimpy**](https://aeturrell.github.io/skimpy/) is a super-charged version of [**pandas**](https://pandas.pydata.org/)' `df.describe()` that handles a wide range of input data types. You can use it in Python code, but you can also use it as a command line tool. Install with `uv tool install skimpy` and then, to use it:
+
+```{python}
+#| echo: False
+import pandas as pd
+
+df = pd.DataFrame({
+    'name': ['Alice', 'Bob', 'Charlie'],
+    'age': [25, 30, 35],
+    'city': ['London', 'New York', 'Tokyo'],
+    "likes_cheese": [False, True, True],
+    "record_date": pd.date_range("01-01-2026", periods=3, freq="D")
+})
+df.to_csv("csv_example.csv")
+df.to_parquet("pq_example.parquet")
+```
+
+```{bash}
+uvx skimpy csv_example.csv
+```
+
+```{bash}
+uvx skimpy pq_example.parquet
+```
+
+```{bash}
+#| echo: False
+
+rm csv_example.csv
+rm pq_example.parquet
+
+```
+
+Yes, it works for parquet files, csv files, and even sqlite files. For sqlite files, you'll need to say which table you want with `--table <Your table>`; running without this will come back with a list of tables.
+
+Skimpy uses the powerful csv "sniffer" from [DuckDB](https://duckdb.org/), which is why it's so good at guessing what the data types of the different columns are[^2].
+
+[^2]: Column data type metadata aren't carried by CSV files so it's necessary to guess them. Parquet carries column data types with it.
+
+Right now, if you want to save the table, you'll need to run skimpy through Python code but it's possible the command line interface will expand in future.
+
+## 5. **vhs**
+
+Ever wondered how people create those nifty videos of using command line tools? Me too. One really good option is called [**vhs**](https://github.com/charmbracelet/vhs).[^3] You write a bash script in a ".tape" file that includes recording information and then run it. Here's the `hfmem.tape` I wrote for making the video in @sec-hfmem:
+
+[^3]: For younger fans of Markov Wanderer, VHS stands for Video Home System. It was a [magnetic video tape format](https://en.wikipedia.org/wiki/VHS).
+
 
 ```bash
-uvx --from sqlit-tui sqlit
+
+Output hfmem.gif
+
+# Set up a 1200x600 terminal with 46px font.
+Set FontSize 25
+Set Width 1200
+Set Height 700
+
+# Type a command in the terminal.
+Type "uvx hf-mem --model-id mlx-community/Qwen3.5-27B-4bit"
+
+# Pause for dramatic effect...
+Sleep 500ms
+
+# Run the command by pressing enter.
+Enter
+
+# Admire the output for a bit.
+Sleep 5s
 ```
+
+This results in the gorgeous .gif you see earlier in the post. Now, I'd really like the export to be a .svg file. There is a package for that called [termtosvg](https://nbedos.github.io/termtosvg/) which is nice too, but it records you as you go and so (for me) looks a lot more clunky.
+

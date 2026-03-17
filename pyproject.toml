@@ -13,6 +13,7 @@ dependencies = [
     "statsmodels>=0.14.4",
     "graphviz>=0.21",
     "hf-mem>=0.4.4",
+    "pyarrow>=23.0.1",
 ]
 
 [tool.ruff]
