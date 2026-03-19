@@ -8,7 +8,7 @@ image: "hfmem.gif"
 
 Back in 2020, I wrote a post about [ten lesser known Python packages](../10-lesser-known-python-packages/index.md). Coding and data science have changed a lot in those six years: large language models are the most obvious example! But there have been plenty of other developments too. So I wanted to run down **ten command line tools** that are useful for coding and data science in 2026.
 
-## 1. `uv`
+## 1. **uv**
 
 ### Project and dependency management
 
@@ -36,15 +36,17 @@ dependencies = [
 
 ```
 
-Everything works on a per-repo / per-folder basis, with *one environment per folder* which usually sits in `.venv`. To add packages is as simple as `uv add <packagename>`. This is where the magic happens, **uv** is *fast*:
+Everything works on a per-repo / per-folder basis, with *one environment per folder* which usually sits in `.venv`. To add packages is as simple as `uv add <packagename>`. This is where the magic happens; **uv** is *fast*:
 
 ![Chart comparing speed of dependency resolution in uv to alternatives](uv_speed.svg)
 
+That speed comes from it being written in Rust.
+
 ### Reproducibility
 
-While `pyproject.toml` has high-level dependency information, `uv.lock`, which gets created when you run `uv lock` or `uv sync`, is a cross-platform recipe with exact information about your project's dependencies. Check it in to version control and you can as close as you can possibly get to cross-platform reproducibility.
+While `pyproject.toml` has high-level dependency information, `uv.lock`, which gets created when you run `uv lock` or `uv sync`, is a cross-platform recipe with exact information about your project's dependencies. Check it in to version control and you can get as close as you can possibly get to cross-platform reproducibility without what is effectively a one-liner.
 
-When someone else, or you, need to use the project in a fresh environment, they will get the automatically generated `pyproject.toml` and `uv.lock` files. Then, all they need is to navigate to the project folder in the command line, and enter `uv sync --frozen` to install all of the (same versions of) packages needed for the code. For more on reproducibility with uv, look at [Coding for Economists](https://aeturrell.github.io/coding-for-economists/wrkflow-rap.html#reproducible-python-environments).
+When someone else, or you, needs to use the project in a fresh environment, they will get the automatically generated `pyproject.toml` and `uv.lock` files. Then, all they need is to navigate to the project folder in the command line, and enter `uv sync --frozen` to install all of the (same versions of) packages needed for the code. For more on reproducibility with **uv**, look at [Coding for Economists](https://aeturrell.github.io/coding-for-economists/wrkflow-rap.html#reproducible-python-environments).
 
 ### Python versions
 
@@ -61,7 +63,7 @@ Installed Python 3.10.19 in 1.26s
 
 ### Standalone code scripts
 
-One cool, and perhaps less well-known, feature is to the ability to run self-contained scripts, aka code with script-level dependencies. The use case for this is when you have a single code file that you need to use in different contexts that's not attached to any wider project. You could make a whole new environment for just that one script but that seems like overkill. Instead, you can declare the dependencies in-line with the script! Let's say you have a file called `example.py` containing:
+One cool but perhaps less well-known feature is to the ability to run self-contained scripts, aka code with script-level dependencies. The use case for this is when you have a single code file that you need to use in different contexts that's not attached to any wider project. You could make a whole new environment for just that one script but that seems like overkill. Instead, you can declare the dependencies in-line with the script! Let's say you have a file called `example.py` containing:
 
 ```python
 # /// script
@@ -88,9 +90,9 @@ uv add --script example.py 'requests<3' 'rich'
 
 ### Command line tools
 
-This going to get meta because **uv** also really helps with command line tools! There are now a lot of command line tools available as Python packages, which is great. But you don't always want them associated with specific projects, maybe you want them on hand all the time, ready to jump in and do their thing in whatever circumstance arises. Well, once again, **uv** has you covered.
+This is going to get meta because **uv** also really helps with command line tools! There are now a lot of command line tools available as Python packages, which is great. But you don't always want them associated with specific projects, maybe you want them on hand all the time, ready to jump in and do their thing in whatever circumstance arises. Well, once again, **uv** has you covered.
 
-To install a tool once to use everywhere in **uv**, run:
+To install a tool once to use everywhere on your computer, run:
 
 ```bash
 uv tool install <package>
@@ -102,23 +104,25 @@ To then use the tool, you can do
 uvx <package>
 ```
 
-The rest of this post is going to show you some cool command line tools that you can install with `uv tool install`.
+Some of the tools feature in the rest of this post are Python packages for the command line and can be installed and used in this way.
 
 ## 2. **hf-mem** {#sec-hfmem}
 
-If you didn't read the previous section, you can install this package once, then use everywhere, with 
+The big story of the last few years has been large language models. Increasingly, [as I've argued](../era_local_agentic_llms/index.qmd), we can run them *locally* too, **as long as they fit in RAM**. [`hf-mem`](https://github.com/alvarobartt/hf-mem) is a great little tool you can use to estimate the inference memory requirements for Hugging Face models.
+
+If you didn't read the previous section, you can install this package once, then use everywhere, with
 
 ```bash
 uv tool install hf-mem
 ```
 
-and 
+and use it with
 
 ```bash
-uvx hf-mem
+uvx hf-mem --model-id mlx-community/Qwen3.5-27b-4bit
 ```
 
-The big story of the last few years has been large language models. Increasingly, [as I've argued](../era_local_agentic_llms/index.qmd), we can run them *locally* too, **as long as they fit in RAM**. [`hf-mem`](https://github.com/alvarobartt/hf-mem) is a great little tool you can use to estimate the inference memory requirements for Hugging Face models.
+where you could use any model supported by Hugging Face in place of `uvx hf-mem --model-id mlx-community/Qwen3.5-27b-4bit`.
 
 ![Using `hf-mem`](hfmem.gif)
 
@@ -129,7 +133,7 @@ The rise of large language models has meant that plain text files (.txt, .md, .q
 Not everyone is so keen on plain text as a format though! The internet is a place of PDFs, docxs, Powerpoints, and 
 PNGS. These make it *much* harder to get the information from them into a format a large language model can work with. But this is where [**docling**](https://github.com/docling-project/docling) comes in—a truly brilliant package from IBM that can convert PDF, DOCX, PPTX, XLSX, HTML, WAV, MP3, WebVTT, images (PNG, TIFF, JPEG, ...), LaTeX, ... to plain text files. **docling** is not just a command tool, in fact, for anything complex you probably want to use it from within a Python script. But it does also work as a nifty command line tool when you just want the text out.
 
-As an example, let's take my (dormant) working paper with Ed Hill and Marco Bardoscia on solving heterogeneous agent macro models with deep reinforcement learning, aka [https://arxiv.org/abs/2103.16977](https://arxiv.org/abs/2103.16977).
+As an example, let's take my [(dormant) working paper](../../../research/dormant-working-papers/hill-bardoscia-turrell/index.qmd) with Ed Hill and Marco Bardoscia on solving heterogeneous agent macro models with deep reinforcement learning, aka [https://arxiv.org/abs/2103.16977](https://arxiv.org/abs/2103.16977).
 
 ```bash
 uvx docling https://arxiv.org/pdf/2103.16977
@@ -140,7 +144,7 @@ I'll just show a segment of the output, which was automatically written to a mar
 ```markdown
 ## 2. Background
 
-Macroeconomic models seek to explain the behaviour of economic variables such as wages, hours worked, prices, investment, interest rates, the consumption of goods and services, and more, depending on the level of complexity. They do this through 'microfoundations', that is describing the behaviour of individual agents and deriving the system-wide behaviour based on how those atomic behaviours aggregate. An important class of these models is used to describe how variables co-move in time when supply and demand are balanced (in general equilibrium ), and when some variables are subject to stochastic noise (aka 'shocks'). A typical macroeconomic rational expectations model with general equilibrium is a representation of an economy populated by households, firms, and public institutions (such as the government). The choices made by these distinct agents are framed as a dynamic programming problem in which households maximise their discounted future utility U = E ∑ ∞ t =1 β t u ( s t , a t ) with u per-period utility, β a discount factor, s t ∈ S a vector of state variables, a t ∈ a ( s t ) a vector of choice variables, and s t evolving as s t +1 = h ( s t , a t ) . E ( · ) represents an expectation operator, usually assumed to be 'rational' in the sense of being the households' best possible forecast given the available information (and implying that any deviations from perfect foresight are random). For household agents, u is monotonically increasing in consumption, c t , and decreasing in hours worked, n t (both choice variables). Extra conditions are imposed via other equations, for example, a budget constraint of the form (1 + r t ) b t -1 + w t n t ≥ p t c t + b t with p t price, w t wages, and r the interest rate. b t captures savings, typically in the form of a risk-free bond or other investment. If b t &lt; 0 is permitted (i.e. debt) then b t usually satisfies a 'no Ponzi' condition that rules out unlimited borrowing and effectively imposes the rule that b T = 0 ( t ∈ 0 , . . . , T ). Consumers take prices, wages, and interest rate as given; these are state variables. Firms maximise profits Π t = p t Y t -w t N t (possibly including a -r t K t term if savings are invested) subject to a 'production constraint', Y t , that turns labour, N t , and capital, K t into consumption goods. Typically, Y t = A t f ( K t , N t ) where f is a monotonically increasing function of its inputs and A t is either predetermined or follows a log-autoregressive process ln A t = ρ A ln A t -1 + glyph[epsilon1] t ; glyph[epsilon1] t ∼ N (0 , σ A ) is known as a technology 'shock'. Governments perform functions such as the collection and redistribution of taxes. Firms are assumed to be perfectly competitive, meaning that each firm takes prices and wages as given.
+Macroeconomic models seek to explain the behaviour of economic variables such as wages, hours worked, prices, investment, interest rates, the consumption of goods and services, and more, depending on the level of complexity. They do this through...
 ```
 
 Yep, in this case, we didn't even need to download the PDF! **docling** does a good job of navigating the arxiv two-column structure. The equations haven't come down in latex format, but in symbols, but I reckon an LLM could still make sense of this. For the speed and flexibility of inputs/outputs, this is my favourite to-plain-text tool.
@@ -151,38 +155,22 @@ Yep, in this case, we didn't even need to download the PDF! **docling** does a g
 
 [**skimpy**](https://aeturrell.github.io/skimpy/) is a super-charged version of [**pandas**](https://pandas.pydata.org/)' `df.describe()` that handles a wide range of input data types. You can use it in Python code, but you can also use it as a command line tool. Install with `uv tool install skimpy` and then, to use it:
 
-```{python}
-#| echo: False
-import pandas as pd
-
-df = pd.DataFrame({
-    'name': ['Alice', 'Bob', 'Charlie'],
-    'age': [25, 30, 35],
-    'city': ['London', 'New York', 'Tokyo'],
-    "likes_cheese": [False, True, True],
-    "record_date": pd.date_range("01-01-2026", periods=3, freq="D")
-})
-df.to_csv("csv_example.csv")
-df.to_parquet("pq_example.parquet")
+```bash
+uvx skimpy some_data.parquet
 ```
 
-```{bash}
-uvx skimpy csv_example.csv
-```
+![Example output](skimpy_example.svg)
 
-```{bash}
-uvx skimpy pq_example.parquet
-```
+<!-- ```
 
-```{bash}
-#| echo: False
+from skimpy import skim, generate_test_data, skim_get_figure
 
-rm csv_example.csv
-rm pq_example.parquet
+df = generate_test_data()
 
-```
+skim_get_figure(df, "skimpy_example.svg")
+``` -->
 
-Yes, it works for parquet files, csv files, and even sqlite files. For sqlite files, you'll need to say which table you want with `--table <Your table>`; running without this will come back with a list of tables.
+You can `uvx skimpy some_data.csv` too; it works for parquet files, csv files, and even sqlite files. For sqlite files, you'll need to say which table you want with `--table <Your table>`; running without this will come back with a list of tables.
 
 Skimpy uses the powerful csv "sniffer" from [DuckDB](https://duckdb.org/), which is why it's so good at guessing what the data types of the different columns are[^2].
 
@@ -219,5 +207,123 @@ Enter
 Sleep 5s
 ```
 
-This results in the gorgeous .gif you see earlier in the post. Now, I'd really like the export to be a .svg file. There is a package for that called [termtosvg](https://nbedos.github.io/termtosvg/) which is nice too, but it records you as you go and so (for me) looks a lot more clunky.
+This results in the gorgeous .gif you see [earlier in the post](#hf-mem). Now, I'd really like the export to be a .svg file. There is a package for that called [termtosvg](https://nbedos.github.io/termtosvg/) which is nice too, but it records you as you go and so (for me) looks a lot more clunky.
 
+## 6. **ollama**
+
+I've said on here that we've entered the [era of local agentic AI](../era_local_agentic_llms/index.qmd), and that capability is built on open models. [**ollama**](https://ollama.com/) provides an easy command line interface to find, download, chat with, and launch open model-based versions of popular CLI versions of Claude and Codex.
+
+![](../era_local_agentic_llms/run_ollama.svg)
+
+Follow the download and install instructions on their website. Once you hit `ollama` in your command line, a text user interface will pop up in your terminal with options to chat to a model directly or launch one of the CLI tools but with a model of your choice (eg Codex with qwen3.5:35b) for agentic coding help. **Ollama** is a game-changer for when you don't have WiFi or you've run out of tokens.
+
+## 7. **pydoclint**
+
+Some would say I'm obsessed with making sure the documentation and code are consistent, or, as someone put it (I forget who) "the documentation is the code." I like a combination of [Quarto](https://quarto.org/) and [QuartoDoc](https://github.com/machow/quartodoc) for this; the latter is similar to autodoc: it picks up public functions from your code and automatically creates docs for them drawing on the doc strings and function signatures. But what if your doc strings are stale? You can imagine how this can happen: functions change purpose over time, more types are introduced, and perhaps even the arguments and return types change. Then your function does one thing but says it does something else! Very irritating, not to mention confusing.
+
+[**pydoclint**](https://github.com/jsh9/pydoclint) is a command line tool for checking that your code and your docstrings are consistent across arguments, returns, raises, and more. You can use it as a pre-commit hook on a per-project basis or directly on the command line:
+
+```bash
+uvx pydoclint src/ --style google 
+```
+
+where `--style google` sets it to use Google-style docstrings. It's a Python package, so you can install it with `uv tool install pydoclint`.
+
+## 8. **ripgrep**
+
+[**ripgrep**](https://github.com/BurntSushi/ripgrep) (`rg`) is command line tool that recursively searches directories using regex patterns. It's fast, and you can probably guess why: yes, it's written in Rust. A nice feature is that it respects your `.gitignore` file, meaning folders (like `.venv`) that you probably don't *want* to search, are excluded by default.
+
+Here's a typical example of using it (against this blog):
+
+```bash
+rg "reproducible analytical pipelines" --type md
+```
+
+```text
+blog/posts/data-science-maturity/data-science-maturity.md
+9:Data science has enormous potential to do good in the public sector. The efficiencies that are possible from automation and reproducible analytical pipelines alone are huge—if you like this is improvement at *existing* tasks. Throw machine learning and advanced analytics into the mix and data science can also complete entirely new tasks, *expanding the horizon of what's possible*. It's an exciting time to be a data scientist.
+```
+
+Although there are built-in types, like `md`, you can also glob (`-g`) for any file extension or name you like:
+
+```bash
+rg "pydoclint" -g "*.qmd"
+```
+
+```text
+blog/posts/ten-command-line-tools-for-2026/index.qmd
+220:## 7. **pydoclint**
+224:[**pydoclint**](https://github.com/jsh9/pydoclint) is a command line tool for checking that your code and your docstrings are consistent across arguments, returns, raises, and more. You can use it as a pre-commit hook on a per-project basis or directly on the command line:
+227:uvx pydoclint src/ --style google 
+230:where `--style google` sets it to use Google-style docstrings. It's a Python package, so you can install it with `uv tool install pydoclint`.
+```
+
+## 9. **cookiecutter**
+
+[**cookiecutter**](https://github.com/cookiecutter/cookiecutter) is a cross-platform command-line utility that creates projects from "cookiecutters" (project templates). The classic use case is that you want to create a new project, say in Python, without repeating all the boilerplate like setting up folders for models, notebooks, and different types of data (perhaps with .gitkeeps in.) Aimed at the right template, it can cut out a lot of the effort in getting going with a new repo.
+
+It's a Python package so you can install it with
+
+```bash
+uv tool install cookiecutter
+```
+
+Then, to use it, you need a template. Well, luckily, I have two I made earlier! You can read all about my Python [research project template and package template in this previous post](../ultra-modern-python-cookiecutters/index.qmd).
+
+Let's say you wanted to create a new Python package with all the bells and whistles (like [pydoclint](#pydoclint).) You would run,
+
+```bash
+uvx cookiecutter https://github.com/aeturrell/cookiecutter-python-package.git
+```
+
+This will take you through a series of questions about the new project you want to create, then create it: a ready-to-go ultra-modern Python package in just a few commands. I've used it myself and it has cut out lots of time and mistakes. I'd say it's fairly easy to create your own templates too.
+
+## 10. **fzf**
+
+[**fzf**](https://github.com/junegunn/fzf) is an interactive command-line fuzzy finder: you put a list of stuff in and it lets you fuzzily narrow it down, selecting the line you want. It and **ripgrep** make a good pair: pull out all mentions and then narrow down to the one you're looking for. In the below example, ripgrep finds all instances of "import pandas" in Python files and then pipes it (`|`) to fzf for further selection:
+
+```bash
+rg "import pandas" --type py | fzf
+```
+
+![Interactivity of **fzf**](fzf.svg)
+
+Now wait because it gets even better: you can combine these commands with bat[^4] too to create a fully-fledged interactive text search with file preview. This is a custom function I've defined, called `rgf`, which combines the three tools.
+
+[^4]: A command line text file viewer.
+
+Here's what it looks like in practice:
+
+![Example of using "rgf"](rgf.svg)
+
+Once you've found what you're looking for, hitting return will open the file in Visual Studio Code *at the selected line*!
+
+To set this up on Mac, you'll need to `brew install` [**rg**](https://github.com/BurntSushi/ripgrep), [**bat**](https://github.com/sharkdp/bat), and [**fzf**](https://github.com/junegunn/fzf). Then add the following to your `.zshrc` file, if you're using ZSH (amend according to your setup.) You can open the file in an editor with `code ~/.zshrc`. Then add this to the end of the file:
+
+```bash
+# ripgrep + fzf interactive search → VS Code
+rgf() {
+  local result
+  result=$(
+    rg --color=always --line-number --no-heading --smart-case "$@" |
+      fzf --ansi \
+          --delimiter : \
+          --preview 'bat --color=always --highlight-line {2} --map-syntax "*.qmd:Markdown" {1}' \
+          --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'
+  )
+  if [[ -n "$result" ]]; then
+    local file line
+    file=$(echo "$result" | cut -d: -f1)
+    line=$(echo "$result" | cut -d: -f2)
+    code --goto "${file}:${line}"
+  fi
+}
+```
+
+Now you can use commands like
+
+```bash
+rgf "import pandas" -g "*.qmd"
+```
+
+to interactively, fuzzily, and quickly search your files.

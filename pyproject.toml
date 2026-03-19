@@ -14,6 +14,7 @@ dependencies = [
     "graphviz>=0.21",
     "hf-mem>=0.4.4",
     "pyarrow>=23.0.1",
+    "skimpy>=0.0.20",
 ]
 
 [tool.ruff]
