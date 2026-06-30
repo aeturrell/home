@@ -1,0 +1,16 @@
+{
+  "hash": "b1602566269796434ebce3de722e1af0",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: My First Closeread\nformat:\n    closeread-html:\n        cr-style:\n            narrative-background-color-overlay: darkslategrey\n            narrative-text-color-overlay: \"#e22020\"\n\n---\n\nHello World! Please read my Closeread story below.\n\n:::{.cr-section}\n\nCloseread enables scrollytelling.\n\nDraw your readers attention with focus effects. @cr-features\n\n:::{#cr-features}\n1. Highlighting\n2. Zooming\n3. Panning\n:::\n\n\nHere's a trigger with a focus effect [@cr-mycontent]{effect=\"value\"}\n\nThis is where we load the library. [@cr-dplyr]{highlight=\"1,2\"}\n\n:::{#cr-dplyr}\n\n::: {#e0c1414d .cell execution_count=1}\n\n::: {.cell-output .cell-output-display execution_count=1}\n```{=html}\n<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>0</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>1</td>\n    </tr>\n  </tbody>\n</table>\n</div>\n```\n:::\n:::\n\n\n:::\n\n\nThe end of the third and fourth line also rhyme and are nudged in a bit. [@cr-limerick]{highlight=\"3-4\"}\n\n| {#cr-limerick}\n| There was a young rustic named [Mallory]{#cr-mallory},\n| who drew but a very small [salary]{#cr-salary}.\n|   When he went to the show,\n|   his purse made him go\n| to a seat in the uppermost gallery.\n\n\nThe end of the first two lines of a Limerick must rhyme. [@cr-limerick]{highlight=\"cr-mallory,cr-salary\"}\n\n| {#cr-limerick}\n| There was a young rustic named [Mallory]{#cr-mallory},\n| who drew but a very small [salary]{#cr-salary}.\n|   When he went to the show,\n|   his purse made him go\n| to a seat in the uppermost gallery.\n\n\n::::{.cr-section}\n\n:::{.progress-block}\nCheck out our graphic @cr-graphic\n\nWe can keep referring to it as several triggers scroll by... @cr-graphic\n\n... and have OJS code elsewhere in the document to animate it @cr-graphic\n:::\n\n::::\n\n:::\n\n",
+    "supporting": [
+      "scrolly_files"
+    ],
+    "filters": [],
+    "includes": {
+      "include-in-header": [
+        "<script src=\"https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js\" integrity=\"sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx\" crossorigin=\"anonymous\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js\" integrity=\"sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2\" crossorigin=\"anonymous\" data-relocate-top=\"true\"></script>\n<script type=\"application/javascript\">define('jquery', [],function() {return window.jQuery;})</script>\n"
+      ]
+    }
+  }
+}

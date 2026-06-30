@@ -1,0 +1,72 @@
+---
+title: My First Closeread
+format:
+    closeread-html:
+        cr-style:
+            narrative-background-color-overlay: darkslategrey
+            narrative-text-color-overlay: "#e22020"
+
+---
+
+Hello World! Please read my Closeread story below.
+
+:::{.cr-section}
+
+Closeread enables scrollytelling.
+
+Draw your readers attention with focus effects. @cr-features
+
+:::{#cr-features}
+1. Highlighting
+2. Zooming
+3. Panning
+:::
+
+
+Here's a trigger with a focus effect [@cr-mycontent]{effect="value"}
+
+This is where we load the library. [@cr-dplyr]{highlight="1,2"}
+
+:::{#cr-dplyr}
+```{python}
+import pandas as pd
+
+pd.DataFrame([0, 1, 1, 1, 1])
+```
+:::
+
+
+The end of the third and fourth line also rhyme and are nudged in a bit. [@cr-limerick]{highlight="3-4"}
+
+| {#cr-limerick}
+| There was a young rustic named [Mallory]{#cr-mallory},
+| who drew but a very small [salary]{#cr-salary}.
+|   When he went to the show,
+|   his purse made him go
+| to a seat in the uppermost gallery.
+
+
+The end of the first two lines of a Limerick must rhyme. [@cr-limerick]{highlight="cr-mallory,cr-salary"}
+
+| {#cr-limerick}
+| There was a young rustic named [Mallory]{#cr-mallory},
+| who drew but a very small [salary]{#cr-salary}.
+|   When he went to the show,
+|   his purse made him go
+| to a seat in the uppermost gallery.
+
+
+::::{.cr-section}
+
+:::{.progress-block}
+Check out our graphic @cr-graphic
+
+We can keep referring to it as several triggers scroll by... @cr-graphic
+
+... and have OJS code elsewhere in the document to animate it @cr-graphic
+:::
+
+::::
+
+:::
+
