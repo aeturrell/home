@@ -1,0 +1,12 @@
+{
+  "hash": "4191001fc729c7032787b91b5141ce34",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ndate: \"2026-06-30\"\nlayout: draft\ntitle: \"The case for 'public sector OS'\"\ncategories: [public finances, productivity, public sector]\nimage: \"none\"\nexecute:\n  echo: false\njupyter: python3\n---\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

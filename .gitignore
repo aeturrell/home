@@ -59,3 +59,4 @@ bower_components
 /.quarto/
 
 **/*.quarto_ipynb
+*.pyc
