@@ -3,19 +3,19 @@ date: "2026-07-13"
 layout: post
 title: "A politically realistic reform of the triple lock"
 categories: [public finances, public sector, policy, pensions]
-image: survey_pipeline_dag.svg
+image: pension_under_different_locks.svg
 execute:
   echo: false
 jupyter: python3
 ---
 
-The triple lock is in the news again: the UK’s cost of living tsar, appointed by Sir Keir Starmer, [recently said](https://www.ft.com/content/21527e4b-c720-4078-9209-61e6314e8dc8?syn-25a6b1a6=1) that it was "mathematically unsustainable and "profoundly unfair."[^disclaimer] The [OBR estimates](https://obr.uk/frs/fiscal-risks-and-sustainability-july-2026/) that it will cost £15.5bn more a year by the end of this parliament than it would have under average earnings alone; a not insignificant amount (0.5 per cent of GDP) for government spending. UK spending on state pensions is forecast to hit £180bn in 2030, up from around £146bn in 2025.
+The triple lock is in the news again: the UK’s cost of living tsar, appointed by Sir Keir Starmer, [recently said](https://www.ft.com/content/21527e4b-c720-4078-9209-61e6314e8dc8?syn-25a6b1a6=1) that it was "mathematically unsustainable and "profoundly unfair."[^disclaimer] The [OBR estimates](https://obr.uk/frs/fiscal-risks-and-sustainability-july-2026/) that it will cost £15.5bn more a year by the end of this parliament than it would have under average earnings alone; a not insignificant amount (0.5 per cent of GDP) for government spending. [OBR expects the UK](https://www.ft.com/content/05ab5df6-877b-4e5a-a01d-de9f19b52b37?syn-25a6b1a6=1) to spend *9% of GDP on the triple lock by 2075* absent any action. In the short-term, UK spending on state pensions is forecast to hit £180bn in 2030, up from around £146bn in 2025.
 
 [^disclaimer]: It's always true on here, but your regular reminder that these are my views and do not represent the position of any institution.
 
 However, the political reality of the UK's ageing voting population is that no party wants to risk saying they will "unlock" this policy. And, equally, many people (sensibly) don't want to go back to a world where many pensioners live in poverty either.
 
-For those un-initiated, the UK's triple lock sees the state pension grow at whatever is highest: average earnings, inflation, or 2.5 per cent. Looking at the latest numbers from ONS and [DWP](https://www.gov.uk/government/publications/benefit-expenditure-and-caseload-tables-2026), it looks like spending as a portion of UK GDP and real spending per pensioner are likely to climb from now until 2030.
+The UK's triple lock sees the state pension grow at whatever is highest: average earnings, inflation, or 2.5 per cent. Looking at the latest numbers from ONS and [DWP](https://www.gov.uk/government/publications/benefit-expenditure-and-caseload-tables-2026), it looks like spending as a portion of UK GDP and real spending per pensioner are likely to climb from now until 2030.
 
 But what if there's a way to keep the triple lock but reform it so that it's more in-tune with what's actually happening in the economy?
 
@@ -31,13 +31,13 @@ $$
 \max\left\{2.5\%, \pi_t, \omega_t \right\}
 $$
 
-where $\pi_t$ is CPI, and $\omega_t$ is average earnings growth. We could switch that to a different *aggregation function*. It could be the (arithmetic) mean but we're comparing three different growth rates here, so the obvious choice is the *geometric mean*. However, because some of these rates sometimes go negative, we'll also stipulate that our new geometric triple lock must only be composed of positive numbers. Here's the new equation I propose:
+where $\pi_t$ is CPI, and $\omega_t$ is average earnings growth. We could switch that to a different *aggregation function*. It could be the (arithmetic) mean but we're comparing three different growth rates here, so the obvious choice is the *geometric mean*. The growth factors are $1 + x_i$ for each series. Here's the new equation I propose for working out the growth in the state pension:
 
 $$
-g(x) = \left( \prod_{i} x_i \right)^{1/|x|} \forall\space x_i > 0
+g(x) = \left( \prod_{i} \left(1 + x_i\right) \right)^{1/|x|} - 1
 $$
 
-where $x_i$ are the different growth rates. Let's compare how the year-on-year growth rates look under these two different set ups, in @tbl-growth-rates.
+where $x_i$ are the different growth rates, expressed as fractions. Let's compare how the year-on-year growth rates look under these two different set ups, in @tbl-growth-rates.
 
 ```{python}
 #| label: tbl-growth-rates
@@ -47,33 +47,11 @@ from pathlib import Path
 import numpy as np
 
 
-def positive_only_geometric_mean(row_of_numbers):
+def geometric_mean(row_of_numbers):
     r"""Geometric mean of the strictly positive entries in a row.
-
-    Values that are NaN, zero, or negative are dropped, and the root taken is the count of the values that survive.
-
-    For a row $x = (x_1, \dots, x_n)$, define the set of surviving indices
-
-    $$
-    P = \{\, i \in \{1, \dots, n\} : x_i > 0 \,\}, \qquad k = |P|
-    $$
-
-    (a NaN fails $x_i > 0$, so it is excluded from $P$). The function returns
-
-    $$
-    g(x) =
-    \begin{cases}
-      \left( \prod_{i \in P} x_i \right)^{1/k} & \text{if } k > 0 \\[2ex]
-      \mathrm{NaN} & \text{if } k = 0
-    \end{cases}
-    $$
-
-    so the exponent is the reciprocal of the number of positive values, not of the row length $n$.
     """
-    positives = row_of_numbers[row_of_numbers > 0]
-    if positives.empty:
-        return np.nan
-    return positives.prod() ** (1 / len(positives))
+
+    return (row_of_numbers + 1).prod() ** (1 / len(row_of_numbers)) -1
 
 
 def return_complete_df():
@@ -86,15 +64,15 @@ def return_complete_df():
 
     df["state_pension_per_pensioner_growth"] = df["state_pension_expenditure_gbp_million"].pct_change() * 100
 
-    df["geom_mean_pos"] = df.loc[
+    df["geom_mean"] = df.loc[
         :, ["cpi_inflation_pct", "avg_earnings_growth_pct", "2.5_pct"]
-    ].apply(positive_only_geometric_mean, axis=1)
+    ].apply(geometric_mean, axis=1)
 
-    df.loc[df["cpi_inflation_pct"].isna(), "geom_mean_pos"] = np.nan
+    df.loc[df["cpi_inflation_pct"].isna(), "geom_mean"] = np.nan
 
     starting_value = 100
 
-    end_spend_geom_mean_pos = starting_value*(1+df["geom_mean_pos"]/100.).prod()
+    end_spend_geom_mean = starting_value*(1+df["geom_mean"]/100.).prod()
 
     end_spend_triple_lock = starting_value*(1+df["triple_lock"]/100.).prod()
     return df
@@ -119,22 +97,22 @@ def trailing_cumulative_growth(growth_rates_pct, window=5):
 
 df = return_complete_df()
 
-xf = df.set_index("year").loc[:, ["triple_lock", "geom_mean_pos", "cpi_inflation_pct", "avg_earnings_growth_pct"]].dropna()
+xf = df.set_index("year").loc[:, ["triple_lock", "geom_mean", "cpi_inflation_pct", "avg_earnings_growth_pct"]].dropna()
 starting_value = 100
-end_spend_geom_mean_pos = starting_value*(1+df["geom_mean_pos"]/100.).prod()
+end_spend_geom_mean = starting_value*(1+df["geom_mean"]/100.).prod()
 end_spend_triple_lock = starting_value*(1+df["triple_lock"]/100.).prod()
-xf = xf.rename(columns={"cpi_inflation_pct": "CPI", "avg_earnings_growth_pct": "Earnings growth", "triple_lock": "Current triple lock", "geom_mean_pos": "Positive geometric mean triple lock", }).round(1)
+xf = xf.rename(columns={"cpi_inflation_pct": "CPI", "avg_earnings_growth_pct": "Earnings growth", "triple_lock": "Current triple lock", "geom_mean": "Geometric mean triple lock", }).round(1)
 
 xf
 ```
 
-As expected, the positive geometric mean triple lock is less than or equal to the current triple lock at all times. It is less generous. If the pension bill started at £100 and was only changing due to the lock, you'd expect the final bill in 2025 to be £`{python} f"{end_spend_geom_mean_pos:.1f}"` under the positive geometric mean triple lock vs £`{python} f"{end_spend_triple_lock:.1f}"` under the original triple lock. That's a saving of `{python} f"{100 * (1 - end_spend_geom_mean_pos / end_spend_triple_lock):.1f}"`% in the level of the state pension today if we had used the positive geometric mean all the way through.[^values]
+As expected, the positive geometric mean triple lock is less than or equal to the current triple lock at all times. It is less generous. If the pension bill started at £100 and was only changing due to the lock, you'd expect the final bill in 2025 to be £`{python} f"{end_spend_geom_mean:.1f}"` under the positive geometric mean triple lock vs £`{python} f"{end_spend_triple_lock:.1f}"` under the original triple lock. That's a saving of `{python} f"{100 * (1 - end_spend_geom_mean / end_spend_triple_lock):.1f}"`% in the level of the state pension today if we had used the positive geometric mean all the way through.[^values]
 
 [^values]: The percentage difference won't match the growth rate of *total* government spending on the state pension because of changes in the number of pensioners. That, and the [triple lock was suspended in 2022/23](https://www.international-adviser.com/pensions-triple-lock-quietly-shelved-for-2022-23/). But, all else equal, a lower compounding effect—as you get with the geometric triple lock—means a lower cost to the state.
 
-The geometric mean is guaranteed to be less than or equal to the max, so we know this choice would make spending a bit lower on average. I would argue that it also reflects the closer underlying economic reality too. Not as well as explicitly targeting median earnings, for sure. But in a way that gets a fair bit closer to that while still retaining the core of a triple lock that reflects CPI, earnings growth, and 2.5 percent.[^discontinuity]
+The geometric mean is guaranteed to be less than or equal to the max, so we know this choice would make spending a bit lower on average. I would argue that it also reflects the closer underlying economic reality too. Not as well as explicitly targeting median earnings, for sure. But in a way that gets a fair bit closer to that while still retaining the core of a triple lock that reflects CPI, earnings growth, and 2.5 percent.[^negative]
 
-[^discontinuity]: I'm aware there's a discontinuity if earnings growth *and* CPI both become negative in one year, having been lower than 2.5% the previous year—this would make the growth rate jump up to 2.5% from a lower number.
+[^negative]: I'm aware that a negative value for the "uprating" is not politically plausible. In this case, it won't make too much difference, and it could have a floor of zero.
 
 ## What it means for policy
 
@@ -143,47 +121,49 @@ The triple lock of today has been acknowledged by many to be fiscally unsustaina
 ```{python}
 df = df.set_index("year")
 df["triple_lock_5y"] = trailing_cumulative_growth(df["triple_lock"])
-df["geom_mean_pos_5y"] = trailing_cumulative_growth(df["geom_mean_pos"])
+df["geom_mean_5y"] = trailing_cumulative_growth(df["geom_mean"])
 df["gdp"] = df["state_pension_expenditure_gbp_million"]*1e6*1/(df["state_pension_expenditure_pct_gdp"]/100)
 ```
 
 ```{python}
-# Take the 2025 spending on pensioners per person and uprate it by the geometric triple lock growth rate, then express as pct gdp
+# Take base-year spending on pensioners per person and uprate it by the geometric triple lock growth rate, then express as pct gdp
 
-per_pensioner_2025 = df.loc[2025, "state_pension_expenditure_gbp_million"]*1e6/(df.loc[2025, "state_pension_caseload_thousands"]*1e3)
+base_year = df["geom_mean"].last_valid_index()  # last year with triple-lock inputs
+final_year = df.index.max()
+window = 5  # trailing window used in trailing_cumulative_growth
 
-per_pensioner_2030_gm = per_pensioner_2025*(1+ df['geom_mean_pos_5y'].mean()/100)
-total_spend_2030_gm = per_pensioner_2030_gm*df.loc[2030, "state_pension_caseload_thousands"]*1e3
-df["2030_gdp_pct_gm"] = total_spend_2030_gm/(df["gdp"])
-saving_in_bn = df["gdp"].iloc[-1]*(df['state_pension_expenditure_pct_gdp'].iloc[-1] - df['2030_gdp_pct_gm'].iloc[-1]*100 )/100
+per_pensioner_base = df.loc[base_year, "state_pension_expenditure_gbp_million"]*1e6/(df.loc[base_year, "state_pension_caseload_thousands"]*1e3)
+
+annual_gm_rate = (1 + df["geom_mean_5y"].mean() / 100) ** (1 / window) - 1
+per_pensioner_final_gm = per_pensioner_base*(1 + annual_gm_rate)**(final_year - base_year)
+total_spend_final_gm = per_pensioner_final_gm*df.loc[final_year, "state_pension_caseload_thousands"]*1e3
+df["final_year_gdp_pct_gm"] = total_spend_final_gm/(df["gdp"])
 ```
 
 ```{python}
-#| label: fig-pensions
-#| fig-cap: "Spending differences under the two types of lock"
+#| output: false
 import matplotlib.pyplot as plt
-import matplotlib_inline
+# import matplotlib_inline
 
 plt.style.use("../../../plot_style.txt")
-matplotlib_inline.backend_inline.set_matplotlib_formats("svg")
+# matplotlib_inline.backend_inline.set_matplotlib_formats("svg")
 
 spend_bn = df["state_pension_expenditure_gbp_million"] / 1e3
 is_outturn = df["state_pension_expenditure_basis"].str.lower() == "outturn"
 last_outturn_year = df.index[is_outturn].max()
 
-# Per-year geometric-lock path: annualise the five-year average cumulative
-# growth rate, uprate 2025 per-pensioner spend, and scale by DWP's caseload.
-annual_gm_rate = (1 + df["geom_mean_pos_5y"].mean() / 100) ** (1 / 5) - 1
-proj_years = df.loc[2025:].index
+# Per-year geometric-lock path: annualise the trailing average cumulative
+# growth rate, uprate base-year per-pensioner spend, and scale by DWP's caseload.
+proj_years = df.loc[base_year:].index
 geom_bn = pd.Series(
-    per_pensioner_2025
-    * (1 + annual_gm_rate) ** (proj_years - 2025)
+    per_pensioner_base
+    * (1 + annual_gm_rate) ** (proj_years - base_year)
     * df.loc[proj_years, "state_pension_caseload_thousands"].values
     * 1e3
     / 1e9,
     index=proj_years,
 )
-gap_2030 = spend_bn.loc[2030] - geom_bn.loc[2030]
+gap_final = spend_bn.loc[final_year] - geom_bn.loc[final_year]
 
 purple, salmon = "#bc80bd", "#fb8072"
 ink = "#323034"
@@ -198,23 +178,30 @@ ax.axvline(last_outturn_year + 0.5, color="#b1afb5", linewidth=0.8, linestyle=":
 ax.annotate("forecast →", (last_outturn_year + 0.5, 0.97), xycoords=("data", "axes fraction"),
             xytext=(4, 0), textcoords="offset points", fontsize=11, color="gray", va="top")
 
-ax.annotate("Current triple lock", (2030, spend_bn.loc[2030]), xytext=(8, 5),
+ax.annotate("Current triple lock", (final_year, spend_bn.loc[final_year]), xytext=(8, 5),
             textcoords="offset points", fontsize=12, color=ink, va="center", annotation_clip=False)
-ax.annotate("Geometric triple lock", (2030, geom_bn.loc[2030]), xytext=(8, -8),
+ax.annotate("Geometric triple lock", (final_year, geom_bn.loc[final_year]), xytext=(8, -8),
             textcoords="offset points", fontsize=12, color=ink, va="center", annotation_clip=False)
-ax.annotate(f"£{gap_2030:.0f}bn saved", (2029.3, (geom_bn.loc[2029] + spend_bn.loc[2029]) / 2),
-            xytext=(-75, -60), textcoords="offset points", fontsize=11, color=ink,
+ax.annotate(f"£{gap_final:.0f}bn saved in 2030",
+            (final_year - 0.1, (geom_bn.loc[final_year - 1] + spend_bn.loc[final_year - 1]) / 2),
+            xytext=(-75, -60), textcoords="offset points", fontsize=12, color=ink,
             arrowprops=dict(arrowstyle="-", color="gray", linewidth=0.8))
 
-ax.set_title(f"A geometric triple lock would trim £{gap_2030:.0f}bn from the\npension bill by 2030")
+ax.set_title(f"A geometric triple lock would trim the pension bill")
 ax.set_ylabel("£bn, nominal")
-ax.set_xlim(2011, 2030)
-ax.set_xticks([2011, 2015, 2020, 2025, 2030])
+first_year = df.index.min()
+ax.set_xlim(first_year, final_year)
+ax.set_xticks([first_year] + list(range(first_year + 5 - first_year % 5, final_year + 1, 5)))
 ax.spines["right"].set_visible(False)
 ax.annotate("Source: DWP benefit expenditure and caseload tables; ONS", (0, -0.18),
             xycoords="axes fraction", fontsize=8, color="gray")
 plt.tight_layout()
-plt.show()
+plt.savefig("pension_under_different_locks.svg")
+#plt.show()
 ```
 
-Although the past is not a guide to the future (we've had some unusual shocks in recent years), the backward-looking five-year average cumulative growth rate under the geometric triple lock vs the current triple lock is `{python} f"{df['geom_mean_pos_5y'].mean():.1f}"`% vs `{python} f"{df['triple_lock_5y'].mean():.1f}"`%. **Projecting the *geometric* triple lock out to 2030, it would cost `{python} f"{df['2030_gdp_pct_gm'].iloc[-1]*100:.2f}"`% of GDP instead of `{python} f"{df['state_pension_expenditure_pct_gdp'].iloc[-1]:.2f}"`% under the current triple lock** according to DWP estimates. @fig-pensions shows the spend over time. It's a saving of £`{python} f"{saving_in_bn/1e9:.2f}"`bn. Not a big difference, for sure: but, given the political constraints, it may be a lot better than the alternatives.
+![Spending differences under the two types of lock](pension_under_different_locks.svg){#fig-pensions}
+
+Although the past is not a guide to the future (we've had some unusual shocks in recent years), the backward-looking five-year average cumulative growth rate under the geometric triple lock vs the current triple lock is `{python} f"{df['geom_mean_5y'].mean():.1f}"`% vs `{python} f"{df['triple_lock_5y'].mean():.1f}"`%. **Projecting the *geometric* triple lock out to 2030, it would cost `{python} f"{df['final_year_gdp_pct_gm'].iloc[-1]*100:.2f}"`% of GDP instead of `{python} f"{df['state_pension_expenditure_pct_gdp'].iloc[-1]:.2f}"`% under the current triple lock** using DWP estimates.
+
+@fig-pensions shows the spend over time: this change results in a saving in 2030 of £`{python} f"{gap_final:.1f}"`bn (and £`{python} f"{(spend_bn.loc[base_year:].sum() - geom_bn.loc[base_year:].sum())/(final_year - base_year):.1f}"`bn a year on average.) Not an insignificant difference, and the average annualised growth rate is still fairly generous to pensioners: it's a balance. It's far from perfect. But, given the political constraints, it may be better than any alternative.
