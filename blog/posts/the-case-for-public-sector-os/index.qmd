@@ -1,0 +1,11 @@
+---
+date: "2026-06-30"
+layout: post
+draft: true
+title: "The case for 'public sector OS'"
+categories: [public finances, productivity, public sector]
+image: "none"
+execute:
+  echo: false
+jupyter: python3
+---

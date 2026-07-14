@@ -9,11 +9,11 @@ execute:
 jupyter: python3
 ---
 
-The triple lock is in the news again: the UK’s cost of living tsar, appointed by Sir Keir Starmer, [recently said](https://www.ft.com/content/21527e4b-c720-4078-9209-61e6314e8dc8?syn-25a6b1a6=1) that it was "mathematically unsustainable and "profoundly unfair."[^disclaimer] The [OBR estimates](https://obr.uk/frs/fiscal-risks-and-sustainability-july-2026/) that it will cost £15.5bn more a year by the end of this parliament than it would have under average earnings alone; a not insignificant amount (0.5 per cent of GDP) for government spending. [OBR expects the UK](https://www.ft.com/content/05ab5df6-877b-4e5a-a01d-de9f19b52b37?syn-25a6b1a6=1) to spend *9% of GDP on the triple lock by 2075* absent any action. In the short-term, UK spending on state pensions is forecast to hit £180bn in 2030, up from around £146bn in 2025.
+The triple lock is in the news again: the UK’s cost of living tsar, appointed by Sir Keir Starmer, [recently said](https://www.ft.com/content/21527e4b-c720-4078-9209-61e6314e8dc8?syn-25a6b1a6=1) that it was "mathematically unsustainable and "profoundly unfair." The [OBR estimates](https://obr.uk/frs/fiscal-risks-and-sustainability-july-2026/) that it will cost £15.5bn more a year by the end of this parliament than it would have under average earnings alone; a not insignificant amount (0.5 per cent of GDP) for government spending. [OBR expects the UK](https://www.ft.com/content/05ab5df6-877b-4e5a-a01d-de9f19b52b37?syn-25a6b1a6=1) to spend *9% of GDP on the triple lock by 2075* absent any action. In the short-term, UK spending on state pensions is forecast to hit £180bn in 2030, up from around £146bn in 2025.
+
+However, the political reality of the UK's ageing voting population is that no party wants to risk saying they will "unlock" this policy.[^disclaimer] And, equally, many people (sensibly) don't want to go back to a world where many pensioners live in poverty either.
 
 [^disclaimer]: It's always true on here, but your regular reminder that these are my views and do not represent the position of any institution.
-
-However, the political reality of the UK's ageing voting population is that no party wants to risk saying they will "unlock" this policy. And, equally, many people (sensibly) don't want to go back to a world where many pensioners live in poverty either.
 
 The UK's triple lock sees the state pension grow at whatever is highest: average earnings, inflation, or 2.5 per cent. Looking at the latest numbers from ONS and [DWP](https://www.gov.uk/government/publications/benefit-expenditure-and-caseload-tables-2026), it looks like spending as a portion of UK GDP and real spending per pensioner are likely to climb from now until 2030.
 
