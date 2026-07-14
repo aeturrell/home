@@ -15,6 +15,7 @@ dependencies = [
     "hf-mem>=0.4.4",
     "pyarrow>=23.0.1",
     "skimpy>=0.0.20",
+    "openpyxl>=3.1.5",
 ]
 
 [tool.ruff]
