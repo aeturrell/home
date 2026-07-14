@@ -9,6 +9,7 @@
       "/blog/posts/economy-complex-evolving-system/index.html",
       "/blog/posts/10-lesser-known-python-packages/index.html",
       "/blog/posts/better-narrative-on-narratives/index.html",
+      "/blog/posts/politically-realistic-reform-triple-lock/index.html",
       "/blog/posts/future-of-statistics/index.html",
       "/blog/posts/radical-new-approach-to-time-use/index.html",
       "/blog/index.html",
@@ -64,6 +65,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/posts/politically-realistic-reform-triple-lock/index.html",
       "/blog/posts/ten-command-line-tools-for-2026/index.html",
       "/blog/posts/era_local_agentic_llms/index.html",
       "/blog/posts/economy-complex-evolving-system/index.html",

@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Arthur Turrell">
+<meta name="dcterms.date" content="2026-07-13">
 <meta name="description" content="Arthur Turrell is an economic data scientist.">
 
 <title>Arthur Turrell</title>
@@ -28,24 +29,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href=".//files/logo_large.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-08e950e0ab5e76a8ec89de4c60cb531c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-42d6f6790b69737b0536ac2ba3de90eb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../..//files/logo_large.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-08e950e0ab5e76a8ec89de4c60cb531c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-cff8f82c3c35389b8f64331218629ea1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,39 +83,61 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 </script>
-<style>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
-      .quarto-title-block .quarto-title-banner {
-        background: #f05e40;
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
       }
-</style>
-
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Arthur Turrell">
 <meta property="og:description" content="Arthur Turrell is an economic data scientist.">
-<meta property="og:image" content="https://www.aeturrell.com//files/logo_large.png">
+<meta property="og:image" content="https://www.aeturrell.com/blog/posts/politically-realistic-reform-triple-lock/pension_under_different_locks.svg">
 <meta property="og:site_name" content="Arthur Turrell">
 <meta property="og:locale" content="en_UK">
-<meta property="og:image:height" content="1594">
-<meta property="og:image:width" content="1594">
 <meta name="twitter:title" content="Arthur Turrell">
 <meta name="twitter:description" content="Arthur Turrell is an economic data scientist.">
-<meta name="twitter:image" content="https://www.aeturrell.com//files/logo_large.png">
+<meta name="twitter:image" content="https://www.aeturrell.com/blog/posts/politically-realistic-reform-triple-lock/pension_under_different_locks.svg">
 <meta name="twitter:creator" content="@arthurturrell">
 <meta name="twitter:site" content="@arthurturrell">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image-height" content="1594">
-<meta name="twitter:image-width" content="1594">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Arthur Turrell</span>
     </a>
   </div>
@@ -125,46 +148,46 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research/index.html"> 
+    <a class="nav-link" href="../../../research/index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./media/index.html"> 
+    <a class="nav-link" href="../../../media/index.html"> 
 <span class="menu-text">Media</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./thestarbuilders/thestarbuilders.html"> 
+    <a class="nav-link" href="../../../thestarbuilders/thestarbuilders.html"> 
 <span class="menu-text">The Star Builders</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog/index.html"> 
+    <a class="nav-link" href="../../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching/index.html"> 
+    <a class="nav-link" href="../../../teaching/index.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./code/index.html"> 
+    <a class="nav-link" href="../../../code/index.html"> 
 <span class="menu-text">Code</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./uses/index.html"> 
+    <a class="nav-link" href="../../../uses/index.html"> 
 <span class="menu-text">Setup</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="./atom.xml"> <i class="bi bi-rss" role="img" aria-label="rss">
+    <a class="nav-link" href="../../../atom.xml"> <i class="bi bi-rss" role="img" aria-label="rss">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./contact.html"> <i class="bi bi-envelope" role="img" aria-label="contact">
+    <a class="nav-link" href="../../../contact.html"> <i class="bi bi-envelope" role="img" aria-label="contact">
 </i> 
 <span class="menu-text"> </span></a>
   </li>  
@@ -195,17 +218,35 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default home page-columns page-full">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Economics, data science, &amp; writing</h1>
-                      </div>
+      <h1 class="title">A politically realistic reform of the triple lock</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">public finances</div>
+                <div class="quarto-category">public sector</div>
+                <div class="quarto-category">policy</div>
+                <div class="quarto-category">pensions</div>
+              </div>
+                  </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Arthur Turrell </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 13, 2026</p>
+      </div>
+    </div>
     
       
     </div>
@@ -214,46 +255,204 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#from-the-max-to-the-geometric-mean" id="toc-from-the-max-to-the-geometric-mean" class="nav-link active" data-scroll-target="#from-the-max-to-the-geometric-mean">From the max to the (geometric) mean</a></li>
+  <li><a href="#what-it-means-for-policy" id="toc-what-it-means-for-policy" class="nav-link" data-scroll-target="#what-it-means-for-policy">What it means for policy</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
 
 
 
 
 
-<div class="grid">
-<div class="g-col-12 g-col-sm-4">
-<style>
-.grid-item {
-  display: flex;
-  width: 50%;
-  height: auto;
-  margin: 0 auto;
-}
-</style>
-<div class="grid" style="--bs-columns: 5; row-gap: 0;">
-  <div class="g-col-1 g-col-sm-0"></div>
-  <div class="g-col-3 g-col-sm-5">
-    <picture>
-      <source media="(max-width: 576px)" srcset="/files/profiles/plasma-bulb-me.jpg">
-      <source media="(min-width: 576px)" srcset="/files/profiles/plasma-bulb-me.jpg">
-      <img class="img-fluid" src="./files/profiles/plasma-bulb-me.jpg" alt="Arthur Turrell">
-    </picture>
-  </div>
-  <div class="g-col-1 g-col-sm-0"></div>
+<p>The triple lock is in the news again: the UK’s cost of living tsar, appointed by Sir Keir Starmer, <a href="https://www.ft.com/content/21527e4b-c720-4078-9209-61e6314e8dc8?syn-25a6b1a6=1">recently said</a> that it was “mathematically unsustainable and”profoundly unfair.” The <a href="https://obr.uk/frs/fiscal-risks-and-sustainability-july-2026/">OBR estimates</a> that it will cost £15.5bn more a year by the end of this parliament than it would have under average earnings alone; a not insignificant amount (0.5 per cent of GDP) for government spending. <a href="https://www.ft.com/content/05ab5df6-877b-4e5a-a01d-de9f19b52b37?syn-25a6b1a6=1">OBR expects the UK</a> to spend <em>9% of GDP on the triple lock by 2075</em> absent any action. In the short-term, UK spending on state pensions is forecast to hit £180bn in 2030, up from around £146bn in 2025.</p>
+<p>However, the political reality of the UK’s ageing voting population is that no party wants to risk saying they will “unlock” this policy.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> And, equally, many people (sensibly) don’t want to go back to a world where many pensioners live in poverty either.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;It’s always true on here, but your regular reminder that these are my views and do not represent the position of any institution.</p></div></div><p>The UK’s triple lock sees the state pension grow at whatever is highest: average earnings, inflation, or 2.5 per cent. Looking at the latest numbers from ONS and <a href="https://www.gov.uk/government/publications/benefit-expenditure-and-caseload-tables-2026">DWP</a>, it looks like spending as a portion of UK GDP and real spending per pensioner are likely to climb from now until 2030.</p>
+<p>But what if there’s a way to keep the triple lock but reform it so that it’s more in-tune with what’s actually happening in the economy?</p>
+<p>I’m far from the first to suggest something like this. As one example, the IFS’ Heidi Karjalainen <a href="https://www.ft.com/content/330c5f50-c475-4cba-9362-e3430aece4cb">wrote in the FT</a> that an Australian-style “smoothed earnings link” might be better. This essentially targets a fraction of median real full-time earnings. I like this, though its exact mechanism would have to be set out ahead of time to prevent year-to-year tinkering. Something like this is almost certainly first-best ignoring the politics of the triple lock.</p>
+<p>My proposal is a bit different, and tries to reflect the <em>political reality</em> around this topic. It’s very hard for someone to get up and say we are getting rid of the triple lock. Even saying that it will be replaced by “smoothed earnings” would likely trigger a backlash because it doesn’t explicitly account for the three variables that the triple lock tracks. <em>Any</em> sense that the triple lock is being broken is likely to generate huge pushback from <a href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://researchbriefings.files.parliament.uk/documents/CBP-8060/CBP-8060.pdf&amp;ved=2ahUKEwjPh9L17M-VAxUwVKQEHfhdHDIQFnoECCAQAQ&amp;usg=AOvVaw3u0t4K_vGAjVBcEUbAaFyf">the demographic most likely to vote</a>. But a slight change to the maths of the triple lock, while keeping its three components, is much more defensible.</p>
+<section id="from-the-max-to-the-geometric-mean" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="from-the-max-to-the-geometric-mean">From the max to the (geometric) mean</h2>
+<p>The triple lock of today is</p>
+<p><span class="math display">\[
+\max\left\{2.5\%, \pi_t, \omega_t \right\}
+\]</span></p>
+<p>where <span class="math inline">\(\pi_t\)</span> is CPI, and <span class="math inline">\(\omega_t\)</span> is average earnings growth. We could switch that to a different <em>aggregation function</em>. It could be the (arithmetic) mean but we’re comparing three different growth rates here, so the obvious choice is the <em>geometric mean</em>. The growth factors are <span class="math inline">\(1 + x_i\)</span> for each series. Here’s the new equation I propose for working out the growth in the state pension:</p>
+<p><span class="math display">\[
+g(x) = \left( \prod_{i} \left(1 + x_i\right) \right)^{1/|x|} - 1
+\]</span></p>
+<p>where <span class="math inline">\(x_i\)</span> are the different growth rates, expressed as fractions. Let’s compare how the year-on-year growth rates look under these two different set ups, in <a href="#tbl-growth-rates" class="quarto-xref">Table&nbsp;1</a>.</p>
+<div class="cell" data-execution_count="1">
+<div id="tbl-growth-rates" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="1">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-growth-rates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Year-on-year growth rates compared
+</figcaption>
+<div aria-describedby="tbl-growth-rates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe cell caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Current triple lock</th>
+<th data-quarto-table-cell-role="th">Geometric mean triple lock</th>
+<th data-quarto-table-cell-role="th">CPI</th>
+<th data-quarto-table-cell-role="th">Earnings growth</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2011</th>
+<td>5.2</td>
+<td>3.4</td>
+<td>5.2</td>
+<td>2.8</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2012</th>
+<td>2.5</td>
+<td>2.0</td>
+<td>2.2</td>
+<td>1.5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2013</th>
+<td>2.7</td>
+<td>2.1</td>
+<td>2.7</td>
+<td>1.2</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2014</th>
+<td>2.5</td>
+<td>1.3</td>
+<td>1.2</td>
+<td>0.5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2015</th>
+<td>2.8</td>
+<td>1.3</td>
+<td>-0.1</td>
+<td>2.8</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2016</th>
+<td>2.5</td>
+<td>1.9</td>
+<td>1.0</td>
+<td>2.5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2017</th>
+<td>3.0</td>
+<td>2.6</td>
+<td>3.0</td>
+<td>2.2</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2018</th>
+<td>2.7</td>
+<td>2.5</td>
+<td>2.4</td>
+<td>2.7</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2019</th>
+<td>4.0</td>
+<td>2.6</td>
+<td>1.7</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2020</th>
+<td>2.5</td>
+<td>-0.2</td>
+<td>0.5</td>
+<td>-0.9</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2021</th>
+<td>8.4</td>
+<td>4.1</td>
+<td>3.1</td>
+<td>8.4</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2022</th>
+<td>10.1</td>
+<td>5.3</td>
+<td>10.1</td>
+<td>5.5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2023</th>
+<td>8.4</td>
+<td>5.3</td>
+<td>6.7</td>
+<td>8.4</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2024</th>
+<td>4.4</td>
+<td>2.7</td>
+<td>1.7</td>
+<td>4.4</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2025</th>
+<td>4.8</td>
+<td>3.6</td>
+<td>3.8</td>
+<td>4.8</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
-<div class="g-col-12 g-col-sm-8">
-<p>Dr Arthur Turrell is an economic data scientist at <a href="https://ai.google/economy/">Google</a>. He is a former <a href="https://fellows.ai.gov.uk">No10 Innovation Fellow</a>, Research and Data Manager at the Bank of England, and Deputy Director and Acting Director of the ONS Data Science Campus. He started his career in physics and remains a visitor to the plasma physics group at Imperial College London. Today, his <a href="./research/index.html">research</a> covers the intersection between economics and data science—including AI.</p>
-<p>As well as research, Arthur is passionate about making science and economics more accessible — mostly because scientists shouldn’t be allowed to have all the fun. You can find more information about his outreach activities and links to some of his writing on the <a href="./media/index.html">media</a> page, while information on <em>The Star Builders</em>, his popular science book on nuclear fusion, can be found <a href="./thestarbuilders/thestarbuilders.html">here</a>.</p>
-<p>Arthur is a Royal Statistical Society William Guy Lecturer for 2025-2026, and his lecture is on “Economic statistics and stupidly smart AI.” You can <a href="https://www.youtube.com/watch?v=iokZPrOy904">watch the video on YouTube!</a></p>
-<p>While previously at the Bank of England, Arthur was lucky enough to be asked to help to design a new bank note featuring Alan Turing. Arthur chose the mathematical elements from Turing’s work to feature on the note. If you’re lucky enough to have a £50 note in your wallet or purse, you can have a look at how it turned out for yourself!</p>
-<img src="files/turing_fifty_note.jpeg" ,="" class="grid-item">
-<p><br> This website represents Arthur’s personal views.</p>
+</div>
+</figure>
 </div>
 </div>
+<p>As expected, the positive geometric mean triple lock is less than or equal to the current triple lock at all times. It is less generous. If the pension bill started at £100 and was only changing due to the lock, you’d expect the final bill in 2025 to be £148.9 under the positive geometric mean triple lock vs £190.9 under the original triple lock. That’s a saving of 22.0% in the level of the state pension today if we had used the positive geometric mean all the way through.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;The percentage difference won’t match the growth rate of <em>total</em> government spending on the state pension because of changes in the number of pensioners. That, and the <a href="https://www.international-adviser.com/pensions-triple-lock-quietly-shelved-for-2022-23/">triple lock was suspended in 2022/23</a>. But, all else equal, a lower compounding effect—as you get with the geometric triple lock—means a lower cost to the state.</p></div><div id="fn3"><p><sup>3</sup>&nbsp;I’m aware that a negative value for the “uprating” is not politically plausible. In this case, it won’t make too much difference, and it could have a floor of zero.</p></div></div><p>The geometric mean is guaranteed to be less than or equal to the max, so we know this choice would make spending a bit lower on average. I would argue that it also reflects the closer underlying economic reality too. Not as well as explicitly targeting median earnings, for sure. But in a way that gets a fair bit closer to that while still retaining the core of a triple lock that reflects CPI, earnings growth, and 2.5 percent.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+</section>
+<section id="what-it-means-for-policy" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="what-it-means-for-policy">What it means for policy</h2>
+<p>The triple lock of today has been acknowledged by many to be fiscally unsustainable. Yet, we do want to uprate the state pension given more elderly people often have no easy way to supplement their income, and we don’t want a country where many pensioners live in poverty. Politically, eliminating the triple lock entirely is extremely difficult—but tweaking it to better reflect the <em>average</em> of CPI, earnings, and 2.5%, rather than the maximum, is—I think—much more politically realistic than the alternatives that have been suggested.</p>
+<div id="fig-pensions" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-pensions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pension_under_different_locks.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pensions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Spending differences under the two types of lock
+</figcaption>
+</figure>
+</div>
+<p>Although the past is not a guide to the future (we’ve had some unusual shocks in recent years), the backward-looking five-year average cumulative growth rate under the geometric triple lock vs the current triple lock is 13.3% vs 23.7%. <strong>Projecting the <em>geometric</em> triple lock out to 2030, it would cost 4.73% of GDP instead of 4.98% under the current triple lock</strong> using DWP estimates.</p>
+<p><a href="#fig-pensions" class="quarto-xref">Figure&nbsp;1</a> shows the spend over time: this change results in a saving in 2030 of £9.0bn (and £7.0bn a year on average.) Not an insignificant difference, and the average annualised growth rate is still fairly generous to pensioners: it’s a balance. It’s far from perfect. But, given the political constraints, it may be better than any alternative.</p>
 
+
+</section>
 
 
 </main> <!-- /main -->

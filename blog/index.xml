@@ -10,7 +10,205 @@
 <atom:link href="https://www.aeturrell.com/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>{{&lt; meta description-meta &gt;}}</description>
 <generator>quarto-1.9.32</generator>
-<lastBuildDate>Fri, 13 Mar 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 12 Jul 2026 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>A politically realistic reform of the triple lock</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>https://www.aeturrell.com/blog/posts/politically-realistic-reform-triple-lock/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>The triple lock is in the news again: the UK’s cost of living tsar, appointed by Sir Keir Starmer, <a href="https://www.ft.com/content/21527e4b-c720-4078-9209-61e6314e8dc8?syn-25a6b1a6=1">recently said</a> that it was “mathematically unsustainable and”profoundly unfair.” The <a href="https://obr.uk/frs/fiscal-risks-and-sustainability-july-2026/">OBR estimates</a> that it will cost £15.5bn more a year by the end of this parliament than it would have under average earnings alone; a not insignificant amount (0.5 per cent of GDP) for government spending. <a href="https://www.ft.com/content/05ab5df6-877b-4e5a-a01d-de9f19b52b37?syn-25a6b1a6=1">OBR expects the UK</a> to spend <em>9% of GDP on the triple lock by 2075</em> absent any action. In the short-term, UK spending on state pensions is forecast to hit £180bn in 2030, up from around £146bn in 2025.</p>
+<p>However, the political reality of the UK’s ageing voting population is that no party wants to risk saying they will “unlock” this policy.<sup>1</sup> And, equally, many people (sensibly) don’t want to go back to a world where many pensioners live in poverty either.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;It’s always true on here, but your regular reminder that these are my views and do not represent the position of any institution.</p></div></div><p>The UK’s triple lock sees the state pension grow at whatever is highest: average earnings, inflation, or 2.5 per cent. Looking at the latest numbers from ONS and <a href="https://www.gov.uk/government/publications/benefit-expenditure-and-caseload-tables-2026">DWP</a>, it looks like spending as a portion of UK GDP and real spending per pensioner are likely to climb from now until 2030.</p>
+<p>But what if there’s a way to keep the triple lock but reform it so that it’s more in-tune with what’s actually happening in the economy?</p>
+<p>I’m far from the first to suggest something like this. As one example, the IFS’ Heidi Karjalainen <a href="https://www.ft.com/content/330c5f50-c475-4cba-9362-e3430aece4cb">wrote in the FT</a> that an Australian-style “smoothed earnings link” might be better. This essentially targets a fraction of median real full-time earnings. I like this, though its exact mechanism would have to be set out ahead of time to prevent year-to-year tinkering. Something like this is almost certainly first-best ignoring the politics of the triple lock.</p>
+<p>My proposal is a bit different, and tries to reflect the <em>political reality</em> around this topic. It’s very hard for someone to get up and say we are getting rid of the triple lock. Even saying that it will be replaced by “smoothed earnings” would likely trigger a backlash because it doesn’t explicitly account for the three variables that the triple lock tracks. <em>Any</em> sense that the triple lock is being broken is likely to generate huge pushback from <a href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://researchbriefings.files.parliament.uk/documents/CBP-8060/CBP-8060.pdf&amp;ved=2ahUKEwjPh9L17M-VAxUwVKQEHfhdHDIQFnoECCAQAQ&amp;usg=AOvVaw3u0t4K_vGAjVBcEUbAaFyf">the demographic most likely to vote</a>. But a slight change to the maths of the triple lock, while keeping its three components, is much more defensible.</p>
+<section id="from-the-max-to-the-geometric-mean" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="from-the-max-to-the-geometric-mean">From the max to the (geometric) mean</h2>
+<p>The triple lock of today is</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cmax%5Cleft%5C%7B2.5%5C%25,%20%5Cpi_t,%20%5Comega_t%20%5Cright%5C%7D%0A"></p>
+<p>where <img src="https://latex.codecogs.com/png.latex?%5Cpi_t"> is CPI, and <img src="https://latex.codecogs.com/png.latex?%5Comega_t"> is average earnings growth. We could switch that to a different <em>aggregation function</em>. It could be the (arithmetic) mean but we’re comparing three different growth rates here, so the obvious choice is the <em>geometric mean</em>. The growth factors are <img src="https://latex.codecogs.com/png.latex?1%20+%20x_i"> for each series. Here’s the new equation I propose for working out the growth in the state pension:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ag(x)%20=%20%5Cleft(%20%5Cprod_%7Bi%7D%20%5Cleft(1%20+%20x_i%5Cright)%20%5Cright)%5E%7B1/%7Cx%7C%7D%20-%201%0A"></p>
+<p>where <img src="https://latex.codecogs.com/png.latex?x_i"> are the different growth rates, expressed as fractions. Let’s compare how the year-on-year growth rates look under these two different set ups, in Table&nbsp;1.</p>
+<div class="cell" data-execution_count="1">
+<div id="tbl-growth-rates" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="1">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-growth-rates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Year-on-year growth rates compared
+</figcaption>
+<div aria-describedby="tbl-growth-rates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe cell caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Current triple lock</th>
+<th data-quarto-table-cell-role="th">Geometric mean triple lock</th>
+<th data-quarto-table-cell-role="th">CPI</th>
+<th data-quarto-table-cell-role="th">Earnings growth</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2011</th>
+<td>5.2</td>
+<td>3.4</td>
+<td>5.2</td>
+<td>2.8</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2012</th>
+<td>2.5</td>
+<td>2.0</td>
+<td>2.2</td>
+<td>1.5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2013</th>
+<td>2.7</td>
+<td>2.1</td>
+<td>2.7</td>
+<td>1.2</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2014</th>
+<td>2.5</td>
+<td>1.3</td>
+<td>1.2</td>
+<td>0.5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2015</th>
+<td>2.8</td>
+<td>1.3</td>
+<td>-0.1</td>
+<td>2.8</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2016</th>
+<td>2.5</td>
+<td>1.9</td>
+<td>1.0</td>
+<td>2.5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2017</th>
+<td>3.0</td>
+<td>2.6</td>
+<td>3.0</td>
+<td>2.2</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2018</th>
+<td>2.7</td>
+<td>2.5</td>
+<td>2.4</td>
+<td>2.7</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2019</th>
+<td>4.0</td>
+<td>2.6</td>
+<td>1.7</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2020</th>
+<td>2.5</td>
+<td>-0.2</td>
+<td>0.5</td>
+<td>-0.9</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2021</th>
+<td>8.4</td>
+<td>4.1</td>
+<td>3.1</td>
+<td>8.4</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2022</th>
+<td>10.1</td>
+<td>5.3</td>
+<td>10.1</td>
+<td>5.5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2023</th>
+<td>8.4</td>
+<td>5.3</td>
+<td>6.7</td>
+<td>8.4</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2024</th>
+<td>4.4</td>
+<td>2.7</td>
+<td>1.7</td>
+<td>4.4</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2025</th>
+<td>4.8</td>
+<td>3.6</td>
+<td>3.8</td>
+<td>4.8</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>As expected, the positive geometric mean triple lock is less than or equal to the current triple lock at all times. It is less generous. If the pension bill started at £100 and was only changing due to the lock, you’d expect the final bill in 2025 to be £148.9 under the positive geometric mean triple lock vs £190.9 under the original triple lock. That’s a saving of 22.0% in the level of the state pension today if we had used the positive geometric mean all the way through.<sup>2</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;The percentage difference won’t match the growth rate of <em>total</em> government spending on the state pension because of changes in the number of pensioners. That, and the <a href="https://www.international-adviser.com/pensions-triple-lock-quietly-shelved-for-2022-23/">triple lock was suspended in 2022/23</a>. But, all else equal, a lower compounding effect—as you get with the geometric triple lock—means a lower cost to the state.</p></div><div id="fn3"><p><sup>3</sup>&nbsp;I’m aware that a negative value for the “uprating” is not politically plausible. In this case, it won’t make too much difference, and it could have a floor of zero.</p></div></div><p>The geometric mean is guaranteed to be less than or equal to the max, so we know this choice would make spending a bit lower on average. I would argue that it also reflects the closer underlying economic reality too. Not as well as explicitly targeting median earnings, for sure. But in a way that gets a fair bit closer to that while still retaining the core of a triple lock that reflects CPI, earnings growth, and 2.5 percent.<sup>3</sup></p>
+</section>
+<section id="what-it-means-for-policy" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="what-it-means-for-policy">What it means for policy</h2>
+<p>The triple lock of today has been acknowledged by many to be fiscally unsustainable. Yet, we do want to uprate the state pension given more elderly people often have no easy way to supplement their income, and we don’t want a country where many pensioners live in poverty. Politically, eliminating the triple lock entirely is extremely difficult—but tweaking it to better reflect the <em>average</em> of CPI, earnings, and 2.5%, rather than the maximum, is—I think—much more politically realistic than the alternatives that have been suggested.</p>
+<div id="fig-pensions" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-pensions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://www.aeturrell.com/blog/posts/politically-realistic-reform-triple-lock/pension_under_different_locks.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pensions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Spending differences under the two types of lock
+</figcaption>
+</figure>
+</div>
+<p>Although the past is not a guide to the future (we’ve had some unusual shocks in recent years), the backward-looking five-year average cumulative growth rate under the geometric triple lock vs the current triple lock is 13.3% vs 23.7%. <strong>Projecting the <em>geometric</em> triple lock out to 2030, it would cost 4.73% of GDP instead of 4.98% under the current triple lock</strong> using DWP estimates.</p>
+<p>Figure&nbsp;1 shows the spend over time: this change results in a saving in 2030 of £9.0bn (and £7.0bn a year on average.) Not an insignificant difference, and the average annualised growth rate is still fairly generous to pensioners: it’s a balance. It’s far from perfect. But, given the political constraints, it may be better than any alternative.</p>
+
+
+</section>
+
+
+ ]]></description>
+  <category>public finances</category>
+  <category>public sector</category>
+  <category>policy</category>
+  <category>pensions</category>
+  <guid>https://www.aeturrell.com/blog/posts/politically-realistic-reform-triple-lock/</guid>
+  <pubDate>Sun, 12 Jul 2026 23:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/politically-realistic-reform-triple-lock/pension_under_different_locks.svg" medium="image" type="image/svg+xml"/>
+</item>
 <item>
   <title>Ten command line tools for 2026</title>
   <dc:creator>Arthur Turrell</dc:creator>
@@ -5674,327 +5872,6 @@ font-style: inherit;">1996</span></span></code></pre></div></div>
   <guid>https://www.aeturrell.com/blog/posts/til-sql-database-azure/</guid>
   <pubDate>Tue, 23 Apr 2024 23:00:00 GMT</pubDate>
   <media:content url="https://www.aeturrell.com/blog/posts/til-sql-database-azure/ibis_query_result.png" medium="image" type="image/png" height="51" width="144"/>
-</item>
-<item>
-  <title>TIL: how to create and work with remote blob storage on Azure</title>
-  <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/til-blob-storage-azure/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>In this TIL, I find out how to create a new blob storage account on Microsoft Azure. This is a place to store unstructured data of any kind (as opposed to, say, a SQL database).</p>
-<p>Note that the instructions below assume you are using a bash-like terminal, for example <a href="https://ohmyz.sh/">zsh</a>, rather than <a href="https://learn.microsoft.com/en-us/powershell/">Powershell</a>.</p>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
-<p>You’ll need to sign up for a Microsoft Azure account for this, and create a “resource group”. You’ll also need the Azure Command Line Interface (CLI), which you can find information <a href="https://learn.microsoft.com/en-us/cli/azure/">on here</a>. (Alternatively, you can do this through the <a href="https://portal.azure.com/#home">Azure Portal</a>, but it’s often useful to have the reproducible commands.)</p>
-<p>It’s also helpful to understand the lingo Azure uses for storage.</p>
-<ul>
-<li>storage accounts are the high level service</li>
-<li>“storage containers” are specific data-holding entities that contain blob storage, that is data of any shape and size</li>
-</ul>
-</section>
-<section id="instructions" class="level2">
-<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
-<section id="creating-a-storage-account-with-the-command-line-interface" class="level3">
-<h3 class="anchored" data-anchor-id="creating-a-storage-account-with-the-command-line-interface">Creating a storage account with the command line interface</h3>
-<p>First set and load your configs. Note that the storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">storagename</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=&lt;&gt;</span></span>
-<span id="cb1-2"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">resourcegroup</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=&lt;&gt;</span></span>
-<span id="cb1-3"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">location</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=&lt;&gt;</span> <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># eg "uksouth"</span></span>
-<span id="cb1-4"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">sku</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Standard_LRS"</span> <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Standard Locally Redundant Storage</span></span></code></pre></div></div>
-<p>Then to create the blob, it’s</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">az</span> storage account create <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--name</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$storagename</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--resource-group</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$resourcegroup</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--location</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$location</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--sku</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$sku</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--encryption-services</span> blob</span></code></pre></div></div>
-<p>If this has worked, you’ll get a JSON structure back that looks something like this:</p>
-<pre class="text"><code>{
-  "accessTier": "Hot",
-  "accountMigrationInProgress": null,
-  "allowBlobPublicAccess": false,
-  "allowCrossTenantReplication": false,
-  "allowSharedKeyAccess": null,
-  "allowedCopyScope": null,
-  "azureFilesIdentityBasedAuthentication": null,
-  "blobRestoreStatus": null,
-  "creationTime": "&lt;&gt;",
-  "customDomain": null,
-  "defaultToOAuthAuthentication": null,
-  "dnsEndpointType": null,
-  "enableHttpsTrafficOnly": true,
-  "enableNfsV3": null,
-  "extendedLocation": null,
-  "failoverInProgress": null,
-  "geoReplicationStats": null,
-  "id": "/subscriptions/&lt;&gt;/resourceGroups/&lt;&gt;/providers/Microsoft.Storage/storageAccounts/&lt;&gt;",
-  "identity": null,
-  "immutableStorageWithVersioning": null,
-  "isHnsEnabled": null,
-  "isLocalUserEnabled": null,
-  "isSftpEnabled": null,
-  "isSkuConversionBlocked": null,
-  "keyPolicy": null,
-  "kind": "StorageV2",
-  "largeFileSharesState": null,
-  "lastGeoFailoverTime": null,
-  "location": "uksouth",
-  "minimumTlsVersion": "TLS1_0",
-  "name": "&lt;&gt;",
-  "networkRuleSet": {
-    "bypass": "AzureServices",
-    "defaultAction": "Allow",
-    "ipRules": [],
-    "ipv6Rules": [],
-    "resourceAccessRules": null,
-    "virtualNetworkRules": []
-  },
-  "primaryEndpoints": {
-    "blob": "https://&lt;&gt;.blob.core.windows.net/",
-    "dfs": "https://&lt;&gt;.dfs.core.windows.net/",
-    "file": "https://&lt;&gt;.file.core.windows.net/",
-    "internetEndpoints": null,
-    "microsoftEndpoints": null,
-    "queue": "https://&lt;&gt;.queue.core.windows.net/",
-    "table": "https://&lt;&gt;.table.core.windows.net/",
-    "web": "https://&lt;&gt;.z33.web.core.windows.net/"
-  },
-  "primaryLocation": &lt;&gt;,
-  "privateEndpointConnections": [],
-  "provisioningState": "Succeeded",
-  "publicNetworkAccess": null,
-  "resourceGroup": "inv-day-test",
-  "routingPreference": null,
-  "sasPolicy": null,
-  "secondaryEndpoints": null,
-  "secondaryLocation": null,
-  "sku": {
-    "name": "Standard_LRS",
-    "tier": "Standard"
-  },
-  "statusOfPrimary": "available",
-  "statusOfSecondary": null,
-  "storageAccountSkuConversionStatus": null,
-  "tags": {},
-  "type": "Microsoft.Storage/storageAccounts"
-}</code></pre>
-</section>
-<section id="assign-permission-to-use-the-storage-account" class="level3">
-<h3 class="anchored" data-anchor-id="assign-permission-to-use-the-storage-account">Assign permission to use the storage account</h3>
-<p>Right now, you’ve created a storage account, but you don’t have permission to use it! Let’s change that by adding the current user to have the role assignment “Storage Blob Data Contributor”.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">subscriptionid</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=&lt;&gt;</span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># long combination of numbers and letters with dashes</span></span>
-<span id="cb4-2"></span>
-<span id="cb4-3"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">az</span> ad signed-in-user show <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--query</span> id <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-o</span> tsv <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">|</span> <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">az</span> role assignment create <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb4-4">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--role</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Storage Blob Data Contributor"</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb4-5">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--assignee</span> @- <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb4-6">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--scope</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"/subscriptions/</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$subscriptionid</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">/resourceGroups/</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$resourcegroup</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">/providers/Microsoft.Storage/storageAccounts/</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$storagename</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span></code></pre></div></div>
-<p>Note that we already saved the other variables. Running this should result in another JSON file full of info.</p>
-</section>
-<section id="creating-a-storage-container-using-the-cli" class="level3">
-<h3 class="anchored" data-anchor-id="creating-a-storage-container-using-the-cli">Creating a storage container using the CLI</h3>
-<p>Next up, we want to create a storage container.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">containername</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=&lt;&gt;</span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># eg "mydemocontainer"</span></span>
-<span id="cb5-2"></span>
-<span id="cb5-3"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">az</span> storage container create <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb5-4">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--account-name</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$storagename</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb5-5">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--name</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$containername</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb5-6">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--auth-mode</span> login</span></code></pre></div></div>
-<p>Once this runs you should get a little JSON saying</p>
-<pre class="text"><code>{
-  "created": true
-}</code></pre>
-</section>
-<section id="how-to-upload-a-file-to-blob-storage" class="level3">
-<h3 class="anchored" data-anchor-id="how-to-upload-a-file-to-blob-storage">How to upload a file to blob storage</h3>
-<p>Now we need a text file to try out “mydemocontainer” or whatever you called it in <code>containername</code>. To create one, use</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"hello world"</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> test.txt</span></code></pre></div></div>
-<p>this creates the file <code>test.txt</code> locally. To then upload it to your storage container as <code>test_on_blob.txt</code>, use the below:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">az</span> storage blob upload <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--account-name</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$storagename</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--container-name</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$containername</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--name</span> test_on_blob.txt <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--file</span> test.txt <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--auth-mode</span> login</span></code></pre></div></div>
-</section>
-<section id="checking-it-worked" class="level3">
-<h3 class="anchored" data-anchor-id="checking-it-worked">Checking it worked</h3>
-<p>Of course, you can check this in the Azure Portal. But to check it on the command line, it’s</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">az</span> storage blob list <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--account-name</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$storagename</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--container-name</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$containername</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--output</span> table <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--auth-mode</span> login</span></code></pre></div></div>
-<p>which should result in a table showing a single file, <code>test_on_blob.txt</code>.</p>
-</section>
-<section id="download-data-back-from-the-blob" class="level3">
-<h3 class="anchored" data-anchor-id="download-data-back-from-the-blob">Download data back from the blob</h3>
-<p>For this, we’ll use the <code>az storage blob download</code> command.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">az</span> storage blob download <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--account-name</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$storagename</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--container-name</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$containername</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--name</span> test_on_blob.txt <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--file</span> back_from_blob.txt <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--auth-mode</span> login</span></code></pre></div></div>
-<p>That’s it! The general setup is the same. For transferring lots of files, you may want to check out the <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10">azcopy</a> utility too. There are also <a href="https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-python">Python libraries</a> for interacting with blob storage.</p>
-
-
-</section>
-</section>
-
- ]]></description>
-  <category>code</category>
-  <category>cloud</category>
-  <guid>https://www.aeturrell.com/blog/posts/til-blob-storage-azure/</guid>
-  <pubDate>Mon, 22 Apr 2024 23:00:00 GMT</pubDate>
-  <media:content url="https://www.aeturrell.com/blog/transparent.png" medium="image" type="image/png" height="1" width="1"/>
 </item>
 </channel>
 </rss>
