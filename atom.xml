@@ -10,7 +10,99 @@
 <atom:link href="https://www.aeturrell.com/atom.xml" rel="self" type="application/rss+xml"/>
 <description>{{&lt; meta description-meta &gt;}}</description>
 <generator>quarto-1.9.32</generator>
-<lastBuildDate>Sun, 12 Jul 2026 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 17 Sep 2026 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>How to save the UK taxpayer £130m a year</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>https://www.aeturrell.com/blog/posts/the-case-for-public-sector-os/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This post is going to enrage some people…</p>
+<p>The UK Civil Service <a href="https://www.instituteforgovernment.org.uk/explainer/civil-service-staff-numbers">employs</a> half a million people. Most of them are using Microsoft’s Windows operating system and its associated applications such as Teams and Outlook. Is that value for money for the taxpayer? And are we making the right choice for national sovereignty and security? Let’s explore.</p>
+<section id="the-cost-of-the-uks-current-approach" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="the-cost-of-the-uks-current-approach">The cost of the UK’s current approach</h2>
+<p>I analysed the UK government’s excellent <a href="https://www.contractsfinder.service.gov.uk">Contracts Finder</a> to find all spending on Microsoft services and products—collectively, there was an eye-watering £576m per year. Some of that is good stuff—I’m pleased to see UK government departments using cloud compute, for example. But even just looking at just Windows, Microsoft365, Teams, SQLServer, PowerBI, and SharePoint, which we’ll call the “core stack”, it was £125m a year.<sup>1</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;The numbers in this piece are on a best endeavours basis—it is a blog post after all. Depending on how you count, and what time period you look at, there is a fair range. Some examples are £531m–£622m for total spend, and £226–£585 per year-FTE for core stack spending. There’s a cross-check to the experience of one German state later that suggests the potential savings I find are not implausible.</p></div><div id="fn2"><p><sup>2</sup>&nbsp;I also tried to get a ‘matched’ sample of departments’ spends <em>and</em> their number of full-time equivalent (FTE) staff. Using data from various sources on the number of staff employed by the organisations listed by the Contract Finder, I got a spend of £355 per FTE per year on the core Microsoft stack. I’ve used the more conservative number.</p></div></div><p>I probably don’t need to tell you that this is a lot of money in absolute terms, but it might still be a good deal—there are a lot of Civil Servants, after all. It works out to £250 per FTE per year.<sup>2</sup></p>
+<p>As a double check, I cross-referenced this with some listed prices for Microsoft’s Enterprise offerings on Microsoft’s <a href="https://www.microsoft.com/en-gb/microsoft-365/enterprise/microsoft-365-plans-and-pricing">own website</a>. The basic version comes in at £402 per user per year, while the premium version is £980 per user per year! The user vs FTE distinction matters because—with more people making use of flexible working patterns—the cost scales with users even if they’re less than 1 FTE.</p>
+<p>I’m not someone who advocates that the public sector should use the cheapest and worst version of everything to save money—quite the opposite, and such penny-pinching is self-defeating when you look at value through a broader lens. We’ve all known public sector workers wasting their most valuable asset—their own time—because of poor IT. Not only does this siphon away all enthusiasm for a job, it’s economically non-sensical because of the price of labour relative to the price of computing.</p>
+<p>So, are there some cheaper options that are broadly <em>as</em> good, or perhaps even better? We need to look at the products that make up the typical tech stack that the licenses are buying, and ask what out there might do as good a job for free.<sup>3</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Free can mean different things. Here, I mean free and open source software (FOSS). This means that while you might have to pay for hosting your data or a server to, well, serve that data up, the software and all its features are free.</p></div></div><ul>
+<li>Microsoft Windows operating system. Cheaper option: <a href="https://ubuntu.com">Linux</a> at £0.</li>
+<li>Outlook. Cheaper option: <a href="https://www.thunderbird.net/en-GB/">Thunderbird</a> at £0.</li>
+<li>Word/Excel/Office suite. Cheaper option: <a href="https://www.libreoffice.org">LibreOffice</a> at £0 (as they say on their website, “no forced AI.”)</li>
+<li>SharePoint. More complicated as SharePoint is a few things at once, but a cheaper option for intranet is Django at £0. (hat tip to the Cabinet Office, who already do this), <a href="https://nextcloud.com/files/">Nextcloud Files Community Edition</a> for a shared file system at £0, and <a href="https://github.com/paperless-ngx/paperless-ngx">paperless-ngx</a> at £0.</li>
+<li>Teams. Cheaper option: <a href="https://zulip.com">Zulip</a> at £0.</li>
+<li>SQL Server. Cheaper option: <a href="https://www.postgresql.org">Postgres</a> at £0.</li>
+</ul>
+<p>So, the whole software stack could be a towering behemoth of free. I’m not sure how much hosting the data and servers costs, but not nothing, and we need to account for it. Let’s be generous to the UK government’s existing arrangements and assume something like the per user per year cost of a Dropbox account with 2TB of storage and 30 days’ of delete retention. This is a huge amount for most people in the public sector: I’ve had a Gmail account with 2TB of storage since 2004 and I haven’t used 100GB let alone 2TB! The cost per user per year of this basic Dropbox account is around £96. So we’re looking at savings of £154 per year per FTE. Over the 500,000 Civil Servants, that’s a cost saving of £77m per year.</p>
+<p>Doing a similar calculation with the range of enterprise offerings listed by Microsoft, we’re talking about saving at least £153—£442m a year.</p>
+<p>Don’t like this set of alternative software? Well, the UK state has such size and heft that it could easily hire some software engineers and build a bespoke software application, if it really wanted to. Or even sponsor development of one of the above in the exact direction it desired. AI means it’s now easier than ever to roll your own software. There would be an upfront cost, and some maintenance costs, but likely nothing compared to the Microsoft versions above. And of course, if you felt that only some of these switches away from Microsoft was right for your public sector org, you could choose to do just those.</p>
+<p>I’ll also say that some of these options are, at least in my opinion, superior to the MS equivalents: sensible people can disagree but Postgres, Thunderbird, and Linux are genuinely excellent, industry-standard tools.</p>
+</section>
+<section id="what-happens-if-the-stack-switches-away-from-windows" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="what-happens-if-the-stack-switches-away-from-windows">What happens if the stack switches away from Windows?</h2>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="https://www.aeturrell.com/blog/posts/the-case-for-public-sector-os/tux_visits_no_10.webp" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="margin-caption">Tux, the Linux penguin, takes up residence at No.10</figcaption>
+</figure>
+</div>
+<p>If we did this, would we need to throw out all the Windows laptops that are currently deployed to Civil Servants staff? No! Linux works on most (all?) laptops. So no need for new laptops, which makes this aspect of the transition cheap. And, yes, all of the software alternatives above work on Linux!</p>
+<p>Laptops that had been switched to Linux would also likely work better: Linux consumes significantly less RAM at idle, (4.7GB vs 9.3GB <a href="https://www.notebookcheck.net/Windows-11-vs-Linux-RAM-usage-in-web-browsing-and-gaming-reveals-big-difference.1359634.0.html">in one test</a>.) Many public sector laptops might only <em>have</em> 16GB of RAM to play with, so this is a large gain.</p>
+<p>Linux also has significantly less bloat: it doesn’t serve ads when you try and search your own computer, it doesn’t force distracting “widgets” on your or AI integrations you didn’t ask for, and it certainly isn’t sending information on your use back to the developers. Linux runs only what you tell it to run, leaving more of your hardware dedicated to your active tasks. When you right-click and are running a standard version of Linux, you instantly get a menu pop-up. My personal experience of the public sector is that Windows stalls, and sometimes crashes, when you have the gall to do something as complex as <a href="https://www.techradar.com/news/annoying-windows-11-bug-finally-gets-fixed">right-clicking a file</a>.</p>
+<p>The way that the software is all bundled together is also problematic. There are quite a few people who would say that Excel is the leading spreadsheet software, but you’d be harder pressed to find people who rave about Teams, or enjoy SharePoint’s search function (which <a href="https://blog.adenin.com/sharepoint-search-problems/">doesn’t work</a>.) While the bundling may not be totally forced, it’s <a href="https://www.cnbc.com/2025/09/12/microsoft-avoids-big-fine-as-eu-accepts-deal-to-unbundle-teams.html">certainly encouraged</a>, and you get the good bits with the bad bits. I think our public servants deserve better. There is no such bundling with Linux: you can choose the best tool for each individual job.</p>
+<p>If you’ve used Outlook, you’ll know that crashes are just a fact of life. It doesn’t have to be that way, and it shouldn’t. Even if you don’t care for your own time, we should be wiser with the state’s assets. Linux has <a href="https://www.sealevel.com/linux-os">rock-solid stability</a>, which is the reason it’s used for <a href="https://www.linuxfoundation.org/blog/blog/reality-check-supercomputers-still-rule-and-linux-still-rules-them">critical infrastructure and servers</a>. Linux is what Android runs on, it powers the top one million web servers, and it’s the operating system of the world’s fastest supercomputers.</p>
+<p>By the way, the time saved is economically meaningful. Let’s run through this. Say the average cost to the Civil Service of 1 FTE is £40k a year, and they lose just 2 minutes a day due to flaky software. Over the year, that’s a cost to the UK of £83m! I think it’s probably more in practice.</p>
+<p>Now, of course there will be costs of the switch. The migration will need resources from good IT people, and laptops may be unavailable while they go through the switch-over. Based on the experience of one state in Germany, it looks like a one time switch-over cost of £8m.</p>
+</section>
+<section id="security-and-sovereignty" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="security-and-sovereignty">Security and Sovereignty</h2>
+<p>Windows is known for being prone to viruses, though it’s a target <em>because</em> of its market share, and it’s a lot safer than it used to be. But it’s <a href="https://www.digitaltrends.com/computing/operating-system-security-showdown/">not as secure</a> as the most popular variants of Linux, and there are flavours of Linux that are explicitly focused on security (but would come with painful trade-offs, no doubt.)<sup>4</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Qubes OS, OpenBSD, and Kicksecure are examples.</p></div></div><p>The key point is that if the UK government decided that the trade-off between security and productivity/openness of any of the existing variants of Linux didn’t match its needs, it could just create a new one that did.</p>
+<p>If you use Windows for critical systems then other people will have deep access to your computer. No single event better demonstrated this than when the unfortunately named American cybersecurity company CrowdStrike launched a flawed update and unleashed the world’s single biggest crash of 8.5 million systems. The crash happened because Microsoft had allowed a very deep form of access to people’s computers by a third party. Such kernel-level access had been closed off by Apple for MacOS in 2020, and it has never been available to third parties running Linux.<sup>5</sup> I think, mostly, the CrowdStrike incident was unfortunate: whether provided by a third party or the creator, any update has the chance to go awry. What’s <em>more</em> concerning with Windows is the deep level of access that can be given to third parties without you even being aware of it. (If you’ve used Windows at all, you’ll also know that an unavoidable update is likely to land just as you’re about to give a presentation or leave the office.)</p>
+<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;Microsoft blamed previous EU antitrust rulings that it said <em>made</em> it give kernel-level access to third parties… but the <a href="https://globalcompetitionreview.com/article/eu-pushes-back-claim-regulation-played-role-in-crowdstrike-outages">EU refutes this</a>, and has pointed to the fact that kernel access is not necessary to fulfil the antitrust stipulation.</p></div><div id="fn6"><p><sup>6</sup>&nbsp;However, they presumably have to use Outlook’s search function, so can’t actually find anything.</p></div></div><p>Relatedly, with closed source and proprietary operating systems, there’s <em>always</em> the risk that a foreign state has put a backdoor into the machine. You can see how it would happen: if a company is based in country A, but it sells its operating system to country B, the security services of country A are going to be tempted to use that as a Trojan Horse to take a peek at what’s going on. There is <a href="https://www.theguardian.com/world/2013/jul/11/microsoft-nsa-collaboration-user-data">evidence that the US’ National Security Agency</a> had a backdoor into Outlook<sup>6</sup>:</p>
+<blockquote class="blockquote">
+<p>Another newsletter entry stated that NSA already had pre-encryption access to Outlook email. “For Prism collection against Hotmail, Live, and Outlook.com emails will be unaffected because Prism collects this data prior to encryption.”</p>
+</blockquote>
+<p>I don’t know the truth or extent of any access any state has into operating systems or other software. But I do know that if I wanted to protect my operating system from the possibility of a foreign state having a backdoor into it, I would be using an open source operating system that allowed me to know <em>exactly</em> what was going on. And the most mature open source operating system, behind Ubuntu, ChromeOS, and Android, is Linux.</p>
+<p>Policymakers are taking note. <a href="https://www.theregister.com/ai-and-ml/2026/07/07/mps-tell-brit-government-sort-out-your-tech-sovereignty-or-get-left-out-in-the-cold/5267076">One UK parliamentary select committee</a> has urged the UK government to do more on the security and sovereignty of its IT.</p>
+</section>
+<section id="if-this-is-such-a-good-idea-why-havent-more-states-done-it" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="if-this-is-such-a-good-idea-why-havent-more-states-done-it">If this is such a good idea, why haven’t more states done it?</h2>
+<p>You got me: it is odd how little switching away from Windows there is. That’s partly because of the bundling, the ubiquity, and that some of the software is loved by millions. I’m personally no fan of Excel, but there are lots of people who love it and—if you want to use spreadsheet software<sup>7</sup>—I’m not sure it has an equal.</p>
+<div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;Use code instead! See the part of <a href="../public-sector-analytical-efficiency/#getting-a-bad-rap">this post</a> about reproducible analysis.</p></div></div><p>Having said that, there are some examples of organisations getting off Windows. Actually, there are corners of the public sector that use MacOS instead; in the UK, it tends to be the most technical ones. As I’ve <a href="../../../blog/posts/bad-it/index.html">written before</a>, MacBooks are actually a great deal economically compared with what the UK public sector might otherwise provide.</p>
+<p>In terms of the switch to Linux, there are a few examples of that too. The French Gendarmerie use a custom variant of Ubuntu called <a href="https://en.wikipedia.org/wiki/GendBuntu">GendBuntu</a>. Germany has been in the vanguard of switching to free and open source software. Schleswig-Holstein estimates that 80% of its work computers run open source software and that it is saving $17.5m a year in licensing costs. They mention <a href="https://www.theregister.com/software/2025/10/31/international-criminal-court-dumps-microsoft-office/680564">40k workers</a>, so this is a saving of £325 per year per FTE—higher than our conservative estimate above. And France’s central government is reportedly looking to move <a href="https://linuxiac.com/france-launches-government-linux-desktop-plan-as-windows-exit-begins/"><em>all</em> ministries from Windows to Linux</a>.</p>
+<p>There have been some previous attempts in the UK: <a href="https://github.com/NHSbuntu/nhsbuntu">NHSbuntu</a> was an Ubuntu-based Linux variant developed for the UK’s health service but was taken down by a legal challenge from… the UK Department of Health, who stood to gain from the savings. Apparently, a rename to “National Health Open Source” was not enough to stop the legal challenges. As one of the volunteers <a href="https://www.digitalhealth.net/2018/01/nhos-project-ending-after-legal-challenge/">pointed out</a>, this kind of heavy-handed approach to tinkerers trying to improve public services doesn’t exactly encourage innovation.</p>
+<p>There are some other countries that have moved their governments to Linux: the Russian state has developed <a href="https://en.wikipedia.org/wiki/Astra_Linux">Astra Linux</a>, and North Korea has <a href="https://en.wikipedia.org/wiki/Red_Star_OS">Red Star OS</a>. Make of that what you will. I’ll only say that these are countries that are more worried than most about foreign states interfering with their computer systems, and they’ve chosen Linux.</p>
+</section>
+<section id="conclusion" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>We have a number of estimates of the savings from switching away from Microsoft and its ecosystem now:</p>
+<ul>
+<li>£77m from looking at historical UK government contracts (a conservative estimate)</li>
+<li>£153m—£442m using numbers from Microsoft’s own website</li>
+<li>£162.5m based on the experiences of the German state of Schleswig-Holstein</li>
+</ul>
+<p>Of course, there’s the cost of transition, which Schleswig-Holstein’s experience suggests is a one off cost of £200 per user. Weighed against that there’s the performance benefits at both the intensive (more RAM for what you’re actually doing) and extensive (fewer crashes) margins, worth, extremely conservatively, £83m. One could also argue that the revealed preference of UK voters is that sovereignty is important to them, and though it’s hard to measure the value<sup>8</sup> people might put on this, it’s positive. Security would be tighter too—all the more important given recent high profile hacks.</p>
+<div class="no-row-height column-margin column-container"><div id="fn8"><p><sup>8</sup>&nbsp;For context, Brexit—which was partly about sovereignty—probably cost 6 or 8% of UK GDP, so something like £196bn.</p></div></div><p><strong>Using the average of just the headline estimates, there is £131m a year on the table.</strong> This uses the lower end of the range of Microsoft’s <em>own</em> enterprise deals, so, again, is a conservative estimate.</p>
+<p>It’s hard to conclude anything but that the UK should look at its free and open source software strategy urgently. £130m a year seems worth having to me.</p>
+
+
+</section>
+
+
+ ]]></description>
+  <category>public finances</category>
+  <category>productivity</category>
+  <category>public sector</category>
+  <guid>https://www.aeturrell.com/blog/posts/the-case-for-public-sector-os/</guid>
+  <pubDate>Thu, 17 Sep 2026 23:00:00 GMT</pubDate>
+  <media:content url="https://www.aeturrell.com/blog/posts/the-case-for-public-sector-os/tux_visits_no_10.webp" medium="image" type="image/webp"/>
+</item>
 <item>
   <title>A politically realistic reform of the triple lock</title>
   <dc:creator>Arthur Turrell</dc:creator>
@@ -5309,569 +5401,6 @@ font-style: inherit;">"w"</span>).write(response.text)</span></code></pre></div>
   <guid>https://www.aeturrell.com/blog/posts/bad-it/</guid>
   <pubDate>Mon, 16 Sep 2024 23:00:00 GMT</pubDate>
   <media:content url="https://www.aeturrell.com/blog/posts/bad-it/dall_e_laptop_window.webp" medium="image" type="image/webp"/>
-</item>
-<item>
-  <title>TIL: how to create and work with a MySQL database on Azure</title>
-  <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://www.aeturrell.com/blog/posts/til-sql-database-azure/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>In this TIL, I find out how to create a new <a href="https://dev.mysql.com/">MySQL database</a> on Microsoft Azure. This is a place to store structured, tabular data. Note that the instructions below assume you are using a bash-like terminal, for example <a href="https://ohmyz.sh/">zsh</a>, rather than <a href="https://learn.microsoft.com/en-us/powershell/">Powershell</a>.</p>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
-<p>You’ll need to sign up for a Microsoft Azure account for this, and create a “resource group”. You’ll also need the Azure Command Line Interface (CLI), which you can find information <a href="https://learn.microsoft.com/en-us/cli/azure/">on here</a>. (Alternatively, you can do this through the <a href="https://portal.azure.com/#home">Azure Portal</a>, but it’s often useful to have the reproducible commands.)</p>
-<p>It’s also helpful to understand the lingo and how different bits of the cloud-based SQL setup relate to one another:</p>
-<ul>
-<li>there is the resource group, which many Azure services could live under</li>
-<li>there is a server, which co-ordinates resources</li>
-<li>there are individual databases, which live on particular services</li>
-</ul>
-<p>These three are hierarchical: a database lives on a server that sits under a particular resource group.</p>
-<p>You may be wondering why MySQL rather than another type of SQL database? The pricing information is quite difficult to parse, but for hobby projects, it looks like a MySQL database is a lot cheaper than an Azure SQL (MSSQL) database. A basic MySQL database (burstable, b1ms model) is around US$13.00 per month whereas a provisioned Azure SQL database is hundreds of dollars a month. The latter option has a more complex set of options too, though, so there’s more to make a mistake with. So we’ll be going with the open source MySQL in this case.</p>
-</section>
-<section id="instructions" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
-<section id="creating-a-mysql-server" class="level3">
-<h3 class="anchored" data-anchor-id="creating-a-mysql-server">Creating a MySQL server</h3>
-<p>First set and load your configs. You’ll need to decide on a login and password for your SQL server.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">resourcegroup</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=&lt;&gt;</span></span>
-<span id="cb1-2"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">server</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=&lt;&gt;</span></span>
-<span id="cb1-3"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">login</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=&lt;&gt;</span></span>
-<span id="cb1-4"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">password</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=&lt;&gt;</span></span>
-<span id="cb1-5"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">location</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=&lt;&gt;</span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># eg "uksouth"</span></span></code></pre></div></div>
-<p>Then to create the server (with conservative cost settings), it’s</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">az</span> mysql flexible-server create <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--location</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$location</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--resource-group</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$resourcegroup</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--name</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$server</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--admin-user</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$login</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--admin-password</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$password</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--sku-name</span> Standard_B1ms <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--tier</span> Burstable <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--public-access</span> Enabled <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--version</span> 5.7 <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--high-availability</span> Disabled <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--storage-auto-grow</span> Disabled</span></code></pre></div></div>
-</section>
-<section id="configure-permissions-to-use-the-sql-server" class="level3">
-<h3 class="anchored" data-anchor-id="configure-permissions-to-use-the-sql-server">Configure permissions to use the SQL server</h3>
-<p>The default options are cautious on two sets of permissions, the certificate and the IP addresses that are allowed to connect. We need to open these up for your computer.</p>
-<p>Go on to Azure portal page for the newly created server and click “configure networking”. Then enable connections from your specific IP address through the firewall (“add current client IP address”). On the same page, there’s an option to download the SSL certificate. Do this, and put it in a secrets folder that is not under version control.</p>
-</section>
-<section id="connect-to-the-sql-server-using-the-command-line" class="level3">
-<h3 class="anchored" data-anchor-id="connect-to-the-sql-server-using-the-command-line">Connect to the SQL server using the command line</h3>
-<p>Let’s check that it worked! Assuming you saved the SSL certificate as <code>sql_cert.crt.pem</code> in the <em>same directory in which you are working</em>, you should be able to run the following on the command line:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">mysql</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-h</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$server</span>.mysql.database.azure.com <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-u</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$login</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-p</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"--ssl-ca=sql_cert.crt.pem"</span></span></code></pre></div></div>
-<p>If you saved the certificate in <code>secrets/</code>, change the path in the above command appropriately.</p>
-<p>Note that you may need to regenerate the <code>.pem</code> file from time to time.</p>
-<p>Note also that if you are accessing this resource through a VPN or other managed network, this is where you may have difficulties. To circumvent these, you can use a normal internet connection or connect from a virtual machine.</p>
-</section>
-<section id="working-with-the-sql-database-from-python" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="working-with-the-sql-database-from-python">Working with the SQL database from Python</h3>
-<p>Python has a number of great tools for working with SQL databases. For this, we’ll look at just two: <a href="https://dev.mysql.com/doc/connector-python/en/">MySQL Connector</a> and the wonderful <a href="https://ibis-project.org/">Ibis project</a>, which translates across a wide number of data analysis backends.</p>
-<p>Just as we did before, we need to plug in our credentials. The syntax is slightly different from bash and it’s recommended to use a secrets manager like <a href="https://github.com/theskumar/python-dotenv">python-dotenv</a> to manage these and ensure they do not get mistakenly committed to version control.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">username <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;&gt;</span></span>
-<span id="cb4-2">password <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;&gt;</span></span>
-<span id="cb4-3">hostname <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"&lt;&gt;.mysql.database.azure.com"</span></span></code></pre></div></div>
-<section id="connecting-and-creating-a-database-with-mysql-connector" class="level4">
-<h4 class="anchored" data-anchor-id="connecting-and-creating-a-database-with-mysql-connector">Connecting and creating a database with MySQL Connector</h4>
-<p>Next, we start up the connection.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">mydb <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> mysql.connector.<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">connect</span>(</span>
-<span id="cb5-2">  host<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>hostname,</span>
-<span id="cb5-3">  user<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>username,</span>
-<span id="cb5-4">  password<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>password,</span>
-<span id="cb5-5">  ssl_ca<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"secrets/sql_cert.crt.pem"</span>,</span>
-<span id="cb5-6">)</span></code></pre></div></div>
-<p>where it’s assumed that the certificate is in a folder called secrets.</p>
-<p>If running this works, you won’t see an error message or a confirmation message, but you can check all is as it should be by running:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(mydb)</span></code></pre></div></div>
-<p>which should result in something like:</p>
-<pre class="text"><code>&lt;mysql.connector.connection_cext.CMySQLConnection object at 0x3213r4g90&gt;</code></pre>
-<p>Now it’s not very exciting to have a SQL server with no databases in. So, next, we’re going to create a database.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">create_db_query <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"CREATE DATABASE online_movie_rating"</span></span>
-<span id="cb8-2">mycursor <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> mydb.cursor()</span>
-<span id="cb8-3">mycursor.execute(create_db_query)</span></code></pre></div></div>
-<p>If you then run</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1">mycursor.execute(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Show databases;"</span>)</span>
-<span id="cb9-2"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">for</span> db <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">in</span> mycursor:</span>
-<span id="cb9-3">    <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(db)</span></code></pre></div></div>
-<p>you’ll get a list of databases that should include <code>online_movie_rating</code>.</p>
-<p>But an empty database is no fun—let’s populate it. First, the table we wish to create:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">create_movies_table_query <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"""</span></span>
-<span id="cb10-2"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">CREATE TABLE movies(</span></span>
-<span id="cb10-3"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    id INT AUTO_INCREMENT PRIMARY KEY,</span></span>
-<span id="cb10-4"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    title VARCHAR(100),</span></span>
-<span id="cb10-5"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    release_year YEAR(4),</span></span>
-<span id="cb10-6"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    genre VARCHAR(100),</span></span>
-<span id="cb10-7"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    collection_in_mil INT</span></span>
-<span id="cb10-8"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span id="cb10-9"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"""</span></span></code></pre></div></div>
-<p>And then the execution of that create table command:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1">mydb <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> mysql.connector.<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">connect</span>(</span>
-<span id="cb11-2">  host<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>hostname,</span>
-<span id="cb11-3">  user<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>username,</span>
-<span id="cb11-4">  password<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>password,</span>
-<span id="cb11-5">  database<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"online_movie_rating"</span>,</span>
-<span id="cb11-6">  ssl_ca<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"secrets/sql_cert.crt.pem"</span>,</span>
-<span id="cb11-7">)</span>
-<span id="cb11-8">mycursor <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> mydb.cursor()</span>
-<span id="cb11-9">mycursor.execute(create_movies_table_query)</span>
-<span id="cb11-10">mydb.commit()</span></code></pre></div></div>
-<p>Note the difference with the earlier command—this one has a <code>database=</code> keyword argument in it.</p>
-<p>With the table created, we can also populate it with some data:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1">insert_movies_query <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"""</span></span>
-<span id="cb12-2"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">INSERT INTO movies (title, release_year, genre, collection_in_mil)</span></span>
-<span id="cb12-3"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">VALUES</span></span>
-<span id="cb12-4"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Forrest Gump", 1994, "Drama", 330.2),</span></span>
-<span id="cb12-5"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("3 Idiots", 2009, "Drama", 2.4),</span></span>
-<span id="cb12-6"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Eternal Sunshine of the Spotless Mind", 2004, "Drama", 34.5),</span></span>
-<span id="cb12-7"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Good Will Hunting", 1997, "Drama", 138.1),</span></span>
-<span id="cb12-8"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Skyfall", 2012, "Action", 304.6),</span></span>
-<span id="cb12-9"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Gladiator", 2000, "Action", 188.7),</span></span>
-<span id="cb12-10"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Black", 2005, "Drama", 3.0),</span></span>
-<span id="cb12-11"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Titanic", 1997, "Romance", 659.2),</span></span>
-<span id="cb12-12"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("The Shawshank Redemption", 1994, "Drama",28.4),</span></span>
-<span id="cb12-13"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Udaan", 2010, "Drama", 1.5),</span></span>
-<span id="cb12-14"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Home Alone", 1990, "Comedy", 286.9),</span></span>
-<span id="cb12-15"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Casablanca", 1942, "Romance", 1.0),</span></span>
-<span id="cb12-16"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Avengers: Endgame", 2019, "Action", 858.8),</span></span>
-<span id="cb12-17"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Night of the Living Dead", 1968, "Horror", 2.5),</span></span>
-<span id="cb12-18"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("The Godfather", 1972, "Crime", 135.6),</span></span>
-<span id="cb12-19"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Haider", 2014, "Action", 4.2),</span></span>
-<span id="cb12-20"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Inception", 2010, "Adventure", 293.7),</span></span>
-<span id="cb12-21"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Evil", 2003, "Horror", 1.3),</span></span>
-<span id="cb12-22"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Toy Story 4", 2019, "Animation", 434.9),</span></span>
-<span id="cb12-23"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Air Force One", 1997, "Drama", 138.1),</span></span>
-<span id="cb12-24"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("The Dark Knight", 2008, "Action",535.4),</span></span>
-<span id="cb12-25"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Bhaag Milkha Bhaag", 2013, "Sport", 4.1),</span></span>
-<span id="cb12-26"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("The Lion King", 1994, "Animation", 423.6),</span></span>
-<span id="cb12-27"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Pulp Fiction", 1994, "Crime", 108.8),</span></span>
-<span id="cb12-28"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Kai Po Che", 2013, "Sport", 6.0),</span></span>
-<span id="cb12-29"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Beasts of No Nation", 2015, "War", 1.4),</span></span>
-<span id="cb12-30"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Andadhun", 2018, "Thriller", 2.9),</span></span>
-<span id="cb12-31"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("The Silence of the Lambs", 1991, "Crime", 68.2),</span></span>
-<span id="cb12-32"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Deadpool", 2016, "Action", 363.6),</span></span>
-<span id="cb12-33"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    ("Drishyam", 2015, "Mystery", 3.0)</span></span>
-<span id="cb12-34"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"""</span></span>
-<span id="cb12-35">mycursor.execute(insert_movies_query)</span>
-<span id="cb12-36">mydb.commit()</span></code></pre></div></div>
-<p>Let’s see if we can retrieve some of this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1">select_movies_query <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"SELECT * FROM movies LIMIT 5"</span></span>
-<span id="cb13-2">mycursor.execute(select_movies_query)</span>
-<span id="cb13-3">result <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> mycursor.fetchall()</span>
-<span id="cb13-4"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">for</span> row <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">in</span> result:</span>
-<span id="cb13-5">    <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(row)</span></code></pre></div></div>
-<pre class="text"><code>(1, 'Forrest Gump', 1994, 'Drama', 330)
-(2, '3 Idiots', 2009, 'Drama', 2)
-(3, 'Eternal Sunshine of the Spotless Mind', 2004, 'Drama', 35)
-(4, 'Good Will Hunting', 1997, 'Drama', 138)
-(5, 'Skyfall', 2012, 'Action', 305)</code></pre>
-<p>Finally, to close the connection, use <code>mydb.close()</code>.</p>
-</section>
-<section id="using-ibis-to-work-with-a-cloud-based-sql-database" class="level4 page-columns page-full">
-<h4 class="anchored" data-anchor-id="using-ibis-to-work-with-a-cloud-based-sql-database">Using Ibis to work with a cloud-based SQL database</h4>
-<p>The <a href="https://ibis-project.org/">Ibis project</a> makes working with a ton of different back-end data tools easy by making the syntax consistent. Examples are: MySQL, BigQuery, DuckDB, pandas, MSSQL, and much, much more!</p>
-<p>Once you’ve imported <strong>Ibis</strong> (<code>import ibis</code>), you may find it more fun and useful to use it in interactive mode, which looks more like how <strong>pandas</strong> works:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1">ibis.options.interactive <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">True</span></span></code></pre></div></div>
-<p>To see some data, we need to create a connection:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1">con <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> ibis.mysql.<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">connect</span>(</span>
-<span id="cb16-2">    user<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>username,</span>
-<span id="cb16-3">    password<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>password,</span>
-<span id="cb16-4">    host<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>hostname,</span>
-<span id="cb16-5">    port<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3306</span>,</span>
-<span id="cb16-6">    database<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"online_movie_rating"</span>,</span>
-<span id="cb16-7">    ssl_ca<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"sql/sql_cert.crt.pem"</span>,</span>
-<span id="cb16-8">)</span></code></pre></div></div>
-<p>And to grab our “movies” table again, but as a <strong>pandas</strong> dataframe:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1">t <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> con.table(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"movies"</span>)</span>
-<span id="cb17-2">t.head().to_pandas()</span></code></pre></div></div>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 3%">
-<col style="width: 4%">
-<col style="width: 44%">
-<col style="width: 16%">
-<col style="width: 9%">
-<col style="width: 21%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th>id</th>
-<th>title</th>
-<th>release_year</th>
-<th>genre</th>
-<th>collection_in_mil</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td>1</td>
-<td>Forrest Gump</td>
-<td>1994</td>
-<td>Drama</td>
-<td>330</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>2</td>
-<td>3 Idiots</td>
-<td>2009</td>
-<td>Drama</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>3</td>
-<td>Eternal Sunshine of the Spotless Mind</td>
-<td>2004</td>
-<td>Drama</td>
-<td>35</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>4</td>
-<td>Good Will Hunting</td>
-<td>1997</td>
-<td>Drama</td>
-<td>138</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>5</td>
-<td>Skyfall</td>
-<td>2012</td>
-<td>Action</td>
-<td>305</td>
-</tr>
-</tbody>
-</table>
-<p>Ibis is great to explore data. It has fully fledged <strong>pandas</strong>-style <em>and</em> SQL-style APIs. So you can do:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1">t.<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">filter</span>(t.release_year<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1996</span>)</span></code></pre></div></div>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://www.aeturrell.com/blog/posts/til-sql-database-azure/ibis_query_result.png" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Returned result from filter using Ibis</figcaption>
-</figure>
-</div>
-<p>But you can also get this as SQL:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1">ibis.to_sql(t.<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">filter</span>(t.release_year<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1996</span>))</span></code></pre></div></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">SELECT</span></span>
-<span id="cb20-2">  t0.<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">id</span>,</span>
-<span id="cb20-3">  t0.title,</span>
-<span id="cb20-4">  t0.release_year,</span>
-<span id="cb20-5">  t0.genre,</span>
-<span id="cb20-6">  t0.collection_in_mil</span>
-<span id="cb20-7"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">FROM</span> movies <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">AS</span> t0</span>
-<span id="cb20-8"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">WHERE</span></span>
-<span id="cb20-9">  t0.release_year <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1996</span></span></code></pre></div></div>
-<p>It’s a really powerful downstream analysis tool.</p>
-<p>And that’s it! Most other SQL commands are as you’d expect and can be looked up in the MySQL documentation.</p>
-
-
-</section>
-</section>
-</section>
-
- ]]></description>
-  <category>code</category>
-  <category>cloud</category>
-  <guid>https://www.aeturrell.com/blog/posts/til-sql-database-azure/</guid>
-  <pubDate>Tue, 23 Apr 2024 23:00:00 GMT</pubDate>
-  <media:content url="https://www.aeturrell.com/blog/posts/til-sql-database-azure/ibis_query_result.png" medium="image" type="image/png" height="51" width="144"/>
 </item>
 </channel>
 </rss>

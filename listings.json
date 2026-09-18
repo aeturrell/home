@@ -25,6 +25,7 @@
       "/blog/posts/public-sector-communication-efficiency/index.html",
       "/blog/posts/get-organised/index.html",
       "/blog/posts/vision-ai-for-odometer-reading/index.html",
+      "/blog/posts/the-case-for-public-sector-os/index.html",
       "/blog/posts/the-prize-with-apis/the-prize-with-apis.html",
       "/blog/posts/publication-quality-plots-in-python/index.html",
       "/blog/posts/media-mentions/index.html",
@@ -65,6 +66,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/posts/the-case-for-public-sector-os/index.html",
       "/blog/posts/politically-realistic-reform-triple-lock/index.html",
       "/blog/posts/ten-command-line-tools-for-2026/index.html",
       "/blog/posts/era_local_agentic_llms/index.html",

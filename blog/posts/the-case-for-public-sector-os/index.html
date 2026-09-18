@@ -1,2 +1,725 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"></html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Arthur Turrell">
+<meta name="dcterms.date" content="2026-09-18">
+<meta name="description" content="Arthur Turrell is an economic data scientist.">
+
+<title>Arthur Turrell</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../..//files/logo_large.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-08e950e0ab5e76a8ec89de4c60cb531c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-cff8f82c3c35389b8f64331218629ea1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-46P0B31B3F"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
+</script>
+
+
+<meta property="og:title" content="Arthur Turrell">
+<meta property="og:description" content="Arthur Turrell is an economic data scientist.">
+<meta property="og:image" content="https://www.aeturrell.com/blog/posts/the-case-for-public-sector-os/tux_visits_no_10.webp">
+<meta property="og:site_name" content="Arthur Turrell">
+<meta property="og:locale" content="en_UK">
+<meta name="twitter:title" content="Arthur Turrell">
+<meta name="twitter:description" content="Arthur Turrell is an economic data scientist.">
+<meta name="twitter:image" content="https://www.aeturrell.com/blog/posts/the-case-for-public-sector-os/tux_visits_no_10.webp">
+<meta name="twitter:creator" content="@arthurturrell">
+<meta name="twitter:site" content="@arthurturrell">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Arthur Turrell</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../research/index.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../media/index.html"> 
+<span class="menu-text">Media</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../thestarbuilders/thestarbuilders.html"> 
+<span class="menu-text">The Star Builders</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../teaching/index.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../code/index.html"> 
+<span class="menu-text">Code</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../uses/index.html"> 
+<span class="menu-text">Setup</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../atom.xml"> <i class="bi bi-rss" role="img" aria-label="rss">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../contact.html"> <i class="bi bi-envelope" role="img" aria-label="contact">
+</i> 
+<span class="menu-text"> </span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/arthurturrell"> <i class="bi bi-twitter" role="img" aria-label="twitter">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/arthurturrell.bsky.social"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="bi:cloud-slash" aria-label="Icon cloud-slash from bi Iconify.design set." title="Icon cloud-slash from bi Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/aeturrell"> <i class="bi bi-github" role="img" aria-label="github">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/arthur-turrell-8b789891"> <i class="bi bi-linkedin" role="img" aria-label="linkedin">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">How to save the UK taxpayer £130m a year</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">public finances</div>
+                <div class="quarto-category">productivity</div>
+                <div class="quarto-category">public sector</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Arthur Turrell </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 18, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-cost-of-the-uks-current-approach" id="toc-the-cost-of-the-uks-current-approach" class="nav-link active" data-scroll-target="#the-cost-of-the-uks-current-approach">The cost of the UK’s current approach</a></li>
+  <li><a href="#what-happens-if-the-stack-switches-away-from-windows" id="toc-what-happens-if-the-stack-switches-away-from-windows" class="nav-link" data-scroll-target="#what-happens-if-the-stack-switches-away-from-windows">What happens if the stack switches away from Windows?</a></li>
+  <li><a href="#security-and-sovereignty" id="toc-security-and-sovereignty" class="nav-link" data-scroll-target="#security-and-sovereignty">Security and Sovereignty</a></li>
+  <li><a href="#if-this-is-such-a-good-idea-why-havent-more-states-done-it" id="toc-if-this-is-such-a-good-idea-why-havent-more-states-done-it" class="nav-link" data-scroll-target="#if-this-is-such-a-good-idea-why-havent-more-states-done-it">If this is such a good idea, why haven’t more states done it?</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+
+
+
+
+
+<p>This post is going to enrage some people…</p>
+<p>The UK Civil Service <a href="https://www.instituteforgovernment.org.uk/explainer/civil-service-staff-numbers">employs</a> half a million people. Most of them are using Microsoft’s Windows operating system and its associated applications such as Teams and Outlook. Is that value for money for the taxpayer? And are we making the right choice for national sovereignty and security? Let’s explore.</p>
+<section id="the-cost-of-the-uks-current-approach" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="the-cost-of-the-uks-current-approach">The cost of the UK’s current approach</h2>
+<p>I analysed the UK government’s excellent <a href="https://www.contractsfinder.service.gov.uk">Contracts Finder</a> to find all spending on Microsoft services and products—collectively, there was an eye-watering £576m per year. Some of that is good stuff—I’m pleased to see UK government departments using cloud compute, for example. But even just looking at just Windows, Microsoft365, Teams, SQLServer, PowerBI, and SharePoint, which we’ll call the “core stack”, it was £125m a year.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;The numbers in this piece are on a best endeavours basis—it is a blog post after all. Depending on how you count, and what time period you look at, there is a fair range. Some examples are £531m–£622m for total spend, and £226–£585 per year-FTE for core stack spending. There’s a cross-check to the experience of one German state later that suggests the potential savings I find are not implausible.</p></div><div id="fn2"><p><sup>2</sup>&nbsp;I also tried to get a ‘matched’ sample of departments’ spends <em>and</em> their number of full-time equivalent (FTE) staff. Using data from various sources on the number of staff employed by the organisations listed by the Contract Finder, I got a spend of £355 per FTE per year on the core Microsoft stack. I’ve used the more conservative number.</p></div></div><p>I probably don’t need to tell you that this is a lot of money in absolute terms, but it might still be a good deal—there are a lot of Civil Servants, after all. It works out to £250 per FTE per year.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>As a double check, I cross-referenced this with some listed prices for Microsoft’s Enterprise offerings on Microsoft’s <a href="https://www.microsoft.com/en-gb/microsoft-365/enterprise/microsoft-365-plans-and-pricing">own website</a>. The basic version comes in at £402 per user per year, while the premium version is £980 per user per year! The user vs FTE distinction matters because—with more people making use of flexible working patterns—the cost scales with users even if they’re less than 1 FTE.</p>
+<p>I’m not someone who advocates that the public sector should use the cheapest and worst version of everything to save money—quite the opposite, and such penny-pinching is self-defeating when you look at value through a broader lens. We’ve all known public sector workers wasting their most valuable asset—their own time—because of poor IT. Not only does this siphon away all enthusiasm for a job, it’s economically non-sensical because of the price of labour relative to the price of computing.</p>
+<p>So, are there some cheaper options that are broadly <em>as</em> good, or perhaps even better? We need to look at the products that make up the typical tech stack that the licenses are buying, and ask what out there might do as good a job for free.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Free can mean different things. Here, I mean free and open source software (FOSS). This means that while you might have to pay for hosting your data or a server to, well, serve that data up, the software and all its features are free.</p></div></div><ul>
+<li>Microsoft Windows operating system. Cheaper option: <a href="https://ubuntu.com">Linux</a> at £0.</li>
+<li>Outlook. Cheaper option: <a href="https://www.thunderbird.net/en-GB/">Thunderbird</a> at £0.</li>
+<li>Word/Excel/Office suite. Cheaper option: <a href="https://www.libreoffice.org">LibreOffice</a> at £0 (as they say on their website, “no forced AI.”)</li>
+<li>SharePoint. More complicated as SharePoint is a few things at once, but a cheaper option for intranet is Django at £0. (hat tip to the Cabinet Office, who already do this), <a href="https://nextcloud.com/files/">Nextcloud Files Community Edition</a> for a shared file system at £0, and <a href="https://github.com/paperless-ngx/paperless-ngx">paperless-ngx</a> at £0.</li>
+<li>Teams. Cheaper option: <a href="https://zulip.com">Zulip</a> at £0.</li>
+<li>SQL Server. Cheaper option: <a href="https://www.postgresql.org">Postgres</a> at £0.</li>
+</ul>
+<p>So, the whole software stack could be a towering behemoth of free. I’m not sure how much hosting the data and servers costs, but not nothing, and we need to account for it. Let’s be generous to the UK government’s existing arrangements and assume something like the per user per year cost of a Dropbox account with 2TB of storage and 30 days’ of delete retention. This is a huge amount for most people in the public sector: I’ve had a Gmail account with 2TB of storage since 2004 and I haven’t used 100GB let alone 2TB! The cost per user per year of this basic Dropbox account is around £96. So we’re looking at savings of £154 per year per FTE. Over the 500,000 Civil Servants, that’s a cost saving of £77m per year.</p>
+<p>Doing a similar calculation with the range of enterprise offerings listed by Microsoft, we’re talking about saving at least £153—£442m a year.</p>
+<p>Don’t like this set of alternative software? Well, the UK state has such size and heft that it could easily hire some software engineers and build a bespoke software application, if it really wanted to. Or even sponsor development of one of the above in the exact direction it desired. AI means it’s now easier than ever to roll your own software. There would be an upfront cost, and some maintenance costs, but likely nothing compared to the Microsoft versions above. And of course, if you felt that only some of these switches away from Microsoft was right for your public sector org, you could choose to do just those.</p>
+<p>I’ll also say that some of these options are, at least in my opinion, superior to the MS equivalents: sensible people can disagree but Postgres, Thunderbird, and Linux are genuinely excellent, industry-standard tools.</p>
+</section>
+<section id="what-happens-if-the-stack-switches-away-from-windows" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="what-happens-if-the-stack-switches-away-from-windows">What happens if the stack switches away from Windows?</h2>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="tux_visits_no_10.webp" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="margin-caption">Tux, the Linux penguin, takes up residence at No.10</figcaption>
+</figure>
+</div>
+<p>If we did this, would we need to throw out all the Windows laptops that are currently deployed to Civil Servants staff? No! Linux works on most (all?) laptops. So no need for new laptops, which makes this aspect of the transition cheap. And, yes, all of the software alternatives above work on Linux!</p>
+<p>Laptops that had been switched to Linux would also likely work better: Linux consumes significantly less RAM at idle, (4.7GB vs 9.3GB <a href="https://www.notebookcheck.net/Windows-11-vs-Linux-RAM-usage-in-web-browsing-and-gaming-reveals-big-difference.1359634.0.html">in one test</a>.) Many public sector laptops might only <em>have</em> 16GB of RAM to play with, so this is a large gain.</p>
+<p>Linux also has significantly less bloat: it doesn’t serve ads when you try and search your own computer, it doesn’t force distracting “widgets” on your or AI integrations you didn’t ask for, and it certainly isn’t sending information on your use back to the developers. Linux runs only what you tell it to run, leaving more of your hardware dedicated to your active tasks. When you right-click and are running a standard version of Linux, you instantly get a menu pop-up. My personal experience of the public sector is that Windows stalls, and sometimes crashes, when you have the gall to do something as complex as <a href="https://www.techradar.com/news/annoying-windows-11-bug-finally-gets-fixed">right-clicking a file</a>.</p>
+<p>The way that the software is all bundled together is also problematic. There are quite a few people who would say that Excel is the leading spreadsheet software, but you’d be harder pressed to find people who rave about Teams, or enjoy SharePoint’s search function (which <a href="https://blog.adenin.com/sharepoint-search-problems/">doesn’t work</a>.) While the bundling may not be totally forced, it’s <a href="https://www.cnbc.com/2025/09/12/microsoft-avoids-big-fine-as-eu-accepts-deal-to-unbundle-teams.html">certainly encouraged</a>, and you get the good bits with the bad bits. I think our public servants deserve better. There is no such bundling with Linux: you can choose the best tool for each individual job.</p>
+<p>If you’ve used Outlook, you’ll know that crashes are just a fact of life. It doesn’t have to be that way, and it shouldn’t. Even if you don’t care for your own time, we should be wiser with the state’s assets. Linux has <a href="https://www.sealevel.com/linux-os">rock-solid stability</a>, which is the reason it’s used for <a href="https://www.linuxfoundation.org/blog/blog/reality-check-supercomputers-still-rule-and-linux-still-rules-them">critical infrastructure and servers</a>. Linux is what Android runs on, it powers the top one million web servers, and it’s the operating system of the world’s fastest supercomputers.</p>
+<p>By the way, the time saved is economically meaningful. Let’s run through this. Say the average cost to the Civil Service of 1 FTE is £40k a year, and they lose just 2 minutes a day due to flaky software. Over the year, that’s a cost to the UK of £83m! I think it’s probably more in practice.</p>
+<p>Now, of course there will be costs of the switch. The migration will need resources from good IT people, and laptops may be unavailable while they go through the switch-over. Based on the experience of one state in Germany, it looks like a one time switch-over cost of £8m.</p>
+</section>
+<section id="security-and-sovereignty" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="security-and-sovereignty">Security and Sovereignty</h2>
+<p>Windows is known for being prone to viruses, though it’s a target <em>because</em> of its market share, and it’s a lot safer than it used to be. But it’s <a href="https://www.digitaltrends.com/computing/operating-system-security-showdown/">not as secure</a> as the most popular variants of Linux, and there are flavours of Linux that are explicitly focused on security (but would come with painful trade-offs, no doubt.)<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Qubes OS, OpenBSD, and Kicksecure are examples.</p></div></div><p>The key point is that if the UK government decided that the trade-off between security and productivity/openness of any of the existing variants of Linux didn’t match its needs, it could just create a new one that did.</p>
+<p>If you use Windows for critical systems then other people will have deep access to your computer. No single event better demonstrated this than when the unfortunately named American cybersecurity company CrowdStrike launched a flawed update and unleashed the world’s single biggest crash of 8.5 million systems. The crash happened because Microsoft had allowed a very deep form of access to people’s computers by a third party. Such kernel-level access had been closed off by Apple for MacOS in 2020, and it has never been available to third parties running Linux.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> I think, mostly, the CrowdStrike incident was unfortunate: whether provided by a third party or the creator, any update has the chance to go awry. What’s <em>more</em> concerning with Windows is the deep level of access that can be given to third parties without you even being aware of it. (If you’ve used Windows at all, you’ll also know that an unavoidable update is likely to land just as you’re about to give a presentation or leave the office.)</p>
+<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;Microsoft blamed previous EU antitrust rulings that it said <em>made</em> it give kernel-level access to third parties… but the <a href="https://globalcompetitionreview.com/article/eu-pushes-back-claim-regulation-played-role-in-crowdstrike-outages">EU refutes this</a>, and has pointed to the fact that kernel access is not necessary to fulfil the antitrust stipulation.</p></div><div id="fn6"><p><sup>6</sup>&nbsp;However, they presumably have to use Outlook’s search function, so can’t actually find anything.</p></div></div><p>Relatedly, with closed source and proprietary operating systems, there’s <em>always</em> the risk that a foreign state has put a backdoor into the machine. You can see how it would happen: if a company is based in country A, but it sells its operating system to country B, the security services of country A are going to be tempted to use that as a Trojan Horse to take a peek at what’s going on. There is <a href="https://www.theguardian.com/world/2013/jul/11/microsoft-nsa-collaboration-user-data">evidence that the US’ National Security Agency</a> had a backdoor into Outlook<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>:</p>
+<blockquote class="blockquote">
+<p>Another newsletter entry stated that NSA already had pre-encryption access to Outlook email. “For Prism collection against Hotmail, Live, and Outlook.com emails will be unaffected because Prism collects this data prior to encryption.”</p>
+</blockquote>
+<p>I don’t know the truth or extent of any access any state has into operating systems or other software. But I do know that if I wanted to protect my operating system from the possibility of a foreign state having a backdoor into it, I would be using an open source operating system that allowed me to know <em>exactly</em> what was going on. And the most mature open source operating system, behind Ubuntu, ChromeOS, and Android, is Linux.</p>
+<p>Policymakers are taking note. <a href="https://www.theregister.com/ai-and-ml/2026/07/07/mps-tell-brit-government-sort-out-your-tech-sovereignty-or-get-left-out-in-the-cold/5267076">One UK parliamentary select committee</a> has urged the UK government to do more on the security and sovereignty of its IT.</p>
+</section>
+<section id="if-this-is-such-a-good-idea-why-havent-more-states-done-it" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="if-this-is-such-a-good-idea-why-havent-more-states-done-it">If this is such a good idea, why haven’t more states done it?</h2>
+<p>You got me: it is odd how little switching away from Windows there is. That’s partly because of the bundling, the ubiquity, and that some of the software is loved by millions. I’m personally no fan of Excel, but there are lots of people who love it and—if you want to use spreadsheet software<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>—I’m not sure it has an equal.</p>
+<div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;Use code instead! See the part of <a href="../public-sector-analytical-efficiency/#getting-a-bad-rap">this post</a> about reproducible analysis.</p></div></div><p>Having said that, there are some examples of organisations getting off Windows. Actually, there are corners of the public sector that use MacOS instead; in the UK, it tends to be the most technical ones. As I’ve <a href="../../../blog/posts/bad-it/index.html">written before</a>, MacBooks are actually a great deal economically compared with what the UK public sector might otherwise provide.</p>
+<p>In terms of the switch to Linux, there are a few examples of that too. The French Gendarmerie use a custom variant of Ubuntu called <a href="https://en.wikipedia.org/wiki/GendBuntu">GendBuntu</a>. Germany has been in the vanguard of switching to free and open source software. Schleswig-Holstein estimates that 80% of its work computers run open source software and that it is saving $17.5m a year in licensing costs. They mention <a href="https://www.theregister.com/software/2025/10/31/international-criminal-court-dumps-microsoft-office/680564">40k workers</a>, so this is a saving of £325 per year per FTE—higher than our conservative estimate above. And France’s central government is reportedly looking to move <a href="https://linuxiac.com/france-launches-government-linux-desktop-plan-as-windows-exit-begins/"><em>all</em> ministries from Windows to Linux</a>.</p>
+<p>There have been some previous attempts in the UK: <a href="https://github.com/NHSbuntu/nhsbuntu">NHSbuntu</a> was an Ubuntu-based Linux variant developed for the UK’s health service but was taken down by a legal challenge from… the UK Department of Health, who stood to gain from the savings. Apparently, a rename to “National Health Open Source” was not enough to stop the legal challenges. As one of the volunteers <a href="https://www.digitalhealth.net/2018/01/nhos-project-ending-after-legal-challenge/">pointed out</a>, this kind of heavy-handed approach to tinkerers trying to improve public services doesn’t exactly encourage innovation.</p>
+<p>There are some other countries that have moved their governments to Linux: the Russian state has developed <a href="https://en.wikipedia.org/wiki/Astra_Linux">Astra Linux</a>, and North Korea has <a href="https://en.wikipedia.org/wiki/Red_Star_OS">Red Star OS</a>. Make of that what you will. I’ll only say that these are countries that are more worried than most about foreign states interfering with their computer systems, and they’ve chosen Linux.</p>
+</section>
+<section id="conclusion" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>We have a number of estimates of the savings from switching away from Microsoft and its ecosystem now:</p>
+<ul>
+<li>£77m from looking at historical UK government contracts (a conservative estimate)</li>
+<li>£153m—£442m using numbers from Microsoft’s own website</li>
+<li>£162.5m based on the experiences of the German state of Schleswig-Holstein</li>
+</ul>
+<p>Of course, there’s the cost of transition, which Schleswig-Holstein’s experience suggests is a one off cost of £200 per user. Weighed against that there’s the performance benefits at both the intensive (more RAM for what you’re actually doing) and extensive (fewer crashes) margins, worth, extremely conservatively, £83m. One could also argue that the revealed preference of UK voters is that sovereignty is important to them, and though it’s hard to measure the value<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> people might put on this, it’s positive. Security would be tighter too—all the more important given recent high profile hacks.</p>
+<div class="no-row-height column-margin column-container"><div id="fn8"><p><sup>8</sup>&nbsp;For context, Brexit—which was partly about sovereignty—probably cost 6 or 8% of UK GDP, so something like £196bn.</p></div></div><p><strong>Using the average of just the headline estimates, there is £131m a year on the table.</strong> This uses the lower end of the range of Microsoft’s <em>own</em> enterprise deals, so, again, is a conservative estimate.</p>
+<p>It’s hard to conclude anything but that the UK should look at its free and open source software strategy urgently. £130m a year seems worth having to me.</p>
+
+
+</section>
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/www\.aeturrell\.com\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
