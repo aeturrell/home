@@ -1,10 +1,10 @@
 ---
-date: "2026-06-30"
+date: "2026-09-18"
 layout: post
 draft: false
 title: "How to save the UK taxpayer £130m a year"
 categories: [public finances, productivity, public sector]
-image: "TODO PENGUIN ENTERING DOWNING STREET"
+image: tux_visits_no_10.webp
 execute:
   echo: false
 jupyter: python3
@@ -67,6 +67,8 @@ I'll also say that some of these options are, at least in my opinion, superior t
 
 ## What happens if the stack switches away from Windows?
 
+![Tux, the Linux penguin, takes up residence at No.10](tux_visits_no_10.webp){width=50%}
+
 If we did this, would we need to throw out all the Windows laptops that are currently deployed to Civil Servants staff? No! Linux works on most (all?) laptops. So no need for new laptops, which makes this aspect of the transition cheap. And, yes, all of the software alternatives above work on Linux!
 
 Laptops that had been switched to Linux would also likely work better: Linux consumes significantly less RAM at idle, (4.7GB vs 9.3GB [in one test](https://www.notebookcheck.net/Windows-11-vs-Linux-RAM-usage-in-web-browsing-and-gaming-reveals-big-difference.1359634.0.html).) Many public sector laptops might only *have* 16GB of RAM to play with, so this is a large gain.
@@ -127,8 +129,8 @@ We have a number of estimates of the savings from switching away from Microsoft 
 
 Of course, there's the cost of transition, which Schleswig-Holstein's experience suggests is a one off cost of £`{python} f"{one_off_switch_cost_per_worker:.0f}"` per user. Weighed against that there's the performance benefits at both the intensive (more RAM for what you're actually doing) and extensive (fewer crashes) margins, worth, extremely conservatively, £`{python} f"{cost_to_uk/1e6:.0f}"`m. One could also argue that the revealed preference of UK voters is that sovereignty is important to them, and though it's hard to measure the value[^brexit] people might put on this, it's positive. Security would be tighter too—all the more important given recent high profile hacks.
 
-**Using the average of just the headline estimates, there is £`{python} f"{((core_spend_per_year_per_fte-dropbox_per_year_per_fte)*tot_fte_cs_m + (ms_enterprise_low-dropbox_per_year_per_fte)*tot_fte_cs_m + 325*tot_fte_cs_m)/3.0:.0f}"`m a year on the table.** This uses the lower end of the range of Microsoft enterprise deals above, so, again, is actually a conservative estimate.
+**Using the average of just the headline estimates, there is £`{python} f"{((core_spend_per_year_per_fte-dropbox_per_year_per_fte)*tot_fte_cs_m + (ms_enterprise_low-dropbox_per_year_per_fte)*tot_fte_cs_m + 325*tot_fte_cs_m)/3.0:.0f}"`m a year on the table.** This uses the lower end of the range of Microsoft's *own* enterprise deals, so, again, is a conservative estimate.
 
-It's hard to conclude anything but that the UK should look at its free and open source software strategy urgently. Almost £130m a year seems worth having to me.
+It's hard to conclude anything but that the UK should look at its free and open source software strategy urgently. £130m a year seems worth having to me.
 
 [^brexit]: For context, Brexit—which was partly about sovereignty—probably cost 6 or 8% of UK GDP, so something like £`{python} f"{40e3*0.07*70e6/1e9:.0f}"`bn.
