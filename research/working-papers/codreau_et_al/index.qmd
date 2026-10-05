@@ -1,0 +1,92 @@
+---
+title: "AI in Science: Early Insights"
+date: 2026-09-25
+image: task_distribution_ai_in_science.webp
+alt: "Task Representation in Gemini Interactions"
+author:
+  - name: Mihai Codreanu
+    orcid: 0000-0002-5172-4290
+    affiliation: Google
+  - name: Alex Imas
+    orcid: 0000-0002-1651-7245
+    affiliation: Google
+  - name: Juan Mateos-Garcia
+    orcid: 0000-0003-2995-5700
+    affiliation: Google
+  - name: Joseph Emmens
+    orcid: 0009-0001-1333-2878
+    affiliation: Computer Science and Artificial Intelligence Lab, Massachusetts Institute of Technology
+  - name: Evalyne Muiruri
+    orcid: 0000-0001-9433-8464
+    affiliation: Google
+  - name: Arthur Turrell
+    url: http://www.aeturrell.com
+    orcid: "{{< meta orcid-meta >}}"
+    affiliation: "{{< meta affiliation-meta >}}"
+  - name: Julian Jacobs
+    url: https://www.juliandjacobs.com
+    orcid: 0000-0002-2631-5241
+    affiliation: Google
+  - name: Atoosa Kasirzadeh
+    orcid: 0000-0002-5967-3782
+    affiliation: Google
+  - name: Ana Trišović
+    orcid: 0000-0003-1991-0533
+    affiliation: Computer Science and Artificial Intelligence Lab, Massachusetts Institute of Technology
+  - name: Yiyuan Chen
+    affiliation: Google
+  - name: Tanya Rodchenko
+    orcid: 0009-0001-9155-1910
+    affiliation: Google
+  - name: Catherine Pollard
+    affiliation: Google
+  - name: Scott Strand
+    affiliation: Google
+  - name: Daniel Rock
+    orcid: 0000-0002-0317-0625
+    affiliation: Google
+  - name: Zanna Iscenko
+    affiliation: Google
+  - name: Fabien Curto Millet
+    orcid: 0000-0002-9952-6226
+    affiliation: Google
+  - name: Neil Thompson
+    orcid: 0000-0001-9888-573X
+    affiliation: Computer Science and Artificial Intelligence Lab, Massachusetts Institute of Technology
+  - name: James Manyika
+    affiliation: Google
+categories:
+  - AI
+  - science
+  - productivity
+  - economics
+pub-info:
+  reference: >-
+    Codreanu, Mihai, Alex Imas, Juan Mateos-Garcia, Joseph Emmens, Evalyne Muiruri, Arthur Turrell, Julian Jacobs, Atoosa Kasirzadeh, Ana Trisovic, Yiyuan Chen, Tanya Rodchenko, Catherine Pollard, Scott Strand, Daniel Rock, Zanna Iscenko, Fabien Curto Millet, Neil Thompson, and James Manyika. <i>AI in Science: Early Insights</i> arXiv preprint arXiv:2609.28504v2 (2026).
+  links:
+    - name: Working paper (PDF)
+      url: https://arxiv.org/pdf/2609.28504v2
+      local: false
+      icon: fa-solid fa-file-pdf
+---
+
+## Important links
+
+- [Working paper landing page](https://arxiv.org/abs/2609.28504)
+
+## Abstract
+
+Scientific progress is a key driver of economic growth and prosperity. There is great excitement - but also concerns - about the impacts of AI on science, but so far little data. We provide early insights on this from three data sources: a sample of 15 million Gemini interactions, an inventory of over 2,600 specialized AI models across disciplines, and a survey of over 600 scientists. We map these data to a new taxonomy of scientific tasks to study how scientists are using AI. Four main findings emerge. First, we find broad adoption and coverage: scientists use AI more than most other occupations. Specialized AI models have broad disciplinary coverage and are highly cited. Nearly half of the scientists surveyed report using some form of AI every day. Second, we document evidence that LLMs (proxied through Gemini usage) and specialized models act as complements—LLMs are used for general analysis, coding, and manuscript preparation, while specialized models provide domain-specific predictions, data generation and classification. Third, scientists report large productivity gains from using AI: a saving of nearly 7 hours per week, time which is primarily re-invested in more research. Finally, we show that AI is already changing the scientific process. As some stages of scientific research become easier, bottlenecks shift downstream. Scientists report an increased backlog of untested hypotheses and substantial demand for output verification. Our findings suggest that AI holds significant potential to increase scientific productivity. However, as with other sectors, its ultimate impact will be governed by complex task interdependencies and investment into the elimination of emerging bottlenecks.
+
+## BibTeX citation
+
+```bibtex
+@misc{arxiv:2609.28504,
+  author = {Codreanu, Mihai and Imas, Alex and Mateos-Garcia, Juan and Emmens, Joseph and Muiruri, Evalyne and Turrell, Arthur and Jacobs, Julian and Kasirzadeh, Atoosa and Trisovic, Ana and Chen, Yiyuan and Rodchenko, Tanya and Pollard, Catherine and Strand, Scott and Rock, Daniel and Iscenko, Zanna and Curto Millet, Fabien and Thompson, Neil and Manyika, James},
+  title = {AI in Science: Early Insights},
+  doi = {10.48550/arXiv.2609.28504},
+  url = {https://arxiv.org/abs/2609.28504},
+  publisher = {arXiv},
+  year = {2026}
+}
+```

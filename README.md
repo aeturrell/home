@@ -8,6 +8,13 @@ To convert heic to jpg, use `magick IMG_7981.heic -quality 100% japanese_edition
 
 Magick will also do webp, eg `magick lfs_ar1_sig_results_period_168.pdf -quality 100% lfs_period_168.webp`
 
+```bash
+magick -density 300 lfs_nowcast_period_168.pdf \
+  -background white -alpha remove -alpha off \
+  -define webp:lossless=true \
+  ~/Desktop/lfs_period_168.webp
+```
+
 To convert PDF to SVG,
 
 ```bash

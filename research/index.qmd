@@ -1,6 +1,10 @@
 ---
 title: "Research"
 listing:
+  - id: working-papers
+    contents: "working-papers/*/index.qmd"
+    sort: "date desc"
+    template: ../html/research/listing.ejs
   - id: articles
     contents: "articles/*/index.qmd"
     sort: "date desc"
@@ -8,10 +12,6 @@ listing:
     categories: true
   - id: book-chapters
     contents: "chapters/*/index.qmd"
-    sort: "date desc"
-    template: ../html/research/listing.ejs
-  - id: working-papers
-    contents: "working-papers/*/index.qmd"
     sort: "date desc"
     template: ../html/research/listing.ejs
   # - id: reviews

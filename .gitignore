@@ -60,3 +60,4 @@ bower_components
 
 **/*.quarto_ipynb
 *.pyc
+.env
