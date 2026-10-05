@@ -78,6 +78,34 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-working-papers .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-project','listing-freeze','listing-bibliography','listing-csl','listing-pagetitle','listing-description-meta','listing-author-meta','listing-affiliation-meta','listing-orcid-meta','listing-website','listing-format','listing-engines','listing-_quarto-vars','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-toc-title','listing-toc-location','listing-execute','listing-include-back-link','listing-title','listing-date','listing-image','listing-alt','listing-author','listing-categories','listing-pub-info','listing-path','listing-outputHref','listing-date-modified','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      
+      searchColumns: ["listing-project","listing-freeze","listing-bibliography","listing-csl","listing-pagetitle","listing-description-meta","listing-author-meta","listing-affiliation-meta","listing-orcid-meta","listing-website","listing-format","listing-engines","listing-_quarto-vars","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-toc-title","listing-toc-location","listing-execute","listing-include-back-link","listing-title","listing-date","listing-image","listing-alt","listing-author","listing-categories","listing-pub-info","listing-path","listing-outputHref","listing-date-modified","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-working-papers'] = new List('listing-working-papers', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-articles .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -120,34 +148,6 @@ ul.task-list li input[type="checkbox"] {
 
     window['quarto-listings'] = window['quarto-listings'] || {};
     window['quarto-listings']['listing-book-chapters'] = new List('listing-book-chapters', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-working-papers .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-project','listing-freeze','listing-bibliography','listing-csl','listing-pagetitle','listing-description-meta','listing-author-meta','listing-affiliation-meta','listing-orcid-meta','listing-website','listing-format','listing-engines','listing-_quarto-vars','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-toc-title','listing-toc-location','listing-execute','listing-include-back-link','listing-title','listing-date','listing-author','listing-categories','listing-pub-info','listing-image','listing-alt','listing-path','listing-outputHref','listing-date-modified','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
-      
-      searchColumns: ["listing-project","listing-freeze","listing-bibliography","listing-csl","listing-pagetitle","listing-description-meta","listing-author-meta","listing-affiliation-meta","listing-orcid-meta","listing-website","listing-format","listing-engines","listing-_quarto-vars","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-toc-title","listing-toc-location","listing-execute","listing-include-back-link","listing-title","listing-date","listing-author","listing-categories","listing-pub-info","listing-image","listing-alt","listing-path","listing-outputHref","listing-date-modified","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-working-papers'] = new List('listing-working-papers', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -374,7 +374,7 @@ window.Quarto = {
   <li><a href="#dormant-working-papers" id="toc-dormant-working-papers" class="nav-link" data-scroll-target="#dormant-working-papers">Dormant working papers</a></li>
   </ul>
 </nav>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(20)</span></div><div class="category" data-category="YWdlbnQtYmFzZWQlMjBtb2RlbGxpbmc=">agent-based modelling <span class="quarto-category-count">(5)</span></div><div class="category" data-category="YmlnJTIwZGF0YQ==">big data <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ym9uZCUyMG1hcmtldHM=">bond markets <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29kaW5n">coding <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29tcGxleGl0eSUyMHNjaWVuY2U=">complexity science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q09WSUQtMTk=">COVID-19 <span class="quarto-category-count">(3)</span></div><div class="category" data-category="ZGF0YSUyMHNjaWVuY2U=">data science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWNvbm9taWMlMjBzdGF0aXN0aWNz">economic statistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXBpZGVtaW9sb2d5">epidemiology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXZhbHVhdGlvbg==">evaluation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmluYW5jaWFsJTIwc3RhYmlsaXR5">financial stability <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmlybXM=">firms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm9yZWNhc3Rpbmc=">forecasting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2VuZGVy">gender <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2VuZGVyJTIwcGF5JTIwZ2Fw">gender pay gap <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aGVhdGluZw==">heating <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aGV0ZXJvZG94">heterodox <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aGlnaCUyMHBvd2VyJTIwbGFzZXJz">high power lasers <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aW50ZXJ0aWFsJTIwY29uZmluZW1lbnQlMjBmdXNpb24=">intertial confinement fusion <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bGFib3Vy">labour <span class="quarto-category-count">(6)</span></div><div class="category" data-category="bGFyZ2UtYW5nbGUlMjBjb2xsaXNpb25z">large-angle collisions <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjaGluZSUyMGxlYXJuaW5n">machine learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bWFjcm9lY29ub21pY3M=">macroeconomics <span class="quarto-category-count">(6)</span></div><div class="category" data-category="bW9kZWxsaW5n">modelling <span class="quarto-category-count">(2)</span></div><div class="category" data-category="TW9udGUlMjBDYXJsbw==">Monte Carlo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bm93Y2FzdGluZw==">nowcasting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b3Blbi1zb3VyY2U=">open-source <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGxhc21h">plasma <span class="quarto-category-count">(4)</span></div><div class="category" data-category="cHJvZHVjdGl2aXR5">productivity <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHVibGljJTIwcG9saWN5">public policy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHVibGljJTIwc2VjdG9y">public sector <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVpbmZvcmNlbWVudCUyMGxlYXJuaW5n">reinforcement learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2lnbmF0dXJlcw==">signatures <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2ltdWxhdGlvbnM=">simulations <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGV4dCUyMGFuYWx5c2lz">text analysis <span class="quarto-category-count">(4)</span></div><div class="category" data-category="dHJhbnNwYXJlbmN5JTIwcG9saWNpZXM=">transparency policies <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dmFjYW5jaWVz">vacancies <span class="quarto-category-count">(6)</span></div><div class="category" data-category="d2FnZXM=">wages <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d29yayUyMGZyb20lMjBob21l">work from home <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(21)</span></div><div class="category" data-category="YWdlbnQtYmFzZWQlMjBtb2RlbGxpbmc=">agent-based modelling <span class="quarto-category-count">(5)</span></div><div class="category" data-category="QUk=">AI <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmlnJTIwZGF0YQ==">big data <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ym9uZCUyMG1hcmtldHM=">bond markets <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29kaW5n">coding <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29tcGxleGl0eSUyMHNjaWVuY2U=">complexity science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q09WSUQtMTk=">COVID-19 <span class="quarto-category-count">(3)</span></div><div class="category" data-category="ZGF0YSUyMHNjaWVuY2U=">data science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWNvbm9taWMlMjBzdGF0aXN0aWNz">economic statistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWNvbm9taWNz">economics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXBpZGVtaW9sb2d5">epidemiology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXZhbHVhdGlvbg==">evaluation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmluYW5jaWFsJTIwc3RhYmlsaXR5">financial stability <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmlybXM=">firms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm9yZWNhc3Rpbmc=">forecasting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2VuZGVy">gender <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2VuZGVyJTIwcGF5JTIwZ2Fw">gender pay gap <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aGVhdGluZw==">heating <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aGV0ZXJvZG94">heterodox <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aGlnaCUyMHBvd2VyJTIwbGFzZXJz">high power lasers <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aW50ZXJ0aWFsJTIwY29uZmluZW1lbnQlMjBmdXNpb24=">intertial confinement fusion <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bGFib3Vy">labour <span class="quarto-category-count">(6)</span></div><div class="category" data-category="bGFyZ2UtYW5nbGUlMjBjb2xsaXNpb25z">large-angle collisions <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjaGluZSUyMGxlYXJuaW5n">machine learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bWFjcm9lY29ub21pY3M=">macroeconomics <span class="quarto-category-count">(6)</span></div><div class="category" data-category="bW9kZWxsaW5n">modelling <span class="quarto-category-count">(2)</span></div><div class="category" data-category="TW9udGUlMjBDYXJsbw==">Monte Carlo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bm93Y2FzdGluZw==">nowcasting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b3Blbi1zb3VyY2U=">open-source <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGxhc21h">plasma <span class="quarto-category-count">(4)</span></div><div class="category" data-category="cHJvZHVjdGl2aXR5">productivity <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cHVibGljJTIwcG9saWN5">public policy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHVibGljJTIwc2VjdG9y">public sector <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVpbmZvcmNlbWVudCUyMGxlYXJuaW5n">reinforcement learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2NpZW5jZQ==">science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2lnbmF0dXJlcw==">signatures <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2ltdWxhdGlvbnM=">simulations <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGV4dCUyMGFuYWx5c2lz">text analysis <span class="quarto-category-count">(4)</span></div><div class="category" data-category="dHJhbnNwYXJlbmN5JTIwcG9saWNpZXM=">transparency policies <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dmFjYW5jaWVz">vacancies <span class="quarto-category-count">(6)</span></div><div class="category" data-category="d2FnZXM=">wages <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d29yayUyMGZyb20lMjBob21l">work from home <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -1401,9 +1401,63 @@ window.Quarto = {
 <div class="research project-list">
 <ul class="list">
     
-        <li class="project" data-index="0" data-categories="bm93Y2FzdGluZyUyQ21hY3JvZWNvbm9taWNzJTJDc2lnbmF0dXJlcyUyQ21vZGVsbGluZw==" data-listing-date-sort="1765929600000" data-listing-file-modified-sort="1766053776903" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="144">
+        <li class="project" data-index="0" data-categories="QUklMkNzY2llbmNlJTJDcHJvZHVjdGl2aXR5JTJDZWNvbm9taWNz" data-listing-date-sort="1790290800000" data-listing-file-modified-sort="1791213233465" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="347">
             <div class="project-content listing-pub-info">
-                <p>Cohen, Samuel N., Giulia Mantoan, Lars Nesheim, Áureo de Paula, Arthur Turrell, and Lingyi Yang. <i>Nowcasting using regression on signatures</i> arXiv preprint arXiv:2305.10256v2 (2025).</p>
+                <p>Codreanu, Mihai, Alex Imas, Juan Mateos-Garcia, Joseph Emmens, Evalyne Muiruri, Arthur Turrell, Julian Jacobs, Atoosa Kasirzadeh, Ana Trisovic, Yiyuan Chen, Tanya Rodchenko, Catherine Pollard, Scott Strand, Daniel Rock, Zanna Iscenko, Fabien Curto Millet, Neil Thompson, and James Manyika. <i>AI in Science: Early Insights</i> arXiv preprint arXiv:2609.28504v2 (2026).</p>
+            </div>
+            <div class="thumbnail">
+                <img src="../research/working-papers/codreau_et_al/task_distribution_ai_in_science.webp" alt="Task Representation in Gemini Interactions">
+            </div>
+            
+            <div class="project-categories">
+                
+                    <div class="project-category"><a href="#category=AI">
+                            AI
+                        </a></div>
+                    
+                    <div class="project-category"><a href="#category=science">
+                            science
+                        </a></div>
+                    
+                    <div class="project-category"><a href="#category=productivity">
+                            productivity
+                        </a></div>
+                    
+                    <div class="project-category"><a href="#category=economics">
+                            economics
+                        </a></div>
+                    
+            </div>
+            
+
+            
+            
+            
+            <div class="project-details-listing">
+                <ul class="project-links">
+                    <li class="project-link details">
+                        <a href="../research/working-papers/codreau_et_al/index.html" class="listing-name">
+                            <i class="fa-solid fa-circle-info"></i> Full details »
+                        </a>
+                    </li>
+                    
+                        
+                    <li class="project-link">
+                        
+                        <a href="https://arxiv.org/pdf/2609.28504v2">
+                        
+                            <i class="fa-solid fa-file-pdf"></i> Working paper (PDF)
+                        </a>
+                    </li>
+                        
+                    
+                </ul>
+            </div>
+        </li>
+        
+        <li class="project" data-index="1" data-categories="bm93Y2FzdGluZyUyQ21hY3JvZWNvbm9taWNzJTJDc2lnbmF0dXJlcyUyQ21vZGVsbGluZw==" data-listing-date-sort="1765929600000" data-listing-file-modified-sort="1791211816687" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="146">
+            <div class="project-content listing-pub-info">
+                <p>Cohen, Samuel N., Giulia Mantoan, Lars Nesheim, Áureo de Paula, Arthur Turrell, and Lingyi Yang. <i>Nowcasting using regression on signatures</i> arXiv preprint arXiv:2305.10256v3 (2026).</p>
             </div>
             <div class="thumbnail">
                 <img src="../research/working-papers/cohen-mantoan-nesheim-paula-turrell-yang/lfs_period_168.webp" alt="Nowcasting UK unemployment">
@@ -1444,7 +1498,7 @@ window.Quarto = {
                         
                     <li class="project-link">
                         
-                        <a href="https://arxiv.org/pdf/2305.10256v2">
+                        <a href="https://arxiv.org/pdf/2305.10256v3">
                         
                             <i class="fa-solid fa-file-pdf"></i> Working paper (PDF)
                         </a>
@@ -1455,7 +1509,7 @@ window.Quarto = {
             </div>
         </li>
         
-        <li class="project" data-index="1" data-categories="ZmlybXMlMkNsYWJvdXIlMkN2YWNhbmNpZXMlMkNDT1ZJRC0xOQ==" data-listing-date-sort="1689894000000" data-listing-file-modified-sort="1766048751921" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="156">
+        <li class="project" data-index="2" data-categories="ZmlybXMlMkNsYWJvdXIlMkN2YWNhbmNpZXMlMkNDT1ZJRC0xOQ==" data-listing-date-sort="1689894000000" data-listing-file-modified-sort="1766048751921" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="156">
             <div class="project-content listing-pub-info">
                 <p>Van Dijcke, David, Marcus Buckmann, Arthur Turrell, and Tomas Key. "Vacancy Posting, Firm Balance Sheets, and Pandemic Policy Interventions." <i>Bank of England Staff Working Paper Series</i> 1033 (2022).</p>
             </div>
