@@ -1,0 +1,42 @@
+---
+date: "2026-10-01"
+layout: draft
+draft: false
+title: "Creative destruction for the public sector"
+categories: [public finances, productivity, public sector]
+image: TODO
+execute:
+  echo: false
+jupyter: python3
+---
+
+Creative destruction is the means by which the private sector gets solid productivity growth: at least in theory, inefficient firms die off, and the pool of firms becomes more efficient. The capital and labour released by the closed inefficient firms is freed up for creative new entrants, who may be more efficient yet. And so the cycle continues, with firms getting better and better over time. Government departments—which provide public services—are monopolies and, so it would seem, necessarily so. But what if we could have a form of creative destructive *for the public sector*? Perhaps we could inject some of that sweet, sweet productivity growth into public services?
+
+## Does creative destruction actually work?
+
+Creative destruction is an engine of productivity growth in industry in theory, and the practice ...
+
+SOME GOOD CHARTS ON PROD GROWTH OF FIRMS, AND CITE ANY EVIDENCE ON CREATIVE DESTRUCTION.
+
+GET NUMBERS FOR PROD RATE WITH AND WITHOUT IT, IF POSS
+
+## The woeful productivity growth of the public sector
+
+CHART ON UK PROD GROWTH PUBLIC SECTOR, MAYBE RANKED BY HOW WELL MEASURED.
+
+Caution on measurement.
+
+Even so, we clearly don't see ...
+
+## Creative destruction for the public sector
+
+CHECK EVIDENCE
+
+RED TEAM / BLUE TEAM.
+
+For the public sector. Red team whole depts & see if it can be done better, cheaper, or both. Even without destruction of old dept, it would encourage competition (shipping effect). Clean and measurable inputs and outputs. Difficultly measuring productivity but services & quality easier to measure at all dept level. Duplication not as big an issue as poor efficiency: we would never say market has too many participants, we need to eliminate the duplication. see env file link
+
+
+DUPLICATION IS OVER-RATED (LINK TO BLOG POST ON SPLINK?)
+
+BACK OF ENVELOPE CALCS?
