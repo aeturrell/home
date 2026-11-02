@@ -2,7 +2,7 @@
 date: "2023-12-04"
 layout: post
 title: "TIL: how to create a virtual desktop from a cloud virtual machine"
-categories: [code, data science, research]
+categories: [TIL, code, data science, research]
 image: screenshot_ubuntu.png
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Welcome To The New Home for My Blog"
 date: "2022-10-16"
-categories: [news]
+categories: [writing]
 bibliography: "../../../files/bib/references.bib"
 image: thumbnail.jpg
 ---

@@ -1,0 +1,59 @@
+- title: "Faster, Cheaper, Better: Using Data Science to Strengthen ONS' Surveys"
+  label: "Talk"
+  date: 2022-11-16
+  description: "A talk I gave at the 2022 Joint Statistical Meeting titled 'Faster, Cheaper, Better: How the UK's Office for National Statistics Is Using Data Science to Strengthen Our Surveys'. Part of the session on 'How Can Data Science Improve Surveys?'"
+  video: "https://www.youtube.com/embed/lQIMdU1TDXo"
+
+- title: "Webinar on natural language processing"
+  label: "Talk"
+  date: 2020-09-25
+  description: "A webinar discussing the application of natural language processing to economics and finance hosted by Dow Jones."
+  video: "https://www.youtube.com/embed/6FCNVdHeSis"
+
+- title: "Big data, Bristol Economics Festival"
+  label: "Panel"
+  date: 2022-11-16
+  description: "I took part in a panel discussion on 'big data' at the Bristol Economics Festival (audio only). The panel was chaired by James Fransham (The Economist) and consisted of: data artist Tiziana Alocci; Dénes Csala (Economics Observatory); and Anna Powell-Smith, (director of the Centre for Public Data)."
+  video: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1385792623&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true
+
+- title: "Chair for ESCoE Conference plenary"
+  label: "Conference"
+  date: 2023-04-17
+  description: "I was a co-organiser of the 2023 Economic Statistics Centre of Excellence conference. I chaired this plenary session in which Prof Diane Coyle spoke about The cost of computing and the productivity puzzle."
+  video: "https://www.youtube.com/embed/KtEXYKDqz-I"
+
+- title: "Chair: Modelling with Big Data & Machine Learning; Measuring Economic Instability session at the IMF"
+  label: "Conference"
+  date: 2020-11-01
+  description: "A session at the IMF."
+  image: "https://images.unsplash.com/photo-1517148815978-75f6acaaf32c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+  links:
+  - name: Link (video)
+    url: https://vimeo.com/484134210/ed673b6506
+
+- title: "ESCoE Workshop: Job vacancy data for the public good"
+  label: "Conference"
+  date: 2020-12-10
+  description: "A session I chaired at the Economic Statistics Centre of Excellence workshop on job vacancy data; the session had four excellent presentations on job vacancy data for the public good."
+  video: "https://www.youtube.com/embed/XksMK2P4yFs"
+
+- title: "Economic models, European Parliament"
+  label: "Talk"
+  date: 2018-10-01
+  description: "A talk I gave on economic models in 2018 at the European Parliament as part of a conference addressing post-growth topics."
+  video: "https://youtube.com/embed/XJepPDH34Yc?t=3585"
+
+- title: "IARIW-ESCoE Conference on Intangible Assets"
+  label: "Conference"
+  date: 2021-10-23
+  description: "A session I chaired at the Economic Statistics Centre of Excellence conference on intangible assets."
+  video: "https://www.youtube.com/embed/RSAV5hCQnpo"
+
+- title: "Adopting agent-based models for public policy, US Treasury"
+  label: "Talk"
+  date: 2017-09-21
+  description: "Lecture given at the US Treasury during a conference on Heterogeneous Agents and Agent-based Modelling."
+  image: talk_us_treasury.jpg
+  links:
+  - name: Link
+    url: http://people.brandeis.edu/~blebaron/agentConference/Turrell/Turrell.html

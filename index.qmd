@@ -1,9 +1,21 @@
 ---
 title: "Economics, data science, & writing"
-pagetitle: "Arthur Turrell"
+pagetitle: "Economics, data science, & writing"
 main-photo: "/files/profiles/plasma-bulb-me.jpg"
 main-photo-square: "/files/profiles/plasma-bulb-me.jpg"
-title-block-banner: "#f05e40"
+title-block-banner: "#C2257E"
+listing:
+  id: latest-posts
+  contents: blog/posts
+  sort: "date desc"
+  type: default
+  max-items: 3
+  fields: [date, title, description, image]
+  image-placeholder: blog/transparent.png
+  image-height: 150px
+  date-format: "DD MMM YY"
+  sort-ui: false
+  filter-ui: false
 format:
   html:
     quarto-template-params:
@@ -20,9 +32,9 @@ format:
 <style>
 .grid-item {
   display: flex;
-  width: 50%;
+  width: 75%;
   height: auto;
-  margin: 0 auto;
+  margin: 0 auto 4rem;
 }
 </style>
 <div class="grid" style="--bs-columns: 5; row-gap: 0;">
@@ -44,19 +56,19 @@ format:
 
 Dr Arthur Turrell is an economic data scientist at [Google](https://ai.google/economy/). He is a former [No10 Innovation Fellow](https://fellows.ai.gov.uk), Research and Data Manager at the Bank of England, and Deputy Director and Acting Director of the ONS Data Science Campus. He started his career in physics and remains a visitor to the plasma physics group at Imperial College London. Today, his [research](research/index.qmd) covers the intersection between economics and data science—including AI.
 
-As well as research, Arthur is passionate about making science and economics more accessible — mostly because scientists shouldn't be allowed to have all the fun. You can find more information about his outreach activities and links to some of his writing on the [media](media/index.qmd) page, while information on *The Star Builders*, his popular science book on nuclear fusion, can be found [here](thestarbuilders/thestarbuilders.qmd).
-
-Arthur is a Royal Statistical Society William Guy Lecturer for 2025-2026, and his lecture is on "Economic statistics and stupidly smart AI." You can [watch the video on YouTube!](https://www.youtube.com/watch?v=iokZPrOy904)
+As well as research, Arthur is passionate about making science and economics more accessible — mostly because scientists shouldn't be allowed to have all the fun. You can find more information about his outreach activities and links to some of his writing on the [public talks and media](media/index.qmd) page, while information on *The Star Builders*, his popular science book on nuclear fusion, can be found [here](thestarbuilders/thestarbuilders.qmd).
 
 While previously at the Bank of England, Arthur was lucky enough to be asked to help to design a new bank note featuring Alan Turing. Arthur chose the mathematical elements from Turing's work to feature on the note. If you're lucky enough to have a £50 note in your wallet or purse, you can have a look at how it turned out for yourself!
 
 ```{=html}
-<img src="files/turing_fifty_note.jpeg", class="grid-item">
+<img src="files/turing_fifty_note.jpeg" alt="A Bank of England £50 note featuring Alan Turing" class="grid-item">
 ```
-
-<br>
-This website represents Arthur's personal views.
 
 :::
 
+:::
+
+## Latest posts
+
+:::{#latest-posts}
 :::

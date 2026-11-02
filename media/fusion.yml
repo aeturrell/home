@@ -1,20 +1,14 @@
-- title: "Appearance on 'Faster, Please! — The Podcast' to talk nuclear fusion"
+- title: "'Faster, Please! — The Podcast' on nuclear fusion"
+  label: "Podcast"
   date: 2022-12-22
-  description: "A conversation with James Pethoukakis about a huge breakthrough in nuclear fusion."
+  description: "A conversation with James Pethokoukis about a huge breakthrough in nuclear fusion."
   image: faster_please_logo.jpeg
   links:
   - name: Link
     url: https://fasterplease.substack.com/p/faster-please-the-podcast-17
 
-- title: "TV: Appearance in a documentary on fusion hosted by Hannah Fry"
-  date: 2023-03-16
-  description: "Can Nuclear Fusion Power the Future? | The Future With Hannah Fry Episode 4"
-  image: "arthur_hannah_bloomberg.jpg"
-  links:
-  - name: Link to episode
-    url: "https://www.bloomberg.com/news/videos/2023-03-16/can-nuclear-fusion-power-the-future-the-future-with-hannah-fry-episode-4"
-
 - title: "Lever Time with David Sirota"
+  label: "Podcast"
   date: 2022-12-14
   description: "An appearance on David Sirota's podcast."
   video: "https://www.youtube.com/embed/7Oz-8BA9D4U?si=6_uzG5KjHCHOK6Ge"
@@ -22,7 +16,8 @@
   - name: Video on YouTube
     url: "https://www.youtube.com/watch?v=7Oz-8BA9D4U&ab_channel=TheLever"
 
-- title: "Writing: Opinion piece on first net energy gain from fusion breakthrough at NIF in The Guardian"
+- title: "Opinion piece on first net energy gain from fusion breakthrough at NIF in The Guardian"
+  label: "Writing"
   date: 2022-12-13
   description: "The carbon-free energy of the future: this fusion breakthrough changes everything"
   image: "nif-breakthrough-guardian.png"
@@ -31,6 +26,7 @@
     url: "https://www.theguardian.com/commentisfree/2022/dec/13/carbon-free-energy-fusion-reaction-scientists"
 
 - title: "France 24 interview on net energy gain fusion experiment"
+  label: "TV"
   date: 2022-12-13
   description: "'A moment in history': US researchers announce major nuclear fusion breakthrough. Note that they weren't supposed to use my ONS affiliation here; I was speaking in a personal capacity."
   video: "https://www.youtube.com/embed/eJ5DPNExVXk"
@@ -38,7 +34,8 @@
   - name: Video on YouTube
     url: "https://www.youtube.com/watch?v=eJ5DPNExVXk&ab_channel=FRANCE24English"
 
-- title: "TV and print media coverage in light of net energy gain breakthrough at National Ignition Facility"
+- title: "TV and print media on the net energy gain breakthrough at the National Ignition Facility"
+  label: "Coverage"
   date: 2022-12-11
   description: "I was quoted in the story that broke the news about the first net energy gain in a fusion experiment at the National Ignition Facility, and I did a whole sweep of media spots in the days after the amazing news! This included BBC's Outside Source with Ros Atkins."
   image: ft-scoop-fusion.png
@@ -60,9 +57,9 @@
     url: https://nymag.com/intelligencer/2022/12/how-big-is-the-u-s-fusion-breakthrough.html
   - name: "Patented podcast update (end of episode)"
     url: https://shows.acast.com/patented-history-of-inventions/episodes/monopoly
-  - name: "Washington Examiner"
 
 - title: "'Patented: History of Inventions' episode on Nuclear Fusion"
+  label: "Podcast"
   date: 2022-10-26
   description: "Dallas Campbell interviews me for the 'Patented: History of Inventions' podcast."
   video: https://embed.acast.com/621cc5a140c0770013581ceb/6357cbf88c5fe9001204d884
@@ -71,11 +68,13 @@
     url: https://embed.acast.com/621cc5a140c0770013581ceb/6357cbf88c5fe9001204d884
 
 - title: "CNN's Connect the World With Becky Anderson"
+  label: "TV"
   date: 2022-12-13
   description: "One of many appearances on news television and radio to talk about the first ever net energy releasing fusion experiment at Lawrence Livermore National Laboratory."
   video: "https://www.youtube.com/embed/ysumowYrCwo"
 
 - title: "National Geographic article, 'Many scientists see fusion as the future of energy – and they're betting big', with quotes"
+  label: "Coverage"
   date: 2022-10-04
   description: "An article in National Geographic magazine about nuclear fusion that includes some quotes from me."
   image: nat_geo.png
@@ -83,7 +82,8 @@
   - name: Link
     url: https://www.nationalgeographic.co.uk/science-and-technology/2022/10/many-scientists-see-fusion-as-the-future-of-energy-and-theyre-betting-big
 
-- title: "Podcast: The Curious Cases of Rutherford and Fry: The Puzzle of the Plasma Doughnut"
+- title: "The Curious Cases of Rutherford and Fry: The Puzzle of the Plasma Doughnut"
+  label: "Podcast"
   date: 2022-09-22
   description: "An episode of a BBC podcast on nuclear fusion that I appeared on. Featuring Hannah Fry and Adam Rutherford."
   image: rutherford_fry.png
@@ -91,22 +91,20 @@
   - name: Link
     url: https://www.bbc.co.uk/programmes/m001c6g4
 
-- title: "Nuclear Fusion and the Race to Power the Planet—a lecture at the Royal Institution"
-  date: 2022-01-27
-  description: "Following in the footsteps of my science outreach hero, Michael Faraday, here I am giving a lecture on nuclear fusion at the UK's Royal Institution, famous for its Christmas lectures."
-  video: "https://www.youtube.com/embed/iRHCv6iNPYE"
-
-- title: "Podcast: the ARC Energy Podcast"
+- title: "the ARC Energy Podcast"
+  label: "Podcast"
   date: 2021-10-02
   description: "'This week, Dr. Arthur Turrell, author of the recently published book The Star Builders: Nuclear Fusion and the Race to Power the Planet joins the podcast'."
   video: "https://embed.podcasts.apple.com/be/podcast/fusion-energy-when-could-mini-stars-power-the-planet/id1438664577?i=1000540535806"
 
-- title: "Podcast: Political Economy with James Pethokoukis"
+- title: "Political Economy with James Pethokoukis"
+  label: "Podcast"
   date: 2021-10-06
   description: "Episode: 'Arthur Turrell: Is fusion power the energy source of the future?'"
   video: "https://embed.podcasts.apple.com/gb/podcast/arthur-turrell-is-fusion-power-the-energy-source/id589914386?i=1000537718952"
 
-- title: "Podcast: Quirks and Quarks, on Canadian Public Radio"
+- title: "Quirks and Quarks, on Canadian Public Radio"
+  label: "Podcast"
   date: 2021-12-17
   description: "Appearance on the Quirks and Quarks podcast to discuss nuclear fusion and my book, The Star Builders."
   image: "https://i.cbc.ca/1.2534223.1392233867!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/laser-preamplifiers.jpg"
@@ -114,15 +112,17 @@
   - name: Link
     url: https://www.cbc.ca/radio/quirks/dec-18-holiday-science-book-show-1.6288812/are-we-getting-closer-to-practical-fusion-power-a-new-book-says-maybe-1.6288827
 
-- title: "Writing: Piece on fusion in The Observer"
+- title: "Piece on fusion in The Observer"
+  label: "Writing"
   date: 2021-08-28
   description: "The race to give nuclear fusion a role in the climate emergency"
-  image: "https://i.cbc.ca/1.2534223.1392233867!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/laser-preamplifiers.jpg"
+  image: "https://i.guim.co.uk/img/media/ee3c61744505e2cdef53e480a2fed65c017261d3/0_210_5144_3085/master/5144.jpg?width=1020&quality=85&auto=format&fit=max&s=e71751005a94a22cc1c9289c40581903"
   links:
   - name: Link
-    url: "https://i.guim.co.uk/img/media/ee3c61744505e2cdef53e480a2fed65c017261d3/0_210_5144_3085/master/5144.jpg?width=1020&quality=85&auto=format&fit=max&s=e71751005a94a22cc1c9289c40581903"
+    url: "https://www.theguardian.com/environment/2021/aug/28/the-race-to-give-nuclear-fusion-a-role-in-the-climate-emergency"
 
-- title: "Writing: Opinion piece on fusion breakthrough at JET in The Guardian"
+- title: "Opinion piece on fusion breakthrough at JET in The Guardian"
+  label: "Writing"
   date: 2022-02-13
   description: "The power of stars to meet our energy needs? This is something to be excited about"
   image: "https://i.guim.co.uk/img/media/be945fe98af379394d461f5a97046a2b1f36fddf/0_0_4000_2401/master/4000.jpg?width=620&quality=85&auto=format&fit=max&s=4f04b95b8609c41f6acaabfc3e8d1019"
@@ -135,6 +135,7 @@
     url: https://www.ft.com/content/75496422-be4b-48e9-b445-d987813a126f
 
 - title: "Contributor to the Financial Times' 'Big Read' on fusion"
+  label: "Coverage"
   date: 2021-11-24
   description: "Nuclear fusion: why the race to harness the power of the sun just sped up"
   image: "https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fd6c748xw2pzm8.cloudfront.net%2Fprod%2Ff4a8c450-4c6d-11ec-8c91-671d1c99b37e-standard.png?dpr=1&fit=scale-down&quality=highest&source=next&width=700"
@@ -142,7 +143,8 @@
   - name: Piece
     url: "https://www.ft.com/content/33942ae7-75ff-4911-ab99-adc32545fe5c"
 
-- title: "TV: BBC Breakfast Pint of Science talk on Nuclear Fusion"
+- title: "BBC Breakfast Pint of Science talk on Nuclear Fusion"
+  label: "TV"
   date: 2021-11-24
   description: "Talks in London and Cambridge on nuclear fusion for the Pint of Science festival. Interviewed on BBC Breakfast about the festival."
   image: talk_bbc_pint_of_science.png
@@ -152,9 +154,10 @@
   - name: Event link
     url: "https://pintofscience.co.uk/event/star-power/"
 
-- title: "Talk: Laser Quest"
+- title: "Laser Quest"
+  label: "Talk"
   date: 2015-01-20
-  description: "A night celebrating the uses of lasers held at the Ace Hotel in Shoreditch by Super Collider. There were also talks by  There were also talks by Lian Han and Ceri Brenner, and tea from Bompas & Parr."
+  description: "A night celebrating the uses of lasers held at the Ace Hotel in Shoreditch by Super Collider. There were also talks by Lian Han and Ceri Brenner, and tea from Bompas & Parr."
   video: https://www.youtube.com/embed/ljdGn2b6DLo
   links:
   - name: Super Collider
@@ -162,8 +165,8 @@
   - name: Bompas & Parr
     url: "http://bompasandparr.com/"
 
-
-- title: "Writing: Science in Parliament article on fusion"
+- title: "Science in Parliament article on fusion"
+  label: "Writing"
   date: 2015-01-20
   description: "An article in the parliamentary science magazine, aimed at policymakers."
   image: write_sci_in_parl.jpg
@@ -171,8 +174,8 @@
   - name: Link
     url: "http://www.scienceinparliament.org.uk/"
 
-
-- title: "Interview: Business Green"
+- title: "Business Green"
+  label: "Interview"
   date: 2014-10-16
   description: "I was interviewed about Lockheed Martin's new fusion scheme."
   image: interview_lockheed_business_green.jpg
@@ -198,7 +201,8 @@
 #                         </div>
 #                     </div>
 
-- title: "Coverage: media coverage of paper on ultrafast heating"
+- title: "paper on ultrafast heating"
+  label: "Research coverage"
   date: 2015-11-13
   description: "You can find the paper on the <a href='../research/index.qmd'>research</a> pages. Coverage in a wide range of media outlets."
   image: media_cov_shock.jpg
@@ -218,7 +222,8 @@
   - name: Tech Times
     url: http://www.techtimes.com/articles/105385/20151116/new-laser-can-make-materials-hotter-than-the-sun-in-20-quadrillionths-of-a-second-yes-thats-really-fast.htm
 
-- title: "Exhibit at the Royal Society Summer Science Exhibition "
+- title: "Royal Society Summer Science Exhibition"
+  label: "Exhibit"
   date: 2014-06-01
   description: "An exhibit called 'Set the controls for the heart of the Sun' at the ever-fantastic RS Summer Exhibition."
   video: https://www.youtube.com/embed/pqs2c0RDxHs
@@ -232,7 +237,8 @@
   - name: Twitter Q&A
     url: https://storify.com/royalsociety/set-controls-for-the-heart-of-the-sun
 
-- title: "Lecture: Plasma: The mysterious fourth state of matter"
+- title: "Plasma: The mysterious fourth state of matter"
+  label: "Public lecture"
   date: 2011-09-10
   description: "A talk given at the 2011 British Science Festival"
   video: https://www.youtube.com/embed/nByh-XzH5Zc

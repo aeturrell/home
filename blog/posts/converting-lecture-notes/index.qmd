@@ -2,7 +2,7 @@
 date: "2024-12-28"
 layout: post
 title: "Converting handwritten, maths-heavy lecture notes to markdown using large language models"
-categories: [llm, python, data science]
+categories: [AI, python, data science]
 image: lecture_output_gemini.webp
 execute:
   echo: false

@@ -2,7 +2,7 @@
 date: "2022-02-21"
 layout: post
 title: Writing a Research Blog Post
-categories: [blogging, research, writing]
+categories: [writing, research]
 image: res_blog_pyramid.png
 ---
 

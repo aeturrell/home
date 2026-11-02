@@ -1,7 +1,7 @@
 ---
 title: "The Star Builders:<br> Nuclear Fusion and the Race to Power the Planet"
-pagetitle: "Arthur Turrell — The Star Builders"
-title-block-banner: "#f05e40"
+pagetitle: "The Star Builders: Nuclear Fusion and the Race to Power the Planet"
+title-block-banner: "#4B3FC4"
 format:
   html:
     quarto-template-params:
@@ -29,28 +29,28 @@ div {text-align: center;}
 
 ::: {.g-col-6}
 ```{=html}
-<img src="star_builders_uk_web.jpg", style="width:50%;align:center;" class="bounce-in-right" data-wow-delay=".1s"  hspace="30">
+<img src="star_builders_uk_web.jpg" alt="UK cover of The Star Builders" style="width:50%;align:center;" class="bounce-in-right" data-wow-delay=".1s"  hspace="30">
 ```
 UK cover
 :::
 
 ::: {.g-col-6}
 ```{=html}
-<img src="US_front_cover_web.jpeg", style="width:50%;align:center;" class="bounce-in-left" data-wow-delay=".1s"  hspace="30">
+<img src="US_front_cover_web.jpeg" alt="US cover of The Star Builders" style="width:50%;align:center;" class="bounce-in-left" data-wow-delay=".1s"  hspace="30">
 ```
 US cover
 :::
 
 ::: {.g-col-6}
 ```{=html}
-<img src="japanese_edition.webp", style="width:50%;align:center;" class="bounce-in-right" data-wow-delay=".1s"  hspace="30">
+<img src="japanese_edition.webp" alt="Japanese edition cover of The Star Builders" style="width:50%;align:center;" class="bounce-in-right" data-wow-delay=".1s"  hspace="30">
 ```
 Japanese cover
 :::
 
 ::: {.g-col-6}
 ```{=html}
-<img src="hungarian_edition.webp", style="width:50%;align:center;" class="bounce-in-left" data-wow-delay=".1s"  hspace="30">
+<img src="hungarian_edition.webp" alt="Hungarian edition cover of The Star Builders, titled Csillagépítők" style="width:50%;align:center;" class="bounce-in-left" data-wow-delay=".1s"  hspace="30">
 ```
 Hungarian cover
 :::
@@ -71,11 +71,11 @@ Here are some of the bookstores where you can order copies (but remember to ask 
 ::: {.g-col-6}
 **UK**
 
-[Bookshop.org UK](https://uk.bookshop.org/books/the-star-builders-nuclear-fusion-and-the-race-to-power-the-planet/9781474611589)
-[Foyles](https://www.foyles.co.uk/witem/natural-world-the-environment/the-star-builders-nuclear-fusion-and-th,arthur-turrell-9781474611589)
-[Hive](https://www.hive.co.uk/Product/Arthur-Turrell/The-Star-Builders--Nuclear-Fusion-and-the-Race-to-Power-the-Planet/25678568)
-[Waterstones](https://www.waterstones.com/book/the-star-builders/arthur-turrell/9781474611589)
-[Amazon UK](https://www.amazon.co.uk/Star-Builders-Nuclear-Fusion-Planet/dp/1474611583)
+[Bookshop.org UK](https://uk.bookshop.org/books/the-star-builders-nuclear-fusion-and-the-race-to-power-the-planet/9781474611589)  
+[Foyles](https://www.foyles.co.uk/witem/natural-world-the-environment/the-star-builders-nuclear-fusion-and-th,arthur-turrell-9781474611589)  
+[Hive](https://www.hive.co.uk/Product/Arthur-Turrell/The-Star-Builders--Nuclear-Fusion-and-the-Race-to-Power-the-Planet/25678568)  
+[Waterstones](https://www.waterstones.com/book/the-star-builders/arthur-turrell/9781474611589)  
+[Amazon UK](https://www.amazon.co.uk/Star-Builders-Nuclear-Fusion-Planet/dp/1474611583)  
 [Blackwells](https://blackwells.co.uk/bookshop/product/The-Star-Builders-by-Arthur-Turrell-author/9781474611589)  
 [WHSmith](https://www.whsmith.co.uk/products/the-star-builders-nuclear-fusion-and-the-race-to-power-the-planet/arthur-turrell/hardback/9781474611589.html)
 :::

@@ -12,6 +12,8 @@ project:
     - "*.md"
     - "!etc/"
 
+  post-render: scripts/clean_share_titles.py
+
   resources:
     - "files/**"
     - "etc/**"
@@ -23,7 +25,6 @@ bibliography: files/bib/references.bib
 csl: files/bib/chicago-author-date.csl
 
 # Metadata stuff
-pagetitle: "Arthur Turrell"
 description-meta: "Arthur Turrell is an economic data scientist."
 author-meta: "Arthur Turrell"
 affiliation-meta: "Google"
@@ -48,29 +49,32 @@ website:
   open-graph: 
     image: "/files/logo_large.png"
     description: "{{< meta description-meta >}}"
-    locale: en_UK
+    locale: en_GB
   
   navbar:
     pinned: true
+    collapse-below: xl
 
     left:
-      - text: "Home"
-        href: "index.qmd"
       - text: "Research"
         file: research/index.qmd
-      - text: "Media"
+      - text: "Economics & Data Science"
+        menu:
+          - text: "Blog: Markov Wanderer"
+            href: blog/index.qmd
+          - text: "Talks and Posts"
+            href: talks/index.qmd
+          - text: "Teaching"
+            href: teaching/index.qmd
+          - text: "Code"
+            href: code/index.qmd
+          - text: "Setup"
+            href: uses/index.qmd
+      - text: "Public Talks & Media"
         href: "media/index.qmd"
       - text: "The Star Builders"
         href: "thestarbuilders/thestarbuilders.qmd"
-      - text: "Blog"
-        file: blog/index.qmd
-      - text: "Teaching"
-        href: "teaching/index.qmd"
-      - text: "Code"
-        href: code/index.qmd
-      - text: "Setup"
-        file: uses/index.qmd
-    
+
     right:
       - icon: rss
         aria-label: rss
@@ -79,10 +83,14 @@ website:
         aria-label: contact
         text: " "
         href: contact.qmd
+
+  page-footer:
+    left: "This website represents Arthur's personal views."
+    right:
       - icon: twitter
         aria-label: twitter
         href: https://twitter.com/arthurturrell
-      - text: "{{< iconify bi cloud-slash >}}"
+      - icon: bluesky
         aria-label: bluesky
         href: https://bsky.app/profile/arthurturrell.bsky.social
       - icon: github
@@ -91,6 +99,9 @@ website:
       - icon: linkedin
         aria-label: linkedin
         href: https://www.linkedin.com/in/arthur-turrell-8b789891
+      - text: "{{< iconify simple-icons googlescholar >}}"
+        aria-label: google scholar
+        href: https://scholar.google.com/citations?user=6KoCnQEAAAAJ&hl=en
 
 format:
   html:

@@ -6,7 +6,7 @@ categories: [writing, research, TIL]
 image: obsidian-research-note-page.png
 ---
 
-I've long been interested in how best to store knowledge; so much that I wrote about it in [this post]("../managing-public-sector-knowledge/managing-public-sector-knowledge.qmd") (in the context of the public sector). Today I learned how to combine Obsidian and Zotero to make taking notes about research literature easier and more effective!
+I've long been interested in how best to store knowledge; so much that I wrote about it in [this post](../managing-public-sector-knowledge/managing-public-sector-knowledge.qmd) (in the context of the public sector). Today I learned how to combine Obsidian and Zotero to make taking notes about research literature easier and more effective!
 
 > Note: this is being posted under a tag called TIL or "today I learned". These are shorter format posts that lower the barrier to blogging and capture a mini piece of learning. The idea for TILs has been inspired by Simon Willison's own [TIL posts](https://til.simonwillison.net/). You can find the first TIL [here](../til-how-to-break-xml/index.md).
 

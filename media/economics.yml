@@ -1,13 +1,35 @@
+- title: "Economic statistics and stupidly smart AI, Royal Statistical Society William Guy Lecture"
+  label: "Public lecture"
+  date: 2025-09-10
+  description: "I am the 2025-2026 William Guy Lecturer for the Royal Statistical Society for ages 16+. In this lecture, I discuss the challenges facing economic statistics, and how artificial intelligence—if used smartly—could help."
+  video: "https://www.youtube.com/embed/iokZPrOy904?si=nGFBiKSacZiCQnd7"
 
-- title: "AI, household time, and productivity"
-  date: 2026-09-18
-  description: "AI is changing how households spend their time, from managing finances and accessing public services to education and menu planning. Diane Coyle, Mihai Codreanu and Arthur Turrell argue that understanding AI’s impact on productivity and the wider economy requires recognising households as both consumers and producers – and measuring what happens to productivity growth in both paid work and domestic activity."
-  image: over_under_rep.webp
+- title: "The Wonders of Data Science, Bristol Data & AI Showcase"
+  label: "Talk"
+  date: 2022-07-06
+  description: "A talk I gave on some of the amazing wonders that data science has and is bringing the world. Given at the 2022 Bristol Data & AI Showcase, hosted by the Jean Golding Institute."
+  video: "https://www.youtube.com/embed/5tpdr_4XSTA"
+
+- title: "How the pandemic accelerated use of anonymised location data from mobile phones (Business Matters)"
+  label: "Writing"
+  date: 2022-06-30
+  description: "An opinion piece in Business Matters magazine on how the Office for National Statistics' Data Science Campus began using anonymised mobile phone data for analysis during the pandemic."
+  image: mobile_phone_fig.png
   links:
   - name: Link
-    url: https://www.bennettschool.cam.ac.uk/blog/ai-household-time-productivity/
+    url: https://bmmagazine.co.uk/opinion/how-the-pandemic-accelerated-use-of-anonymised-location-data-from-mobile-phones/
 
-- title: "Research on gender pay transparency featured in the Financial Times"
+- title: "Inside Tech Careers by Mission Encodeable"
+  label: "Podcast"
+  date: 2024-12-09
+  description: "Inside Tech Careers podcast interview with Mission Encodeable (https://missionencodeable.com/), an organisation that promotes coding for young people."
+  image: inside_tech_careers_logo.webp
+  links:
+  - name: Link
+    url: https://podcasts.apple.com/ca/podcast/s1e7-arthur-turrell-senior-manager-for-research-and/id1775260741?i=1000679710215
+
+- title: "Research on gender pay transparency in the Financial Times"
+  label: "Research coverage"
   date: 2024-02-16
   description: "Soumaya Keynes writing on 'Should pay be more transparent?'"
   image: ft_pay_transparency_img.png
@@ -17,12 +39,8 @@
   - name: Research paper
     url: https://arxiv.org/abs/2006.16099
 
-- title: "Chair for ESCoE Conference plenary"
-  date: 2023-04-17
-  description: "I was a co-organiser of the 2023 Economic Statistics Centre of Excellence conference. I chaired this plenary session in which Prof Diane Coyle spoke about The cost of computing and the productivity puzzle."
-  video: "https://www.youtube.com/embed/KtEXYKDqz-I"
-
 - title: "Tracking the price of the lowest-cost grocery items"
+  label: "Research coverage"
   date: 2022-06-30
   description: "Experimental ONS Data Science Campus analysis tracking the cost of lowest priced groceries using web-scraped price data, carried out in response to concerns about the cost of living for those on the lowest incomes. Widespread coverage, including in The Times, Evening Standard, The Independent, The Guardian, Mail Online, The Sun, The Daily Mirror, Metro, Bloomberg, BBC, Reuters, Evening Standard, Sky News, FT, City AM, ITV, Huff Post, Morning Star Online, iNews, Irish News, Daily Express, Retail Gazette, Grocery Gazette, the Scotsman, the i paper, Sky News, ITV, Channel 5, Channel Four News, GB News, LBC."
   image: least_cost_items_chart.png
@@ -30,125 +48,11 @@
   - name: Link
     url: https://cy.ons.gov.uk/economy/inflationandpriceindices/articles/trackingthelowestcostgroceryitemsukexperimentalanalysis/april2021toapril2022
 
-- title: "Podcast: Macro Musings with David Beckworth"
-  date: 2021-08-16
-  description: "On Macro Musings to talk about the Bank of England, the future of economic data, and The Star Builders: Nuclear Fusion and the Race to Power the Planet."
-  video: "//html5-player.libsyn.com/embed/episode/id/20151443/height/90/theme/custom/thumbnail/yes/direction/forward/render-playlist/no/custom-color/000000/"
-
-- title: "Chair: Modelling with Big Data & Machine Learning; Measuring Economic Instability session at the IMF"
-  date: 2020-11-01
-  description: "A session at the IMF."
-  image: "https://images.unsplash.com/photo-1517148815978-75f6acaaf32c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
-  links:
-  - name: Link (video)
-    url: https://vimeo.com/484134210/ed673b6506
-
-- title: "ESCoE Workshop: Job vacancy data for the public good"
-  date: 2020-12-10
-  description: "A session I chaired at the Economic Statistics Centre of Excellence workshop on job vacancy data; the session had four excellent presentations on job vacancy data for the public good."
-  video: "https://www.youtube.com/embed/XksMK2P4yFs"
-
-- title: "Talk on economic models, European Parliament"
-  date: 2018-10-01
-  description: "A talk I gave on economic models in 2018 at the European Parliament as part of a conference addressing post-growth topics."
-  video: "https://youtube.com/embed/XJepPDH34Yc?t=3585"
-
-- title: "IARIW-ESCoE Conference on Intangible Assets"
-  date: 2021-10-23
-  description: "A session I chaired at the Economic Statistics Centre of Excellence conference on intangible assets."
-  video: "https://www.youtube.com/embed/RSAV5hCQnpo"
-
-- title: "Q&A for Nature"
-  date: 2020-05-04
-  description: "An interview on how Bank of England research changed due to coronavirus."
-  image: nature_qna.png
-  links:
-  - name: Link
-    url: https://www.nature.com/articles/d41586-020-01338-0
-
-- title: "Blog: Machine learning the news"
-  date: 2020-10-20
-  description: "A Bank Underground post about our research paper 'Making text count: economic forecasting with newspaper text', which you can find on the <a href='../research/index.qmd'>research</a> page."
-  image: bu_ml_news.png
-  links:
-  - name: Link
-    url: https://bankunderground.co.uk/2020/10/20/machine-learning-the-news-for-better-macroeconomic-forecasting/
-
-- title: "Podcast: centralbanking.com"
-  date: 2018-10-24
-  description: "Part of their series on rewiring macroeconomics. Check out previous episodes to hear
-                                from John Muellbauer, David Hendry, and David Vines."
-  image: cb_on_air_short.jpg
-  links:
-  - name: Link
-    url: https://www.centralbanking.com/central-banks/economics/economic-modelling/3812816/podcast-arthur-turrell-on-agent-based-modelling
-
-- title: "Blog: Using machine learning to understand the mix of jobs in the economy in real-time"
-  date: 2018-08-07
-  description: "Bank Underground blog post on capturing changes in the types of job available in the economy using unsupervised machine learning. Find the paper on the <a href='../research/index.qmd'>research</a> page."
-  image: data_sci_jobs_over_time.png
-  links:
-  - name: Link
-    url: https://bankunderground.co.uk/2018/08/07/using-machine-learning-to-understand-the-mix-of-jobs-in-the-economy-in-real-time/
-
-- title: "Blog: What's in the news? Text-based confidence indices and growth forecasts"
-  date: 2019-02-28
-  description: "Bank Underground blog post on using newspaper text as an input to nowcasts."
-  image: bu_news_text_nowcast.png
-  links:
-  - name: Link
-    url: https://bankunderground.co.uk/2018/08/07/using-machine-learning-to-understand-the-mix-of-jobs-in-the-economy-in-real-time/
-
-- title: "Blog: Making big data work for economics"
-  date: 2018-09-05
-  description: "Bank Underground blog post on using 'big data' to develop new measures of job vacancies in the UK. You can find the paper on the <a href='../research/index.qmd'>research</a> page."
-  image: beveridge_soc.png
-  links:
-  - name: Link
-    url: https://bankunderground.co.uk/2018/09/05/making-big-data-work-for-economics/
-  - name: Code (for applying SOC to job ads)
-    url: https://github.com/aeturrell/occupationcoder
-
-- title: "Talk at US Treasury: Adopting Agent-based models for public policy"
-  date: 2017-09-21
-  description: "Lecture given at the US Treasury during a conference on Heterogeneous Agents and Agent-based Modelling."
-  image: talk_us_treasury.jpg
-  links:
-  - name: Link
-    url: http://people.brandeis.edu/~blebaron/agentConference/Turrell/Turrell.html
-
-- title: "Writing: 'Why I left physics for economics' in The Guardian"
+- title: "'Why I left physics for economics' in The Guardian"
+  label: "Writing"
   date: 2017-06-22
   description: "An article in <i>The Guardian</i> about why I chose to leave physics."
   image: "writing_guardian_why_i.jpeg"
   links:
   - name: Link
     url: "https://www.theguardian.com/science/life-and-physics/2017/jun/22/why-i-left-physics-for-economics"
-
-- title: "News coverage: the rebuilding macroeconomics programme"
-  date: 2018-03-27
-  description: "Series of articles relating to the 'rebuilding macroeconomics' initiatives I took part in."
-  image: news_rethink_macro.jpg
-  links:
-  - name: Letter to FT
-    url: https://www.ft.com/content/f653a4ee-2dce-11e8-a34a-7e7563b0b0f4
-  - name: FT collection on rethinking macro
-    url: https://www.ft.com/rethinking-macroeconomics
-  - name: centralbanking.com coverage of my work
-    url: https://www.centralbanking.com/central-banks/economics/economic-modelling/3325071/haldane-outlines-interdisciplinary-economics-model
-
-- title: "Blog: Power and progress"
-  date: 2016-10-21
-  description: "A short post on the Bank Underground blog showing the correlation between GDP per capita and electricity generation per capita."
-  image: bu_post_short_power_progress.png
-  links:
-  - name: Link
-    url: https://bankunderground.co.uk/2016/10/21/bitesize-power-and-progress/
-
-- title: "Blog: Forming strong bonds"
-  date: 2016-08-16
-  description: "A Bank Underground blog about dynamics in corporate bond markets. You can read the paper over on the <a href='../research/index.qmd'>research</a> page."
-  image: bu_bond_market.png
-  links:
-  - name: Link
-    url: https://bankunderground.co.uk/2016/08/16/forming-strong-bonds-dynamics-in-corporate-bond-markets/

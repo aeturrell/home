@@ -3,17 +3,18 @@
     <% for (const media of items) { %>
     <div class="media-entry">
         <% if (media.video) { %>
-            <iframe height="200px" src= <%= media.video %> ></iframe>
+            <iframe height="200px" src="<%= media.video %>" title="<%= media.title %>" loading="lazy"></iframe>
         <% } else { %>
             <div class="thumbnail">
-                <img src="<%= media.image %>" alt="<%= media.alt %>"/>
+                <img src="<%= media.image %>" alt="<%= media.alt || media.title %>"/>
             </div>
         <% } %>
         <div class="body">
+            <p class="meta">
+                <% if (media.label) { %><span class="eyebrow"><%= media.label %></span><span class="dot" aria-hidden="true">·</span><% } %>
+                <span class="date"><%= media.date %></span>
+            </p>
             <p class="title"><%= media.title %></p>
-            <div class="date">          
-                <p class="date"><%= media.date %></p>
-            </div>
             <p class="description"><%= media.description %></p>
             <% if (media.links) { %>
             <ul class="media-links">
@@ -28,8 +29,8 @@
                     </a>
                 </li>
                 <% } %>
-            <% } %>
             </ul>
+            <% } %>
         </div>
         
     </div>

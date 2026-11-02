@@ -2,7 +2,7 @@
 date: "2022-11-02"
 layout: post
 title: "TIL: How to break RSS feeds"
-categories: [blogging, code, writing, TIL]
+categories: [writing, code, TIL]
 image: "../../transparent.png"
 ---
 

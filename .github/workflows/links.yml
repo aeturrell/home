@@ -1,0 +1,22 @@
+name: Check links
+
+on:
+  schedule:
+    - cron: "0 7 1 * *" # 07:00 UTC on the first of each month
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --config lychee.toml
+            './**/*.qmd' './**/*.md'
+            'media/*.yml' 'talks/*.yml' 'code/*.yml'
+          fail: true

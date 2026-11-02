@@ -2,7 +2,7 @@
 date: "2024-04-23"
 layout: post
 title: "TIL: how to create and work with remote blob storage on Azure"
-categories: [code, cloud]
+categories: [TIL, code, cloud]
 image: "../../transparent.png"
 ---
 

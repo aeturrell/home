@@ -2,7 +2,7 @@
 date: "2024-03-08"
 layout: post
 title: "TIL: how to connect Visual Studio Code to Azure Virtual Machines"
-categories: [code, research, cloud, python, rstats]
+categories: [TIL, code, research, cloud, python, rstats]
 image: "../../transparent.png"
 ---
 

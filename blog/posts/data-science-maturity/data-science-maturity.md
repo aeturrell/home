@@ -2,7 +2,7 @@
 date: "2023-03-01"
 layout: post
 title: "Data science maturity and the cloud"
-categories: [code, python, rstats, data science, cloud, work chat, public sector]
+categories: [code, python, rstats, data science, cloud, productivity, public sector]
 image: dallas-reedy-H83_BXx3ChY-unsplash.jpg
 ---
 

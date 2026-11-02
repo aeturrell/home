@@ -1,6 +1,6 @@
 ---
 title: What I use
-date: 2024-12-10
+date: 2026-11-02
 date-format: "DD MMM YYYY"
 description-meta: The tools for the job(s)
 title-block-banner: "#771C6D"
@@ -10,20 +10,21 @@ toc-location: left
 toc-title: "Contents"
 ---
 
-This page contains a list of the tools I'm using for research or at home. Most of what I use regularly is free and open source software (FOSS), not because I'm ideological (you'll see some paid apps too), but because FOSS often produces tools that are effective and convenient. Because I work in the public sector, I often have to use very different software and hardware at work—mostly tech that I wouldn't recommend to anyone. This is why the list is focused on research and home purposes. One of my missions is to unlock the productivity benefits of frontier tech (including FOSS) for the public sector!
+This page contains a list of the tools I'm using for research or at home. Most of what I use regularly is free and open source software (FOSS), not because I'm ideological (you'll see some paid apps too), but because FOSS often produces tools that are effective and convenient.
 
 ## Reading and writing
 
-- *Document writing*. I never got into the Microsoft Office suite of tools that includes Word. I've had to use Word for work a lot and I struggle to find much good to say about it. I do the majority of my writing for others (including this website and blog) in [Markdown](https://daringfireball.net/projects/Markdown/), or [Quarto](https://quarto.org), which is basically also Markdown! Some of the benefits of writing in Markdown are that it's intuitive, readable, flexible, future proof, interoperable with many other programmes, and it allows you to focus on content. If I need to get a Word document out of the end, I use either [Pandoc](http://pandoc.org/) or [Quarto](https://quarto.org). With Pandoc, it's a line like
+- *Document writing*. I never got into the Microsoft Office suite of tools that includes Word. I've previously had to use Word for work a lot and I struggle to find much good to say about it. I do the majority of my writing for others (including this website and blog) in [Markdown](https://daringfireball.net/projects/Markdown/), or [Quarto](https://quarto.org), which is basically also Markdown! Some of the benefits of writing in Markdown are that it's intuitive, readable, flexible, future proof, interoperable with many other programmes, and it allows you to focus on content. Plus it's the *lingua franca* of AI, and it's now even [supported by Google Docs](https://workspaceupdates.googleblog.com/2026/10/preview-edit-and-collaborate-on-Markdown-files-natively-across-Drive-and-Docs.html) for collaborative editing! If I *really* need to get a Word document out of the end, I use either [Pandoc](http://pandoc.org/) or [Quarto](https://quarto.org). With Pandoc, it's a line like
+
     ```bash
     pandoc briefing.md -V geometry:margin=0.2in --standalone \
     --bibliography references.bib --citeproc --csl=harvard.csl -o briefing.docx
     ```
 
     applied to a file called "briefing.md", a bibtex file of references ("references.bib"), and a citation style (here "harvard.csl"). It's fairly similar to using [Quarto to generate a Word document](https://quarto.org/docs/output-formats/ms-word.html). For more elaborate documents, like a book manuscript, I've created a couple of helper tools like [this quarto template](https://github.com/aeturrell/cookie-cutter-quarto-book-manuscript).
-- *Note taking*. I store general notes in Microsoft [OneNote](https://www.onenote.com/) but for single projects that are bigger and more complex (perhaps with many interlocking themes) I now use the truly excellent [Obsidian](https://obsidian.md/). Obsidian is a clean text Markdown-based note-taking system that separates the data (Markdown files) from the viewer/editor in a way that means you always stay in control of your own data. If you want a seamless experience across phone, tablet, and computer, you'll need to pay for their storage.
-- *Text editor*. I use Microsoft's [Visual Studio Code](https://code.visualstudio.com/) (with the Markdown all in one and Markdown preview enhanced extensions) for all text, including writing Markdown. [Obsidian](https://obsidian.md/) is a fine Markdown editor too. I've yet to try alternatives such as [Ulysses](http://ulyssesapp.com/), [Marked](http://marked2app.com/), and [Typora](https://typora.io/).
-- *Writing papers*. For papers, I've now switched to using Markdown/[Quarto](https://quarto.org). You can find a [cookie-cutter research template with paper and slides here](https://github.com/aeturrell/cookiecutter-research-project). You can insert figures, tables, *and* numbers into text, including in-line, so that the paper and slides can be completely updated if the results change. That makes it perfect for reproducible analytical pipelines. You can also export to LaTeX. I still use LaTeX from time to time. Although Visual Studio Code has a LaTeX editor that's very good, I use [TeXshop](https://pages.uoregon.edu/koch/texshop/) for LaTeX editing.
+- *Note taking*. I store most of my notes in the truly excellent [Obsidian](https://obsidian.md/). Obsidian is a clean text Markdown-based note-taking system that separates the data (Markdown files) from the viewer/editor in a way that means you always stay in control of your own data. I've found Microsoft [OneNote](https://www.onenote.com/) to be good too, but it's a bit less configurable, even if the app support across surfaces is excellent.
+- *Text editor*. I use Microsoft's [Visual Studio Code](https://code.visualstudio.com/) (with the Markdown all in one and Markdown preview enhanced extensions) and [Obsidian](https://obsidian.md/).
+- *Writing papers*. For papers, I've switched to using Markdown/[Quarto](https://quarto.org). You can find a [cookie-cutter research template with paper and slides here](https://github.com/aeturrell/cookiecutter-research-project). You can insert figures, tables, *and* numbers into text, including in-line, so that the paper and slides can be completely updated if the results change. That makes it perfect for reproducible analytical pipelines. You can also export to LaTeX. I still use LaTeX from time to time. Although Visual Studio Code has a LaTeX editor that's very good, I use [TeXshop](https://pages.uoregon.edu/koch/texshop/) for LaTeX editing.
 - *Reading papers*. I store papers in [Zotero](https://www.zotero.org/), which is an open source endeavour. You can support them by paying for their storage. They have an excellent iPad app too. Even better, [you can sync your papers and notes with Obsidian](../blog/posts/til-zotero-and-obsidian/index.md).
 
 ## Coding and development
