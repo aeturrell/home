@@ -2,22 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.32">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Arthur Turrell">
 <meta name="description" content="Arthur Turrell is an economic data scientist.">
 
-<title>Arthur Turrell</title>
+<title>Public Talks &amp; Media – Arthur Turrell</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -39,14 +42,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-08e950e0ab5e76a8ec89de4c60cb531c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-204e14f15910316c170267f8d0a55226.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cff8f82c3c35389b8f64331218629ea1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9250557df12d6d709a35be569cc0d6b6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -78,6 +82,28 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-start-here .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-label','listing-date','listing-description','listing-video','listing-image','listing-links',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      
+      searchColumns: ["listing-title","listing-label","listing-date","listing-description","listing-video","listing-image","listing-links"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-start-here'] = new List('listing-start-here', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-economics .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -85,9 +111,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-date','listing-description','listing-image','listing-links','listing-video',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-title','listing-label','listing-date','listing-description','listing-video','listing-image','listing-links',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-title","listing-date","listing-description","listing-image","listing-links","listing-video"],
+      searchColumns: ["listing-title","listing-label","listing-date","listing-description","listing-video","listing-image","listing-links"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -97,40 +123,6 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-datascience .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-date','listing-description','listing-video','listing-image','listing-links',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-title","listing-date","listing-description","listing-video","listing-image","listing-links"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-datascience'] = new List('listing-datascience', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
@@ -141,9 +133,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-date','listing-description','listing-image','listing-links','listing-video',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-title','listing-label','listing-date','listing-description','listing-image','listing-links','listing-video',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-title","listing-date","listing-description","listing-image","listing-links","listing-video"],
+      searchColumns: ["listing-title","listing-label","listing-date","listing-description","listing-image","listing-links","listing-video"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -153,12 +145,6 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
   </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-46P0B31B3F"></script>
 
@@ -171,13 +157,24 @@ gtag('config', 'G-46P0B31B3F', { 'anonymize_ip': true});
 </script>
 <style>
 
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: #170C3A;
+      }
+
       .quarto-title-block .quarto-title-banner {
-        background: #FB9E07;
+        color: #170C3A;
+background: #FB9E07;
       }
 </style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -206,71 +203,75 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="Arthur Turrell">
+<meta property="og:title" content="Public Talks &amp; Media">
 <meta property="og:description" content="Arthur Turrell is an economic data scientist.">
-<meta property="og:image" content="https://www.aeturrell.com//files/logo_large.png">
+<meta property="og:image" content="https://www.aeturrell.com/files/logo_large.png">
 <meta property="og:site_name" content="Arthur Turrell">
-<meta property="og:locale" content="en_UK">
+<meta property="og:locale" content="en_GB">
 <meta property="og:image:height" content="1594">
 <meta property="og:image:width" content="1594">
-<meta name="twitter:title" content="Arthur Turrell">
+<meta name="twitter:title" content="Public Talks &amp; Media">
 <meta name="twitter:description" content="Arthur Turrell is an economic data scientist.">
-<meta name="twitter:image" content="https://www.aeturrell.com//files/logo_large.png">
+<meta name="twitter:image" content="https://www.aeturrell.com/files/logo_large.png">
 <meta name="twitter:creator" content="@arthurturrell">
 <meta name="twitter:site" content="@arthurturrell">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image-height" content="1594">
-<meta name="twitter:image-width" content="1594">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-xl " data-bs-theme="dark" aria-label="Site">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Arthur Turrell</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../research/index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-economics--data-science" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Economics &amp; Data Science</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-economics--data-science">    
+        <li>
+    <a class="dropdown-item" href="../blog/index.html">
+ <span class="dropdown-text">Blog: Markov Wanderer</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../talks/index.html">
+ <span class="dropdown-text">Talks and Posts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../teaching/index.html">
+ <span class="dropdown-text">Teaching</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../code/index.html">
+ <span class="dropdown-text">Code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../uses/index.html">
+ <span class="dropdown-text">Setup</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link active" href="../media/index.html" aria-current="page"> 
-<span class="menu-text">Media</span></a>
+<span class="menu-text">Public Talks &amp; Media</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../thestarbuilders/thestarbuilders.html"> 
 <span class="menu-text">The Star Builders</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../blog/index.html"> 
-<span class="menu-text">Blog</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../teaching/index.html"> 
-<span class="menu-text">Teaching</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../code/index.html"> 
-<span class="menu-text">Code</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../uses/index.html"> 
-<span class="menu-text">Setup</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -284,29 +285,11 @@ window.Quarto = {
 </i> 
 <span class="menu-text"> </span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/arthurturrell"> <i class="bi bi-twitter" role="img" aria-label="twitter">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://bsky.app/profile/arthurturrell.bsky.social"> 
-<span class="menu-text"><iconify-icon role="img" inline="" icon="bi:cloud-slash" aria-label="Icon cloud-slash from bi Iconify.design set." title="Icon cloud-slash from bi Iconify.design set."></iconify-icon></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/aeturrell"> <i class="bi bi-github" role="img" aria-label="github">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/arthur-turrell-8b789891"> <i class="bi bi-linkedin" role="img" aria-label="linkedin">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
+            <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -314,7 +297,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
-      <h1 class="title">Media</h1>
+      <h1 class="title">Public Talks &amp; Media</h1>
                       </div>
   </div>
     
@@ -331,57 +314,41 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">Topic</h2>
    
   <ul>
-  <li><a href="#data-science" id="toc-data-science" class="nav-link active" data-scroll-target="#data-science">Data Science</a></li>
+  <li><a href="#start-here" id="toc-start-here" class="nav-link active" data-scroll-target="#start-here">Start here</a></li>
   <li><a href="#economics" id="toc-economics" class="nav-link" data-scroll-target="#economics">Economics</a></li>
-  <li><a href="#fusion-and-physics" id="toc-fusion-and-physics" class="nav-link" data-scroll-target="#fusion-and-physics">Fusion and Physics</a></li>
+  <li><a href="#fusion-and-physics" id="toc-fusion-and-physics" class="nav-link" data-scroll-target="#fusion-and-physics">Fusion and physics</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content" tabindex="-1">
 
 
 
 
 
-<p>This page contains links and embedded media for public talks, interviews, and television appearances that I’ve done. You can also find links to some of my writing here.</p>
-<section id="data-science" class="level2">
-<h2 class="anchored" data-anchor-id="data-science">Data Science</h2>
-<div id="listing-datascience" class="quarto-listing quarto-listing-container-custom">
+<p>Public talks, broadcast appearances, interviews, and writing for general audiences.</p>
+<section id="start-here" class="level2">
+<h2 class="anchored" data-anchor-id="start-here">Start here</h2>
+<div id="listing-start-here" class="quarto-listing quarto-listing-container-custom">
 <div class="media">
     
     <div class="media-entry">
         
-            <iframe height="200px" src="https://www.youtube.com/embed/G0CYIphesDg"></iframe>
+            <iframe height="200px" src="https://www.youtube.com/embed/G0CYIphesDg" title="Statistics and Stupidly Smart AI, Royal Institution" loading="lazy"></iframe>
         
         <div class="body">
-            <p class="title">Statistics and Stupidly Smart AI—a lecture at the Royal Institution</p>
-            <div class="date">          
-                <p class="date">11 July 2026</p>
-            </div>
+            <p class="meta">
+                <span class="eyebrow">Public lecture</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">11 July 2026</span>
+            </p>
+            <p class="title">Statistics and Stupidly Smart AI, Royal Institution</p>
             <p class="description">Statistics are under pressure! It's harder to count the things that we make today than it was to count the things we used to make. And surveys, once the life-blood of our nation's statistics, are facing steep declines in response rates. This is Bad News for the country as statistics are critical infrastructure, like our roads or water pipes: they are used to make decisions about everything from school funding to taxes. What can we do? In this talk I'm going to show you how clever use of artificial intelligence can help to improve statistics and take the pulse of the nation in new ways. We'll see AI track traffic, predict the future, and work out if you’re doing the dishes, all in the name of better data. Like all technologies, AI can be good or bad. So we'll also see how AI is only 'stupidly smart': like a mischievous genie, you have to be very careful what you wish for. And, to cap it all off, I'll let you in on the secret of how AI could win you millions of dollars.</p>
             
-            
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <iframe height="200px" src="https://www.youtube.com/embed/iokZPrOy904?si=nGFBiKSacZiCQnd7"></iframe>
-        
-        <div class="body">
-            <p class="title">Royal Statistical Society William Guy Lecture: Economic statistics and stupidly smart AI</p>
-            <div class="date">          
-                <p class="date">10 September 2025</p>
-            </div>
-            <p class="description">I am the 2025-2026 William Guy Lecturer for the Royal Statistical Society for ages 16+. In this lecture, I discuss the challenges facing economic statistics, and how artificial intelligence—if used smartly—could help.</p>
-            
-            
         </div>
         
     </div>
@@ -389,43 +356,28 @@ window.Quarto = {
     <div class="media-entry">
         
             <div class="thumbnail">
-                <img src="inside_tech_careers_logo.webp" alt="">
+                <img src="arthur_hannah_bloomberg.jpg" alt="Appearance in a documentary on fusion hosted by Hannah Fry">
             </div>
         
         <div class="body">
-            <p class="title">Podcast: Inside Tech Careers by Mission Encodeable</p>
-            <div class="date">          
-                <p class="date">9 December 2024</p>
-            </div>
-            <p class="description">Inside Tech Careers podcast interview with Mission Encodeable (https://missionencodeable.com/), an organisation that promotes coding for young people.</p>
+            <p class="meta">
+                <span class="eyebrow">TV</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">16 March 2023</span>
+            </p>
+            <p class="title">Appearance in a documentary on fusion hosted by Hannah Fry</p>
+            <p class="description">Can Nuclear Fusion Power the Future? | The Future With Hannah Fry Episode 4</p>
             
             <ul class="media-links">
                 
                 <li class="media-link">
                     
-                    <a href="https://podcasts.apple.com/ca/podcast/s1e7-arthur-turrell-senior-manager-for-research-and/id1775260741?i=1000679710215">
+                    <a href="https://www.bloomberg.com/news/videos/2023-03-16/can-nuclear-fusion-power-the-future-the-future-with-hannah-fry-episode-4">
                     
-                        <i class=""></i> Link
+                        <i class=""></i> Link to episode
                     </a>
                 </li>
                 
-            
             </ul>
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <iframe height="200px" src="https://www.youtube.com/embed/lQIMdU1TDXo"></iframe>
-        
-        <div class="body">
-            <p class="title">Faster, Cheaper, Better: Using Data Science to Strengthen ONS' Surveys</p>
-            <div class="date">          
-                <p class="date">16 November 2022</p>
-            </div>
-            <p class="description">A talk I gave at the 2022 Joint Statistical Meeting titled 'Faster, Cheaper, Better: How the UK's Office for National Statistics Is Using Data Science to Strengthen Our Surveys'. Part of the session on 'How Can Data Science Improve Surveys?'</p>
-            
             
         </div>
         
@@ -433,76 +385,15 @@ window.Quarto = {
     
     <div class="media-entry">
         
-            <iframe height="200px" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1385792623&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
+            <iframe height="200px" src="https://www.youtube.com/embed/iRHCv6iNPYE" title="Nuclear Fusion and the Race to Power the Planet, Royal Institution" loading="lazy"></iframe>
         
         <div class="body">
-            <p class="title">Recording from a panel on Big Data from the Bristol Economics Festival</p>
-            <div class="date">          
-                <p class="date">16 November 2022</p>
-            </div>
-            <p class="description">I took part in a panel discussion on 'big data' at the Bristol Economics Festival (audio only). The panel was chaired by James Fransham (The Economist) and consisted of: data artist Tiziana Alocci; Dénes Csala (Economics Observatory); and Anna Powell-Smith, (director of the Centre for Public Data).</p>
-            
-            
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <iframe height="200px" src="https://www.youtube.com/embed/5tpdr_4XSTA"></iframe>
-        
-        <div class="body">
-            <p class="title">The Wonders of Data Science, Bristol Data &amp; AI Showcase</p>
-            <div class="date">          
-                <p class="date">6 July 2022</p>
-            </div>
-            <p class="description">A talk I gave on some of the amazing wonders that data science has and is bringing the world. Given at the 2022 Bristol Data &amp; AI Showcase, hosted by the Jean Golding Institute.</p>
-            
-            
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <div class="thumbnail">
-                <img src="mobile_phone_fig.png" alt="">
-            </div>
-        
-        <div class="body">
-            <p class="title">How the pandemic accelerated use of anonymised location data from mobile phones (Business Matters)</p>
-            <div class="date">          
-                <p class="date">30 June 2022</p>
-            </div>
-            <p class="description">An opinion piece in Business Matters magazine on how the Office for National Statistics' Data Science Campus began using anonymised mobile phone data for analysis during the pandemic.</p>
-            
-            <ul class="media-links">
-                
-                <li class="media-link">
-                    
-                    <a href="https://bmmagazine.co.uk/opinion/how-the-pandemic-accelerated-use-of-anonymised-location-data-from-mobile-phones/">
-                    
-                        <i class=""></i> Link
-                    </a>
-                </li>
-                
-            
-            </ul>
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <iframe height="200px" src="https://www.youtube.com/embed/6FCNVdHeSis"></iframe>
-        
-        <div class="body">
-            <p class="title">Webinar on natural language processing</p>
-            <div class="date">          
-                <p class="date">25 September 2020</p>
-            </div>
-            <p class="description">A webinar discussing the application of natural language processing to economics and finance hosted by Dow Jones.</p>
-            
+            <p class="meta">
+                <span class="eyebrow">Public lecture</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">27 January 2022</span>
+            </p>
+            <p class="title">Nuclear Fusion and the Race to Power the Planet, Royal Institution</p>
+            <p class="description">Following in the footsteps of my science outreach hero, Michael Faraday, here I am giving a lecture on nuclear fusion at the UK's Royal Institution, famous for its Christmas lectures.</p>
             
         </div>
         
@@ -519,29 +410,16 @@ window.Quarto = {
     
     <div class="media-entry">
         
-            <div class="thumbnail">
-                <img src="over_under_rep.webp" alt="">
-            </div>
+            <iframe height="200px" src="https://www.youtube.com/embed/iokZPrOy904?si=nGFBiKSacZiCQnd7" title="Economic statistics and stupidly smart AI, Royal Statistical Society William Guy Lecture" loading="lazy"></iframe>
         
         <div class="body">
-            <p class="title">AI, household time, and productivity</p>
-            <div class="date">          
-                <p class="date">18 September 2026</p>
-            </div>
-            <p class="description">AI is changing how households spend their time, from managing finances and accessing public services to education and menu planning. Diane Coyle, Mihai Codreanu and Arthur Turrell argue that understanding AI’s impact on productivity and the wider economy requires recognising households as both consumers and producers – and measuring what happens to productivity growth in both paid work and domestic activity.</p>
+            <p class="meta">
+                <span class="eyebrow">Public lecture</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">10 September 2025</span>
+            </p>
+            <p class="title">Economic statistics and stupidly smart AI, Royal Statistical Society William Guy Lecture</p>
+            <p class="description">I am the 2025-2026 William Guy Lecturer for the Royal Statistical Society for ages 16+. In this lecture, I discuss the challenges facing economic statistics, and how artificial intelligence—if used smartly—could help.</p>
             
-            <ul class="media-links">
-                
-                <li class="media-link">
-                    
-                    <a href="https://www.bennettschool.cam.ac.uk/blog/ai-household-time-productivity/">
-                    
-                        <i class=""></i> Link
-                    </a>
-                </li>
-                
-            
-            </ul>
         </div>
         
     </div>
@@ -549,14 +427,45 @@ window.Quarto = {
     <div class="media-entry">
         
             <div class="thumbnail">
-                <img src="ft_pay_transparency_img.png" alt="">
+                <img src="inside_tech_careers_logo.webp" alt="Inside Tech Careers by Mission Encodeable">
             </div>
         
         <div class="body">
-            <p class="title">Research on gender pay transparency featured in the Financial Times</p>
-            <div class="date">          
-                <p class="date">16 February 2024</p>
+            <p class="meta">
+                <span class="eyebrow">Podcast</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">9 December 2024</span>
+            </p>
+            <p class="title">Inside Tech Careers by Mission Encodeable</p>
+            <p class="description">Inside Tech Careers podcast interview with Mission Encodeable (https://missionencodeable.com/), an organisation that promotes coding for young people.</p>
+            
+            <ul class="media-links">
+                
+                <li class="media-link">
+                    
+                    <a href="https://podcasts.apple.com/ca/podcast/s1e7-arthur-turrell-senior-manager-for-research-and/id1775260741?i=1000679710215">
+                    
+                        <i class=""></i> Link
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </div>
+        
+    </div>
+    
+    <div class="media-entry">
+        
+            <div class="thumbnail">
+                <img src="ft_pay_transparency_img.png" alt="Research on gender pay transparency in the Financial Times">
             </div>
+        
+        <div class="body">
+            <p class="meta">
+                <span class="eyebrow">Research coverage</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">16 February 2024</span>
+            </p>
+            <p class="title">Research on gender pay transparency in the Financial Times</p>
             <p class="description">Soumaya Keynes writing on 'Should pay be more transparent?'</p>
             
             <ul class="media-links">
@@ -577,23 +486,23 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
     
     <div class="media-entry">
         
-            <iframe height="200px" src="https://www.youtube.com/embed/KtEXYKDqz-I"></iframe>
+            <iframe height="200px" src="https://www.youtube.com/embed/5tpdr_4XSTA" title="The Wonders of Data Science, Bristol Data &amp; AI Showcase" loading="lazy"></iframe>
         
         <div class="body">
-            <p class="title">Chair for ESCoE Conference plenary</p>
-            <div class="date">          
-                <p class="date">17 April 2023</p>
-            </div>
-            <p class="description">I was a co-organiser of the 2023 Economic Statistics Centre of Excellence conference. I chaired this plenary session in which Prof Diane Coyle spoke about The cost of computing and the productivity puzzle.</p>
-            
+            <p class="meta">
+                <span class="eyebrow">Talk</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">6 July 2022</span>
+            </p>
+            <p class="title">The Wonders of Data Science, Bristol Data &amp; AI Showcase</p>
+            <p class="description">A talk I gave on some of the amazing wonders that data science has and is bringing the world. Given at the 2022 Bristol Data &amp; AI Showcase, hosted by the Jean Golding Institute.</p>
             
         </div>
         
@@ -602,14 +511,45 @@ window.Quarto = {
     <div class="media-entry">
         
             <div class="thumbnail">
-                <img src="least_cost_items_chart.png" alt="">
+                <img src="mobile_phone_fig.png" alt="How the pandemic accelerated use of anonymised location data from mobile phones (Business Matters)">
             </div>
         
         <div class="body">
-            <p class="title">Tracking the price of the lowest-cost grocery items</p>
-            <div class="date">          
-                <p class="date">30 June 2022</p>
+            <p class="meta">
+                <span class="eyebrow">Writing</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">30 June 2022</span>
+            </p>
+            <p class="title">How the pandemic accelerated use of anonymised location data from mobile phones (Business Matters)</p>
+            <p class="description">An opinion piece in Business Matters magazine on how the Office for National Statistics' Data Science Campus began using anonymised mobile phone data for analysis during the pandemic.</p>
+            
+            <ul class="media-links">
+                
+                <li class="media-link">
+                    
+                    <a href="https://bmmagazine.co.uk/opinion/how-the-pandemic-accelerated-use-of-anonymised-location-data-from-mobile-phones/">
+                    
+                        <i class=""></i> Link
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </div>
+        
+    </div>
+    
+    <div class="media-entry">
+        
+            <div class="thumbnail">
+                <img src="least_cost_items_chart.png" alt="Tracking the price of the lowest-cost grocery items">
             </div>
+        
+        <div class="body">
+            <p class="meta">
+                <span class="eyebrow">Research coverage</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">30 June 2022</span>
+            </p>
+            <p class="title">Tracking the price of the lowest-cost grocery items</p>
             <p class="description">Experimental ONS Data Science Campus analysis tracking the cost of lowest priced groceries using web-scraped price data, carried out in response to concerns about the cost of living for those on the lowest incomes. Widespread coverage, including in The Times, Evening Standard, The Independent, The Guardian, Mail Online, The Sun, The Daily Mirror, Metro, Bloomberg, BBC, Reuters, Evening Standard, Sky News, FT, City AM, ITV, Huff Post, Morning Star Online, iNews, Irish News, Daily Express, Retail Gazette, Grocery Gazette, the Scotsman, the i paper, Sky News, ITV, Channel 5, Channel Four News, GB News, LBC.</p>
             
             <ul class="media-links">
@@ -622,55 +562,7 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <iframe height="200px" src="https://www.youtube.com/embed/RSAV5hCQnpo"></iframe>
-        
-        <div class="body">
-            <p class="title">IARIW-ESCoE Conference on Intangible Assets</p>
-            <div class="date">          
-                <p class="date">23 October 2021</p>
-            </div>
-            <p class="description">A session I chaired at the Economic Statistics Centre of Excellence conference on intangible assets.</p>
-            
-            
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <iframe height="200px" src="//html5-player.libsyn.com/embed/episode/id/20151443/height/90/theme/custom/thumbnail/yes/direction/forward/render-playlist/no/custom-color/000000/"></iframe>
-        
-        <div class="body">
-            <p class="title">Podcast: Macro Musings with David Beckworth</p>
-            <div class="date">          
-                <p class="date">16 August 2021</p>
-            </div>
-            <p class="description">On Macro Musings to talk about the Bank of England, the future of economic data, and The Star Builders: Nuclear Fusion and the Race to Power the Planet.</p>
-            
-            
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <iframe height="200px" src="https://www.youtube.com/embed/XksMK2P4yFs"></iframe>
-        
-        <div class="body">
-            <p class="title">ESCoE Workshop: Job vacancy data for the public good</p>
-            <div class="date">          
-                <p class="date">10 December 2020</p>
-            </div>
-            <p class="description">A session I chaired at the Economic Statistics Centre of Excellence workshop on job vacancy data; the session had four excellent presentations on job vacancy data for the public good.</p>
-            
             
         </div>
         
@@ -679,315 +571,15 @@ window.Quarto = {
     <div class="media-entry">
         
             <div class="thumbnail">
-                <img src="https://images.unsplash.com/photo-1517148815978-75f6acaaf32c?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1740&amp;q=80" alt="">
+                <img src="writing_guardian_why_i.jpeg" alt="'Why I left physics for economics' in The Guardian">
             </div>
         
         <div class="body">
-            <p class="title">Chair: Modelling with Big Data &amp; Machine Learning; Measuring Economic Instability session at the IMF</p>
-            <div class="date">          
-                <p class="date">1 November 2020</p>
-            </div>
-            <p class="description">A session at the IMF.</p>
-            
-            <ul class="media-links">
-                
-                <li class="media-link">
-                    
-                    <a href="https://vimeo.com/484134210/ed673b6506">
-                    
-                        <i class=""></i> Link (video)
-                    </a>
-                </li>
-                
-            
-            </ul>
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <div class="thumbnail">
-                <img src="bu_ml_news.png" alt="">
-            </div>
-        
-        <div class="body">
-            <p class="title">Blog: Machine learning the news</p>
-            <div class="date">          
-                <p class="date">20 October 2020</p>
-            </div>
-            <p class="description">A Bank Underground post about our research paper 'Making text count: economic forecasting with newspaper text', which you can find on the <a href="../research/index.html">research</a> page.</p>
-            
-            <ul class="media-links">
-                
-                <li class="media-link">
-                    
-                    <a href="https://bankunderground.co.uk/2020/10/20/machine-learning-the-news-for-better-macroeconomic-forecasting/">
-                    
-                        <i class=""></i> Link
-                    </a>
-                </li>
-                
-            
-            </ul>
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <div class="thumbnail">
-                <img src="nature_qna.png" alt="">
-            </div>
-        
-        <div class="body">
-            <p class="title">Q&amp;A for Nature</p>
-            <div class="date">          
-                <p class="date">4 May 2020</p>
-            </div>
-            <p class="description">An interview on how Bank of England research changed due to coronavirus.</p>
-            
-            <ul class="media-links">
-                
-                <li class="media-link">
-                    
-                    <a href="https://www.nature.com/articles/d41586-020-01338-0">
-                    
-                        <i class=""></i> Link
-                    </a>
-                </li>
-                
-            
-            </ul>
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <div class="thumbnail">
-                <img src="bu_news_text_nowcast.png" alt="">
-            </div>
-        
-        <div class="body">
-            <p class="title">Blog: What's in the news? Text-based confidence indices and growth forecasts</p>
-            <div class="date">          
-                <p class="date">28 February 2019</p>
-            </div>
-            <p class="description">Bank Underground blog post on using newspaper text as an input to nowcasts.</p>
-            
-            <ul class="media-links">
-                
-                <li class="media-link">
-                    
-                    <a href="https://bankunderground.co.uk/2018/08/07/using-machine-learning-to-understand-the-mix-of-jobs-in-the-economy-in-real-time/">
-                    
-                        <i class=""></i> Link
-                    </a>
-                </li>
-                
-            
-            </ul>
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <div class="thumbnail">
-                <img src="cb_on_air_short.jpg" alt="">
-            </div>
-        
-        <div class="body">
-            <p class="title">Podcast: centralbanking.com</p>
-            <div class="date">          
-                <p class="date">24 October 2018</p>
-            </div>
-            <p class="description">Part of their series on rewiring macroeconomics. Check out previous episodes to hear from John Muellbauer, David Hendry, and David Vines.</p>
-            
-            <ul class="media-links">
-                
-                <li class="media-link">
-                    
-                    <a href="https://www.centralbanking.com/central-banks/economics/economic-modelling/3812816/podcast-arthur-turrell-on-agent-based-modelling">
-                    
-                        <i class=""></i> Link
-                    </a>
-                </li>
-                
-            
-            </ul>
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <iframe height="200px" src="https://youtube.com/embed/XJepPDH34Yc?t=3585"></iframe>
-        
-        <div class="body">
-            <p class="title">Talk on economic models, European Parliament</p>
-            <div class="date">          
-                <p class="date">1 October 2018</p>
-            </div>
-            <p class="description">A talk I gave on economic models in 2018 at the European Parliament as part of a conference addressing post-growth topics.</p>
-            
-            
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <div class="thumbnail">
-                <img src="beveridge_soc.png" alt="">
-            </div>
-        
-        <div class="body">
-            <p class="title">Blog: Making big data work for economics</p>
-            <div class="date">          
-                <p class="date">5 September 2018</p>
-            </div>
-            <p class="description">Bank Underground blog post on using 'big data' to develop new measures of job vacancies in the UK. You can find the paper on the <a href="../research/index.html">research</a> page.</p>
-            
-            <ul class="media-links">
-                
-                <li class="media-link">
-                    
-                    <a href="https://bankunderground.co.uk/2018/09/05/making-big-data-work-for-economics/">
-                    
-                        <i class=""></i> Link
-                    </a>
-                </li>
-                
-                <li class="media-link">
-                    
-                    <a href="https://github.com/aeturrell/occupationcoder">
-                    
-                        <i class=""></i> Code (for applying SOC to job ads)
-                    </a>
-                </li>
-                
-            
-            </ul>
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <div class="thumbnail">
-                <img src="data_sci_jobs_over_time.png" alt="">
-            </div>
-        
-        <div class="body">
-            <p class="title">Blog: Using machine learning to understand the mix of jobs in the economy in real-time</p>
-            <div class="date">          
-                <p class="date">7 August 2018</p>
-            </div>
-            <p class="description">Bank Underground blog post on capturing changes in the types of job available in the economy using unsupervised machine learning. Find the paper on the <a href="../research/index.html">research</a> page.</p>
-            
-            <ul class="media-links">
-                
-                <li class="media-link">
-                    
-                    <a href="https://bankunderground.co.uk/2018/08/07/using-machine-learning-to-understand-the-mix-of-jobs-in-the-economy-in-real-time/">
-                    
-                        <i class=""></i> Link
-                    </a>
-                </li>
-                
-            
-            </ul>
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <div class="thumbnail">
-                <img src="news_rethink_macro.jpg" alt="">
-            </div>
-        
-        <div class="body">
-            <p class="title">News coverage: the rebuilding macroeconomics programme</p>
-            <div class="date">          
-                <p class="date">27 March 2018</p>
-            </div>
-            <p class="description">Series of articles relating to the 'rebuilding macroeconomics' initiatives I took part in.</p>
-            
-            <ul class="media-links">
-                
-                <li class="media-link">
-                    
-                    <a href="https://www.ft.com/content/f653a4ee-2dce-11e8-a34a-7e7563b0b0f4">
-                    
-                        <i class=""></i> Letter to FT
-                    </a>
-                </li>
-                
-                <li class="media-link">
-                    
-                    <a href="https://www.ft.com/rethinking-macroeconomics">
-                    
-                        <i class=""></i> FT collection on rethinking macro
-                    </a>
-                </li>
-                
-                <li class="media-link">
-                    
-                    <a href="https://www.centralbanking.com/central-banks/economics/economic-modelling/3325071/haldane-outlines-interdisciplinary-economics-model">
-                    
-                        <i class=""></i> centralbanking.com coverage of my work
-                    </a>
-                </li>
-                
-            
-            </ul>
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <div class="thumbnail">
-                <img src="talk_us_treasury.jpg" alt="">
-            </div>
-        
-        <div class="body">
-            <p class="title">Talk at US Treasury: Adopting Agent-based models for public policy</p>
-            <div class="date">          
-                <p class="date">21 September 2017</p>
-            </div>
-            <p class="description">Lecture given at the US Treasury during a conference on Heterogeneous Agents and Agent-based Modelling.</p>
-            
-            <ul class="media-links">
-                
-                <li class="media-link">
-                    
-                    <a href="http://people.brandeis.edu/~blebaron/agentConference/Turrell/Turrell.html">
-                    
-                        <i class=""></i> Link
-                    </a>
-                </li>
-                
-            
-            </ul>
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <div class="thumbnail">
-                <img src="writing_guardian_why_i.jpeg" alt="">
-            </div>
-        
-        <div class="body">
-            <p class="title">Writing: 'Why I left physics for economics' in The Guardian</p>
-            <div class="date">          
-                <p class="date">22 June 2017</p>
-            </div>
+            <p class="meta">
+                <span class="eyebrow">Writing</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">22 June 2017</span>
+            </p>
+            <p class="title">'Why I left physics for economics' in The Guardian</p>
             <p class="description">An article in <i>The Guardian</i> about why I chose to leave physics.</p>
             
             <ul class="media-links">
@@ -1000,66 +592,8 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <div class="thumbnail">
-                <img src="bu_post_short_power_progress.png" alt="">
-            </div>
-        
-        <div class="body">
-            <p class="title">Blog: Power and progress</p>
-            <div class="date">          
-                <p class="date">21 October 2016</p>
-            </div>
-            <p class="description">A short post on the Bank Underground blog showing the correlation between GDP per capita and electricity generation per capita.</p>
             
-            <ul class="media-links">
-                
-                <li class="media-link">
-                    
-                    <a href="https://bankunderground.co.uk/2016/10/21/bitesize-power-and-progress/">
-                    
-                        <i class=""></i> Link
-                    </a>
-                </li>
-                
-            
-            </ul>
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <div class="thumbnail">
-                <img src="bu_bond_market.png" alt="">
-            </div>
-        
-        <div class="body">
-            <p class="title">Blog: Forming strong bonds</p>
-            <div class="date">          
-                <p class="date">16 August 2016</p>
-            </div>
-            <p class="description">A Bank Underground blog about dynamics in corporate bond markets. You can read the paper over on the <a href="../research/index.html">research</a> page.</p>
-            
-            <ul class="media-links">
-                
-                <li class="media-link">
-                    
-                    <a href="https://bankunderground.co.uk/2016/08/16/forming-strong-bonds-dynamics-in-corporate-bond-markets/">
-                    
-                        <i class=""></i> Link
-                    </a>
-                </li>
-                
-            
-            </ul>
         </div>
         
     </div>
@@ -1069,51 +603,23 @@ window.Quarto = {
 </div>
 </section>
 <section id="fusion-and-physics" class="level2">
-<h2 class="anchored" data-anchor-id="fusion-and-physics">Fusion and Physics</h2>
+<h2 class="anchored" data-anchor-id="fusion-and-physics">Fusion and physics</h2>
 <div id="listing-fusion" class="quarto-listing quarto-listing-container-custom">
 <div class="media">
     
     <div class="media-entry">
         
             <div class="thumbnail">
-                <img src="arthur_hannah_bloomberg.jpg" alt="">
+                <img src="faster_please_logo.jpeg" alt="'Faster, Please! — The Podcast' on nuclear fusion">
             </div>
         
         <div class="body">
-            <p class="title">TV: Appearance in a documentary on fusion hosted by Hannah Fry</p>
-            <div class="date">          
-                <p class="date">16 March 2023</p>
-            </div>
-            <p class="description">Can Nuclear Fusion Power the Future? | The Future With Hannah Fry Episode 4</p>
-            
-            <ul class="media-links">
-                
-                <li class="media-link">
-                    
-                    <a href="https://www.bloomberg.com/news/videos/2023-03-16/can-nuclear-fusion-power-the-future-the-future-with-hannah-fry-episode-4">
-                    
-                        <i class=""></i> Link to episode
-                    </a>
-                </li>
-                
-            
-            </ul>
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <div class="thumbnail">
-                <img src="faster_please_logo.jpeg" alt="">
-            </div>
-        
-        <div class="body">
-            <p class="title">Appearance on 'Faster, Please! — The Podcast' to talk nuclear fusion</p>
-            <div class="date">          
-                <p class="date">22 December 2022</p>
-            </div>
-            <p class="description">A conversation with James Pethoukakis about a huge breakthrough in nuclear fusion.</p>
+            <p class="meta">
+                <span class="eyebrow">Podcast</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">22 December 2022</span>
+            </p>
+            <p class="title">'Faster, Please! — The Podcast' on nuclear fusion</p>
+            <p class="description">A conversation with James Pethokoukis about a huge breakthrough in nuclear fusion.</p>
             
             <ul class="media-links">
                 
@@ -1125,21 +631,22 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
     
     <div class="media-entry">
         
-            <iframe height="200px" src="https://www.youtube.com/embed/7Oz-8BA9D4U?si=6_uzG5KjHCHOK6Ge"></iframe>
+            <iframe height="200px" src="https://www.youtube.com/embed/7Oz-8BA9D4U?si=6_uzG5KjHCHOK6Ge" title="Lever Time with David Sirota" loading="lazy"></iframe>
         
         <div class="body">
+            <p class="meta">
+                <span class="eyebrow">Podcast</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">14 December 2022</span>
+            </p>
             <p class="title">Lever Time with David Sirota</p>
-            <div class="date">          
-                <p class="date">14 December 2022</p>
-            </div>
             <p class="description">An appearance on David Sirota's podcast.</p>
             
             <ul class="media-links">
@@ -1152,8 +659,8 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
@@ -1161,14 +668,15 @@ window.Quarto = {
     <div class="media-entry">
         
             <div class="thumbnail">
-                <img src="nif-breakthrough-guardian.png" alt="">
+                <img src="nif-breakthrough-guardian.png" alt="Opinion piece on first net energy gain from fusion breakthrough at NIF in The Guardian">
             </div>
         
         <div class="body">
-            <p class="title">Writing: Opinion piece on first net energy gain from fusion breakthrough at NIF in The Guardian</p>
-            <div class="date">          
-                <p class="date">13 December 2022</p>
-            </div>
+            <p class="meta">
+                <span class="eyebrow">Writing</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">13 December 2022</span>
+            </p>
+            <p class="title">Opinion piece on first net energy gain from fusion breakthrough at NIF in The Guardian</p>
             <p class="description">The carbon-free energy of the future: this fusion breakthrough changes everything</p>
             
             <ul class="media-links">
@@ -1181,21 +689,22 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
     
     <div class="media-entry">
         
-            <iframe height="200px" src="https://www.youtube.com/embed/eJ5DPNExVXk"></iframe>
+            <iframe height="200px" src="https://www.youtube.com/embed/eJ5DPNExVXk" title="France 24 interview on net energy gain fusion experiment" loading="lazy"></iframe>
         
         <div class="body">
+            <p class="meta">
+                <span class="eyebrow">TV</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">13 December 2022</span>
+            </p>
             <p class="title">France 24 interview on net energy gain fusion experiment</p>
-            <div class="date">          
-                <p class="date">13 December 2022</p>
-            </div>
             <p class="description">'A moment in history': US researchers announce major nuclear fusion breakthrough. Note that they weren't supposed to use my ONS affiliation here; I was speaking in a personal capacity.</p>
             
             <ul class="media-links">
@@ -1208,37 +717,38 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
     
     <div class="media-entry">
         
-            <iframe height="200px" src="https://www.youtube.com/embed/ysumowYrCwo"></iframe>
+            <iframe height="200px" src="https://www.youtube.com/embed/ysumowYrCwo" title="CNN's Connect the World With Becky Anderson" loading="lazy"></iframe>
         
         <div class="body">
+            <p class="meta">
+                <span class="eyebrow">TV</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">13 December 2022</span>
+            </p>
             <p class="title">CNN's Connect the World With Becky Anderson</p>
-            <div class="date">          
-                <p class="date">13 December 2022</p>
-            </div>
             <p class="description">One of many appearances on news television and radio to talk about the first ever net energy releasing fusion experiment at Lawrence Livermore National Laboratory.</p>
             
-            
         </div>
         
     </div>
     
     <div class="media-entry">
         
-            <iframe height="200px" src="https://www.wnyc.org/widgets/ondemand_player/wnyc/#file=/audio/json/1279018/&amp;share=1"></iframe>
+            <iframe height="200px" src="https://www.wnyc.org/widgets/ondemand_player/wnyc/#file=/audio/json/1279018/&amp;share=1" title="TV and print media on the net energy gain breakthrough at the National Ignition Facility" loading="lazy"></iframe>
         
         <div class="body">
-            <p class="title">TV and print media coverage in light of net energy gain breakthrough at National Ignition Facility</p>
-            <div class="date">          
-                <p class="date">11 December 2022</p>
-            </div>
+            <p class="meta">
+                <span class="eyebrow">Coverage</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">11 December 2022</span>
+            </p>
+            <p class="title">TV and print media on the net energy gain breakthrough at the National Ignition Facility</p>
             <p class="description">I was quoted in the story that broke the news about the first net energy gain in a fusion experiment at the National Ignition Facility, and I did a whole sweep of media spots in the days after the amazing news! This included BBC's Outside Source with Ros Atkins.</p>
             
             <ul class="media-links">
@@ -1307,29 +817,22 @@ window.Quarto = {
                     </a>
                 </li>
                 
-                <li class="media-link">
-                    
-                    <a href="">
-                    
-                        <i class=""></i> Washington Examiner
-                    </a>
-                </li>
-                
-            
             </ul>
+            
         </div>
         
     </div>
     
     <div class="media-entry">
         
-            <iframe height="200px" src="https://embed.acast.com/621cc5a140c0770013581ceb/6357cbf88c5fe9001204d884"></iframe>
+            <iframe height="200px" src="https://embed.acast.com/621cc5a140c0770013581ceb/6357cbf88c5fe9001204d884" title="'Patented: History of Inventions' episode on Nuclear Fusion" loading="lazy"></iframe>
         
         <div class="body">
+            <p class="meta">
+                <span class="eyebrow">Podcast</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">26 October 2022</span>
+            </p>
             <p class="title">'Patented: History of Inventions' episode on Nuclear Fusion</p>
-            <div class="date">          
-                <p class="date">26 October 2022</p>
-            </div>
             <p class="description">Dallas Campbell interviews me for the 'Patented: History of Inventions' podcast.</p>
             
             <ul class="media-links">
@@ -1342,8 +845,8 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
@@ -1351,14 +854,15 @@ window.Quarto = {
     <div class="media-entry">
         
             <div class="thumbnail">
-                <img src="nat_geo.png" alt="">
+                <img src="nat_geo.png" alt="National Geographic article, 'Many scientists see fusion as the future of energy – and they're betting big', with quotes">
             </div>
         
         <div class="body">
+            <p class="meta">
+                <span class="eyebrow">Coverage</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">4 October 2022</span>
+            </p>
             <p class="title">National Geographic article, 'Many scientists see fusion as the future of energy – and they're betting big', with quotes</p>
-            <div class="date">          
-                <p class="date">4 October 2022</p>
-            </div>
             <p class="description">An article in National Geographic magazine about nuclear fusion that includes some quotes from me.</p>
             
             <ul class="media-links">
@@ -1371,8 +875,8 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
@@ -1380,14 +884,15 @@ window.Quarto = {
     <div class="media-entry">
         
             <div class="thumbnail">
-                <img src="rutherford_fry.png" alt="">
+                <img src="rutherford_fry.png" alt="The Curious Cases of Rutherford and Fry: The Puzzle of the Plasma Doughnut">
             </div>
         
         <div class="body">
-            <p class="title">Podcast: The Curious Cases of Rutherford and Fry: The Puzzle of the Plasma Doughnut</p>
-            <div class="date">          
-                <p class="date">22 September 2022</p>
-            </div>
+            <p class="meta">
+                <span class="eyebrow">Podcast</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">22 September 2022</span>
+            </p>
+            <p class="title">The Curious Cases of Rutherford and Fry: The Puzzle of the Plasma Doughnut</p>
             <p class="description">An episode of a BBC podcast on nuclear fusion that I appeared on. Featuring Hannah Fry and Adam Rutherford.</p>
             
             <ul class="media-links">
@@ -1400,8 +905,8 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
@@ -1409,14 +914,15 @@ window.Quarto = {
     <div class="media-entry">
         
             <div class="thumbnail">
-                <img src="https://i.guim.co.uk/img/media/be945fe98af379394d461f5a97046a2b1f36fddf/0_0_4000_2401/master/4000.jpg?width=620&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=4f04b95b8609c41f6acaabfc3e8d1019" alt="">
+                <img src="https://i.guim.co.uk/img/media/be945fe98af379394d461f5a97046a2b1f36fddf/0_0_4000_2401/master/4000.jpg?width=620&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=4f04b95b8609c41f6acaabfc3e8d1019" alt="Opinion piece on fusion breakthrough at JET in The Guardian">
             </div>
         
         <div class="body">
-            <p class="title">Writing: Opinion piece on fusion breakthrough at JET in The Guardian</p>
-            <div class="date">          
-                <p class="date">13 February 2022</p>
-            </div>
+            <p class="meta">
+                <span class="eyebrow">Writing</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">13 February 2022</span>
+            </p>
+            <p class="title">Opinion piece on fusion breakthrough at JET in The Guardian</p>
             <p class="description">The power of stars to meet our energy needs? This is something to be excited about</p>
             
             <ul class="media-links">
@@ -1445,23 +951,7 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
-        </div>
-        
-    </div>
-    
-    <div class="media-entry">
-        
-            <iframe height="200px" src="https://www.youtube.com/embed/iRHCv6iNPYE"></iframe>
-        
-        <div class="body">
-            <p class="title">Nuclear Fusion and the Race to Power the Planet—a lecture at the Royal Institution</p>
-            <div class="date">          
-                <p class="date">27 January 2022</p>
-            </div>
-            <p class="description">Following in the footsteps of my science outreach hero, Michael Faraday, here I am giving a lecture on nuclear fusion at the UK's Royal Institution, famous for its Christmas lectures.</p>
-            
             
         </div>
         
@@ -1470,14 +960,15 @@ window.Quarto = {
     <div class="media-entry">
         
             <div class="thumbnail">
-                <img src="https://i.cbc.ca/1.2534223.1392233867!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/laser-preamplifiers.jpg" alt="">
+                <img src="https://i.cbc.ca/1.2534223.1392233867!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/laser-preamplifiers.jpg" alt="Quirks and Quarks, on Canadian Public Radio">
             </div>
         
         <div class="body">
-            <p class="title">Podcast: Quirks and Quarks, on Canadian Public Radio</p>
-            <div class="date">          
-                <p class="date">17 December 2021</p>
-            </div>
+            <p class="meta">
+                <span class="eyebrow">Podcast</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">17 December 2021</span>
+            </p>
+            <p class="title">Quirks and Quarks, on Canadian Public Radio</p>
             <p class="description">Appearance on the Quirks and Quarks podcast to discuss nuclear fusion and my book, The Star Builders.</p>
             
             <ul class="media-links">
@@ -1490,8 +981,8 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
@@ -1499,14 +990,15 @@ window.Quarto = {
     <div class="media-entry">
         
             <div class="thumbnail">
-                <img src="https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fd6c748xw2pzm8.cloudfront.net%2Fprod%2Ff4a8c450-4c6d-11ec-8c91-671d1c99b37e-standard.png?dpr=1&amp;fit=scale-down&amp;quality=highest&amp;source=next&amp;width=700" alt="">
+                <img src="https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fd6c748xw2pzm8.cloudfront.net%2Fprod%2Ff4a8c450-4c6d-11ec-8c91-671d1c99b37e-standard.png?dpr=1&amp;fit=scale-down&amp;quality=highest&amp;source=next&amp;width=700" alt="Contributor to the Financial Times' 'Big Read' on fusion">
             </div>
         
         <div class="body">
+            <p class="meta">
+                <span class="eyebrow">Coverage</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">24 November 2021</span>
+            </p>
             <p class="title">Contributor to the Financial Times' 'Big Read' on fusion</p>
-            <div class="date">          
-                <p class="date">24 November 2021</p>
-            </div>
             <p class="description">Nuclear fusion: why the race to harness the power of the sun just sped up</p>
             
             <ul class="media-links">
@@ -1519,8 +1011,8 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
@@ -1528,14 +1020,15 @@ window.Quarto = {
     <div class="media-entry">
         
             <div class="thumbnail">
-                <img src="talk_bbc_pint_of_science.png" alt="">
+                <img src="talk_bbc_pint_of_science.png" alt="BBC Breakfast Pint of Science talk on Nuclear Fusion">
             </div>
         
         <div class="body">
-            <p class="title">TV: BBC Breakfast Pint of Science talk on Nuclear Fusion</p>
-            <div class="date">          
-                <p class="date">24 November 2021</p>
-            </div>
+            <p class="meta">
+                <span class="eyebrow">TV</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">24 November 2021</span>
+            </p>
+            <p class="title">BBC Breakfast Pint of Science talk on Nuclear Fusion</p>
             <p class="description">Talks in London and Cambridge on nuclear fusion for the Pint of Science festival. Interviewed on BBC Breakfast about the festival.</p>
             
             <ul class="media-links">
@@ -1556,39 +1049,39 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
     
     <div class="media-entry">
         
-            <iframe height="200px" src="https://embed.podcasts.apple.com/gb/podcast/arthur-turrell-is-fusion-power-the-energy-source/id589914386?i=1000537718952"></iframe>
+            <iframe height="200px" src="https://embed.podcasts.apple.com/gb/podcast/arthur-turrell-is-fusion-power-the-energy-source/id589914386?i=1000537718952" title="Political Economy with James Pethokoukis" loading="lazy"></iframe>
         
         <div class="body">
-            <p class="title">Podcast: Political Economy with James Pethokoukis</p>
-            <div class="date">          
-                <p class="date">6 October 2021</p>
-            </div>
+            <p class="meta">
+                <span class="eyebrow">Podcast</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">6 October 2021</span>
+            </p>
+            <p class="title">Political Economy with James Pethokoukis</p>
             <p class="description">Episode: 'Arthur Turrell: Is fusion power the energy source of the future?'</p>
             
-            
         </div>
         
     </div>
     
     <div class="media-entry">
         
-            <iframe height="200px" src="https://embed.podcasts.apple.com/be/podcast/fusion-energy-when-could-mini-stars-power-the-planet/id1438664577?i=1000540535806"></iframe>
+            <iframe height="200px" src="https://embed.podcasts.apple.com/be/podcast/fusion-energy-when-could-mini-stars-power-the-planet/id1438664577?i=1000540535806" title="the ARC Energy Podcast" loading="lazy"></iframe>
         
         <div class="body">
-            <p class="title">Podcast: the ARC Energy Podcast</p>
-            <div class="date">          
-                <p class="date">2 October 2021</p>
-            </div>
+            <p class="meta">
+                <span class="eyebrow">Podcast</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">2 October 2021</span>
+            </p>
+            <p class="title">the ARC Energy Podcast</p>
             <p class="description">'This week, Dr. Arthur Turrell, author of the recently published book The Star Builders: Nuclear Fusion and the Race to Power the Planet joins the podcast'.</p>
-            
             
         </div>
         
@@ -1597,28 +1090,29 @@ window.Quarto = {
     <div class="media-entry">
         
             <div class="thumbnail">
-                <img src="https://i.cbc.ca/1.2534223.1392233867!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/laser-preamplifiers.jpg" alt="">
+                <img src="https://i.guim.co.uk/img/media/ee3c61744505e2cdef53e480a2fed65c017261d3/0_210_5144_3085/master/5144.jpg?width=1020&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=e71751005a94a22cc1c9289c40581903" alt="Piece on fusion in The Observer">
             </div>
         
         <div class="body">
-            <p class="title">Writing: Piece on fusion in The Observer</p>
-            <div class="date">          
-                <p class="date">28 August 2021</p>
-            </div>
+            <p class="meta">
+                <span class="eyebrow">Writing</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">28 August 2021</span>
+            </p>
+            <p class="title">Piece on fusion in The Observer</p>
             <p class="description">The race to give nuclear fusion a role in the climate emergency</p>
             
             <ul class="media-links">
                 
                 <li class="media-link">
                     
-                    <a href="https://i.guim.co.uk/img/media/ee3c61744505e2cdef53e480a2fed65c017261d3/0_210_5144_3085/master/5144.jpg?width=1020&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=e71751005a94a22cc1c9289c40581903">
+                    <a href="https://www.theguardian.com/environment/2021/aug/28/the-race-to-give-nuclear-fusion-a-role-in-the-climate-emergency">
                     
                         <i class=""></i> Link
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
@@ -1626,14 +1120,15 @@ window.Quarto = {
     <div class="media-entry">
         
             <div class="thumbnail">
-                <img src="media_cov_shock.jpg" alt="">
+                <img src="media_cov_shock.jpg" alt="paper on ultrafast heating">
             </div>
         
         <div class="body">
-            <p class="title">Coverage: media coverage of paper on ultrafast heating</p>
-            <div class="date">          
-                <p class="date">13 November 2015</p>
-            </div>
+            <p class="meta">
+                <span class="eyebrow">Research coverage</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">13 November 2015</span>
+            </p>
+            <p class="title">paper on ultrafast heating</p>
             <p class="description">You can find the paper on the <a href="../research/index.html">research</a> pages. Coverage in a wide range of media outlets.</p>
             
             <ul class="media-links">
@@ -1694,22 +1189,23 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
     
     <div class="media-entry">
         
-            <iframe height="200px" src="https://www.youtube.com/embed/ljdGn2b6DLo"></iframe>
+            <iframe height="200px" src="https://www.youtube.com/embed/ljdGn2b6DLo" title="Laser Quest" loading="lazy"></iframe>
         
         <div class="body">
-            <p class="title">Talk: Laser Quest</p>
-            <div class="date">          
-                <p class="date">20 January 2015</p>
-            </div>
-            <p class="description">A night celebrating the uses of lasers held at the Ace Hotel in Shoreditch by Super Collider. There were also talks by  There were also talks by Lian Han and Ceri Brenner, and tea from Bompas &amp; Parr.</p>
+            <p class="meta">
+                <span class="eyebrow">Talk</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">20 January 2015</span>
+            </p>
+            <p class="title">Laser Quest</p>
+            <p class="description">A night celebrating the uses of lasers held at the Ace Hotel in Shoreditch by Super Collider. There were also talks by Lian Han and Ceri Brenner, and tea from Bompas &amp; Parr.</p>
             
             <ul class="media-links">
                 
@@ -1729,8 +1225,8 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
@@ -1738,14 +1234,15 @@ window.Quarto = {
     <div class="media-entry">
         
             <div class="thumbnail">
-                <img src="write_sci_in_parl.jpg" alt="">
+                <img src="write_sci_in_parl.jpg" alt="Science in Parliament article on fusion">
             </div>
         
         <div class="body">
-            <p class="title">Writing: Science in Parliament article on fusion</p>
-            <div class="date">          
-                <p class="date">20 January 2015</p>
-            </div>
+            <p class="meta">
+                <span class="eyebrow">Writing</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">20 January 2015</span>
+            </p>
+            <p class="title">Science in Parliament article on fusion</p>
             <p class="description">An article in the parliamentary science magazine, aimed at policymakers.</p>
             
             <ul class="media-links">
@@ -1758,8 +1255,8 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
@@ -1767,14 +1264,15 @@ window.Quarto = {
     <div class="media-entry">
         
             <div class="thumbnail">
-                <img src="interview_lockheed_business_green.jpg" alt="">
+                <img src="interview_lockheed_business_green.jpg" alt="Business Green">
             </div>
         
         <div class="body">
-            <p class="title">Interview: Business Green</p>
-            <div class="date">          
-                <p class="date">16 October 2014</p>
-            </div>
+            <p class="meta">
+                <span class="eyebrow">Interview</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">16 October 2014</span>
+            </p>
+            <p class="title">Business Green</p>
             <p class="description">I was interviewed about Lockheed Martin's new fusion scheme.</p>
             
             <ul class="media-links">
@@ -1787,21 +1285,22 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
     
     <div class="media-entry">
         
-            <iframe height="200px" src="https://www.youtube.com/embed/pqs2c0RDxHs"></iframe>
+            <iframe height="200px" src="https://www.youtube.com/embed/pqs2c0RDxHs" title="Royal Society Summer Science Exhibition" loading="lazy"></iframe>
         
         <div class="body">
-            <p class="title">Exhibit at the Royal Society Summer Science Exhibition </p>
-            <div class="date">          
-                <p class="date">1 June 2014</p>
-            </div>
+            <p class="meta">
+                <span class="eyebrow">Exhibit</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">1 June 2014</span>
+            </p>
+            <p class="title">Royal Society Summer Science Exhibition</p>
             <p class="description">An exhibit called 'Set the controls for the heart of the Sun' at the ever-fantastic RS Summer Exhibition.</p>
             
             <ul class="media-links">
@@ -1838,23 +1337,23 @@ window.Quarto = {
                     </a>
                 </li>
                 
-            
             </ul>
+            
         </div>
         
     </div>
     
     <div class="media-entry">
         
-            <iframe height="200px" src="https://www.youtube.com/embed/nByh-XzH5Zc"></iframe>
+            <iframe height="200px" src="https://www.youtube.com/embed/nByh-XzH5Zc" title="Plasma: The mysterious fourth state of matter" loading="lazy"></iframe>
         
         <div class="body">
-            <p class="title">Lecture: Plasma: The mysterious fourth state of matter</p>
-            <div class="date">          
-                <p class="date">10 September 2011</p>
-            </div>
+            <p class="meta">
+                <span class="eyebrow">Public lecture</span><span class="dot" aria-hidden="true">·</span>
+                <span class="date">10 September 2011</span>
+            </p>
+            <p class="title">Plasma: The mysterious fourth state of matter</p>
             <p class="description">A talk given at the 2011 British Science Festival</p>
-            
             
         </div>
         
@@ -1947,7 +1446,8 @@ window.Quarto = {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -1956,8 +1456,69 @@ window.Quarto = {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+          if (!link.classList.contains('no-external-icon')) {
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -1971,6 +1532,7 @@ window.Quarto = {
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -2133,44 +1695,54 @@ window.Quarto = {
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -2269,7 +1841,53 @@ window.Quarto = {
     }
   });
   </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>This website represents Arthur’s personal views.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/arthurturrell">
+      <i class="bi bi-twitter" role="img" aria-label="twitter">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://bsky.app/profile/arthurturrell.bsky.social">
+      <i class="bi bi-bluesky" role="img" aria-label="bluesky">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/aeturrell">
+      <i class="bi bi-github" role="img" aria-label="github">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/arthur-turrell-8b789891">
+      <i class="bi bi-linkedin" role="img" aria-label="linkedin">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=6KoCnQEAAAAJ&amp;hl=en">
+<p><iconify-icon role="img" inline="" icon="simple-icons:googlescholar" aria-label="Icon googlescholar from simple-icons Iconify.design set." title="Icon googlescholar from simple-icons Iconify.design set."></iconify-icon></p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

@@ -9,7 +9,7 @@
 <link>https://www.aeturrell.com/blog/</link>
 <atom:link href="https://www.aeturrell.com/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>{{&lt; meta description-meta &gt;}}</description>
-<generator>quarto-1.9.32</generator>
+<generator>quarto-1.11.9</generator>
 <lastBuildDate>Thu, 17 Sep 2026 23:00:00 GMT</lastBuildDate>
 <item>
   <title>How to save the UK taxpayer £130m a year</title>
@@ -295,8 +295,6 @@ Figure&nbsp;1: Spending differences under the two types of lock
  ]]></description>
   <category>public finances</category>
   <category>public sector</category>
-  <category>policy</category>
-  <category>pensions</category>
   <guid>https://www.aeturrell.com/blog/posts/politically-realistic-reform-triple-lock/</guid>
   <pubDate>Sun, 12 Jul 2026 23:00:00 GMT</pubDate>
   <media:content url="https://www.aeturrell.com/blog/posts/politically-realistic-reform-triple-lock/pension_under_different_locks.svg" medium="image" type="image/svg+xml"/>
@@ -909,7 +907,6 @@ font-style: inherit;">ollama</span> run qwen3.5:35b</span></code></pre></div></d
  ]]></description>
   <category>data science</category>
   <category>AI</category>
-  <category>llm</category>
   <category>open-source</category>
   <guid>https://www.aeturrell.com/blog/posts/era_local_agentic_llms/</guid>
   <pubDate>Mon, 09 Mar 2026 00:00:00 GMT</pubDate>
@@ -951,7 +948,6 @@ font-style: inherit;">ollama</span> run qwen3.5:35b</span></code></pre></div></d
 
  ]]></description>
   <category>economics</category>
-  <category>complexity</category>
   <category>research</category>
   <category>data science</category>
   <guid>https://www.aeturrell.com/blog/posts/economy-complex-evolving-system/</guid>
@@ -1090,13 +1086,12 @@ font-style: inherit;">--model</span> mlx-community/Qwen3-VL-2B-Instruct-4bit</sp
 
  ]]></description>
   <category>AI</category>
-  <category>vision</category>
   <category>data science</category>
   <category>machine learning</category>
   <category>guest post</category>
   <guid>https://www.aeturrell.com/blog/posts/vision-ai-for-odometer-reading/</guid>
   <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://www.aeturrell.com/blog/posts/vision-ai-for-odometer-reading/odometer_original.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://www.aeturrell.com/blog/posts/vision-ai-for-odometer-reading/odometer_original.jpg" medium="image" type="image/jpeg" height="96" width="144"/>
 </item>
 <item>
   <title>One trick to stop ticket touts</title>
@@ -2533,7 +2528,7 @@ font-style: inherit;">1</span>)</span>
  ]]></description>
   <category>TIL</category>
   <category>economics</category>
-  <category>vibe coding</category>
+  <category>AI</category>
   <guid>https://www.aeturrell.com/blog/posts/til-merging-pdfs/</guid>
   <pubDate>Tue, 30 Sep 2025 23:00:00 GMT</pubDate>
 </item>
@@ -2806,8 +2801,7 @@ font-style: inherit;">DESC</span>, Truncated_URL</span></code></pre></div></div>
 </section>
 
  ]]></description>
-  <category>politics</category>
-  <category>text analysis</category>
+  <category>data science</category>
   <category>visualisation</category>
   <guid>https://www.aeturrell.com/blog/posts/media-mentions/</guid>
   <pubDate>Thu, 28 Aug 2025 23:00:00 GMT</pubDate>
@@ -3276,7 +3270,7 @@ font-style: inherit;">--internal</span></span></code></pre></div></div>
   <category>data science</category>
   <category>reproducibility</category>
   <category>code</category>
-  <category>analysis</category>
+  <category>data</category>
   <guid>https://www.aeturrell.com/blog/posts/introducing-smartrappy/</guid>
   <pubDate>Mon, 21 Apr 2025 23:00:00 GMT</pubDate>
   <media:content url="https://www.aeturrell.com/code/logos/smartrappy.svg" medium="image" type="image/svg+xml"/>
@@ -4074,8 +4068,7 @@ font-style: inherit;">60</span>)</span></code></pre></div></div>
  ]]></description>
   <category>productivity</category>
   <category>public sector</category>
-  <category>work chat</category>
-  <category>rap</category>
+  <category>reproducibility</category>
   <guid>https://www.aeturrell.com/blog/posts/public-sector-analytical-efficiency/</guid>
   <pubDate>Tue, 18 Mar 2025 00:00:00 GMT</pubDate>
   <media:content url="https://www.aeturrell.com/blog/posts/public-sector-analytical-efficiency/automated_stats.webp" medium="image" type="image/webp"/>
@@ -4172,8 +4165,6 @@ font-style: inherit;">60</span>)</span></code></pre></div></div>
  ]]></description>
   <category>productivity</category>
   <category>public sector</category>
-  <category>work chat</category>
-  <category>management</category>
   <guid>https://www.aeturrell.com/blog/posts/public-sector-communication-efficiency/</guid>
   <pubDate>Mon, 17 Mar 2025 00:00:00 GMT</pubDate>
   <media:content url="https://www.aeturrell.com/blog/posts/public-sector-communication-efficiency/iso_city.webp" medium="image" type="image/webp"/>
@@ -5024,7 +5015,6 @@ font-style: inherit;">'number'</span></span></code></pre></div></div>
  ]]></description>
   <category>data science</category>
   <category>data</category>
-  <category>data engineering</category>
   <category>public sector</category>
   <guid>https://www.aeturrell.com/blog/posts/the-data-validation-landscape-in-2025/</guid>
   <pubDate>Wed, 05 Mar 2025 00:00:00 GMT</pubDate>
@@ -5358,7 +5348,7 @@ font-style: inherit;">"w"</span>).write(response.text)</span></code></pre></div>
 
 
  ]]></description>
-  <category>llm</category>
+  <category>AI</category>
   <category>python</category>
   <category>data science</category>
   <guid>https://www.aeturrell.com/blog/posts/converting-lecture-notes/</guid>
@@ -5395,7 +5385,6 @@ font-style: inherit;">"w"</span>).write(response.text)</span></code></pre></div>
 
 
  ]]></description>
-  <category>work chat</category>
   <category>productivity</category>
   <category>public sector</category>
   <guid>https://www.aeturrell.com/blog/posts/bad-it/</guid>
