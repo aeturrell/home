@@ -2,7 +2,7 @@
 date: "2023-06-30"
 layout: post
 title: "The self-storage problem meets chatGPT"
-categories: [code, data, analysis, llm]
+categories: [code, data, AI]
 image: "../../transparent.png"
 ---
 

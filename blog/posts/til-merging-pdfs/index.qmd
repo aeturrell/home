@@ -2,7 +2,7 @@
 date: "2025-10-01"
 layout: post
 title: "TIL: merging PDFs"
-categories: [TIL, economics, vibe coding]
+categories: [TIL, economics, AI]
 execute:
   echo: false
 jupyter: python3

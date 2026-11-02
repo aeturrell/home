@@ -2,7 +2,7 @@
 date: "2025-08-29"
 layout: post
 title: "Media mentions of opposition politicians in the UK"
-categories: [politics, text analysis, visualisation]
+categories: [data science, visualisation]
 image: mentions_chart_22de8.svg
 execute:
   echo: false

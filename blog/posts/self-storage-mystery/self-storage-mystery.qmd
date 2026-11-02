@@ -2,7 +2,7 @@
 date: "2023-06-15"
 layout: post
 title: "The mystery of stuff: why all the self-storage?"
-categories: [code, data, geospatial, analysis, llm]
+categories: [code, data, AI]
 image: overpass_results.png
 ---
 

@@ -33,6 +33,13 @@ toc-location: right
 
 My research is on *economic data science*—the application of data science (including AI, natural language processing, and modelling) to answer economic questions. I'm particularly interested in public policy, macroeconomic modelling (including forecasting), the interactions between households, firms, and the financial system, and productivity.
 
+You can also find my work via [ORCID](https://orcid.org/0000-0002-2525-0773).
+
+
+## Working papers
+
+:::{#working-papers}
+:::
 
 ## Journal articles
 
@@ -42,11 +49,6 @@ My research is on *economic data science*—the application of data science (inc
 ## Book chapters
 
 :::{#book-chapters}
-:::
-
-## Working papers
-
-:::{#working-papers}
 :::
 
 <!-- ## Reviews

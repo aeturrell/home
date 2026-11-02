@@ -57,7 +57,7 @@ For a good example of specification curve analysis in action, see this recent [N
 
 ## An example in Python
 
-This example is going to use the concrete data I've [used previously]({{site.baseurl}}/2018/05/05/running-many-regressions-alongside-pandas/) to look at the effect of 'superplasticizer' on the compressive strength of concrete. I'm going to skip over step 1 quickly, as it will vary a lot depending on your dataset.
+This example is going to use the concrete data I've [used previously](../running-many-regressions-alongside-pandas/index.md) to look at the effect of 'superplasticizer' on the compressive strength of concrete. I'm going to skip over step 1 quickly, as it will vary a lot depending on your dataset.
 
 ### Step 1
 

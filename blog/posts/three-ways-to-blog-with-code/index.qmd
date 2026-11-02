@@ -2,7 +2,7 @@
 date: "2021-02-12"
 layout: post
 title: Three ways to blog with code
-categories: [code, blogging]
+categories: [code, writing]
 jupyter: python3
 image: "../../transparent.png"
 ---

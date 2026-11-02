@@ -2,7 +2,7 @@
 date: "2026-03-09"
 layout: post
 title: "The era of local agents is here"
-categories: [data science, AI, llm, open-source]
+categories: [data science, AI, open-source]
 toc: false
 image: "run_ollama.svg"
 jupyter: python3

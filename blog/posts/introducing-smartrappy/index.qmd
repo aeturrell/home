@@ -2,7 +2,7 @@
 date: "2025-04-22"
 layout: post
 title: "Untangling spaghetti code with **smartrappy**"
-categories: [python, data science, reproducibility, code, analysis]
+categories: [python, data science, reproducibility, code, data]
 image: "../../../code/logos/smartrappy.svg"
 ---
 

@@ -3,7 +3,7 @@ date: "2024-04-24"
 layout: post
 title: "TIL: how to create and work with a MySQL database on Azure"
 image: ibis_query_result.png
-categories: [code, cloud]
+categories: [TIL, code, cloud]
 ---
 
 In this TIL, I find out how to create a new [MySQL database](https://dev.mysql.com/) on Microsoft Azure. This is a place to store structured, tabular data. Note that the instructions below assume you are using a bash-like terminal, for example [zsh](https://ohmyz.sh/), rather than [Powershell](https://learn.microsoft.com/en-us/powershell/).

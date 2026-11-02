@@ -1,0 +1,86 @@
+- title: "AI, household time, and productivity"
+  label: "Blog post"
+  date: 2026-09-18
+  description: "AI is changing how households spend their time, from managing finances and accessing public services to education and menu planning. Diane Coyle, Mihai Codreanu and Arthur Turrell argue that understanding AI’s impact on productivity and the wider economy requires recognising households as both consumers and producers – and measuring what happens to productivity growth in both paid work and domestic activity."
+  image: over_under_rep.webp
+  links:
+  - name: Link
+    url: https://www.bennettschool.cam.ac.uk/blog/ai-household-time-productivity/
+
+- title: "Q&A for Nature"
+  label: "Interview"
+  date: 2020-05-04
+  description: "An interview on how Bank of England research changed due to coronavirus."
+  image: nature_qna.png
+  links:
+  - name: Link
+    url: https://www.nature.com/articles/d41586-020-01338-0
+
+- title: "Machine learning the news"
+  label: "Blog post"
+  date: 2020-10-20
+  description: "A Bank Underground post about our research paper 'Making text count: economic forecasting with newspaper text', which you can find on the <a href='../research/index.qmd'>research</a> page."
+  image: bu_ml_news.png
+  links:
+  - name: Link
+    url: https://bankunderground.co.uk/2020/10/20/machine-learning-the-news-for-better-macroeconomic-forecasting/
+
+- title: "Using machine learning to understand the mix of jobs in the economy in real-time"
+  label: "Blog post"
+  date: 2018-08-07
+  description: "Bank Underground blog post on capturing changes in the types of job available in the economy using unsupervised machine learning. Find the paper on the <a href='../research/index.qmd'>research</a> page."
+  image: data_sci_jobs_over_time.png
+  links:
+  - name: Link
+    url: https://bankunderground.co.uk/2018/08/07/using-machine-learning-to-understand-the-mix-of-jobs-in-the-economy-in-real-time/
+
+- title: "What's in the news? Text-based confidence indices and growth forecasts"
+  label: "Blog post"
+  date: 2019-02-28
+  description: "Bank Underground blog post on using newspaper text as an input to nowcasts."
+  image: bu_news_text_nowcast.png
+  links:
+  - name: Link
+    url: https://bankunderground.co.uk/2019/02/28/whats-in-the-news-text-based-confidence-indices-and-growth-forecasts/
+
+- title: "Making big data work for economics"
+  label: "Blog post"
+  date: 2018-09-05
+  description: "Bank Underground blog post on using 'big data' to develop new measures of job vacancies in the UK. You can find the paper on the <a href='../research/index.qmd'>research</a> page."
+  image: beveridge_soc.png
+  links:
+  - name: Link
+    url: https://bankunderground.co.uk/2018/09/05/making-big-data-work-for-economics/
+  - name: Code (for applying SOC to job ads)
+    url: https://github.com/aeturrell/occupationcoder
+
+- title: "The rebuilding macroeconomics programme"
+  label: "Research coverage"
+  date: 2018-03-27
+  description: "Series of articles relating to the 'rebuilding macroeconomics' initiatives I took part in."
+  image: news_rethink_macro.jpg
+  links:
+  - name: Letter to FT
+    url: https://www.ft.com/content/f653a4ee-2dce-11e8-a34a-7e7563b0b0f4
+  - name: FT collection on rethinking macro
+    url: https://www.ft.com/rethinking-macroeconomics
+  - name: centralbanking.com coverage of my work
+    url: https://www.centralbanking.com/central-banks/economics/economic-modelling/3325071/haldane-outlines-interdisciplinary-economics-model
+
+- title: "Power and progress"
+  label: "Blog post"
+  date: 2016-10-21
+  description: "A short post on the Bank Underground blog showing the correlation between GDP per capita and electricity generation per capita."
+  image: bu_post_short_power_progress.png
+  links:
+  - name: Link
+    url: https://bankunderground.co.uk/2016/10/21/bitesize-power-and-progress/
+
+- title: "Forming strong bonds"
+  label: "Blog post"
+  date: 2016-08-16
+  description: "A Bank Underground blog about dynamics in corporate bond markets. You can read the paper over on the <a href='../research/index.qmd'>research</a> page."
+  image: bu_bond_market.png
+  links:
+  - name: Link
+    url: https://bankunderground.co.uk/2016/08/16/forming-strong-bonds-dynamics-in-corporate-bond-markets/

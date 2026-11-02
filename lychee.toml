@@ -1,0 +1,17 @@
+# External link checker config: https://lychee.cli.rs/
+scheme = ["http", "https"]
+max_retries = 2
+timeout = 20
+user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+
+# Many publishers and booksellers block bots, so these codes don't mean a link is dead.
+accept = ["200..=299", "401", "403", "429", "999"]
+
+exclude = [
+  "^https?://(www\\.)?twitter\\.com",
+  "^https?://(www\\.)?x\\.com",
+  "^https?://(www\\.)?linkedin\\.com",
+  "^https://formspree\\.io", # form endpoint, only accepts POST
+]
+
+exclude_path = ["_site", "_freeze", "_extensions", ".venv"]

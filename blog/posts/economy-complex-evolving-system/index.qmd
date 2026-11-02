@@ -2,7 +2,7 @@
 date: "2026-03-07"
 layout: post
 title: "*The Economy As A Complex Evolving System*"
-categories: [economics, complexity, research, data science]
+categories: [economics, research, data science]
 toc: false
 image: "../../../research/chapters/turrell-2025/travel_area_web.webp"
 ---

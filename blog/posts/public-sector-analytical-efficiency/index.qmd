@@ -2,7 +2,7 @@
 date: "2025-03-18"
 layout: post
 title: "Efficiency in the public sector: analysis and operations"
-categories: [productivity, public sector, work chat, rap]
+categories: [productivity, public sector, reproducibility]
 image: "automated_stats.webp"
 ---
 

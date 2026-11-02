@@ -2,7 +2,7 @@
 date: "2026-02-26"
 layout: post
 title: "Guest post: Experimenting with Vision AI to recognise digits on an odometer reading from a photo"
-categories: [AI, vision, data science, machine learning, guest post]
+categories: [AI, data science, machine learning, guest post]
 image: odometer_original.jpg
 ---
 

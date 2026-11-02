@@ -1,34 +1,24 @@
 ---
 title: "Get In Touch"
-pagetitle: "Arthur Turrell - Contact"
-main-photo: "/files/profiles/PlasmaBulbMe.jpg"
-main-photo-square: "/files/profiles/PlasmaBulbMe.jpg"
-title-block-banner: "#f05e40"
+title-block-banner: "#C2257E"
 format:
   html:
     quarto-template-params:
       banner-header-class: "home"
 ---
 
-### General enquiries
+### General, media and speaking enquiries
 
-Please use the submission form below.
+Please use the form below.
 
 ```{=html}
-<p>
-    <form action="https://formspree.io/f/meqpwopj" method="POST">
-        <p><label> Your email: <input type="text" name="_replyto"> </label></p>
-        <p><label> Your message: <textarea name="message"></textarea></label></p>
-        <!-- your other form fields go here -->
-        <p><button type="submit">Submit</button></p>
-    </form>
-</p>
+<form class="contact-form" action="https://formspree.io/f/meqpwopj" method="POST">
+    <label>Your email
+        <input type="email" name="_replyto" autocomplete="email" required>
+    </label>
+    <label>Your message
+        <textarea name="message" required></textarea>
+    </label>
+    <button type="submit">Send message</button>
+</form>
 ```
-
-### Media and literary enquiries
-  
-
-{{< fa address-book >}}  [Northbank Talent Management](https://www.northbanktalent.com/),  
-{{< fa envelope >}}  [mail](mailto:info@northbanktalent.com),  
-{{< fa phone >}}  +44 (0)20 3973 0835
-

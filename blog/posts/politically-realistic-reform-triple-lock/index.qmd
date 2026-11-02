@@ -2,7 +2,7 @@
 date: "2026-07-13"
 layout: post
 title: "A politically realistic reform of the triple lock"
-categories: [public finances, public sector, policy, pensions]
+categories: [public finances, public sector]
 image: pension_under_different_locks.svg
 execute:
   echo: false

@@ -2,7 +2,7 @@
 date: "2025-03-17"
 layout: post
 title: "Efficiency in the public sector: communication and co-ordination"
-categories: [productivity, public sector, work chat, management]
+categories: [productivity, public sector]
 image: "iso_city.webp"
 ---
 

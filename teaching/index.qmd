@@ -1,6 +1,6 @@
 ---
 title: "Teaching"
-title-block-banner: "#EE6A24"
+title-block-banner: "#C2257E"
 page-layout: full
 ---
 
@@ -9,7 +9,7 @@ page-layout: full
 
 ## Lecture Courses
 
-I am currently developing and teaching courses for the Government Economic Service (GES), the University of Warwick, and the University of Durham.
+I have previously developed and taught courses for the Government Economic Service (GES), the University of Warwick, and the University of Durham.
 
 <br>
 <br>
@@ -18,7 +18,7 @@ I am currently developing and teaching courses for the Government Economic Servi
 
 ## [Coding For Economists](https://aeturrell.github.io/coding-for-economists/)
 
-This online, free book book aims to give you the skills you need to code for economics, while also giving you bits and pieces of information about programming more generally that might be useful to you. It's suitable for complete beginners who have never written any code before. Some of the later chapters are suitable for people who have coded before too. And, really, it covers a lot content that's useful not just to economists, but anyone who wants to learn some data science.
+This online, free book aims to give you the skills you need to code for economics, while also giving you bits and pieces of information about programming more generally that might be useful to you. It's suitable for complete beginners who have never written any code before. Some of the later chapters are suitable for people who have coded before too. And, really, it covers a lot content that's useful not just to economists, but anyone who wants to learn some data science.
 
 <br>
 <br>

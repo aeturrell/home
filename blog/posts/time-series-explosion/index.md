@@ -2,7 +2,7 @@
 date: "2023-09-12"
 layout: post
 title: The explosion in time series forecasting packages in data science
-categories: [code, data science, python, time series]
+categories: [code, data science, python]
 image: pymc_example.png
 ---
 

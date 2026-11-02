@@ -1,12 +1,12 @@
 ---
-title: "Media"
+title: "Public Talks & Media"
 listing:
-  - id: economics
-    contents: economics.yml
+  - id: start-here
+    contents: start-here.yml
     sort: "date desc"
     template: ../html/media/listing.ejs
-  - id: datascience
-    contents: datascience.yml
+  - id: economics
+    contents: economics.yml
     sort: "date desc"
     template: ../html/media/listing.ejs
   - id: fusion
@@ -14,6 +14,7 @@ listing:
     sort: "date desc"
     template: ../html/media/listing.ejs
 title-block-banner: "#FB9E07"
+title-block-banner-color: "#170C3A"
 page-layout: full
 toc: true
 toc-location: right
@@ -22,11 +23,11 @@ date-format: "D MMMM YYYY"
 ---
 
 
-This page contains links and embedded media for public talks, interviews, and television appearances that I've done. You can also find links to some of my writing here.
+Public talks, broadcast appearances, interviews, and writing for general audiences.
 
-## Data Science
+## Start here
 
-:::{#datascience}
+:::{#start-here}
 :::
 
 ## Economics
@@ -34,7 +35,7 @@ This page contains links and embedded media for public talks, interviews, and te
 :::{#economics}
 :::
 
-## Fusion and Physics
+## Fusion and physics
 
 :::{#fusion}
 :::

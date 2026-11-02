@@ -2,7 +2,7 @@
 date: "2025-03-05"
 layout: post
 title: "The data validation landscape in 2025"
-categories: [data science, data, data engineering, public sector]
+categories: [data science, data, public sector]
 image: "pointblank-tabular-report.png"
 ---
 

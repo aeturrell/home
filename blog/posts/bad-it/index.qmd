@@ -2,7 +2,7 @@
 date: "2024-09-17"
 layout: post
 title: "The false economy of bad IT"
-categories: [work chat, productivity, public sector]
+categories: [productivity, public sector]
 image: dall_e_laptop_window.webp
 execute:
   echo: false

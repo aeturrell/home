@@ -2,13 +2,13 @@
 date: "2018-03-28"
 layout: post
 title: Econometrics in Python part III - Estimating heterogeneous treatment effects using random forests
-categories: [code, econometrics, machine-learning, python]
+categories: [code, econometrics, machine learning, python]
 image: tau.png
 ---
 
 *The third in a series of posts covering econometrics in Python. Here I look at 'causal forests'.*
 
-As I mentioned in a [previous post]({{site.baseurl}}/2018/02/10/econometrics-in-python-partI-ML/), there are methods at the intersection of machine learning and econometrics which are really exciting. [Susan Athey](https://www.gsb.stanford.edu/faculty-research/faculty/susan-athey) is very active in this space and has written a number of papers, including a review article of where the cross-over between economics and computer science is headed. In this post, I'm going to look at recreating an example from her paper, 'Estimation and inference of heterogeneous treatment effects using random forests' (Wager & Athey, 2017).
+As I mentioned in a [previous post](../econometrics-in-python-parti-ml/index.md), there are methods at the intersection of machine learning and econometrics which are really exciting. [Susan Athey](https://www.gsb.stanford.edu/faculty-research/faculty/susan-athey) is very active in this space and has written a number of papers, including a review article of where the cross-over between economics and computer science is headed. In this post, I'm going to look at recreating an example from her paper, 'Estimation and inference of heterogeneous treatment effects using random forests' (Wager & Athey, 2017).
 
 The paper is a recipe for doing non-parametric causal estimation of heterogeneous treatment effects. Imagine a natural experiment with people who are different according to a set of covariates $X_i$, and who are assigned a treatment $W_i \in \{0,1\}$. The response is $Y_i \in \mathbb{R}$, giving $(X_i,W_i,Y_i)$ for each observation. Then the treatment effect, given by
 

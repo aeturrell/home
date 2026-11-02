@@ -2,7 +2,7 @@
 date: "2017-11-10"
 layout: post
 title: "A better narrative on narratives"
-categories: [research, news]
+categories: [research]
 image: king_et_al.webp
 bibliography: "../../../files/bib/references.bib"
 ---

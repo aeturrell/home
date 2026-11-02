@@ -23,7 +23,7 @@ $indigo:  #6610f2 !default;
 $purple:  #170C3A !default;
 $pink:    #A52C60 !default;
 $red:     #CF4446 !default;
-$orange:  #EE6A24 !default;
+$magenta: #C2257E !default;
 $light-orange:  #FB9E07 !default;
 $yellow:  #F6D645 !default;
 $green:   #118230 !default;
@@ -34,7 +34,7 @@ $primary:   $pink !default;
 $secondary: $gray-700 !default;
 $success:   $green !default;
 $info:      $cyan !default;
-$warning:   $orange !default;
+$warning:   #EE6A24 !default;
 $danger:    $red !default;
 $light:     $gray-400 !default;
 $dark:      $black !default;
@@ -46,12 +46,12 @@ $dark:      $black !default;
 
 $font-family-sans-serif: "Libre Franklin" !default;
 
-$headings-font-family: "Jost" !default;
+$headings-font-family: "Fraunces" !default;
 $headings-font-weight: 600 !default;
 
-$navbar-font-family: "Jost" !default;
-$toc-font-family: "Jost" !default;
-$footer-font-family: "Jost" !default;
+$navbar-font-family: "Fraunces" !default;
+$toc-font-family: "Fraunces" !default;
+$footer-font-family: "Fraunces" !default;
 
 // $font-size-base: 1.1rem !default; // Assumes the browser default, typically `16px`
 // $font-size-sm: $font-size-base * .875 !default;
@@ -61,9 +61,9 @@ $footer-font-family: "Jost" !default;
 $body-color: $gray-900 !default;
 
 // Links
-$link-color: $orange !default;
+$link-color: $magenta !default;
 $link-decoration: none !default;
-$link-hover-color: $red !default;
+$link-hover-color: darken($magenta, 10%) !default;
 $link-hover-decoration: underline !default;
 
 // Inline code
@@ -71,10 +71,10 @@ $code-bg: $gray-200 !default;
 $code-color: $gray-900 !default;
 
 // Code copy
-$btn-code-copy-color-active: $orange !default;
+$btn-code-copy-color-active: $magenta !default;
 
 // TOC
-$toc-color: $orange;
+$toc-color: $magenta;
 $toc-font-size: 1em;
 
 // Navbar
@@ -88,7 +88,7 @@ $footer-fg: $gray-300 !default;
 
 /*-- scss:rules --*/
 
-$web-font-path: "https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" !default;
+$web-font-path: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" !default;
 
 @if $web-font-path {
     @import url($web-font-path);
@@ -125,9 +125,70 @@ body {
     }
 }
 
+// Keep highlighted code on the dark block background
+pre.sourceCode code {
+    background-color: transparent;
+}
+
 // Shrink blocks of code
 pre.text, pre.sourceCode, .cell-output pre {
     font-size: 0.775em;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 640px;
+    margin-top: 1.5rem;
+
+    label {
+        display: block;
+        font-family: $headings-font-family;
+        font-weight: 600;
+    }
+
+    input, textarea {
+        display: block;
+        width: 100%;
+        margin-top: 0.4rem;
+        padding: 0.7rem 0.9rem;
+        font-family: $font-family-sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        border: 1px solid $gray-400;
+        border-radius: 6px;
+        transition: border-color 0.15s, box-shadow 0.15s;
+
+        &:focus {
+            outline: none;
+            border-color: $magenta;
+            box-shadow: 0 0 0 3px rgba($magenta, 0.2);
+        }
+    }
+
+    textarea {
+        min-height: 14rem;
+        resize: vertical;
+    }
+
+    button {
+        align-self: flex-start;
+        padding: 0.7rem 1.75rem;
+        font-family: $headings-font-family;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+        background-color: $magenta;
+        border: 0;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.15s;
+
+        &:hover, &:focus-visible {
+            background-color: darken($magenta, 10%);
+        }
+    }
 }
 
 .navbar {
@@ -177,7 +238,7 @@ pre.text, pre.sourceCode, .cell-output pre {
 
         .active {
             font-weight: 400;
-            color: $orange;
+            color: $magenta;
         }
 
         .quarto-category-count {
@@ -565,7 +626,7 @@ pre.text, pre.sourceCode, .cell-output pre {
             li {
                 display: inline-block;
                 white-space: nowrap;
-                background-color: $orange;
+                background-color: $magenta;
                 margin: 0 0.2em 0.4em 0;
                 padding: 0.2em 0.4em;
                 font-size: 0.85em;
@@ -639,63 +700,104 @@ pre.text, pre.sourceCode, .cell-output pre {
 
 .media {
     .media-entry {
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+        column-gap: 1.75em;
+        padding: 1.75em 0;
+        border-bottom: 1px solid $gray-200;
         font-family: $headings-font-family;
         line-height: 1.3;
-        margin-bottom: 1.5em;
-        column-gap: 1em;
 
-        .body {
-            flex: 1 0 60%;
+        &:first-child {
+            padding-top: 0.5em;
         }
 
-        .thumbnail {
-            flex: 0 0 30%;
-
-            img {
-                width: 100%;
-                object-fit: cover;
-                max-height: 200px;
-            }
+        &:last-child {
+            border-bottom: 0;
         }
 
-        .metadata {
-            flex: 1 0 20%;
+        @media (max-width: 767.98px) {
+            grid-template-columns: minmax(0, 1fr);
+            row-gap: 1em;
+        }
+
+        iframe {
+            display: block;
+            width: 100%;
+            height: 200px;
+            border: 0;
+            border-radius: 6px;
+        }
+
+        iframe[src*="youtube"] {
+            height: auto;
+            aspect-ratio: 16 / 9;
+        }
+
+        .thumbnail img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.1em 0.6em;
+            margin-bottom: 0.35em;
+            font-family: $font-family-sans-serif;
+        }
+
+        .eyebrow {
+            font-size: 0.75em;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: $magenta;
+        }
+
+        .dot {
+            font-size: 0.85em;
+            color: $gray-700;
         }
 
         .title {
             font-weight: 500;
-            font-size: 1.2em;
+            font-size: 1.25em;
             margin-bottom: 0.2em;
             line-height: 1.2;
             color: #373a3e;
         }
 
         .description {
-            font-weight: 300;
-            font-size: 1em;
+            font-family: $font-family-sans-serif;
+            font-weight: 400;
+            font-size: 0.95em;
+            line-height: 1.5;
             margin-bottom: 0.3em;
         }
 
         .date {
-            font-weight: 300;
-            font-size: 0.85em;
-            margin-top: 0.3em;
-            text-align: left;
+            font-size: 0.8em;
+            color: $gray-700;
         }
 
         ul.media-links {
-            padding: 0 0.5em;
-            background-color: shift-color($light-orange, -91%);
-            margin-bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4em 1.25em;
+            padding: 0;
+            margin: 0.6em 0 0;
+            list-style: none;
 
             .media-link {
-                display: inline-block;
-                white-space: nowrap;
                 margin: 0;
-                padding: 0.5em 1em 0.5em 0;
-                font-size: 0.85em;
+                padding: 0;
+                font-size: 0.9em;
+                font-weight: 500;
             }
         }
     }
