@@ -862,3 +862,186 @@ pre.text, pre.sourceCode, .cell-output pre {
     80% { transform: translateX(-10px); }
     100% { transform: translateX(0); }
 }
+
+// Learning page (teaching/index.qmd + html/teaching/listing.ejs)
+.learning {
+    display: grid;
+    gap: 2.5rem;
+    margin-top: 0.5rem;
+    font-family: $headings-font-family;
+
+    .eyebrow {
+        margin: 0;
+        font-family: $font-family-sans-serif;
+        font-size: 0.75em;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--book, #{$pink});
+    }
+
+    h2 {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 1.15;
+        text-wrap: balance;
+
+        a { color: #373a3e; }
+    }
+
+    .copy {
+        display: grid;
+        gap: 0.7rem;
+        align-content: start;
+        min-width: 0;
+    }
+
+    .blurb {
+        margin: 0;
+        font-family: $font-family-sans-serif;
+        font-size: 0.97em;
+        line-height: 1.55;
+    }
+
+    .cover img {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    ul.learning-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        padding: 0;
+        margin: 0.2em 0 0;
+        list-style: none;
+        font-family: $font-family-sans-serif;
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            padding: 0.3em 0.7em;
+            font-size: 0.85em;
+            border-radius: 0.25rem;
+            white-space: nowrap;
+
+            &.solid {
+                background-color: var(--book, #{$magenta});
+                color: $white;
+            }
+
+            &.outline {
+                border: 1px solid $gray-800;
+                color: $gray-900;
+            }
+
+            &:hover { text-decoration: none; filter: brightness(0.92); }
+
+            svg { width: 14px; height: 14px; fill: currentColor; }
+        }
+    }
+}
+
+.learning-books {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+
+    @media (max-width: 767.98px) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.learning-book {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    row-gap: 1.1rem;
+    padding-bottom: 1.4rem;
+    border-top: 6px solid var(--book);
+    background: $white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &.magenta { --book: #{$magenta}; }
+    &.plum { --book: #771C6D; }
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 28px -14px rgba($purple, 0.35);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+        &:hover { transform: none; }
+    }
+
+    .cover img { aspect-ratio: 2 / 1; }
+
+    .copy { padding: 0 1.25rem; }
+
+    .stats {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: 0.4em 1.6em;
+        padding-top: 0.7rem;
+        margin-top: 0.2rem;
+        border-top: 1px solid $gray-200;
+    }
+
+    .stat { display: grid; }
+
+    .big {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 2.5rem;
+        font-weight: 300;
+        line-height: 1;
+        color: var(--book);
+        font-variant-numeric: tabular-nums;
+
+        svg { width: 22px; height: 22px; fill: var(--book); }
+    }
+
+    .mid {
+        font-size: 1.35rem;
+        line-height: 1.1;
+        color: #373a3e;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .label {
+        margin-top: 0.2rem;
+        font-family: $font-family-sans-serif;
+        font-size: 0.75rem;
+        color: $gray-600;
+    }
+}
+
+.learning-extra {
+    --book: #{$pink};
+    display: grid;
+    grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+    gap: 1.75rem;
+    align-items: start;
+    padding: 1.5rem;
+    background-color: shift-color($magenta, -92%);
+    border-radius: 6px;
+
+    .cover img {
+        aspect-ratio: 4 / 3;
+        border-radius: 6px;
+    }
+
+    h2 { font-size: 1.3rem; }
+
+    @media (max-width: 767.98px) {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 1.1rem;
+    }
+}

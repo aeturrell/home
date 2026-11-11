@@ -1,42 +1,71 @@
 ```{=html}
-<div class="teaching">
-    <% for (const course of items) { %>
-    <div class="course-entry">
-        <div class="logo">
-            <% if (course.url) { %>
-            <a href="<%= course.url %>" target="_blank"><img src="<%= course.logo %>" alt="<%= course.title %>" title="<%= course.title %>" /></a>
-            <% } else { %>
-            <img src="<%= course.logo %>" alt="<%= course.title %>" title="<%= course.title %>" />
-            <% } %>
-        </div>
-        <div class="body">
-            <p class="course-title">
-                <% if (course.url) { %>
-                <a href="<%= course.url %>" target="_blank"><%= course.title %></a> 
-                <% } else { %>
-                <%= course.title %> 
-                <% } %>
-            </p>
-            <p class="course-details">
-                <span class="course-number"><%= course.number %></span> | 
-                <span class="course-university"><%= course.university %></span>
-                <% if (course.role) { %>
-                | <span class="course-role"><%= course.role %></span>
-                <% } %>
-            </p>
-            <p class="course-description"><%= course.description %></p>
+<%
+const icons = {
+    star: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 .9l2.2 4.6 5 .7-3.6 3.5.9 5L8 12.3 3.5 14.7l.9-5L.8 6.2l5-.7z"/></svg>',
+    book: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/></svg>'
+};
+const fmt = (n) => Number(n).toLocaleString('en-GB');
+const books = items.filter((item) => item.kind === 'book');
+const extras = items.filter((item) => item.kind !== 'book');
 
-            <ul class="course-semesters">
-                <% for (const semester of course.semester) { %>
-                <% if (semester.url) { %>
-                <li><a href="<%= semester.url %>"><i class="fa-solid fa-building-columns"></i> <%= semester.name %></a></li>
-                <% } else { %> 
-                <li class="no-link"><i class="fa-solid fa-building-columns"></i> <%= semester.name %></li>
+const renderLinks = (item) => { %>
+    <ul class="learning-links">
+        <% for (const [i, link] of (item.links || []).entries()) { %>
+        <li><a class="<%= i === 0 ? 'solid' : 'outline' %>" href="<%= link.url %>" target="_blank" rel="noopener"><%= link.icon ? icons[link.icon] : '' %><%= link.name %></a></li>
+        <% } %>
+    </ul>
+<% }; %>
+<div class="learning">
+    <div class="learning-books">
+        <% for (const book of books) { %>
+        <article class="learning-book <%= book.colour %>">
+            <a class="cover" href="<%= book.url %>" target="_blank" rel="noopener"><img src="<%= book.cover %>" alt="<%= book.alt %>" /></a>
+            <div class="copy">
+                <p class="eyebrow"><%= book.eyebrow %></p>
+                <h2 class="anchored"><a href="<%= book.url %>" target="_blank" rel="noopener"><%= book.title %></a></h2>
+                <% for (const para of book.paragraphs) { %>
+                <p class="blurb"><%= para %></p>
                 <% } %>
+                <% if (book.stars) { %>
+                <div class="stats" data-repo="<%= book.repo %>">
+                    <div class="stat"><span class="big"><%= icons.star %><span data-stat="stars"><%= fmt(book.stars) %></span></span><span class="label">GitHub stars</span></div>
+                    <% if (book.forks) { %><div class="stat"><span class="mid" data-stat="forks"><%= fmt(book.forks) %></span><span class="label">forks</span></div><% } %>
+                    <% if (book.updated) { %><div class="stat"><span class="mid" data-stat="updated"><%= book.updated %></span><span class="label">last updated</span></div><% } %>
+                </div>
                 <% } %>
-            </ul>
+                <% renderLinks(book) %>
+            </div>
+        </article>
+        <% } %>
+    </div>
+
+    <% for (const extra of extras) { %>
+    <div class="learning-extra">
+        <a class="cover" href="<%= extra.url %>" target="_blank" rel="noopener"><img src="<%= extra.cover %>" alt="<%= extra.alt %>" /></a>
+        <div class="copy">
+            <p class="eyebrow"><%= extra.eyebrow %></p>
+            <h2 class="anchored"><a href="<%= extra.url %>" target="_blank" rel="noopener"><%= extra.title %></a></h2>
+            <% for (const para of extra.paragraphs) { %>
+            <p class="blurb"><%= para %></p>
+            <% } %>
+            <% renderLinks(extra) %>
         </div>
     </div>
     <% } %>
 </div>
+<script>
+// Live-refresh GitHub stats in the visitor's browser. The numbers baked in at
+// build time (scripts/github_stats.py) stay put if this request fails.
+document.querySelectorAll('.learning .stats[data-repo]').forEach(function (box) {
+    fetch('https://api.github.com/repos/' + box.dataset.repo)
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (d) {
+            var set = function (key, val) { var el = box.querySelector('[data-stat="' + key + '"]'); if (el) el.textContent = val; };
+            set('stars', d.stargazers_count.toLocaleString('en-GB'));
+            set('forks', d.forks_count.toLocaleString('en-GB'));
+            set('updated', new Date(d.pushed_at).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' }));
+        })
+        .catch(function () {});
+});
+</script>
 ```

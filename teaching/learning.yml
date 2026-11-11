@@ -1,0 +1,69 @@
+# Entries for the Learning page (teaching/index.qmd), rendered by html/teaching/listing.ejs.
+# kind: book -> side-by-side feature card; kind: contribution -> full-width band underneath.
+# stars, forks and updated are refreshed from the GitHub API by scripts/github_stats.py (pre-render).
+
+- title: Coding For Economists
+  kind: book
+  colour: magenta
+  eyebrow: Free online book · Beginners
+  url: https://aeturrell.github.io/coding-for-economists/
+  cover: smith_lovelace.png
+  alt: Adam Smith and Ada Lovelace share the frame.
+  repo: aeturrell/coding-for-economists
+  stars: 948
+  forks: 158
+  updated: Oct 2026
+  paragraphs:
+    - >-
+      This online, free book aims to give you the skills you need to code for economics, while also giving you bits and pieces of information about programming more generally that might be useful to you. It's suitable for complete beginners who have never written any code before. Some of the later chapters are suitable for people who have coded before too. And, really, it covers a lot content that's useful not just to economists, but anyone who wants to learn some data science.
+  links:
+    - name: Read the book
+      url: https://aeturrell.github.io/coding-for-economists/
+      icon: book
+    - name: Star on GitHub
+      url: https://github.com/aeturrell/coding-for-economists
+      icon: star
+
+- title: Python for Data Science (Python4DS)
+  kind: book
+  colour: plum
+  eyebrow: Free online book · Intermediate
+  url: https://aeturrell.github.io/python4DS/
+  cover: python4ds.png
+  alt: The Python for Data Science logo, created in Python!
+  repo: aeturrell/python4DS
+  stars: 171
+  forks: 39
+  updated: Oct 2026
+  paragraphs:
+    - >-
+      Python for Data Science will teach you how to load up, transform, visualise, and begin to understand your data. The book aims to give you the skills you need to code for data science. It's suitable for people who have some familiarity with the ideas behind programming and coding but who don't yet know how to do data science.
+  links:
+    - name: Read the book
+      url: https://aeturrell.github.io/python4DS/
+      icon: book
+    - name: Star on GitHub
+      url: https://github.com/aeturrell/python4DS
+      icon: star
+
+- title: "Core Econ: Doing Economics—working in Python"
+  kind: contribution
+  eyebrow: Contributor · Core Econ
+  url: https://www.core-econ.org/doing-economics/book/text/0-3-contents.html
+  cover: core_econ.webp
+  alt: Giving a talk about Core Econ
+  paragraphs:
+    - >-
+      Core Econ is a series of free online textbooks and resources for a new way of teaching and learning economics, using the best research to address the world’s most pressing problems.
+    - >-
+      Doing Economics is one of these free books: a unique empirical resource created by a worldwide collaboration of economists and social scientists. It shows you how to work with data in a variety of tools. My contribution has been to write the "Working in Python" pages.
+    - >-
+      As with all projects created by the CORE Team, Doing Economics is free, and open-access. The team designed it primarily to complement the other Core Econ books: Economy, Society, and Public Policy and The Economy.
+    - >-
+      Doing Economics gives you the opportunity to gain hands-on experience with real-world data in areas of pressing importance to contemporary societies. If you are interested in environmental sustainability, inequality and wellbeing, or policies to address public health problems such as obesity, you will find relevant sections of the book.
+  links:
+    - name: Read the Python pages
+      url: https://www.core-econ.org/doing-economics/book/text/0-3-contents.html
+      icon: book
+    - name: About Core Econ
+      url: https://www.core-econ.org/
