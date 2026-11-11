@@ -22,11 +22,11 @@ date-format: "D MMMM YYYY"
 ---
 
 
-Conference talks, panels, podcasts, and external posts for economists, data scientists, and statisticians. My own writing is on the [blog](../blog/index.qmd), and papers are on the [research](../research/index.qmd) page. Talks and writing for general audiences are under [Public Talks & Media](../media/index.qmd).
+Conference talks, panels, podcasts, lecture courses, and external posts for economists, data scientists, and statisticians. Talks and writing for a general audiences is under [Talks & Media](../media/index.qmd).
 
-## Talks and panels
+## External posts and commentary
 
-:::{#talks}
+:::{#posts}
 :::
 
 ## Podcasts
@@ -34,7 +34,7 @@ Conference talks, panels, podcasts, and external posts for economists, data scie
 :::{#podcasts}
 :::
 
-## External posts and commentary
+## Talks and panels
 
-:::{#posts}
+:::{#talks}
 :::

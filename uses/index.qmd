@@ -1,31 +1,36 @@
 ---
-title: What I use
-date: 2026-11-02
-date-format: "DD MMM YYYY"
-description-meta: The tools for the job(s)
+title: Useful Tidbits
 title-block-banner: "#771C6D"
-published-title: Last updated
 toc: true
 toc-location: left
 toc-title: "Contents"
 ---
 
-This page contains a list of the tools I'm using for research or at home. Most of what I use regularly is free and open source software (FOSS), not because I'm ideological (you'll see some paid apps too), but because FOSS often produces tools that are effective and convenient.
+This page contains a list of tools and commands I find particularly useful.
 
 ## Reading and writing
 
-- *Document writing*. I never got into the Microsoft Office suite of tools that includes Word. I've previously had to use Word for work a lot and I struggle to find much good to say about it. I do the majority of my writing for others (including this website and blog) in [Markdown](https://daringfireball.net/projects/Markdown/), or [Quarto](https://quarto.org), which is basically also Markdown! Some of the benefits of writing in Markdown are that it's intuitive, readable, flexible, future proof, interoperable with many other programmes, and it allows you to focus on content. Plus it's the *lingua franca* of AI, and it's now even [supported by Google Docs](https://workspaceupdates.googleblog.com/2026/10/preview-edit-and-collaborate-on-Markdown-files-natively-across-Drive-and-Docs.html) for collaborative editing! If I *really* need to get a Word document out of the end, I use either [Pandoc](http://pandoc.org/) or [Quarto](https://quarto.org). With Pandoc, it's a line like
+### Document writing
 
-    ```bash
-    pandoc briefing.md -V geometry:margin=0.2in --standalone \
-    --bibliography references.bib --citeproc --csl=harvard.csl -o briefing.docx
-    ```
+I never got into the Microsoft Office suite of tools that includes Word. I've previously had to use Word for work and I struggle to find much good to say about it.
 
-    applied to a file called "briefing.md", a bibtex file of references ("references.bib"), and a citation style (here "harvard.csl"). It's fairly similar to using [Quarto to generate a Word document](https://quarto.org/docs/output-formats/ms-word.html). For more elaborate documents, like a book manuscript, I've created a couple of helper tools like [this quarto template](https://github.com/aeturrell/cookie-cutter-quarto-book-manuscript).
-- *Note taking*. I store most of my notes in the truly excellent [Obsidian](https://obsidian.md/). Obsidian is a clean text Markdown-based note-taking system that separates the data (Markdown files) from the viewer/editor in a way that means you always stay in control of your own data. I've found Microsoft [OneNote](https://www.onenote.com/) to be good too, but it's a bit less configurable, even if the app support across surfaces is excellent.
-- *Text editor*. I use Microsoft's [Visual Studio Code](https://code.visualstudio.com/) (with the Markdown all in one and Markdown preview enhanced extensions) and [Obsidian](https://obsidian.md/).
-- *Writing papers*. For papers, I've switched to using Markdown/[Quarto](https://quarto.org). You can find a [cookie-cutter research template with paper and slides here](https://github.com/aeturrell/cookiecutter-research-project). You can insert figures, tables, *and* numbers into text, including in-line, so that the paper and slides can be completely updated if the results change. That makes it perfect for reproducible analytical pipelines. You can also export to LaTeX. I still use LaTeX from time to time. Although Visual Studio Code has a LaTeX editor that's very good, I use [TeXshop](https://pages.uoregon.edu/koch/texshop/) for LaTeX editing.
-- *Reading papers*. I store papers in [Zotero](https://www.zotero.org/), which is an open source endeavour. You can support them by paying for their storage. They have an excellent iPad app too. Even better, [you can sync your papers and notes with Obsidian](../blog/posts/til-zotero-and-obsidian/index.md).
+I do the majority of my writing (including this website and blog) in [Markdown](https://daringfireball.net/projects/Markdown/), or [Quarto](https://quarto.org), which is basically also Markdown! Some of the benefits of writing in Markdown are that it's intuitive, readable, flexible, future proof, interoperable with many other programmes, and it allows you to focus on content. Plus it's the *lingua franca* of AI, and it's now even [supported by Google Docs](https://workspaceupdates.googleblog.com/2026/10/preview-edit-and-collaborate-on-Markdown-files-natively-across-Drive-and-Docs.html) for collaborative editing! If I *really* need to get a Word document out of the end, I use either [Pandoc](http://pandoc.org/) or [Quarto](https://quarto.org). See [useful commands](#useful-terminal-commands) below for how to use this.
+
+### Note taking
+
+I store most of my notes in the truly excellent [Obsidian](https://obsidian.md/). Obsidian is a clean text Markdown-based note-taking system that separates the data (Markdown files) from the viewer/editor in a way that means you always stay in control of your own data. I've found Microsoft [OneNote](https://www.onenote.com/) to be good too, but it's a bit less configurable, even if the app support across surfaces is excellent.
+
+### Text/code editor
+
+I use Microsoft's [Visual Studio Code](https://code.visualstudio.com/) (with the Markdown all in one and Markdown preview enhanced extensions) and [Obsidian](https://obsidian.md/).
+
+### Writing papers
+
+For papers, I've switched to using Markdown/[Quarto](https://quarto.org). You can find a [cookie-cutter research template with paper and slides here](https://github.com/aeturrell/cookiecutter-research-project). You can insert figures, tables, *and* numbers into text, including in-line, so that the paper and slides can be completely updated if the results change. That makes it perfect for reproducible analytical pipelines. You can also export to LaTeX. I still use LaTeX from time to time. Although Visual Studio Code has a LaTeX editor that's very good, I use [TeXshop](https://pages.uoregon.edu/koch/texshop/) for LaTeX editing.
+
+### Reading papers
+
+I store papers in [Zotero](https://www.zotero.org/), which is an open source endeavour. You can support them by paying for their storage. They have an excellent iPad app too. Even better, [you can sync your papers and notes with Obsidian](../blog/posts/til-zotero-and-obsidian/index.md).
 
 ## Coding and development
 
@@ -47,8 +52,8 @@ This page contains a list of the tools I'm using for research or at home. Most o
     - [f2](https://github.com/ayoisaiah/f2) for bulk renaming files
     - [Inkscape](https://inkscape.org/) on the command line, mainly for converting things to svg 
 - *Programming language*. My default is Python, for a whole host of reasons, with, of course, some SQL. I am a huge convert to [uv](https://docs.astral.sh/uv/) and now use it to install Python, build packages, and manage repo packages.
-- *Building Python packages*. There's [a template for that](https://github.com/aeturrell/cookiecutter-python-package)! 
-- *Hardware*. I use a MacBook Pro with the M5 Max chip, which is an amazing laptop.
+- *Building Python packages*. There's [a template for that](https://github.com/aeturrell/cookiecutter-python-package)!
+- *Hardware*. I use a MacBook Pro with an M5 Max chip, an amazing laptop.
 
 ## Communication
 
@@ -60,3 +65,349 @@ This page contains a list of the tools I'm using for research or at home. Most o
 - For graphics, I normally go for [matplotlib](https://matplotlib.org/), which is so much more powerful than most people realise. All of the graphics in my book [The Star Builders](../thestarbuilders/thestarbuilders.qmd) were created using matplotlib. If I need a manual programme for graphics, I normally use [Inkscape](https://inkscape.org/), which is much better on Mac than it once was.
 - I keep track of tasks with the excellent [Things](https://culturedcode.com/things/) (Mac).
 - For fonts, [Nerd Fonts](https://www.nerdfonts.com/) is good, as are the [GitHub ones](https://github.com/githubnext/monaspace). For a much wider selection, there's always [Google Fonts](https://fonts.google.com/).
+
+## Useful terminal commands
+
+For most of these, you'll need to download the tools first.
+
+### Pandoc
+
+With Pandoc, a line
+
+```bash
+pandoc briefing.md -V geometry:margin=0.2in --standalone \
+--bibliography references.bib --citeproc --csl=harvard.csl -o briefing.docx
+```
+
+applied to a file called "briefing.md", a bibtex file of references ("references.bib"), and a citation style (here "harvard.csl") will produce a Word document called "briefing.docx". It's fairly similar to using [Quarto to generate a Word document](https://quarto.org/docs/output-formats/ms-word.html). For more elaborate documents, like a book manuscript, I've created a couple of helper tools like [this quarto template](https://github.com/aeturrell/cookie-cutter-quarto-book-manuscript).
+
+### Magic(k) to create webp files from PDFs
+
+```bash
+magick -density 300 your_pdf.pdf \
+  -background white -alpha remove -alpha off \
+  -define webp:lossless=true \
+  output_image.webp
+```
+
+### Magic(k)ing .HEIC files to jpgs
+
+```bash
+magick mogrify -format jpg *.HEIC
+```
+
+### ffmpeg mov to mp4
+
+```bash
+ffmpeg -i input.mov output.mp4
+```
+
+### One-line PDF to text
+
+```bash
+uvx docling path-to-your-pdf
+```
+
+### One-line parquet file data summary
+
+```bash
+uvx skimpy some_data.parquet
+```
+
+### Find string in text files
+
+eg for .qmd files only
+
+```bash
+rg "<phrase>" -g "*.qmd"
+```
+
+### Interactive search results found in text files
+
+```bash
+rg "import pandas" --type py | fzf
+```
+
+I usually have an alias for this, `rgf`. To set this up on Mac, you'll need to `brew install` [**rg**](https://github.com/BurntSushi/ripgrep), [**bat**](https://github.com/sharkdp/bat), and [**fzf**](https://github.com/junegunn/fzf). Then add the following to your `.zshrc` file, if you're using ZSH (amend according to your setup.) You can open the file in an editor with `code ~/.zshrc`. Then add this to the end of the file:
+
+```bash
+# ripgrep + fzf interactive search → VS Code
+rgf() {
+  local result
+  result=$(
+    rg --color=always --line-number --no-heading --smart-case "$@" |
+      fzf --ansi \
+          --delimiter : \
+          --preview 'bat --color=always --highlight-line {2} --map-syntax "*.qmd:Markdown" {1}' \
+          --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'
+  )
+  if [[ -n "$result" ]]; then
+    local file line
+    file=$(echo "$result" | cut -d: -f1)
+    line=$(echo "$result" | cut -d: -f2)
+    code --goto "${file}:${line}"
+  fi
+}
+```
+
+Now you can use commands like
+
+```bash
+rgf "import pandas" -g "*.qmd"
+```
+
+to interactively, fuzzily, and quickly search your files.
+
+### Bulk renaming
+
+```bash
+f2 -f '\(2021\)' -r '[2022]'
+```
+
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────┐
+| ORIGINAL                             | RENAMED                              | STATUS |
+| ************************************************************************************ |
+| No Pressure (2021) S01.E01.2160p.mp4 | No Pressure [2022] S01.E01.2160p.mp4 | ok     |
+| No Pressure (2021) S01.E02.2160p.mp4 | No Pressure [2022] S01.E02.2160p.mp4 | ok     |
+| No Pressure (2021) S01.E03.2160p.mp4 | No Pressure [2022] S01.E03.2160p.mp4 | ok     |
+└──────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### System monitoring
+
+Basic (built in):
+
+```bash
+top
+```
+
+Much more detail and easier to read (but requires install):
+
+```bash
+bpytop
+```
+
+### Merging PDFs
+
+See [this blog post.](../blog/posts/til-merging-pdfs/index.qmd)
+
+### Unwrapping markdown
+
+Editing wrapped markdown is a bit of a pain, so I tend to use completely unwrapped markdown and have the IDE / user interface provide visual wrapping that doesn't change the underlying file. Sometimes, though, you come across an annoyingly wrapped markdown file. In which case...
+
+```bash
+uvx panache format -o wrap=reflow -o line-width=100000 path/to/file.qmd
+```
+
+## Pre-commit heroes
+
+Some tools I've found useful as part of a [pre-commit configuration](https://pre-commit.com).
+
+### Panache
+
+"[Panache](https://panache.bz) is a language server, formatter, and linter for Quarto and other Markdown flavors, including Pandoc, R Markdown, and MyST. It is written in Rust and understands syntax that generic Markdown tools often miss, including fenced divs, tables, and math."
+
+Panache does markdown + code block syntax formatting, which is why I like it. Unfortunately it doesn't currently support Jupyter notebooks.
+
+### Ruff for Python formatting, linting, and sorting
+
+Formatting:
+
+```bash
+ruff format path/to/code/
+```
+
+Linting
+
+```bash
+ruff check path/to/code/
+```
+
+Sorting imports
+
+```bash
+ruff check --select I --fix .
+```
+
+### Stripping output content from Jupyter notebooks
+
+[NBStripout](https://github.com/kynan/nbstripout) is the tool for this!
+
+### An example pre-commit config
+
+To use this, you'll need to run
+
+```bash
+uv add --group dev ruff pydoclint panache-cli nbstripout pre-commit-hooks
+```
+
+to install the dependencies first.
+
+`.pre-commit-config.yaml`:
+
+```text
+# Every hook runs from the project's own environment via `uv run`, so tool
+# versions come from pyproject.toml (constraints) and uv.lock (exact pins).
+#
+# `--frozen` runs against uv.lock as-is (no re-resolve on every commit);
+# the `uv-lock` hook below is what catches a stale lockfile.
+#
+# Requires uv on PATH. Install with: uv run pre-commit install
+minimum_pre_commit_version: "4.4.0" # for `language: unsupported`
+default_install_hook_types: [pre-commit]
+default_stages: [pre-commit, manual]
+
+repos:
+  - repo: local
+    hooks:
+      # --- Lockfile ------------------------------------------------------
+      - id: uv-lock
+        name: Check uv.lock is up to date
+        entry: uv lock --check
+        language: unsupported
+        files: ^(pyproject\.toml|uv\.lock)$
+        pass_filenames: false
+
+      # --- Python: lint, then format (order matters) ----------------------
+      # Import sorting is ruff's "I" rules, enabled in pyproject.toml.
+      # --force-exclude makes ruff honour its own excludes for passed files.
+      - id: ruff-check
+        name: ruff check
+        entry: uv run --frozen ruff check --fix --force-exclude
+        language: unsupported
+        types_or: [python, pyi, jupyter]
+        require_serial: true
+
+      - id: ruff-format
+        name: ruff format
+        entry: uv run --frozen ruff format --force-exclude
+        language: unsupported
+        types_or: [python, pyi, jupyter]
+        require_serial: true
+
+      # Style and excludes come from [tool.pydoclint] in pyproject.toml.
+      - id: pydoclint
+        name: pydoclint
+        entry: uv run --frozen pydoclint
+        language: unsupported
+        types: [python]
+        files: ^src/
+
+      # --- Quarto ---------------------------------------------------------
+      # Formats Python cells in .qmd files with Ruff; prose is not reflowed.
+      # Settings live in panache.toml. Runs under `uv run`, so the `ruff` it
+      # calls is the locked one from the project environment.
+      - id: panache-format
+        name: panache format (Quarto)
+        entry: uv run --frozen panache format
+        language: unsupported
+        files: \.qmd$
+
+      # --- Notebooks -----------------------------------------------------
+      - id: nbstripout
+        name: Strip notebook outputs
+        entry: uv run --frozen nbstripout
+        language: unsupported
+        types: [jupyter]
+
+      # --- Project-specific ----------------------------------------------
+      - id: check-python-versions
+        name: Check supported Python versions agree
+        entry: uv run --frozen python scripts/check_python_versions.py
+        language: unsupported
+        files: ^(pyproject\.toml|noxfile\.py|\.python-version)$
+        pass_filenames: false
+
+      # --- General file hygiene (from the pre-commit-hooks package) ------
+      - id: check-added-large-files
+        name: Check for added large files
+        entry: uv run --frozen check-added-large-files
+        language: unsupported
+
+      - id: check-merge-conflict
+        name: Check for merge conflict markers
+        entry: uv run --frozen check-merge-conflict
+        language: unsupported
+        types: [text]
+
+      - id: check-case-conflict
+        name: Check for case-insensitive filename conflicts
+        entry: uv run --frozen check-case-conflict
+        language: unsupported
+
+      - id: debug-statements
+        name: Check for debugger imports and breakpoints
+        entry: uv run --frozen debug-statement-hook
+        language: unsupported
+        types: [python]
+
+      - id: check-toml
+        name: Check TOML
+        entry: uv run --frozen check-toml
+        language: unsupported
+        types: [toml]
+
+      - id: check-yaml
+        name: Check YAML
+        entry: uv run --frozen check-yaml
+        language: unsupported
+        types: [yaml]
+        exclude: ^docs/
+
+      - id: end-of-file-fixer
+        name: Fix end of files
+        entry: uv run --frozen end-of-file-fixer
+        language: unsupported
+        types: [text]
+        exclude: ^docs/
+
+      - id: trailing-whitespace
+        name: Trim trailing whitespace
+        entry: uv run --frozen trailing-whitespace-fixer
+        language: unsupported
+        types: [text]
+        exclude: ^docs/
+
+      - id: mixed-line-ending
+        name: Normalise line endings to LF
+        entry: uv run --frozen mixed-line-ending --fix=lf
+        language: unsupported
+        types: [text]
+        exclude: ^docs/
+
+```
+
+Inside `pyproject.toml`:
+
+```text
+...
+
+[tool.pydoclint]
+style = 'google'
+exclude = ["noxfile.py", "tests/", "docs/"]
+
+[tool.ruff.lint]
+# Ruff defaults (E4, E7, E9, F) plus import sorting.
+extend-select = ["I"]
+
+...
+```
+
+And `panache.toml` (panache needs its own config file because it doesn't support `pyproject.toml` configurations):
+
+```text
+#:schema https://panache.bz/panache.schema.json
+# Panache formats Quarto (.qmd) files. Prose is left as written: the only
+# substantive change is running Ruff over Python code cells. Ruff's own
+# settings come from [tool.ruff] in pyproject.toml.
+flavor = "quarto"
+
+[format]
+wrap = "preserve"               # keep authored line breaks; never reflow prose
+math = "verbatim"               # don't restructure LaTeX inside $...$ / $$...$$
+math-delimiter-style = "preserve"
+
+[formatters]
+python = "ruff"                 # runs `ruff format -` on {python} / python blocks
+```

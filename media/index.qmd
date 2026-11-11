@@ -1,5 +1,5 @@
 ---
-title: "Public Talks & Media"
+title: "Talks & Media"
 listing:
   - id: start-here
     contents: start-here.yml

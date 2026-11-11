@@ -3,7 +3,7 @@
   university: Mature
   language: Python
   url: https://aeturrell.github.io/skimpy/
-  logo: https://github.com/aeturrell/skimpy/blob/main/docs/logo.png?raw=true
+  logo: logos/skimpy.svg
   semester:
   - name: GitHub
     url: https://github.com/aeturrell/skimpy
@@ -11,16 +11,26 @@
     url: https://pypi.org/project/skimpy/
 
 - title: Specification Curve
-  description: 'Specification Curve is a Python package that performs specification curve analysis; it helps with the problem of the “garden of forking paths” (many defensible choices) when doing analysis by running many regressions and summarising the effects in an easy to digest chart.'
+  description: 'Specification Curve is a Python package that performs specification curve analysis; it helps with the problem of the “garden of forking paths” (many defensible choices) when doing analysis by running many regressions and summarising the effects in an easy to digest chart. It uses Pyfixest as its backend.'
   university: Mature
   language: Python
   url: https://aeturrell.github.io/specification_curve
-  logo: logos/spec_curve_logo.svg
+  logo: logos/specification_curve.svg
   semester:
   - name: GitHub
     url: https://github.com/aeturrell/specification_curve
   - name: PyPI
     url: https://pypi.org/project/specification-curve/
+
+- title: Real time data
+  description: 'An archive of UK real-time data built from vintage-based data from the Bank of England and Office for National Statistics. Designed for macroeconomic nowcasting.'
+  university: Developing
+  language: Python
+  url: https://aeturrell.github.io/real-time-data/
+  logo: logos/realtimedata.svg
+  semester:
+  - name: GitHub
+    url: https://github.com/aeturrell/real-time-data
 
 - title: panoptipy
   description: "A package for static code quality assessment of Python codebases. It scans local codebases or remote GitHub repositories and generates a report summarising various code quality metrics."

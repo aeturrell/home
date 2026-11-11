@@ -12,6 +12,7 @@ project:
     - "*.md"
     - "!etc/"
 
+  pre-render: scripts/github_stats.py
   post-render: scripts/clean_share_titles.py
 
   resources:
@@ -56,24 +57,24 @@ website:
     collapse-below: xl
 
     left:
+      - text: "Talks and Media"
+        href: "media/index.qmd"
       - text: "Research"
         file: research/index.qmd
-      - text: "Economics & Data Science"
+      - text: "Public Goods"
         menu:
-          - text: "Blog: Markov Wanderer"
-            href: blog/index.qmd
-          - text: "Talks and Posts"
-            href: talks/index.qmd
-          - text: "Teaching"
+          - text: "Learning"
             href: teaching/index.qmd
           - text: "Code"
             href: code/index.qmd
-          - text: "Setup"
+          - text: "Useful Tidbits"
             href: uses/index.qmd
-      - text: "Public Talks & Media"
-        href: "media/index.qmd"
+      - text: "Professional Activities"
+        href: talks/index.qmd
       - text: "The Star Builders"
         href: "thestarbuilders/thestarbuilders.qmd"
+      - text: "Markov Wanderer (blog)"
+        href: blog/index.qmd
 
     right:
       - icon: rss
