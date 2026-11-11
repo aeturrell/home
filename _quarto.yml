@@ -57,7 +57,7 @@ website:
     collapse-below: xl
 
     left:
-      - text: "Talks & Media"
+      - text: "Talks and Media"
         href: "media/index.qmd"
       - text: "Research"
         file: research/index.qmd
